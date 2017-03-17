@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        
+        <record id="clv_address_annotation_view_form_jcafb" model="ir.ui.view">
+            <field name="name">clv.address.annotation.form</field>
+            <field name="model">clv.address.annotation</field>
+            <field name="inherit_id" ref="clv_address.clv_address_annotation_view_form"/>
+            <field name="priority" eval="30" />
+            <field name="arch" type="xml">
+                <field name="author" position="after">
+                    <field name="code" placeholder="Annotation Code..."/>
+                    <field name="code_sequence" invisible="True"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="clv_address_annotation_view_tree_jcafb" model="ir.ui.view">
+            <field name="name">clv.address.annotation.tree</field>
+            <field name="model">clv.address.annotation</field>
+            <field name="inherit_id" ref="clv_address.clv_address_annotation_view_tree"/>
+            <field name="priority" eval="30" />
+            <field name="arch" type="xml">
+                <field name="author" position="before">
+                    <field name="code"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="clv_address_annotation_view_search_jcafb" model="ir.ui.view">
+            <field name="name">clv.address.annotation.search</field>
+            <field name="model">clv.address.annotation</field>
+            <field name="inherit_id" ref="clv_address.clv_address_annotation_view_search"/>
+            <field name="priority" eval="30" />
+            <field name="arch" type="xml">
+                <field name="author" position="before">
+                    <field name="code"/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</odoo>
