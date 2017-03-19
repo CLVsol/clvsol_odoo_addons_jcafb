@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        
+        <record id="clv_person_view_form_address_jcafb" model="ir.ui.view">
+            <field name="name">clv.person.form</field>
+            <field name="model">clv.person</field>
+            <field name="inherit_id" ref="clv_person.clv_person_view_form_address"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="address_category_ids" position="after">
+                    <field name="address_state" string="Address State"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="clv_person_view_tree_address_jcafb" model="ir.ui.view">
+            <field name="name">clv.person.tree</field>
+            <field name="model">clv.person</field>
+            <field name="inherit_id" ref="clv_person.clv_person_view_tree_address"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="address_category_ids" position="after">
+                    <field name="address_state" string="Address State"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="clv_person_view_search_address_jcafb" model="ir.ui.view">
+            <field name="name">clv.person.search</field>
+            <field name="model">clv.person</field>
+            <field name="inherit_id" ref="clv_person.clv_person_view_search_address"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="address_category_ids" position="after">
+                    <field name="address_state"/>
+                </field>
+                <group name="group_by" position="inside">
+                    <filter string="Address State" context="{'group_by': 'address_state'}"/>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</odoo>

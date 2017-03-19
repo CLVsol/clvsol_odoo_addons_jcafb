@@ -18,29 +18,10 @@
 #
 ###############################################################################
 
-{
-    'name': 'Person (customizations for CLVhealth-JCAFB Solution)',
-    'summary': 'Person Module customizations for CLVhealth-JCAFB Solution.',
-    'version': '3.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'https://github.com/CLVsol',
-    'depends': [
-        'clv_person',
-    ],
-    'data': [
-        'views/person_code_view.xml',
-        'views/address_view.xml',
-        'data/person_seq.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+from odoo import fields, models
+
+
+class Person(models.Model):
+    _inherit = 'clv.person'
+
+    address_state = fields.Selection(string='Address Status', related='address_id.state', store=True)
