@@ -26,32 +26,32 @@ class Address(models.Model):
     _inherit = 'clv.address'
 
     state = fields.Selection(
-        [('draft', 'Draft'),
-         ('revised', 'Revised'),
+        [('new', 'New'),
+         ('available', 'Available'),
          ('waiting', 'Waiting'),
          ('selected', 'Selected'),
          ('unselected', 'Unselected'),
-         ('canceled', 'Canceled')
-         ], string='Status', default='draft', readonly=True, required=True
+         ('unavailable', 'Unavailable')
+         ], string='State', default='new', readonly=True, required=True
     )
 
     @api.model
     def is_allowed_transition(self, old_state, new_state):
         # allowed = [
-        #     ('canceled', 'draft'),
-        #     ('draft', 'revised'),
-        #     ('waiting', 'revised'),
-        #     ('selected', 'revised'),
-        #     ('unselected', 'revised'),
-        #     ('revised', 'waiting'),
-        #     ('revised', 'selected'),
+        #     ('unavailable', 'new'),
+        #     ('new', 'available'),
+        #     ('waiting', 'available'),
+        #     ('selected', 'available'),
+        #     ('unselected', 'available'),
+        #     ('available', 'waiting'),
+        #     ('available', 'selected'),
         #     ('waiting', 'selected'),
         #     ('unselected', 'selected'),
-        #     ('revised', 'unselected'),
+        #     ('available', 'unselected'),
         #     ('waiting', 'unselected'),
         #     ('selected', 'unselected'),
-        #     ('draft', 'canceled'),
-        #     ('revised', 'canceled')
+        #     ('new', 'unavailable'),
+        #     ('available', 'unavailable')
         # ]
         # return (old_state, new_state) in allowed
         return True
@@ -65,14 +65,14 @@ class Address(models.Model):
                 raise UserError('Status transition (' + address.state + ', ' + new_state + ') is not allowed!')
 
     @api.multi
-    def action_draft(self):
+    def action_new(self):
         for address in self:
-            address.change_state('draft')
+            address.change_state('new')
 
     @api.multi
-    def action_revised(self):
+    def action_available(self):
         for address in self:
-            address.change_state('revised')
+            address.change_state('available')
 
     @api.multi
     def action_waiting(self):
@@ -90,6 +90,6 @@ class Address(models.Model):
             address.change_state('unselected')
 
     @api.multi
-    def action_cancel(self):
+    def action_unavailable(self):
         for address in self:
-            address.change_state('canceled')
+            address.change_state('unavailable')

@@ -32,6 +32,7 @@
     'data': [
         'views/address_code_view.xml',
         'views/address_annotation_view.xml',
+        'views/address_reg_state_view.xml',
         'views/address_state_view.xml',
         'data/address_seq.xml',
     ],

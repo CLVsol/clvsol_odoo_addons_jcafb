@@ -20,4 +20,5 @@
 
 from . import address_code
 from . import address_annotation
+from . import address_reg_state
 from . import address_state
