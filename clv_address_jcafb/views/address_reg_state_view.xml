@@ -48,7 +48,7 @@
                 </field>
                 <tree name="addresses" position="attributes">
                     <attribute name="decoration-muted">reg_state=='draft'</attribute>
-                    <attribute name="decoration-primary">reg_state in(done')</attribute>
+                    <attribute name="decoration-primary">reg_state in('done')</attribute>
                     <attribute name="decoration-danger">reg_state=='canceled'</attribute>
                     <attribute name="decoration-it">reg_state in('draft','canceled')</attribute>
                     <attribute name="decoration-bf">reg_state in('done')</attribute>

@@ -6,6 +6,6 @@
 Address
 =======
 
-Address Module customizations for CLVhealth-JCAFB Solution..
+Address Module customizations for CLVhealth-JCAFB Solution.
 
 Developed by `CLVsol <https://github.com/CLVsol>`_.
