@@ -32,6 +32,8 @@
     'data': [
         'views/person_code_view.xml',
         'views/address_view.xml',
+        'views/person_reg_state_view.xml',
+        'views/person_state_view.xml',
         'data/person_seq.xml',
     ],
     'demo': [],
