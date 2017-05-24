@@ -20,3 +20,4 @@
 
 from . import document_code
 from . import document_reg_state
+from . import document_state
