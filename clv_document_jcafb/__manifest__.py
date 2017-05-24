@@ -31,6 +31,7 @@
     ],
     'data': [
         'views/document_code_view.xml',
+        'views/document_reg_state_view.xml',
         'data/document_seq.xml',
     ],
     'demo': [],
