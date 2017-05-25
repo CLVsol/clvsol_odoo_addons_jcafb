@@ -18,31 +18,4 @@
 #
 ###############################################################################
 
-{
-    'name': 'Document (customizations for CLVhealth-JCAFB Solution)',
-    'summary': 'Document Module customizations for CLVhealth-JCAFB Solution.',
-    'version': '3.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'https://github.com/CLVsol',
-    'depends': [
-        'clv_document',
-    ],
-    'data': [
-        'views/document_code_view.xml',
-        'views/document_reg_state_view.xml',
-        'views/document_state_view.xml',
-        'data/document_seq.xml',
-        'wizard/document_updt_view.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+import document_updt
