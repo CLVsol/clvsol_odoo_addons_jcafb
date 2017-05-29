@@ -18,7 +18,28 @@
 #
 ###############################################################################
 
-from . import document_code
-from . import document_reg_state
-from . import document_state
-from . import document
+from openerp import fields, models
+
+
+class DocumentCategory(models.Model):
+    _inherit = 'clv.document.category'
+
+    _defaults = {
+        'active_log': True,
+    }
+
+
+class Document(models.Model):
+    _inherit = 'clv.document'
+
+    survey_id = fields.Many2one('survey.survey', 'Survey Type', help="Survey Type")
+    survey_user_input_id = fields.Many2one('survey.user_input', 'Survey User Input', help="Survey User Input")
+    base_survey_user_input_id = fields.Many2one(
+        'survey.user_input',
+        'Base Survey User Input',
+        help="Base Survey User Input"
+    )
+
+    _defaults = {
+        'active_log': True,
+    }
