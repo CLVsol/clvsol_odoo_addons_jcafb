@@ -29,10 +29,14 @@
     'images': [],
     'depends': [
         'clv_mfile',
+        'clv_survey',
+        'clv_address',
+        'clv_person',
     ],
     'data': [
         'views/mfile_reg_state_view.xml',
         'views/mfile_state_view.xml',
+        'views/mfile_view.xml',
     ],
     'demo': [],
     'test': [],
