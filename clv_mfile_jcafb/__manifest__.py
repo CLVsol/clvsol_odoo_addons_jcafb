@@ -39,6 +39,7 @@
         'views/mfile_state_view.xml',
         'views/mfile_view.xml',
         'wizard/mfile_setup_view.xml',
+        'wizard/mfile_refresh_view.xml',
         'views/mfile_menu_view.xml',
     ],
     'demo': [],
