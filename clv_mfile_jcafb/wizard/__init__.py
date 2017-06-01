@@ -18,36 +18,4 @@
 #
 ###############################################################################
 
-{
-    'name': 'Media File (customizations for CLVhealth-JCAFB Solution)',
-    'summary': 'Media File Module customizations for CLVhealth-JCAFB Solution.',
-    'version': '3.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'https://github.com/CLVsol',
-    'images': [],
-    'depends': [
-        'clv_mfile',
-        'clv_survey',
-        'clv_address',
-        'clv_person',
-        'clv_document',
-    ],
-    'data': [
-        'views/mfile_reg_state_view.xml',
-        'views/mfile_state_view.xml',
-        'views/mfile_view.xml',
-        'wizard/mfile_setup_view.xml',
-        'views/mfile_menu_view.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+import mfile_setup
