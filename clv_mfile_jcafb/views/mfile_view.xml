@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="clv_mfile_view_form" model="ir.ui.view">
+            <field name="name">clv.mfile.form</field>
+            <field name="model">clv.mfile</field>
+            <field name="inherit_id" ref="clv_mfile.clv_mfile_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="information" position="before">
+                    <page name="file_data" string="File Data">
+                        <group>
+                            <group>
+                                <field name="date_survey_file"/>
+                                <field name="survey_title"/>
+                                <field name="survey_id"/>
+                                <field name="survey_description"/>
+                                <field name="survey_user_input_id"/>
+                            </group>
+                            <group>
+                                <field name="document_code"/>
+                                <field name="document_id"/>
+                                <field name="document_state"/>
+                            </group>
+                            <group>
+                                <field name="person_code"/>
+                                <field name="person_id"/>
+                            </group>
+                            <group>
+                                <field name="address_code"/>
+                                <field name="address_id"/>
+                            </group>
+                            <group>
+                                <field name="lab_test_request_code"/>
+                                <!--field name="lab_test_request_id"/-->
+                            </group>
+                            <group>
+                                <field name="user_id"/>
+                            </group>
+                        </group>
+                    </page>
+               </page>
+            </field>
+        </record>
+
+        <record id="clv_mfile_view_tree" model="ir.ui.view">
+            <field name="name">clv.mfile.tree</field>
+            <field name="model">clv.mfile</field>
+            <field name="inherit_id" ref="clv_mfile.clv_mfile_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="date_survey_file"/>
+                    <field name="survey_title"/>
+                    <field name="survey_id"/>
+                    <field name="survey_description"/>
+                    <field name="survey_user_input_id"/>
+                    <field name="document_code"/>
+                    <field name="document_id"/>
+                    <field name="document_state"/>
+                    <field name="person_code"/>
+                    <field name="person_id"/>
+                    <field name="address_code"/>
+                    <field name="address_id"/>
+                    <field name="lab_test_request_code"/>
+                    <!--field name="lab_test_request_id"/-->
+                    <field name="user_id"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="clv_mfile_view_search" model="ir.ui.view">
+            <field name="name">clv.mfile.search</field>
+            <field name="model">clv.mfile</field>
+            <field name="inherit_id" ref="clv_mfile.clv_mfile_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="date_survey_file"/>
+                    <field name="survey_title"/>
+                    <field name="survey_id"/>
+                    <field name="survey_description"/>
+                    <field name="survey_user_input_id"/>
+                    <field name="document_code"/>
+                    <field name="document_id"/>
+                    <field name="document_state"/>
+                    <field name="person_code"/>
+                    <field name="person_id"/>
+                    <field name="address_code"/>
+                    <field name="address_id"/>
+                    <field name="lab_test_request_code"/>
+                    <!--field name="lab_test_request_id"/-->
+                    <field name="user_id"/>
+                </field>
+                <group name="group_by" position="inside">
+                    <filter string="Document Responsible" domain="[]" context="{'group_by':'user_id'}"/>
+                    <filter string="Survey Title" domain="[]" context="{'group_by':'survey_title'}"/>
+                    <filter string="Survey Type" domain="[]" context="{'group_by':'survey_id'}"/>
+                    <filter string="Related Person" domain="[]" context="{'group_by':'person_id'}"/>
+                    <filter string="Related Address" domain="[]" context="{'group_by':'address_id'}"/>
+                </group>
+            </field>
+        </record>
+
+        <record id="clv_mfile_view_kanban" model="ir.ui.view">
+            <field name="name">clv.mfile.kanban</field>
+            <field name="model">clv.mfile</field>
+            <field name="inherit_id" ref="clv_mfile.clv_mfile_view_kanban"/>
+            <field name="priority">12</field>
+            <field name="arch" type="xml">
+                <div name="kanban_details" position="replace">
+                    <div name="kanban_details" class="oe_kanban_details">
+                        <strong>
+                            <field name="name"/>
+                        </strong>
+                        <ul>
+                            <li t-if="record.date_survey_file.raw_value">
+                                <field name="date_survey_file"/>
+                            </li>
+                            <li t-if="record.code.raw_value">
+                                <field name="code"/>
+                            </li>
+                            <li t-if="record.survey_title.raw_value">
+                                <field name="survey_title"/>
+                            </li>
+                            <li t-if="record.user_id.raw_value">
+                                <field name="user_id"/>
+                            </li>
+                            <li t-if="record.reg_state.raw_value">
+                                <field name="reg_state"/>
+                            </li>
+                            <li t-if="record.state.raw_value">
+                                <field name="state"/>
+                            </li>
+                            <li t-if="record.category_names.raw_value">
+                                <field name="category_names"/>
+                            </li>
+                            <li t-if="record.format_names.raw_value">
+                                <field name="format_names"/>
+                            </li>
+                            <li t-if="record.global_tag_names.raw_value">
+                                <field name="global_tag_names"/>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </field>
+        </record>
+    
+    </data>
+</odoo>

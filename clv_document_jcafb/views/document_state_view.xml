@@ -31,7 +31,7 @@
                             string="Archived"
                             attrs="{'invisible':[('state','not in',['returned'])]}"
                             groups="clv_document.group_manager"/>
-                    <button name="action_discard" type="object"
+                    <button name="action_discarded" type="object"
                             string="Discarded"
                             attrs="{'invisible':[('state','not in',['new','available','waiting','returned'])]}"
                             groups="clv_document.group_manager"/>
@@ -57,7 +57,7 @@
                             string="Archived"
                             attrs="{'invisible':[('state','not in',['returned'])]}"
                             groups="clv_document.group_manager"/>
-                    <button name="action_discard" type="object"
+                    <button name="action_discarded" type="object"
                             string="Discarded"
                             attrs="{'invisible':[('state','not in',['new','available','waiting','returned'])]}"
                             groups="clv_document.group_manager"/>

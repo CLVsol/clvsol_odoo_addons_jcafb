@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem name="Media File Set Up" id="menu_mfmng_config_config_media_file_setup" 
+            parent="clv_base.menu_mfmng_config_config"
+            groups="clv_mfile.group_user"
+            sequence="10"
+            action="clv_mfile_jcafb.clv_mfile_setup_action"/>
+
+    </data>
+</odoo>
