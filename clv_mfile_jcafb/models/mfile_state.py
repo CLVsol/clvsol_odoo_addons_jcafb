@@ -27,7 +27,7 @@ class Address(models.Model):
 
     state = fields.Selection(
         [('new', 'New'),
-         ('waiting', 'Waiting'),
+         ('returned', 'Returned'),
          ('checked', 'Checked'),
          ('validated', 'Validated'),
          ('imported', 'Imported'),
@@ -54,9 +54,9 @@ class Address(models.Model):
             mfile.change_state('new')
 
     @api.multi
-    def action_waiting(self):
+    def action_returned(self):
         for mfile in self:
-            mfile.change_state('waiting')
+            mfile.change_state('returned')
 
     @api.multi
     def action_checked(self):

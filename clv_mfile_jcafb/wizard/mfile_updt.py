@@ -42,7 +42,7 @@ class MFileUpdate(models.TransientModel):
 
     state = fields.Selection(
         [('new', 'New'),
-         ('waiting', 'Waiting'),
+         ('returned', 'Returned'),
          ('checked', 'Checked'),
          ('validated', 'Validated'),
          ('imported', 'Imported'),
