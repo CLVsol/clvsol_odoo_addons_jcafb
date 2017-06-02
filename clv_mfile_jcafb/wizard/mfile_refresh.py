@@ -19,10 +19,18 @@
 ###############################################################################
 
 import logging
+import os
+import datetime
+# import xlrd
 
 from odoo import api, fields, models
 
 _logger = logging.getLogger(__name__)
+
+
+def modification_date(filepath):
+    t = os.path.getmtime(filepath)
+    return datetime.datetime.fromtimestamp(t)
 
 
 class MfileRefresh(models.TransientModel):
@@ -35,6 +43,13 @@ class MfileRefresh(models.TransientModel):
         relation='clv_mfile_mfile_refresh_rel',
         string='Documents',
         default=_default_mfile_ids
+    )
+
+    dir_path = fields.Char(
+        'Directory Path',
+        required=True,
+        help="Directory Path",
+        default='/opt/openerp/clvsol_clvhealth_jcafb/survey_files/input'
     )
 
     @api.multi
@@ -54,8 +69,18 @@ class MfileRefresh(models.TransientModel):
     def do_mfile_refresh(self):
         self.ensure_one()
 
+        listdir = os.listdir(self.dir_path)
+
         for mfile in self.mfile_ids:
 
             _logger.info(u'%s %s', '>>>>>', mfile.name)
+
+            if mfile.name in listdir:
+
+                filepath = self.dir_path + '/' + mfile.name
+                _logger.info(u'%s %s', '>>>>>>>>>>', filepath)
+
+                if mfile.state in ['new', 'returned', 'checked', 'validated']:
+                    mfile.state = 'returned'
 
         return True
