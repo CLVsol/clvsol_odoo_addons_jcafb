@@ -66,6 +66,7 @@
                     <field name="lab_test_request_code"/>
                     <!--field name="lab_test_request_id"/-->
                     <field name="user_id"/>
+                    <field name="notes"/>
                 </field>
             </field>
         </record>
@@ -92,6 +93,7 @@
                     <field name="lab_test_request_code"/>
                     <!--field name="lab_test_request_id"/-->
                     <field name="user_id"/>
+                    <field name="notes"/>
                 </field>
                 <group name="group_by" position="inside">
                     <filter string="Document Responsible" domain="[]" context="{'group_by':'user_id'}"/>
