@@ -83,11 +83,16 @@ class MfileRefresh(models.TransientModel):
                 if mfile.state in ['new', 'returned', 'checked', 'validated']:
 
                     mfile.state = 'checked'
+                    mfile.document_code = False
+                    mfile.person_code = False
+                    mfile.address_code = False
                     mfile.notes = False
 
                     book = xlrd.open_workbook(filepath)
                     sheet = book.sheet_by_index(0)
                     survey_title = sheet.cell_value(0, 0)
+
+                    mfile.date_survey_file = modification_date(filepath)
 
                     mfile.survey_title = survey_title
                     if mfile.document_id.survey_id.title != survey_title:
@@ -162,6 +167,7 @@ class MfileRefresh(models.TransientModel):
                     mfile.person_code = person_code
                     if mfile.person_id.code != person_code and \
                        survey_title != '[QSF17]':
+                        mfile.state = 'returned'
                         if mfile.notes is False:
                             mfile.notes = u'Erro: Código da Pessoa inválido!'
                         else:
@@ -170,9 +176,20 @@ class MfileRefresh(models.TransientModel):
                     mfile.address_code = address_code
                     if mfile.address_id.code != address_code and \
                        survey_title == '[QSF17]':
+                        mfile.state = 'returned'
                         if mfile.notes is False:
                             mfile.notes = u'Erro: Código do Endereço inválido!'
                         else:
                             mfile.notes += u'\nErro: Código do Endereço inválido!'
+
+            else:
+
+                if mfile.state in ['new', 'returned', 'checked', 'validated']:
+
+                    mfile.state = 'new'
+                    mfile.document_code = False
+                    mfile.person_code = False
+                    mfile.address_code = False
+                    mfile.notes = False
 
         return True
