@@ -18,9 +18,30 @@
 #
 ###############################################################################
 
-from . import document_code
-from . import document_reg_state
-from . import document_state
-from . import document
-from . import person
-from . import address
+from odoo import api, fields, models
+
+
+class Address(models.Model):
+    _inherit = 'clv.address'
+
+    document_ids = fields.One2many(
+        'clv.document',
+        'address_id',
+        'Documents'
+    )
+    count_documents = fields.Integer(
+        'Number of Documents',
+        compute='_compute_count_documents'
+    )
+
+    @api.depends('document_ids')
+    def _compute_count_documents(self):
+        for r in self:
+            r.count_documents = len(r.document_ids)
+
+
+class Document(models.Model):
+    _inherit = 'clv.document'
+
+    address_id = fields.Many2one('clv.address', 'Address', ondelete='restrict')
+    address_code = fields.Char('Address Code', related='address_id.code', readonly=True)

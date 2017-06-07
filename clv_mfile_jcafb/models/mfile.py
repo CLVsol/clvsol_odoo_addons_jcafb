@@ -45,7 +45,7 @@ class Address(models.Model):
         comodel_name='clv.document',
         string='Related Document')
     document_state = fields.Selection(
-        string='Document Status',
+        string='Document State',
         related='document_id.state',
         store=False,
         readonly=True
@@ -56,18 +56,31 @@ class Address(models.Model):
         comodel_name='clv.person',
         string='Related Person'
     )
+    person_state = fields.Selection(
+        string='Person State',
+        related='person_id.state',
+        store=False,
+        readonly=True
+    )
 
     address_code = fields.Char(help="Address Code")
     address_id = fields.Many2one(
         comodel_name='clv.address',
         string="Related Address"
     )
+    address_state = fields.Selection(
+        string='Address State',
+        related='address_id.state',
+        store=False,
+        readonly=True
+    )
 
-    lab_test_request_code = fields.Char(string="Lab Test Request Code")
+    # lab_test_request_code = fields.Char(string="Lab Test Request Code")
     # lab_test_request_id = fields.Many2one(
     #     comodel_name='clv.lab_test.request',
     #     string="Related Lab Test Request"
     # )
+
     user_id = fields.Many2one(
         comodel_name='res.users',
         string='Document Responsible',
