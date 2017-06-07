@@ -40,7 +40,7 @@ class Address(models.Model):
         string='Survey User Input'
     )
 
-    # document_code = fields.Char(string='Document Code')
+    document_code = fields.Char(string='Document Code')
     document_id = fields.Many2one(
         comodel_name='clv.document',
         string='Related Document')
@@ -51,7 +51,7 @@ class Address(models.Model):
         readonly=True
     )
 
-    # person_code = fields.Char(string="Person Code")
+    person_code = fields.Char(string="Person Code")
     person_id = fields.Many2one(
         comodel_name='clv.person',
         string='Related Person'
@@ -63,7 +63,7 @@ class Address(models.Model):
         readonly=True
     )
 
-    # address_code = fields.Char(help="Address Code")
+    address_code = fields.Char(help="Address Code")
     address_id = fields.Many2one(
         comodel_name='clv.address',
         string="Related Address"
