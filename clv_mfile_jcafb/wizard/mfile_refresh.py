@@ -98,6 +98,8 @@ class MfileRefresh(models.TransientModel):
                             mfile.notes += u'\nErro: Tipo de Questionário inconsistente com o Documento!'
 
                     document_code = False
+                    person_code = False
+                    address_code = False
 
                     for i in range(sheet.nrows):
 
@@ -131,6 +133,24 @@ class MfileRefresh(models.TransientModel):
                                            survey_title == '[TID17]' and code_row == '[TID17_01_01]':
                                             document_code = value
 
+                                        if survey_title == '[QAN17]' and code_row == '[QAN17_02_02]' or \
+                                           survey_title == '[QDH17]' and code_row == '[QDH17_02_02]' or \
+                                           survey_title == '[QMD17]' and code_row == '[QMD17_02_02]' or \
+                                           survey_title == '[QSC17]' and code_row == '[QSC17_02_02]' or \
+                                           survey_title == '[QSI17]' and code_row == '[QSI17_02_02]' or \
+                                           survey_title == '[TCP17]' and code_row == '[TCP17_02_02]' or \
+                                           survey_title == '[TCR17]' and code_row == '[TCR17_02_02]' or \
+                                           survey_title == '[TID17]' and code_row == '[TID17_02_02]':
+                                            person_code = value
+
+                                        if survey_title == '[QAN17]' and code_row == '[QAN17_02_05]' or \
+                                           survey_title == '[QDH17]' and code_row == '[QDH17_02_05]' or \
+                                           survey_title == '[QMD17]' and code_row == '[QMD17_02_05]' or \
+                                           survey_title == '[QSC17]' and code_row == '[QSC17_02_05]' or \
+                                           survey_title == '[QSF17]' and code_row == '[QSF17_02_02]' or \
+                                           survey_title == '[QSI17]' and code_row == '[QSI17_02_05]':
+                                            address_code = value
+
                     mfile.document_code = document_code
                     if mfile.document_id.code != document_code:
                         mfile.state = 'returned'
@@ -138,5 +158,21 @@ class MfileRefresh(models.TransientModel):
                             mfile.notes = u'Erro: Código do Documento inválido!'
                         else:
                             mfile.notes += u'\nErro: Código do Documento inválido!'
+
+                    mfile.person_code = person_code
+                    if mfile.person_id.code != person_code and \
+                       survey_title != '[QSF17]':
+                        if mfile.notes is False:
+                            mfile.notes = u'Erro: Código da Pessoa inválido!'
+                        else:
+                            mfile.notes += u'\nErro: Código da Pessoa inválido!'
+
+                    mfile.address_code = address_code
+                    if mfile.address_id.code != address_code and \
+                       survey_title == '[QSF17]':
+                        if mfile.notes is False:
+                            mfile.notes = u'Erro: Código do Endereço inválido!'
+                        else:
+                            mfile.notes += u'\nErro: Código do Endereço inválido!'
 
         return True
