@@ -32,6 +32,7 @@ class MfileSetUp(models.TransientModel):
         comodel_name='clv.document',
         relation='clv_document_mfile_setup_rel',
         string='Documents',
+        domain=['|', ('active', '=', False), ('active', '=', True)],
     )
 
     @api.multi
