@@ -28,13 +28,10 @@ _logger = logging.getLogger(__name__)
 class MfileSetUp(models.TransientModel):
     _name = 'clv.mfile.setup'
 
-    # def _default_document_ids(self):
-    #     return self._context.get('active_ids')
     document_ids = fields.Many2many(
         comodel_name='clv.document',
         relation='clv_document_mfile_setup_rel',
         string='Documents',
-        # default=_default_document_ids
     )
 
     @api.multi
@@ -71,9 +68,43 @@ class MfileSetUp(models.TransientModel):
                     'name': mfile_name,
                     'code': document.code,
                     'document_id': document.id,
+                    'person_id': document.person_id.id,
+                    'address_id': document.address_id.id,
                     'user_id': document.user_id.id,
                 }
                 mfile = MFile.create(values)
                 _logger.info(u'%s %s', '>>>>>>>>>>', mfile.name)
 
         return True
+
+    @api.multi
+    def do_populate_all_documents(self):
+        self.ensure_one()
+
+        Document = self.env['clv.document']
+        documents = Document.search([])
+
+        self.document_ids = documents
+
+        return self._reopen_form()
+
+    @api.multi
+    def do_populate_new_documents(self):
+        self.ensure_one()
+
+        MFile = self.env['clv.mfile']
+
+        Document = self.env['clv.document']
+        documents = Document.search([])
+
+        new_documents = []
+        for document in documents:
+            mfile = MFile.search([
+                ('code', '=', document.code),
+            ])
+            if mfile.id is False:
+                new_documents.append(document.id)
+
+        self.document_ids = new_documents
+
+        return self._reopen_form()
