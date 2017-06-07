@@ -19,20 +19,20 @@
                                 <field name="survey_user_input_id"/>
                             </group>
                             <group>
-                                <field name="document_code"/>
+                                <!--field name="document_code"/-->
                                 <field name="document_id"/>
                                 <field name="document_state"/>
                             </group>
                             <group>
-                                <field name="person_code"/>
                                 <field name="person_id"/>
+                                <field name="person_state"/>
                             </group>
                             <group>
-                                <field name="address_code"/>
                                 <field name="address_id"/>
+                                <field name="address_state"/>
                             </group>
                             <group>
-                                <field name="lab_test_request_code"/>
+                                <!--field name="lab_test_request_code"/-->
                                 <!--field name="lab_test_request_id"/-->
                             </group>
                             <group>
@@ -56,14 +56,16 @@
                     <field name="survey_id"/>
                     <field name="survey_description"/>
                     <field name="survey_user_input_id"/>
-                    <field name="document_code"/>
+                    <!--field name="document_code"/-->
                     <field name="document_id"/>
                     <field name="document_state"/>
-                    <field name="person_code"/>
+                    <!--field name="person_code"/-->
                     <field name="person_id"/>
-                    <field name="address_code"/>
+                    <field name="person_state"/>
+                    <!--field name="address_code"/-->
                     <field name="address_id"/>
-                    <field name="lab_test_request_code"/>
+                    <field name="address_state"/>
+                    <!--field name="lab_test_request_code"/-->
                     <!--field name="lab_test_request_id"/-->
                     <field name="user_id"/>
                     <field name="notes"/>
@@ -83,14 +85,14 @@
                     <field name="survey_id"/>
                     <field name="survey_description"/>
                     <field name="survey_user_input_id"/>
-                    <field name="document_code"/>
+                    <!--field name="document_code"/-->
                     <field name="document_id"/>
                     <field name="document_state"/>
-                    <field name="person_code"/>
+                    <!--field name="person_code"/-->
                     <field name="person_id"/>
-                    <field name="address_code"/>
+                    <!--field name="address_code"/-->
                     <field name="address_id"/>
-                    <field name="lab_test_request_code"/>
+                    <!--field name="lab_test_request_code"/-->
                     <!--field name="lab_test_request_id"/-->
                     <field name="user_id"/>
                     <field name="notes"/>
