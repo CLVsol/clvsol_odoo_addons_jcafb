@@ -11,6 +11,10 @@
                     </div>
                     <label for="mfile_ids"/>
                     <field name="mfile_ids"/>
+                    <group>
+                        <field name="dir_path"/>
+                        <field name="archive_dir_path"/>
+                    </group>
                     <footer>
                         <button 
                             type="object"
