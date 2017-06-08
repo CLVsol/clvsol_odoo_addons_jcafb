@@ -69,6 +69,7 @@ class MfileSetUp(models.TransientModel):
                     'name': mfile_name,
                     'code': document.code,
                     'document_id': document.id,
+                    'survey_id': document.survey_id.id,
                     'person_id': document.person_id.id,
                     'address_id': document.address_id.id,
                     'user_id': document.user_id.id,

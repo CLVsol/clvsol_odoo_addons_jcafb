@@ -19,6 +19,7 @@
 ###############################################################################
 
 import logging
+import shutil
 
 from odoo import api, fields, models
 
@@ -35,6 +36,20 @@ class MfileArchive(models.TransientModel):
         relation='clv_mfile_mfile_archive_rel',
         string='Documents',
         default=_default_mfile_ids
+    )
+
+    dir_path = fields.Char(
+        'Directory Path',
+        required=True,
+        help="Directory Path",
+        default='/opt/openerp/clvsol_clvhealth_jcafb/survey_files/input'
+    )
+
+    archive_dir_path = fields.Char(
+        'Directory Path',
+        required=True,
+        help="Archive Directory Path",
+        default='/opt/openerp/clvsol_clvhealth_jcafb/survey_files/archive'
     )
 
     @api.multi
@@ -56,6 +71,15 @@ class MfileArchive(models.TransientModel):
 
         for mfile in self.mfile_ids:
 
+            filepath = self.dir_path + '/' + mfile.name
+            archive_filepath = self.archive_dir_path + '/' + mfile.name
+
             _logger.info(u'%s %s', '>>>>>', mfile.name)
+
+            if mfile.state == 'imported':
+
+                shutil.move(filepath, archive_filepath)
+
+                mfile.state = 'archived'
 
         return True
