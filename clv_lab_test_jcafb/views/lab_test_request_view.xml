@@ -2,7 +2,7 @@
 <odoo>
     <data>
         
-        <record id="clv_lab_test_request_view_form_jcafb" model="ir.ui.view">
+        <record id="clv_lab_test_request_view_form_lab_test_request" model="ir.ui.view">
             <field name="name">clv.lab_test.request.form</field>
             <field name="model">clv.lab_test.request</field>
             <field name="inherit_id" ref="clv_lab_test.clv_lab_test_request_view_form"/>
@@ -15,7 +15,7 @@
             </field>
         </record>
        
-        <record id="clv_lab_test_request_view_tree_jcafb" model="ir.ui.view">
+        <record id="clv_lab_test_request_view_tree_lab_test_request" model="ir.ui.view">
             <field name="name">clv.lab_test.request.tree</field>
             <field name="model">clv.lab_test.request</field>
             <field name="inherit_id" ref="clv_lab_test.clv_lab_test_request_view_tree"/>
@@ -27,7 +27,7 @@
             </field>
         </record>
        
-        <record id="clv_lab_test_request_view_search_jcafb" model="ir.ui.view">
+        <record id="clv_lab_test_request_view_search_lab_test_request" model="ir.ui.view">
             <field name="name">clv.lab_test.request.tree</field>
             <field name="model">clv.lab_test.request</field>
             <field name="inherit_id" ref="clv_lab_test.clv_lab_test_request_view_search"/>
@@ -42,5 +42,21 @@
             </field>
         </record>
        
+        <record id="clv_person_view_form_lab_test_request" model="ir.ui.view">
+            <field name="name">clv.person.form</field>
+            <field name="model">clv.person</field>
+            <field name="inherit_id" ref="clv_person.clv_person_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Lab Test Requests">
+                        <group>
+                            <field name="lab_test_request_ids" colspan="4" nolabel="1"/>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
     </data>
 </odoo>

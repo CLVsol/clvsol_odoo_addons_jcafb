@@ -25,3 +25,13 @@ class LabTestRequest(models.Model):
     _inherit = 'clv.lab_test.request'
 
     patient_id = fields.Many2one(comodel_name='clv.person', string="Patient")
+
+
+class Person(models.Model):
+    _inherit = 'clv.person'
+
+    lab_test_request_ids = fields.One2many(
+        comodel_name='clv.lab_test.request',
+        inverse_name='patient_id',
+        string='Lab Test Requests'
+    )
