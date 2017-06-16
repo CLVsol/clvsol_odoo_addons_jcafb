@@ -18,32 +18,10 @@
 #
 ###############################################################################
 
-{
-    'name': 'Lab Test (customizations for CLVhealth-JCAFB Solution)',
-    'summary': 'Lab Test Module customizations for CLVhealth-JCAFB Solution.',
-    'version': '3.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'https://github.com/CLVsol',
-    'depends': [
-        'clv_lab_test',
-        'clv_person',
-    ],
-    'data': [
-        'views/lab_test_request_view.xml',
-        'views/lab_test_request_code_view.xml',
-        'views/lab_test_result_code_view.xml',
-        'data/lab_test_request_seq.xml',
-        'data/lab_test_result_seq.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+from odoo import fields, models
+
+
+class LabTestRequest(models.Model):
+    _inherit = 'clv.lab_test.request'
+
+    patient_id = fields.Many2one(comodel_name='clv.person', string="Patient")
