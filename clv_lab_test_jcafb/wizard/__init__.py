@@ -19,3 +19,4 @@
 ###############################################################################
 
 import lab_test_request_setup
+import lab_test_result_setup
