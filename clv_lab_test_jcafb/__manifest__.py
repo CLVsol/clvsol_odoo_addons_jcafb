@@ -28,12 +28,17 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_lab_test',
+        'clv_person',
     ],
     'data': [
+        'views/lab_test_request_view.xml',
         'views/lab_test_request_code_view.xml',
+        'views/lab_test_result_view.xml',
         'views/lab_test_result_code_view.xml',
         'data/lab_test_request_seq.xml',
         'data/lab_test_result_seq.xml',
+        'wizard/lab_test_request_setup_view.xml',
+        'wizard/lab_test_result_setup_view.xml',
     ],
     'demo': [],
     'test': [],

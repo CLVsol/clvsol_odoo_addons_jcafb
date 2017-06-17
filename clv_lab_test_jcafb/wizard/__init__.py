@@ -18,32 +18,5 @@
 #
 ###############################################################################
 
-{
-    'name': 'Person (customizations for CLVhealth-JCAFB Solution)',
-    'summary': 'Person Module customizations for CLVhealth-JCAFB Solution.',
-    'version': '3.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'https://github.com/CLVsol',
-    'depends': [
-        'clv_person',
-    ],
-    'data': [
-        'views/person_code_view.xml',
-        'views/address_view.xml',
-        'views/person_reg_state_view.xml',
-        'views/person_state_view.xml',
-        'data/person_seq.xml',
-        'wizard/person_updt_view.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+import lab_test_request_setup
+import lab_test_result_setup

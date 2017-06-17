@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        
+        <record id="clv_lab_test_request_view_form_lab_test_request" model="ir.ui.view">
+            <field name="name">clv.lab_test.request.form</field>
+            <field name="model">clv.lab_test.request</field>
+            <field name="inherit_id" ref="clv_lab_test.clv_lab_test_request_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <label for="date_requested" position="before">
+                    <label for="patient_id" class="oe_edit_only"/>
+                    <h3><field name="patient_id" placeholder="Patient..."/></h3>
+                </label>
+            </field>
+        </record>
+       
+        <record id="clv_lab_test_request_view_tree_lab_test_request" model="ir.ui.view">
+            <field name="name">clv.lab_test.request.tree</field>
+            <field name="model">clv.lab_test.request</field>
+            <field name="inherit_id" ref="clv_lab_test.clv_lab_test_request_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="date_requested" position="before">
+                    <field name="patient_id"/>
+                </field>
+            </field>
+        </record>
+       
+        <record id="clv_lab_test_request_view_search_lab_test_request" model="ir.ui.view">
+            <field name="name">clv.lab_test.request.tree</field>
+            <field name="model">clv.lab_test.request</field>
+            <field name="inherit_id" ref="clv_lab_test.clv_lab_test_request_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="patient_id"/>
+                </field>
+                <group name="group_by" position="inside">
+                    <filter string="Patient" context="{'group_by': 'patient_id'}"/>
+                </group>
+            </field>
+        </record>
+       
+        <record id="clv_person_view_form_lab_test_request" model="ir.ui.view">
+            <field name="name">clv.person.form</field>
+            <field name="model">clv.person</field>
+            <field name="inherit_id" ref="clv_person.clv_person_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Lab Test Requests">
+                        <group>
+                            <field name="lab_test_request_ids" colspan="4" nolabel="1"/>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+    </data>
+</odoo>
