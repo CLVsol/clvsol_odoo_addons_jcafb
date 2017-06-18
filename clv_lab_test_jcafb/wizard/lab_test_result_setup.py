@@ -37,12 +37,6 @@ class LabTestResultSetup(models.TransientModel):
         default=_default_lab_test_request_ids
     )
 
-    # lab_test_type_ids = fields.Many2many(
-    #     comodel_name='clv.lab_test.type',
-    #     relation='clv_lab_test_type_lab_test_result_setup_rel',
-    #     string='Lab Test Types'
-    # )
-
     @api.multi
     def _reopen_form(self):
         self.ensure_one()
@@ -70,11 +64,21 @@ class LabTestResultSetup(models.TransientModel):
 
                 _logger.info(u'%s %s', '>>>>>>>>>>', lab_test_type.name)
 
+                criteria = []
+                for criterion in lab_test_type.criterion_ids:
+                    criteria.append((0, 0, {'code': criterion.code,
+                                            'name': criterion.name,
+                                            'sequence': criterion.sequence,
+                                            'normal_range': criterion.normal_range,
+                                            'unit_id': criterion.unit_id.id,
+                                            }))
+
                 values = {
                     'code_sequence': 'clv.lab_test.result.code',
                     'lab_test_type_id': lab_test_type.id,
                     'patient_id': lab_test_request.patient_id.id,
                     'lab_test_request_id': lab_test_request.id,
+                    'criterion_ids': criteria,
                 }
                 lab_test_result = LabTestResult.create(values)
 
