@@ -2,10 +2,10 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-============
-QSF17 survey
-============
+====================
+JCAFB Surveys (2017)
+====================
 
-JCAFB QSF17 survey Module.
+JCAFB Surveys (2017) Module.
 
 Developed by `CLVsol <https://github.com/CLVsol>`_.

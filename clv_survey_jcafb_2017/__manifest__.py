@@ -19,8 +19,8 @@
 ###############################################################################
 
 {
-    'name': 'QMD17 survey',
-    'summary': 'This module will install all the JCAFB QMD17 survey.',
+    'name': 'JCAFB Surveys (2017)',
+    'summary': 'This module will install all the JCAFB surveys (2017).',
     'version': '3.0.0',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
     'category': 'Generic Modules/Others',
@@ -30,7 +30,15 @@
         'clv_survey',
     ],
     'data': [
+        'data/survey_jcafb_QAN17.xml',
+        'data/survey_jcafb_QDH17.xml',
         'data/survey_jcafb_QMD17.xml',
+        'data/survey_jcafb_QSC17.xml',
+        'data/survey_jcafb_QSF17.xml',
+        'data/survey_jcafb_QSI17.xml',
+        'data/survey_jcafb_TCP17.xml',
+        'data/survey_jcafb_TCR17.xml',
+        'data/survey_jcafb_TID17.xml',
     ],
     'demo': [],
     'test': [],
