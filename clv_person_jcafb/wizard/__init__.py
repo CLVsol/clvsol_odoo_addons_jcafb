@@ -19,3 +19,4 @@
 ###############################################################################
 
 import person_updt
+import person_direct_mail_setup
