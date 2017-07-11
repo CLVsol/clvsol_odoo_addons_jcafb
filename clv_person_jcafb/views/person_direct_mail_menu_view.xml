@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem name="Direct Mail" id="menu_community_community_persons_direct_mail"
+            parent="clv_person.menu_community_community_persons"
+            groups="clv_person.group_user"
+            sequence="30"
+            action="clv_person_jcafb.clv_person_direct_mail_actions"/>
+
+        <menuitem name="Person Direct Mail Set Up" id="menu_community_config_config_person_direct_mail_setup" 
+            parent="clv_base.menu_community_config_config"
+            groups="clv_person.group_user"
+            sequence="40"
+            action="clv_person_jcafb.clv_person_direct_mail_setup_action"/>
+
+    </data>
+</odoo>
