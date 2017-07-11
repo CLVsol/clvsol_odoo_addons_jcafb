@@ -18,9 +18,18 @@
 #
 ###############################################################################
 
-from . import person_code
-from . import address
-from . import person_reg_state
-from . import person_state
-from . import person_direct_mail
-from . import person_annotation
+from openerp import fields, models
+
+
+class PersonAnotation(models.Model):
+    _name = 'clv.person.annotation'
+    _inherit = 'clv.person.annotation', 'clv.code.model'
+
+    code = fields.Char(string='Annotation Code', required=False, default='/')
+    code_sequence = fields.Char(default='clv.annotation.code')
+
+    _sql_constraints = [
+        ('code_uniq',
+         'UNIQUE (code)',
+         u'Error! The Code must be unique!'),
+    ]
