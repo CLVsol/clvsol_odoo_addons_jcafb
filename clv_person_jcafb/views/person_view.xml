@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        
+        <record id="clv_person_view_form_random" model="ir.ui.view">
+            <field name="name">clv.person.form</field>
+            <field name="model">clv.person</field>
+            <field name="inherit_id" ref="clv_person.clv_person_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="date_inclusion" position="before">
+                    <field name="random_field"/>
+                </field>
+            </field>
+        </record>
+       
+        <record id="clv_person_view_tree_random" model="ir.ui.view">
+            <field name="name">clv.person.tree</field>
+            <field name="model">clv.person</field>
+            <field name="inherit_id" ref="clv_person.clv_person_view_tree"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="random_field"/>
+                </field>
+            </field>
+        </record>
+       
+        <record id="clv_person_view_search_random" model="ir.ui.view">
+            <field name="name">clv.person.search</field>
+            <field name="model">clv.person</field>
+            <field name="inherit_id" ref="clv_person.clv_person_view_search"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="random_field"/>
+                </field>
+            </field>
+        </record>
+       
+    </data>
+</odoo>

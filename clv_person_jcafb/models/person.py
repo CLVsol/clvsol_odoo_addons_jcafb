@@ -18,10 +18,9 @@
 #
 ###############################################################################
 
-from . import person
-from . import person_code
-from . import address
-from . import person_reg_state
-from . import person_state
-from . import person_direct_mail
-from . import person_annotation
+from odoo import models
+
+
+class Person(models.Model):
+    _name = "clv.person"
+    _inherit = 'clv.person', 'clv.random.model'
