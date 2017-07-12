@@ -28,6 +28,7 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_person',
+        'clv_employee',
     ],
     'data': [
         'security/ir.model.access.csv',

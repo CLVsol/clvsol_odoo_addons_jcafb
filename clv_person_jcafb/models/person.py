@@ -18,9 +18,11 @@
 #
 ###############################################################################
 
-from odoo import models
+from odoo import fields, models
 
 
 class Person(models.Model):
     _name = "clv.person"
     _inherit = 'clv.person', 'clv.random.model'
+
+    employee_id = fields.Many2one('hr.employee', 'Responsible Empĺoyee', required=False, readonly=False)
