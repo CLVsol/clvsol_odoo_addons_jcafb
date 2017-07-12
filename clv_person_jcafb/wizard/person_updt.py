@@ -54,6 +54,25 @@ class PersonUpdate(models.TransientModel):
          ], string='State', default=False, readonly=False, required=False
     )
 
+    employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Responsible Empĺoyee'
+    )
+    employee_id_selection = fields.Selection(
+        [('set', 'Set'),
+         ('remove', 'Remove'),
+         ], string='Responsible Empĺoyee', default=False, readonly=False, required=False
+    )
+
+    random_field = fields.Char(
+        string='Random ID'
+    )
+    random_field_selection = fields.Selection(
+        [('set', 'Set'),
+         ('remove', 'Remove'),
+         ], string='Random ID', default=False, readonly=False, required=False
+    )
+
     @api.multi
     def do_person_updt(self):
         self.ensure_one()
@@ -73,5 +92,15 @@ class PersonUpdate(models.TransientModel):
                 person.state = self.state
             if self.state_selection == 'remove':
                 person.state = False
+
+            if self.employee_id_selection == 'set':
+                person.employee_id = self.employee_id
+            if self.employee_id_selection == 'remove':
+                person.employee_id = False
+
+            if self.random_field_selection == 'set':
+                person.random_field = self.random_field
+            if self.random_field_selection == 'remove':
+                person.random_field = False
 
         return True
