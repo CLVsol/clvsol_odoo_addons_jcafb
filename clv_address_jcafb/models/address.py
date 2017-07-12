@@ -18,33 +18,11 @@
 #
 ###############################################################################
 
-{
-    'name': 'Address (customizations for CLVhealth-JCAFB Solution)',
-    'summary': 'Address Module customizations for CLVhealth-JCAFB Solution.',
-    'version': '3.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'https://github.com/CLVsol',
-    'depends': [
-        'clv_address',
-        'clv_employee',
-    ],
-    'data': [
-        'views/address_view.xml',
-        'views/address_code_view.xml',
-        'views/address_annotation_view.xml',
-        'views/address_reg_state_view.xml',
-        'views/address_state_view.xml',
-        'data/address_seq.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+from odoo import fields, models
+
+
+class Address(models.Model):
+    _name = "clv.address"
+    _inherit = 'clv.address'
+
+    employee_id = fields.Many2one('hr.employee', 'Responsible Empĺoyee', required=False, readonly=False)
