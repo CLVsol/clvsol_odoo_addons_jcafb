@@ -25,8 +25,8 @@ from odoo import api, fields, models
 _logger = logging.getLogger(__name__)
 
 
-class PersonUpdate(models.TransientModel):
-    _inherit = 'clv.person.updt'
+class AddressUpdate(models.TransientModel):
+    _inherit = 'clv.address.updt'
 
     reg_state = fields.Selection(
         [('draft', 'Draft'),
@@ -64,43 +64,29 @@ class PersonUpdate(models.TransientModel):
          ], string='Responsible Empĺoyee', default=False, readonly=False, required=False
     )
 
-    random_field = fields.Char(
-        string='Random ID'
-    )
-    random_field_selection = fields.Selection(
-        [('set', 'Set'),
-         ('remove', 'Remove'),
-         ], string='Random ID', default=False, readonly=False, required=False
-    )
-
     @api.multi
-    def do_person_updt(self):
+    def do_address_updt(self):
         self.ensure_one()
 
-        super(PersonUpdate, self)
+        super(AddressUpdate, self)
 
-        for person in self.person_ids:
+        for address in self.address_ids:
 
-            _logger.info(u'%s %s', '>>>>>', person.name)
+            _logger.info(u'%s %s', '>>>>>', address.name)
 
             if self.reg_state_selection == 'set':
-                person.reg_state = self.reg_state
+                address.reg_state = self.reg_state
             if self.reg_state_selection == 'remove':
-                person.reg_state = False
+                address.reg_state = False
 
             if self.state_selection == 'set':
-                person.state = self.state
+                address.state = self.state
             if self.state_selection == 'remove':
-                person.state = False
+                address.state = False
 
             if self.employee_id_selection == 'set':
-                person.employee_id = self.employee_id
+                address.employee_id = self.employee_id
             if self.employee_id_selection == 'remove':
-                person.employee_id = False
-
-            if self.random_field_selection == 'set':
-                person.random_field = self.random_field
-            if self.random_field_selection == 'remove':
-                person.random_field = False
+                address.employee_id = False
 
         return True

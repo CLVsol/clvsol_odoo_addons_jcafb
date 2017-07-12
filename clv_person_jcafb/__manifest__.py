@@ -28,10 +28,13 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_person',
+        'clv_employee',
     ],
     'data': [
         'security/ir.model.access.csv',
+        'views/person_view.xml',
         'views/person_code_view.xml',
+        'views/person_annotation_view.xml',
         'views/address_view.xml',
         'views/person_reg_state_view.xml',
         'views/person_state_view.xml',

@@ -2,10 +2,10 @@
 <odoo>
     <data>
 
-        <record id="clv_person_updt_view_form_jcafb" model="ir.ui.view">
-            <field name="name">clv.person.updt.form</field>
-            <field name="model">clv.person.updt</field>
-            <field name="inherit_id" ref="clv_person.clv_person_updt_view_form"/>
+        <record id="clv_address_updt_view_form_jcafb" model="ir.ui.view">
+            <field name="name">clv.address.updt.form</field>
+            <field name="model">clv.address.updt</field>
+            <field name="inherit_id" ref="clv_address.clv_address_updt_view_form"/>
             <field name="priority" eval="8" />
             <field name="arch" type="xml">
                 <group name="global_tag_ids_selection" position="before">
@@ -28,12 +28,6 @@
                     </group>
                     <group>
                         <field name="employee_id" nolabel='1'/>
-                    </group>
-                    <group>
-                        <field name="random_field_selection"/>
-                    </group>
-                    <group>
-                        <field name="random_field" nolabel='1'/>
                     </group>
                 </group>
             </field>

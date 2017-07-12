@@ -28,13 +28,16 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_address',
+        'clv_employee',
     ],
     'data': [
+        'views/address_view.xml',
         'views/address_code_view.xml',
         'views/address_annotation_view.xml',
         'views/address_reg_state_view.xml',
         'views/address_state_view.xml',
         'data/address_seq.xml',
+        'wizard/address_updt_view.xml',
     ],
     'demo': [],
     'test': [],

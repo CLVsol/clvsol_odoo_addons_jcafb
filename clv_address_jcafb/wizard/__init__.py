@@ -18,10 +18,4 @@
 #
 ###############################################################################
 
-from . import person
-from . import person_code
-from . import address
-from . import person_reg_state
-from . import person_state
-from . import person_direct_mail
-from . import person_annotation
+import address_updt
