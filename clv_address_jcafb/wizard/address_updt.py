@@ -54,6 +54,16 @@ class AddressUpdate(models.TransientModel):
          ], string='State', default=False, readonly=False, required=False
     )
 
+    employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Responsible Empĺoyee'
+    )
+    employee_id_selection = fields.Selection(
+        [('set', 'Set'),
+         ('remove', 'Remove'),
+         ], string='Responsible Empĺoyee', default=False, readonly=False, required=False
+    )
+
     @api.multi
     def do_address_updt(self):
         self.ensure_one()
@@ -73,5 +83,10 @@ class AddressUpdate(models.TransientModel):
                 address.state = self.state
             if self.state_selection == 'remove':
                 address.state = False
+
+            if self.employee_id_selection == 'set':
+                address.employee_id = self.employee_id
+            if self.employee_id_selection == 'remove':
+                address.employee_id = False
 
         return True

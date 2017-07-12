@@ -22,6 +22,14 @@
                         <field name="state" nolabel='1'/>
                     </group>
                 </group>
+                <group name="category_ids" position="after">
+                    <group>
+                        <field name="employee_id_selection"/>
+                    </group>
+                    <group>
+                        <field name="employee_id" nolabel='1'/>
+                    </group>
+                </group>
             </field>
         </record>
 
