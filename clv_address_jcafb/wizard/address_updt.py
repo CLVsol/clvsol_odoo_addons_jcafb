@@ -68,7 +68,7 @@ class AddressUpdate(models.TransientModel):
     def do_address_updt(self):
         self.ensure_one()
 
-        super(AddressUpdate, self)
+        super(AddressUpdate, self).do_address_updt()
 
         for address in self.address_ids:
 
