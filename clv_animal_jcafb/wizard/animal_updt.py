@@ -58,7 +58,7 @@ class AnimalUpdate(models.TransientModel):
     def do_animal_updt(self):
         self.ensure_one()
 
-        super(AnimalUpdate, self)
+        super(AnimalUpdate, self).do_animal_updt()
 
         for animal in self.animal_ids:
 

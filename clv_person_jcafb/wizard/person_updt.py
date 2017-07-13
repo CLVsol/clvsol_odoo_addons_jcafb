@@ -77,7 +77,7 @@ class PersonUpdate(models.TransientModel):
     def do_person_updt(self):
         self.ensure_one()
 
-        super(PersonUpdate, self)
+        super(PersonUpdate, self).do_person_updt()
 
         for person in self.person_ids:
 
