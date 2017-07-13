@@ -58,7 +58,7 @@ class DocumentUpdate(models.TransientModel):
     def do_document_updt(self):
         self.ensure_one()
 
-        super(DocumentUpdate, self)
+        super(DocumentUpdate, self).do_document_updt()
 
         for document in self.document_ids:
 
