@@ -59,7 +59,7 @@ class MFileUpdate(models.TransientModel):
     def do_mfile_updt(self):
         self.ensure_one()
 
-        super(MFileUpdate, self)
+        super(MFileUpdate, self).do_mfile_updt()
 
         for mfile in self.mfile_ids:
 
