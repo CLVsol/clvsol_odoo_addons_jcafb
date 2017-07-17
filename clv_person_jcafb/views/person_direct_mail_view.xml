@@ -111,7 +111,7 @@
         </record>
 
         <record id="clv_person_direct_mail_actions" model="ir.actions.act_window">
-            <field name="name">Direct Mail</field>
+            <field name="name">Person Direct Mail</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">clv.person.direct_mail</field>
             <field name="view_type">form</field>
