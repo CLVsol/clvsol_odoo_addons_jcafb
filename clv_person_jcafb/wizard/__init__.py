@@ -20,3 +20,4 @@
 
 import person_updt
 import person_direct_mail_setup
+import person_history_updt
