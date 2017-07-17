@@ -93,3 +93,17 @@ class Person(models.Model):
     def action_unavailable(self):
         for person in self:
             person.change_state('unavailable')
+
+
+class PersonHistory(models.Model):
+    _inherit = 'clv.person.history'
+
+    state = fields.Selection(
+        [('new', 'New'),
+         ('available', 'Available'),
+         ('waiting', 'Waiting'),
+         ('selected', 'Selected'),
+         ('unselected', 'Unselected'),
+         ('unavailable', 'Unavailable')
+         ], string='State', default='new', readonly=True, required=True
+    )
