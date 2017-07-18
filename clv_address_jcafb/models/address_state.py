@@ -93,3 +93,17 @@ class Address(models.Model):
     def action_unavailable(self):
         for address in self:
             address.change_state('unavailable')
+
+
+class AddressHistory(models.Model):
+    _inherit = 'clv.address.history'
+
+    state = fields.Selection(
+        [('new', 'New'),
+         ('available', 'Available'),
+         ('waiting', 'Waiting'),
+         ('selected', 'Selected'),
+         ('unselected', 'Unselected'),
+         ('unavailable', 'Unavailable')
+         ], string='State', default='new', readonly=True, required=True
+    )
