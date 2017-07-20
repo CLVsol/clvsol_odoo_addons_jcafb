@@ -18,17 +18,31 @@
 #
 ###############################################################################
 
-from odoo import fields, models
-
-
-class Person(models.Model):
-    _name = "clv.person"
-    _inherit = 'clv.person', 'clv.random.model'
-
-    employee_id = fields.Many2one('hr.employee', 'Responsible Empĺoyee', required=False, readonly=False)
-
-
-class PersonHistory(models.Model):
-    _inherit = 'clv.person.history'
-
-    employee_id = fields.Many2one('hr.employee', 'Responsible Empĺoyee', required=False, readonly=False)
+{
+    'name': 'Event (customizations for CLVhealth-JCAFB Solution)',
+    'summary': 'Event Module customizations for CLVhealth-JCAFB Solution.',
+    'version': '3.0.0',
+    'author': 'Carlos Eduardo Vercelino - CLVsol',
+    'category': 'Generic Modules/Others',
+    'license': 'AGPL-3',
+    'website': 'https://github.com/CLVsol',
+    'depends': [
+        'clv_event',
+        'clv_employee',
+    ],
+    'data': [
+        'views/event_view.xml',
+        'views/event_code_view.xml',
+        'data/event_seq.xml',
+        'wizard/event_updt_view.xml',
+    ],
+    'demo': [],
+    'test': [],
+    'init_xml': [],
+    'test': [],
+    'update_xml': [],
+    'installable': True,
+    'application': False,
+    'active': False,
+    'css': [],
+}

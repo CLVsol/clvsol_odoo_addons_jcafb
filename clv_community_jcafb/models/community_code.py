@@ -21,14 +21,9 @@
 from odoo import fields, models
 
 
-class Person(models.Model):
-    _name = "clv.person"
-    _inherit = 'clv.person', 'clv.random.model'
+class Community(models.Model):
+    _name = "clv.community"
+    _inherit = 'clv.community', 'clv.code.model'
 
-    employee_id = fields.Many2one('hr.employee', 'Responsible Empĺoyee', required=False, readonly=False)
-
-
-class PersonHistory(models.Model):
-    _inherit = 'clv.person.history'
-
-    employee_id = fields.Many2one('hr.employee', 'Responsible Empĺoyee', required=False, readonly=False)
+    code = fields.Char(string='Community Code', required=False, default='/')
+    code_sequence = fields.Char(default='clv.community.code')
