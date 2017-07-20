@@ -81,7 +81,7 @@
                     <field name="employee_id"/>
                 </field>
                 <group name="group_by" position="inside">
-                    <filter string="State" context="{'group_by': 'employee_id'}"/>
+                    <filter string="Responsible Empĺoyee" context="{'group_by': 'employee_id'}"/>
                 </group>
             </field>
         </record>
