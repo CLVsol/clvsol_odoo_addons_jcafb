@@ -68,8 +68,13 @@ class PersonHistoryUpdate(models.TransientModel):
                                                         person_history_2.sign_out_date,
                                                         person_history_2.state)
 
+                    m2m_list = []
+                    for category_id in person.category_ids:
+                        m2m_list.append((4, category_id.id))
+                    category_ids = m2m_list
                     values = {
                         'person_id': person.id,
+                        'category_ids': category_ids,
                         'state': person.state,
                         'sign_in_date': self.sign_in_date,
                         'global_marker_id': person.global_marker_id.id,
@@ -81,6 +86,14 @@ class PersonHistoryUpdate(models.TransientModel):
                                                     person_history.state)
 
                 else:
+                    m2m_list = []
+                    for category_id in person.category_ids:
+                        m2m_list.append((4, category_id.id))
+                    m2m_list_2 = []
+                    for category_id in person_history.category_ids:
+                        m2m_list_2.append((4, category_id.id))
+                    if m2m_list != m2m_list_2:
+                        person_history.category_ids = m2m_list
                     if person_history.state != person.state:
                         person_history.state = person.state
                     _logger.info(u'%s %s %s %s %s', '>>>>>>>>>>', person_history.global_marker_id.name,
