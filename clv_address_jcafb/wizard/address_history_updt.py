@@ -68,8 +68,13 @@ class AddressHistoryUpdate(models.TransientModel):
                                                         address_history_2.sign_out_date,
                                                         address_history_2.state)
 
+                    m2m_list = []
+                    for category_id in address.category_ids:
+                        m2m_list.append((4, category_id.id))
+                    category_ids = m2m_list
                     values = {
                         'address_id': address.id,
+                        'category_ids': category_ids,
                         'state': address.state,
                         'sign_in_date': self.sign_in_date,
                         'global_marker_id': address.global_marker_id.id,
@@ -81,6 +86,14 @@ class AddressHistoryUpdate(models.TransientModel):
                                                     address_history.state)
 
                 else:
+                    m2m_list = []
+                    for category_id in address.category_ids:
+                        m2m_list.append((4, category_id.id))
+                    m2m_list_2 = []
+                    for category_id in address_history.category_ids:
+                        m2m_list_2.append((4, category_id.id))
+                    if m2m_list != m2m_list_2:
+                        address_history.category_ids = m2m_list
                     if address_history.state != address.state:
                         address_history.state = address.state
                     _logger.info(u'%s %s %s %s %s', '>>>>>>>>>>', address_history.global_marker_id.name,
