@@ -131,7 +131,7 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <field name="sign_out_date" position="after">
-                    <field name="global_marker_id"/>
+                    <field name="state"/>
                 </field>
                 <group name="group_by" position="inside">
                     <filter string="State" context="{'group_by': 'state'}"/>

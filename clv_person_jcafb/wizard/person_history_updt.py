@@ -80,6 +80,7 @@ class PersonHistoryUpdate(models.TransientModel):
                         'responsible_id': person.responsible_id.id,
                         'caregiver_id': person.caregiver_id.id,
                         'state': person.state,
+                        'employee_id': person.employee_id.id,
                         'sign_in_date': self.sign_in_date,
                         'global_marker_id': person.global_marker_id.id,
                     }
@@ -108,6 +109,8 @@ class PersonHistoryUpdate(models.TransientModel):
                         person_history.caregiver_id = person.caregiver_id.id
                     if person_history.state != person.state:
                         person_history.state = person.state
+                    if person_history.employee_id.id != person.employee_id.id:
+                        person_history.employee_id = person.employee_id.id
                     _logger.info(u'%s %s %s %s %s', '>>>>>>>>>>', person_history.global_marker_id.name,
                                                     person_history.sign_in_date,
                                                     person_history.sign_out_date,
