@@ -20,3 +20,4 @@
 
 from . import community
 from . import community_code
+from . import community_person

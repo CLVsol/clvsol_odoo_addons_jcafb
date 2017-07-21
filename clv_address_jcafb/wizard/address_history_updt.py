@@ -47,11 +47,11 @@ class AddressHistoryUpdate(models.TransientModel):
 
             _logger.info(u'%s %s', '>>>>>', address.name)
 
-            if address.global_marker_id.id is not False:
+            if address.history_marker_id.id is not False:
 
                 address_history = AddressHistory.search([
                     ('address_id', '=', address.id),
-                    ('global_marker_id', '=', address.global_marker_id.id),
+                    ('history_marker_id', '=', address.history_marker_id.id),
                     ('sign_out_date', '=', False),
                 ])
 
@@ -63,7 +63,7 @@ class AddressHistoryUpdate(models.TransientModel):
                     ])
                     if address_history_2.id is not False:
                         address_history_2.sign_out_date = self.sign_out_date
-                        _logger.info(u'%s %s %s %s %s', '>>>>>>>>>>', address_history_2.global_marker_id.name,
+                        _logger.info(u'%s %s %s %s %s', '>>>>>>>>>>', address_history_2.history_marker_id.name,
                                                         address_history_2.sign_in_date,
                                                         address_history_2.sign_out_date,
                                                         address_history_2.state)
@@ -78,10 +78,10 @@ class AddressHistoryUpdate(models.TransientModel):
                         'state': address.state,
                         'employee_id': address.employee_id.id,
                         'sign_in_date': self.sign_in_date,
-                        'global_marker_id': address.global_marker_id.id,
+                        'history_marker_id': address.history_marker_id.id,
                     }
                     address_history = AddressHistory.create(values)
-                    _logger.info(u'%s %s %s %s %s', '>>>>>>>>>>', address_history.global_marker_id.name,
+                    _logger.info(u'%s %s %s %s %s', '>>>>>>>>>>', address_history.history_marker_id.name,
                                                     address_history.sign_in_date,
                                                     address_history.sign_out_date,
                                                     address_history.state)
@@ -99,7 +99,7 @@ class AddressHistoryUpdate(models.TransientModel):
                         address_history.state = address.state
                     if address_history.employee_id.id != address.employee_id.id:
                         address_history.employee_id = address.employee_id.id
-                    _logger.info(u'%s %s %s %s %s', '>>>>>>>>>>', address_history.global_marker_id.name,
+                    _logger.info(u'%s %s %s %s %s', '>>>>>>>>>>', address_history.history_marker_id.name,
                                                     address_history.sign_in_date,
                                                     address_history.sign_out_date,
                                                     address_history.state)
@@ -113,7 +113,7 @@ class AddressHistoryUpdate(models.TransientModel):
 
                 if address_history.id is not False:
                     address_history.sign_out_date = self.sign_out_date
-                    _logger.info(u'%s %s %s %s', '>>>>>>>>>>', address_history.global_marker_id.name,
+                    _logger.info(u'%s %s %s %s', '>>>>>>>>>>', address_history.history_marker_id.name,
                                                  address_history.sign_in_date,
                                                  address_history.sign_out_date)
 
