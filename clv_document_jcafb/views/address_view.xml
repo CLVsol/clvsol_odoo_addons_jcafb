@@ -51,7 +51,7 @@
             <field name="inherit_id" ref="clv_document.clv_document_view_tree"/>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
-                <field name="user_id" position="before">
+                <field name="date_requested" position="before">
                     <field name="address_id"/>
                 </field>
             </field>

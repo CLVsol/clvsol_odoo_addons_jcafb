@@ -8,14 +8,14 @@
             <field name="inherit_id" ref="clv_document.clv_document_view_form"/>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
-                <label for="user_id" position="before">
+                <div name="title" position="inside">
                     <label for="survey_id" class="oe_edit_only"/>
                     <h3><field name="survey_id" placeholder="Survey Type..." options="{'no_open': False, 'no_create': True}"/></h3>
                     <label for="survey_user_input_id" class="oe_edit_only"/>
                     <h3><field name="survey_user_input_id" placeholder="Survey User Input..." options="{'no_open': False, 'no_create': True}"/></h3>
                     <label for="base_survey_user_input_id" class="oe_edit_only"/>
                     <h3><field name="base_survey_user_input_id" placeholder="Base Survey User Input..." options="{'no_open': False, 'no_create': True}"/></h3>
-                </label>
+                </div>
             </field>
         </record>
 
