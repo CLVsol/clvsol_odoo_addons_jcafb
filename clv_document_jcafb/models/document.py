@@ -32,12 +32,23 @@ class DocumentCategory(models.Model):
 class Document(models.Model):
     _inherit = 'clv.document'
 
-    survey_id = fields.Many2one('survey.survey', 'Survey Type', help="Survey Type")
-    survey_user_input_id = fields.Many2one('survey.user_input', 'Survey User Input', help="Survey User Input")
+    employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Responsible Empĺoyee',
+        required=False,
+        readonly=False
+    )
+
+    survey_id = fields.Many2one(
+        comodel_name='survey.survey',
+        string='Survey Type')
+    survey_user_input_id = fields.Many2one(
+        comodel_name='survey.user_input',
+        string='Survey User Input'
+    )
     base_survey_user_input_id = fields.Many2one(
-        'survey.user_input',
-        'Base Survey User Input',
-        help="Base Survey User Input"
+        comodel_name='survey.user_input',
+        string='Base Survey User Input'
     )
 
     _defaults = {

@@ -54,6 +54,16 @@ class DocumentUpdate(models.TransientModel):
          ], string='State', default=False, readonly=False, required=False
     )
 
+    employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Responsible Empĺoyee'
+    )
+    employee_id_selection = fields.Selection(
+        [('set', 'Set'),
+         ('remove', 'Remove'),
+         ], string='Responsible Empĺoyee', default=False, readonly=False, required=False
+    )
+
     @api.multi
     def do_document_updt(self):
         self.ensure_one()
@@ -73,5 +83,10 @@ class DocumentUpdate(models.TransientModel):
                 document.state = self.state
             if self.state_selection == 'remove':
                 document.state = False
+
+            if self.employee_id_selection == 'set':
+                document.employee_id = self.employee_id
+            if self.employee_id_selection == 'remove':
+                document.employee_id = False
 
         return True
