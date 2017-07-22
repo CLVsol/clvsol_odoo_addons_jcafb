@@ -13,7 +13,7 @@
                         <field name="employee_id_selection"/>
                     </group>
                     <group>
-                        <field name="employee_id" nolabel='1'/>
+                        <field name="employee_id" nolabel='1' options="{'no_open': False, 'no_create': True}"/>
                     </group>
                 </group>
             </field>
