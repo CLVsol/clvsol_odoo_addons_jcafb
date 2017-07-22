@@ -25,10 +25,20 @@ class Address(models.Model):
     _name = "clv.address"
     _inherit = 'clv.address'
 
-    employee_id = fields.Many2one('hr.employee', 'Responsible Empĺoyee', required=False, readonly=False)
+    employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Responsible Empĺoyee',
+        required=False,
+        readonly=False
+    )
 
 
 class AddressHistory(models.Model):
     _inherit = 'clv.address.history'
 
-    employee_id = fields.Many2one('hr.employee', 'Responsible Empĺoyee', required=False, readonly=False)
+    employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Responsible Empĺoyee',
+        required=False,
+        readonly=False
+    )
