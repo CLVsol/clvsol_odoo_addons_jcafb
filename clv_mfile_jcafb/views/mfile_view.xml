@@ -38,7 +38,7 @@
                                 <!--field name="lab_test_request_id"/-->
                             </group>
                             <group>
-                                <field name="user_id"/>
+                                <field name="employee_id"/>
                             </group>
                         </group>
                     </page>
@@ -69,7 +69,7 @@
                     <field name="address_state"/>
                     <!--field name="lab_test_request_code"/-->
                     <!--field name="lab_test_request_id"/-->
-                    <field name="user_id"/>
+                    <field name="employee_id"/>
                     <field name="notes"/>
                 </field>
             </field>
@@ -96,11 +96,11 @@
                     <field name="address_id"/>
                     <!--field name="lab_test_request_code"/-->
                     <!--field name="lab_test_request_id"/-->
-                    <field name="user_id"/>
+                    <field name="employee_id"/>
                     <field name="notes"/>
                 </field>
                 <group name="group_by" position="inside">
-                    <filter string="Document Responsible" domain="[]" context="{'group_by':'user_id'}"/>
+                    <filter string="Responsible Empĺoyee" domain="[]" context="{'group_by':'employee_id'}"/>
                     <filter string="Survey Title" domain="[]" context="{'group_by':'survey_title'}"/>
                     <filter string="Survey Type" domain="[]" context="{'group_by':'survey_id'}"/>
                     <filter string="Related Person" domain="[]" context="{'group_by':'person_id'}"/>
@@ -130,8 +130,8 @@
                             <li t-if="record.survey_title.raw_value">
                                 <field name="survey_title"/>
                             </li>
-                            <li t-if="record.user_id.raw_value">
-                                <field name="user_id"/>
+                            <li t-if="record.employee_id.raw_value">
+                                <field name="employee_id"/>
                             </li>
                             <li t-if="record.reg_state.raw_value">
                                 <field name="reg_state"/>
