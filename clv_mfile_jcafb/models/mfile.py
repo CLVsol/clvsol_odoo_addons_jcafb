@@ -81,9 +81,11 @@ class Address(models.Model):
     #     string="Related Lab Test Request"
     # )
 
-    user_id = fields.Many2one(
-        comodel_name='res.users',
-        string='Document Responsible',
+    employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Responsible Empĺoyee',
+        required=False,
+        readonly=False
     )
 
     date_survey_file = fields.Datetime(

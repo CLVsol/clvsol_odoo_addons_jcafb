@@ -25,4 +25,9 @@ class Community(models.Model):
     _name = "clv.community"
     _inherit = 'clv.community'
 
-    employee_id = fields.Many2one('hr.employee', 'Responsible Empĺoyee', required=False, readonly=False)
+    employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Responsible Empĺoyee',
+        required=False,
+        readonly=False
+    )

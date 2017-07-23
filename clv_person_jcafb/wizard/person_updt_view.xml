@@ -27,13 +27,25 @@
                         <field name="employee_id_selection"/>
                     </group>
                     <group>
-                        <field name="employee_id" nolabel='1'/>
+                        <field name="employee_id" nolabel='1' options="{'no_open': False, 'no_create': True}"/>
                     </group>
                     <group>
                         <field name="random_field_selection"/>
                     </group>
                     <group>
                         <field name="random_field" nolabel='1'/>
+                    </group>
+                    <group name="community_ids_selection">
+                        <field name="community_ids_selection"/>
+                    </group>
+                    <group>
+                        <field name="community_ids" options="{'no_open': False, 'no_create': True}" nolabel='1'/>
+                    </group>
+                    <group name="event_ids_selection">
+                        <field name="event_ids_selection"/>
+                    </group>
+                    <group>
+                        <field name="event_ids" options="{'no_open': False, 'no_create': True}" nolabel='1'/>
                     </group>
                 </group>
             </field>

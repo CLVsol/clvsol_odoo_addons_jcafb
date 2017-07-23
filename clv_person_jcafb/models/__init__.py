@@ -25,3 +25,5 @@ from . import person_reg_state
 from . import person_state
 from . import person_direct_mail
 from . import person_annotation
+from . import community
+from . import event
