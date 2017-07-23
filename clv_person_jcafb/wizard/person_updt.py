@@ -73,6 +73,34 @@ class PersonUpdate(models.TransientModel):
          ], string='Random ID', default=False, readonly=False, required=False
     )
 
+    community_ids = fields.Many2many(
+        comodel_name='clv.community',
+        relation='clv_person_updt_community_rel',
+        column1='person_id',
+        column2='community_id',
+        string='Communities'
+    )
+    community_ids_selection = fields.Selection(
+        [('add', 'Add'),
+         ('remove_m2m', 'Remove'),
+         ('set', 'Set'),
+         ], string='Communities', default=False, readonly=False, required=False
+    )
+
+    event_ids = fields.Many2many(
+        comodel_name='clv.event',
+        relation='clv_person_updt_event_rel',
+        column1='person_id',
+        column2='event_id',
+        string='Events'
+    )
+    event_ids_selection = fields.Selection(
+        [('add', 'Add'),
+         ('remove_m2m', 'Remove'),
+         ('set', 'Set'),
+         ], string='Events', default=False, readonly=False, required=False
+    )
+
     @api.multi
     def do_person_updt(self):
         self.ensure_one()
@@ -102,5 +130,53 @@ class PersonUpdate(models.TransientModel):
                 person.random_field = self.random_field
             if self.random_field_selection == 'remove':
                 person.random_field = False
+
+            if self.community_ids_selection == 'add':
+                m2m_list = []
+                for community_id in self.community_ids:
+                    m2m_list.append((4, community_id.id))
+                _logger.info(u'%s %s', '>>>>>>>>>>', m2m_list)
+                person.community_ids = m2m_list
+            if self.community_ids_selection == 'remove_m2m':
+                m2m_list = []
+                for community_id in self.community_ids:
+                    m2m_list.append((3, community_id.id))
+                _logger.info(u'%s %s', '>>>>>>>>>>', m2m_list)
+                person.community_ids = m2m_list
+            if self.community_ids_selection == 'set':
+                m2m_list = []
+                for community_id in person.community_ids:
+                    m2m_list.append((3, community_id.id))
+                _logger.info(u'%s %s', '>>>>>>>>>>', m2m_list)
+                person.community_ids = m2m_list
+                m2m_list = []
+                for community_id in self.community_ids:
+                    m2m_list.append((4, community_id.id))
+                _logger.info(u'%s %s', '>>>>>>>>>>', m2m_list)
+                person.community_ids = m2m_list
+
+            if self.event_ids_selection == 'add':
+                m2m_list = []
+                for event_id in self.event_ids:
+                    m2m_list.append((4, event_id.id))
+                _logger.info(u'%s %s', '>>>>>>>>>>', m2m_list)
+                person.event_ids = m2m_list
+            if self.event_ids_selection == 'remove_m2m':
+                m2m_list = []
+                for event_id in self.event_ids:
+                    m2m_list.append((3, event_id.id))
+                _logger.info(u'%s %s', '>>>>>>>>>>', m2m_list)
+                person.event_ids = m2m_list
+            if self.event_ids_selection == 'set':
+                m2m_list = []
+                for event_id in person.event_ids:
+                    m2m_list.append((3, event_id.id))
+                _logger.info(u'%s %s', '>>>>>>>>>>', m2m_list)
+                person.event_ids = m2m_list
+                m2m_list = []
+                for event_id in self.event_ids:
+                    m2m_list.append((4, event_id.id))
+                _logger.info(u'%s %s', '>>>>>>>>>>', m2m_list)
+                person.event_ids = m2m_list
 
         return True

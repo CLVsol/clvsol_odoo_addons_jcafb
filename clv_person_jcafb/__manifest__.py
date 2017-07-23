@@ -29,6 +29,8 @@
     'depends': [
         'clv_person',
         'clv_employee',
+        'clv_community',
+        'clv_event',
     ],
     'data': [
         'security/ir.model.access.csv',
@@ -39,6 +41,8 @@
         'views/person_reg_state_view.xml',
         'views/person_state_view.xml',
         'views/person_direct_mail_view.xml',
+        'views/community_view.xml',
+        'views/event_view.xml',
         'data/person_seq.xml',
         'wizard/person_updt_view.xml',
         'wizard/person_direct_mail_setup_view.xml',
