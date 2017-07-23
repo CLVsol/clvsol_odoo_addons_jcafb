@@ -31,11 +31,8 @@
         'clv_employee',
     ],
     'data': [
-        'security/ir.model.access.csv',
         'views/event_view.xml',
         'views/event_code_view.xml',
-        'views/event_person_view.xml',
-        'views/event_menu_view.xml',
         'data/event_seq.xml',
         'wizard/event_updt_view.xml',
     ],

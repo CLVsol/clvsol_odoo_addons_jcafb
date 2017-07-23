@@ -20,4 +20,3 @@
 
 from . import event
 from . import event_code
-from . import event_person
