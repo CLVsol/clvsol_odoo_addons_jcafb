@@ -31,11 +31,8 @@
         'clv_employee',
     ],
     'data': [
-        'security/ir.model.access.csv',
         'views/community_view.xml',
         'views/community_code_view.xml',
-        'views/community_person_view.xml',
-        'views/community_menu_view.xml',
         'data/community_seq.xml',
         'wizard/community_updt_view.xml',
     ],
