@@ -22,7 +22,7 @@ from openerp import api, fields, models
 from openerp.exceptions import UserError
 
 
-class Address(models.Model):
+class Document(models.Model):
     _inherit = 'clv.document'
 
     state = fields.Selection(
