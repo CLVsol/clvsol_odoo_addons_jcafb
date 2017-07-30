@@ -31,6 +31,16 @@ class Event(models.Model):
         column2='person_id',
         string='Persons'
     )
+    count_persons = fields.Integer(
+        string='Number of Persons',
+        compute='_compute_count_persons',
+        store=True
+    )
+
+    @api.depends('person_ids')
+    def _compute_count_persons(self):
+        for r in self:
+            r.count_persons = len(r.person_ids)
 
 
 class Person(models.Model):

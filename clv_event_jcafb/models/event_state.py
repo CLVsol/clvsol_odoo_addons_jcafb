@@ -22,62 +22,54 @@ from openerp import api, fields, models
 from openerp.exceptions import UserError
 
 
-class Document(models.Model):
-    _inherit = 'clv.document'
+class Event(models.Model):
+    _inherit = 'clv.event'
 
     state = fields.Selection(
-        [('new', 'New'),
-         ('available', 'Available'),
-         ('waiting', 'Waiting'),
-         ('returned', 'Returned'),
-         ('archived', 'Archived'),
-         ('discarded', 'Discarded')
-         ], string='State', default='new', readonly=True, required=True
+        [('draft', 'Unconfirmed'),
+         ('confirm', 'Confirmed'),
+         ('done', 'Done'),
+         ('cancel', 'Cancelled')
+         ],
+        string='State', default='draft', readonly=True, required=True, copy=False,
+        help="If event is created, the state is 'Unconfirmed'. " +
+             "If event is confirmed for the particular dates the state is set to 'Confirmed'. " +
+             "If the event is over, the state is set to 'Done'. " +
+             "If event is cancelled the state is set to 'Cancelled'."
     )
 
     @api.model
     def is_allowed_transition(self, old_state, new_state):
         # allowed = [
-        #     ('discarded', 'new'),
-        #     ('new', 'available'),
+        #     ('cancel', 'draft'),
         # ]
         # return (old_state, new_state) in allowed
         return True
 
     @api.multi
     def change_state(self, new_state):
-        for document in self:
-            if document.is_allowed_transition(document.state, new_state):
-                document.state = new_state
+        for event in self:
+            if event.is_allowed_transition(event.state, new_state):
+                event.state = new_state
             else:
-                raise UserError('Status transition (' + document.state + ', ' + new_state + ') is not allowed!')
+                raise UserError('Status transition (' + event.state + ', ' + new_state + ') is not allowed!')
 
     @api.multi
-    def action_new(self):
-        for document in self:
-            document.change_state('new')
+    def action_draft(self):
+        for event in self:
+            event.change_state('draft')
 
     @api.multi
-    def action_available(self):
-        for document in self:
-            document.change_state('available')
+    def action_confirm(self):
+        for event in self:
+            event.change_state('confirm')
 
     @api.multi
-    def action_waiting(self):
-        for document in self:
-            document.change_state('waiting')
+    def action_done(self):
+        for event in self:
+            event.change_state('done')
 
     @api.multi
-    def action_returned(self):
-        for document in self:
-            document.change_state('returned')
-
-    @api.multi
-    def action_archive(self):
-        for document in self:
-            document.change_state('archived')
-
-    @api.multi
-    def action_discarded(self):
-        for document in self:
-            document.change_state('discarded')
+    def action_cancel(self):
+        for event in self:
+            event.change_state('cancel')

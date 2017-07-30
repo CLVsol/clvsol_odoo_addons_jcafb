@@ -10,9 +10,24 @@
             <field name="arch" type="xml">
                 <page name="settings" position="before">
                     <page string="Persons">
-                        <field name="person_ids" colspan="4" nolabel="1"/>
+                        <group>
+                            <field name="count_persons"/>
+                            <field name="person_ids" colspan="4" nolabel="1"/>
+                        </group>
                     </page>
                 </page>
+            </field>
+        </record>
+
+        <record id="clv_event_view_tree_person" model="ir.ui.view">
+            <field name="name">clv.event.tree</field>
+            <field name="model">clv.event</field>
+            <field name="inherit_id" ref="clv_event.clv_event_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="count_persons" sum="Total Number of Persons"/>
+                </field>
             </field>
         </record>
 
