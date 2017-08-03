@@ -5,6 +5,7 @@
         <!-- [QAN17] -->
         <record model="survey.survey" id="QAN17">
             <field name="title">[QAN17]</field>
+            <field name="code">QAN17</field>
             <field name="stage_id" ref="survey.stage_in_progress"/>
             <field name="auth_required" eval="False"/>
             <field name="users_can_go_back" eval="True"/>
@@ -15,6 +16,7 @@
             <!-- 1. Identificação do Questionário -->
             <record model="survey.page" id="QAN17_01">
                 <field name="title">1. Identificação do Questionário</field>
+                <field name="code">QAN17_01</field>
                 <field name="survey_id" ref="QAN17"/>
                 <field name="sequence" eval="10"/>
                 <field name="description">&lt;p&gt;As questões desta sessão não serão submetidas ao Paciente/Entrevistado e devem ser preenchidas pelo(s) entrevistador(es) a partir de informações cadastrais relacionadas a este questionário.&lt;/p&gt;</field>
@@ -23,6 +25,7 @@
                 <!-- 1.1. Código do Questionário: -->
                 <record model="survey.question" id="QAN17_01_01">
                     <field name="question">1.1. Código do Questionário:</field>
+                    <field name="code">QAN17_01_01</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_01"/>
                     <field name="sequence" eval="10"/>
@@ -33,6 +36,7 @@
                 <!-- 1.2. Data da Entrevista (dd-mm-aaaa): -->
                 <record model="survey.question" id="QAN17_01_02">
                     <field name="question">1.2. Data da Entrevista (dd-mm-aaaa):</field>
+                    <field name="code">QAN17_01_02</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_01"/>
                     <field name="sequence" eval="20"/>
@@ -43,6 +47,7 @@
                 <!-- 1.3. Códigos do(s) Entrevistador(es) (separados por ","): -->
                 <record model="survey.question" id="QAN17_01_03">
                     <field name="question">1.3. Códigos do(s) Entrevistador(es) (separados por ","):</field>
+                    <field name="code">QAN17_01_03</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_01"/>
                     <field name="sequence" eval="30"/>
@@ -53,6 +58,7 @@
                 <!-- 1.4. Código da Requisição de Exames: -->
                 <record model="survey.question" id="QAN17_01_04">
                     <field name="question">1.4. Código da Requisição de Exames:</field>
+                    <field name="code">QAN17_01_04</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_01"/>
                     <field name="sequence" eval="40"/>
@@ -63,6 +69,7 @@
             <!-- 2. Identificação do Paciente/Entrevistado -->
             <record model="survey.page" id="QAN17_02">
                 <field name="title">2. Identificação do Paciente/Entrevistado</field>
+                <field name="code">QAN17_02</field>
                 <field name="survey_id" ref="QAN17"/>
                 <field name="sequence" eval="20"/>
                 <field name="description">&lt;p&gt;As questões desta sessão não serão submetidas ao Paciente/Entrevistado e devem ser preenchidas pelo(s) entrevistador(es) a partir de informações cadastrais relacionadas a este questionário e/ou ao Termo de Consentimento associado a este questionário.&lt;/p&gt;</field>
@@ -71,6 +78,7 @@
                 <!-- 2.1. Nome do Paciente: -->
                 <record model="survey.question" id="QAN17_02_01">
                     <field name="question">2.1. Nome do Paciente:</field>
+                    <field name="code">QAN17_02_01</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_02"/>
                     <field name="sequence" eval="10"/>
@@ -81,6 +89,7 @@
                 <!-- 2.2. Código do Paciente: -->
                 <record model="survey.question" id="QAN17_02_02">
                     <field name="question">2.2. Código do Paciente:</field>
+                    <field name="code">QAN17_02_02</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_02"/>
                     <field name="sequence" eval="20"/>
@@ -91,6 +100,7 @@
                 <!-- 2.3. Idade do Paciente em 31/01/2017: -->
                 <record model="survey.question" id="QAN17_02_03">
                     <field name="question">2.3. Idade do Paciente em 31/01/2017:</field>
+                    <field name="code">QAN17_02_03</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_02"/>
                     <field name="sequence" eval="30"/>
@@ -101,6 +111,7 @@
                 <!-- 2.4. Nome do Endereço: -->
                 <record model="survey.question" id="QAN17_02_04">
                     <field name="question">2.4. Nome do Endereço:</field>
+                    <field name="code">QAN17_02_04</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_02"/>
                     <field name="sequence" eval="40"/>
@@ -111,6 +122,7 @@
                 <!-- 2.5. Código do Endereço: -->
                 <record model="survey.question" id="QAN17_02_05">
                     <field name="question">2.5. Código do Endereço:</field>
+                    <field name="code">QAN17_02_05</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_02"/>
                     <field name="sequence" eval="50"/>
@@ -121,6 +133,7 @@
                 <!-- 2.6. Relação do Entrevistado com o Paciente: -->
                 <record model="survey.question" id="QAN17_02_06">
                     <field name="question">2.6. Relação do Entrevistado com o Paciente:</field>
+                    <field name="code">QAN17_02_06</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QAN17_02"/>
                     <field name="sequence" eval="60"/>
@@ -134,24 +147,28 @@
 
                     <record model="survey.label" id="QAN17_02_06_01">
                         <field name="value">a) Responsável</field>
+                        <field name="code">QAN17_02_06_01</field>
                         <field name="question_id" ref="QAN17_02_06"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_02_06_02">
                         <field name="value">b) Paciente</field>
+                        <field name="code">QAN17_02_06_02</field>
                         <field name="question_id" ref="QAN17_02_06"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_02_06_03">
                         <field name="value">c) Cuidador</field>
+                        <field name="code">QAN17_02_06_03</field>
                         <field name="question_id" ref="QAN17_02_06"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_02_06_04">
                         <field name="value">d) Outra</field>
+                        <field name="code">QAN17_02_06_04</field>
                         <field name="question_id" ref="QAN17_02_06"/>
                         <field name="sequence" eval="40"/>
                     </record>
@@ -159,6 +176,7 @@
                 <!-- 2.7. Nome do Entrevistado: -->
                 <record model="survey.question" id="QAN17_02_07">
                     <field name="question">2.7. Nome do Entrevistado:</field>
+                    <field name="code">QAN17_02_07</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_02"/>
                     <field name="sequence" eval="70"/>
@@ -169,6 +187,7 @@
                 <!-- 2.8. Código do Entrevistado: -->
                 <record model="survey.question" id="QAN17_02_08">
                     <field name="question">2.8. Código do Entrevistado:</field>
+                    <field name="code">QAN17_02_08</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_02"/>
                     <field name="sequence" eval="80"/>
@@ -179,6 +198,7 @@
             <!-- 3. Medidas de Peso e Altura -->
             <record model="survey.page" id="QAN17_03">
                 <field name="title">3. Medidas de Peso e Altura</field>
+                <field name="code">QAN17_03</field>
                 <field name="survey_id" ref="QAN17"/>
                 <field name="sequence" eval="30"/>
                 <field name="description">&lt;p&gt;&lt;/p&gt;</field>
@@ -187,6 +207,7 @@
                 <!-- 3.1. Peso (kg): -->
                 <record model="survey.question" id="QAN17_03_01">
                     <field name="question">3.1. Peso (kg):</field>
+                    <field name="code">QAN17_03_01</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_03"/>
                     <field name="sequence" eval="10"/>
@@ -197,6 +218,7 @@
                 <!-- 3.2. Código do Responsável pela medida: -->
                 <record model="survey.question" id="QAN17_03_02">
                     <field name="question">3.2. Código do Responsável pela medida:</field>
+                    <field name="code">QAN17_03_02</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_03"/>
                     <field name="sequence" eval="20"/>
@@ -207,6 +229,7 @@
                 <!-- 3.3. Altura (cm): -->
                 <record model="survey.question" id="QAN17_03_03">
                     <field name="question">3.3. Altura (cm):</field>
+                    <field name="code">QAN17_03_03</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_03"/>
                     <field name="sequence" eval="30"/>
@@ -217,6 +240,7 @@
                 <!-- 3.4. Código do Responsável pela medida: -->
                 <record model="survey.question" id="QAN17_03_04">
                     <field name="question">3.4. Código do Responsável pela medida:</field>
+                    <field name="code">QAN17_03_04</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_03"/>
                     <field name="sequence" eval="40"/>
@@ -227,6 +251,7 @@
             <!-- 4. Dosagem de Hemoglobina -->
             <record model="survey.page" id="QAN17_04">
                 <field name="title">4. Dosagem de Hemoglobina</field>
+                <field name="code">QAN17_04</field>
                 <field name="survey_id" ref="QAN17"/>
                 <field name="sequence" eval="40"/>
                 <field name="description">&lt;p&gt;&lt;/p&gt;</field>
@@ -235,6 +260,7 @@
                 <!-- 4.1. Horário da coleta (hh:mm): -->
                 <record model="survey.question" id="QAN17_04_01">
                     <field name="question">4.1. Horário da coleta (hh:mm):</field>
+                    <field name="code">QAN17_04_01</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_04"/>
                     <field name="sequence" eval="10"/>
@@ -245,6 +271,7 @@
                 <!-- 4.2. Código do Responsável pela coleta: -->
                 <record model="survey.question" id="QAN17_04_02">
                     <field name="question">4.2. Código do Responsável pela coleta:</field>
+                    <field name="code">QAN17_04_02</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_04"/>
                     <field name="sequence" eval="20"/>
@@ -255,6 +282,7 @@
                 <!-- 4.3. Valor da Hemoglobina (g/dL): -->
                 <record model="survey.question" id="QAN17_04_03">
                     <field name="question">4.3. Valor da Hemoglobina (g/dL):</field>
+                    <field name="code">QAN17_04_03</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_04"/>
                     <field name="sequence" eval="30"/>
@@ -265,6 +293,7 @@
                 <!-- 4.4. Código do Responsável pela dosagem: -->
                 <record model="survey.question" id="QAN17_04_04">
                     <field name="question">4.4. Código do Responsável pela dosagem:</field>
+                    <field name="code">QAN17_04_04</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_04"/>
                     <field name="sequence" eval="40"/>
@@ -275,6 +304,7 @@
                 <!-- 4.5. Interpretação do Resultado de Hemoglobina (Wintrobe, 12ª ed., 2009): -->
                 <record model="survey.question" id="QAN17_04_05">
                     <field name="question">4.5. Interpretação do Resultado de Hemoglobina (Wintrobe, 12ª ed., 2009):</field>
+                    <field name="code">QAN17_04_05</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QAN17_04"/>
                     <field name="sequence" eval="50"/>
@@ -288,18 +318,21 @@
 
                     <record model="survey.label" id="QAN17_04_05_01">
                         <field name="value">a) Normal</field>
+                        <field name="code">QAN17_04_05_01</field>
                         <field name="question_id" ref="QAN17_04_05"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_04_05_02">
                         <field name="value">b) Abaixo do normal (anemia)</field>
+                        <field name="code">QAN17_04_05_02</field>
                         <field name="question_id" ref="QAN17_04_05"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_04_05_03">
                         <field name="value">c) Acima do normal</field>
+                        <field name="code">QAN17_04_05_03</field>
                         <field name="question_id" ref="QAN17_04_05"/>
                         <field name="sequence" eval="30"/>
                     </record>
@@ -307,6 +340,7 @@
             <!-- 5. Histórico -->
             <record model="survey.page" id="QAN17_05">
                 <field name="title">5. Histórico</field>
+                <field name="code">QAN17_05</field>
                 <field name="survey_id" ref="QAN17"/>
                 <field name="sequence" eval="50"/>
                 <field name="description">&lt;p&gt;&lt;/p&gt;</field>
@@ -315,6 +349,7 @@
                 <!-- 5.1. Já realizou exame para diagnosticar Anemia? -->
                 <record model="survey.question" id="QAN17_05_01">
                     <field name="question">5.1. Já realizou exame para diagnosticar Anemia?</field>
+                    <field name="code">QAN17_05_01</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QAN17_05"/>
                     <field name="sequence" eval="10"/>
@@ -328,30 +363,35 @@
 
                     <record model="survey.label" id="QAN17_05_01_01">
                         <field name="value">a) Não</field>
+                        <field name="code">QAN17_05_01_01</field>
                         <field name="question_id" ref="QAN17_05_01"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_01_02">
                         <field name="value">b) Sim</field>
+                        <field name="code">QAN17_05_01_02</field>
                         <field name="question_id" ref="QAN17_05_01"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_01_03">
                         <field name="value">c) Não sabe</field>
+                        <field name="code">QAN17_05_01_03</field>
                         <field name="question_id" ref="QAN17_05_01"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_01_04">
                         <field name="value">d) Não quis responder</field>
+                        <field name="code">QAN17_05_01_04</field>
                         <field name="question_id" ref="QAN17_05_01"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_01_05">
                         <field name="value">e) Não se aplica</field>
+                        <field name="code">QAN17_05_01_05</field>
                         <field name="question_id" ref="QAN17_05_01"/>
                         <field name="sequence" eval="50"/>
                     </record>
@@ -359,6 +399,7 @@
                 <!-- 5.2. Já foi diagnosticado com Anemia? -->
                 <record model="survey.question" id="QAN17_05_02">
                     <field name="question">5.2. Já foi diagnosticado com Anemia?</field>
+                    <field name="code">QAN17_05_02</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QAN17_05"/>
                     <field name="sequence" eval="20"/>
@@ -372,30 +413,35 @@
 
                     <record model="survey.label" id="QAN17_05_02_01">
                         <field name="value">a) Não</field>
+                        <field name="code">QAN17_05_02_01</field>
                         <field name="question_id" ref="QAN17_05_02"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_02_02">
                         <field name="value">b) Sim</field>
+                        <field name="code">QAN17_05_02_02</field>
                         <field name="question_id" ref="QAN17_05_02"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_02_03">
                         <field name="value">c) Não sabe</field>
+                        <field name="code">QAN17_05_02_03</field>
                         <field name="question_id" ref="QAN17_05_02"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_02_04">
                         <field name="value">d) Não quis responder</field>
+                        <field name="code">QAN17_05_02_04</field>
                         <field name="question_id" ref="QAN17_05_02"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_02_05">
                         <field name="value">e) Não se aplica</field>
+                        <field name="code">QAN17_05_02_05</field>
                         <field name="question_id" ref="QAN17_05_02"/>
                         <field name="sequence" eval="50"/>
                     </record>
@@ -403,6 +449,7 @@
                 <!-- 5.3. (Se já foi diagnosticado): Ainda tem Anemia? (Se não, a resposta é “e) Não se aplica”)? -->
                 <record model="survey.question" id="QAN17_05_03">
                     <field name="question">5.3. (Se já foi diagnosticado): Ainda tem Anemia? (Se não, a resposta é “e) Não se aplica”)?</field>
+                    <field name="code">QAN17_05_03</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QAN17_05"/>
                     <field name="sequence" eval="30"/>
@@ -416,30 +463,35 @@
 
                     <record model="survey.label" id="QAN17_05_03_01">
                         <field name="value">a) Não</field>
+                        <field name="code">QAN17_05_03_01</field>
                         <field name="question_id" ref="QAN17_05_03"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_03_02">
                         <field name="value">b) Sim</field>
+                        <field name="code">QAN17_05_03_02</field>
                         <field name="question_id" ref="QAN17_05_03"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_03_03">
                         <field name="value">c) Não sabe</field>
+                        <field name="code">QAN17_05_03_03</field>
                         <field name="question_id" ref="QAN17_05_03"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_03_04">
                         <field name="value">d) Não quis responder</field>
+                        <field name="code">QAN17_05_03_04</field>
                         <field name="question_id" ref="QAN17_05_03"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_03_05">
                         <field name="value">e) Não se aplica</field>
+                        <field name="code">QAN17_05_03_05</field>
                         <field name="question_id" ref="QAN17_05_03"/>
                         <field name="sequence" eval="50"/>
                     </record>
@@ -447,6 +499,7 @@
                 <!-- 5.4. Se sim, o que fez/faz para tratar? -->
                 <record model="survey.question" id="QAN17_05_04">
                     <field name="question">5.4. Se sim, o que fez/faz para tratar?</field>
+                    <field name="code">QAN17_05_04</field>
                     <field name="type">multiple_choice</field>
                     <field name="page_id" ref="QAN17_05"/>
                     <field name="sequence" eval="40"/>
@@ -459,48 +512,56 @@
 
                     <record model="survey.label" id="QAN17_05_04_01">
                         <field name="value">a) Medicamentos</field>
+                        <field name="code">QAN17_05_04_01</field>
                         <field name="question_id" ref="QAN17_05_04"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_04_02">
                         <field name="value">b) Alimentação adequada</field>
+                        <field name="code">QAN17_05_04_02</field>
                         <field name="question_id" ref="QAN17_05_04"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_04_03">
                         <field name="value">c) Vitaminas</field>
+                        <field name="code">QAN17_05_04_03</field>
                         <field name="question_id" ref="QAN17_05_04"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_04_04">
                         <field name="value">d) Outras medidas</field>
+                        <field name="code">QAN17_05_04_04</field>
                         <field name="question_id" ref="QAN17_05_04"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_04_05">
                         <field name="value">e) Nada</field>
+                        <field name="code">QAN17_05_04_05</field>
                         <field name="question_id" ref="QAN17_05_04"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_04_06">
                         <field name="value">f) Não sabe</field>
+                        <field name="code">QAN17_05_04_06</field>
                         <field name="question_id" ref="QAN17_05_04"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_04_07">
                         <field name="value">g) Não quis responder</field>
+                        <field name="code">QAN17_05_04_07</field>
                         <field name="question_id" ref="QAN17_05_04"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_04_08">
                         <field name="value">h) Não se aplica</field>
+                        <field name="code">QAN17_05_04_08</field>
                         <field name="question_id" ref="QAN17_05_04"/>
                         <field name="sequence" eval="80"/>
                     </record>
@@ -508,6 +569,7 @@
                 <!-- 5.5. Você sabe quais cuidados tomar para evitar a anemia? (Marcar apenas o que as pessoas falarem livremente, sem dar as opções uma a uma, para evitar indução) -->
                 <record model="survey.question" id="QAN17_05_05">
                     <field name="question">5.5. Você sabe quais cuidados tomar para evitar a anemia? (Marcar apenas o que as pessoas falarem livremente, sem dar as opções uma a uma, para evitar indução)</field>
+                    <field name="code">QAN17_05_05</field>
                     <field name="type">multiple_choice</field>
                     <field name="page_id" ref="QAN17_05"/>
                     <field name="sequence" eval="50"/>
@@ -520,54 +582,63 @@
 
                     <record model="survey.label" id="QAN17_05_05_01">
                         <field name="value">a) Consumo de feijão</field>
+                        <field name="code">QAN17_05_05_01</field>
                         <field name="question_id" ref="QAN17_05_05"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_05_02">
                         <field name="value">b) Consumo de verduras verde-escuras</field>
+                        <field name="code">QAN17_05_05_02</field>
                         <field name="question_id" ref="QAN17_05_05"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_05_03">
                         <field name="value">c) c) Consumo de suco de frutas cítricas durante a refeição</field>
+                        <field name="code">QAN17_05_05_03</field>
                         <field name="question_id" ref="QAN17_05_05"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_05_04">
                         <field name="value">d) Consumo de carne vermelha</field>
+                        <field name="code">QAN17_05_05_04</field>
                         <field name="question_id" ref="QAN17_05_05"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_05_05">
                         <field name="value">e) Outro (especificar) </field>
+                        <field name="code">QAN17_05_05_05</field>
                         <field name="question_id" ref="QAN17_05_05"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_05_06">
                         <field name="value">f) Não toma nenhum cuidado</field>
+                        <field name="code">QAN17_05_05_06</field>
                         <field name="question_id" ref="QAN17_05_05"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_05_07">
                         <field name="value">g) Não sabe</field>
+                        <field name="code">QAN17_05_05_07</field>
                         <field name="question_id" ref="QAN17_05_05"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_05_08">
                         <field name="value">h) Não quis responder</field>
+                        <field name="code">QAN17_05_05_08</field>
                         <field name="question_id" ref="QAN17_05_05"/>
                         <field name="sequence" eval="80"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_05_05_09">
                         <field name="value">i) Não se aplica</field>
+                        <field name="code">QAN17_05_05_09</field>
                         <field name="question_id" ref="QAN17_05_05"/>
                         <field name="sequence" eval="90"/>
                     </record>
@@ -575,6 +646,7 @@
             <!-- 6. Alimentação -->
             <record model="survey.page" id="QAN17_06">
                 <field name="title">6. Alimentação</field>
+                <field name="code">QAN17_06</field>
                 <field name="survey_id" ref="QAN17"/>
                 <field name="sequence" eval="60"/>
                 <field name="description">&lt;p&gt;&lt;/p&gt;</field>
@@ -583,6 +655,7 @@
                 <!-- 6.1. Alimentos que a criança consome (Alimentos ricos em Ferro, B12 e ácido fólico): -->
                 <record model="survey.question" id="QAN17_06_01">
                     <field name="question">6.1. Alimentos que a criança consome (Alimentos ricos em Ferro, B12 e ácido fólico):</field>
+                    <field name="code">QAN17_06_01</field>
                     <field name="type">matrix</field>
                     <field name="matrix_subtype">simple</field>
                     <field name="page_id" ref="QAN17_06"/>
@@ -593,78 +666,91 @@
 
                     <record model="survey.label" id="QAN17_06_01_01">
                         <field name="value">6.1.1. Feijão, Beterraba (leguminosas)</field>
+                        <field name="code">QAN17_06_01_01</field>
                         <field name="question_id_2" ref="QAN17_06_01"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_01_02">
                         <field name="value">6.1.2. Fígado de boi</field>
+                        <field name="code">QAN17_06_01_02</field>
                         <field name="question_id_2" ref="QAN17_06_01"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_01_03">
                         <field name="value">6.1.3. Carnes vermelhas</field>
+                        <field name="code">QAN17_06_01_03</field>
                         <field name="question_id_2" ref="QAN17_06_01"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_01_04">
                         <field name="value">6.1.4. Verduras e hortaliças verdes escuras (couve, brócolis, agrião, rúcula, escarola)</field>
+                        <field name="code">QAN17_06_01_04</field>
                         <field name="question_id_2" ref="QAN17_06_01"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_01_05">
                         <field name="value">6.1.5. Carne branca (peixe, frango)</field>
+                        <field name="code">QAN17_06_01_05</field>
                         <field name="question_id_2" ref="QAN17_06_01"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_01_06">
                         <field name="value">6.1.6. Miúdos (rim, coração)</field>
+                        <field name="code">QAN17_06_01_06</field>
                         <field name="question_id_2" ref="QAN17_06_01"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_01_07">
                         <field name="value">a) 0 dias ou raramente</field>
+                        <field name="code">QAN17_06_01_07</field>
                         <field name="question_id" ref="QAN17_06_01"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_01_08">
                         <field name="value">b) 1-2 dias</field>
+                        <field name="code">QAN17_06_01_08</field>
                         <field name="question_id" ref="QAN17_06_01"/>
                         <field name="sequence" eval="80"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_01_09">
                         <field name="value">c) 3-4 dias</field>
+                        <field name="code">QAN17_06_01_09</field>
                         <field name="question_id" ref="QAN17_06_01"/>
                         <field name="sequence" eval="90"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_01_10">
                         <field name="value">d) 5 ou mais dias</field>
+                        <field name="code">QAN17_06_01_10</field>
                         <field name="question_id" ref="QAN17_06_01"/>
                         <field name="sequence" eval="100"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_01_11">
                         <field name="value">e) Não sabe</field>
+                        <field name="code">QAN17_06_01_11</field>
                         <field name="question_id" ref="QAN17_06_01"/>
                         <field name="sequence" eval="110"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_01_12">
                         <field name="value">f) Não quis responder</field>
+                        <field name="code">QAN17_06_01_12</field>
                         <field name="question_id" ref="QAN17_06_01"/>
                         <field name="sequence" eval="120"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_01_13">
                         <field name="value">g) Não se aplica</field>
+                        <field name="code">QAN17_06_01_13</field>
                         <field name="question_id" ref="QAN17_06_01"/>
                         <field name="sequence" eval="130"/>
                     </record>
@@ -672,6 +758,7 @@
                 <!-- 6.2. Alimentos que a criança consome junto ou próximo da refeição (Alimentos que interferem na absorção de Ferro): -->
                 <record model="survey.question" id="QAN17_06_02">
                     <field name="question">6.2. Alimentos que a criança consome junto ou próximo da refeição (Alimentos que interferem na absorção de Ferro):</field>
+                    <field name="code">QAN17_06_02</field>
                     <field name="type">matrix</field>
                     <field name="matrix_subtype">simple</field>
                     <field name="page_id" ref="QAN17_06"/>
@@ -682,72 +769,84 @@
 
                     <record model="survey.label" id="QAN17_06_02_01">
                         <field name="value">6.2.1. Fruta ou suco de limão, laranja, acerola</field>
+                        <field name="code">QAN17_06_02_01</field>
                         <field name="question_id_2" ref="QAN17_06_02"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_02_02">
                         <field name="value">6.2.2. Leite e queijo (laticínios)</field>
+                        <field name="code">QAN17_06_02_02</field>
                         <field name="question_id_2" ref="QAN17_06_02"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_02_03">
                         <field name="value">6.2.3. Espinafre</field>
+                        <field name="code">QAN17_06_02_03</field>
                         <field name="question_id_2" ref="QAN17_06_02"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_02_04">
                         <field name="value">6.2.4. Café</field>
+                        <field name="code">QAN17_06_02_04</field>
                         <field name="question_id_2" ref="QAN17_06_02"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_02_05">
                         <field name="value">6.2.5. Refrigerante a base de cola</field>
+                        <field name="code">QAN17_06_02_05</field>
                         <field name="question_id_2" ref="QAN17_06_02"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_02_06">
                         <field name="value">a) 0 dias ou raramente</field>
+                        <field name="code">QAN17_06_02_06</field>
                         <field name="question_id" ref="QAN17_06_02"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_02_07">
                         <field name="value">b) 1-2 dias</field>
+                        <field name="code">QAN17_06_02_07</field>
                         <field name="question_id" ref="QAN17_06_02"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_02_08">
                         <field name="value">c) 3-4 dias</field>
+                        <field name="code">QAN17_06_02_08</field>
                         <field name="question_id" ref="QAN17_06_02"/>
                         <field name="sequence" eval="80"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_02_09">
                         <field name="value">d) 5 ou mais dias</field>
+                        <field name="code">QAN17_06_02_09</field>
                         <field name="question_id" ref="QAN17_06_02"/>
                         <field name="sequence" eval="90"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_02_10">
                         <field name="value">e) Não sabe</field>
+                        <field name="code">QAN17_06_02_10</field>
                         <field name="question_id" ref="QAN17_06_02"/>
                         <field name="sequence" eval="100"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_02_11">
                         <field name="value">f) Não quis responder</field>
+                        <field name="code">QAN17_06_02_11</field>
                         <field name="question_id" ref="QAN17_06_02"/>
                         <field name="sequence" eval="110"/>
                     </record>
 
                     <record model="survey.label" id="QAN17_06_02_12">
                         <field name="value">g) Não se aplica</field>
+                        <field name="code">QAN17_06_02_12</field>
                         <field name="question_id" ref="QAN17_06_02"/>
                         <field name="sequence" eval="120"/>
                     </record>
