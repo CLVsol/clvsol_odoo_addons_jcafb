@@ -18,6 +18,6 @@
 #
 ###############################################################################
 
+from . import mfile
 from . import mfile_reg_state
 from . import mfile_state
-from . import mfile

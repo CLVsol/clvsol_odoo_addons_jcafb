@@ -5,6 +5,7 @@
         <!-- [TCR17] -->
         <record model="survey.survey" id="TCR17">
             <field name="title">[TCR17]</field>
+            <field name="code">TCR17</field>
             <field name="stage_id" ref="survey.stage_in_progress"/>
             <field name="auth_required" eval="False"/>
             <field name="users_can_go_back" eval="True"/>
@@ -15,6 +16,7 @@
             <!-- 1. Identificação do Termo de Consentimento -->
             <record model="survey.page" id="TCR17_01">
                 <field name="title">1. Identificação do Termo de Consentimento</field>
+                <field name="code">TCR17_01</field>
                 <field name="survey_id" ref="TCR17"/>
                 <field name="sequence" eval="10"/>
                 <field name="description">&lt;p&gt;&lt;/p&gt;</field>
@@ -23,6 +25,7 @@
                 <!-- 1.1. Código do Termo de Consentimento: -->
                 <record model="survey.question" id="TCR17_01_01">
                     <field name="question">1.1. Código do Termo de Consentimento:</field>
+                    <field name="code">TCR17_01_01</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="TCR17_01"/>
                     <field name="sequence" eval="10"/>
@@ -33,6 +36,7 @@
                 <!-- 1.2. Data da Assinatura (dd-mm-yyyy): -->
                 <record model="survey.question" id="TCR17_01_02">
                     <field name="question">1.2. Data da Assinatura (dd-mm-yyyy):</field>
+                    <field name="code">TCR17_01_02</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="TCR17_01"/>
                     <field name="sequence" eval="20"/>
@@ -43,6 +47,7 @@
                 <!-- 1.3. Código do Professor Responsável: -->
                 <record model="survey.question" id="TCR17_01_03">
                     <field name="question">1.3. Código do Professor Responsável:</field>
+                    <field name="code">TCR17_01_03</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="TCR17_01"/>
                     <field name="sequence" eval="30"/>
@@ -53,6 +58,7 @@
                 <!-- 1.4. Códigos do(s) Entrevistador(es) (separados por ","): -->
                 <record model="survey.question" id="TCR17_01_04">
                     <field name="question">1.4. Códigos do(s) Entrevistador(es) (separados por ","):</field>
+                    <field name="code">TCR17_01_04</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="TCR17_01"/>
                     <field name="sequence" eval="40"/>
@@ -63,6 +69,7 @@
             <!-- 2. Identificação do Indivíduo -->
             <record model="survey.page" id="TCR17_02">
                 <field name="title">2. Identificação do Indivíduo</field>
+                <field name="code">TCR17_02</field>
                 <field name="survey_id" ref="TCR17"/>
                 <field name="sequence" eval="20"/>
                 <field name="description">&lt;p&gt;&lt;/p&gt;</field>
@@ -71,6 +78,7 @@
                 <!-- 2.1. Nome do Indivíduo: -->
                 <record model="survey.question" id="TCR17_02_01">
                     <field name="question">2.1. Nome do Indivíduo:</field>
+                    <field name="code">TCR17_02_01</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="TCR17_02"/>
                     <field name="sequence" eval="10"/>
@@ -81,6 +89,7 @@
                 <!-- 2.2. Código do Indivíduo: -->
                 <record model="survey.question" id="TCR17_02_02">
                     <field name="question">2.2. Código do Indivíduo:</field>
+                    <field name="code">TCR17_02_02</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="TCR17_02"/>
                     <field name="sequence" eval="20"/>
@@ -91,6 +100,7 @@
                 <!-- 2.3. Nome do Responsável Legal -->
                 <record model="survey.question" id="TCR17_02_03">
                     <field name="question">2.3. Nome do Responsável Legal</field>
+                    <field name="code">TCR17_02_03</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="TCR17_02"/>
                     <field name="sequence" eval="30"/>
@@ -101,6 +111,7 @@
                 <!-- 2.4. Código do Responsável Legal -->
                 <record model="survey.question" id="TCR17_02_04">
                     <field name="question">2.4. Código do Responsável Legal</field>
+                    <field name="code">TCR17_02_04</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="TCR17_02"/>
                     <field name="sequence" eval="40"/>
@@ -111,6 +122,7 @@
                 <!-- 2.5. Quem assinou o Termo de Consentimento? -->
                 <record model="survey.question" id="TCR17_02_05">
                     <field name="question">2.5. Quem assinou o Termo de Consentimento?</field>
+                    <field name="code">TCR17_02_05</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="TCR17_02"/>
                     <field name="sequence" eval="50"/>
@@ -124,12 +136,14 @@
 
                     <record model="survey.label" id="TCR17_02_05_01">
                         <field name="value">a) Indivíduo</field>
+                        <field name="code">TCR17_02_05_01</field>
                         <field name="question_id" ref="TCR17_02_05"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="TCR17_02_05_02">
                         <field name="value">b) Responsável Legal</field>
+                        <field name="code">TCR17_02_05_02</field>
                         <field name="question_id" ref="TCR17_02_05"/>
                         <field name="sequence" eval="20"/>
                     </record>
@@ -137,6 +151,7 @@
             <!-- 3. Consentimentos -->
             <record model="survey.page" id="TCR17_03">
                 <field name="title">3. Consentimentos</field>
+                <field name="code">TCR17_03</field>
                 <field name="survey_id" ref="TCR17"/>
                 <field name="sequence" eval="30"/>
                 <field name="description">&lt;p&gt;&lt;/p&gt;</field>
@@ -145,6 +160,7 @@
                 <!-- 3.1. 1) Questionário Socioeconômico -->
                 <record model="survey.question" id="TCR17_03_01">
                     <field name="question">3.1. 1) Questionário Socioeconômico</field>
+                    <field name="code">TCR17_03_01</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="TCR17_03"/>
                     <field name="sequence" eval="10"/>
@@ -158,12 +174,14 @@
 
                     <record model="survey.label" id="TCR17_03_01_01">
                         <field name="value">Concordo em participar</field>
+                        <field name="code">TCR17_03_01_01</field>
                         <field name="question_id" ref="TCR17_03_01"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="TCR17_03_01_02">
                         <field name="value">Não concordo em participar</field>
+                        <field name="code">TCR17_03_01_02</field>
                         <field name="question_id" ref="TCR17_03_01"/>
                         <field name="sequence" eval="20"/>
                     </record>
@@ -171,6 +189,7 @@
                 <!-- 3.2. 2) Exame coproparasitológico de fezes -->
                 <record model="survey.question" id="TCR17_03_02">
                     <field name="question">3.2. 2) Exame coproparasitológico de fezes</field>
+                    <field name="code">TCR17_03_02</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="TCR17_03"/>
                     <field name="sequence" eval="20"/>
@@ -184,12 +203,14 @@
 
                     <record model="survey.label" id="TCR17_03_02_01">
                         <field name="value">Concordo em participar</field>
+                        <field name="code">TCR17_03_02_01</field>
                         <field name="question_id" ref="TCR17_03_02"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="TCR17_03_02_02">
                         <field name="value">Não concordo em participar</field>
+                        <field name="code">TCR17_03_02_02</field>
                         <field name="question_id" ref="TCR17_03_02"/>
                         <field name="sequence" eval="20"/>
                     </record>
@@ -197,6 +218,7 @@
                 <!-- 3.3. 3) Swab Anal -->
                 <record model="survey.question" id="TCR17_03_03">
                     <field name="question">3.3. 3) Swab Anal</field>
+                    <field name="code">TCR17_03_03</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="TCR17_03"/>
                     <field name="sequence" eval="30"/>
@@ -210,12 +232,14 @@
 
                     <record model="survey.label" id="TCR17_03_03_01">
                         <field name="value">Concordo em participar</field>
+                        <field name="code">TCR17_03_03_01</field>
                         <field name="question_id" ref="TCR17_03_03"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="TCR17_03_03_02">
                         <field name="value">Não concordo em participar</field>
+                        <field name="code">TCR17_03_03_02</field>
                         <field name="question_id" ref="TCR17_03_03"/>
                         <field name="sequence" eval="20"/>
                     </record>
@@ -223,6 +247,7 @@
                 <!-- 3.4. 4) Exame de Anemia -->
                 <record model="survey.question" id="TCR17_03_04">
                     <field name="question">3.4. 4) Exame de Anemia</field>
+                    <field name="code">TCR17_03_04</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="TCR17_03"/>
                     <field name="sequence" eval="40"/>
@@ -236,12 +261,14 @@
 
                     <record model="survey.label" id="TCR17_03_04_01">
                         <field name="value">Concordo em participar</field>
+                        <field name="code">TCR17_03_04_01</field>
                         <field name="question_id" ref="TCR17_03_04"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="TCR17_03_04_02">
                         <field name="value">Não concordo em participar</field>
+                        <field name="code">TCR17_03_04_02</field>
                         <field name="question_id" ref="TCR17_03_04"/>
                         <field name="sequence" eval="20"/>
                     </record>

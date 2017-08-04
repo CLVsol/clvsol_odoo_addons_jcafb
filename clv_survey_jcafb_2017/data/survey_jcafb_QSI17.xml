@@ -5,6 +5,7 @@
         <!-- [QSI17] -->
         <record model="survey.survey" id="QSI17">
             <field name="title">[QSI17]</field>
+            <field name="code">QSI17</field>
             <field name="stage_id" ref="survey.stage_in_progress"/>
             <field name="auth_required" eval="False"/>
             <field name="users_can_go_back" eval="True"/>
@@ -15,6 +16,7 @@
             <!-- 1. Identificação do Questionário -->
             <record model="survey.page" id="QSI17_01">
                 <field name="title">1. Identificação do Questionário</field>
+                <field name="code">QSI17_01</field>
                 <field name="survey_id" ref="QSI17"/>
                 <field name="sequence" eval="10"/>
                 <field name="description">&lt;p&gt;As questões desta sessão não serão submetidas ao Paciente/Entrevistado e devem ser preenchidas pelo(s) entrevistador(es) a partir de informações cadastrais relacionadas a este questionário.&lt;/p&gt;</field>
@@ -23,6 +25,7 @@
                 <!-- 1.1. Código do Questionário: -->
                 <record model="survey.question" id="QSI17_01_01">
                     <field name="question">1.1. Código do Questionário:</field>
+                    <field name="code">QSI17_01_01</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QSI17_01"/>
                     <field name="sequence" eval="10"/>
@@ -33,6 +36,7 @@
                 <!-- 1.2. Data da Entrevista (dd-mm-aaaa): -->
                 <record model="survey.question" id="QSI17_01_02">
                     <field name="question">1.2. Data da Entrevista (dd-mm-aaaa):</field>
+                    <field name="code">QSI17_01_02</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QSI17_01"/>
                     <field name="sequence" eval="20"/>
@@ -43,6 +47,7 @@
                 <!-- 1.3. Códigos do(s) Entrevistador(es) (separados por ","): -->
                 <record model="survey.question" id="QSI17_01_03">
                     <field name="question">1.3. Códigos do(s) Entrevistador(es) (separados por ","):</field>
+                    <field name="code">QSI17_01_03</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QSI17_01"/>
                     <field name="sequence" eval="30"/>
@@ -53,6 +58,7 @@
             <!-- 2. Identificação do Paciente/Entrevistado -->
             <record model="survey.page" id="QSI17_02">
                 <field name="title">2. Identificação do Paciente/Entrevistado</field>
+                <field name="code">QSI17_02</field>
                 <field name="survey_id" ref="QSI17"/>
                 <field name="sequence" eval="20"/>
                 <field name="description">&lt;p&gt;As questões desta sessão não serão submetidas ao Paciente/Entrevistado e devem ser preenchidas pelo(s) entrevistador(es) a partir de informações cadastrais relacionadas a este questionário e/ou ao Termo de Consentimento associado a este questionário.&lt;/p&gt;</field>
@@ -61,6 +67,7 @@
                 <!-- 2.1. Nome do Paciente: -->
                 <record model="survey.question" id="QSI17_02_01">
                     <field name="question">2.1. Nome do Paciente:</field>
+                    <field name="code">QSI17_02_01</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QSI17_02"/>
                     <field name="sequence" eval="10"/>
@@ -71,6 +78,7 @@
                 <!-- 2.2. Código do Paciente: -->
                 <record model="survey.question" id="QSI17_02_02">
                     <field name="question">2.2. Código do Paciente:</field>
+                    <field name="code">QSI17_02_02</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QSI17_02"/>
                     <field name="sequence" eval="20"/>
@@ -81,6 +89,7 @@
                 <!-- 2.3. Idade do Paciente em 31/01/2017: -->
                 <record model="survey.question" id="QSI17_02_03">
                     <field name="question">2.3. Idade do Paciente em 31/01/2017:</field>
+                    <field name="code">QSI17_02_03</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QSI17_02"/>
                     <field name="sequence" eval="30"/>
@@ -91,6 +100,7 @@
                 <!-- 2.4. Nome do Endereço: -->
                 <record model="survey.question" id="QSI17_02_04">
                     <field name="question">2.4. Nome do Endereço:</field>
+                    <field name="code">QSI17_02_04</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QSI17_02"/>
                     <field name="sequence" eval="40"/>
@@ -101,6 +111,7 @@
                 <!-- 2.5. Código do Endereço: -->
                 <record model="survey.question" id="QSI17_02_05">
                     <field name="question">2.5. Código do Endereço:</field>
+                    <field name="code">QSI17_02_05</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QSI17_02"/>
                     <field name="sequence" eval="50"/>
@@ -111,6 +122,7 @@
                 <!-- 2.6. Relação do Entrevistado com o Paciente: -->
                 <record model="survey.question" id="QSI17_02_06">
                     <field name="question">2.6. Relação do Entrevistado com o Paciente:</field>
+                    <field name="code">QSI17_02_06</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_02"/>
                     <field name="sequence" eval="60"/>
@@ -124,18 +136,21 @@
 
                     <record model="survey.label" id="QSI17_02_06_01">
                         <field name="value">a) Paciente</field>
+                        <field name="code">QSI17_02_06_01</field>
                         <field name="question_id" ref="QSI17_02_06"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_02_06_02">
                         <field name="value">b) Cuidador</field>
+                        <field name="code">QSI17_02_06_02</field>
                         <field name="question_id" ref="QSI17_02_06"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_02_06_03">
                         <field name="value">c) Outra</field>
+                        <field name="code">QSI17_02_06_03</field>
                         <field name="question_id" ref="QSI17_02_06"/>
                         <field name="sequence" eval="30"/>
                     </record>
@@ -143,6 +158,7 @@
                 <!-- 2.7. Nome do Entrevistado: -->
                 <record model="survey.question" id="QSI17_02_07">
                     <field name="question">2.7. Nome do Entrevistado:</field>
+                    <field name="code">QSI17_02_07</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QSI17_02"/>
                     <field name="sequence" eval="70"/>
@@ -153,6 +169,7 @@
                 <!-- 2.8. Código do Entrevistado: -->
                 <record model="survey.question" id="QSI17_02_08">
                     <field name="question">2.8. Código do Entrevistado:</field>
+                    <field name="code">QSI17_02_08</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QSI17_02"/>
                     <field name="sequence" eval="80"/>
@@ -163,6 +180,7 @@
             <!-- 3. Aspectos Sociais -->
             <record model="survey.page" id="QSI17_03">
                 <field name="title">3. Aspectos Sociais</field>
+                <field name="code">QSI17_03</field>
                 <field name="survey_id" ref="QSI17"/>
                 <field name="sequence" eval="30"/>
                 <field name="description">&lt;p&gt;&lt;/p&gt;</field>
@@ -171,6 +189,7 @@
                 <!-- 3.1. Qual a relação de parentesco do cuidador com o(a) Sr.(a)? -->
                 <record model="survey.question" id="QSI17_03_01">
                     <field name="question">3.1. Qual a relação de parentesco do cuidador com o(a) Sr.(a)?</field>
+                    <field name="code">QSI17_03_01</field>
                     <field name="type">multiple_choice</field>
                     <field name="page_id" ref="QSI17_03"/>
                     <field name="sequence" eval="10"/>
@@ -183,60 +202,70 @@
 
                     <record model="survey.label" id="QSI17_03_01_01">
                         <field name="value">a) Não possui Cuidador</field>
+                        <field name="code">QSI17_03_01_01</field>
                         <field name="question_id" ref="QSI17_03_01"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_01_02">
                         <field name="value">b) Filho</field>
+                        <field name="code">QSI17_03_01_02</field>
                         <field name="question_id" ref="QSI17_03_01"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_01_03">
                         <field name="value">c) Cônjuge</field>
+                        <field name="code">QSI17_03_01_03</field>
                         <field name="question_id" ref="QSI17_03_01"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_01_04">
                         <field name="value">d) Neto(a)</field>
+                        <field name="code">QSI17_03_01_04</field>
                         <field name="question_id" ref="QSI17_03_01"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_01_05">
                         <field name="value">e) Irmão(ã)</field>
+                        <field name="code">QSI17_03_01_05</field>
                         <field name="question_id" ref="QSI17_03_01"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_01_06">
                         <field name="value">f) Outro familiar</field>
+                        <field name="code">QSI17_03_01_06</field>
                         <field name="question_id" ref="QSI17_03_01"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_01_07">
                         <field name="value">g) Não familiar (sem laços consanguíneos)</field>
+                        <field name="code">QSI17_03_01_07</field>
                         <field name="question_id" ref="QSI17_03_01"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_01_08">
                         <field name="value">h) Não sabe</field>
+                        <field name="code">QSI17_03_01_08</field>
                         <field name="question_id" ref="QSI17_03_01"/>
                         <field name="sequence" eval="80"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_01_09">
                         <field name="value">i) Não quis responder</field>
+                        <field name="code">QSI17_03_01_09</field>
                         <field name="question_id" ref="QSI17_03_01"/>
                         <field name="sequence" eval="90"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_01_10">
                         <field name="value">j) Não se aplica</field>
+                        <field name="code">QSI17_03_01_10</field>
                         <field name="question_id" ref="QSI17_03_01"/>
                         <field name="sequence" eval="100"/>
                     </record>
@@ -244,6 +273,7 @@
                 <!-- 3.2.  Escolaridade do cuidador ("Qual a última série (e de que grau) da escola que o Sr.(a) obteve aprovação?") -->
                 <record model="survey.question" id="QSI17_03_02">
                     <field name="question">3.2.  Escolaridade do cuidador ("Qual a última série (e de que grau) da escola que o Sr.(a) obteve aprovação?")</field>
+                    <field name="code">QSI17_03_02</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_03"/>
                     <field name="sequence" eval="20"/>
@@ -257,84 +287,98 @@
 
                     <record model="survey.label" id="QSI17_03_02_01">
                         <field name="value">a) É analfabeto </field>
+                        <field name="code">QSI17_03_02_01</field>
                         <field name="question_id" ref="QSI17_03_02"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_02_02">
                         <field name="value">b) Não é analfabeto, mas não frequentou a escola</field>
+                        <field name="code">QSI17_03_02_02</field>
                         <field name="question_id" ref="QSI17_03_02"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_02_03">
                         <field name="value">c) Ensino Fundamental incompleto = 1º grau incompleto = antigo Primário      </field>
+                        <field name="code">QSI17_03_02_03</field>
                         <field name="question_id" ref="QSI17_03_02"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_02_04">
                         <field name="value">d) Ensino Fundamental completo = 1º grau </field>
+                        <field name="code">QSI17_03_02_04</field>
                         <field name="question_id" ref="QSI17_03_02"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_02_05">
                         <field name="value">e) Ensino Médio incompleto = ant. Clássico/Científico/Normal (Magistério) incompleto</field>
+                        <field name="code">QSI17_03_02_05</field>
                         <field name="question_id" ref="QSI17_03_02"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_02_06">
                         <field name="value">f) Ensino Médio Completo = antigo Clássico/Científico/Normal (Magistério) completo</field>
+                        <field name="code">QSI17_03_02_06</field>
                         <field name="question_id" ref="QSI17_03_02"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_02_07">
                         <field name="value">g) Ensino Médio – Técnico (técnico em contabilidade, laboratório, etc)            </field>
+                        <field name="code">QSI17_03_02_07</field>
                         <field name="question_id" ref="QSI17_03_02"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_02_08">
                         <field name="value">h) Ensino Superior incompleto     </field>
+                        <field name="code">QSI17_03_02_08</field>
                         <field name="question_id" ref="QSI17_03_02"/>
                         <field name="sequence" eval="80"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_02_09">
                         <field name="value">i) Ensino Superior completo</field>
+                        <field name="code">QSI17_03_02_09</field>
                         <field name="question_id" ref="QSI17_03_02"/>
                         <field name="sequence" eval="90"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_02_10">
                         <field name="value">j) Especialização </field>
+                        <field name="code">QSI17_03_02_10</field>
                         <field name="question_id" ref="QSI17_03_02"/>
                         <field name="sequence" eval="100"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_02_11">
                         <field name="value">k) Pós-graduação (Mestrado/Doutorado) </field>
+                        <field name="code">QSI17_03_02_11</field>
                         <field name="question_id" ref="QSI17_03_02"/>
                         <field name="sequence" eval="110"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_02_12">
                         <field name="value">l) Não sabe</field>
+                        <field name="code">QSI17_03_02_12</field>
                         <field name="question_id" ref="QSI17_03_02"/>
                         <field name="sequence" eval="120"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_02_13">
                         <field name="value">m) Não quis responder</field>
+                        <field name="code">QSI17_03_02_13</field>
                         <field name="question_id" ref="QSI17_03_02"/>
                         <field name="sequence" eval="130"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_02_14">
                         <field name="value">n) Não se aplica</field>
+                        <field name="code">QSI17_03_02_14</field>
                         <field name="question_id" ref="QSI17_03_02"/>
                         <field name="sequence" eval="140"/>
                     </record>
@@ -342,6 +386,7 @@
                 <!-- 3.3. O(A) Sr.(a) é: -->
                 <record model="survey.question" id="QSI17_03_03">
                     <field name="question">3.3. O(A) Sr.(a) é:</field>
+                    <field name="code">QSI17_03_03</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_03"/>
                     <field name="sequence" eval="30"/>
@@ -355,48 +400,56 @@
 
                     <record model="survey.label" id="QSI17_03_03_01">
                         <field name="value">a) Solteiro(a)</field>
+                        <field name="code">QSI17_03_03_01</field>
                         <field name="question_id" ref="QSI17_03_03"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_03_02">
                         <field name="value">b) Casado(a) ou unido(a)</field>
+                        <field name="code">QSI17_03_03_02</field>
                         <field name="question_id" ref="QSI17_03_03"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_03_03">
                         <field name="value">c) Viúvo(a)</field>
+                        <field name="code">QSI17_03_03_03</field>
                         <field name="question_id" ref="QSI17_03_03"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_03_04">
                         <field name="value">d) Separado(a)</field>
+                        <field name="code">QSI17_03_03_04</field>
                         <field name="question_id" ref="QSI17_03_03"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_03_05">
                         <field name="value">e) Divorciado(a)</field>
+                        <field name="code">QSI17_03_03_05</field>
                         <field name="question_id" ref="QSI17_03_03"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_03_06">
                         <field name="value">f) Não sabe</field>
+                        <field name="code">QSI17_03_03_06</field>
                         <field name="question_id" ref="QSI17_03_03"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_03_07">
                         <field name="value">g) Não quis responder</field>
+                        <field name="code">QSI17_03_03_07</field>
                         <field name="question_id" ref="QSI17_03_03"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_03_08">
                         <field name="value">h) Não se aplica</field>
+                        <field name="code">QSI17_03_03_08</field>
                         <field name="question_id" ref="QSI17_03_03"/>
                         <field name="sequence" eval="80"/>
                     </record>
@@ -404,6 +457,7 @@
                 <!-- 3.4. Quem mora com o Sr(a) na sua casa? (além do idoso) -->
                 <record model="survey.question" id="QSI17_03_04">
                     <field name="question">3.4. Quem mora com o Sr(a) na sua casa? (além do idoso)</field>
+                    <field name="code">QSI17_03_04</field>
                     <field name="type">multiple_choice</field>
                     <field name="page_id" ref="QSI17_03"/>
                     <field name="sequence" eval="40"/>
@@ -416,48 +470,56 @@
 
                     <record model="survey.label" id="QSI17_03_04_01">
                         <field name="value">a) Ninguém. Mora sozinho.</field>
+                        <field name="code">QSI17_03_04_01</field>
                         <field name="question_id" ref="QSI17_03_04"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_04_02">
                         <field name="value">b) Familiar - esposa </field>
+                        <field name="code">QSI17_03_04_02</field>
                         <field name="question_id" ref="QSI17_03_04"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_04_03">
                         <field name="value">c) Familiar(es) – Outro(s)</field>
+                        <field name="code">QSI17_03_04_03</field>
                         <field name="question_id" ref="QSI17_03_04"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_04_04">
                         <field name="value">d) Amigo(s)</field>
+                        <field name="code">QSI17_03_04_04</field>
                         <field name="question_id" ref="QSI17_03_04"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_04_05">
                         <field name="value">e) Outra resposta</field>
+                        <field name="code">QSI17_03_04_05</field>
                         <field name="question_id" ref="QSI17_03_04"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_04_06">
                         <field name="value">f) Não sabe</field>
+                        <field name="code">QSI17_03_04_06</field>
                         <field name="question_id" ref="QSI17_03_04"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_04_07">
                         <field name="value">g) Não quis responder</field>
+                        <field name="code">QSI17_03_04_07</field>
                         <field name="question_id" ref="QSI17_03_04"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_04_08">
                         <field name="value">h) Não se aplica</field>
+                        <field name="code">QSI17_03_04_08</field>
                         <field name="question_id" ref="QSI17_03_04"/>
                         <field name="sequence" eval="80"/>
                     </record>
@@ -465,6 +527,7 @@
                 <!-- 3.5. O Sr(a) tem filhos? -->
                 <record model="survey.question" id="QSI17_03_05">
                     <field name="question">3.5. O Sr(a) tem filhos?</field>
+                    <field name="code">QSI17_03_05</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_03"/>
                     <field name="sequence" eval="50"/>
@@ -478,30 +541,35 @@
 
                     <record model="survey.label" id="QSI17_03_05_01">
                         <field name="value">a) Não</field>
+                        <field name="code">QSI17_03_05_01</field>
                         <field name="question_id" ref="QSI17_03_05"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_05_02">
                         <field name="value">b) Sim</field>
+                        <field name="code">QSI17_03_05_02</field>
                         <field name="question_id" ref="QSI17_03_05"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_05_03">
                         <field name="value">c) Não sabe</field>
+                        <field name="code">QSI17_03_05_03</field>
                         <field name="question_id" ref="QSI17_03_05"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_05_04">
                         <field name="value">d) Não quis responder</field>
+                        <field name="code">QSI17_03_05_04</field>
                         <field name="question_id" ref="QSI17_03_05"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_05_05">
                         <field name="value">e) Não se aplica</field>
+                        <field name="code">QSI17_03_05_05</field>
                         <field name="question_id" ref="QSI17_03_05"/>
                         <field name="sequence" eval="50"/>
                     </record>
@@ -509,6 +577,7 @@
                 <!-- 3.6. Escolaridade do paciente ("Qual a última série (e de que grau) da escola que o Sr.(a) obteve aprovação?") -->
                 <record model="survey.question" id="QSI17_03_06">
                     <field name="question">3.6. Escolaridade do paciente ("Qual a última série (e de que grau) da escola que o Sr.(a) obteve aprovação?")</field>
+                    <field name="code">QSI17_03_06</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_03"/>
                     <field name="sequence" eval="60"/>
@@ -522,84 +591,98 @@
 
                     <record model="survey.label" id="QSI17_03_06_01">
                         <field name="value">a) É analfabeto</field>
+                        <field name="code">QSI17_03_06_01</field>
                         <field name="question_id" ref="QSI17_03_06"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_06_02">
                         <field name="value">b) Não é analfabeto, mas não frequentou a escola</field>
+                        <field name="code">QSI17_03_06_02</field>
                         <field name="question_id" ref="QSI17_03_06"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_06_03">
                         <field name="value">c) Ensino Fundamental incompleto = 1º grau incompleto = antigo Primário</field>
+                        <field name="code">QSI17_03_06_03</field>
                         <field name="question_id" ref="QSI17_03_06"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_06_04">
                         <field name="value">d) Ensino Fundamental completo = 1º grau completo = antigos Primário + Ginásio</field>
+                        <field name="code">QSI17_03_06_04</field>
                         <field name="question_id" ref="QSI17_03_06"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_06_05">
                         <field name="value">e) Ensino Médio incompleto = ant. Clássico/Científico/Normal (Magistério) incompleto</field>
+                        <field name="code">QSI17_03_06_05</field>
                         <field name="question_id" ref="QSI17_03_06"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_06_06">
                         <field name="value">f) Ensino Médio Completo = antigo Clássico/Científico/Normal (Magistério) completo</field>
+                        <field name="code">QSI17_03_06_06</field>
                         <field name="question_id" ref="QSI17_03_06"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_06_07">
                         <field name="value">g) Ensino Médio – Técnico (técnico em contabilidade, laboratório, etc)</field>
+                        <field name="code">QSI17_03_06_07</field>
                         <field name="question_id" ref="QSI17_03_06"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_06_08">
                         <field name="value">h) Ensino Superior incompleto</field>
+                        <field name="code">QSI17_03_06_08</field>
                         <field name="question_id" ref="QSI17_03_06"/>
                         <field name="sequence" eval="80"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_06_09">
                         <field name="value">i) Ensino Superior completo</field>
+                        <field name="code">QSI17_03_06_09</field>
                         <field name="question_id" ref="QSI17_03_06"/>
                         <field name="sequence" eval="90"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_06_10">
                         <field name="value">j) Especialização</field>
+                        <field name="code">QSI17_03_06_10</field>
                         <field name="question_id" ref="QSI17_03_06"/>
                         <field name="sequence" eval="100"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_06_11">
                         <field name="value">k) Pós-graduação (Mestrado/Doutorado)</field>
+                        <field name="code">QSI17_03_06_11</field>
                         <field name="question_id" ref="QSI17_03_06"/>
                         <field name="sequence" eval="110"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_06_12">
                         <field name="value">l) Não sabe</field>
+                        <field name="code">QSI17_03_06_12</field>
                         <field name="question_id" ref="QSI17_03_06"/>
                         <field name="sequence" eval="120"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_06_13">
                         <field name="value">m) Não quis responder</field>
+                        <field name="code">QSI17_03_06_13</field>
                         <field name="question_id" ref="QSI17_03_06"/>
                         <field name="sequence" eval="130"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_06_14">
                         <field name="value">n) Não se aplica</field>
+                        <field name="code">QSI17_03_06_14</field>
                         <field name="question_id" ref="QSI17_03_06"/>
                         <field name="sequence" eval="140"/>
                     </record>
@@ -607,6 +690,7 @@
                 <!-- 3.7. O(A) Sr.(a) sabe ler e escrever um recado? -->
                 <record model="survey.question" id="QSI17_03_07">
                     <field name="question">3.7. O(A) Sr.(a) sabe ler e escrever um recado?</field>
+                    <field name="code">QSI17_03_07</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_03"/>
                     <field name="sequence" eval="70"/>
@@ -620,30 +704,35 @@
 
                     <record model="survey.label" id="QSI17_03_07_01">
                         <field name="value">a) Não</field>
+                        <field name="code">QSI17_03_07_01</field>
                         <field name="question_id" ref="QSI17_03_07"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_07_02">
                         <field name="value">b) Sim</field>
+                        <field name="code">QSI17_03_07_02</field>
                         <field name="question_id" ref="QSI17_03_07"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_07_03">
                         <field name="value">c) Não sabe</field>
+                        <field name="code">QSI17_03_07_03</field>
                         <field name="question_id" ref="QSI17_03_07"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_07_04">
                         <field name="value">d) Não quis responder</field>
+                        <field name="code">QSI17_03_07_04</field>
                         <field name="question_id" ref="QSI17_03_07"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_07_05">
                         <field name="value">e) Não se aplica</field>
+                        <field name="code">QSI17_03_07_05</field>
                         <field name="question_id" ref="QSI17_03_07"/>
                         <field name="sequence" eval="50"/>
                     </record>
@@ -651,6 +740,7 @@
                 <!-- 3.8. Qual destas opções o(a) descreve melhor: -->
                 <record model="survey.question" id="QSI17_03_08">
                     <field name="question">3.8. Qual destas opções o(a) descreve melhor:</field>
+                    <field name="code">QSI17_03_08</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_03"/>
                     <field name="sequence" eval="80"/>
@@ -664,54 +754,63 @@
 
                     <record model="survey.label" id="QSI17_03_08_01">
                         <field name="value">a) Branco(a)</field>
+                        <field name="code">QSI17_03_08_01</field>
                         <field name="question_id" ref="QSI17_03_08"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_08_02">
                         <field name="value">b) Negro(a)</field>
+                        <field name="code">QSI17_03_08_02</field>
                         <field name="question_id" ref="QSI17_03_08"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_08_03">
                         <field name="value">c) Pardo(a)</field>
+                        <field name="code">QSI17_03_08_03</field>
                         <field name="question_id" ref="QSI17_03_08"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_08_04">
                         <field name="value">d) Amarelo(a)</field>
+                        <field name="code">QSI17_03_08_04</field>
                         <field name="question_id" ref="QSI17_03_08"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_08_05">
                         <field name="value">e) Indígena</field>
+                        <field name="code">QSI17_03_08_05</field>
                         <field name="question_id" ref="QSI17_03_08"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_08_06">
                         <field name="value">f) Outro(a)</field>
+                        <field name="code">QSI17_03_08_06</field>
                         <field name="question_id" ref="QSI17_03_08"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_08_07">
                         <field name="value">g) Não sabe</field>
+                        <field name="code">QSI17_03_08_07</field>
                         <field name="question_id" ref="QSI17_03_08"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_08_08">
                         <field name="value">h) Não quis responder</field>
+                        <field name="code">QSI17_03_08_08</field>
                         <field name="question_id" ref="QSI17_03_08"/>
                         <field name="sequence" eval="80"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_03_08_09">
                         <field name="value">i) Não se aplica</field>
+                        <field name="code">QSI17_03_08_09</field>
                         <field name="question_id" ref="QSI17_03_08"/>
                         <field name="sequence" eval="90"/>
                     </record>
@@ -719,6 +818,7 @@
             <!-- 4. Hábitos -->
             <record model="survey.page" id="QSI17_04">
                 <field name="title">4. Hábitos</field>
+                <field name="code">QSI17_04</field>
                 <field name="survey_id" ref="QSI17"/>
                 <field name="sequence" eval="40"/>
                 <field name="description">&lt;p&gt;&lt;/p&gt;</field>
@@ -727,6 +827,7 @@
                 <!-- 4.1. O que costuma fazer no tempo livre? -->
                 <record model="survey.question" id="QSI17_04_01">
                     <field name="question">4.1. O que costuma fazer no tempo livre?</field>
+                    <field name="code">QSI17_04_01</field>
                     <field name="type">multiple_choice</field>
                     <field name="page_id" ref="QSI17_04"/>
                     <field name="sequence" eval="10"/>
@@ -739,66 +840,77 @@
 
                     <record model="survey.label" id="QSI17_04_01_01">
                         <field name="value">a) Caminha pela cidade</field>
+                        <field name="code">QSI17_04_01_01</field>
                         <field name="question_id" ref="QSI17_04_01"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_01_02">
                         <field name="value">b) Pratica exercícios físicos</field>
+                        <field name="code">QSI17_04_01_02</field>
                         <field name="question_id" ref="QSI17_04_01"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_01_03">
                         <field name="value">c) Faz trabalhos manuais</field>
+                        <field name="code">QSI17_04_01_03</field>
                         <field name="question_id" ref="QSI17_04_01"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_01_04">
                         <field name="value">d) Sai para conversar com as pessoas</field>
+                        <field name="code">QSI17_04_01_04</field>
                         <field name="question_id" ref="QSI17_04_01"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_01_05">
                         <field name="value">e) Fica dentro de casa descansando</field>
+                        <field name="code">QSI17_04_01_05</field>
                         <field name="question_id" ref="QSI17_04_01"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_01_06">
                         <field name="value">f) Frequenta grupos de atividades</field>
+                        <field name="code">QSI17_04_01_06</field>
                         <field name="question_id" ref="QSI17_04_01"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_01_07">
                         <field name="value">g) Cuida da casa</field>
+                        <field name="code">QSI17_04_01_07</field>
                         <field name="question_id" ref="QSI17_04_01"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_01_08">
                         <field name="value">h) Outra atividade</field>
+                        <field name="code">QSI17_04_01_08</field>
                         <field name="question_id" ref="QSI17_04_01"/>
                         <field name="sequence" eval="80"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_01_09">
                         <field name="value">i) Não sabe</field>
+                        <field name="code">QSI17_04_01_09</field>
                         <field name="question_id" ref="QSI17_04_01"/>
                         <field name="sequence" eval="90"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_01_10">
                         <field name="value">j) Não quis responder</field>
+                        <field name="code">QSI17_04_01_10</field>
                         <field name="question_id" ref="QSI17_04_01"/>
                         <field name="sequence" eval="100"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_01_11">
                         <field name="value">k) Não se aplica</field>
+                        <field name="code">QSI17_04_01_11</field>
                         <field name="question_id" ref="QSI17_04_01"/>
                         <field name="sequence" eval="110"/>
                     </record>
@@ -806,6 +918,7 @@
                 <!-- 4.2. O(A) Sr.(a) realiza alguma atividade ou ocupação que não seja remunerada? -->
                 <record model="survey.question" id="QSI17_04_02">
                     <field name="question">4.2. O(A) Sr.(a) realiza alguma atividade ou ocupação que não seja remunerada?</field>
+                    <field name="code">QSI17_04_02</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_04"/>
                     <field name="sequence" eval="20"/>
@@ -819,30 +932,35 @@
 
                     <record model="survey.label" id="QSI17_04_02_01">
                         <field name="value">a) Sim. Qual?</field>
+                        <field name="code">QSI17_04_02_01</field>
                         <field name="question_id" ref="QSI17_04_02"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_02_02">
                         <field name="value">b) Não</field>
+                        <field name="code">QSI17_04_02_02</field>
                         <field name="question_id" ref="QSI17_04_02"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_02_03">
                         <field name="value">c) Não sabe</field>
+                        <field name="code">QSI17_04_02_03</field>
                         <field name="question_id" ref="QSI17_04_02"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_02_04">
                         <field name="value">d) Não quis responder</field>
+                        <field name="code">QSI17_04_02_04</field>
                         <field name="question_id" ref="QSI17_04_02"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_02_05">
                         <field name="value">e) Não se aplica</field>
+                        <field name="code">QSI17_04_02_05</field>
                         <field name="question_id" ref="QSI17_04_02"/>
                         <field name="sequence" eval="50"/>
                     </record>
@@ -850,6 +968,7 @@
                 <!-- 4.3. Com que frequência caminha ou pratica exercícios? -->
                 <record model="survey.question" id="QSI17_04_03">
                     <field name="question">4.3. Com que frequência caminha ou pratica exercícios?</field>
+                    <field name="code">QSI17_04_03</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_04"/>
                     <field name="sequence" eval="30"/>
@@ -863,66 +982,77 @@
 
                     <record model="survey.label" id="QSI17_04_03_01">
                         <field name="value">a) 1x por semana</field>
+                        <field name="code">QSI17_04_03_01</field>
                         <field name="question_id" ref="QSI17_04_03"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_03_02">
                         <field name="value">b) 2x por semana</field>
+                        <field name="code">QSI17_04_03_02</field>
                         <field name="question_id" ref="QSI17_04_03"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_03_03">
                         <field name="value">c) 3x por semana</field>
+                        <field name="code">QSI17_04_03_03</field>
                         <field name="question_id" ref="QSI17_04_03"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_03_04">
                         <field name="value">d) 4x por semana</field>
+                        <field name="code">QSI17_04_03_04</field>
                         <field name="question_id" ref="QSI17_04_03"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_03_05">
                         <field name="value">e) 5x por semana</field>
+                        <field name="code">QSI17_04_03_05</field>
                         <field name="question_id" ref="QSI17_04_03"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_03_06">
                         <field name="value">f) 6x por semana</field>
+                        <field name="code">QSI17_04_03_06</field>
                         <field name="question_id" ref="QSI17_04_03"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_03_07">
                         <field name="value">g) Todos os dias</field>
+                        <field name="code">QSI17_04_03_07</field>
                         <field name="question_id" ref="QSI17_04_03"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_03_08">
                         <field name="value">h) Não caminha nem pratica exercícios físicos</field>
+                        <field name="code">QSI17_04_03_08</field>
                         <field name="question_id" ref="QSI17_04_03"/>
                         <field name="sequence" eval="80"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_03_09">
                         <field name="value">i) Não sabe</field>
+                        <field name="code">QSI17_04_03_09</field>
                         <field name="question_id" ref="QSI17_04_03"/>
                         <field name="sequence" eval="90"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_03_10">
                         <field name="value">j) Não quis responder</field>
+                        <field name="code">QSI17_04_03_10</field>
                         <field name="question_id" ref="QSI17_04_03"/>
                         <field name="sequence" eval="100"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_03_11">
                         <field name="value">k) Não se aplica</field>
+                        <field name="code">QSI17_04_03_11</field>
                         <field name="question_id" ref="QSI17_04_03"/>
                         <field name="sequence" eval="110"/>
                     </record>
@@ -930,6 +1060,7 @@
                 <!-- 4.4. O(A) Sr.(a) tem ou teve o hábito de fumar? -->
                 <record model="survey.question" id="QSI17_04_04">
                     <field name="question">4.4. O(A) Sr.(a) tem ou teve o hábito de fumar?</field>
+                    <field name="code">QSI17_04_04</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_04"/>
                     <field name="sequence" eval="40"/>
@@ -943,36 +1074,42 @@
 
                     <record model="survey.label" id="QSI17_04_04_01">
                         <field name="value">a) Nunca fumou</field>
+                        <field name="code">QSI17_04_04_01</field>
                         <field name="question_id" ref="QSI17_04_04"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_04_02">
                         <field name="value">b) Fuma atualmente</field>
+                        <field name="code">QSI17_04_04_02</field>
                         <field name="question_id" ref="QSI17_04_04"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_04_03">
                         <field name="value">c) Já fumou, mas não fuma atualmente</field>
+                        <field name="code">QSI17_04_04_03</field>
                         <field name="question_id" ref="QSI17_04_04"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_04_04">
                         <field name="value">d) Não sabe</field>
+                        <field name="code">QSI17_04_04_04</field>
                         <field name="question_id" ref="QSI17_04_04"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_04_05">
                         <field name="value">e) Não quis responder</field>
+                        <field name="code">QSI17_04_04_05</field>
                         <field name="question_id" ref="QSI17_04_04"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_04_06">
                         <field name="value">f) Não se aplica</field>
+                        <field name="code">QSI17_04_04_06</field>
                         <field name="question_id" ref="QSI17_04_04"/>
                         <field name="sequence" eval="60"/>
                     </record>
@@ -980,6 +1117,7 @@
                 <!-- 4.5. O(A) Sr. (a) tem o hábito de tomar bebidas alcoólicas? -->
                 <record model="survey.question" id="QSI17_04_05">
                     <field name="question">4.5. O(A) Sr. (a) tem o hábito de tomar bebidas alcoólicas?</field>
+                    <field name="code">QSI17_04_05</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_04"/>
                     <field name="sequence" eval="50"/>
@@ -993,54 +1131,63 @@
 
                     <record model="survey.label" id="QSI17_04_05_01">
                         <field name="value">a) Não</field>
+                        <field name="code">QSI17_04_05_01</field>
                         <field name="question_id" ref="QSI17_04_05"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_05_02">
                         <field name="value">b) Sim, esporadicamente (menos que 1 vez por mês)</field>
+                        <field name="code">QSI17_04_05_02</field>
                         <field name="question_id" ref="QSI17_04_05"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_05_03">
                         <field name="value">c) Sim, 1 vez por mês</field>
+                        <field name="code">QSI17_04_05_03</field>
                         <field name="question_id" ref="QSI17_04_05"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_05_04">
                         <field name="value">d) Sim, 1 vez por semana (ou em finais de semana)</field>
+                        <field name="code">QSI17_04_05_04</field>
                         <field name="question_id" ref="QSI17_04_05"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_05_05">
                         <field name="value">e) Sim, todos os dias</field>
+                        <field name="code">QSI17_04_05_05</field>
                         <field name="question_id" ref="QSI17_04_05"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_05_06">
                         <field name="value">f) Outra resposta</field>
+                        <field name="code">QSI17_04_05_06</field>
                         <field name="question_id" ref="QSI17_04_05"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_05_07">
                         <field name="value">g) Não sabe</field>
+                        <field name="code">QSI17_04_05_07</field>
                         <field name="question_id" ref="QSI17_04_05"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_05_08">
                         <field name="value">h) Não quis responder</field>
+                        <field name="code">QSI17_04_05_08</field>
                         <field name="question_id" ref="QSI17_04_05"/>
                         <field name="sequence" eval="80"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_04_05_09">
                         <field name="value">i) Não se aplica</field>
+                        <field name="code">QSI17_04_05_09</field>
                         <field name="question_id" ref="QSI17_04_05"/>
                         <field name="sequence" eval="90"/>
                     </record>
@@ -1048,6 +1195,7 @@
             <!-- 5. Saúde -->
             <record model="survey.page" id="QSI17_05">
                 <field name="title">5. Saúde</field>
+                <field name="code">QSI17_05</field>
                 <field name="survey_id" ref="QSI17"/>
                 <field name="sequence" eval="50"/>
                 <field name="description">&lt;p&gt;&lt;/p&gt;</field>
@@ -1056,6 +1204,7 @@
                 <!-- 5.1. Tem alguma dificuldade para: -->
                 <record model="survey.question" id="QSI17_05_01">
                     <field name="question">5.1. Tem alguma dificuldade para:</field>
+                    <field name="code">QSI17_05_01</field>
                     <field name="type">multiple_choice</field>
                     <field name="page_id" ref="QSI17_05"/>
                     <field name="sequence" eval="10"/>
@@ -1068,66 +1217,77 @@
 
                     <record model="survey.label" id="QSI17_05_01_01">
                         <field name="value">a) Falar</field>
+                        <field name="code">QSI17_05_01_01</field>
                         <field name="question_id" ref="QSI17_05_01"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_01_02">
                         <field name="value">b) Engolir</field>
+                        <field name="code">QSI17_05_01_02</field>
                         <field name="question_id" ref="QSI17_05_01"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_01_03">
                         <field name="value">c) Enxergar</field>
+                        <field name="code">QSI17_05_01_03</field>
                         <field name="question_id" ref="QSI17_05_01"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_01_04">
                         <field name="value">d) Escutar</field>
+                        <field name="code">QSI17_05_01_04</field>
                         <field name="question_id" ref="QSI17_05_01"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_01_05">
                         <field name="value">e) Movimentar-se</field>
+                        <field name="code">QSI17_05_01_05</field>
                         <field name="question_id" ref="QSI17_05_01"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_01_06">
                         <field name="value">f) Urinar</field>
+                        <field name="code">QSI17_05_01_06</field>
                         <field name="question_id" ref="QSI17_05_01"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_01_07">
                         <field name="value">g) Outras</field>
+                        <field name="code">QSI17_05_01_07</field>
                         <field name="question_id" ref="QSI17_05_01"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_01_08">
                         <field name="value">h) Não tem dificuldades</field>
+                        <field name="code">QSI17_05_01_08</field>
                         <field name="question_id" ref="QSI17_05_01"/>
                         <field name="sequence" eval="80"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_01_09">
                         <field name="value">i) Não sabe</field>
+                        <field name="code">QSI17_05_01_09</field>
                         <field name="question_id" ref="QSI17_05_01"/>
                         <field name="sequence" eval="90"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_01_10">
                         <field name="value">j) Não quis responder</field>
+                        <field name="code">QSI17_05_01_10</field>
                         <field name="question_id" ref="QSI17_05_01"/>
                         <field name="sequence" eval="100"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_01_11">
                         <field name="value">k) Não se aplica</field>
+                        <field name="code">QSI17_05_01_11</field>
                         <field name="question_id" ref="QSI17_05_01"/>
                         <field name="sequence" eval="110"/>
                     </record>
@@ -1135,6 +1295,7 @@
                 <!-- 5.2. O(A) Sr.(a) diria que sua saúde é: -->
                 <record model="survey.question" id="QSI17_05_02">
                     <field name="question">5.2. O(A) Sr.(a) diria que sua saúde é:</field>
+                    <field name="code">QSI17_05_02</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_05"/>
                     <field name="sequence" eval="20"/>
@@ -1148,48 +1309,56 @@
 
                     <record model="survey.label" id="QSI17_05_02_01">
                         <field name="value">a) Muito boa</field>
+                        <field name="code">QSI17_05_02_01</field>
                         <field name="question_id" ref="QSI17_05_02"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_02_02">
                         <field name="value">b) Boa</field>
+                        <field name="code">QSI17_05_02_02</field>
                         <field name="question_id" ref="QSI17_05_02"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_02_03">
                         <field name="value">c) Regular</field>
+                        <field name="code">QSI17_05_02_03</field>
                         <field name="question_id" ref="QSI17_05_02"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_02_04">
                         <field name="value">d) Ruim</field>
+                        <field name="code">QSI17_05_02_04</field>
                         <field name="question_id" ref="QSI17_05_02"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_02_05">
                         <field name="value">e) Muito ruim</field>
+                        <field name="code">QSI17_05_02_05</field>
                         <field name="question_id" ref="QSI17_05_02"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_02_06">
                         <field name="value">f) Não sabe</field>
+                        <field name="code">QSI17_05_02_06</field>
                         <field name="question_id" ref="QSI17_05_02"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_02_07">
                         <field name="value">g) Não quis responder</field>
+                        <field name="code">QSI17_05_02_07</field>
                         <field name="question_id" ref="QSI17_05_02"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_02_08">
                         <field name="value">h) Não se aplica</field>
+                        <field name="code">QSI17_05_02_08</field>
                         <field name="question_id" ref="QSI17_05_02"/>
                         <field name="sequence" eval="80"/>
                     </record>
@@ -1197,6 +1366,7 @@
                 <!-- 5.3. Comparando sua saúde de hoje com a de 12 meses atrás, o(a) Sr.(a) diria que agora a sua saúde é: -->
                 <record model="survey.question" id="QSI17_05_03">
                     <field name="question">5.3. Comparando sua saúde de hoje com a de 12 meses atrás, o(a) Sr.(a) diria que agora a sua saúde é:</field>
+                    <field name="code">QSI17_05_03</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_05"/>
                     <field name="sequence" eval="30"/>
@@ -1210,36 +1380,42 @@
 
                     <record model="survey.label" id="QSI17_05_03_01">
                         <field name="value">a) Melhor</field>
+                        <field name="code">QSI17_05_03_01</field>
                         <field name="question_id" ref="QSI17_05_03"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_03_02">
                         <field name="value">b) Igual</field>
+                        <field name="code">QSI17_05_03_02</field>
                         <field name="question_id" ref="QSI17_05_03"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_03_03">
                         <field name="value">c) Pior</field>
+                        <field name="code">QSI17_05_03_03</field>
                         <field name="question_id" ref="QSI17_05_03"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_03_04">
                         <field name="value">d) Não sabe</field>
+                        <field name="code">QSI17_05_03_04</field>
                         <field name="question_id" ref="QSI17_05_03"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_03_05">
                         <field name="value">e) Não quis responder</field>
+                        <field name="code">QSI17_05_03_05</field>
                         <field name="question_id" ref="QSI17_05_03"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_05_03_06">
                         <field name="value">f) Não se aplica</field>
+                        <field name="code">QSI17_05_03_06</field>
                         <field name="question_id" ref="QSI17_05_03"/>
                         <field name="sequence" eval="60"/>
                     </record>
@@ -1247,6 +1423,7 @@
             <!-- 6. Médico -->
             <record model="survey.page" id="QSI17_06">
                 <field name="title">6. Médico</field>
+                <field name="code">QSI17_06</field>
                 <field name="survey_id" ref="QSI17"/>
                 <field name="sequence" eval="60"/>
                 <field name="description">&lt;p&gt;&lt;/p&gt;</field>
@@ -1255,6 +1432,7 @@
                 <!-- 6.1. Que motivo(s) o leva(m) a procurar atendimento médico? -->
                 <record model="survey.question" id="QSI17_06_01">
                     <field name="question">6.1. Que motivo(s) o leva(m) a procurar atendimento médico?</field>
+                    <field name="code">QSI17_06_01</field>
                     <field name="type">multiple_choice</field>
                     <field name="page_id" ref="QSI17_06"/>
                     <field name="sequence" eval="10"/>
@@ -1267,48 +1445,56 @@
 
                     <record model="survey.label" id="QSI17_06_01_01">
                         <field name="value">a) Quando tem problema de saúde</field>
+                        <field name="code">QSI17_06_01_01</field>
                         <field name="question_id" ref="QSI17_06_01"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_01_02">
                         <field name="value">b) Somente quando tem problema grave de saúde</field>
+                        <field name="code">QSI17_06_01_02</field>
                         <field name="question_id" ref="QSI17_06_01"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_01_03">
                         <field name="value">c) Acompanhamento médico/realização de exames de rotina</field>
+                        <field name="code">QSI17_06_01_03</field>
                         <field name="question_id" ref="QSI17_06_01"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_01_04">
                         <field name="value">d) Ocorrência de acidente</field>
+                        <field name="code">QSI17_06_01_04</field>
                         <field name="question_id" ref="QSI17_06_01"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_01_05">
                         <field name="value">e) Outros</field>
+                        <field name="code">QSI17_06_01_05</field>
                         <field name="question_id" ref="QSI17_06_01"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_01_06">
                         <field name="value">f) Não sabe</field>
+                        <field name="code">QSI17_06_01_06</field>
                         <field name="question_id" ref="QSI17_06_01"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_01_07">
                         <field name="value">g) Não quis responder</field>
+                        <field name="code">QSI17_06_01_07</field>
                         <field name="question_id" ref="QSI17_06_01"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_01_08">
                         <field name="value">h) Não se aplica</field>
+                        <field name="code">QSI17_06_01_08</field>
                         <field name="question_id" ref="QSI17_06_01"/>
                         <field name="sequence" eval="80"/>
                     </record>
@@ -1316,6 +1502,7 @@
                 <!-- 6.2. Nos últimos 12 meses, visitou o médico frequentemente (2 ou mais vezes ao ano)? -->
                 <record model="survey.question" id="QSI17_06_02">
                     <field name="question">6.2. Nos últimos 12 meses, visitou o médico frequentemente (2 ou mais vezes ao ano)?</field>
+                    <field name="code">QSI17_06_02</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_06"/>
                     <field name="sequence" eval="20"/>
@@ -1329,30 +1516,35 @@
 
                     <record model="survey.label" id="QSI17_06_02_01">
                         <field name="value">a) Sim</field>
+                        <field name="code">QSI17_06_02_01</field>
                         <field name="question_id" ref="QSI17_06_02"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_02_02">
                         <field name="value">b) Não</field>
+                        <field name="code">QSI17_06_02_02</field>
                         <field name="question_id" ref="QSI17_06_02"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_02_03">
                         <field name="value">c) Não sabe</field>
+                        <field name="code">QSI17_06_02_03</field>
                         <field name="question_id" ref="QSI17_06_02"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_02_04">
                         <field name="value">d) Não quis responder</field>
+                        <field name="code">QSI17_06_02_04</field>
                         <field name="question_id" ref="QSI17_06_02"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_02_05">
                         <field name="value">e) Não se aplica</field>
+                        <field name="code">QSI17_06_02_05</field>
                         <field name="question_id" ref="QSI17_06_02"/>
                         <field name="sequence" eval="50"/>
                     </record>
@@ -1360,6 +1552,7 @@
                 <!-- 6.3. Nos últimos 12 meses, quantas vezes o(a) Sr.(a) esteve internado? -->
                 <record model="survey.question" id="QSI17_06_03">
                     <field name="question">6.3. Nos últimos 12 meses, quantas vezes o(a) Sr.(a) esteve internado?</field>
+                    <field name="code">QSI17_06_03</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_06"/>
                     <field name="sequence" eval="30"/>
@@ -1373,54 +1566,63 @@
 
                     <record model="survey.label" id="QSI17_06_03_01">
                         <field name="value">a) Nenhuma </field>
+                        <field name="code">QSI17_06_03_01</field>
                         <field name="question_id" ref="QSI17_06_03"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_03_02">
                         <field name="value">b) 1 a 2 vezes</field>
+                        <field name="code">QSI17_06_03_02</field>
                         <field name="question_id" ref="QSI17_06_03"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_03_03">
                         <field name="value">c) 3 a 4 vezes</field>
+                        <field name="code">QSI17_06_03_03</field>
                         <field name="question_id" ref="QSI17_06_03"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_03_04">
                         <field name="value">d) 1 vez a cada 2 meses</field>
+                        <field name="code">QSI17_06_03_04</field>
                         <field name="question_id" ref="QSI17_06_03"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_03_05">
                         <field name="value">e) 1 vez por mês</field>
+                        <field name="code">QSI17_06_03_05</field>
                         <field name="question_id" ref="QSI17_06_03"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_03_06">
                         <field name="value">f) Outra resposta</field>
+                        <field name="code">QSI17_06_03_06</field>
                         <field name="question_id" ref="QSI17_06_03"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_03_07">
                         <field name="value">g) Não sabe</field>
+                        <field name="code">QSI17_06_03_07</field>
                         <field name="question_id" ref="QSI17_06_03"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_03_08">
                         <field name="value">h) Não quis responder</field>
+                        <field name="code">QSI17_06_03_08</field>
                         <field name="question_id" ref="QSI17_06_03"/>
                         <field name="sequence" eval="80"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_03_09">
                         <field name="value">i) Não se aplica</field>
+                        <field name="code">QSI17_06_03_09</field>
                         <field name="question_id" ref="QSI17_06_03"/>
                         <field name="sequence" eval="90"/>
                     </record>
@@ -1428,6 +1630,7 @@
                 <!-- 6.4. O Sr(a). teve alguma queda depois que completou 60 anos? -->
                 <record model="survey.question" id="QSI17_06_04">
                     <field name="question">6.4. O Sr(a). teve alguma queda depois que completou 60 anos?</field>
+                    <field name="code">QSI17_06_04</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_06"/>
                     <field name="sequence" eval="40"/>
@@ -1441,30 +1644,35 @@
 
                     <record model="survey.label" id="QSI17_06_04_01">
                         <field name="value">a) Não</field>
+                        <field name="code">QSI17_06_04_01</field>
                         <field name="question_id" ref="QSI17_06_04"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_04_02">
                         <field name="value">b) Sim</field>
+                        <field name="code">QSI17_06_04_02</field>
                         <field name="question_id" ref="QSI17_06_04"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_04_03">
                         <field name="value">c) Não sabe</field>
+                        <field name="code">QSI17_06_04_03</field>
                         <field name="question_id" ref="QSI17_06_04"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_04_04">
                         <field name="value">d) Não quis responder</field>
+                        <field name="code">QSI17_06_04_04</field>
                         <field name="question_id" ref="QSI17_06_04"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_04_05">
                         <field name="value">e) Não se aplica</field>
+                        <field name="code">QSI17_06_04_05</field>
                         <field name="question_id" ref="QSI17_06_04"/>
                         <field name="sequence" eval="50"/>
                     </record>
@@ -1472,6 +1680,7 @@
                 <!-- 6.5. Alguma vez um médico lhe disse que tem alguma doença? -->
                 <record model="survey.question" id="QSI17_06_05">
                     <field name="question">6.5. Alguma vez um médico lhe disse que tem alguma doença?</field>
+                    <field name="code">QSI17_06_05</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_06"/>
                     <field name="sequence" eval="50"/>
@@ -1485,30 +1694,35 @@
 
                     <record model="survey.label" id="QSI17_06_05_01">
                         <field name="value">a) Não</field>
+                        <field name="code">QSI17_06_05_01</field>
                         <field name="question_id" ref="QSI17_06_05"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_05_02">
                         <field name="value">b) Sim</field>
+                        <field name="code">QSI17_06_05_02</field>
                         <field name="question_id" ref="QSI17_06_05"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_05_03">
                         <field name="value">c) Não sabe</field>
+                        <field name="code">QSI17_06_05_03</field>
                         <field name="question_id" ref="QSI17_06_05"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_05_04">
                         <field name="value">d) Não quis responder</field>
+                        <field name="code">QSI17_06_05_04</field>
                         <field name="question_id" ref="QSI17_06_05"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_06_05_05">
                         <field name="value">e) Não se aplica</field>
+                        <field name="code">QSI17_06_05_05</field>
                         <field name="question_id" ref="QSI17_06_05"/>
                         <field name="sequence" eval="50"/>
                     </record>
@@ -1516,6 +1730,7 @@
             <!-- 7. Alimentação -->
             <record model="survey.page" id="QSI17_07">
                 <field name="title">7. Alimentação</field>
+                <field name="code">QSI17_07</field>
                 <field name="survey_id" ref="QSI17"/>
                 <field name="sequence" eval="70"/>
                 <field name="description">&lt;p&gt;&lt;/p&gt;</field>
@@ -1524,6 +1739,7 @@
                 <!-- 7.1. Como o Sr(a) costuma consumir a carne? -->
                 <record model="survey.question" id="QSI17_07_01">
                     <field name="question">7.1. Como o Sr(a) costuma consumir a carne?</field>
+                    <field name="code">QSI17_07_01</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_07"/>
                     <field name="sequence" eval="10"/>
@@ -1537,36 +1753,42 @@
 
                     <record model="survey.label" id="QSI17_07_01_01">
                         <field name="value">a) Não consome carne</field>
+                        <field name="code">QSI17_07_01_01</field>
                         <field name="question_id" ref="QSI17_07_01"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_07_01_02">
                         <field name="value">b) Bem passada</field>
+                        <field name="code">QSI17_07_01_02</field>
                         <field name="question_id" ref="QSI17_07_01"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_07_01_03">
                         <field name="value">c) Mal passada / Crua</field>
+                        <field name="code">QSI17_07_01_03</field>
                         <field name="question_id" ref="QSI17_07_01"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_07_01_04">
                         <field name="value">d) Não sabe</field>
+                        <field name="code">QSI17_07_01_04</field>
                         <field name="question_id" ref="QSI17_07_01"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_07_01_05">
                         <field name="value">e) Não quis responder</field>
+                        <field name="code">QSI17_07_01_05</field>
                         <field name="question_id" ref="QSI17_07_01"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_07_01_06">
                         <field name="value">f) Não se aplica</field>
+                        <field name="code">QSI17_07_01_06</field>
                         <field name="question_id" ref="QSI17_07_01"/>
                         <field name="sequence" eval="60"/>
                     </record>
@@ -1574,6 +1796,7 @@
             <!-- 8. Parasitoses -->
             <record model="survey.page" id="QSI17_08">
                 <field name="title">8. Parasitoses</field>
+                <field name="code">QSI17_08</field>
                 <field name="survey_id" ref="QSI17"/>
                 <field name="sequence" eval="80"/>
                 <field name="description">&lt;p&gt;&lt;/p&gt;</field>
@@ -1582,6 +1805,7 @@
                 <!-- 8.1. O Sr(a) já fez exame de fezes? -->
                 <record model="survey.question" id="QSI17_08_01">
                     <field name="question">8.1. O Sr(a) já fez exame de fezes?</field>
+                    <field name="code">QSI17_08_01</field>
                     <field name="type">multiple_choice</field>
                     <field name="page_id" ref="QSI17_08"/>
                     <field name="sequence" eval="10"/>
@@ -1594,42 +1818,49 @@
 
                     <record model="survey.label" id="QSI17_08_01_01">
                         <field name="value">a) Não</field>
+                        <field name="code">QSI17_08_01_01</field>
                         <field name="question_id" ref="QSI17_08_01"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_01_02">
                         <field name="value">b) Sim, com resultado negativo para verme</field>
+                        <field name="code">QSI17_08_01_02</field>
                         <field name="question_id" ref="QSI17_08_01"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_01_03">
                         <field name="value">c) Sim, mas não sabe o resultado</field>
+                        <field name="code">QSI17_08_01_03</field>
                         <field name="question_id" ref="QSI17_08_01"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_01_04">
                         <field name="value">d) Sim, com resultado positivo para verme</field>
+                        <field name="code">QSI17_08_01_04</field>
                         <field name="question_id" ref="QSI17_08_01"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_01_05">
                         <field name="value">e) Não sabe</field>
+                        <field name="code">QSI17_08_01_05</field>
                         <field name="question_id" ref="QSI17_08_01"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_01_06">
                         <field name="value">f) Não quis responder</field>
+                        <field name="code">QSI17_08_01_06</field>
                         <field name="question_id" ref="QSI17_08_01"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_01_07">
                         <field name="value">g) Não se aplica</field>
+                        <field name="code">QSI17_08_01_07</field>
                         <field name="question_id" ref="QSI17_08_01"/>
                         <field name="sequence" eval="70"/>
                     </record>
@@ -1637,6 +1868,7 @@
                 <!-- 8.2. Como descobriu que estava com a doença? -->
                 <record model="survey.question" id="QSI17_08_02">
                     <field name="question">8.2. Como descobriu que estava com a doença?</field>
+                    <field name="code">QSI17_08_02</field>
                     <field name="type">multiple_choice</field>
                     <field name="page_id" ref="QSI17_08"/>
                     <field name="sequence" eval="20"/>
@@ -1649,42 +1881,49 @@
 
                     <record model="survey.label" id="QSI17_08_02_01">
                         <field name="value">a) Com resultado de exame de fezes</field>
+                        <field name="code">QSI17_08_02_01</field>
                         <field name="question_id" ref="QSI17_08_02"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_02_02">
                         <field name="value">b) Saiu nas fezes</field>
+                        <field name="code">QSI17_08_02_02</field>
                         <field name="question_id" ref="QSI17_08_02"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_02_03">
                         <field name="value">c) Foi no médico</field>
+                        <field name="code">QSI17_08_02_03</field>
                         <field name="question_id" ref="QSI17_08_02"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_02_04">
                         <field name="value">d) Outros</field>
+                        <field name="code">QSI17_08_02_04</field>
                         <field name="question_id" ref="QSI17_08_02"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_02_05">
                         <field name="value">e) Não sabe</field>
+                        <field name="code">QSI17_08_02_05</field>
                         <field name="question_id" ref="QSI17_08_02"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_02_06">
                         <field name="value">f) Não quis responder</field>
+                        <field name="code">QSI17_08_02_06</field>
                         <field name="question_id" ref="QSI17_08_02"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_02_07">
                         <field name="value">g) Não se aplica</field>
+                        <field name="code">QSI17_08_02_07</field>
                         <field name="question_id" ref="QSI17_08_02"/>
                         <field name="sequence" eval="70"/>
                     </record>
@@ -1692,6 +1931,7 @@
                 <!-- 8.3. Já tomou vermífugo (lombrigueira)? -->
                 <record model="survey.question" id="QSI17_08_03">
                     <field name="question">8.3. Já tomou vermífugo (lombrigueira)?</field>
+                    <field name="code">QSI17_08_03</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_08"/>
                     <field name="sequence" eval="30"/>
@@ -1705,60 +1945,70 @@
 
                     <record model="survey.label" id="QSI17_08_03_01">
                         <field name="value">a) Não</field>
+                        <field name="code">QSI17_08_03_01</field>
                         <field name="question_id" ref="QSI17_08_03"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_03_02">
                         <field name="value">b) Sim, há seis meses ou menos e "botou" verme</field>
+                        <field name="code">QSI17_08_03_02</field>
                         <field name="question_id" ref="QSI17_08_03"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_03_03">
                         <field name="value">c) Sim, há seis meses ou menos, mas não "botou" verme</field>
+                        <field name="code">QSI17_08_03_03</field>
                         <field name="question_id" ref="QSI17_08_03"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_03_04">
                         <field name="value">d) Sim, há seis meses ou menos, mas não sabe se "botou" verme</field>
+                        <field name="code">QSI17_08_03_04</field>
                         <field name="question_id" ref="QSI17_08_03"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_03_05">
                         <field name="value">e) Sim, há mais de seis meses, e "botou" verme</field>
+                        <field name="code">QSI17_08_03_05</field>
                         <field name="question_id" ref="QSI17_08_03"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_03_06">
                         <field name="value">f) Sim, há mais de seis meses, mas não "botou" verme</field>
+                        <field name="code">QSI17_08_03_06</field>
                         <field name="question_id" ref="QSI17_08_03"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_03_07">
                         <field name="value">g) Sim, há mais de seis meses, mas não sabe se "botou" verme</field>
+                        <field name="code">QSI17_08_03_07</field>
                         <field name="question_id" ref="QSI17_08_03"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_03_08">
                         <field name="value">h) Não sabe</field>
+                        <field name="code">QSI17_08_03_08</field>
                         <field name="question_id" ref="QSI17_08_03"/>
                         <field name="sequence" eval="80"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_03_09">
                         <field name="value">i) Não quis responder</field>
+                        <field name="code">QSI17_08_03_09</field>
                         <field name="question_id" ref="QSI17_08_03"/>
                         <field name="sequence" eval="90"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_08_03_10">
                         <field name="value">j) Não se aplica</field>
+                        <field name="code">QSI17_08_03_10</field>
                         <field name="question_id" ref="QSI17_08_03"/>
                         <field name="sequence" eval="100"/>
                     </record>
@@ -1766,6 +2016,7 @@
             <!-- 9. Aspecto Econômico -->
             <record model="survey.page" id="QSI17_09">
                 <field name="title">9. Aspecto Econômico</field>
+                <field name="code">QSI17_09</field>
                 <field name="survey_id" ref="QSI17"/>
                 <field name="sequence" eval="90"/>
                 <field name="description">&lt;p&gt;&lt;/p&gt;</field>
@@ -1774,6 +2025,7 @@
                 <!-- 9.1. O(A) Sr.(a) trabalha? -->
                 <record model="survey.question" id="QSI17_09_01">
                     <field name="question">9.1. O(A) Sr.(a) trabalha?</field>
+                    <field name="code">QSI17_09_01</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_09"/>
                     <field name="sequence" eval="10"/>
@@ -1787,42 +2039,49 @@
 
                     <record model="survey.label" id="QSI17_09_01_01">
                         <field name="value">a) Não (e não é aposentado)</field>
+                        <field name="code">QSI17_09_01_01</field>
                         <field name="question_id" ref="QSI17_09_01"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_09_01_02">
                         <field name="value">b) Não. É aposentado</field>
+                        <field name="code">QSI17_09_01_02</field>
                         <field name="question_id" ref="QSI17_09_01"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_09_01_03">
                         <field name="value">c) Sim (e não é aposentado)</field>
+                        <field name="code">QSI17_09_01_03</field>
                         <field name="question_id" ref="QSI17_09_01"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_09_01_04">
                         <field name="value">d) Sim, e é aposentado</field>
+                        <field name="code">QSI17_09_01_04</field>
                         <field name="question_id" ref="QSI17_09_01"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_09_01_05">
                         <field name="value">e) Não sabe</field>
+                        <field name="code">QSI17_09_01_05</field>
                         <field name="question_id" ref="QSI17_09_01"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_09_01_06">
                         <field name="value">f) Não quis responder</field>
+                        <field name="code">QSI17_09_01_06</field>
                         <field name="question_id" ref="QSI17_09_01"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_09_01_07">
                         <field name="value">g) Não se aplica</field>
+                        <field name="code">QSI17_09_01_07</field>
                         <field name="question_id" ref="QSI17_09_01"/>
                         <field name="sequence" eval="70"/>
                     </record>
@@ -1830,6 +2089,7 @@
                 <!-- 9.2. Qual o valor do(s) seu(s) rendimento(s) mensal(ais) aproximado(s) (independente do rendimento familiar)? -->
                 <record model="survey.question" id="QSI17_09_02">
                     <field name="question">9.2. Qual o valor do(s) seu(s) rendimento(s) mensal(ais) aproximado(s) (independente do rendimento familiar)?</field>
+                    <field name="code">QSI17_09_02</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI17_09"/>
                     <field name="sequence" eval="20"/>
@@ -1843,24 +2103,28 @@
 
                     <record model="survey.label" id="QSI17_09_02_01">
                         <field name="value">a) Valor (colocar abaixo)</field>
+                        <field name="code">QSI17_09_02_01</field>
                         <field name="question_id" ref="QSI17_09_02"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_09_02_02">
                         <field name="value">b) Não sabe</field>
+                        <field name="code">QSI17_09_02_02</field>
                         <field name="question_id" ref="QSI17_09_02"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_09_02_03">
                         <field name="value">c) Não quis responder</field>
+                        <field name="code">QSI17_09_02_03</field>
                         <field name="question_id" ref="QSI17_09_02"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI17_09_02_04">
                         <field name="value">d) Não se aplica</field>
+                        <field name="code">QSI17_09_02_04</field>
                         <field name="question_id" ref="QSI17_09_02"/>
                         <field name="sequence" eval="40"/>
                     </record>
