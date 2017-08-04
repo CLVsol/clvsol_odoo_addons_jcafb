@@ -8,6 +8,24 @@
             <field name="inherit_id" ref="clv_mfile.clv_mfile_view_form"/>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
+                <label for="alias" position="replace">
+                    <label for="alias" class="oe_edit_only" invisible="True"/>
+                </label>
+                <field name="alias" position="replace">
+                    <field name="alias" placeholder="Alias..." invisible="True"/>
+                </field>
+                <label for="path" position="replace">
+                    <label for="path" class="oe_edit_only" invisible="True"/>
+                </label>
+                <field name="path" position="replace">
+                    <field name="path" invisible="True"/>
+                </field>
+                <field name="parent_id" position="replace">
+                    <field name="parent_id" invisible="True"/>
+                </field>
+                <field name="url" position="replace">
+                    <field name="url" widget="url" invisible="True"/>
+                </field>
                 <page name="information" position="before">
                     <page name="file_data" string="File Data">
                         <group>
@@ -26,12 +44,12 @@
                             <group>
                                 <field name="person_code"/>
                                 <field name="person_id"/>
-                                <field name="person_state"/>
+                                <!--field name="person_state"/-->
                             </group>
                             <group>
                                 <field name="address_code"/>
                                 <field name="address_id"/>
-                                <field name="address_state"/>
+                                <!--field name="address_state"/-->
                             </group>
                             <group>
                                 <!--field name="lab_test_request_code"/-->
@@ -47,11 +65,14 @@
         </record>
 
         <record id="clv_mfile_view_tree" model="ir.ui.view">
-            <field name="name">clv.mfile.tree</field>
+            <field name="name">clv.mfile.form</field>
             <field name="model">clv.mfile</field>
             <field name="inherit_id" ref="clv_mfile.clv_mfile_view_tree"/>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
+                <field name="alias" position="replace">
+                    <field name="alias" invisible="True"/>
+                </field>
                 <field name="code" position="after">
                     <field name="date_survey_file"/>
                     <field name="survey_title"/>
@@ -63,10 +84,10 @@
                     <field name="document_state"/>
                     <field name="person_code"/>
                     <field name="person_id"/>
-                    <field name="person_state"/>
+                    <!--field name="person_state"/-->
                     <field name="address_code"/>
                     <field name="address_id"/>
-                    <field name="address_state"/>
+                    <!--field name="address_state"/-->
                     <!--field name="lab_test_request_code"/-->
                     <!--field name="lab_test_request_id"/-->
                     <field name="employee_id"/>
@@ -92,8 +113,10 @@
                     <field name="document_state"/>
                     <field name="person_code"/>
                     <field name="person_id"/>
+                    <!--field name="person_state"/-->
                     <field name="address_code"/>
                     <field name="address_id"/>
+                    <!--field name="address_state"/-->
                     <!--field name="lab_test_request_code"/-->
                     <!--field name="lab_test_request_id"/-->
                     <field name="employee_id"/>
@@ -109,7 +132,7 @@
             </field>
         </record>
 
-        <record id="clv_mfile_view_kanban" model="ir.ui.view">
+        <!--record id="clv_mfile_view_kanban" model="ir.ui.view">
             <field name="name">clv.mfile.kanban</field>
             <field name="model">clv.mfile</field>
             <field name="inherit_id" ref="clv_mfile.clv_mfile_view_kanban"/>
@@ -152,7 +175,35 @@
                     </div>
                 </div>
             </field>
-        </record>
+        </record-->
     
-    </data>
+         <record id="clv_mfile_view_form_kanban" model="ir.ui.view">
+            <field name="name">clv.mfile.form</field>
+            <field name="model">clv.mfile</field>
+            <field name="inherit_id" ref="clv_mfile.clv_mfile_view_form_kanban"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="image" position="replace">
+                    <!--field name="image" widget="image" class="oe_avatar" options='{"preview_image":"image_medium"}' invisible="True"/-->
+               </field>
+            </field>
+        </record>
+
+        <record id="clv_mfile.clv_mfile_action" model="ir.actions.act_window">
+            <field name="name">Media Files</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">clv.mfile</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="clv_mfile.clv_mfile_view_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new media file.
+              </p>
+            </field>
+        </record>
+        
+   </data>
 </odoo>
