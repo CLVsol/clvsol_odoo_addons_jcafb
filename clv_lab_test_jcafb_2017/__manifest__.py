@@ -32,8 +32,8 @@
     'data': [
         'data/lab_test_EAN17_data.xml',
         'data/lab_test_EDH17_data.xml',
-        'data/lab_test_EPC17_data.xml',
-        'data/lab_test_EPI17_data.xml',
+        # 'data/lab_test_EPC17_data.xml',
+        # 'data/lab_test_EPI17_data.xml',
         'data/lab_test_ECP17_data.xml',
         'data/lab_test_EEV17_data.xml',
         'data/lab_test_EUR17_data.xml',
