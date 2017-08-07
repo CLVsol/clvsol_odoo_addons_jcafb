@@ -46,7 +46,7 @@
                     <attribute name="decoration-primary">state in('waiting','returned')</attribute>
                     <attribute name="decoration-danger">state=='discarded'</attribute>
                     <attribute name="decoration-it">state in('new','discarded')</attribute>
-                    <attribute name="decoration-bf">state in(approved')</attribute>
+                    <attribute name="decoration-bf">state in('approved')</attribute>
                 </tree>
             </field>
         </record>
