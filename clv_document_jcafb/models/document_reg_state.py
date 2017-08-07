@@ -29,19 +29,19 @@ class Documenmt(models.Model):
         [('draft', 'Draft'),
          ('revised', 'Revised'),
          ('done', 'Done'),
-         ('canceled', 'Canceled')
+         ('cancelled', 'Cancelled')
          ], string='Register State', default='draft', readonly=True, required=True
     )
 
     @api.model
     def is_allowed_transition_reg_state(self, old_reg_state, new_reg_state):
         # allowed = [
-        #     ('canceled', 'draft'),
+        #     ('cancelled', 'draft'),
         #     ('draft', 'revised'),
         #     ('done', 'revised'),
         #     ('revised', 'done'),
-        #     ('draft', 'canceled'),
-        #     ('revised', 'canceled')
+        #     ('draft', 'cancelled'),
+        #     ('revised', 'cancelled')
         # ]
         # return (old_reg_state, new_reg_state) in allowed
         return True
@@ -74,4 +74,4 @@ class Documenmt(models.Model):
     @api.multi
     def action_cancel(self):
         for document in self:
-            document.change_reg_state('canceled')
+            document.change_reg_state('cancelled')
