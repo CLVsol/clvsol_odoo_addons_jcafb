@@ -24,7 +24,8 @@ from odoo import fields, models
 class LabTestResult(models.Model):
     _inherit = 'clv.lab_test.result'
 
-    patient_id = fields.Many2one(comodel_name='clv.person', string="Patient")
+    person_id = fields.Many2one(comodel_name='clv.person', string="Person")
+    person_employee_id = fields.Char('Responsible Empĺoyee', related='person_id.employee_id.name', store=True)
 
 
 class Person(models.Model):
@@ -32,6 +33,6 @@ class Person(models.Model):
 
     lab_test_result_ids = fields.One2many(
         comodel_name='clv.lab_test.result',
-        inverse_name='patient_id',
-        string='Lab Test Requests'
+        inverse_name='person_id',
+        string='Lab Test Results'
     )
