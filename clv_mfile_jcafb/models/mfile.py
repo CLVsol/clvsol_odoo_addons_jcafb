@@ -63,6 +63,12 @@ class Address(models.Model):
     #     store=False,
     #     readonly=True
     # )
+    person_employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Responsible Empĺoyee (Person)',
+        related='person_id.address_id.employee_id',
+        store=True
+    )
 
     address_code = fields.Char(help="Address Code")
     address_id = fields.Many2one(
@@ -75,19 +81,18 @@ class Address(models.Model):
     #     store=False,
     #     readonly=True
     # )
+    address_employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Responsible Empĺoyee (Address)',
+        related='address_id.employee_id',
+        store=True
+    )
 
     # # lab_test_request_code = fields.Char(string="Lab Test Request Code")
     # # lab_test_request_id = fields.Many2one(
     # #     comodel_name='clv.lab_test.request',
     # #     string="Related Lab Test Request"
     # # )
-
-    employee_id = fields.Many2one(
-        comodel_name='hr.employee',
-        string='Responsible Empĺoyee',
-        required=False,
-        readonly=False
-    )
 
     date_survey_file = fields.Datetime(
         string='Survey File Date',

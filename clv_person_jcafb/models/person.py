@@ -28,8 +28,8 @@ class Person(models.Model):
     employee_id = fields.Many2one(
         comodel_name='hr.employee',
         string='Responsible Empĺoyee',
-        required=False,
-        readonly=False
+        related='address_id.employee_id',
+        store=True
     )
 
 

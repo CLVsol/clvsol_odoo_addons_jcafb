@@ -18,30 +18,33 @@
 #
 ###############################################################################
 
-from odoo import fields, models
-
-
-class LabTestResult(models.Model):
-    _inherit = 'clv.lab_test.result'
-
-    person_id = fields.Many2one(
-        comodel_name='clv.person',
-        string="Person",
-        ondelete='restrict'
-    )
-    person_employee_id = fields.Many2one(
-        comodel_name='hr.employee',
-        string='Responsible Empĺoyee (Person)',
-        related='person_id.address_id.employee_id',
-        store=True
-    )
-
-
-class Person(models.Model):
-    _inherit = 'clv.person'
-
-    lab_test_result_ids = fields.One2many(
-        comodel_name='clv.lab_test.result',
-        inverse_name='person_id',
-        string='Lab Test Results'
-    )
+{
+    'name': 'JCAFB Lab Tests (2017)',
+    'summary': 'This module will install all the JCAFB lab tests (2017).',
+    'version': '3.0.0',
+    'author': 'Carlos Eduardo Vercelino - CLVsol',
+    'category': 'Generic Modules/Others',
+    'license': 'AGPL-3',
+    'website': 'https://github.com/CLVsol',
+    'depends': [
+        'clv_lab_test_jcafb',
+    ],
+    'data': [
+        'data/lab_test_EAN17_data.xml',
+        'data/lab_test_EDH17_data.xml',
+        # 'data/lab_test_EPC17_data.xml',
+        # 'data/lab_test_EPI17_data.xml',
+        'data/lab_test_ECP17_data.xml',
+        'data/lab_test_EEV17_data.xml',
+        'data/lab_test_EUR17_data.xml',
+    ],
+    'demo': [],
+    'test': [],
+    'init_xml': [],
+    'test': [],
+    'update_xml': [],
+    'installable': True,
+    'application': False,
+    'active': False,
+    'css': [],
+}

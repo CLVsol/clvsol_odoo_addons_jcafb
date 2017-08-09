@@ -22,8 +22,8 @@ from openerp import api, fields, models
 from openerp.exceptions import UserError
 
 
-class Documenmt(models.Model):
-    _inherit = 'clv.document'
+class LabTestResult(models.Model):
+    _inherit = 'clv.lab_test.result'
 
     reg_state = fields.Selection(
         [('draft', 'Draft'),
@@ -48,30 +48,30 @@ class Documenmt(models.Model):
 
     @api.multi
     def change_reg_state(self, new_reg_state):
-        for document in self:
-            if document.is_allowed_transition_reg_state(document.reg_state, new_reg_state):
-                document.reg_state = new_reg_state
+        for lab_test_result in self:
+            if lab_test_result.is_allowed_transition_reg_state(lab_test_result.reg_state, new_reg_state):
+                lab_test_result.reg_state = new_reg_state
             else:
                 raise UserError(
-                    'Status transition (' + document.reg_state + ', ' + new_reg_state + ') is not allowed!'
+                    'Status transition (' + lab_test_result.reg_state + ', ' + new_reg_state + ') is not allowed!'
                 )
 
     @api.multi
     def action_draft(self):
-        for document in self:
-            document.change_reg_state('draft')
+        for lab_test_result in self:
+            lab_test_result.change_reg_state('draft')
 
     @api.multi
     def action_revised(self):
-        for document in self:
-            document.change_reg_state('revised')
+        for lab_test_result in self:
+            lab_test_result.change_reg_state('revised')
 
     @api.multi
     def action_done(self):
-        for document in self:
-            document.change_reg_state('done')
+        for lab_test_result in self:
+            lab_test_result.change_reg_state('done')
 
     @api.multi
     def action_cancel(self):
-        for document in self:
-            document.change_reg_state('cancelled')
+        for lab_test_result in self:
+            lab_test_result.change_reg_state('cancelled')

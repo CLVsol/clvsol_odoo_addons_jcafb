@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<odoo>
+	<!--data noupdate="1"-->
+	<data noupdate="0">
+	
+		<record id="clv_lab_test_unit_dd_mm_aaaa" model="clv.lab_test.unit">
+			<field name="name" eval="&quot;&quot;&quot;(dd-mm-aaaa)&quot;&quot;&quot;"/>
+			<field name="code" eval="&quot;&quot;&quot;dd_mm_aaaa&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_unit_kg" model="clv.lab_test.unit">
+			<field name="name" eval="&quot;&quot;&quot;kg&quot;&quot;&quot;"/>
+			<field name="code" eval="&quot;&quot;&quot;kg&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_unit_cm" model="clv.lab_test.unit">
+			<field name="name" eval="&quot;&quot;&quot;cm&quot;&quot;&quot;"/>
+			<field name="code" eval="&quot;&quot;&quot;cm&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_unit_g_dL" model="clv.lab_test.unit">
+			<field name="name" eval="&quot;&quot;&quot;g/dL&quot;&quot;&quot;"/>
+			<field name="code" eval="&quot;&quot;&quot;g_dL&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_unit_kg_m2" model="clv.lab_test.unit">
+			<field name="name" eval="&quot;&quot;&quot;kg/m²&quot;&quot;&quot;"/>
+			<field name="code" eval="&quot;&quot;&quot;kg_m2&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_unit_mmHg" model="clv.lab_test.unit">
+			<field name="name" eval="&quot;&quot;&quot;mmHg&quot;&quot;&quot;"/>
+			<field name="code" eval="&quot;&quot;&quot;mmHg&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_unit_mg_dL" model="clv.lab_test.unit">
+			<field name="name" eval="&quot;&quot;&quot;mg/dL&quot;&quot;&quot;"/>
+			<field name="code" eval="&quot;&quot;&quot;mg_dL&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_unit_ml" model="clv.lab_test.unit">
+			<field name="name" eval="&quot;&quot;&quot;mL&quot;&quot;&quot;"/>
+			<field name="code" eval="&quot;&quot;&quot;mL&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_unit_no_ml" model="clv.lab_test.unit">
+			<field name="name" eval="&quot;&quot;&quot;nº/mL&quot;&quot;&quot;"/>
+			<field name="code" eval="&quot;&quot;&quot;no_mL&quot;&quot;&quot;"/>
+		</record>
+	 
+	</data>
+</odoo>

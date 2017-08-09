@@ -2,10 +2,10 @@
 <odoo>
     <data>
 
-        <record id="clv_document_view_form_reg_state" model="ir.ui.view">
-            <field name="name">clv.document.form</field>
-            <field name="model">clv.document</field>
-            <field name="inherit_id" ref="clv_document.clv_document_view_form"/>
+        <record id="clv_lab_test_result_view_form_reg_state" model="ir.ui.view">
+            <field name="name">clv.lab_test.result.form</field>
+            <field name="model">clv.lab_test.result</field>
+            <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_view_form"/>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <!--header name="header" position="inside">
@@ -20,33 +20,33 @@
                     <button name="action_draft" type="object"
                             string="Draft"
                             attrs="{'invisible':[('reg_state','not in',['cancelled'])]}"
-                            groups="clv_document.group_manager"/>
+                            groups="clv_lab_test.group_manager"/>
                     <button name="action_revised" type="object"
                             string="Revised"
                             attrs="{'invisible':[('reg_state','in',['revised'])]}"
-                            groups="clv_document.group_manager"/>
+                            groups="clv_lab_test.group_manager"/>
                     <button name="action_done" type="object"
                             string="Done"
                             attrs="{'invisible':[('reg_state','in',['done','cancelled'])]}"
-                            groups="clv_document.group_manager"/>
+                            groups="clv_lab_test.group_manager"/>
                     <button name="action_cancel" type="object"
                             string="Cancel"
                             attrs="{'invisible':[('reg_state','in',['cancelled'])]}"
-                            groups="clv_document.group_manager"/>
+                            groups="clv_lab_test.group_manager"/>
                 </div>
             </field>
         </record>
 
-        <record id="clv_document_view_tree_reg_state" model="ir.ui.view">
-            <field name="name">clv.document.tree</field>
-            <field name="model">clv.document</field>
-            <field name="inherit_id" ref="clv_document.clv_document_view_tree"/>
+        <record id="clv_lab_test_result_view_tree_reg_state" model="ir.ui.view">
+            <field name="name">clv.lab_test.result.tree</field>
+            <field name="model">clv.lab_test.result</field>
+            <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_view_tree"/>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <field name="code" position="after">
                     <field name="reg_state"/>
                 </field>
-                <tree name="documents" position="attributes">
+                <tree name="lab_test_results" position="attributes">
                     <attribute name="decoration-muted">reg_state=='draft'</attribute>
                     <attribute name="decoration-primary">reg_state in('done')</attribute>
                     <attribute name="decoration-danger">reg_state=='cancelled'</attribute>
@@ -56,10 +56,10 @@
             </field>
         </record>
 
-        <record id="clv_document_view_search_reg_state" model="ir.ui.view">
-            <field name="name">clv.document.search</field>
-            <field name="model">clv.document</field>
-            <field name="inherit_id" ref="clv_document.clv_document_view_search"/>
+        <record id="clv_lab_test_result_view_search_reg_state" model="ir.ui.view">
+            <field name="name">clv.lab_test.result.search</field>
+            <field name="model">clv.lab_test.result</field>
+            <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_view_search"/>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <field name="code" position="after">

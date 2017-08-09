@@ -17,31 +17,3 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-
-from odoo import fields, models
-
-
-class LabTestResult(models.Model):
-    _inherit = 'clv.lab_test.result'
-
-    person_id = fields.Many2one(
-        comodel_name='clv.person',
-        string="Person",
-        ondelete='restrict'
-    )
-    person_employee_id = fields.Many2one(
-        comodel_name='hr.employee',
-        string='Responsible Empĺoyee (Person)',
-        related='person_id.address_id.employee_id',
-        store=True
-    )
-
-
-class Person(models.Model):
-    _inherit = 'clv.person'
-
-    lab_test_result_ids = fields.One2many(
-        comodel_name='clv.lab_test.result',
-        inverse_name='person_id',
-        string='Lab Test Results'
-    )

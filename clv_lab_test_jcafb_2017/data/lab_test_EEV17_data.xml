@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<odoo>
+	<!--data noupdate="1"-->
+	<data noupdate="0">
+	
+		<record id="clv_lab_test_EEV17" model="clv.lab_test.type">
+			<field name="code" eval="&quot;&quot;&quot;EEV17&quot;&quot;&quot;"/>
+			<field name="name" eval="&quot;&quot;&quot;JCAFB 2017 - Laboratório - Pesquisa de Enterobius vermicularis&quot;&quot;&quot;"/>
+		</record>
+
+		<record id="clv_lab_test_criterion_EEV17_exame_pev" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_EEV17"/>
+			<field name="sequence" eval="100"/>
+			<field name="name" eval="&quot;&quot;&quot;Pesquisa de Enterobius vermicularis&quot;&quot;&quot;"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_EEV17_pev_data_entrada_material" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_EEV17"/>
+			<field name="sequence" eval="101"/>
+			<field name="code">EEV-01-01</field>
+			<field name="name" eval="&quot;&quot;&quot;Data de Entrada do Material&quot;&quot;&quot;"/>
+			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_dd_mm_aaaa"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_EEV17_pev_data_liberacao_resultado" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_EEV17"/>
+			<field name="sequence" eval="102"/>
+			<field name="code">EEV-01-02</field>
+			<field name="name" eval="&quot;&quot;&quot;Liberação do Resultado&quot;&quot;&quot;"/>
+			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_dd_mm_aaaa"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_EEV17_pev_resultado" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_EEV17"/>
+			<field name="sequence" eval="103"/>
+			<field name="code">EEV-01-03</field>
+			<field name="name" eval="&quot;&quot;&quot;Resultado&quot;&quot;&quot;"/>
+			<field name="normal_range" eval="&quot;&quot;&quot;Negativo&quot;&quot;&quot;"/>
+		</record>
+
+		<record id="clv_lab_test_criterion_EEV17_pev_examinador" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_EEV17"/>
+			<field name="sequence" eval="104"/>
+			<field name="code">EEV-01-04</field>
+			<field name="name" eval="&quot;&quot;&quot;Examinador&quot;&quot;&quot;"/>
+		</record>
+
+		<record id="clv_lab_test_criterion_EEV17_pev_metodo" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_EEV17"/>
+			<field name="sequence" eval="105"/>
+			<field name="code">EEV-01-05</field>
+			<field name="name" eval="&quot;&quot;&quot;Método utilizado&quot;&quot;&quot;"/>
+		</record>
+
+		<record id="clv_lab_test_criterion_EEV17_pev_obs" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_EEV17"/>
+			<field name="sequence" eval="106"/>
+			<field name="code">EEV-01-06</field>
+			<field name="name" eval="&quot;&quot;&quot;Observações&quot;&quot;&quot;"/>
+		</record>		
+	
+	</data>
+</odoo>			

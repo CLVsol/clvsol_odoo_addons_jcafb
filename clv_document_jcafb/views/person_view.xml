@@ -38,9 +38,9 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <group name="group_right" position="inside">
-                    <!--field name="person_id" context="{'show_person': 1}" options='{"always_reload": True, "highlight_first_line": True, "no_open": False, "no_create": True}'/-->
-                    <field name="person_id" context="{'show_person_only': 1}" options='{"always_reload": True, "highlight_first_line": True, "no_open": False, "no_create": True}'/>
+                    <field name="person_id"  options="{'no_open': False, 'no_create': True}"/>
                     <field name="person_code"/>
+                    <field name="person_employee_id" options="{'no_open': False, 'no_create': True}"/>
                 </group>
             </field>
         </record>
@@ -53,6 +53,7 @@
             <field name="arch" type="xml">
                 <field name="date_requested" position="before">
                     <field name="person_id"/>
+                    <field name="person_employee_id"/>
                 </field>
             </field>
         </record>
@@ -68,6 +69,7 @@
                 </field>
                 <group name="group_by" position="inside">
                     <filter string="Person" context="{'group_by': 'person_id'}"/>
+                    <filter string="Responsible Empĺoyee (Person)" domain="[]"  context="{'group_by': 'person_employee_id'}"/>
                 </group>
             </field>
         </record>

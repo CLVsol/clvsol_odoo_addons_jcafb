@@ -9,8 +9,10 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <label for="date_requested" position="before">
-                    <label for="patient_id" class="oe_edit_only"/>
-                    <h3><field name="patient_id" placeholder="Patient..."/></h3>
+                    <label for="person_id" class="oe_edit_only"/>
+                    <h3><field name="person_id" placeholder="Person..." options="{'no_open': False, 'no_create': True}"/></h3>
+                    <label for="person_employee_id" class="oe_edit_only"/>
+                    <h3><field name="person_employee_id" placeholder="Responsible Empĺoyee..." options="{'no_open': False, 'no_create': True}"/></h3>
                 </label>
             </field>
         </record>
@@ -22,7 +24,8 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <field name="date_requested" position="before">
-                    <field name="patient_id"/>
+                    <field name="person_id"/>
+                    <field name="person_employee_id"/>
                 </field>
             </field>
         </record>
@@ -34,10 +37,12 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <field name="code" position="after">
-                    <field name="patient_id"/>
+                    <field name="person_id"/>
+                    <field name="person_employee_id"/>
                 </field>
                 <group name="group_by" position="inside">
-                    <filter string="Patient" context="{'group_by': 'patient_id'}"/>
+                    <filter string="Person" context="{'group_by': 'person_id'}"/>
+                    <filter string="Responsible Empĺoyee" domain="[]"  context="{'group_by': 'person_employee_id'}"/>
                 </group>
             </field>
         </record>
