@@ -45,18 +45,17 @@
                                 <field name="person_code"/>
                                 <field name="person_id"/>
                                 <!--field name="person_state"/-->
+                                <field name="person_employee_id" options="{'no_open': False, 'no_create': True}"/>
                             </group>
                             <group>
                                 <field name="address_code"/>
                                 <field name="address_id"/>
                                 <!--field name="address_state"/-->
+                                <field name="address_employee_id" options="{'no_open': False, 'no_create': True}"/>
                             </group>
                             <group>
                                 <!--field name="lab_test_request_code"/-->
                                 <!--field name="lab_test_request_id"/-->
-                            </group>
-                            <group>
-                                <field name="employee_id"/>
                             </group>
                         </group>
                     </page>
@@ -85,12 +84,13 @@
                     <field name="person_code"/>
                     <field name="person_id"/>
                     <!--field name="person_state"/-->
+                    <field name="person_employee_id"/>
                     <field name="address_code"/>
                     <field name="address_id"/>
                     <!--field name="address_state"/-->
+                    <field name="address_employee_id"/>
                     <!--field name="lab_test_request_code"/-->
                     <!--field name="lab_test_request_id"/-->
-                    <field name="employee_id"/>
                     <field name="notes"/>
                 </field>
             </field>
@@ -114,16 +114,18 @@
                     <field name="person_code"/>
                     <field name="person_id"/>
                     <!--field name="person_state"/-->
+                    <field name="person_employee_id"/>
                     <field name="address_code"/>
                     <field name="address_id"/>
                     <!--field name="address_state"/-->
+                    <field name="address_employee_id"/>
                     <!--field name="lab_test_request_code"/-->
                     <!--field name="lab_test_request_id"/-->
-                    <field name="employee_id"/>
                     <field name="notes"/>
                 </field>
                 <group name="group_by" position="inside">
-                    <filter string="Responsible Empĺoyee" domain="[]" context="{'group_by':'employee_id'}"/>
+                    <filter string="Responsible Empĺoyee (Person)" domain="[]" context="{'group_by':'person_employee_id'}"/>
+                    <filter string="Responsible Empĺoyee (Address)" domain="[]" context="{'group_by':'address_employee_id'}"/>
                     <filter string="Survey Title" domain="[]" context="{'group_by':'survey_title'}"/>
                     <filter string="Survey Type" domain="[]" context="{'group_by':'survey_id'}"/>
                     <filter string="Related Person" domain="[]" context="{'group_by':'person_id'}"/>
