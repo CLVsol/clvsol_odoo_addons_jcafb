@@ -30,9 +30,9 @@
     'depends': [
         'clv_mfile',
         'clv_survey',
-        'clv_address',
-        'clv_person',
-        'clv_document',
+        'clv_address_jcafb',
+        'clv_person_jcafb',
+        'clv_document_jcafb',
     ],
     'data': [
         'views/mfile_view.xml',
