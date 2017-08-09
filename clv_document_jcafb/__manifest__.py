@@ -29,6 +29,8 @@
     'depends': [
         'clv_document',
         'clv_survey',
+        'clv_address_jcafb',
+        'clv_person_jcafb',
     ],
     'data': [
         'views/document_code_view.xml',
