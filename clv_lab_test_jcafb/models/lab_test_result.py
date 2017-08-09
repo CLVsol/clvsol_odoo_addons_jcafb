@@ -24,8 +24,17 @@ from odoo import fields, models
 class LabTestResult(models.Model):
     _inherit = 'clv.lab_test.result'
 
-    person_id = fields.Many2one(comodel_name='clv.person', string="Person")
-    person_employee_id = fields.Char('Responsible Empĺoyee', related='person_id.employee_id.name', store=True)
+    person_id = fields.Many2one(
+        comodel_name='clv.person',
+        string="Person",
+        ondelete='restrict'
+    )
+    person_employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Responsible Empĺoyee (Person)',
+        related='person_id.address_id.employee_id',
+        store=True
+    )
 
 
 class Person(models.Model):

@@ -28,7 +28,7 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_lab_test',
-        'clv_person',
+        'clv_person_jcafb',
     ],
     'data': [
         'views/lab_test_request_view.xml',
