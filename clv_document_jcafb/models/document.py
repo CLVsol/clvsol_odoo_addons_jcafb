@@ -32,13 +32,6 @@ class DocumentCategory(models.Model):
 class Document(models.Model):
     _inherit = 'clv.document'
 
-    employee_id = fields.Many2one(
-        comodel_name='hr.employee',
-        string='Responsible Empĺoyee',
-        required=False,
-        readonly=False
-    )
-
     survey_id = fields.Many2one(
         comodel_name='survey.survey',
         string='Survey Type')

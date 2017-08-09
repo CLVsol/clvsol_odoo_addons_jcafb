@@ -25,12 +25,12 @@ class Person(models.Model):
     _inherit = 'clv.person'
 
     document_ids = fields.One2many(
-        'clv.document',
-        'person_id',
-        'Documents'
+        comodel_name='clv.document',
+        inverse_name='person_id',
+        string='Documents'
     )
     count_documents = fields.Integer(
-        'Number of Documents',
+        string='Number of Documents',
         compute='_compute_count_documents'
     )
 
@@ -43,5 +43,19 @@ class Person(models.Model):
 class Document(models.Model):
     _inherit = 'clv.document'
 
-    person_id = fields.Many2one('clv.person', 'Person', ondelete='restrict')
-    person_code = fields.Char('Person Code', related='person_id.code', readonly=True)
+    person_id = fields.Many2one(
+        comodel_name='clv.person',
+        string='Person',
+        ondelete='restrict'
+    )
+    person_code = fields.Char(
+        string='Person Code',
+        related='person_id.code',
+        readonly=True
+    )
+    person_employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Responsible Empĺoyee (Person)',
+        related='person_id.address_id.employee_id',
+        store=True
+    )

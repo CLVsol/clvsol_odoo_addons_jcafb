@@ -25,12 +25,12 @@ class Address(models.Model):
     _inherit = 'clv.address'
 
     document_ids = fields.One2many(
-        'clv.document',
-        'address_id',
-        'Documents'
+        comodel_name='clv.document',
+        inverse_name='address_id',
+        string='Documents'
     )
     count_documents = fields.Integer(
-        'Number of Documents',
+        string='Number of Documents',
         compute='_compute_count_documents'
     )
 
@@ -43,5 +43,19 @@ class Address(models.Model):
 class Document(models.Model):
     _inherit = 'clv.document'
 
-    address_id = fields.Many2one('clv.address', 'Address', ondelete='restrict')
-    address_code = fields.Char('Address Code', related='address_id.code', readonly=True)
+    address_id = fields.Many2one(
+        comodel_name='clv.address',
+        string='Address',
+        ondelete='restrict'
+    )
+    address_code = fields.Char(
+        string='Address Code',
+        related='address_id.code',
+        readonly=True
+    )
+    address_employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Responsible Empĺoyee (Address)',
+        related='address_id.employee_id',
+        store=True
+    )
