@@ -73,6 +73,7 @@ class MfileSetUp(models.TransientModel):
                     'person_id': document.person_id.id,
                     'address_id': document.address_id.id,
                     # 'employee_id': document.employee_id.id,
+                    'history_marker_id': document.history_marker_id.id,
                 }
                 mfile = MFile.create(values)
                 _logger.info(u'%s %s', '>>>>>>>>>>', mfile.name)
