@@ -18,4 +18,6 @@
 #
 ###############################################################################
 
-from . import wizard
+import mfile_refresh
+import mfile_validate
+import mfile_import

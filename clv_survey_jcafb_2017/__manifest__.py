@@ -27,7 +27,11 @@
     'license': 'AGPL-3',
     'website': 'https://github.com/CLVsol',
     'depends': [
+        'clv_mfile',
         'clv_survey',
+        'clv_address_jcafb',
+        'clv_person_jcafb',
+        'clv_document_jcafb',
     ],
     'data': [
         'data/survey_jcafb_QAN17.xml',
@@ -39,6 +43,9 @@
         'data/survey_jcafb_TCP17.xml',
         'data/survey_jcafb_TCR17.xml',
         'data/survey_jcafb_TID17.xml',
+        'wizard/mfile_refresh_view.xml',
+        'wizard/mfile_validate_view.xml',
+        'wizard/mfile_import_view.xml',
     ],
     'demo': [],
     'test': [],
