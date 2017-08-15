@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        
+        <record id="clv_lab_test_type_view_form_survey" model="ir.ui.view">
+            <field name="name">clv.lab_test.type.form</field>
+            <field name="model">clv.lab_test.type</field>
+            <field name="inherit_id" ref="clv_lab_test.clv_lab_test_type_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="date_inclusion" position="before">
+                    <field name="survey_id" placeholder="Related Survey Type..." options="{'no_open': False, 'no_create': True}"/>
+                </field>
+            </field>
+        </record>
+       
+        <record id="clv_lab_test_type_view_tree_survey" model="ir.ui.view">
+            <field name="name">clv.lab_test.type.tree</field>
+            <field name="model">clv.lab_test.type</field>
+            <field name="inherit_id" ref="clv_lab_test.clv_lab_test_type_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="survey_id"/>
+                </field>
+            </field>
+        </record>
+       
+        <record id="clv_lab_test_type_view_search_survey" model="ir.ui.view">
+            <field name="name">clv.lab_test.type.tree</field>
+            <field name="model">clv.lab_test.type</field>
+            <field name="inherit_id" ref="clv_lab_test.clv_lab_test_type_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="survey_id"/>
+                </field>
+                <group name="group_by" position="inside">
+                    <filter string="Related Survey Type" context="{'group_by': 'survey_id'}"/>
+                </group>
+            </field>
+        </record>
+       
+    </data>
+</odoo>
