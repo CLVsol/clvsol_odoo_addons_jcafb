@@ -171,7 +171,7 @@ class MfileRefresh(models.TransientModel):
                                             # if question_parameter == 'lab_test_request_code':
                                             #     lab_test_request_code = value
                                             #     mfile.lab_test_request_code = lab_test_request_code
-                                            #     if mfile.address_id.code != lab_test_request_code:
+                                            #     if mfile.lab_test_request.code != lab_test_request_code:
                                             #         mfile.state = 'returned'
                                             #         if mfile.notes is False:
                                             #             mfile.notes = u'Codigo da Requisicao de Exames invalido!'
