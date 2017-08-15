@@ -6,6 +6,7 @@
 		<record id="clv_lab_test_EDH17" model="clv.lab_test.type">
 			<field name="code" eval="&quot;&quot;&quot;EDH17&quot;&quot;&quot;"/>
 			<field name="name" eval="&quot;&quot;&quot;JCAFB 2017 - Exames - Diabetes, Hipertensão Arterial e Hipercolesterolemia&quot;&quot;&quot;"/>
+			<field name="survey_id" ref="clv_survey_jcafb_2017.QDH17"/>
 		</record>
 	 
 		<record id="clv_lab_test_criterion_EDH17_geral" model="clv.lab_test.criterion">
