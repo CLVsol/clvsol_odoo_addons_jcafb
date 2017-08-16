@@ -30,6 +30,7 @@
         'clv_lab_test',
         'clv_survey',
         'clv_person_jcafb',
+        'clv_document_jcafb',
     ],
     'data': [
         'views/lab_test_type_view.xml',
