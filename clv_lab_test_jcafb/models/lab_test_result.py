@@ -36,6 +36,13 @@ class LabTestResult(models.Model):
         store=True
     )
 
+    survey_id = fields.Many2one(
+        comodel_name='survey.survey',
+        string='Related Survey Type',
+        related='lab_test_type_id.survey_id',
+        store=True
+    )
+
 
 class Person(models.Model):
     _inherit = 'clv.person'
