@@ -249,3 +249,14 @@ class MfileImport(models.TransientModel):
                 # mfile.document_id.state = 'done'
 
         return True
+
+    @api.multi
+    def do_populate_all_mfiles(self):
+        self.ensure_one()
+
+        Mfile = self.env['clv.mfile']
+        mfiles = Mfile.search([])
+
+        self.mfile_ids = mfiles
+
+        return self._reopen_form()
