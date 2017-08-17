@@ -26,6 +26,7 @@
                 <record model="survey.question" id="QAN17_01_01">
                     <field name="question">1.1. Código do Questionário:</field>
                     <field name="code">QAN17_01_01</field>
+                    <field name="parameter">document_code</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_01"/>
                     <field name="sequence" eval="10"/>
@@ -37,6 +38,7 @@
                 <record model="survey.question" id="QAN17_01_02">
                     <field name="question">1.2. Data da Entrevista (dd-mm-aaaa):</field>
                     <field name="code">QAN17_01_02</field>
+                    <field name="parameter">date</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_01"/>
                     <field name="sequence" eval="20"/>
@@ -59,6 +61,7 @@
                 <record model="survey.question" id="QAN17_01_04">
                     <field name="question">1.4. Código da Requisição de Exames:</field>
                     <field name="code">QAN17_01_04</field>
+                    <field name="parameter">lab_test_request_code</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_01"/>
                     <field name="sequence" eval="40"/>
@@ -90,6 +93,7 @@
                 <record model="survey.question" id="QAN17_02_02">
                     <field name="question">2.2. Código do Paciente:</field>
                     <field name="code">QAN17_02_02</field>
+                    <field name="parameter">person_code</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="QAN17_02"/>
                     <field name="sequence" eval="20"/>

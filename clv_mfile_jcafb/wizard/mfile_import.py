@@ -73,10 +73,10 @@ class MfileImport(models.TransientModel):
             filepath = self.dir_path + '/' + mfile.name
             _logger.info(u'>>>>> %s', filepath)
 
-            book = xlrd.open_workbook(filepath)
-            sheet = book.sheet_by_index(0)
-
             if mfile.state == 'validated':
+
+                book = xlrd.open_workbook(filepath)
+                sheet = book.sheet_by_index(0)
 
                 values = {
                     'survey_id': mfile.survey_id.id,
@@ -127,23 +127,23 @@ class MfileImport(models.TransientModel):
 
                                 if survey_question_search.type == 'textbox':
 
-                                    if question_code == 'TCP17_01_02' or \
-                                       question_code == 'TCR17_01_02' or \
-                                       question_code == 'TID17_01_02' or \
-                                       question_code == 'QSF17_01_02' or \
-                                       question_code == 'QSI17_01_02' or \
-                                       question_code == 'QSC17_01_02' or \
-                                       question_code == 'QMD17_01_02' or \
-                                       question_code == 'QAN17_01_02' or \
-                                       question_code == 'QDH17_01_02':
-                                        date = value
-                                        if date != 0:
-                                            try:
-                                                datetime.datetime.strptime(value, '%Y-%m-%d')
-                                            except Exception:
-                                                date = datetime.datetime(
-                                                    *xlrd.xldate_as_tuple(date, book.datemode)).strftime('%Y-%m-%d')
-                                                value = date
+                                    question_code = row_code[:11]
+                                    survey_question_search = SurveyQuestion.search([
+                                        ('code', '=', question_code),
+                                    ])
+                                    if survey_question_search.id is not False:
+                                        question_parameter = survey_question_search.parameter
+
+                                        if question_parameter == 'date':
+                                            date = value
+                                            if date != 0:
+                                                try:
+                                                    datetime.datetime.strptime(value, '%Y-%m-%d')
+                                                except Exception:
+                                                    date = datetime.datetime(
+                                                        *xlrd.xldate_as_tuple(
+                                                            date, book.datemode)).strftime('%Y-%m-%d')
+                                                    value = date
 
                                     # print '>>>>>>>>>>>>>>>>>>>>', value
                                     values = {
@@ -249,3 +249,14 @@ class MfileImport(models.TransientModel):
                 # mfile.document_id.state = 'done'
 
         return True
+
+    @api.multi
+    def do_populate_all_mfiles(self):
+        self.ensure_one()
+
+        Mfile = self.env['clv.mfile']
+        mfiles = Mfile.search([])
+
+        self.mfile_ids = mfiles
+
+        return self._reopen_form()

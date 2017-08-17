@@ -28,9 +28,12 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_lab_test',
+        'clv_survey',
         'clv_person_jcafb',
+        'clv_document_jcafb',
     ],
     'data': [
+        'views/lab_test_type_view.xml',
         'views/lab_test_request_view.xml',
         'views/lab_test_request_code_view.xml',
         'views/lab_test_result_view.xml',
@@ -43,6 +46,7 @@
         'data/lab_test_unit.xml',
         'wizard/lab_test_request_setup_view.xml',
         'wizard/lab_test_result_setup_view.xml',
+        'wizard/lab_test_request_document_setup_view.xml',
     ],
     'demo': [],
     'test': [],

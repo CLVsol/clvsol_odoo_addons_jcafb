@@ -26,6 +26,7 @@
                 <record model="survey.question" id="TCP17_01_01">
                     <field name="question">1.1. Código do Termo de Consentimento:</field>
                     <field name="code">TCP17_01_01</field>
+                    <field name="parameter">document_code</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="TCP17_01"/>
                     <field name="sequence" eval="10"/>
@@ -37,6 +38,7 @@
                 <record model="survey.question" id="TCP17_01_02">
                     <field name="question">1.2. Data da Assinatura (dd-mm-yyyy):</field>
                     <field name="code">TCP17_01_02</field>
+                    <field name="parameter">date</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="TCP17_01"/>
                     <field name="sequence" eval="20"/>
@@ -90,6 +92,7 @@
                 <record model="survey.question" id="TCP17_02_02">
                     <field name="question">2.2. Código do Indivíduo:</field>
                     <field name="code">TCP17_02_02</field>
+                    <field name="parameter">person_code</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="TCP17_02"/>
                     <field name="sequence" eval="20"/>

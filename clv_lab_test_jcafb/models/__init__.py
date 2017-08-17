@@ -18,6 +18,7 @@
 #
 ###############################################################################
 
+from . import lab_test_type
 from . import lab_test_request
 from . import lab_test_request_code
 from . import lab_test_request_state

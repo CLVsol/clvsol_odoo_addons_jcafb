@@ -63,19 +63,19 @@ class MfileValidate(models.TransientModel):
     def do_mfile_validate(self):
         self.ensure_one()
 
+        SurveyQuestion = self.env['survey.question']
+
         for mfile in self.mfile_ids:
 
             filepath = self.dir_path + '/' + mfile.name
             _logger.info(u'>>>>> %s', filepath)
 
-            book = xlrd.open_workbook(filepath)
-            sheet = book.sheet_by_index(0)
-            survey_title = sheet.cell_value(0, 0)
-            _logger.info(u'>>>>>>>>>> %s', survey_title)
-
-            SurveyQuestion = self.env['survey.question']
-
             if mfile.state in ['checked', 'validated']:
+
+                book = xlrd.open_workbook(filepath)
+                sheet = book.sheet_by_index(0)
+                survey_title = sheet.cell_value(0, 0)
+                _logger.info(u'>>>>>>>>>> %s', survey_title)
 
                 question_code = False
                 question_type = False
@@ -236,30 +236,29 @@ class MfileValidate(models.TransientModel):
                                 else:
                                     response_count += 1
 
-                                if row_code == 'TCP17_01_02' or \
-                                   row_code == 'TCR17_01_02' or \
-                                   row_code == 'TID17_01_02' or \
-                                   row_code == 'QSF17_01_02' or \
-                                   row_code == 'QSI17_01_02' or \
-                                   row_code == 'QSC17_01_02' or \
-                                   row_code == 'QMD17_01_02' or \
-                                   row_code == 'QAN17_01_02' or \
-                                   row_code == 'QDH17_01_02':
-                                    date = value
-                                    try:
-                                        datetime.datetime.strptime(value, '%Y-%m-%d')
-                                    except Exception:
+                                question_code = row_code[:11]
+                                survey_question_search = SurveyQuestion.search([
+                                    ('code', '=', question_code),
+                                ])
+                                if survey_question_search.id is not False:
+                                    question_parameter = survey_question_search.parameter
+
+                                    if question_parameter == 'date':
+                                        date = value
                                         try:
-                                            date = datetime.datetime(
-                                                *xlrd.xldate_as_tuple(date, book.datemode)).strftime('%Y-%m-%d')
-                                            value = date
+                                            datetime.datetime.strptime(value, '%Y-%m-%d')
                                         except Exception:
-                                            if mfile.notes is False:
-                                                mfile.notes = \
-                                                    'Erro: Questão ' + question_code + ' com formato invalido!'
-                                            else:
-                                                mfile.notes += \
-                                                    '\nErro: Questão ' + question_code + ' com formato invalido!'
+                                            try:
+                                                date = datetime.datetime(
+                                                    *xlrd.xldate_as_tuple(date, book.datemode)).strftime('%Y-%m-%d')
+                                                value = date
+                                            except Exception:
+                                                if mfile.notes is False:
+                                                    mfile.notes = \
+                                                        'Erro: Questão ' + question_code + ' com formato invalido!'
+                                                else:
+                                                    mfile.notes += \
+                                                        '\nErro: Questão ' + question_code + ' com formato invalido!'
 
                     if i == last_row or \
                        (i == last_row - 1 and sheet.cell_value(i + 1, 0) == xlrd.empty_cell.value):
@@ -272,52 +271,52 @@ class MfileValidate(models.TransientModel):
                                 if response_count != 1:
                                     if mfile.notes is False:
                                         mfile.notes = \
-                                            'Erro: Questão ' + question_code + ' sem resposta!'
+                                            u'Erro: Questão ' + question_code + ' sem resposta!'
                                     else:
                                         mfile.notes += \
-                                            '\nErro: Questão ' + question_code + ' sem resposta!'
+                                            u'\nErro: Questão ' + question_code + ' sem resposta!'
 
                             if question_type in ['simple_choice']:
                                 if response_count == 0:
                                     if mfile.notes is False:
                                         mfile.notes = \
-                                            'Erro: Questão ' + question_code + ' sem resposta!'
+                                            u'Erro: Questão ' + question_code + ' sem resposta!'
                                     else:
                                         mfile.notes += \
-                                            '\nErro: Questão ' + question_code + ' sem resposta!'
+                                            u'\nErro: Questão ' + question_code + ' sem resposta!'
                                 if response_count > 1:
                                     if mfile.notes is False:
                                         mfile.notes = \
-                                            'Erro: Questão ' + question_code + ' com mais de uma resposta!'
+                                            u'Erro: Questão ' + question_code + ' com mais de uma resposta!'
                                     else:
                                         mfile.notes += \
-                                            '\nErro: Questão ' + question_code + ' com mais de uma resposta!'
+                                            u'\nErro: Questão ' + question_code + ' com mais de uma resposta!'
 
                             if question_type in ['multiple_choice']:
                                 if response_count < 1:
                                     if mfile.notes is False:
                                         mfile.notes = \
-                                            'Erro: Questão ' + question_code + ' sem resposta!'
+                                            u'Erro: Questão ' + question_code + ' sem resposta!'
                                     else:
                                         mfile.notes += \
-                                            '\nErro: Questão ' + question_code + ' sem resposta!'
+                                            u'\nErro: Questão ' + question_code + ' sem resposta!'
 
                             if question_type in ['matrix'] and question_matrix_subtype in ['simple']:
                                 if matrix_row is True:
                                     if response_count == 0:
                                         if mfile.notes is False:
                                             mfile.notes = \
-                                                'Erro: Questão ' + question_code + ' sem resposta!'
+                                                u'Erro: Questão ' + question_code + ' sem resposta!'
                                         else:
                                             mfile.notes += \
-                                                '\nErro: Questão ' + question_code + ' sem resposta!'
+                                                u'\nErro: Questão ' + question_code + ' sem resposta!'
                                     if response_count > 1:
                                         if mfile.notes is False:
                                             mfile.notes = \
-                                                'Erro: Questão ' + question_code + ' com mais de uma resposta!'
+                                                u'Erro: Questão ' + question_code + ' com mais de uma resposta!'
                                         else:
                                             mfile.notes += \
-                                                '\nErro: Questão ' + question_code + ' com mais de uma resposta!'
+                                                u'\nErro: Questão ' + question_code + ' com mais de uma resposta!'
 
                         _logger.info(u'----------> %s %s %s', response_count, matrix_row, prev_matrix_row)
                         response_count = 0
@@ -329,3 +328,14 @@ class MfileValidate(models.TransientModel):
                     mfile.state = 'returned'
 
         return True
+
+    @api.multi
+    def do_populate_all_mfiles(self):
+        self.ensure_one()
+
+        Mfile = self.env['clv.mfile']
+        mfiles = Mfile.search([])
+
+        self.mfile_ids = mfiles
+
+        return self._reopen_form()

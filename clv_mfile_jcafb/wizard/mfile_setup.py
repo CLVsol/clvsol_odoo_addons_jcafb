@@ -53,6 +53,7 @@ class MfileSetUp(models.TransientModel):
         self.ensure_one()
 
         MFile = self.env['clv.mfile']
+        LabTestRequest = self.env['clv.lab_test.request']
 
         for document in self.document_ids:
 
@@ -65,6 +66,15 @@ class MfileSetUp(models.TransientModel):
             ])
 
             if mfile.id is False:
+
+                lab_test_request = LabTestRequest.search([
+                    ('document_id', '=', document.id),
+                    ('person_id', '=', document.person_id.id),
+                ])
+                lab_test_request_id = False
+                if lab_test_request.id != []:
+                    lab_test_request_id = lab_test_request.id
+
                 values = {
                     'name': mfile_name,
                     'code': document.code,
@@ -72,7 +82,8 @@ class MfileSetUp(models.TransientModel):
                     'survey_id': document.survey_id.id,
                     'person_id': document.person_id.id,
                     'address_id': document.address_id.id,
-                    # 'employee_id': document.employee_id.id,
+                    'lab_test_request_id': lab_test_request_id,
+                    'history_marker_id': document.history_marker_id.id,
                 }
                 mfile = MFile.create(values)
                 _logger.info(u'%s %s', '>>>>>>>>>>', mfile.name)

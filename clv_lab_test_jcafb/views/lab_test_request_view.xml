@@ -13,6 +13,10 @@
                     <h3><field name="person_id" placeholder="Person..." options="{'no_open': False, 'no_create': True}"/></h3>
                     <label for="person_employee_id" class="oe_edit_only"/>
                     <h3><field name="person_employee_id" placeholder="Responsible Empĺoyee..." options="{'no_open': False, 'no_create': True}"/></h3>
+                    <label for="document_id" class="oe_edit_only"/>
+                    <h3><field name="document_id" placeholder="Related Document..." options="{'no_open': False, 'no_create': True}"/></h3>
+                    <label for="survey_user_input_id" class="oe_edit_only"/>
+                    <h3><field name="survey_user_input_id" options="{'no_open': False, 'no_create': True}"/></h3>
                 </label>
             </field>
         </record>
@@ -26,6 +30,8 @@
                 <field name="date_requested" position="before">
                     <field name="person_id"/>
                     <field name="person_employee_id"/>
+                    <field name="document_id"/>
+                    <field name="survey_user_input_id"/>
                 </field>
             </field>
         </record>
@@ -39,6 +45,8 @@
                 <field name="code" position="after">
                     <field name="person_id"/>
                     <field name="person_employee_id"/>
+                    <field name="document_id"/>
+                    <field name="survey_user_input_id"/>
                 </field>
                 <group name="group_by" position="inside">
                     <filter string="Person" context="{'group_by': 'person_id'}"/>

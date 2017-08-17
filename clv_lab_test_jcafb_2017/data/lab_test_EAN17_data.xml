@@ -6,6 +6,7 @@
 		<record id="clv_lab_test_EAN17" model="clv.lab_test.type">
 			<field name="code" eval="&quot;&quot;&quot;EAN17&quot;&quot;&quot;"/>
 			<field name="name" eval="&quot;&quot;&quot;JCAFB 2017 - Exames - Detecção de Anemia&quot;&quot;&quot;"/>
+			<field name="survey_id" ref="clv_survey_jcafb_2017.QAN17"/>
 		</record>
 	 
 		<record id="clv_lab_test_criterion_EAN17_peso_altura" model="clv.lab_test.criterion">

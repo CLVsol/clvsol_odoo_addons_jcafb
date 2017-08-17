@@ -69,6 +69,8 @@ class MfileRefresh(models.TransientModel):
     def do_mfile_refresh(self):
         self.ensure_one()
 
+        SurveyQuestion = self.env['survey.question']
+
         listdir = os.listdir(self.dir_path)
 
         for mfile in self.mfile_ids:
@@ -116,6 +118,7 @@ class MfileRefresh(models.TransientModel):
                                 code_col = sheet.cell_value(i, k)
                                 if code_col != xlrd.empty_cell.value:
                                     code_cols.update({k: code_col})
+                        row_code = code_row.replace('[', '').replace(']', '')
 
                         for j in range(sheet.ncols):
 
@@ -127,60 +130,53 @@ class MfileRefresh(models.TransientModel):
                                     except Exception:
                                         value = xlrd.empty_cell.value
                                     if value != xlrd.empty_cell.value:
-                                        if survey_title == '[QAN17]' and code_row == '[QAN17_01_01]' or \
-                                           survey_title == '[QDH17]' and code_row == '[QDH17_01_01]' or \
-                                           survey_title == '[QMD17]' and code_row == '[QMD17_01_01]' or \
-                                           survey_title == '[QSC17]' and code_row == '[QSC17_01_01]' or \
-                                           survey_title == '[QSF17]' and code_row == '[QSF17_01_01]' or \
-                                           survey_title == '[QSI17]' and code_row == '[QSI17_01_01]' or \
-                                           survey_title == '[TCP17]' and code_row == '[TCP17_01_01]' or \
-                                           survey_title == '[TCR17]' and code_row == '[TCR17_01_01]' or \
-                                           survey_title == '[TID17]' and code_row == '[TID17_01_01]':
-                                            document_code = value
 
-                                        if survey_title == '[QAN17]' and code_row == '[QAN17_02_02]' or \
-                                           survey_title == '[QDH17]' and code_row == '[QDH17_02_02]' or \
-                                           survey_title == '[QMD17]' and code_row == '[QMD17_02_02]' or \
-                                           survey_title == '[QSC17]' and code_row == '[QSC17_02_02]' or \
-                                           survey_title == '[QSI17]' and code_row == '[QSI17_02_02]' or \
-                                           survey_title == '[TCP17]' and code_row == '[TCP17_02_02]' or \
-                                           survey_title == '[TCR17]' and code_row == '[TCR17_02_02]' or \
-                                           survey_title == '[TID17]' and code_row == '[TID17_02_02]':
-                                            person_code = value
+                                        question_code = row_code[:11]
+                                        survey_question_search = SurveyQuestion.search([
+                                            ('code', '=', question_code),
+                                        ])
+                                        if survey_question_search.id is not False:
+                                            question_parameter = survey_question_search.parameter
 
-                                        if survey_title == '[QAN17]' and code_row == '[QAN17_02_05]' or \
-                                           survey_title == '[QDH17]' and code_row == '[QDH17_02_05]' or \
-                                           survey_title == '[QMD17]' and code_row == '[QMD17_02_05]' or \
-                                           survey_title == '[QSC17]' and code_row == '[QSC17_02_05]' or \
-                                           survey_title == '[QSF17]' and code_row == '[QSF17_02_02]' or \
-                                           survey_title == '[QSI17]' and code_row == '[QSI17_02_05]':
-                                            address_code = value
+                                            if question_parameter == 'document_code':
+                                                document_code = value
+                                                mfile.document_code = document_code
+                                                if mfile.document_id.code != document_code:
+                                                    mfile.state = 'returned'
+                                                    if mfile.notes is False:
+                                                        mfile.notes = u'Erro: Código do Documento inválido!'
+                                                    else:
+                                                        mfile.notes += u'\nErro: Código do Documento inválido!'
 
-                    mfile.document_code = document_code
-                    if mfile.document_id.code != document_code:
-                        mfile.state = 'returned'
-                        if mfile.notes is False:
-                            mfile.notes = u'Erro: Código do Documento inválido!'
-                        else:
-                            mfile.notes += u'\nErro: Código do Documento inválido!'
+                                            if question_parameter == 'person_code':
+                                                person_code = value
+                                                mfile.person_code = person_code
+                                                if mfile.person_id.code != person_code:
+                                                    mfile.state = 'returned'
+                                                    if mfile.notes is False:
+                                                        mfile.notes = u'Erro: Código da Pessoa inválido!'
+                                                    else:
+                                                        mfile.notes += u'\nErro: Código da Pessoa inválido!'
 
-                    mfile.person_code = person_code
-                    if mfile.person_id.code != person_code and \
-                       survey_title != '[QSF17]':
-                        mfile.state = 'returned'
-                        if mfile.notes is False:
-                            mfile.notes = u'Erro: Código da Pessoa inválido!'
-                        else:
-                            mfile.notes += u'\nErro: Código da Pessoa inválido!'
+                                            if question_parameter == 'address_code':
+                                                address_code = value
+                                                mfile.address_code = address_code
+                                                if mfile.address_id.code != address_code:
+                                                    mfile.state = 'returned'
+                                                    if mfile.notes is False:
+                                                        mfile.notes = u'Erro: Código do Endereço inválido!'
+                                                    else:
+                                                        mfile.notes += u'\nErro: Código do Endereço inválido!'
 
-                    mfile.address_code = address_code
-                    if mfile.address_id.code != address_code and \
-                       survey_title == '[QSF17]':
-                        mfile.state = 'returned'
-                        if mfile.notes is False:
-                            mfile.notes = u'Erro: Código do Endereço inválido!'
-                        else:
-                            mfile.notes += u'\nErro: Código do Endereço inválido!'
+                                            if question_parameter == 'lab_test_request_code':
+                                                lab_test_request_code = value
+                                                mfile.lab_test_request_code = lab_test_request_code
+                                                if mfile.lab_test_request_id.code != lab_test_request_code:
+                                                    mfile.state = 'returned'
+                                                    if mfile.notes is False:
+                                                        mfile.notes = u'Codigo da Requisicao de Exames invalido!'
+                                                    else:
+                                                        mfile.notes += u'\nCodigo da Requisicao de Exames invalido!'
 
             else:
 
@@ -193,3 +189,14 @@ class MfileRefresh(models.TransientModel):
                     mfile.notes = False
 
         return True
+
+    @api.multi
+    def do_populate_all_mfiles(self):
+        self.ensure_one()
+
+        Mfile = self.env['clv.mfile']
+        mfiles = Mfile.search([])
+
+        self.mfile_ids = mfiles
+
+        return self._reopen_form()
