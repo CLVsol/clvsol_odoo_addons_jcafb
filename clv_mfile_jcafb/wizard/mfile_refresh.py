@@ -168,15 +168,15 @@ class MfileRefresh(models.TransientModel):
                                                     else:
                                                         mfile.notes += u'\nErro: Código do Endereço inválido!'
 
-                                            # if question_parameter == 'lab_test_request_code':
-                                            #     lab_test_request_code = value
-                                            #     mfile.lab_test_request_code = lab_test_request_code
-                                            #     if mfile.lab_test_request.code != lab_test_request_code:
-                                            #         mfile.state = 'returned'
-                                            #         if mfile.notes is False:
-                                            #             mfile.notes = u'Codigo da Requisicao de Exames invalido!'
-                                            #         else:
-                                            #             mfile.notes += u'\nCodigo da Requisicao de Exames invalido!'
+                                            if question_parameter == 'lab_test_request_code':
+                                                lab_test_request_code = value
+                                                mfile.lab_test_request_code = lab_test_request_code
+                                                if mfile.lab_test_request_id.code != lab_test_request_code:
+                                                    mfile.state = 'returned'
+                                                    if mfile.notes is False:
+                                                        mfile.notes = u'Codigo da Requisicao de Exames invalido!'
+                                                    else:
+                                                        mfile.notes += u'\nCodigo da Requisicao de Exames invalido!'
 
             else:
 
@@ -189,3 +189,14 @@ class MfileRefresh(models.TransientModel):
                     mfile.notes = False
 
         return True
+
+    @api.multi
+    def do_populate_all_mfiles(self):
+        self.ensure_one()
+
+        Mfile = self.env['clv.mfile']
+        mfiles = Mfile.search([])
+
+        self.mfile_ids = mfiles
+
+        return self._reopen_form()

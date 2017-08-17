@@ -8,6 +8,7 @@
             <field name="arch" type="xml">
                 <form>
                     <div class="oe_right">
+                        <button type="object" name="do_populate_all_mfiles" string="Get All Media Files"/>
                     </div>
                     <label for="mfile_ids"/>
                     <field name="mfile_ids"/>
