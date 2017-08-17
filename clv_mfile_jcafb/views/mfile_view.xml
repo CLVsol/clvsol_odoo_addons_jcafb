@@ -54,8 +54,8 @@
                                 <field name="address_employee_id" options="{'no_open': False, 'no_create': True}"/>
                             </group>
                             <group>
-                                <!--field name="lab_test_request_code"/-->
-                                <!--field name="lab_test_request_id"/-->
+                                <field name="lab_test_request_code"/>
+                                <field name="lab_test_request_id"/>
                             </group>
                         </group>
                     </page>
@@ -89,8 +89,8 @@
                     <field name="address_id"/>
                     <!--field name="address_state"/-->
                     <field name="address_employee_id"/>
-                    <!--field name="lab_test_request_code"/-->
-                    <!--field name="lab_test_request_id"/-->
+                    <field name="lab_test_request_code"/>
+                    <field name="lab_test_request_id"/>
                     <field name="notes"/>
                 </field>
             </field>
@@ -119,8 +119,8 @@
                     <field name="address_id"/>
                     <!--field name="address_state"/-->
                     <field name="address_employee_id"/>
-                    <!--field name="lab_test_request_code"/-->
-                    <!--field name="lab_test_request_id"/-->
+                    <field name="lab_test_request_code"/>
+                    <field name="lab_test_request_id"/>
                     <field name="notes"/>
                 </field>
                 <group name="group_by" position="inside">

@@ -88,11 +88,11 @@ class Address(models.Model):
         store=True
     )
 
-    # # lab_test_request_code = fields.Char(string="Lab Test Request Code")
-    # # lab_test_request_id = fields.Many2one(
-    # #     comodel_name='clv.lab_test.request',
-    # #     string="Related Lab Test Request"
-    # # )
+    lab_test_request_code = fields.Char(string="Lab Test Request Code")
+    lab_test_request_id = fields.Many2one(
+        comodel_name='clv.lab_test.request',
+        string="Related Lab Test Request"
+    )
 
     date_survey_file = fields.Datetime(
         string='Survey File Date',
