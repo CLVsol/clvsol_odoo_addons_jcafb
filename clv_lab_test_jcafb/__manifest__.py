@@ -46,6 +46,7 @@
         'data/lab_test_unit.xml',
         'wizard/lab_test_request_setup_view.xml',
         'wizard/lab_test_result_setup_view.xml',
+        'wizard/lab_test_request_document_setup_view.xml',
     ],
     'demo': [],
     'test': [],
