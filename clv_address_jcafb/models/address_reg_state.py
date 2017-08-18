@@ -73,3 +73,15 @@ class Address(models.Model):
     def action_cancel(self):
         for address in self:
             address.change_reg_state('canceled')
+
+
+class AddressHistory(models.Model):
+    _inherit = 'clv.address.history'
+
+    reg_state = fields.Selection(
+        [('draft', 'Draft'),
+         ('revised', 'Revised'),
+         ('done', 'Done'),
+         ('canceled', 'Canceled')
+         ], string='Register State', default='draft', readonly=True, required=True
+    )

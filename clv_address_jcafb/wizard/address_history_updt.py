@@ -75,6 +75,7 @@ class AddressHistoryUpdate(models.TransientModel):
                     values = {
                         'address_id': address.id,
                         'category_ids': category_ids,
+                        'reg_state': address.reg_state,
                         'state': address.state,
                         'employee_id': address.employee_id.id,
                         'sign_in_date': self.sign_in_date,
@@ -95,6 +96,8 @@ class AddressHistoryUpdate(models.TransientModel):
                         m2m_list_2.append((4, category_id.id))
                     if m2m_list != m2m_list_2:
                         address_history.category_ids = m2m_list
+                    if address_history.reg_state != address.reg_state:
+                        address_history.reg_state = address.reg_state
                     if address_history.state != address.state:
                         address_history.state = address.state
                     if address_history.employee_id.id != address.employee_id.id:
