@@ -79,6 +79,8 @@ class PersonHistoryUpdate(models.TransientModel):
                         'age_reference': person.age_reference,
                         'responsible_id': person.responsible_id.id,
                         'caregiver_id': person.caregiver_id.id,
+                        'address_id': person.address_id.id,
+                        'person_address_role_id': person.person_address_role_id.id,
                         'state': person.state,
                         'employee_id': person.employee_id.id,
                         'sign_in_date': self.sign_in_date,
@@ -107,6 +109,10 @@ class PersonHistoryUpdate(models.TransientModel):
                         person_history.responsible_id = person.responsible_id.id
                     if person_history.caregiver_id.id != person.caregiver_id.id:
                         person_history.caregiver_id = person.caregiver_id.id
+                    if person_history.address_id.id != person.address_id.id:
+                        person_history.address_id = person.address_id.id
+                    if person_history.person_address_role_id.id != person.person_address_role_id.id:
+                        person_history.person_address_role_id = person.person_address_role_id.id
                     if person_history.state != person.state:
                         person_history.state = person.state
                     if person_history.employee_id.id != person.employee_id.id:
@@ -130,4 +136,3 @@ class PersonHistoryUpdate(models.TransientModel):
                                                  person_history.sign_out_date)
 
         return True
-        # return self._reopen_form()
