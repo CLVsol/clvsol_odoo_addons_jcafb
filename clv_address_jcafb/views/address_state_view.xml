@@ -128,7 +128,7 @@
             <field name="name">clv.address.history.search</field>
             <field name="model">clv.address.history</field>
             <field name="inherit_id" ref="clv_address_history.clv_address_history_view_search"/>
-            <field name="priority" eval="8"/>
+            <field name="priority" eval="9"/>
             <field name="arch" type="xml">
                 <field name="sign_out_date" position="after">
                     <field name="state"/>

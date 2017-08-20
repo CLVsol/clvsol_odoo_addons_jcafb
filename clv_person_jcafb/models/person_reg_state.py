@@ -73,3 +73,15 @@ class Person(models.Model):
     def action_cancel(self):
         for person in self:
             person.change_reg_state('canceled')
+
+
+class PersonHistory(models.Model):
+    _inherit = 'clv.person.history'
+
+    reg_state = fields.Selection(
+        [('draft', 'Draft'),
+         ('revised', 'Revised'),
+         ('done', 'Done'),
+         ('canceled', 'Canceled')
+         ], string='Register State', default='draft', readonly=True, required=True
+    )
