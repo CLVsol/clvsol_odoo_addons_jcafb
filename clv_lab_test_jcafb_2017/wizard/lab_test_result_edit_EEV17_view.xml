@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="clv_lab_test_result_edit_view_form_jcafb_EVV17" model="ir.ui.view">
+            <field name="name">clv.lab_test.result.edit.form</field>
+            <field name="model">clv.lab_test.result.edit</field>
+            <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_edit_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <group  name="group_top" position="after">
+                    <group attrs="{'invisible':[('is_EEV17', '=', False)]}">
+                        <field name="is_EEV17" invisible="True"/>
+                        <group>
+                            <field name="EEV17_data_entrada_material"/>
+                            <field name="EEV17_liberacao_resultado"/>
+                            <field name="EEV17_resultado"/>
+                            <field name="EEV17_examinador"/>
+                            <field name="EEV17_metodo_utilizado"/>
+                            <field name="EEV17_obs"/>
+                        </group>
+                    </group>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</odoo>

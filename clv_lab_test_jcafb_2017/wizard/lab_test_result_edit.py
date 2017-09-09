@@ -18,4 +18,37 @@
 #
 ###############################################################################
 
-from . import wizard
+import logging
+
+from odoo import api, models
+
+_logger = logging.getLogger(__name__)
+
+
+class LabTestResultEdit(models.TransientModel):
+    _inherit = 'clv.lab_test.result.edit'
+
+    @api.multi
+    def do_result_updt(self):
+        self.ensure_one()
+
+        super(LabTestResultEdit, self).do_result_updt()
+
+        active_id = self.env['clv.lab_test.result'].browse(self._context.get('active_id'))
+
+        if active_id.lab_test_type_id.code == 'EAN17':
+            self._do_result_updt_EAN17()
+
+        if active_id.lab_test_type_id.code == 'EDH17':
+            self._do_result_updt_EDH17()
+
+        if active_id.lab_test_type_id.code == 'ECP17':
+            self._do_result_updt_ECP17()
+
+        if active_id.lab_test_type_id.code == 'EEV17':
+            self._do_result_updt_EEV17()
+
+        if active_id.lab_test_type_id.code == 'EUR17':
+            self._do_result_updt_EUR17()
+
+        return True

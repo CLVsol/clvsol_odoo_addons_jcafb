@@ -18,4 +18,9 @@
 #
 ###############################################################################
 
-from . import wizard
+import lab_test_result_edit_EAN17
+import lab_test_result_edit_EDH17
+import lab_test_result_edit_ECP17
+import lab_test_result_edit_EEV17
+import lab_test_result_edit_EUR17
+import lab_test_result_edit
