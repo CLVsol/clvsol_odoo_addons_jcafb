@@ -17,7 +17,7 @@
 		<record id="clv_lab_test_criterion_ECP17_coprop_data_entrada_material" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_ECP17"/>
 			<field name="sequence" eval="101"/>
-			<field name="code">ECP-01-01</field>
+			<field name="code">ECP17-01-01</field>
 			<field name="name" eval="&quot;&quot;&quot;Data de Entrada do Material&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_dd_mm_aaaa"/>
 		</record>
@@ -25,7 +25,7 @@
 		<record id="clv_lab_test_criterion_ECP17_coprop_data_liberacao_resultado" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_ECP17"/>
 			<field name="sequence" eval="102"/>
-			<field name="code">ECP-01-02</field>
+			<field name="code">ECP17-01-02</field>
 			<field name="name" eval="&quot;&quot;&quot;Liberação do Resultado&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_dd_mm_aaaa"/>
 		</record>
@@ -33,7 +33,7 @@
 		<record id="clv_lab_test_criterion_ECP17_coprop_resultado" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_ECP17"/>
 			<field name="sequence" eval="103"/>
-			<field name="code">ECP-01-03</field>
+			<field name="code">ECP17-01-03</field>
 			<field name="name" eval="&quot;&quot;&quot;Resultado&quot;&quot;&quot;"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Negativo&quot;&quot;&quot;"/>
 		</record>
@@ -41,14 +41,14 @@
 		<record id="clv_lab_test_criterion_ECP17_coprop_resultado_obs" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_ECP17"/>
 			<field name="sequence" eval="104"/>
-			<field name="code">ECP-01-04</field>
+			<field name="code">ECP17-01-04</field>
 			<field name="name" eval="&quot;&quot;&quot;Observações&quot;&quot;&quot;"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_ECP17_coprop_resultado_metodologias" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_ECP17"/>
 			<field name="sequence" eval="105"/>
-			<field name="code">ECP-01-05</field>
+			<field name="code">ECP17-01-05</field>
 			<field name="name" eval="&quot;&quot;&quot;Metodologia(s) Empregada(s)&quot;&quot;&quot;"/>
 		</record>
 	
@@ -61,14 +61,14 @@
 		<record id="clv_lab_test_criterion_ECP17_coprop_ritchie_resultado" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_ECP17"/>
 			<field name="sequence" eval="201"/>
-			<field name="code">ECP-02-01</field>
+			<field name="code">ECP17-02-01</field>
 			<field name="name" eval="&quot;&quot;&quot;Resultado&quot;&quot;&quot;"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_ECP17_coprop_ritchie_examinador" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_ECP17"/>
 			<field name="sequence" eval="202"/>
-			<field name="code">ECP-02-02</field>
+			<field name="code">ECP17-02-02</field>
 			<field name="name" eval="&quot;&quot;&quot;Examinador&quot;&quot;&quot;"/>
 		</record>
 
@@ -81,14 +81,14 @@
 		<record id="clv_lab_test_criterion_ECP17_coprop_hoffmann_resultado" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_ECP17"/>
 			<field name="sequence" eval="301"/>
-			<field name="code">ECP-03-01</field>
+			<field name="code">ECP17-03-01</field>
 			<field name="name" eval="&quot;&quot;&quot;Resultado&quot;&quot;&quot;"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_ECP17_coprop_hoffmann_examinador" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_ECP17"/>
 			<field name="sequence" eval="302"/>
-			<field name="code">ECP-03-02</field>
+			<field name="code">ECP17-03-02</field>
 			<field name="name" eval="&quot;&quot;&quot;Examinador&quot;&quot;&quot;"/>
 		</record>
 	

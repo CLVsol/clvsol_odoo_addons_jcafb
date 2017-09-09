@@ -18,7 +18,7 @@
 		<record id="clv_lab_test_criterion_EDH17_tempo_jejum" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="101"/>
-			<field name="code">EDH-01-01</field>
+			<field name="code">EDH17-01-01</field>
 			<field name="name" eval="&quot;&quot;&quot;Tempo de Jejum&quot;&quot;&quot;"/>
 		</record>
 	
@@ -31,7 +31,7 @@
 		<record id="clv_lab_test_criterion_EDH17_peso" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="201"/>
-			<field name="code">EDH-02-01</field>
+			<field name="code">EDH17-02-01</field>
 			<field name="name" eval="&quot;&quot;&quot;Peso&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_kg"/>
 		</record>
@@ -39,7 +39,7 @@
 		<record id="clv_lab_test_criterion_EDH17_altura" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="202"/>
-			<field name="code">EDH-02-02</field>
+			<field name="code">EDH17-02-02</field>
 			<field name="name" eval="&quot;&quot;&quot;Altura&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_cm"/>
 		</record>
@@ -47,7 +47,7 @@
 		<record id="clv_lab_test_criterion_EDH17_imc" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="203"/>
-			<field name="code">EDH-02-03</field>
+			<field name="code">EDH17-02-03</field>
 			<field name="name" eval="&quot;&quot;&quot;IMC (=Peso/(Altura x Altura))&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_kg_m2"/>
 		</record>
@@ -55,7 +55,7 @@
 		<record id="clv_lab_test_criterion_EDH17_interpretacao_imc" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="204"/>
-			<field name="code">EDH-02-04</field>
+			<field name="code">EDH17-02-04</field>
 			<field name="name" eval="&quot;&quot;&quot;Interpretação do valor de IMC (OMS; Adultos.: 19 a 64 anos; Idosos:igual ou maior a 65 anos)&quot;&quot;&quot;"/>
 			<!--field name="normal_range" eval="&quot;&quot;&quot;(OMS; Adultos.: 19 a 64 anos; Idosos:igual ou maior a 65 anos)&quot;&quot;&quot;"/-->
 		</record>
@@ -63,14 +63,14 @@
 		<record id="clv_lab_test_criterion_EDH17_interpretacao_imc_obs" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="205"/>
-			<field name="code">EDH-02-05</field>
+			<field name="code">EDH17-02-05</field>
 			<field name="name" eval="&quot;&quot;&quot;Observações&quot;&quot;&quot;"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EDH17_circ_abdominal" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="206"/>
-			<field name="code">EDH-02-06</field>
+			<field name="code">EDH17-02-06</field>
 			<field name="name" eval="&quot;&quot;&quot;Circunferência abdominal&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_cm"/>
 		</record>
@@ -78,14 +78,14 @@
 		<record id="clv_lab_test_criterion_EDH17_interpretacao_circ_abdominal" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="207"/>
-			<field name="code">EDH-02-07</field>
+			<field name="code">EDH17-02-07</field>
 			<field name="name" eval="&quot;&quot;&quot;Interpretação do valor de Circunferência Abdominal (ABESO; Adultos)&quot;&quot;&quot;"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EDH17_interpretacao_circ_abdominal_obs" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="208"/>
-			<field name="code">EDH-02-08</field>
+			<field name="code">EDH17-02-08</field>
 			<field name="name" eval="&quot;&quot;&quot;Observações&quot;&quot;&quot;"/>
 		</record>
 	
@@ -98,7 +98,7 @@
 		<record id="clv_lab_test_criterion_EDH17_pa_automatica" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="301"/>
-			<field name="code">EDH-03-01</field>
+			<field name="code">EDH17-03-01</field>
 			<field name="name" eval="&quot;&quot;&quot;Pressão arterial automática&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_mmHg"/>
 		</record>
@@ -106,7 +106,7 @@
 		<record id="clv_lab_test_criterion_EDH17_pa_manual" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="302"/>
-			<field name="code">EDH-03-02</field>
+			<field name="code">EDH17-03-02</field>
 			<field name="name" eval="&quot;&quot;&quot;Pressão arterial manual&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_mmHg"/>
 		</record>
@@ -114,14 +114,14 @@
 		<record id="clv_lab_test_criterion_EDH17_interpretacao_pa" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="303"/>
-			<field name="code">EDH-03-03</field>
+			<field name="code">EDH17-03-03</field>
 			<field name="name" eval="&quot;&quot;&quot;Interpretação do valor de Pressão Arterial (Diretrizes Brasileiras de Hipertensão Arterial de 2010)&quot;&quot;&quot;"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EDH17_interpretacao_pa_obs" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="304"/>
-			<field name="code">EDH-03-04</field>
+			<field name="code">EDH17-03-04</field>
 			<field name="name" eval="&quot;&quot;&quot;Observações&quot;&quot;&quot;"/>
 		</record>
 	
@@ -134,7 +134,7 @@
 		<record id="clv_lab_test_criterion_EDH17_glicemia" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="401"/>
-			<field name="code">EDH-04-01</field>
+			<field name="code">EDH17-04-01</field>
 			<field name="name" eval="&quot;&quot;&quot;Glicemia&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_mg_dL"/>
 		</record>
@@ -142,21 +142,21 @@
 		<record id="clv_lab_test_criterion_EDH17_interpretacao_glicemia" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="402"/>
-			<field name="code">EDH-04-02</field>
+			<field name="code">EDH17-04-02</field>
 			<field name="name" eval="&quot;&quot;&quot;Interpretação do valor de Glicemia (Associação Americana de Diabetes (2014))&quot;&quot;&quot;"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EDH17_interpretacao_glicemia_obs" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="403"/>
-			<field name="code">EDH-04-03</field>
+			<field name="code">EDH17-04-03</field>
 			<field name="name" eval="&quot;&quot;&quot;Outras situações&quot;&quot;&quot;"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EDH17_colesterol" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="404"/>
-			<field name="code">EDH-04-04</field>
+			<field name="code">EDH17-04-04</field>
 			<field name="name" eval="&quot;&quot;&quot;Colesterol&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_mg_dL"/>
 		</record>
@@ -164,14 +164,14 @@
 		<record id="clv_lab_test_criterion_EDH17_interpretacao_colesterol" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="405"/>
-			<field name="code">EDH-04-05</field>
+			<field name="code">EDH17-04-05</field>
 			<field name="name" eval="&quot;&quot;&quot;Interpretação do valor de Colesterol (Diretrizes Brasileiras de Dislipidemias e Prevenção da Aterosclerose-2013)&quot;&quot;&quot;"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EDH17_interpretacao_colesterol_obs" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH17"/>
 			<field name="sequence" eval="406"/>
-			<field name="code">EDH-04-06</field>
+			<field name="code">EDH17-04-06</field>
 			<field name="name" eval="&quot;&quot;&quot;Observações&quot;&quot;&quot;"/>
 		</record>
 	
