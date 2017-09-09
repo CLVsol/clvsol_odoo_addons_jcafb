@@ -18,7 +18,29 @@
 #
 ###############################################################################
 
-import lab_test_request_setup
-import lab_test_result_setup
-import lab_test_request_document_setup
-import lab_test_result_edit
+import logging
+
+from odoo import api, fields, models
+
+_logger = logging.getLogger(__name__)
+
+
+class LabTestResultEdit(models.TransientModel):
+    _inherit = 'clv.lab_test.result.edit'
+
+    def _default_person_id(self):
+        return self.env['clv.lab_test.result'].browse(self._context.get('active_id')).person_id
+    person_id = fields.Many2one(
+        comodel_name='clv.person',
+        string='Person',
+        readonly=True,
+        default=_default_person_id
+    )
+
+    @api.multi
+    def do_result_updt(self):
+        self.ensure_one()
+
+        super(LabTestResultEdit, self).do_result_updt()
+
+        return True
