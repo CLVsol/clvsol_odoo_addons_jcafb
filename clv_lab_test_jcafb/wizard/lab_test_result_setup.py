@@ -58,7 +58,7 @@ class LabTestResultSetup(models.TransientModel):
 
         for lab_test_request in self.lab_test_request_ids:
 
-            _logger.info(u'%s %s %s', '>>>>>', lab_test_request.code, lab_test_request.patient_id.name)
+            _logger.info(u'%s %s %s', '>>>>>', lab_test_request.code, lab_test_request.person_id.name)
 
             for lab_test_type in lab_test_request.lab_test_type_ids:
 
@@ -76,7 +76,7 @@ class LabTestResultSetup(models.TransientModel):
                 values = {
                     'code_sequence': 'clv.lab_test.result.code',
                     'lab_test_type_id': lab_test_type.id,
-                    'patient_id': lab_test_request.patient_id.id,
+                    'person_id': lab_test_request.person_id.id,
                     'lab_test_request_id': lab_test_request.id,
                     'criterion_ids': criteria,
                 }
