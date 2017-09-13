@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="clv_lab_test_result_edit_view_form_jcafb_EDH18" model="ir.ui.view">
+            <field name="name">clv.lab_test.result.edit.form</field>
+            <field name="model">clv.lab_test.result.edit</field>
+            <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_edit_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <group  name="group_top" position="after">
+                    <group attrs="{'invisible':[('is_EDH18', '=', False)]}">
+                        <field name="is_EDH18" invisible="True"/>
+                        <group>
+                            <field name="EDH18_tempo_jejum"/>
+                        </group>
+                    </group>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</odoo>

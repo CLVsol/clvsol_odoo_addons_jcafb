@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="clv_lab_test_result_edit_view_form_jcafb_ECP18" model="ir.ui.view">
+            <field name="name">clv.lab_test.result.edit.form</field>
+            <field name="model">clv.lab_test.result.edit</field>
+            <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_edit_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <group  name="group_top" position="after">
+                    <group attrs="{'invisible':[('is_ECP18', '=', False)]}">
+                        <field name="is_ECP18" invisible="True"/>
+                        <group>
+                            <field name="ECP18_data_entrada_material"/>
+                            <field name="ECP18_liberacao_resultado"/>
+                            <field name="ECP18_resultado"/>
+                            <field name="ECP18_obs"/>
+                            <field name="ECP18_metodo_utilizado"/>
+                            <field name="ECP18_ritchie_resultado"/>
+                        </group>
+                    </group>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</odoo>
