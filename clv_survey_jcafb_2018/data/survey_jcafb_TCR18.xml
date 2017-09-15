@@ -9,7 +9,7 @@
             <field name="stage_id" ref="survey.stage_in_progress"/>
             <field name="auth_required" eval="False"/>
             <field name="users_can_go_back" eval="True"/>
-            <field name="description">&lt;p&gt;JCAFB 2018 - TERMO DE CONSENTIMENTO LIVRE E ESCLARECIDO PARA REALIZAÇÃO DE EXAMES COPROPARASITOLÓGICOS, DETECÇÃO DE ANEMIA E QUESTIONÁRIO SOCIOECONÔMICO&lt;/p&gt;</field>
+            <field name="description">&lt;p&gt;JCAFB 2018 - Termo de Consentimento Livre e Esclarecido para Realização de Exames Coproparasitológicos e Questionário Socioeconômico&lt;/p&gt;</field>
             <field name="thank_you_message">&lt;p&gt;Obrigado por sua participação.&lt;/p&gt;</field>
         </record>
 
@@ -162,7 +162,7 @@
 
                 <!-- 3.1. 1) Questionário Socioeconômico -->
                 <record model="survey.question" id="TCR18_03_01">
-                    <field name="question">3.1. 1) Questionário Socioeconômico</field>
+                    <field name="question">3.1. Questionário Socioeconômico</field>
                     <field name="code">TCR18_03_01</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="TCR18_03"/>
@@ -191,7 +191,7 @@
 
                 <!-- 3.2. 2) Exame coproparasitológico de fezes -->
                 <record model="survey.question" id="TCR18_03_02">
-                    <field name="question">3.2. 2) Exame coproparasitológico de fezes</field>
+                    <field name="question">3.2. Exame coproparasitológico de fezes</field>
                     <field name="code">TCR18_03_02</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="TCR18_03"/>
@@ -220,7 +220,7 @@
 
                 <!-- 3.3. 3) Swab Anal -->
                 <record model="survey.question" id="TCR18_03_03">
-                    <field name="question">3.3. 3) Swab Anal</field>
+                    <field name="question">3.3. Swab Anal</field>
                     <field name="code">TCR18_03_03</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="TCR18_03"/>
@@ -244,35 +244,6 @@
                         <field name="value">Não concordo em participar</field>
                         <field name="code">TCR18_03_03_02</field>
                         <field name="question_id" ref="TCR18_03_03"/>
-                        <field name="sequence" eval="20"/>
-                    </record>
-
-                <!-- 3.4. 4) Exame de Anemia -->
-                <record model="survey.question" id="TCR18_03_04">
-                    <field name="question">3.4. 4) Exame de Anemia</field>
-                    <field name="code">TCR18_03_04</field>
-                    <field name="type">simple_choice</field>
-                    <field name="page_id" ref="TCR18_03"/>
-                    <field name="sequence" eval="40"/>
-                    <field name="display_mode">columns</field>
-                    <field name="column_nb">12</field>
-                    <field name="constr_mandatory">True</field>
-                    <field name="constr_error_msg">Esta questão precisa ser respondida.</field>
-                    <field name="comments_allowed">False</field>
-                    <field name="comments_message"></field>
-                </record>
-
-                    <record model="survey.label" id="TCR18_03_04_01">
-                        <field name="value">Concordo em participar</field>
-                        <field name="code">TCR18_03_04_01</field>
-                        <field name="question_id" ref="TCR18_03_04"/>
-                        <field name="sequence" eval="10"/>
-                    </record>
-
-                    <record model="survey.label" id="TCR18_03_04_02">
-                        <field name="value">Não concordo em participar</field>
-                        <field name="code">TCR18_03_04_02</field>
-                        <field name="question_id" ref="TCR18_03_04"/>
                         <field name="sequence" eval="20"/>
                     </record>
 

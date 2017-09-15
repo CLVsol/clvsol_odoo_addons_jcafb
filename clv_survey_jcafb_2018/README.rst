@@ -3,9 +3,9 @@
    :alt: License: AGPL-3
 
 ====================
-JCAFB Surveys (2017)
+JCAFB Surveys (2018)
 ====================
 
-JCAFB Surveys (2017) Module.
+JCAFB Surveys (2018) Module.
 
 Developed by `CLVsol <https://github.com/CLVsol>`_.

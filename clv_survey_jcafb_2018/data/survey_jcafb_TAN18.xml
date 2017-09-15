@@ -9,7 +9,7 @@
             <field name="stage_id" ref="survey.stage_in_progress"/>
             <field name="auth_required" eval="False"/>
             <field name="users_can_go_back" eval="True"/>
-            <field name="description">&lt;p&gt;JCAFB 2017 - TERMO DE CONSENTIMENTO PARA A CAMPANHA DE DETECÇÃO DE ANEMIA&lt;/p&gt;</field>
+            <field name="description">&lt;p&gt;JCAFB 2017 - Termo de Consentimento para a Campanha de Detecção de Anemia&lt;/p&gt;</field>
             <field name="thank_you_message">&lt;p&gt;Obrigado por sua participação.&lt;/p&gt;</field>
         </record>
 
@@ -176,7 +176,7 @@
                 </record>
 
                     <record model="survey.label" id="TAN18_03_01_01">
-                        <field name="value">Sim, declaro que entendi o texto acima e concordo em participar da Campanha Gratuita para Detecção de Diabetes, Hipertensão Arterial e Hipercolesterolemia.</field>
+                        <field name="value">Sim, declaro que entendi o texto acima e concordo em participar da Campanha Gratuita para Detecção de Anemia.</field>
                         <field name="code">TAN18_03_01_01</field>
                         <field name="question_id" ref="TAN18_03_01"/>
                         <field name="sequence" eval="10"/>
