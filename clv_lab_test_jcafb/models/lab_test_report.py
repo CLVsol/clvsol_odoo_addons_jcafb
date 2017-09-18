@@ -18,12 +18,37 @@
 #
 ###############################################################################
 
-from . import lab_test_type
-from . import lab_test_request
-from . import lab_test_request_code
-from . import lab_test_request_state
-from . import lab_test_result
-from . import lab_test_result_code
-from . import lab_test_result_reg_state
-from . import lab_test_result_state
-from . import lab_test_report
+from odoo import fields, models
+
+
+class LabTestReport(models.Model):
+    _inherit = 'clv.lab_test.report'
+
+    person_id = fields.Many2one(
+        comodel_name='clv.person',
+        string="Person",
+        ondelete='restrict'
+    )
+    person_employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Responsible Empĺoyee (Person)',
+        related='person_id.address_id.employee_id',
+        store=True
+    )
+
+    survey_id = fields.Many2one(
+        comodel_name='survey.survey',
+        string='Related Survey Type',
+        related='lab_test_type_id.survey_id',
+        store=True
+    )
+
+
+class Person(models.Model):
+    _inherit = 'clv.person'
+
+    lab_test_report_ids = fields.One2many(
+        comodel_name='clv.lab_test.report',
+        inverse_name='person_id',
+        string='Lab Test Reports'
+    )
