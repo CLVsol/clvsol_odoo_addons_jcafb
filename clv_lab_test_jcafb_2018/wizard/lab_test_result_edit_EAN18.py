@@ -70,7 +70,9 @@ class LabTestResultEdit(models.TransientModel):
 
     def _write_EAN18_peso_resp(self):
         if self.EAN18_peso_resp.name is not False:
-            self._set_result('EAN18', 'EAN18-01-02', self.EAN18_peso_resp.name + ' [' + self.EAN18_peso_resp.code + ']')
+            self._set_result(
+                'EAN18', 'EAN18-01-02', self.EAN18_peso_resp.name + ' [' + self.EAN18_peso_resp.code + ']'
+            )
         else:
             self._set_result('EAN18', 'EAN18-01-02', False)
 
