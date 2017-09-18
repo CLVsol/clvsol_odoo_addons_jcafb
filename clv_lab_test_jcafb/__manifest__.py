@@ -54,6 +54,7 @@
         'wizard/lab_test_report_setup_view.xml',
         'wizard/lab_test_request_document_setup_view.xml',
         'wizard/lab_test_result_edit_view.xml',
+        'wizard/lab_test_report_edit_view.xml',
     ],
     'demo': [],
     'test': [],
