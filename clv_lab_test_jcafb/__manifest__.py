@@ -42,6 +42,7 @@
         'views/lab_test_result_reg_state_view.xml',
         'views/lab_test_result_state_view.xml',
         'views/lab_test_report_view.xml',
+        'views/lab_test_report_reg_state_view.xml',
         'data/lab_test_request_seq.xml',
         'data/lab_test_result_seq.xml',
         'data/lab_test_unit.xml',
