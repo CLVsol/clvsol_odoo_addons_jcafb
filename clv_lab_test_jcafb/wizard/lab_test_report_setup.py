@@ -74,8 +74,7 @@ class LabTestReportSetup(models.TransientModel):
                                             }))
 
                 values = {
-                    # 'code_sequence': 'clv.lab_test.report.code',
-                    'code': lab_test_request.code,
+                    'code_sequence': 'clv.lab_test.report.code',
                     'lab_test_type_id': lab_test_type.id,
                     'person_id': lab_test_request.person_id.id,
                     'lab_test_request_id': lab_test_request.id,
