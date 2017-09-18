@@ -24,3 +24,9 @@ import lab_test_result_edit_ECP18
 import lab_test_result_edit_EEV18
 import lab_test_result_edit_EUR18
 import lab_test_result_edit
+import lab_test_report_edit_EAN18
+import lab_test_report_edit_EDH18
+import lab_test_report_edit_ECP18
+import lab_test_report_edit_EEV18
+import lab_test_report_edit_EUR18
+import lab_test_report_edit
