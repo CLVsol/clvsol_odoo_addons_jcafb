@@ -202,3 +202,32 @@ class Person(models.Model):
         related='address_id.category_ids.name',
         store=True
     )
+
+    action_person = fields.Selection(
+        [('undefined', 'Undefined'),
+         ('confirm', 'Confirm'),
+         ('update', 'Update'),
+         ('create', 'Create'),
+         ('remove', 'Remove'),
+         ('none', 'None'),
+         ], string='Action (Person)', default='undefined'
+    )
+
+    action_address = fields.Selection(
+        [('undefined', 'Undefined'),
+         ('confirm', 'Confirm'),
+         ('update', 'Update'),
+         ('create', 'Create'),
+         ('remove', 'Remove'),
+         ('none', 'None'),
+         ], string='Action (Address)', default='undefined'
+    )
+
+    action_person_address = fields.Selection(
+        [('undefined', 'Undefined'),
+         ('confirm', 'Confirm'),
+         ('move', 'Move'),
+         ('remove', 'Remove'),
+         ('none', 'None'),
+         ], string='Action (Person Address)', default='undefined'
+    )
