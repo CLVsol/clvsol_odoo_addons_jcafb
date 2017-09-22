@@ -109,6 +109,11 @@ class Person(models.Model):
     )
     person_phone = fields.Char(string='Person Phone', related='person_id.phone')
     person_mobile = fields.Char(string='Person Mobile', related='person_id.mobile')
+    person_history_marker_id = fields.Many2one(
+        comodel_name='clv.history_marker',
+        string='Person History Marker',
+        related='person_id.history_marker_id'
+    )
     person_address_id = fields.Many2one(
         comodel_name='clv.address',
         string='Person Address',
@@ -201,6 +206,11 @@ class Person(models.Model):
         string='Address Categories',
         related='address_id.category_ids.name',
         store=True
+    )
+    address_history_marker_id = fields.Many2one(
+        comodel_name='clv.history_marker',
+        string='Address History Marker',
+        related='address_id.history_marker_id'
     )
 
     action_person = fields.Selection(
