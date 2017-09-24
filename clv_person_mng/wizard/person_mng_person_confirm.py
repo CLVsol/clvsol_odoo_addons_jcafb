@@ -26,7 +26,7 @@ from odoo import exceptions
 _logger = logging.getLogger(__name__)
 
 
-class PersonMngConfirm(models.TransientModel):
+class PersonMngPersonConfirm(models.TransientModel):
     _name = 'clv.person.mng.person_confirm'
 
     def _default_person_mng_ids(self):
