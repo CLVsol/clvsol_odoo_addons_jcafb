@@ -129,6 +129,24 @@ class Person(models.Model):
     phone = fields.Char(string='Phone')
     mobile = fields.Char(string='Mobile')
 
+    addr_category_ids = fields.Many2many(
+        comodel_name='clv.address.category',
+        relation='clv_person_mng_addr_category_rel',
+        column1='addr_id',
+        column2='category_id',
+        string='Address Categories'
+    )
+    addr_category_names = fields.Char(
+        string='Address Category Names',
+        compute='_compute_addr_category_names',
+        store=True
+    )
+    addr_category_names_suport = fields.Char(
+        string='Address Category Names Suport',
+        compute='_compute_addr_category_names_suport',
+        store=False
+    )
+
     @api.onchange('country_id')
     def _onchange_country_id(self):
         if self.country_id:
@@ -195,6 +213,25 @@ class Person(models.Model):
                 )
             else:
                 raise Warning(('Warning. No records found!'))
+
+    @api.depends('addr_category_ids')
+    def _compute_addr_category_names(self):
+        for r in self:
+            r.addr_category_names = r.addr_category_names_suport
+
+    @api.multi
+    def _compute_addr_category_names_suport(self):
+        for r in self:
+            addr_category_names = False
+            for category in r.addr_category_ids:
+                if addr_category_names is False:
+                    addr_category_names = category.complete_name
+                else:
+                    addr_category_names = addr_category_names + ', ' + category.addr_complete_name
+            r.addr_category_names_suport = addr_category_names
+            if r.addr_category_names != addr_category_names:
+                record = self.env['clv.person.mng'].search([('id', '=', r.id)])
+                record.write({'addr_category_ids': r.addr_category_ids})
 
     address_id = fields.Many2one(comodel_name='clv.address', string='Related Address', ondelete='restrict')
     address_code = fields.Char(string='Address Code', related='address_id.code', store=False)
