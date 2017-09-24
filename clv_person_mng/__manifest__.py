@@ -40,6 +40,7 @@
         'wizard/person_mng_address_confirm_view.xml',
         'wizard/person_mng_person_confirm_view.xml',
         'wizard/person_mng_address_create_view.xml',
+        'wizard/person_mng_person_create_view.xml',
     ],
     'demo': [],
     'test': [],
