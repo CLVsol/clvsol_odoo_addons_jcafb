@@ -20,7 +20,7 @@
                         <button 
                             type="object"
                             name="do_person_mng_address_create"
-                            string="Addresses Create"
+                            string="Address Create"
                             class="oe_highlight"
                             />
                         <button special="cancel" string="Cancel"/>
