@@ -27,13 +27,12 @@ from odoo.exceptions import UserError
 import re
 
 
-class Person(models.Model):
-    _description = 'Person'
+class PersonMng(models.Model):
+    _description = 'Person Management'
     _name = 'clv.person.mng'
     _order = 'name'
 
     @api.multi
-    # @api.depends('name', 'code', 'age')
     @api.depends('name', 'code', 'age')
     def name_get(self):
         result = []
