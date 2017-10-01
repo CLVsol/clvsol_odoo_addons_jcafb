@@ -27,6 +27,7 @@
     'license': 'AGPL-3',
     'website': 'https://github.com/CLVsol',
     'depends': [
+        'clv_address_jcafb',
         'clv_animal',
     ],
     'data': [
