@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="clv_animal_mng_view_form" model="ir.ui.view">
+            <field name="name">clv.animal.mng.form</field>
+            <field name="model">clv.animal.mng</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form>
+                    <header name="header">
+                        <!-- To add buttons and status widget -->
+                    </header>
+                    <sheet name="animal_mng">
+                        <div name="button_box" class="oe_right oe_button_box">
+                            <button name="toggle_active" type="object" class="oe_stat_button" icon="fa-archive" groups="clv_base.group_reguser">
+                                <field name="active" widget="boolean_button" options='{"terminology": "archive"}'/>
+                            </button>
+                        </div>
+                        <div name="center" class="oe_center">
+                            <label for="name" class="oe_edit_only"/>
+                            <h1><field name="name" default_focus="1" placeholder="Name..."/></h1>
+                        </div>
+                        <group>
+                            <group name="animal_mng">
+                                <field name="spayed" widget="radio"/>
+                                <field name="gender" widget="radio"/>
+                                <field name="species_id" options="{'no_open': False, 'no_create': True}"/>
+                                <field name="breed_id" options="{'no_open': False, 'no_create': True}"/>
+                                <field name="age"/>
+                                <field name="estimated_age"/>
+                                <field name="birthday"/>
+                                <field name="tutor_name"/>
+                                <field name="tutor_id" options="{'no_open': False, 'no_create': True}"/>
+                            </group>
+                            <group name="animal" string="Related Animal">
+                                <field name="animal_id" options='{"no_open": False, "no_create": True}'/>
+                                <field name="animal_spayed" widget="radio"/>
+                                <field name="animal_gender" widget="radio"/>
+                                <field name="animal_species_id" string="Animal Species" options="{'no_open': False, 'no_create': True}"/>
+                                <field name="animal_breed_id" string="Animal Breed" options="{'no_open': False, 'no_create': True}"/>
+                                <field name="animal_category_ids" string="Animal Categories"/>
+                                <field name="animal_phone"/>
+                                <field name="animal_mobile"/>
+                                <field name="animal_birthday" string="Animal Date of Birth"/>
+                                <field name="animal_tutor_id" string="Animal Tutor" options="{'no_open': False, 'no_create': True}"/>
+                                <field name="animal_address_id"
+                                    context="{'show_address_only': 1}"
+                                    options='{"always_reload": True, "highlight_first_line": True, "no_open": False, "no_create": True}'/>
+                            </group>
+                            <group name="address_mng">
+                                <label for="street" string="Address"/>
+                                <div class="o_address_format">
+                                    <field name="street" placeholder="Street..." class="o_address_street" default_focus="1"/>
+                                    <field name="number" placeholder="Number"/>
+                                    <field name="street2" placeholder="Street 2..." class="o_address_street"/>
+                                    <field name="district" placeholder="Disctrict" class="o_address_street"/>
+                                    <field name="zip" placeholder="CEP" class="o_address_zip" style='width: 50%'/>
+                                    <button name="zip_search" type="object" class="oe_inline, oe_edit_only">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                    <field name="l10n_br_city_id" placeholder="City" class="o_address_street" options='{"no_open": True, "no_create": True}'/>
+                                    <field name="state_id" placeholder="State" domain='[("country_id","=",country_id)]' options='{"no_open": True, "no_create": True}}'/>
+                                    <field name="country_id" placeholder="Country" class="o_address_country" options='{"no_open": True, "no_create": True}'/>
+                                </div>
+                                <field name="phone"/>
+                                <field name="mobile"/>
+                                <field name="addr_category_ids" widget="many2many_tags" placeholder="Address Categories..." options="{'no_open': False, 'no_create': True}"/>
+                            </group>
+                            <group name="address" string="Related Address">
+                                <field name="address_id"
+                                    context="{'show_address_only': 1}"
+                                    options='{"always_reload": True, "highlight_first_line": True, "no_open": False, "no_create": True}'/>
+                                <field name="address_code" string="Address Code"/>
+                                <field name="address_phone" string="Address Phone"/>
+                                <field name="address_mobile_phone" string="Mobile Phone"/>
+                                <field name="address_category_ids" string="Address Categories"/>
+                            </group>
+                            <group name="actions" string="Actions">
+                                <field name="action_animal"/>
+                                <field name="action_address"/>
+                                <field name="action_animal_address"/>
+                            </group>
+                            <group name="history_markers" string="History">
+                                <field name="animal_history_marker_id"/>
+                                <field name="address_history_marker_id"/>
+                            </group>
+                        </group>
+                        <field name="notes" placeholder="Notes..." colspan="4"/>
+                        <notebook>
+                            <page name="settings" string="Settings" groups="clv_base.group_reguser" invisible="True">
+                                <group name="settings">
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="clv_animal_mng_view_tree" model="ir.ui.view">
+            <field name="name">clv.animal.mng.tree</field>
+            <field name="model">clv.animal.mng</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree name="animals" string="Animals">
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="estimated_age"/>
+                    <field name="birthday"/>
+                    <field name="action_animal"/>
+                    <field name="action_address"/>
+                    <field name="action_animal_address"/>
+                    <field name="active" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record id="clv_animal_mng_view_search" model="ir.ui.view">
+            <field name="name">clv.animal.mng.search</field>
+            <field name="model">clv.animal.mng</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="age"/>
+                    <field name="estimated_age"/>
+                    <field name="birthday"/>
+                    <field name="street"/>
+                    <field name="action_animal"/>
+                    <field name="action_address"/>
+                    <field name="action_animal_address"/>
+                    <separator/>
+                    <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
+                    <group name="group_by" expand="0" string="Group By...">
+                        <filter string="Address Categories" context="{'group_by': 'addr_category_names'}"/>
+                        <filter string="Date of Birth" context="{'group_by': 'birthday'}"/>
+                        <filter string="Age" context="{'group_by': 'age'}"/>
+                        <filter string="Estimated Age" context="{'group_by': 'estimated_age'}"/>
+                        <filter string="Street" context="{'group_by': 'street'}"/>
+                        <filter name="district" string="District" context="{'group_by': 'district'}"/>
+                        <filter string="Action (Animal)" context="{'group_by': 'action_animal'}"/>
+                        <filter string="Action (Address)" context="{'group_by': 'action_address'}"/>
+                        <filter string="Action (Animal Address)" context="{'group_by': 'action_animal_address'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        
+        <record id="clv_animal_mng_action" model="ir.actions.act_window">
+            <field name="name">Animals Management</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">clv.animal.mng</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="clv_animal_mng_view_search"/>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+            <field name="help" type="html">
+              <p class="oe_view_nocontent_create">
+                Click to add a new animal.
+              </p>
+            </field>
+        </record>
+        
+    </data>
+</odoo>
