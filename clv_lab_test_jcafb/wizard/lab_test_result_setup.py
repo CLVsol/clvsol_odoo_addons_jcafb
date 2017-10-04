@@ -66,12 +66,13 @@ class LabTestResultSetup(models.TransientModel):
 
                 criteria = []
                 for criterion in lab_test_type.criterion_ids:
-                    criteria.append((0, 0, {'code': criterion.code,
-                                            'name': criterion.name,
-                                            'sequence': criterion.sequence,
-                                            'normal_range': criterion.normal_range,
-                                            'unit_id': criterion.unit_id.id,
-                                            }))
+                    if criterion.result_display:
+                        criteria.append((0, 0, {'code': criterion.code,
+                                                'name': criterion.name,
+                                                'sequence': criterion.sequence,
+                                                'normal_range': criterion.normal_range,
+                                                'unit_id': criterion.unit_id.id,
+                                                }))
 
                 values = {
                     'code_sequence': 'clv.lab_test.result.code',
