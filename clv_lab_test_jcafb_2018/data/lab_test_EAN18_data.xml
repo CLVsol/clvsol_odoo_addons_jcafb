@@ -13,6 +13,8 @@
 			<field name="lab_test_type_id" ref="clv_lab_test_EAN18"/>
 			<field name="sequence" eval="100"/>
 			<field name="name" eval="&quot;&quot;&quot;Medidas de Peso e Altura&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EAN18_peso" model="clv.lab_test.criterion">
@@ -21,6 +23,8 @@
 			<field name="code">EAN18-01-01</field>
 			<field name="name" eval="&quot;&quot;&quot;Peso&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_kg"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EAN18_peso_cod_resp" model="clv.lab_test.criterion">
@@ -28,6 +32,8 @@
 			<field name="sequence" eval="102"/>
 			<field name="code">EAN18-01-02</field>
 			<field name="name" eval="&quot;&quot;&quot;Responsável pela medida do Peso&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EAN18_altura" model="clv.lab_test.criterion">
@@ -36,6 +42,8 @@
 			<field name="code">EAN18-01-03</field>
 			<field name="name" eval="&quot;&quot;&quot;Altura&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_cm"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EAN18_altura_cod_resp" model="clv.lab_test.criterion">
@@ -43,12 +51,26 @@
 			<field name="sequence" eval="104"/>
 			<field name="code">EAN18-01-04</field>
 			<field name="name" eval="&quot;&quot;&quot;Responsável pela medida da Altura&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
 		</record>
 
+		<record id="clv_lab_test_criterion_EAN18_circ_abdominal" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_EAN18"/>
+			<field name="sequence" eval="105"/>
+			<field name="code">EAN18-01-05</field>
+			<field name="name" eval="&quot;&quot;&quot;Circunferência abdominal&quot;&quot;&quot;"/>
+			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_cm"/>
+			<field name="result_display" eval="False"/>
+			<field name="report_display" eval="True"/>
+		</record>
+	
 		<record id="clv_lab_test_criterion_EAN18_dosagem_hemoglobina" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EAN18"/>
 			<field name="sequence" eval="200"/>
 			<field name="name" eval="&quot;&quot;&quot;Dosagem de Hemoglobina&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EAN18_hemoglobina_horario_coleta" model="clv.lab_test.criterion">
@@ -56,6 +78,8 @@
 			<field name="sequence" eval="201"/>
 			<field name="code">EAN18-02-01</field>
 			<field name="name" eval="&quot;&quot;&quot;Horário da coleta&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EAN18_hemoglobina_resp_coleta" model="clv.lab_test.criterion">
@@ -63,6 +87,8 @@
 			<field name="sequence" eval="202"/>
 			<field name="code">EAN18-02-02</field>
 			<field name="name" eval="&quot;&quot;&quot;Responsável pela coleta&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EAN18_hemoglobina_valor" model="clv.lab_test.criterion">
@@ -71,6 +97,8 @@
 			<field name="code">EAN18-02-03</field>
 			<field name="name" eval="&quot;&quot;&quot;Valor da Hemoglobina&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_g_dL"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EAN18_hemoglobina_resp_dosagem" model="clv.lab_test.criterion">
@@ -78,6 +106,8 @@
 			<field name="sequence" eval="204"/>
 			<field name="code">EAN18-02-04</field>
 			<field name="name" eval="&quot;&quot;&quot;Responsável pela dosagem&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EAN18_hemoglobina_interpretacao" model="clv.lab_test.criterion">
@@ -85,6 +115,8 @@
 			<field name="sequence" eval="205"/>
 			<field name="code">EAN18-02-05</field>
 			<field name="name" eval="&quot;&quot;&quot;Interpretação do Resultado de Hemoglobina (Wintrobe, 12ª ed., 2009)&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EAN18_hemoglobina_obs" model="clv.lab_test.criterion">
@@ -92,6 +124,8 @@
 			<field name="sequence" eval="206"/>
 			<field name="code">EAN18-02-06</field>
 			<field name="name" eval="&quot;&quot;&quot;Observações&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 	</data>

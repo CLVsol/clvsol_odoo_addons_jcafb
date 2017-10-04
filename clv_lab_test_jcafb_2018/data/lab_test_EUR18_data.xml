@@ -12,6 +12,8 @@
 			<field name="lab_test_type_id" ref="clv_lab_test_EUR18"/>
 			<field name="sequence" eval="100"/>
 			<field name="name" eval="&quot;&quot;&quot;Urina Tipo I&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_data_entrada_material" model="clv.lab_test.criterion">
@@ -20,6 +22,8 @@
 			<field name="code">EUR18-01-01</field>
 			<field name="name" eval="&quot;&quot;&quot;Data de Entrada do Material&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_dd_mm_aaaa"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_data_liberacao_resultado" model="clv.lab_test.criterion">
@@ -28,6 +32,8 @@
 			<field name="code">EUR18-01-02</field>
 			<field name="name" eval="&quot;&quot;&quot;Liberação do Resultado&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_dd_mm_aaaa"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 
 		<record id="clv_lab_test_criterion_EUR18_examinador" model="clv.lab_test.criterion">
@@ -35,13 +41,16 @@
 			<field name="sequence" eval="103"/>
 			<field name="code">EUR18-01-03</field>
 			<field name="name" eval="&quot;&quot;&quot;Examinador&quot;&quot;&quot;"/>
-
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_exame_fisico" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EUR18"/>
 			<field name="sequence" eval="200"/>
 			<field name="name" eval="&quot;&quot;&quot;Exame Físico&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_volume" model="clv.lab_test.criterion">
@@ -50,6 +59,8 @@
 			<field name="code">EUR18-02-01</field>
 			<field name="name" eval="&quot;&quot;&quot;Volume&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_ml"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_densidade" model="clv.lab_test.criterion">
@@ -58,6 +69,8 @@
 			<field name="code">EUR18-02-02</field>
 			<field name="name" eval="&quot;&quot;&quot;Densidade&quot;&quot;&quot;"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;1,005- 1,030&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_aspecto" model="clv.lab_test.criterion">
@@ -66,6 +79,8 @@
 			<field name="code">EUR18-02-03</field>
 			<field name="name" eval="&quot;&quot;&quot;Aspecto&quot;&quot;&quot;"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Límpido, Ligeiramente turvo&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_cor" model="clv.lab_test.criterion">
@@ -74,6 +89,8 @@
 			<field name="code">EUR18-02-04</field>
 			<field name="name" eval="&quot;&quot;&quot;Cor&quot;&quot;&quot;"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Amarelo claro, Amarelo citrino, Amarelo ouro&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_odor" model="clv.lab_test.criterion">
@@ -82,12 +99,16 @@
 			<field name="code">EUR18-02-05</field>
 			<field name="name" eval="&quot;&quot;&quot;Odor&quot;&quot;&quot;"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Sui generis&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_exame_quimico" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EUR18"/>
 			<field name="sequence" eval="300"/>
 			<field name="name" eval="&quot;&quot;&quot;Exame Químico (Tiras Reagentes)&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_pH" model="clv.lab_test.criterion">
@@ -96,6 +117,8 @@
 			<field name="code">EUR18-03-01</field>
 			<field name="name" eval="&quot;&quot;&quot;pH&quot;&quot;&quot;"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;4,7 - 7,8&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_proteinas" model="clv.lab_test.criterion">
@@ -104,6 +127,8 @@
 			<field name="code">EUR18-03-02</field>
 			<field name="name" eval="&quot;&quot;&quot;Proteínas&quot;&quot;&quot;"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Resultado Negativo&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_glicose" model="clv.lab_test.criterion">
@@ -112,6 +137,8 @@
 			<field name="code">EUR18-03-03</field>
 			<field name="name" eval="&quot;&quot;&quot;Glicose&quot;&quot;&quot;"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Resultado Negativo&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_cetona" model="clv.lab_test.criterion">
@@ -120,6 +147,8 @@
 			<field name="code">EUR18-03-04</field>
 			<field name="name" eval="&quot;&quot;&quot;Cetona&quot;&quot;&quot;"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Resultado Negativo&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_pigmentos_biliares" model="clv.lab_test.criterion">
@@ -128,6 +157,8 @@
 			<field name="code">EUR18-03-05</field>
 			<field name="name" eval="&quot;&quot;&quot;Pigmentos biliares&quot;&quot;&quot;"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Resultado Negativo&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_sangue" model="clv.lab_test.criterion">
@@ -136,6 +167,8 @@
 			<field name="code">EUR18-03-06</field>
 			<field name="name" eval="&quot;&quot;&quot;Sangue&quot;&quot;&quot;"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Resultado Negativo&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_urobilinogenio" model="clv.lab_test.criterion">
@@ -144,6 +177,8 @@
 			<field name="code">EUR18-03-07</field>
 			<field name="name" eval="&quot;&quot;&quot;Urobilinogênio&quot;&quot;&quot;"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Normal = Positivo até diluição 1/20&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_nitrito" model="clv.lab_test.criterion">
@@ -152,12 +187,16 @@
 			<field name="code">EUR18-03-08</field>
 			<field name="name" eval="&quot;&quot;&quot;Nitrito&quot;&quot;&quot;"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Resultado Negativo&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_exame_microscopico" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EUR18"/>
 			<field name="sequence" eval="400"/>
 			<field name="name" eval="&quot;&quot;&quot;Exame Microscópico&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_celulas_epiteliais" model="clv.lab_test.criterion">
@@ -165,6 +204,8 @@
 			<field name="sequence" eval="401"/>
 			<field name="code">EUR18-04-01</field>
 			<field name="name" eval="&quot;&quot;&quot;Células Epiteliais&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_muco" model="clv.lab_test.criterion">
@@ -173,6 +214,8 @@
 			<field name="code">EUR18-04-02</field>
 			<field name="name" eval="&quot;&quot;&quot;Muco&quot;&quot;&quot;"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Raros filamentos, Ausente&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_cristais" model="clv.lab_test.criterion">
@@ -181,6 +224,8 @@
 			<field name="code">EUR18-04-03</field>
 			<field name="name" eval="&quot;&quot;&quot;Cristais&quot;&quot;&quot;"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Ausentes, Raros de oxalato de cálcio, Raros de urato/fosfato amorfo&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_leucocitos" model="clv.lab_test.criterion">
@@ -190,6 +235,8 @@
 			<field name="name" eval="&quot;&quot;&quot;Leucócitos&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_no_ml"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Até 10.000/mL&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_hemacias" model="clv.lab_test.criterion">
@@ -199,6 +246,8 @@
 			<field name="name" eval="&quot;&quot;&quot;Hemácias&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_no_ml"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Até 10.000/mL&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_cilindros" model="clv.lab_test.criterion">
@@ -206,6 +255,8 @@
 			<field name="sequence" eval="406"/>
 			<field name="code">EUR18-04-06</field>
 			<field name="name" eval="&quot;&quot;&quot;Cilindros&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_cilindros_hialinos" model="clv.lab_test.criterion">
@@ -215,6 +266,8 @@
 			<field name="name" eval="&quot;&quot;&quot;Cilindros Hialinos&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_no_ml"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Até 1.000/mL&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_cilindros_granulosos" model="clv.lab_test.criterion">
@@ -224,6 +277,8 @@
 			<field name="name" eval="&quot;&quot;&quot;Cilindros Granulosos&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_no_ml"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Ausentes&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_cilindros_leucocitarios" model="clv.lab_test.criterion">
@@ -233,6 +288,8 @@
 			<field name="name" eval="&quot;&quot;&quot;Cilindros Leucocitários&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_no_ml"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Ausentes&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_cilindros_hematicos" model="clv.lab_test.criterion">
@@ -242,6 +299,8 @@
 			<field name="name" eval="&quot;&quot;&quot;Cilindros Hemáticos&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_no_ml"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Ausentes&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_cilindros_cereos" model="clv.lab_test.criterion">
@@ -251,6 +310,8 @@
 			<field name="name" eval="&quot;&quot;&quot;Cilindros Céreos&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_no_ml"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Ausentes&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_cilindros_outros_tipos" model="clv.lab_test.criterion">
@@ -260,6 +321,8 @@
 			<field name="name" eval="&quot;&quot;&quot;Outros tipos de Cilindros&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_no_ml"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Ausentes&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_obs" model="clv.lab_test.criterion">
@@ -267,6 +330,8 @@
 			<field name="sequence" eval="413"/>
 			<field name="name" eval="&quot;&quot;&quot;&quot;&quot;&quot;"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Obs.: Leveduras/Trichomonas sp: Ausentes&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_obs" model="clv.lab_test.criterion">
@@ -274,6 +339,8 @@
 			<field name="sequence" eval="501"/>
 			<field name="code">EUR18-05-01</field>
 			<field name="name" eval="&quot;&quot;&quot;Observações&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
 		</record>
 	
 	</data>
