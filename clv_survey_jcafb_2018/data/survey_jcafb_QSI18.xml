@@ -818,6 +818,113 @@
                         <field name="sequence" eval="90"/>
                     </record>
 
+                <!-- 3.9. O(A) Sr.(a) trabalha? -->
+                <record model="survey.question" id="QSI18_03_09">
+                    <field name="question">3.9. O(A) Sr.(a) trabalha?</field>
+                    <field name="code">QSI18_03_09</field>
+                    <field name="type">simple_choice</field>
+                    <field name="page_id" ref="QSI18_03"/>
+                    <field name="sequence" eval="90"/>
+                    <field name="display_mode">columns</field>
+                    <field name="column_nb">12</field>
+                    <field name="constr_mandatory">True</field>
+                    <field name="constr_error_msg">Esta questão precisa ser respondida.</field>
+                    <field name="comments_allowed">False</field>
+                    <field name="comments_message"></field>
+                </record>
+
+                    <record model="survey.label" id="QSI18_03_09_01">
+                        <field name="value">a) Não (e não é aposentado)</field>
+                        <field name="code">QSI18_03_09_01</field>
+                        <field name="question_id" ref="QSI18_03_09"/>
+                        <field name="sequence" eval="10"/>
+                    </record>
+
+                    <record model="survey.label" id="QSI18_03_09_02">
+                        <field name="value">b) Não. É aposentado</field>
+                        <field name="code">QSI18_03_09_02</field>
+                        <field name="question_id" ref="QSI18_03_09"/>
+                        <field name="sequence" eval="20"/>
+                    </record>
+
+                    <record model="survey.label" id="QSI18_03_09_03">
+                        <field name="value">c) Sim (e não é aposentado)</field>
+                        <field name="code">QSI18_03_09_03</field>
+                        <field name="question_id" ref="QSI18_03_09"/>
+                        <field name="sequence" eval="30"/>
+                    </record>
+
+                    <record model="survey.label" id="QSI18_03_09_04">
+                        <field name="value">d) Sim, e é aposentado</field>
+                        <field name="code">QSI18_03_09_04</field>
+                        <field name="question_id" ref="QSI18_03_09"/>
+                        <field name="sequence" eval="40"/>
+                    </record>
+
+                    <record model="survey.label" id="QSI18_03_09_05">
+                        <field name="value">e) Não sabe</field>
+                        <field name="code">QSI18_03_09_05</field>
+                        <field name="question_id" ref="QSI18_03_09"/>
+                        <field name="sequence" eval="50"/>
+                    </record>
+
+                    <record model="survey.label" id="QSI18_03_09_06">
+                        <field name="value">f) Não quis responder</field>
+                        <field name="code">QSI18_03_09_06</field>
+                        <field name="question_id" ref="QSI18_03_09"/>
+                        <field name="sequence" eval="60"/>
+                    </record>
+
+                    <record model="survey.label" id="QSI18_03_09_07">
+                        <field name="value">g) Não se aplica</field>
+                        <field name="code">QSI18_03_09_07</field>
+                        <field name="question_id" ref="QSI18_03_09"/>
+                        <field name="sequence" eval="70"/>
+                    </record>
+
+                <!-- 3.10. Qual o valor do(s) seu(s) rendimento(s) mensal(ais) aproximado(s) (independente do rendimento familiar)? -->
+                <record model="survey.question" id="QSI18_03_10">
+                    <field name="question">3.10. Qual o valor do(s) seu(s) rendimento(s) mensal(ais) aproximado(s) (independente do rendimento familiar)?</field>
+                    <field name="code">QSI18_03_10</field>
+                    <field name="type">simple_choice</field>
+                    <field name="page_id" ref="QSI18_03"/>
+                    <field name="sequence" eval="100"/>
+                    <field name="display_mode">columns</field>
+                    <field name="column_nb">12</field>
+                    <field name="constr_mandatory">True</field>
+                    <field name="constr_error_msg">Esta questão precisa ser respondida.</field>
+                    <field name="comments_allowed">True</field>
+                    <field name="comments_message">Colocar o valor (somente o número)</field>
+                </record>
+
+                    <record model="survey.label" id="QSI18_03_10_01">
+                        <field name="value">a) Valor (colocar abaixo)</field>
+                        <field name="code">QSI18_03_10_01</field>
+                        <field name="question_id" ref="QSI18_03_10"/>
+                        <field name="sequence" eval="10"/>
+                    </record>
+
+                    <record model="survey.label" id="QSI18_03_10_02">
+                        <field name="value">b) Não sabe</field>
+                        <field name="code">QSI18_03_10_02</field>
+                        <field name="question_id" ref="QSI18_03_10"/>
+                        <field name="sequence" eval="20"/>
+                    </record>
+
+                    <record model="survey.label" id="QSI18_03_10_03">
+                        <field name="value">c) Não quis responder</field>
+                        <field name="code">QSI18_03_10_03</field>
+                        <field name="question_id" ref="QSI18_03_10"/>
+                        <field name="sequence" eval="30"/>
+                    </record>
+
+                    <record model="survey.label" id="QSI18_03_10_04">
+                        <field name="value">d) Não se aplica</field>
+                        <field name="code">QSI18_03_10_04</field>
+                        <field name="question_id" ref="QSI18_03_10"/>
+                        <field name="sequence" eval="40"/>
+                    </record>
+
             <!-- 4. Hábitos -->
             <record model="survey.page" id="QSI18_04">
                 <field name="title">4. Hábitos</field>
@@ -918,9 +1025,9 @@
                         <field name="sequence" eval="110"/>
                     </record>
 
-                <!-- 4.2. O(A) Sr.(a) realiza alguma atividade ou ocupação que não seja remunerada? -->
+                <!-- 4.2. Com que frequência caminha ou pratica exercícios? -->
                 <record model="survey.question" id="QSI18_04_02">
-                    <field name="question">4.2. O(A) Sr.(a) realiza alguma atividade ou ocupação que não seja remunerada?</field>
+                    <field name="question">4.2. Com que frequência caminha ou pratica exercícios?</field>
                     <field name="code">QSI18_04_02</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI18_04"/>
@@ -929,48 +1036,90 @@
                     <field name="column_nb">12</field>
                     <field name="constr_mandatory">True</field>
                     <field name="constr_error_msg">Esta questão precisa ser respondida.</field>
-                    <field name="comments_allowed">True</field>
-                    <field name="comments_message">Se realiza, qual?</field>
+                    <field name="comments_allowed">False</field>
+                    <field name="comments_message"></field>
                 </record>
 
                     <record model="survey.label" id="QSI18_04_02_01">
-                        <field name="value">a) Sim. Qual?</field>
+                        <field name="value">a) 1x por semana</field>
                         <field name="code">QSI18_04_02_01</field>
                         <field name="question_id" ref="QSI18_04_02"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_04_02_02">
-                        <field name="value">b) Não</field>
+                        <field name="value">b) 2x por semana</field>
                         <field name="code">QSI18_04_02_02</field>
                         <field name="question_id" ref="QSI18_04_02"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_04_02_03">
-                        <field name="value">c) Não sabe</field>
+                        <field name="value">c) 3x por semana</field>
                         <field name="code">QSI18_04_02_03</field>
                         <field name="question_id" ref="QSI18_04_02"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_04_02_04">
-                        <field name="value">d) Não quis responder</field>
+                        <field name="value">d) 4x por semana</field>
                         <field name="code">QSI18_04_02_04</field>
                         <field name="question_id" ref="QSI18_04_02"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_04_02_05">
-                        <field name="value">e) Não se aplica</field>
+                        <field name="value">e) 5x por semana</field>
                         <field name="code">QSI18_04_02_05</field>
                         <field name="question_id" ref="QSI18_04_02"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
-                <!-- 4.3. Com que frequência caminha ou pratica exercícios? -->
+                    <record model="survey.label" id="QSI18_04_02_06">
+                        <field name="value">f) 6x por semana</field>
+                        <field name="code">QSI18_04_02_06</field>
+                        <field name="question_id" ref="QSI18_04_02"/>
+                        <field name="sequence" eval="60"/>
+                    </record>
+
+                    <record model="survey.label" id="QSI18_04_02_07">
+                        <field name="value">g) Todos os dias</field>
+                        <field name="code">QSI18_04_02_07</field>
+                        <field name="question_id" ref="QSI18_04_02"/>
+                        <field name="sequence" eval="70"/>
+                    </record>
+
+                    <record model="survey.label" id="QSI18_04_02_08">
+                        <field name="value">h) Não caminha nem pratica exercícios físicos</field>
+                        <field name="code">QSI18_04_02_08</field>
+                        <field name="question_id" ref="QSI18_04_02"/>
+                        <field name="sequence" eval="80"/>
+                    </record>
+
+                    <record model="survey.label" id="QSI18_04_02_09">
+                        <field name="value">i) Não sabe</field>
+                        <field name="code">QSI18_04_02_09</field>
+                        <field name="question_id" ref="QSI18_04_02"/>
+                        <field name="sequence" eval="90"/>
+                    </record>
+
+                    <record model="survey.label" id="QSI18_04_02_10">
+                        <field name="value">j) Não quis responder</field>
+                        <field name="code">QSI18_04_02_10</field>
+                        <field name="question_id" ref="QSI18_04_02"/>
+                        <field name="sequence" eval="100"/>
+                    </record>
+
+                    <record model="survey.label" id="QSI18_04_02_11">
+                        <field name="value">k) Não se aplica</field>
+                        <field name="code">QSI18_04_02_11</field>
+                        <field name="question_id" ref="QSI18_04_02"/>
+                        <field name="sequence" eval="110"/>
+                    </record>
+
+                <!-- 4.3. O(A) Sr.(a) tem ou teve o hábito de fumar? -->
                 <record model="survey.question" id="QSI18_04_03">
-                    <field name="question">4.3. Com que frequência caminha ou pratica exercícios?</field>
+                    <field name="question">4.3. O(A) Sr.(a) tem ou teve o hábito de fumar?</field>
                     <field name="code">QSI18_04_03</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI18_04"/>
@@ -984,85 +1133,50 @@
                 </record>
 
                     <record model="survey.label" id="QSI18_04_03_01">
-                        <field name="value">a) 1x por semana</field>
+                        <field name="value">a) Nunca fumou</field>
                         <field name="code">QSI18_04_03_01</field>
                         <field name="question_id" ref="QSI18_04_03"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_04_03_02">
-                        <field name="value">b) 2x por semana</field>
+                        <field name="value">b) Fuma atualmente</field>
                         <field name="code">QSI18_04_03_02</field>
                         <field name="question_id" ref="QSI18_04_03"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_04_03_03">
-                        <field name="value">c) 3x por semana</field>
+                        <field name="value">c) Já fumou, mas não fuma atualmente</field>
                         <field name="code">QSI18_04_03_03</field>
                         <field name="question_id" ref="QSI18_04_03"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_04_03_04">
-                        <field name="value">d) 4x por semana</field>
+                        <field name="value">d) Não sabe</field>
                         <field name="code">QSI18_04_03_04</field>
                         <field name="question_id" ref="QSI18_04_03"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_04_03_05">
-                        <field name="value">e) 5x por semana</field>
+                        <field name="value">e) Não quis responder</field>
                         <field name="code">QSI18_04_03_05</field>
                         <field name="question_id" ref="QSI18_04_03"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_04_03_06">
-                        <field name="value">f) 6x por semana</field>
+                        <field name="value">f) Não se aplica</field>
                         <field name="code">QSI18_04_03_06</field>
                         <field name="question_id" ref="QSI18_04_03"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
-                    <record model="survey.label" id="QSI18_04_03_07">
-                        <field name="value">g) Todos os dias</field>
-                        <field name="code">QSI18_04_03_07</field>
-                        <field name="question_id" ref="QSI18_04_03"/>
-                        <field name="sequence" eval="70"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_04_03_08">
-                        <field name="value">h) Não caminha nem pratica exercícios físicos</field>
-                        <field name="code">QSI18_04_03_08</field>
-                        <field name="question_id" ref="QSI18_04_03"/>
-                        <field name="sequence" eval="80"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_04_03_09">
-                        <field name="value">i) Não sabe</field>
-                        <field name="code">QSI18_04_03_09</field>
-                        <field name="question_id" ref="QSI18_04_03"/>
-                        <field name="sequence" eval="90"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_04_03_10">
-                        <field name="value">j) Não quis responder</field>
-                        <field name="code">QSI18_04_03_10</field>
-                        <field name="question_id" ref="QSI18_04_03"/>
-                        <field name="sequence" eval="100"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_04_03_11">
-                        <field name="value">k) Não se aplica</field>
-                        <field name="code">QSI18_04_03_11</field>
-                        <field name="question_id" ref="QSI18_04_03"/>
-                        <field name="sequence" eval="110"/>
-                    </record>
-
-                <!-- 4.4. O(A) Sr.(a) tem ou teve o hábito de fumar? -->
+                <!-- 4.4. O(A) Sr. (a) tem o hábito de tomar bebidas alcoólicas? -->
                 <record model="survey.question" id="QSI18_04_04">
-                    <field name="question">4.4. O(A) Sr.(a) tem ou teve o hábito de fumar?</field>
+                    <field name="question">4.4. O(A) Sr. (a) tem o hábito de tomar bebidas alcoólicas?</field>
                     <field name="code">QSI18_04_04</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI18_04"/>
@@ -1071,127 +1185,70 @@
                     <field name="column_nb">12</field>
                     <field name="constr_mandatory">True</field>
                     <field name="constr_error_msg">Esta questão precisa ser respondida.</field>
-                    <field name="comments_allowed">False</field>
-                    <field name="comments_message"></field>
+                    <field name="comments_allowed">True</field>
+                    <field name="comments_message">Se a resposta for diferente de "Não", especificar o tipo de bebida e a quantidade. Se for "Outra resposta", colocar também a resposta dada, além do tipo de bebida e quantidade).</field>
                 </record>
 
                     <record model="survey.label" id="QSI18_04_04_01">
-                        <field name="value">a) Nunca fumou</field>
+                        <field name="value">a) Não</field>
                         <field name="code">QSI18_04_04_01</field>
                         <field name="question_id" ref="QSI18_04_04"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_04_04_02">
-                        <field name="value">b) Fuma atualmente</field>
+                        <field name="value">b) Sim, esporadicamente (menos que 1 vez por mês)</field>
                         <field name="code">QSI18_04_04_02</field>
                         <field name="question_id" ref="QSI18_04_04"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_04_04_03">
-                        <field name="value">c) Já fumou, mas não fuma atualmente</field>
+                        <field name="value">c) Sim, 1 vez por mês</field>
                         <field name="code">QSI18_04_04_03</field>
                         <field name="question_id" ref="QSI18_04_04"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_04_04_04">
-                        <field name="value">d) Não sabe</field>
+                        <field name="value">d) Sim, 1 vez por semana (ou em finais de semana)</field>
                         <field name="code">QSI18_04_04_04</field>
                         <field name="question_id" ref="QSI18_04_04"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_04_04_05">
-                        <field name="value">e) Não quis responder</field>
+                        <field name="value">e) Sim, todos os dias</field>
                         <field name="code">QSI18_04_04_05</field>
                         <field name="question_id" ref="QSI18_04_04"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_04_04_06">
-                        <field name="value">f) Não se aplica</field>
+                        <field name="value">f) Outra resposta</field>
                         <field name="code">QSI18_04_04_06</field>
                         <field name="question_id" ref="QSI18_04_04"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
-                <!-- 4.5. O(A) Sr. (a) tem o hábito de tomar bebidas alcoólicas? -->
-                <record model="survey.question" id="QSI18_04_05">
-                    <field name="question">4.5. O(A) Sr. (a) tem o hábito de tomar bebidas alcoólicas?</field>
-                    <field name="code">QSI18_04_05</field>
-                    <field name="type">simple_choice</field>
-                    <field name="page_id" ref="QSI18_04"/>
-                    <field name="sequence" eval="50"/>
-                    <field name="display_mode">columns</field>
-                    <field name="column_nb">12</field>
-                    <field name="constr_mandatory">True</field>
-                    <field name="constr_error_msg">Esta questão precisa ser respondida.</field>
-                    <field name="comments_allowed">True</field>
-                    <field name="comments_message">Se a resposta for diferente de "Não", especificar o tipo de bebida e a quantidade. Se for "Outra resposta", colocar também a resposta dada, além do tipo de bebida e quantidade).</field>
-                </record>
-
-                    <record model="survey.label" id="QSI18_04_05_01">
-                        <field name="value">a) Não</field>
-                        <field name="code">QSI18_04_05_01</field>
-                        <field name="question_id" ref="QSI18_04_05"/>
-                        <field name="sequence" eval="10"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_04_05_02">
-                        <field name="value">b) Sim, esporadicamente (menos que 1 vez por mês)</field>
-                        <field name="code">QSI18_04_05_02</field>
-                        <field name="question_id" ref="QSI18_04_05"/>
-                        <field name="sequence" eval="20"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_04_05_03">
-                        <field name="value">c) Sim, 1 vez por mês</field>
-                        <field name="code">QSI18_04_05_03</field>
-                        <field name="question_id" ref="QSI18_04_05"/>
-                        <field name="sequence" eval="30"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_04_05_04">
-                        <field name="value">d) Sim, 1 vez por semana (ou em finais de semana)</field>
-                        <field name="code">QSI18_04_05_04</field>
-                        <field name="question_id" ref="QSI18_04_05"/>
-                        <field name="sequence" eval="40"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_04_05_05">
-                        <field name="value">e) Sim, todos os dias</field>
-                        <field name="code">QSI18_04_05_05</field>
-                        <field name="question_id" ref="QSI18_04_05"/>
-                        <field name="sequence" eval="50"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_04_05_06">
-                        <field name="value">f) Outra resposta</field>
-                        <field name="code">QSI18_04_05_06</field>
-                        <field name="question_id" ref="QSI18_04_05"/>
-                        <field name="sequence" eval="60"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_04_05_07">
+                    <record model="survey.label" id="QSI18_04_04_07">
                         <field name="value">g) Não sabe</field>
-                        <field name="code">QSI18_04_05_07</field>
-                        <field name="question_id" ref="QSI18_04_05"/>
+                        <field name="code">QSI18_04_04_07</field>
+                        <field name="question_id" ref="QSI18_04_04"/>
                         <field name="sequence" eval="70"/>
                     </record>
 
-                    <record model="survey.label" id="QSI18_04_05_08">
+                    <record model="survey.label" id="QSI18_04_04_08">
                         <field name="value">h) Não quis responder</field>
-                        <field name="code">QSI18_04_05_08</field>
-                        <field name="question_id" ref="QSI18_04_05"/>
+                        <field name="code">QSI18_04_04_08</field>
+                        <field name="question_id" ref="QSI18_04_04"/>
                         <field name="sequence" eval="80"/>
                     </record>
 
-                    <record model="survey.label" id="QSI18_04_05_09">
+                    <record model="survey.label" id="QSI18_04_04_09">
                         <field name="value">i) Não se aplica</field>
-                        <field name="code">QSI18_04_05_09</field>
-                        <field name="question_id" ref="QSI18_04_05"/>
+                        <field name="code">QSI18_04_04_09</field>
+                        <field name="question_id" ref="QSI18_04_04"/>
                         <field name="sequence" eval="90"/>
                     </record>
 
@@ -1295,9 +1352,9 @@
                         <field name="sequence" eval="110"/>
                     </record>
 
-                <!-- 5.2. O(A) Sr.(a) diria que sua saúde é: -->
+                <!-- 5.2. Comparando sua saúde de hoje com a de 12 meses atrás, o(a) Sr.(a) diria que agora a sua saúde é: -->
                 <record model="survey.question" id="QSI18_05_02">
-                    <field name="question">5.2. O(A) Sr.(a) diria que sua saúde é:</field>
+                    <field name="question">5.2. Comparando sua saúde de hoje com a de 12 meses atrás, o(a) Sr.(a) diria que agora a sua saúde é:</field>
                     <field name="code">QSI18_05_02</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QSI18_05"/>
@@ -1311,115 +1368,44 @@
                 </record>
 
                     <record model="survey.label" id="QSI18_05_02_01">
-                        <field name="value">a) Muito boa</field>
+                        <field name="value">a) Melhor</field>
                         <field name="code">QSI18_05_02_01</field>
                         <field name="question_id" ref="QSI18_05_02"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_05_02_02">
-                        <field name="value">b) Boa</field>
+                        <field name="value">b) Igual</field>
                         <field name="code">QSI18_05_02_02</field>
                         <field name="question_id" ref="QSI18_05_02"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_05_02_03">
-                        <field name="value">c) Regular</field>
+                        <field name="value">c) Pior</field>
                         <field name="code">QSI18_05_02_03</field>
                         <field name="question_id" ref="QSI18_05_02"/>
                         <field name="sequence" eval="30"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_05_02_04">
-                        <field name="value">d) Ruim</field>
+                        <field name="value">d) Não sabe</field>
                         <field name="code">QSI18_05_02_04</field>
                         <field name="question_id" ref="QSI18_05_02"/>
                         <field name="sequence" eval="40"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_05_02_05">
-                        <field name="value">e) Muito ruim</field>
+                        <field name="value">e) Não quis responder</field>
                         <field name="code">QSI18_05_02_05</field>
                         <field name="question_id" ref="QSI18_05_02"/>
                         <field name="sequence" eval="50"/>
                     </record>
 
                     <record model="survey.label" id="QSI18_05_02_06">
-                        <field name="value">f) Não sabe</field>
+                        <field name="value">f) Não se aplica</field>
                         <field name="code">QSI18_05_02_06</field>
                         <field name="question_id" ref="QSI18_05_02"/>
-                        <field name="sequence" eval="60"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_05_02_07">
-                        <field name="value">g) Não quis responder</field>
-                        <field name="code">QSI18_05_02_07</field>
-                        <field name="question_id" ref="QSI18_05_02"/>
-                        <field name="sequence" eval="70"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_05_02_08">
-                        <field name="value">h) Não se aplica</field>
-                        <field name="code">QSI18_05_02_08</field>
-                        <field name="question_id" ref="QSI18_05_02"/>
-                        <field name="sequence" eval="80"/>
-                    </record>
-
-                <!-- 5.3. Comparando sua saúde de hoje com a de 12 meses atrás, o(a) Sr.(a) diria que agora a sua saúde é: -->
-                <record model="survey.question" id="QSI18_05_03">
-                    <field name="question">5.3. Comparando sua saúde de hoje com a de 12 meses atrás, o(a) Sr.(a) diria que agora a sua saúde é:</field>
-                    <field name="code">QSI18_05_03</field>
-                    <field name="type">simple_choice</field>
-                    <field name="page_id" ref="QSI18_05"/>
-                    <field name="sequence" eval="30"/>
-                    <field name="display_mode">columns</field>
-                    <field name="column_nb">12</field>
-                    <field name="constr_mandatory">True</field>
-                    <field name="constr_error_msg">Esta questão precisa ser respondida.</field>
-                    <field name="comments_allowed">False</field>
-                    <field name="comments_message"></field>
-                </record>
-
-                    <record model="survey.label" id="QSI18_05_03_01">
-                        <field name="value">a) Melhor</field>
-                        <field name="code">QSI18_05_03_01</field>
-                        <field name="question_id" ref="QSI18_05_03"/>
-                        <field name="sequence" eval="10"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_05_03_02">
-                        <field name="value">b) Igual</field>
-                        <field name="code">QSI18_05_03_02</field>
-                        <field name="question_id" ref="QSI18_05_03"/>
-                        <field name="sequence" eval="20"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_05_03_03">
-                        <field name="value">c) Pior</field>
-                        <field name="code">QSI18_05_03_03</field>
-                        <field name="question_id" ref="QSI18_05_03"/>
-                        <field name="sequence" eval="30"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_05_03_04">
-                        <field name="value">d) Não sabe</field>
-                        <field name="code">QSI18_05_03_04</field>
-                        <field name="question_id" ref="QSI18_05_03"/>
-                        <field name="sequence" eval="40"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_05_03_05">
-                        <field name="value">e) Não quis responder</field>
-                        <field name="code">QSI18_05_03_05</field>
-                        <field name="question_id" ref="QSI18_05_03"/>
-                        <field name="sequence" eval="50"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_05_03_06">
-                        <field name="value">f) Não se aplica</field>
-                        <field name="code">QSI18_05_03_06</field>
-                        <field name="question_id" ref="QSI18_05_03"/>
                         <field name="sequence" eval="60"/>
                     </record>
 
@@ -1868,9 +1854,9 @@
                         <field name="sequence" eval="70"/>
                     </record>
 
-                <!-- 8.2. Como descobriu que estava com a doença? -->
+                <!-- 8.2. Se já teve alguma parasitose, como descobriu que estava com a doença? -->
                 <record model="survey.question" id="QSI18_08_02">
-                    <field name="question">8.2. Como descobriu que estava com a doença?</field>
+                    <field name="question">8.2. Se já teve alguma parasitose, como descobriu que estava com a doença?</field>
                     <field name="code">QSI18_08_02</field>
                     <field name="type">multiple_choice</field>
                     <field name="page_id" ref="QSI18_08"/>
@@ -2014,122 +2000,6 @@
                         <field name="code">QSI18_08_03_10</field>
                         <field name="question_id" ref="QSI18_08_03"/>
                         <field name="sequence" eval="100"/>
-                    </record>
-
-            <!-- 9. Aspecto Econômico -->
-            <record model="survey.page" id="QSI18_09">
-                <field name="title">9. Aspecto Econômico</field>
-                <field name="code">QSI18_09</field>
-                <field name="survey_id" ref="QSI18"/>
-                <field name="sequence" eval="90"/>
-                <field name="description">&lt;p&gt;&lt;/p&gt;</field>
-            </record>
-
-                <!-- 9.1. O(A) Sr.(a) trabalha? -->
-                <record model="survey.question" id="QSI18_09_01">
-                    <field name="question">9.1. O(A) Sr.(a) trabalha?</field>
-                    <field name="code">QSI18_09_01</field>
-                    <field name="type">simple_choice</field>
-                    <field name="page_id" ref="QSI18_09"/>
-                    <field name="sequence" eval="10"/>
-                    <field name="display_mode">columns</field>
-                    <field name="column_nb">12</field>
-                    <field name="constr_mandatory">True</field>
-                    <field name="constr_error_msg">Esta questão precisa ser respondida.</field>
-                    <field name="comments_allowed">False</field>
-                    <field name="comments_message"></field>
-                </record>
-
-                    <record model="survey.label" id="QSI18_09_01_01">
-                        <field name="value">a) Não (e não é aposentado)</field>
-                        <field name="code">QSI18_09_01_01</field>
-                        <field name="question_id" ref="QSI18_09_01"/>
-                        <field name="sequence" eval="10"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_09_01_02">
-                        <field name="value">b) Não. É aposentado</field>
-                        <field name="code">QSI18_09_01_02</field>
-                        <field name="question_id" ref="QSI18_09_01"/>
-                        <field name="sequence" eval="20"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_09_01_03">
-                        <field name="value">c) Sim (e não é aposentado)</field>
-                        <field name="code">QSI18_09_01_03</field>
-                        <field name="question_id" ref="QSI18_09_01"/>
-                        <field name="sequence" eval="30"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_09_01_04">
-                        <field name="value">d) Sim, e é aposentado</field>
-                        <field name="code">QSI18_09_01_04</field>
-                        <field name="question_id" ref="QSI18_09_01"/>
-                        <field name="sequence" eval="40"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_09_01_05">
-                        <field name="value">e) Não sabe</field>
-                        <field name="code">QSI18_09_01_05</field>
-                        <field name="question_id" ref="QSI18_09_01"/>
-                        <field name="sequence" eval="50"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_09_01_06">
-                        <field name="value">f) Não quis responder</field>
-                        <field name="code">QSI18_09_01_06</field>
-                        <field name="question_id" ref="QSI18_09_01"/>
-                        <field name="sequence" eval="60"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_09_01_07">
-                        <field name="value">g) Não se aplica</field>
-                        <field name="code">QSI18_09_01_07</field>
-                        <field name="question_id" ref="QSI18_09_01"/>
-                        <field name="sequence" eval="70"/>
-                    </record>
-
-                <!-- 9.2. Qual o valor do(s) seu(s) rendimento(s) mensal(ais) aproximado(s) (independente do rendimento familiar)? -->
-                <record model="survey.question" id="QSI18_09_02">
-                    <field name="question">9.2. Qual o valor do(s) seu(s) rendimento(s) mensal(ais) aproximado(s) (independente do rendimento familiar)?</field>
-                    <field name="code">QSI18_09_02</field>
-                    <field name="type">simple_choice</field>
-                    <field name="page_id" ref="QSI18_09"/>
-                    <field name="sequence" eval="20"/>
-                    <field name="display_mode">columns</field>
-                    <field name="column_nb">12</field>
-                    <field name="constr_mandatory">True</field>
-                    <field name="constr_error_msg">Esta questão precisa ser respondida.</field>
-                    <field name="comments_allowed">True</field>
-                    <field name="comments_message">Colocar o valor (somente o número)</field>
-                </record>
-
-                    <record model="survey.label" id="QSI18_09_02_01">
-                        <field name="value">a) Valor (colocar abaixo)</field>
-                        <field name="code">QSI18_09_02_01</field>
-                        <field name="question_id" ref="QSI18_09_02"/>
-                        <field name="sequence" eval="10"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_09_02_02">
-                        <field name="value">b) Não sabe</field>
-                        <field name="code">QSI18_09_02_02</field>
-                        <field name="question_id" ref="QSI18_09_02"/>
-                        <field name="sequence" eval="20"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_09_02_03">
-                        <field name="value">c) Não quis responder</field>
-                        <field name="code">QSI18_09_02_03</field>
-                        <field name="question_id" ref="QSI18_09_02"/>
-                        <field name="sequence" eval="30"/>
-                    </record>
-
-                    <record model="survey.label" id="QSI18_09_02_04">
-                        <field name="value">d) Não se aplica</field>
-                        <field name="code">QSI18_09_02_04</field>
-                        <field name="question_id" ref="QSI18_09_02"/>
-                        <field name="sequence" eval="40"/>
                     </record>
 
     </data>

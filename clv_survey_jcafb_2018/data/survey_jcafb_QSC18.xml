@@ -809,9 +809,9 @@
                         <field name="sequence" eval="70"/>
                     </record>
 
-                <!-- 6.2. Como descobriu que estava com a doença? -->
+                <!-- 6.2. Se já teve alguma parasitose, como descobriu que estava com a doença? -->
                 <record model="survey.question" id="QSC18_06_02">
-                    <field name="question">6.2. Como descobriu que estava com a doença?</field>
+                    <field name="question">6.2. Se já teve alguma parasitose, como descobriu que estava com a doença?</field>
                     <field name="code">QSC18_06_02</field>
                     <field name="type">multiple_choice</field>
                     <field name="page_id" ref="QSC18_06"/>

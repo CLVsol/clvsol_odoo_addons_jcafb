@@ -463,9 +463,9 @@
                         <field name="sequence" eval="80"/>
                     </record>
 
-                <!-- 3.5. O(A) Sr.(a) utilizou algum chá ou alguma planta medicinal nos últimos 15 dias? -->
+                <!-- 3.5. O(A) Sr.(a) costuma utilizar algum chá ou alguma planta medicinal? -->
                 <record model="survey.question" id="QMD18_03_05">
-                    <field name="question">3.5. O(A) Sr.(a) utilizou algum chá ou alguma planta medicinal nos últimos 15 dias?</field>
+                    <field name="question">3.5. O(A) Sr.(a) costuma utilizar algum chá ou alguma planta medicinal?</field>
                     <field name="code">QMD18_03_05</field>
                     <field name="type">simple_choice</field>
                     <field name="page_id" ref="QMD18_03"/>
@@ -721,15 +721,6 @@
                         <field name="question_id" ref="QMD18_04_04"/>
                         <field name="sequence" eval="50"/>
                     </record>
-
-            <!-- 5. Lista de todos os medicamentos que o paciente utilizou nos últimos 15 dias, incluindo as receitas que tiver -->
-            <record model="survey.page" id="QMD18_05">
-                <field name="title">5. Lista de todos os medicamentos que o paciente utilizou nos últimos 15 dias, incluindo as receitas que tiver</field>
-                <field name="code">QMD18_05</field>
-                <field name="survey_id" ref="QMD18"/>
-                <field name="sequence" eval="50"/>
-                <field name="description">&lt;p&gt;&lt;/p&gt;</field>
-            </record>
 
     </data>
 </odoo>
