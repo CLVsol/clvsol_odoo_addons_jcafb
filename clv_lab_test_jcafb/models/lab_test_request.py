@@ -49,6 +49,9 @@ class LabTestRequest(models.Model):
         readonly=True
     )
 
+    employee_id = fields.Many2one(comodel_name='hr.employee', string='Received by')
+    date_received = fields.Datetime(string='Received Date')
+
 
 class Person(models.Model):
     _inherit = 'clv.person'

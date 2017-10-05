@@ -12,12 +12,17 @@
                     <label for="person_id" class="oe_edit_only"/>
                     <h3><field name="person_id" placeholder="Person..." options="{'no_open': False, 'no_create': True}"/></h3>
                     <label for="person_employee_id" class="oe_edit_only"/>
-                    <h3><field name="person_employee_id" placeholder="Responsible Empĺoyee..." options="{'no_open': False, 'no_create': True}"/></h3>
-                    <label for="document_id" class="oe_edit_only"/>
-                    <h3><field name="document_id" placeholder="Related Document..." options="{'no_open': False, 'no_create': True}"/></h3>
-                    <label for="survey_user_input_id" class="oe_edit_only"/>
-                    <h3><field name="survey_user_input_id" options="{'no_open': False, 'no_create': True}"/></h3>
+                    <h3></h3>
                 </label>
+                <group name="group_left" position="inside">
+                    <field name="person_employee_id" placeholder="Responsible Empĺoyee..." options="{'no_open': False, 'no_create': True}"/>
+                    <field name="document_id" placeholder="Related Document..." options="{'no_open': False, 'no_create': True}"/>
+                    <field name="survey_user_input_id" options="{'no_open': False, 'no_create': True}"/>
+                </group>
+                <group name="group_right" position="inside">
+                    <field name="employee_id" options="{'no_open': False, 'no_create': True}"/>
+                    <field name="date_received"/>
+                </group>
             </field>
         </record>
        

@@ -11,13 +11,11 @@
                 <label for="lab_test_type_id" position="before">
                     <label for="person_id" class="oe_edit_only"/>
                     <h3><field name="person_id" placeholder="Person..." options="{'no_open': False, 'no_create': True}"/></h3>
-                    <label for="person_employee_id" class="oe_edit_only"/>
-                    <h3><field name="person_employee_id" placeholder="Responsible Empĺoyee..." options="{'no_open': False, 'no_create': True}"/></h3>
                 </label>
-                <label for="date_analysis" position="before">
-                    <label for="survey_id" class="oe_edit_only"/>
-                    <h3><field name="survey_id" options="{'no_open': False, 'no_create': True}"/></h3>
-                </label>
+                <field name="date_result" position="before">
+                    <field name="person_employee_id" placeholder="Responsible Empĺoyee..." options="{'no_open': False, 'no_create': True}"/>
+                    <field name="survey_id" options="{'no_open': False, 'no_create': True}"/>
+                </field>
             </field>
         </record>
        
