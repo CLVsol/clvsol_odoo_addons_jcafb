@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem name="Codes" id="menu_community_community_persons_off_codes"
+            parent="clv_person_off.menu_community_community_persons_off"
+            groups="clv_person_off.group_user"
+            sequence="10"
+            action="clv_person_off_jcafb.clv_person_off_code_action"/>
+
+        <menuitem name="Set Up" id="menu_community_community_persons_off_codes_setup" 
+            parent="menu_community_community_persons_off_codes"
+            groups="clv_person_off.group_user"
+            sequence="10"
+            action="clv_person_off_jcafb.clv_person_off_code_setup_action"/>
+
+    </data>
+</odoo>

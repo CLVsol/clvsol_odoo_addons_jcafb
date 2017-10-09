@@ -18,5 +18,5 @@
 #
 ###############################################################################
 
-from . import person_off_state
-from . import person_off_code
+import person_off_code_setup
+import person_off_set_code
