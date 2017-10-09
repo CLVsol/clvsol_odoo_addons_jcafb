@@ -109,6 +109,7 @@ class AnimalMngAnimalCreate(models.TransientModel):
                     }
                     _logger.info(u'>>>>> %s', values)
                     new_animal = Animal.create(values)
+                    new_animal.code = '/'
 
                     animal_mng.animal_id = new_animal.id
 
