@@ -103,6 +103,7 @@ class PersonMngPersonCreate(models.TransientModel):
                     }
                     _logger.info(u'>>>>> %s', values)
                     new_person = Person.create(values)
+                    new_person.code = '/'
 
                     person_mng.person_id = new_person.id
 

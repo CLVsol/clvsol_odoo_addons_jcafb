@@ -124,6 +124,7 @@ class PersonMngAddressCreate(models.TransientModel):
                         }
                         _logger.info(u'>>>>> %s', values)
                         new_address = Address.create(values)
+                        new_address.code = '/'
 
                         person_mng.address_id = new_address.id
 
