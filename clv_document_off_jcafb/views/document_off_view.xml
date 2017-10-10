@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="clv_document_off_view_form_jcafb" model="ir.ui.view">
+            <field name="name">clv.document.off.form</field>
+            <field name="model">clv.document.off</field>
+            <field name="inherit_id" ref="clv_document_off.clv_document_off_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <div name="title" position="inside">
+                    <label for="survey_id" class="oe_edit_only"/>
+                    <h3><field name="survey_id" placeholder="Survey Type..." options="{'no_open': False, 'no_create': True}"/></h3>
+                    <!--label for="survey_user_input_id" class="oe_edit_only"/>
+                    <h3><field name="survey_user_input_id" placeholder="Survey User Input..." options="{'no_open': False, 'no_create': True}"/></h3-->
+                    <!--label for="base_survey_user_input_id" class="oe_edit_only"/>
+                    <h3><field name="base_survey_user_input_id" placeholder="Base Survey User Input..." options="{'no_open': False, 'no_create': True}"/></h3-->
+                </div>
+            </field>
+        </record>
+
+        <record id="clv_document_off_view_search_survey" model="ir.ui.view">
+            <field name="name">clv.document.off.search</field>
+            <field name="model">clv.document.off</field>
+            <field name="inherit_id" ref="clv_document_off.clv_document_off_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <group name="group_by" position="before">
+                    <!--filter name="filter_has_not_user_input" string="Has Not User Input" domain="[('survey_user_input_id','=',False)]"/-->
+                    <!--filter name="filter_has_user_input" string="Has User Input" domain="[('survey_user_input_id','!=',False)]"/-->
+                    <!--filter name="filter_has_base_survey_user_input" string="Has Base Survey User Input" domain="[('base_survey_user_input_id','!=',False)]"/-->
+                    <!--filter name="filter_has_not_base_survey_user_input" string="Has Not Base Survey User Input" domain="[('base_survey_user_input_id','=',False)]"/-->
+                </group>
+                <group name="group_by" position="inside">
+                    <filter string="Survey Type" context="{'group_by': 'survey_id'}"/>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</odoo>

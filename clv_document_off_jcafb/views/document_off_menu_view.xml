@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem name="Codes" id="menu_base_base_documents_off_codes"
+            parent="clv_document_off.menu_base_base_documents_off"
+            groups="clv_document_off.group_user"
+            sequence="10"
+            action="clv_document_off_jcafb.clv_document_off_code_action"/>
+
+        <menuitem name="Set Up" id="menu_base_base_documents_off_codes_setup" 
+            parent="menu_base_base_documents_off_codes"
+            groups="clv_document_off.group_user"
+            sequence="10"
+            action="clv_document_off_jcafb.clv_document_off_code_setup_action"/>
+
+    </data>
+</odoo>

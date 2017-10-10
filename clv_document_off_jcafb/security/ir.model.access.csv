@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_clv_document_off_code_user,clv.document.off.code.user,model_clv_document_off_code,clv_document_off.group_user,1,0,0,0
+access_clv_document_off_code_manager,clv.document.off.code.manager,model_clv_document_off_code,clv_document_off.group_manager,1,1,1,0
+access_clv_document_off_code_supmanager,clv.document.off.code.supmanager,model_clv_document_off_code,clv_document_off.group_supmanager,1,1,1,1

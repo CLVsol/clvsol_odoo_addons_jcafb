@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="clv_document_off_set_code_view_form" model="ir.ui.view">
+            <field name="name">clv.document.off.set_code.form</field>
+            <field name="model">clv.document.off.set_code</field>
+            <field name="arch" type="xml">
+                <form>
+                    <div class="oe_right">
+                    </div>
+                    <label for="document_off_ids"/>
+                    <field name="document_off_ids"/>
+                    <group>
+                        <group>
+                        </group>
+                    </group>
+                    <footer>
+                        <button 
+                            type="object"
+                            name="do_document_off_set_code"
+                            string="Document (Off) Set Code"
+                            class="oe_highlight"
+                            />
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+
+            </field>
+        </record>
+
+        <!-- More button Action -->
+        <act_window 
+            id="clv_document_off_set_code_action"
+            name="Documents (Off) Set Code"
+            src_model="clv.document.off"
+            res_model="clv.document.off.set_code"
+            view_mode="form, tree"
+            key2="client_action_multi"
+            target="new"
+        />
+
+    </data>
+</odoo>

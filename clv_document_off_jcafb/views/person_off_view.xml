@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        
+        <record id="clv_person_off_view_form_document" model="ir.ui.view">
+            <field name="name">clv.person.off.form</field>
+            <field name="model">clv.person.off</field>
+            <field name="inherit_id" ref="clv_person_off.clv_person_off_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Documents (Off)">
+                        <group>
+                            <field name="count_documents_off"/>
+                            <field name="document_off_ids" colspan="4" nolabel="1"/>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record id="clv_person_off_view_tree_document" model="ir.ui.view">
+            <field name="name">clv.person.off.tree</field>
+            <field name="model">clv.person.off</field>
+            <field name="inherit_id" ref="clv_person_off.clv_person_off_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="count_documents_off"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="clv_document_off_view_form_person_off" model="ir.ui.view">
+            <field name="name">clv.document.off.form</field>
+            <field name="model">clv.document.off</field>
+            <field name="inherit_id" ref="clv_document_off.clv_document_off_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <group name="group_right" position="inside">
+                    <field name="person_off_id"  options="{'no_open': False, 'no_create': True}"/>
+                    <field name="person_off_code"/>
+                    <!--field name="person_employee_id" options="{'no_open': False, 'no_create': True}"/-->
+                </group>
+            </field>
+        </record>
+
+        <record id="clv_document_off_view_tree_person_off" model="ir.ui.view">
+            <field name="name">clv.document.off.tree</field>
+            <field name="model">clv.document.off</field>
+            <field name="inherit_id" ref="clv_document_off.clv_document_off_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="date_requested" position="before">
+                    <field name="person_off_id"/>
+                    <!--field name="person_employee_id"/-->
+                </field>
+            </field>
+        </record>
+
+        <record id="clv_document_off_view_search_person_off" model="ir.ui.view">
+            <field name="name">clv.document.off.search</field>
+            <field name="model">clv.document.off</field>
+            <field name="inherit_id" ref="clv_document_off.clv_document_off_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="date_requested" position="before">
+                    <field name="person_off_id"/>
+                </field>
+                <group name="group_by" position="inside">
+                    <filter string="Person (Off)" context="{'group_by': 'person_off_id'}"/>
+                    <!--filter string="Responsible Empĺoyee (Person)" domain="[]"  context="{'group_by': 'person_employee_id'}"/-->
+                </group>
+            </field>
+        </record>
+
+    </data>
+</odoo>
