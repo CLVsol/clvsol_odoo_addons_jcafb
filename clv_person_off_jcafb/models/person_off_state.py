@@ -28,6 +28,7 @@ class PersonOff(models.Model):
     state = fields.Selection(
         [('draft', 'Draft'),
          ('revised', 'Revised'),
+         ('verified', 'Verified'),
          ('ready', 'Ready'),
          ('done', 'Done'),
          ('undone', 'Undone'),
@@ -73,6 +74,11 @@ class PersonOff(models.Model):
     def action_revised(self):
         for person in self:
             person.change_state('revised')
+
+    @api.multi
+    def action_verified(self):
+        for person in self:
+            person.change_state('verified')
 
     @api.multi
     def action_ready(self):
