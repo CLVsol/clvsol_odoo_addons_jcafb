@@ -18,28 +18,4 @@
 #
 ###############################################################################
 
-{
-    'name': 'Person Management (customizations for CLVhealth-JCAFB Solution)',
-    'summary': 'Person Management Module customizations for CLVhealth-JCAFB Solution.',
-    'version': '3.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'https://github.com/CLVsol',
-    'depends': [
-        'clv_person_mng',
-    ],
-    'data': [
-        'views/person_mng_state_view.xml',
-        'wizard/person_mng_updt_view.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+import person_mng_updt
