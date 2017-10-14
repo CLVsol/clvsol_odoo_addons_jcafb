@@ -34,6 +34,7 @@
         'views/person_off_state_view.xml',
         'views/person_off_code_view.xml',
         'views/event_view.xml',
+        'wizard/person_off_updt_view.xml',
         'wizard/person_off_code_setup_view.xml',
         'wizard/person_off_set_code_view.xml',
         'views/person_off_menu_view.xml',
