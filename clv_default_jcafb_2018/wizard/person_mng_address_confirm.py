@@ -65,9 +65,9 @@ class PersonMngAddressConfirm(models.TransientModel):
 
                 person_mng.address_id.history_marker_id = self.history_marker_id.id
 
-                person_mng.action_address = 'none'
-
                 _logger.info(u'>>>>>>>>>> %s: %s', 'action_address', person_mng.action_address)
+
+                person_mng.action_address = 'none'
 
             elif (person_mng.action_address == 'confirm') and \
                  (person_mng.address_name is not False) and \
@@ -82,8 +82,8 @@ class PersonMngAddressConfirm(models.TransientModel):
 
                 person_mng.address_id.history_marker_id = self.history_marker_id.id
 
-                person_mng.action_address = 'none'
-
                 _logger.info(u'>>>>>>>>>> %s: %s', 'action_address', person_mng.action_address)
+
+                person_mng.action_address = 'none'
 
         return True
