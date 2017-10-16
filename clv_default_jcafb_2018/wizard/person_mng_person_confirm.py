@@ -63,8 +63,8 @@ class PersonMngPersonConfirm(models.TransientModel):
 
                 person_mng.person_id.history_marker_id = self.history_marker_id.id
 
-                person_mng.action_person = 'none'
-
                 _logger.info(u'>>>>>>>>>> %s: %s', 'action_person', person_mng.action_person)
+
+                person_mng.action_person = 'none'
 
         return True
