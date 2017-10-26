@@ -656,9 +656,9 @@
                 <field name="description">&lt;p&gt;&lt;/p&gt;</field>
             </record>
 
-                <!-- 6.1. Alimentos que a criança consome (Alimentos ricos em Ferro, B12 e ácido fólico): -->
+                <!-- 6.1. Alimentos que o paciente consome (Alimentos ricos em Ferro, B12 e ácido fólico): -->
                 <record model="survey.question" id="QAN18_06_01">
-                    <field name="question">6.1. Alimentos que a criança consome (Alimentos ricos em Ferro, B12 e ácido fólico):</field>
+                    <field name="question">6.1. Alimentos que o paciente consome (Alimentos ricos em Ferro, B12 e ácido fólico):</field>
                     <field name="code">QAN18_06_01</field>
                     <field name="type">matrix</field>
                     <field name="matrix_subtype">simple</field>
@@ -759,9 +759,9 @@
                         <field name="sequence" eval="130"/>
                     </record>
 
-                <!-- 6.2. Alimentos que a criança consome junto ou próximo da refeição (Alimentos que interferem na absorção de Ferro): -->
+                <!-- 6.2. Alimentos que o paciente consome junto ou próximo da refeição (Alimentos que interferem na absorção de Ferro): -->
                 <record model="survey.question" id="QAN18_06_02">
-                    <field name="question">6.2. Alimentos que a criança consome junto ou próximo da refeição (Alimentos que interferem na absorção de Ferro):</field>
+                    <field name="question">6.2. Alimentos que o paciente consome junto ou próximo da refeição (Alimentos que interferem na absorção de Ferro):</field>
                     <field name="code">QAN18_06_02</field>
                     <field name="type">matrix</field>
                     <field name="matrix_subtype">simple</field>

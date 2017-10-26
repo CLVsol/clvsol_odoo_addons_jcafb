@@ -40,6 +40,8 @@
         'data/survey_jcafb_TDH18.xml',
         'data/survey_jcafb_TCR18.xml',
         'data/survey_jcafb_TID18.xml',
+        'data/survey_jcafb_TPR18.xml',
+        'data/survey_jcafb_TUR18.xml',
     ],
     'demo': [],
     'test': [],

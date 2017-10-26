@@ -2,132 +2,132 @@
 <odoo>
     <data noupdate="1">
 
-        <!-- [TID18] -->
-        <record model="survey.survey" id="TID18">
-            <field name="title">[TID18]</field>
-            <field name="code">TID18</field>
+        <!-- [TUR18] -->
+        <record model="survey.survey" id="TUR18">
+            <field name="title">[TUR18]</field>
+            <field name="code">TUR18</field>
             <field name="stage_id" ref="survey.stage_in_progress"/>
             <field name="auth_required" eval="False"/>
             <field name="users_can_go_back" eval="True"/>
-            <field name="description">&lt;p&gt;JCAFB 2018 - Termo de Consentimento Livre e Esclarecido para Realização de Questionário Socioeconômico e de Exames de Urina e Coproparasitológico&lt;/p&gt;</field>
+            <field name="description">&lt;p&gt;JCAFB 2018 - Termo de Consentimento Livre e Esclarecido para Realização de Exame de Urina&lt;/p&gt;</field>
             <field name="thank_you_message">&lt;p&gt;Obrigado por sua participação.&lt;/p&gt;</field>
         </record>
 
             <!-- 1. Identificação do Termo de Consentimento -->
-            <record model="survey.page" id="TID18_01">
+            <record model="survey.page" id="TUR18_01">
                 <field name="title">1. Identificação do Termo de Consentimento</field>
-                <field name="code">TID18_01</field>
-                <field name="survey_id" ref="TID18"/>
+                <field name="code">TUR18_01</field>
+                <field name="survey_id" ref="TUR18"/>
                 <field name="sequence" eval="10"/>
                 <field name="description">&lt;p&gt;&lt;/p&gt;</field>
             </record>
 
                 <!-- 1.1. Código do Termo de Consentimento: -->
-                <record model="survey.question" id="TID18_01_01">
+                <record model="survey.question" id="TUR18_01_01">
                     <field name="question">1.1. Código do Termo de Consentimento:</field>
-                    <field name="code">TID18_01_01</field>
+                    <field name="code">TUR18_01_01</field>
                     <field name="parameter">document_code</field>
                     <field name="type">textbox</field>
-                    <field name="page_id" ref="TID18_01"/>
+                    <field name="page_id" ref="TUR18_01"/>
                     <field name="sequence" eval="10"/>
                     <field name="constr_mandatory">True</field>
                     <field name="constr_error_msg">Preencher com o Código do Termo de Consentimento.</field>
                 </record>
 
                 <!-- 1.2. Data da Assinatura (dd-mm-yyyy): -->
-                <record model="survey.question" id="TID18_01_02">
+                <record model="survey.question" id="TUR18_01_02">
                     <field name="question">1.2. Data da Assinatura (dd-mm-yyyy):</field>
-                    <field name="code">TID18_01_02</field>
+                    <field name="code">TUR18_01_02</field>
                     <field name="parameter">date</field>
                     <field name="type">textbox</field>
-                    <field name="page_id" ref="TID18_01"/>
+                    <field name="page_id" ref="TUR18_01"/>
                     <field name="sequence" eval="20"/>
                     <field name="constr_mandatory">True</field>
                     <field name="constr_error_msg">Preencher com a data da assinatura do Termo de Consentimento.</field>
                 </record>
 
                 <!-- 1.3. Código do Professor Responsável: -->
-                <record model="survey.question" id="TID18_01_03">
+                <record model="survey.question" id="TUR18_01_03">
                     <field name="question">1.3. Código do Professor Responsável:</field>
-                    <field name="code">TID18_01_03</field>
+                    <field name="code">TUR18_01_03</field>
                     <field name="type">textbox</field>
-                    <field name="page_id" ref="TID18_01"/>
+                    <field name="page_id" ref="TUR18_01"/>
                     <field name="sequence" eval="30"/>
                     <field name="constr_mandatory">True</field>
                     <field name="constr_error_msg">Preencher com o Código do Professor Responsável que assinou o Termo de Consentimento.</field>
                 </record>
 
                 <!-- 1.4. Códigos do(s) Entrevistador(es) (separados por ","): -->
-                <record model="survey.question" id="TID18_01_04">
+                <record model="survey.question" id="TUR18_01_04">
                     <field name="question">1.4. Códigos do(s) Entrevistador(es) (separados por ","):</field>
-                    <field name="code">TID18_01_04</field>
+                    <field name="code">TUR18_01_04</field>
                     <field name="type">textbox</field>
-                    <field name="page_id" ref="TID18_01"/>
+                    <field name="page_id" ref="TUR18_01"/>
                     <field name="sequence" eval="40"/>
                     <field name="constr_mandatory">True</field>
                     <field name="constr_error_msg">Informar o(s) Código(s) do(s) entrevistador(es).</field>
                 </record>
 
             <!-- 2. Identificação do Indivíduo -->
-            <record model="survey.page" id="TID18_02">
+            <record model="survey.page" id="TUR18_02">
                 <field name="title">2. Identificação do Indivíduo</field>
-                <field name="code">TID18_02</field>
-                <field name="survey_id" ref="TID18"/>
+                <field name="code">TUR18_02</field>
+                <field name="survey_id" ref="TUR18"/>
                 <field name="sequence" eval="20"/>
                 <field name="description">&lt;p&gt;&lt;/p&gt;</field>
             </record>
 
                 <!-- 2.1. Nome do Indivíduo: -->
-                <record model="survey.question" id="TID18_02_01">
+                <record model="survey.question" id="TUR18_02_01">
                     <field name="question">2.1. Nome do Indivíduo:</field>
-                    <field name="code">TID18_02_01</field>
+                    <field name="code">TUR18_02_01</field>
                     <field name="type">textbox</field>
-                    <field name="page_id" ref="TID18_02"/>
+                    <field name="page_id" ref="TUR18_02"/>
                     <field name="sequence" eval="10"/>
                     <field name="constr_mandatory">True</field>
                     <field name="constr_error_msg">Preencher com o Nome do Indivíduo.</field>
                 </record>
 
                 <!-- 2.2. Código do Indivíduo: -->
-                <record model="survey.question" id="TID18_02_02">
+                <record model="survey.question" id="TUR18_02_02">
                     <field name="question">2.2. Código do Indivíduo:</field>
-                    <field name="code">TID18_02_02</field>
+                    <field name="code">TUR18_02_02</field>
                     <field name="parameter">person_code</field>
                     <field name="type">textbox</field>
-                    <field name="page_id" ref="TID18_02"/>
+                    <field name="page_id" ref="TUR18_02"/>
                     <field name="sequence" eval="20"/>
                     <field name="constr_mandatory">True</field>
                     <field name="constr_error_msg">Preencher com o Código do Indivíduo.</field>
                 </record>
 
                 <!-- 2.3. Nome do Responsável Legal -->
-                <record model="survey.question" id="TID18_02_03">
+                <record model="survey.question" id="TUR18_02_03">
                     <field name="question">2.3. Nome do Responsável Legal</field>
-                    <field name="code">TID18_02_03</field>
+                    <field name="code">TUR18_02_03</field>
                     <field name="type">textbox</field>
-                    <field name="page_id" ref="TID18_02"/>
+                    <field name="page_id" ref="TUR18_02"/>
                     <field name="sequence" eval="30"/>
                     <field name="constr_mandatory">False</field>
                     <field name="constr_error_msg">Preencher com o Nome do Responsável Legal.</field>
                 </record>
 
                 <!-- 2.4. Código do Responsável Legal -->
-                <record model="survey.question" id="TID18_02_04">
+                <record model="survey.question" id="TUR18_02_04">
                     <field name="question">2.4. Código do Responsável Legal</field>
-                    <field name="code">TID18_02_04</field>
+                    <field name="code">TUR18_02_04</field>
                     <field name="type">textbox</field>
-                    <field name="page_id" ref="TID18_02"/>
+                    <field name="page_id" ref="TUR18_02"/>
                     <field name="sequence" eval="40"/>
                     <field name="constr_mandatory">False</field>
                     <field name="constr_error_msg">Preencher com o Código do Responsável Legal.</field>
                 </record>
 
                 <!-- 2.5. Quem assinou o Termo de Consentimento? -->
-                <record model="survey.question" id="TID18_02_05">
+                <record model="survey.question" id="TUR18_02_05">
                     <field name="question">2.5. Quem assinou o Termo de Consentimento?</field>
-                    <field name="code">TID18_02_05</field>
+                    <field name="code">TUR18_02_05</field>
                     <field name="type">simple_choice</field>
-                    <field name="page_id" ref="TID18_02"/>
+                    <field name="page_id" ref="TUR18_02"/>
                     <field name="sequence" eval="50"/>
                     <field name="display_mode">columns</field>
                     <field name="column_nb">12</field>
@@ -137,93 +137,35 @@
                     <field name="comments_message"></field>
                 </record>
 
-                    <record model="survey.label" id="TID18_02_05_01">
+                    <record model="survey.label" id="TUR18_02_05_01">
                         <field name="value">a) Indivíduo</field>
-                        <field name="code">TID18_02_05_01</field>
-                        <field name="question_id" ref="TID18_02_05"/>
+                        <field name="code">TUR18_02_05_01</field>
+                        <field name="question_id" ref="TUR18_02_05"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
-                    <record model="survey.label" id="TID18_02_05_02">
+                    <record model="survey.label" id="TUR18_02_05_02">
                         <field name="value">b) Responsável Legal</field>
-                        <field name="code">TID18_02_05_02</field>
-                        <field name="question_id" ref="TID18_02_05"/>
+                        <field name="code">TUR18_02_05_02</field>
+                        <field name="question_id" ref="TUR18_02_05"/>
                         <field name="sequence" eval="20"/>
                     </record>
 
             <!-- 3. Consentimentos -->
-            <record model="survey.page" id="TID18_03">
+            <record model="survey.page" id="TUR18_03">
                 <field name="title">3. Consentimentos</field>
-                <field name="code">TID18_03</field>
-                <field name="survey_id" ref="TID18"/>
+                <field name="code">TUR18_03</field>
+                <field name="survey_id" ref="TUR18"/>
                 <field name="sequence" eval="30"/>
                 <field name="description">&lt;p&gt;&lt;/p&gt;</field>
             </record>
 
-                <!-- 3.1. 1) Questionário Socioeconômico -->
-                <record model="survey.question" id="TID18_03_01">
-                    <field name="question">3.1. Questionário Socioeconômico</field>
-                    <field name="code">TID18_03_01</field>
+                <!-- 3.1. 1) Exame de urina -->
+                <record model="survey.question" id="TUR18_03_01">
+                    <field name="question">3.1. Exame de urina</field>
+                    <field name="code">TUR18_03_01</field>
                     <field name="type">simple_choice</field>
-                    <field name="page_id" ref="TID18_03"/>
-                    <field name="sequence" eval="10"/>
-                    <field name="display_mode">columns</field>
-                    <field name="column_nb">12</field>
-                    <field name="constr_mandatory">True</field>
-                    <field name="constr_error_msg">Esta questão precisa ser respondida.</field>
-                    <field name="comments_allowed">False</field>
-                    <field name="comments_message"></field>
-                </record>
-
-                    <record model="survey.label" id="TID18_03_01_01">
-                        <field name="value">Concordo em participar</field>
-                        <field name="code">TID18_03_01_01</field>
-                        <field name="question_id" ref="TID18_03_01"/>
-                        <field name="sequence" eval="10"/>
-                    </record>
-
-                    <record model="survey.label" id="TID18_03_01_02">
-                        <field name="value">Não concordo em participar</field>
-                        <field name="code">TID18_03_01_02</field>
-                        <field name="question_id" ref="TID18_03_01"/>
-                        <field name="sequence" eval="20"/>
-                    </record>
-
-                <!-- 3.2. 2) Exame coproparasitológico de fezes -->
-                <record model="survey.question" id="TID18_03_02">
-                    <field name="question">3.2. Exame coproparasitológico de fezes</field>
-                    <field name="code">TID18_03_02</field>
-                    <field name="type">simple_choice</field>
-                    <field name="page_id" ref="TID18_03"/>
-                    <field name="sequence" eval="20"/>
-                    <field name="display_mode">columns</field>
-                    <field name="column_nb">12</field>
-                    <field name="constr_mandatory">True</field>
-                    <field name="constr_error_msg">Esta questão precisa ser respondida.</field>
-                    <field name="comments_allowed">False</field>
-                    <field name="comments_message"></field>
-                </record>
-
-                    <record model="survey.label" id="TID18_03_02_01">
-                        <field name="value">Concordo em participar</field>
-                        <field name="code">TID18_03_02_01</field>
-                        <field name="question_id" ref="TID18_03_02"/>
-                        <field name="sequence" eval="10"/>
-                    </record>
-
-                    <record model="survey.label" id="TID18_03_02_02">
-                        <field name="value">Não concordo em participar</field>
-                        <field name="code">TID18_03_02_02</field>
-                        <field name="question_id" ref="TID18_03_02"/>
-                        <field name="sequence" eval="20"/>
-                    </record>
-
-                <!-- 3.3. 3) Exame de urina -->
-                <record model="survey.question" id="TID18_03_03">
-                    <field name="question">3.3. Exame de urina</field>
-                    <field name="code">TID18_03_03</field>
-                    <field name="type">simple_choice</field>
-                    <field name="page_id" ref="TID18_03"/>
+                    <field name="page_id" ref="TUR18_03"/>
                     <field name="sequence" eval="30"/>
                     <field name="display_mode">columns</field>
                     <field name="column_nb">12</field>
@@ -233,17 +175,17 @@
                     <field name="comments_message"></field>
                 </record>
 
-                    <record model="survey.label" id="TID18_03_03_01">
+                    <record model="survey.label" id="TUR18_03_01_01">
                         <field name="value">Concordo em participar</field>
-                        <field name="code">TID18_03_03_01</field>
-                        <field name="question_id" ref="TID18_03_03"/>
+                        <field name="code">TUR18_03_01_01</field>
+                        <field name="question_id" ref="TUR18_03_01"/>
                         <field name="sequence" eval="10"/>
                     </record>
 
-                    <record model="survey.label" id="TID18_03_03_02">
+                    <record model="survey.label" id="TUR18_03_01_02">
                         <field name="value">Não concordo em participar</field>
-                        <field name="code">TID18_03_03_02</field>
-                        <field name="question_id" ref="TID18_03_03"/>
+                        <field name="code">TUR18_03_01_02</field>
+                        <field name="question_id" ref="TUR18_03_01"/>
                         <field name="sequence" eval="20"/>
                     </record>
 

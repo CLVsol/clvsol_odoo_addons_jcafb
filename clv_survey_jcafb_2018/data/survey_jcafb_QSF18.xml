@@ -1481,7 +1481,7 @@
                     </record>
 
                     <record model="survey.label" id="QSF18_08_01_06">
-                        <field name="value">f) "Ameba"(Amebíase/Giardíase)</field>
+                        <field name="value">f) "Ameba"(Amebíase)</field>
                         <field name="code">QSF18_08_01_06</field>
                         <field name="question_id" ref="QSF18_08_01"/>
                         <field name="sequence" eval="60"/>
@@ -1495,31 +1495,38 @@
                     </record>
 
                     <record model="survey.label" id="QSF18_08_01_08">
-                        <field name="value">g) Outro</field>
+                        <field name="value">h) "Giárdia" (Giardíase)</field>
                         <field name="code">QSF18_08_01_08</field>
                         <field name="question_id" ref="QSF18_08_01"/>
                         <field name="sequence" eval="80"/>
                     </record>
 
                     <record model="survey.label" id="QSF18_08_01_09">
-                        <field name="value">h) Não sabe</field>
+                        <field name="value">i) Outro</field>
                         <field name="code">QSF18_08_01_09</field>
                         <field name="question_id" ref="QSF18_08_01"/>
                         <field name="sequence" eval="90"/>
                     </record>
 
                     <record model="survey.label" id="QSF18_08_01_10">
-                        <field name="value">i) Não quis responder</field>
+                        <field name="value">j) Não sabe</field>
                         <field name="code">QSF18_08_01_10</field>
                         <field name="question_id" ref="QSF18_08_01"/>
                         <field name="sequence" eval="100"/>
                     </record>
 
                     <record model="survey.label" id="QSF18_08_01_11">
-                        <field name="value">j) Não se aplica</field>
+                        <field name="value">k) Não quis responder</field>
                         <field name="code">QSF18_08_01_11</field>
                         <field name="question_id" ref="QSF18_08_01"/>
                         <field name="sequence" eval="110"/>
+                    </record>
+
+                    <record model="survey.label" id="QSF18_08_01_12">
+                        <field name="value">l) Não se aplica</field>
+                        <field name="code">QSF18_08_01_12</field>
+                        <field name="question_id" ref="QSF18_08_01"/>
+                        <field name="sequence" eval="120"/>
                     </record>
 
                 <!-- 8.2. Sabem como se prevenir de pegar vermes? -->

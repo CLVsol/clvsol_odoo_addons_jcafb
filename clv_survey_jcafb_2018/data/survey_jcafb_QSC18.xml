@@ -568,10 +568,9 @@
                 <record model="survey.question" id="QSC18_04_01">
                     <field name="question">4.1. Como a criança costuma consumir a carne?</field>
                     <field name="code">QSC18_04_01</field>
-                    <field name="type">simple_choice</field>
+                    <field name="type">multiple_choice</field>
                     <field name="page_id" ref="QSC18_04"/>
                     <field name="sequence" eval="10"/>
-                    <field name="display_mode">columns</field>
                     <field name="column_nb">12</field>
                     <field name="constr_mandatory">True</field>
                     <field name="constr_error_msg">Esta questão precisa ser respondida.</field>

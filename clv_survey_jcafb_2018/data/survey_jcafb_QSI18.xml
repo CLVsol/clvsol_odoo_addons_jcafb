@@ -1628,7 +1628,7 @@
                     <field name="constr_mandatory">True</field>
                     <field name="constr_error_msg">Esta questão precisa ser respondida.</field>
                     <field name="comments_allowed">True</field>
-                    <field name="comments_message">Se "Sim", quantas vezes?</field>
+                    <field name="comments_message">Se "Sim", quantas vezes e qual(is) o(s) motivo(s) da(s) queda(s)?</field>
                 </record>
 
                     <record model="survey.label" id="QSI18_06_04_01">
