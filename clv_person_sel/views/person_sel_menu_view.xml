@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem name="Person Selection" id="menu_community_config_config_person_sel" 
+            parent="clv_base.menu_community_config_config"
+            groups="clv_person_sel.group_user"
+            sequence="15"/>
+
+        <menuitem name="Age-Groups" id="menu_community_config_config_person_sel_age_groups" 
+            parent="menu_community_config_config_person_sel"
+            groups="clv_person_sel.group_user"
+            sequence="10"
+            action="clv_person_sel.clv_person_sel_age_group_action"/>
+
+        <menuitem name="Districts" id="menu_community_config_config_person_sel_districts" 
+            parent="menu_community_config_config_person_sel"
+            groups="clv_person_sel.group_user"
+            sequence="20"
+            action="clv_person_sel.clv_person_sel_district_action"/>
+
+        <menuitem name="Set Up" id="menu_community_config_config_person_sel_districts_setup" 
+            parent="clv_person_sel.menu_community_config_config_person_sel_districts"
+            groups="clv_person_sel.group_user"
+            sequence="10"
+            action="clv_person_sel.clv_person_sel_district_district_setup_action"/>
+
+        <menuitem name="Groups" id="menu_community_config_config_person_sel_groups" 
+            parent="menu_community_config_config_person_sel"
+            groups="clv_person_sel.group_user"
+            sequence="30"
+            action="clv_person_sel.clv_person_sel_group_action"/>
+
+        <menuitem name="Set Up" id="menu_community_config_config_person_sel_groups_setup" 
+            parent="clv_person_sel.menu_community_config_config_person_sel_groups"
+            groups="clv_person_sel.group_user"
+            sequence="10"
+            action="clv_person_sel.clv_person_sel_group_group_setup_action"/>
+
+        <!--menuitem name="Summary" id="menu_community_config_config_person_sel_summary" 
+            parent="menu_community_config_config_person_sel"
+            groups="clv_person_sel.group_user"
+            sequence="40"
+            action="clv_person_sel.clv_person_sel_summary_action"/-->
+
+        <!--menuitem name="Set Up" id="menu_community_config_config_person_sel_summary_setup" 
+            parent="clv_person_sel.menu_community_config_config_person_sel_summary"
+            groups="clv_person_sel.group_user"
+            sequence="10"
+            action="clv_person_sel.clv_person_sel_summary_setup_action"/-->
+
+        <menuitem name="Selection Summary" id="menu_community_community_persons_selection_summary" 
+            parent="clv_person.menu_community_community_persons"
+            groups="clv_person_sel.group_user"
+            sequence="100"
+            action="clv_person_sel.clv_person_sel_summary_action"/>
+
+        <menuitem name="Set Up" id="menu_community_community_persons_selection_summary_setup" 
+            parent="menu_community_community_persons_selection_summary"
+            groups="clv_person_sel.group_user"
+            sequence="10"
+            action="clv_person_sel.clv_person_sel_summary_setup_action"/>
+
+    </data>
+</odoo>

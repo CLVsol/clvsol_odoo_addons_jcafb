@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+
+        <record id="clv_person_sel.group_user" model="res.groups">
+            <field name="name">User (Person Selection)</field>
+        </record>
+        
+        <record id="clv_person_sel.group_manager" model="res.groups">
+            <field name="name">Manager (Person Selection)</field>
+            <field name="implied_ids" eval="[(4, ref('clv_person_sel.group_user'))]"/>
+        </record>
+        
+        <record id="clv_person_sel.group_supmanager" model="res.groups">
+            <field name="name">Super Manager (Person Selection)</field>
+            <field name="implied_ids" eval="[(4, ref('clv_person_sel.group_manager'))]"/>
+        </record>
+
+    </data>
+</odoo>
