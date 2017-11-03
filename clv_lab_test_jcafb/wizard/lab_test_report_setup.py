@@ -37,6 +37,20 @@ class LabTestReportSetup(models.TransientModel):
         default=_default_lab_test_request_ids
     )
 
+    def _default_lab_test_type_ids(self):
+        lab_test_request_ids = self._context.get('active_ids')
+        LabTestRequest = self.env['clv.lab_test.request']
+        lab_test_request = LabTestRequest.search([
+            ('id', '=', lab_test_request_ids[0]),
+        ])
+        return lab_test_request.lab_test_type_ids
+    lab_test_type_ids = fields.Many2many(
+        comodel_name='clv.lab_test.type',
+        relation='clv_lab_test_type_lab_test_report_setup_rel',
+        string='Lab Test Types',
+        default=_default_lab_test_type_ids
+    )
+
     @api.multi
     def _reopen_form(self):
         self.ensure_one()
@@ -60,30 +74,32 @@ class LabTestReportSetup(models.TransientModel):
 
             _logger.info(u'%s %s %s', '>>>>>', lab_test_request.code, lab_test_request.person_id.name)
 
-            for lab_test_type in lab_test_request.lab_test_type_ids:
+            if lab_test_request.state not in ['draft', 'cancelled']:
 
-                _logger.info(u'%s %s', '>>>>>>>>>>', lab_test_type.name)
+                for lab_test_type in self.lab_test_type_ids:
 
-                criteria = []
-                for criterion in lab_test_type.criterion_ids:
-                    if criterion.report_display:
-                        criteria.append((0, 0, {'code': criterion.code,
-                                                'name': criterion.name,
-                                                'sequence': criterion.sequence,
-                                                'normal_range': criterion.normal_range,
-                                                'unit_id': criterion.unit_id.id,
-                                                }))
+                    _logger.info(u'%s %s', '>>>>>>>>>>', lab_test_type.name)
 
-                values = {
-                    'code_sequence': 'clv.lab_test.report.code',
-                    'lab_test_type_id': lab_test_type.id,
-                    'person_id': lab_test_request.person_id.id,
-                    'lab_test_request_id': lab_test_request.id,
-                    'history_marker_id': lab_test_request.history_marker_id.id,
-                    'criterion_ids': criteria,
-                }
-                lab_test_report = LabTestReport.create(values)
+                    criteria = []
+                    for criterion in lab_test_type.criterion_ids:
+                        if criterion.report_display:
+                            criteria.append((0, 0, {'code': criterion.code,
+                                                    'name': criterion.name,
+                                                    'sequence': criterion.sequence,
+                                                    'normal_range': criterion.normal_range,
+                                                    'unit_id': criterion.unit_id.id,
+                                                    }))
 
-                _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', lab_test_report.code)
+                    values = {
+                        'code_sequence': 'clv.lab_test.report.code',
+                        'lab_test_type_id': lab_test_type.id,
+                        'person_id': lab_test_request.person_id.id,
+                        'lab_test_request_id': lab_test_request.id,
+                        'history_marker_id': lab_test_request.history_marker_id.id,
+                        'criterion_ids': criteria,
+                    }
+                    lab_test_report = LabTestReport.create(values)
+
+                    _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', lab_test_report.code)
 
         return True
