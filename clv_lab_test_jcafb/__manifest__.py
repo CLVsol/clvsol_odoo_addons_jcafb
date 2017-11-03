@@ -50,6 +50,7 @@
         'data/lab_test_report_seq.xml',
         'data/lab_test_unit.xml',
         'wizard/lab_test_request_setup_view.xml',
+        'wizard/lab_test_request_receive_view.xml',
         'wizard/lab_test_result_setup_view.xml',
         'wizard/lab_test_report_setup_view.xml',
         'wizard/lab_test_request_document_setup_view.xml',
