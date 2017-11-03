@@ -23,7 +23,7 @@
 			<field name="name" eval="&quot;&quot;&quot;Data de Entrada do Material&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_dd_mm_aaaa"/>
 			<field name="result_display" eval="True"/>
-			<field name="report_display" eval="True"/>
+			<field name="report_display" eval="False"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EEV18_pev_data_liberacao_resultado" model="clv.lab_test.criterion">
@@ -33,7 +33,7 @@
 			<field name="name" eval="&quot;&quot;&quot;Liberação do Resultado&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_dd_mm_aaaa"/>
 			<field name="result_display" eval="True"/>
-			<field name="report_display" eval="True"/>
+			<field name="report_display" eval="False"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EEV18_pev_resultado" model="clv.lab_test.criterion">
@@ -52,7 +52,7 @@
 			<field name="code">EEV18-01-04</field>
 			<field name="name" eval="&quot;&quot;&quot;Examinador&quot;&quot;&quot;"/>
 			<field name="result_display" eval="True"/>
-			<field name="report_display" eval="True"/>
+			<field name="report_display" eval="False"/>
 		</record>
 
 		<record id="clv_lab_test_criterion_EEV18_pev_metodo" model="clv.lab_test.criterion">

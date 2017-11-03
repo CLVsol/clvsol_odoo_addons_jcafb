@@ -23,7 +23,7 @@
 			<field name="name" eval="&quot;&quot;&quot;Data de Entrada do Material&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_dd_mm_aaaa"/>
 			<field name="result_display" eval="True"/>
-			<field name="report_display" eval="True"/>
+			<field name="report_display" eval="False"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_data_liberacao_resultado" model="clv.lab_test.criterion">
@@ -33,7 +33,7 @@
 			<field name="name" eval="&quot;&quot;&quot;Liberação do Resultado&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_dd_mm_aaaa"/>
 			<field name="result_display" eval="True"/>
-			<field name="report_display" eval="True"/>
+			<field name="report_display" eval="False"/>
 		</record>
 
 		<record id="clv_lab_test_criterion_EUR18_examinador" model="clv.lab_test.criterion">
@@ -42,7 +42,7 @@
 			<field name="code">EUR18-01-03</field>
 			<field name="name" eval="&quot;&quot;&quot;Examinador&quot;&quot;&quot;"/>
 			<field name="result_display" eval="True"/>
-			<field name="report_display" eval="True"/>
+			<field name="report_display" eval="False"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EUR18_exame_fisico" model="clv.lab_test.criterion">
@@ -325,14 +325,14 @@
 			<field name="report_display" eval="True"/>
 		</record>
 	
-		<record id="clv_lab_test_criterion_EUR18_obs" model="clv.lab_test.criterion">
+		<!--record id="clv_lab_test_criterion_EUR18_obs" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EUR18"/>
 			<field name="sequence" eval="413"/>
 			<field name="name" eval="&quot;&quot;&quot;&quot;&quot;&quot;"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Obs.: Leveduras/Trichomonas sp: Ausentes&quot;&quot;&quot;"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="True"/>
-		</record>
+		</record-->
 	
 		<record id="clv_lab_test_criterion_EUR18_obs" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EUR18"/>
