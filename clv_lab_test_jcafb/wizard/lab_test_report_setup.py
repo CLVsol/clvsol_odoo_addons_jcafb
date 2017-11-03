@@ -79,6 +79,7 @@ class LabTestReportSetup(models.TransientModel):
                     'lab_test_type_id': lab_test_type.id,
                     'person_id': lab_test_request.person_id.id,
                     'lab_test_request_id': lab_test_request.id,
+                    'history_marker_id': lab_test_request.history_marker_id.id,
                     'criterion_ids': criteria,
                 }
                 lab_test_report = LabTestReport.create(values)
