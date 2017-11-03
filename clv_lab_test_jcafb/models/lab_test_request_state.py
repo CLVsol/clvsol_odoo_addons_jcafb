@@ -27,6 +27,7 @@ class LabTestRequest(models.Model):
 
     state = fields.Selection(
         [('draft', 'Draft'),
+         ('received', 'Received'),
          ('tested', 'Tested'),
          ('cancelled', 'Cancelled'),
          ], 'Status', default='draft', readonly=True
@@ -53,6 +54,11 @@ class LabTestRequest(models.Model):
     def action_draft(self):
         for lab_test_request in self:
             lab_test_request.change_state('draft')
+
+    @api.multi
+    def action_received(self):
+        for lab_test_request in self:
+            lab_test_request.change_state('received')
 
     @api.multi
     def action_test(self):
