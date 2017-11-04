@@ -13,6 +13,11 @@
                     <field name="person_ids"/>
                     <label for="lab_test_type_ids"/>
                     <field name="lab_test_type_ids"/>
+                    <group>
+                        <group>
+                            <field name="history_marker_id"/>
+                        </group>
+                    </group>
                     <footer>
                         <button 
                             type="object"

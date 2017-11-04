@@ -43,6 +43,12 @@ class LabTestRequestSetup(models.TransientModel):
         string='Lab Test Types'
     )
 
+    history_marker_id = fields.Many2one(
+        comodel_name='clv.history_marker',
+        string='History Marker',
+        ondelete='restrict'
+    )
+
     @api.multi
     def _reopen_form(self):
         self.ensure_one()
@@ -75,7 +81,8 @@ class LabTestRequestSetup(models.TransientModel):
             values = {
                 'code_sequence': 'clv.lab_test.request.code',
                 'lab_test_type_ids': m2m_list,
-                'patient_id': person.id,
+                'person_id': person.id,
+                'history_marker_id': self.history_marker_id.id,
             }
             lab_test_request = LabTestRequest.create(values)
 
