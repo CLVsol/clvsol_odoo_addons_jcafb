@@ -52,7 +52,7 @@
         <menuitem name="Selection Summary" id="menu_community_community_persons_selection_summary" 
             parent="clv_person.menu_community_community_persons"
             groups="clv_person_sel.group_user"
-            sequence="100"
+            sequence="200"
             action="clv_person_sel.clv_person_sel_summary_action"/>
 
         <menuitem name="Set Up" id="menu_community_community_persons_selection_summary_setup" 
