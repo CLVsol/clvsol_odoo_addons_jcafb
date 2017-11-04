@@ -13,17 +13,15 @@
                         <field name="is_EAN18" invisible="True"/>
                         <group string='Peso'>
                             <field name="EAN18_peso"/>
-                            <field name="EAN18_peso_resp"/>
                         </group>
                         <group string='Altura'>
                             <field name="EAN18_altura"/>
-                            <field name="EAN18_altura_resp"/>
+                        </group>
+                        <group string='Circunferência abdominal'>
+                            <field name="EAN18_circ_abdominal"/>
                         </group>
                         <group string='Hemoglobina'>
-                            <field name="EAN18_hemoglobina_coleta_horario"/>
-                            <field name="EAN18_hemoglobina_coleta_resp"/>
                             <field name="EAN18_hemoglobina_valor"/>
-                            <field name="EAN18_hemoglobina_valor_resp"/>
                             <field name="EAN18_hemoglobina_interpretacao"/>
                         </group>
                         <field name="EAN18_obs"/>

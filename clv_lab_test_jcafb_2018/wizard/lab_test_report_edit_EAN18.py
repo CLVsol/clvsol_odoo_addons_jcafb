@@ -50,32 +50,6 @@ class LabTestReportEdit(models.TransientModel):
     def _write_EAN18_peso(self):
         self._set_result('EAN18', 'EAN18-01-01', self.EAN18_peso)
 
-    def _default_EAN18_peso_resp(self):
-        employee_model = self.env['hr.employee']
-        code = self._get_default('EAN18', 'EAN18-01-02')
-        if code is not False:
-            code = code[code.find('[') + 1:code.find(']')]
-            employee_search = employee_model.search([
-                ('code', '=', code),
-            ])
-            return employee_search
-        else:
-            return False
-    EAN18_peso_resp = fields.Many2one(
-        'hr.employee',
-        string='Responsável pela medida do Peso',
-        readonly=False,
-        default=_default_EAN18_peso_resp
-    )
-
-    def _write_EAN18_peso_resp(self):
-        if self.EAN18_peso_resp.name is not False:
-            self._set_result(
-                'EAN18', 'EAN18-01-02', self.EAN18_peso_resp.name + ' [' + self.EAN18_peso_resp.code + ']'
-            )
-        else:
-            self._set_result('EAN18', 'EAN18-01-02', False)
-
     def _default_EAN18_altura(self):
         return self._get_default('EAN18', 'EAN18-01-03')
     EAN18_altura = fields.Char(
@@ -85,67 +59,14 @@ class LabTestReportEdit(models.TransientModel):
     def _write_EAN18_altura(self):
         self._set_result('EAN18', 'EAN18-01-03', self.EAN18_altura)
 
-    def _default_EAN18_altura_resp(self):
-        employee_model = self.env['hr.employee']
-        code = self._get_default('EAN18', 'EAN18-01-04')
-        if code is not False:
-            code = code[code.find('[') + 1:code.find(']')]
-            employee_search = employee_model.search([
-                ('code', '=', code),
-            ])
-            return employee_search
-        else:
-            return False
-    EAN18_altura_resp = fields.Many2one(
-        'hr.employee',
-        string='Responsável pela medida da Altura',
-        readonly=False,
-        default=_default_EAN18_altura_resp
+    def _default_EAN18_circ_abdominal(self):
+        return self._get_default('EAN18', 'EAN18-01-05')
+    EAN18_circ_abdominal = fields.Char(
+        'Circunferência abdominal', readonly=False, default=_default_EAN18_circ_abdominal
     )
 
-    def _write_EAN18_altura_resp(self):
-        if self.EAN18_altura_resp.name is not False:
-            self._set_result(
-                'EAN18', 'EAN18-01-04', self.EAN18_altura_resp.name + ' [' + self.EAN18_altura_resp.code + ']'
-            )
-        else:
-            self._set_result('EAN18', 'EAN18-01-04', False)
-
-    def _default_EAN18_hemoglobina_coleta_horario(self):
-        return self._get_default('EAN18', 'EAN18-02-01')
-    EAN18_hemoglobina_coleta_horario = fields.Datetime(
-        'Horário da coleta', readonly=False, default=_default_EAN18_hemoglobina_coleta_horario
-    )
-
-    def _write_EAN18_hemoglobina_coleta_horario(self):
-        self._set_result('EAN18', 'EAN18-02-01', self.EAN18_hemoglobina_coleta_horario)
-
-    def _default_EAN18_hemoglobina_coleta_resp(self):
-        employee_model = self.env['hr.employee']
-        code = self._get_default('EAN18', 'EAN18-02-02')
-        if code is not False:
-            code = code[code.find('[') + 1:code.find(']')]
-            employee_search = employee_model.search([
-                ('code', '=', code),
-            ])
-            return employee_search
-        else:
-            return False
-    EAN18_hemoglobina_coleta_resp = fields.Many2one(
-        'hr.employee',
-        string='Responsável pela coleta',
-        readonly=False,
-        default=_default_EAN18_hemoglobina_coleta_resp
-    )
-
-    def _write_EAN18_hemoglobina_coleta_resp(self):
-        if self.EAN18_hemoglobina_coleta_resp.name is not False:
-            self._set_result(
-                'EAN18', 'EAN18-02-02',
-                self.EAN18_hemoglobina_coleta_resp.name + ' [' + self.EAN18_hemoglobina_coleta_resp.code + ']'
-            )
-        else:
-            self._set_result('EAN18', 'EAN18-02-02', False)
+    def _write_EAN18_circ_abdominal(self):
+        self._set_result('EAN18', 'EAN18-01-05', self.EAN18_circ_abdominal)
 
     def _default_EAN18_hemoglobina_valor(self):
         return self._get_default('EAN18', 'EAN18-02-03')
@@ -155,34 +76,6 @@ class LabTestReportEdit(models.TransientModel):
 
     def _write_EAN18_hemoglobina_valor(self):
         self._set_result('EAN18', 'EAN18-02-03', self.EAN18_hemoglobina_valor)
-
-    def _default_EAN18_hemoglobina_valor_resp(self):
-        employee_model = self.env['hr.employee']
-        code = self._get_default('EAN18', 'EAN18-02-04')
-        if code is not False:
-            code = code[code.find('[') + 1:code.find(']')]
-            employee_search = employee_model.search([
-                ('code', '=', code),
-            ])
-            return employee_search
-        else:
-            return False
-    EAN18_hemoglobina_valor_resp = fields.Many2one(
-        'hr.employee',
-        string='Responsável pela dosagem',
-        readonly=False,
-        default=_default_EAN18_hemoglobina_valor_resp
-    )
-
-    def _write_EAN18_hemoglobina_valor_resp(self):
-        _logger.info(u'%s %s', '>>>>>>>>>>', self.EAN18_hemoglobina_valor_resp.name)
-        if self.EAN18_hemoglobina_valor_resp.name is not False:
-            self._set_result(
-                'EAN18', 'EAN18-02-04',
-                self.EAN18_hemoglobina_valor_resp.name + ' [' + self.EAN18_hemoglobina_valor_resp.code + ']'
-            )
-        else:
-            self._set_result('EAN18', 'EAN18-02-04', False)
 
     def _default_EAN18_hemoglobina_interpretacao(self):
         return self._get_default('EAN18', 'EAN18-02-05')
@@ -207,13 +100,9 @@ class LabTestReportEdit(models.TransientModel):
     def _do_report_updt_EAN18(self):
 
         self._write_EAN18_peso()
-        self._write_EAN18_peso_resp()
         self._write_EAN18_altura()
-        self._write_EAN18_altura_resp()
-        self._write_EAN18_hemoglobina_coleta_horario()
-        self._write_EAN18_hemoglobina_coleta_resp()
+        self._write_EAN18_circ_abdominal()
         self._write_EAN18_hemoglobina_valor()
-        self._write_EAN18_hemoglobina_valor_resp()
         self._write_EAN18_hemoglobina_interpretacao()
         self._write_EAN18_obs()
 
