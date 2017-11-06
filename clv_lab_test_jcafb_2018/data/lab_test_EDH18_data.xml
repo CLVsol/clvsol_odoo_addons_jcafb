@@ -14,7 +14,7 @@
 			<field name="sequence" eval="100"/>
 			<field name="name" eval="&quot;&quot;&quot;Geral&quot;&quot;&quot;"/>
 			<field name="result_display" eval="True"/>
-			<field name="report_display" eval="True"/>
+			<field name="report_display" eval="False"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EDH18_tempo_jejum" model="clv.lab_test.criterion">
@@ -44,30 +44,57 @@
 			<field name="report_display" eval="True"/>
 		</record>
 	
-		<record id="clv_lab_test_criterion_EDH18_altura" model="clv.lab_test.criterion">
+		<record id="clv_lab_test_criterion_EDH18_peso_cod_resp" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
 			<field name="sequence" eval="202"/>
 			<field name="code">EDH18-02-02</field>
+			<field name="name" eval="&quot;&quot;&quot;Responsável pela medida do Peso&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_EDH18_altura" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
+			<field name="sequence" eval="203"/>
+			<field name="code">EDH18-02-03</field>
 			<field name="name" eval="&quot;&quot;&quot;Altura&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_cm"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="True"/>
 		</record>
 	
+		<record id="clv_lab_test_criterion_EDH18_altura_cod_resp" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
+			<field name="sequence" eval="204"/>
+			<field name="code">EDH18-02-04</field>
+			<field name="name" eval="&quot;&quot;&quot;Responsável pela medida da Altura&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+
 		<record id="clv_lab_test_criterion_EDH18_imc" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
-			<field name="sequence" eval="203"/>
-			<field name="code">EDH18-02-03</field>
+			<field name="sequence" eval="205"/>
+			<field name="code">EDH18-02-05</field>
 			<field name="name" eval="&quot;&quot;&quot;IMC (=Peso/(Altura x Altura))&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_kg_m2"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="False"/>
 		</record>
 	
+		<record id="clv_lab_test_criterion_EDH18_imc_cod_resp" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
+			<field name="sequence" eval="206"/>
+			<field name="code">EDH18-02-06</field>
+			<field name="name" eval="&quot;&quot;&quot;Responsável pela medida do IMC&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+
 		<record id="clv_lab_test_criterion_EDH18_interpretacao_imc" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
-			<field name="sequence" eval="204"/>
-			<field name="code">EDH18-02-04</field>
+			<field name="sequence" eval="207"/>
+			<field name="code">EDH18-02-07</field>
 			<field name="name" eval="&quot;&quot;&quot;Interpretação do valor de IMC (OMS; Adultos.: 19 a 64 anos; Idosos:igual ou maior a 65 anos)&quot;&quot;&quot;"/>
 			<!--field name="normal_range" eval="&quot;&quot;&quot;(OMS; Adultos.: 19 a 64 anos; Idosos:igual ou maior a 65 anos)&quot;&quot;&quot;"/-->
 			<field name="result_display" eval="True"/>
@@ -76,8 +103,8 @@
 	
 		<record id="clv_lab_test_criterion_EDH18_interpretacao_imc_obs" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
-			<field name="sequence" eval="205"/>
-			<field name="code">EDH18-02-05</field>
+			<field name="sequence" eval="208"/>
+			<field name="code">EDH18-02-08</field>
 			<field name="name" eval="&quot;&quot;&quot;Observações&quot;&quot;&quot;"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="False"/>
@@ -85,18 +112,27 @@
 	
 		<record id="clv_lab_test_criterion_EDH18_circ_abdominal" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
-			<field name="sequence" eval="206"/>
-			<field name="code">EDH18-02-06</field>
+			<field name="sequence" eval="209"/>
+			<field name="code">EDH18-02-09</field>
 			<field name="name" eval="&quot;&quot;&quot;Circunferência abdominal&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_cm"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="True"/>
 		</record>
 	
+		<record id="clv_lab_test_criterion_EDH18_circ_abdominal_cod_resp" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
+			<field name="sequence" eval="210"/>
+			<field name="code">EDH18-02-10</field>
+			<field name="name" eval="&quot;&quot;&quot;Responsável pela medida da Circunferência abdominal&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+
 		<record id="clv_lab_test_criterion_EDH18_interpretacao_circ_abdominal" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
-			<field name="sequence" eval="207"/>
-			<field name="code">EDH18-02-07</field>
+			<field name="sequence" eval="211"/>
+			<field name="code">EDH18-02-11</field>
 			<field name="name" eval="&quot;&quot;&quot;Interpretação do valor de Circunferência Abdominal (ABESO; Adultos)&quot;&quot;&quot;"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="False"/>
@@ -104,8 +140,8 @@
 	
 		<record id="clv_lab_test_criterion_EDH18_interpretacao_circ_abdominal_obs" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
-			<field name="sequence" eval="208"/>
-			<field name="code">EDH18-02-08</field>
+			<field name="sequence" eval="212"/>
+			<field name="code">EDH18-02-12</field>
 			<field name="name" eval="&quot;&quot;&quot;Observações&quot;&quot;&quot;"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="False"/>
@@ -129,20 +165,38 @@
 			<field name="report_display" eval="False"/>
 		</record>
 	
-		<record id="clv_lab_test_criterion_EDH18_pa_manual" model="clv.lab_test.criterion">
+		<record id="clv_lab_test_criterion_EDH18_pa_automatica_cod_resp" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
 			<field name="sequence" eval="302"/>
 			<field name="code">EDH18-03-02</field>
+			<field name="name" eval="&quot;&quot;&quot;Responsável pela medida da Pressão arterial automática&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+
+		<record id="clv_lab_test_criterion_EDH18_pa_manual" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
+			<field name="sequence" eval="303"/>
+			<field name="code">EDH18-03-03</field>
 			<field name="name" eval="&quot;&quot;&quot;Pressão arterial manual&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_mmHg"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="False"/>
 		</record>
 	
+		<record id="clv_lab_test_criterion_EDH18_pa_manual_cod_resp" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
+			<field name="sequence" eval="304"/>
+			<field name="code">EDH18-03-04</field>
+			<field name="name" eval="&quot;&quot;&quot;Responsável pela medida da Pressão arterial manual&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+
 		<record id="clv_lab_test_criterion_EDH18_pa" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
-			<field name="sequence" eval="303"/>
-			<field name="code">EDH18-03-03</field>
+			<field name="sequence" eval="305"/>
+			<field name="code">EDH18-03-05</field>
 			<field name="name" eval="&quot;&quot;&quot;Pressão arterial&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_mmHg"/>
 			<field name="result_display" eval="False"/>
@@ -151,8 +205,8 @@
 	
 		<record id="clv_lab_test_criterion_EDH18_interpretacao_pa" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
-			<field name="sequence" eval="304"/>
-			<field name="code">EDH18-03-04</field>
+			<field name="sequence" eval="306"/>
+			<field name="code">EDH18-03-06</field>
 			<field name="name" eval="&quot;&quot;&quot;Interpretação do valor de Pressão Arterial (Diretrizes Brasileiras de Hipertensão Arterial de 2010)&quot;&quot;&quot;"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="False"/>
@@ -160,8 +214,8 @@
 	
 		<record id="clv_lab_test_criterion_EDH18_interpretacao_pa_obs" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
-			<field name="sequence" eval="305"/>
-			<field name="code">EDH18-03-05</field>
+			<field name="sequence" eval="307"/>
+			<field name="code">EDH18-03-07</field>
 			<field name="name" eval="&quot;&quot;&quot;Observações&quot;&quot;&quot;"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="False"/>
@@ -185,10 +239,19 @@
 			<field name="report_display" eval="True"/>
 		</record>
 	
+		<record id="clv_lab_test_criterion_EDH18_glicemia_cod_resp" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
+			<field name="sequence" eval="401"/>
+			<field name="code">EDH18-04-02</field>
+			<field name="name" eval="&quot;&quot;&quot;Responsável pela medida da Glicemia&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+
 		<record id="clv_lab_test_criterion_EDH18_interpretacao_glicemia" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
-			<field name="sequence" eval="402"/>
-			<field name="code">EDH18-04-02</field>
+			<field name="sequence" eval="403"/>
+			<field name="code">EDH18-04-03</field>
 			<field name="name" eval="&quot;&quot;&quot;Interpretação do valor de Glicemia (Associação Americana de Diabetes (2014))&quot;&quot;&quot;"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="False"/>
@@ -196,8 +259,8 @@
 	
 		<record id="clv_lab_test_criterion_EDH18_interpretacao_glicemia_obs" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
-			<field name="sequence" eval="403"/>
-			<field name="code">EDH18-04-03</field>
+			<field name="sequence" eval="404"/>
+			<field name="code">EDH18-04-04</field>
 			<field name="name" eval="&quot;&quot;&quot;Outras situações&quot;&quot;&quot;"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="False"/>
@@ -205,18 +268,27 @@
 	
 		<record id="clv_lab_test_criterion_EDH18_colesterol" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
-			<field name="sequence" eval="404"/>
-			<field name="code">EDH18-04-04</field>
+			<field name="sequence" eval="405"/>
+			<field name="code">EDH18-04-05</field>
 			<field name="name" eval="&quot;&quot;&quot;Colesterol&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_mg_dL"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="True"/>
 		</record>
 	
+		<record id="clv_lab_test_criterion_EDH18_colesterol_cod_resp" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
+			<field name="sequence" eval="406"/>
+			<field name="code">EDH18-04-06</field>
+			<field name="name" eval="&quot;&quot;&quot;Responsável pela medida do Colesterol&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+
 		<record id="clv_lab_test_criterion_EDH18_interpretacao_colesterol" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
-			<field name="sequence" eval="405"/>
-			<field name="code">EDH18-04-05</field>
+			<field name="sequence" eval="407"/>
+			<field name="code">EDH18-04-07</field>
 			<field name="name" eval="&quot;&quot;&quot;Interpretação do valor de Colesterol (Diretrizes Brasileiras de Dislipidemias e Prevenção da Aterosclerose-2013)&quot;&quot;&quot;"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="False"/>
@@ -224,8 +296,8 @@
 	
 		<record id="clv_lab_test_criterion_EDH18_interpretacao_colesterol_obs" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
-			<field name="sequence" eval="406"/>
-			<field name="code">EDH18-04-06</field>
+			<field name="sequence" eval="408"/>
+			<field name="code">EDH18-04-08</field>
 			<field name="name" eval="&quot;&quot;&quot;Observações&quot;&quot;&quot;"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="False"/>
