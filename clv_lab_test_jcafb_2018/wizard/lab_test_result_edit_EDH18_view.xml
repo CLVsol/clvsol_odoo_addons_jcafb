@@ -11,8 +11,38 @@
                 <group  name="group_top" position="after">
                     <group attrs="{'invisible':[('is_EDH18', '=', False)]}">
                         <field name="is_EDH18" invisible="True"/>
-                        <group>
+                        <group string='Medidas Antropométricas'>
+                            <field name="EDH18_peso"/>
+                            <field name="EDH18_peso_resp"/>
+                            <field name="EDH18_altura"/>
+                            <field name="EDH18_altura_resp"/>
+                            <field name="EDH18_imc"/>
+                            <field name="EDH18_imc_resp"/>
+                            <field name="EDH18_interpretacao_imc"/>
+                            <field name="EDH18_interpretacao_imc_obs"/>
+                            <field name="EDH18_circ_abdominal"/>
+                            <field name="EDH18_circ_abdominal_resp"/>
+                            <field name="EDH18_interpretacao_circ_abdominal"/>
+                            <field name="EDH18_interpretacao_circ_abdominal_obs"/>
+                        </group>
+                        <group string='Medidas da Pressão Arterial'>
+                            <field name="EDH18_pa_automatica"/>
+                            <field name="EDH18_pa_automatica_resp"/>
+                            <field name="EDH18_pa_manual"/>
+                            <field name="EDH18_pa_manual_resp"/>
+                            <field name="EDH18_interpretacao_pa"/>
+                            <field name="EDH18_interpretacao_pa_obs"/>
+                        </group>
+                        <group string='Glicemia e Colesterolemia'>
                             <field name="EDH18_tempo_jejum"/>
+                            <field name="EDH18_glicemia"/>
+                            <field name="EDH18_glicemia_resp"/>
+                            <field name="EDH18_interpretacao_glicemia"/>
+                            <field name="EDH18_interpretacao_glicemia_obs"/>
+                            <field name="EDH18_colesterol"/>
+                            <field name="EDH18_colesterol_resp"/>
+                            <field name="EDH18_interpretacao_colesterol"/>
+                            <field name="EDH18_interpretacao_colesterol_obs"/>
                         </group>
                     </group>
                 </group>
