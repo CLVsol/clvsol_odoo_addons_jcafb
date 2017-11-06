@@ -11,9 +11,19 @@
                 <group  name="group_top" position="after">
                     <group attrs="{'invisible':[('is_EDH18', '=', False)]}">
                         <field name="is_EDH18" invisible="True"/>
-                        <group>
-                            <field name="EDH18_tempo_jejum"/>
+                        <group string='Medidas Antropométricas'>
+                            <field name="EDH18_peso"/>
+                            <field name="EDH18_altura"/>
+                            <field name="EDH18_circ_abdominal"/>
                         </group>
+                        <group string='Medidas da Pressão Arterial'>
+                            <field name="EDH18_pa"/>
+                        </group>
+                        <group string='Glicemia e Colesterolemia'>
+                            <field name="EDH18_glicemia"/>
+                            <field name="EDH18_colesterol"/>
+                        </group>
+                        <field name="EDH18_obs"/>
                     </group>
                 </group>
             </field>
