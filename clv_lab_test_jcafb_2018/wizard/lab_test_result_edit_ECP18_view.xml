@@ -17,7 +17,18 @@
                             <field name="ECP18_resultado"/>
                             <field name="ECP18_obs"/>
                             <field name="ECP18_metodo_utilizado"/>
-                            <field name="ECP18_ritchie_resultado"/>
+                            <field name="ECP18_examinador"/>
+                        </group>
+                        <group>
+                            <field name="ECP18_lab_test_parasite_names"/>
+                            <field name="ECP18_parasitas" invisible='True'/>
+                            <field name="ECP18_lab_test_parasite_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <!--field name="code"/>
+                                    <field name="notes"/-->
+                                </tree>
+                            </field>
                         </group>
                     </group>
                 </group>
