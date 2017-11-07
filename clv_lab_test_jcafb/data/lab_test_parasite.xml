@@ -1,0 +1,79 @@
+<?xml version="1.0" ?>
+<odoo>
+	<!--data noupdate="1"-->
+	<data noupdate="0">
+	
+		<!--record id="clv_lab_test_parasite_01" model="clv.lab_test.parasite">
+			<field name="name" eval="&quot;&quot;&quot;Não Realizado&quot;&quot;&quot;"/>
+		</record-->
+	 
+		<!--record id="clv_lab_test_parasite_02" model="clv.lab_test.parasite">
+			<field name="name" eval="&quot;&quot;&quot;NEGATIVO&quot;&quot;&quot;"/>
+		</record-->
+	 
+		<record id="clv_lab_test_parasite_03" model="clv.lab_test.parasite">
+			<field name="name" eval="&quot;&quot;&quot;Cistos de Endolimax nana&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_parasite_04" model="clv.lab_test.parasite">
+			<field name="name" eval="&quot;&quot;&quot;Cistos de Entamoeba coli&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_parasite_05" model="clv.lab_test.parasite">
+			<field name="name" eval="&quot;&quot;&quot;Cistos de Entamoeba histolytica&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_parasite_06" model="clv.lab_test.parasite">
+			<field name="name" eval="&quot;&quot;&quot;Cistos de Giardia lamblia&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_parasite_07" model="clv.lab_test.parasite">
+			<field name="name" eval="&quot;&quot;&quot;Cistos de Iodamoeba butschlii&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_parasite_08" model="clv.lab_test.parasite">
+			<field name="name" eval="&quot;&quot;&quot;Cistos de Chilomastix mesnil&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_parasite_09" model="clv.lab_test.parasite">
+			<field name="name" eval="&quot;&quot;&quot;Oocistos de Isospora belli&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_parasite_10" model="clv.lab_test.parasite">
+			<field name="name" eval="&quot;&quot;&quot;Ovos de Ascaris lumbricoides&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_parasite_11" model="clv.lab_test.parasite">
+			<field name="name" eval="&quot;&quot;&quot;Ovos de Ancilostomídeo&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_parasite_12" model="clv.lab_test.parasite">
+			<field name="name" eval="&quot;&quot;&quot;Ovos de Trichuris trichiura&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_parasite_13" model="clv.lab_test.parasite">
+			<field name="name" eval="&quot;&quot;&quot;Ovos de Taenia sp&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_parasite_14" model="clv.lab_test.parasite">
+			<field name="name" eval="&quot;&quot;&quot;Ovos de Hymenolepis nana&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_parasite_15" model="clv.lab_test.parasite">
+			<field name="name" eval="&quot;&quot;&quot;Ovos de Schistosoma mansoni&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_parasite_16" model="clv.lab_test.parasite">
+			<field name="name" eval="&quot;&quot;&quot;Ovos de Enterobius vermicularis&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_parasite_17" model="clv.lab_test.parasite">
+			<field name="name" eval="&quot;&quot;&quot;Larvas de Strongyloides stercoralis&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_lab_test_parasite_18" model="clv.lab_test.parasite">
+			<field name="name" eval="&quot;&quot;&quot;Outro&quot;&quot;&quot;"/>
+		</record>
+	 
+	</data>
+</odoo>

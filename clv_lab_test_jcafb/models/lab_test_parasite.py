@@ -18,16 +18,29 @@
 #
 ###############################################################################
 
-from . import lab_test_type
-from . import lab_test_request
-from . import lab_test_request_code
-from . import lab_test_request_state
-from . import lab_test_result
-from . import lab_test_result_code
-from . import lab_test_result_reg_state
-from . import lab_test_result_state
-from . import lab_test_report
-from . import lab_test_report_code
-from . import lab_test_report_reg_state
-from . import lab_test_report_state
-from . import lab_test_parasite
+from odoo import fields, models
+
+
+class LabTestParasite(models.Model):
+    _description = 'Lab Test Parasite'
+    _name = 'clv.lab_test.parasite'
+    _order = 'name'
+
+    name = fields.Char(string='Parasite', required=True)
+
+    code = fields.Char(string='Parasite Code', required=False)
+
+    notes = fields.Text(string='Notes')
+
+    active = fields.Boolean(string='Active', default=1)
+
+    _sql_constraints = [
+        ('name_uniq',
+         'UNIQUE(name)',
+         u'Error! The Parasite must be unique!'
+         ),
+        ('code_uniq',
+         'UNIQUE(code)',
+         u'Error! The Parasite Code must be unique!'
+         ),
+    ]
