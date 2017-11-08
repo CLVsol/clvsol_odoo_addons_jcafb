@@ -89,17 +89,6 @@ class LabTestResultEdit(models.TransientModel):
     def _write_ECP18_metodo_utilizado(self):
         self._set_result('ECP18', 'ECP18-01-05', self.ECP18_metodo_utilizado)
 
-    # def _default_ECP18_metodos_utilizados(self):
-    #     return self._get_default('ECP18', 'ECP18-01-06')
-    # ECP18_metodos_utilizados = fields.Selection([
-    #     ('Ritchie', 'Ritchie'),
-    #     ('Hoffmann', 'Hoffmann'),
-    #     ('Ritchie e Hoffmann', 'Ritchie e Hoffmann'),
-    # ], 'Medtodologia(s) Empregada(s)', readonly=False, default=_default_ECP18_metodos_utilizados)
-
-    # def _write_ECP18_metodos_utilizados(self):
-    #     self._set_result('ECP18', 'ECP18-01-06', self.ECP18_metodos_utilizados)
-
     def _default_ECP18_examinador(self):
         employee_model = self.env['hr.employee']
         code = self._get_default('ECP18', 'ECP18-01-07')
@@ -127,29 +116,6 @@ class LabTestResultEdit(models.TransientModel):
         else:
             self._set_result('ECP18', 'ECP18-01-07', False)
 
-    # def _default_ECP18_ritchie_resultado(self):
-    #     return self._get_default('ECP18', 'ECP18-02-01')
-    # ECP18_resultado_1 = fields.Selection([
-    #     ('Não Realizado', 'Não Realizado'),
-    #     ('NEGATIVO', 'NEGATIVO'),
-    #     ('Cistos de Endolimax nana', 'Cistos de Endolimax nana'),
-    #     ('Cistos de Entamoeba coli', 'Cistos de Entamoeba coli'),
-    #     ('Cistos de Entamoeba histolytica', 'Cistos de Entamoeba histolytica'),
-    #     ('Cistos de Giardia lamblia', 'Cistos de Giardia lamblia'),
-    #     ('Cistos de Iodamoeba butschlii', 'Cistos de Iodamoeba butschlii'),
-    #     ('Cistos de Chilomastix mesnil', 'Cistos de Chilomastix mesnil'),
-    #     ('Oocistos de Isospora belli', 'Oocistos de Isospora belli'),
-    #     ('Ovos de Ascaris lumbricoides', 'Ovos de Ascaris lumbricoides'),
-    #     ('Ovos de Ancilostomídeo', 'Ovos de Ancilostomídeo'),
-    #     ('Ovos de Trichuris trichiura', 'Ovos de Trichuris trichiura'),
-    #     ('Ovos de Taenia sp', 'Ovos de Taenia sp'),
-    #     ('Ovos de Hymenolepis nana', 'Ovos de Hymenolepis nana'),
-    #     ('Ovos de Schistosoma mansoni', 'Ovos de Schistosoma mansoni'),
-    #     ('Ovos de Enterobius vermicularis', 'Ovos de Enterobius vermicularis'),
-    #     ('Larvas de Strongyloides stercoralis', 'Larvas de Strongyloides stercoralis'),
-    #     ('Outro', 'Outro'),
-    # ], 'Resultado', readonly=False, default=_default_ECP18_ritchie_resultado)
-
     def _default_ECP18_parasitas(self):
         return self._get_default('ECP18', 'ECP18-01-08')
     ECP18_parasitas = fields.Char(
@@ -157,7 +123,6 @@ class LabTestResultEdit(models.TransientModel):
     )
 
     def _write_ECP18_parasitas(self):
-        # self._set_result('ECP18', 'ECP18-01-08', self.ECP18_parasitas)
         self._set_result('ECP18', 'ECP18-01-08', self.ECP18_lab_test_parasite_names)
 
     def _default_ECP18_lab_test_parasite_ids(self):
@@ -216,7 +181,6 @@ class LabTestResultEdit(models.TransientModel):
         self._write_ECP18_resultado()
         self._write_ECP18_obs()
         self._write_ECP18_metodo_utilizado()
-        # self._write_ECP18_metodos_utilizados()
         self._write_ECP18_examinador()
         self._write_ECP18_parasitas()
 
