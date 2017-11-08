@@ -12,12 +12,18 @@
                     <group attrs="{'invisible':[('is_ECP18', '=', False)]}">
                         <field name="is_ECP18" invisible="True"/>
                         <group>
-                            <field name="ECP18_data_entrada_material"/>
-                            <field name="ECP18_liberacao_reportado"/>
-                            <field name="ECP18_reportado"/>
+                            <field name="ECP18_resultado"/>
                             <field name="ECP18_obs"/>
-                            <field name="ECP18_metodo_utilizado"/>
-                            <field name="ECP18_ritchie_reportado"/>
+                            <field name="ECP18_metodos_utilizados"/>
+                        </group>
+                        <group>
+                            <field name="ECP18_lab_test_parasite_names"/>
+                            <field name="ECP18_parasitas" invisible='True'/>
+                            <field name="ECP18_lab_test_parasite_ids">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
                         </group>
                     </group>
                 </group>
