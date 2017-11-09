@@ -31,7 +31,13 @@
                         <group>
                             <field name="EUR18_celulas_epiteliais"/>
                             <field name="EUR18_muco"/>
-                            <field name="EUR18_cristais"/>
+                            <field name="EUR18_lab_test_crystal_names"/>
+                            <field name="EUR18_cristais" invisible='True'/>
+                            <field name="EUR18_lab_test_crystal_ids">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
                             <field name="EUR18_leucocitos"/>
                             <field name="EUR18_hemacias"/>
                         </group>

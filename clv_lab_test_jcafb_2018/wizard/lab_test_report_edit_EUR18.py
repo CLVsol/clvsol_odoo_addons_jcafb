@@ -20,7 +20,7 @@
 
 import logging
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -217,23 +217,6 @@ class LabTestReportEdit(models.TransientModel):
     def _write_EUR18_muco(self):
         self._set_result('EUR18', 'EUR18-04-02', self.EUR18_muco)
 
-    def _default_EUR18_cristais(self):
-        return self._get_default('EUR18', 'EUR18-04-03')
-    EUR18_cristais = fields.Selection([
-        (u'Ausentes', u'Ausentes'),
-        (u'Raros de Oxalato de Cálcio', u'Raros de Oxalato de Cálcio'),
-        (u'Frequentes de Oxalato de Cálcio', u'Frequentes de Oxalato de Cálcio'),
-        (u'Numerosos de Urato Amorfo', u'Numerosos de Urato Amorfo'),
-        (u'Raros de Fosfato Amorfo', u'Raros de Fosfato Amorfo'),
-        (u'Raros de Fosfato Triplo, Amoníaco', u'Raros de Fosfato Triplo, Amoníaco'),
-        (u'Numerosos de Fosfato Amorfo', u'Numerosos de Fosfato Amorfo'),
-        (u'Frequentes de Fosfato Amorfo', u'Frequentes de Fosfato Amorfo'),
-        (u'Raros de Ácido Úrico', u'Raros de Ácido Úrico'),
-    ], 'Cristais', readonly=False, default=_default_EUR18_cristais)
-
-    def _write_EUR18_cristais(self):
-        self._set_result('EUR18', 'EUR18-04-03', self.EUR18_cristais)
-
     def _default_EUR18_leucocitos(self):
         return self._get_default('EUR18', 'EUR18-04-04')
     EUR18_leucocitos = fields.Char(
@@ -324,6 +307,64 @@ class LabTestReportEdit(models.TransientModel):
 
     def _write_EUR18_obs(self):
         self._set_result('EUR18', 'EUR18-05-01', self.EUR18_obs)
+
+    def _default_EUR18_cristais(self):
+        return self._get_default('EUR18', 'EUR18-04-03')
+    EUR18_cristais = fields.Char(
+        'Parasitas', readonly=False, default=_default_EUR18_cristais
+    )
+
+    def _write_EUR18_cristais(self):
+        self._set_result('EUR18', 'EUR18-04-03', self.EUR18_lab_test_crystal_names)
+
+    def _default_EUR18_lab_test_crystal_ids(self):
+        LabTestCrystal = self.env['clv.lab_test.crystal']
+        crystal_ids = []
+        if self._get_default('EUR18', 'EUR18-04-03') is not False:
+            cristais = self._get_default('EUR18', 'EUR18-04-03').split(', ')
+            for cristal in cristais:
+                crystal = LabTestCrystal.search([
+                    ('name', '=', cristal),
+                ])
+                if crystal.id is not False:
+                    crystal_ids.append((4, crystal.id))
+        return crystal_ids
+    EUR18_lab_test_crystal_ids = fields.Many2many(
+        comodel_name='clv.lab_test.crystal',
+        relation='clv_lab_test_crystal_lab_test_report_edit_rel',
+        string='Lab Test Crystals',
+        default=_default_EUR18_lab_test_crystal_ids
+    )
+
+    EUR18_lab_test_crystal_names = fields.Char(
+        string='Parasitas',
+        compute='_compute_EUR18_lab_test_crystal_names',
+        store=True
+    )
+    EUR18_lab_test_crystal_names_suport = fields.Char(
+        string='Crystal Names Suport',
+        compute='_compute_EUR18_lab_test_crystal_names_suport',
+        store=False
+    )
+
+    @api.depends('EUR18_lab_test_crystal_ids')
+    def _compute_EUR18_lab_test_crystal_names(self):
+        for r in self:
+            r.EUR18_lab_test_crystal_names = r.EUR18_lab_test_crystal_names_suport
+
+    @api.multi
+    def _compute_EUR18_lab_test_crystal_names_suport(self):
+        for r in self:
+            EUR18_lab_test_crystal_names = False
+            for crystal in r.EUR18_lab_test_crystal_ids:
+                if EUR18_lab_test_crystal_names is False:
+                    EUR18_lab_test_crystal_names = crystal.name
+                else:
+                    EUR18_lab_test_crystal_names = EUR18_lab_test_crystal_names + ', ' + crystal.name
+            r.EUR18_lab_test_crystal_names_suport = EUR18_lab_test_crystal_names
+            # if r.EUR18_lab_test_crystal_names != EUR18_lab_test_crystal_names:
+            #     record = self.env['clv.lab_test.report.edit'].search([('id', '=', r.id)])
+            #     record.write({'EUR18_lab_test_crystal_ids': r.EUR18_lab_test_crystal_ids})
 
     def _do_report_updt_EUR18(self):
 
