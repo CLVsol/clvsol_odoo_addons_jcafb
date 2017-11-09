@@ -18,17 +18,29 @@
 #
 ###############################################################################
 
-from . import lab_test_type
-from . import lab_test_request
-from . import lab_test_request_code
-from . import lab_test_request_state
-from . import lab_test_result
-from . import lab_test_result_code
-from . import lab_test_result_reg_state
-from . import lab_test_result_state
-from . import lab_test_report
-from . import lab_test_report_code
-from . import lab_test_report_reg_state
-from . import lab_test_report_state
-from . import lab_test_parasite
-from . import lab_test_crystal
+from odoo import fields, models
+
+
+class LabTestCrystal(models.Model):
+    _description = 'Lab Test Crystal'
+    _name = 'clv.lab_test.crystal'
+    _order = 'name'
+
+    name = fields.Char(string='Crystal', required=True)
+
+    code = fields.Char(string='Crystal Code', required=False)
+
+    notes = fields.Text(string='Notes')
+
+    active = fields.Boolean(string='Active', default=1)
+
+    _sql_constraints = [
+        ('name_uniq',
+         'UNIQUE(name)',
+         u'Error! The Crystal must be unique!'
+         ),
+        ('code_uniq',
+         'UNIQUE(code)',
+         u'Error! The Crystal Code must be unique!'
+         ),
+    ]

@@ -8,5 +8,11 @@
             sequence="40"
             action="clv_lab_test_jcafb.clv_lab_test_parasite_action"/>
 
+        <menuitem name="Crystals" id="menu_health_config_config_lab_test_crystals"
+            parent="clv_lab_test.menu_health_config_config_lab_test"
+            groups="clv_lab_test.group_user"
+            sequence="50"
+            action="clv_lab_test_jcafb.clv_lab_test_crystal_action"/>
+
     </data>
 </odoo>
