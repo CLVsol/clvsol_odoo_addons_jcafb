@@ -16,7 +16,38 @@
                             <field name="EUR18_liberacao_resultado"/>
                             <field name="EUR18_examinador"/>
                             <field name="EUR18_volume"/>
+                            <field name="EUR18_densidade"/>
+                            <field name="EUR18_aspecto"/>
+                            <field name="EUR18_cor"/>
+                            <field name="EUR18_odor"/>
                         </group>
+                        <group>
+                            <field name="EUR18_ph"/>
+                            <field name="EUR18_proteinas"/>
+                            <field name="EUR18_glicose"/>
+                            <field name="EUR18_cetona"/>
+                            <field name="EUR18_pigmentos_biliares"/>
+                            <field name="EUR18_sangue"/>
+                            <field name="EUR18_urobilinogenio"/>
+                            <field name="EUR18_nitrito"/>
+                        </group>
+                        <group>
+                            <field name="EUR18_celulas_epiteliais"/>
+                            <field name="EUR18_muco"/>
+                            <field name="EUR18_cristais"/>
+                            <field name="EUR18_leucocitos"/>
+                            <field name="EUR18_hemacias"/>
+                        </group>
+                        <group>
+                            <field name="EUR18_cilindros"/>
+                            <field name="EUR18_cilindros_hialinos"/>
+                            <field name="EUR18_cilindros_granulosos"/>
+                            <field name="EUR18_cilindros_leucocitarios"/>
+                            <field name="EUR18_cilindros_hematicos"/>
+                            <field name="EUR18_cilindros_cereos"/>
+                            <field name="EUR18_outros_tipos_de_cilindros"/>
+                        </group>
+                        <field name="EUR18_obs"/>
                     </group>
                 </group>
             </field>
