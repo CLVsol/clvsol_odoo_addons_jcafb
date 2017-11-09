@@ -355,7 +355,7 @@ class PersonSelSummarySetUp(models.TransientModel):
         col_base_nr = col_total + 2
 
         row_nr, col_nr = row_base_nr - 1, col_base_nr
-        matrix[row_nr][col_nr] = '(_________________)'
+        matrix[row_nr][col_nr] = '(Capacity__________)'
 
         addr_category_names = []
         district_names = []
