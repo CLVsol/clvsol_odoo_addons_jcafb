@@ -104,9 +104,9 @@ class LabTestResultEdit(models.TransientModel):
     def _default_EUR18_aspecto(self):
         return self._get_default('EUR18', 'EUR18-02-03')
     EUR18_aspecto = fields.Selection([
-        ('Límpido', 'Límpido'),
-        ('Ligeiramente Turvo', 'Ligeiramente Turvo'),
-        ('Turvo', 'Turvo'),
+        (u'Límpido', u'Límpido'),
+        (u'Ligeiramente Turvo', u'Ligeiramente Turvo'),
+        (u'Turvo', u'Turvo'),
     ], 'Aspecto', readonly=False, default=_default_EUR18_aspecto)
 
     def _write_EUR18_aspecto(self):
@@ -115,12 +115,12 @@ class LabTestResultEdit(models.TransientModel):
     def _default_EUR18_cor(self):
         return self._get_default('EUR18', 'EUR18-02-04')
     EUR18_cor = fields.Selection([
-        ('Amarelo Palha', 'Amarelo Palha'),
-        ('Amarelo Claro', 'Amarelo Claro'),
-        ('Amarelo Citrino', 'Amarelo Citrino'),
-        ('Amarelo Ouro', 'Amarelo Ouro'),
-        ('Eritrocrômica', 'Eritrocrômica'),
-        ('Âmbar', 'Âmbar'),
+        (u'Amarelo Palha', u'Amarelo Palha'),
+        (u'Amarelo Claro', u'Amarelo Claro'),
+        (u'Amarelo Citrino', u'Amarelo Citrino'),
+        (u'Amarelo Ouro', u'Amarelo Ouro'),
+        (u'Eritrocrômica', u'Eritrocrômica'),
+        (u'Âmbar', u'Âmbar'),
     ], 'Cor', readonly=False, default=_default_EUR18_cor)
 
     def _write_EUR18_cor(self):
@@ -129,8 +129,8 @@ class LabTestResultEdit(models.TransientModel):
     def _default_EUR18_odor(self):
         return self._get_default('EUR18', 'EUR18-02-05')
     EUR18_odor = fields.Selection([
-        ('Sui Generis', 'Sui Generis'),
-        ('Pútrido', 'Pútrido'),
+        (u'Sui Generis', u'Sui Generis'),
+        (u'Pútrido', u'Pútrido'),
     ], 'Cor', readonly=False, default=_default_EUR18_odor)
 
     def _write_EUR18_odor(self):
@@ -148,7 +148,7 @@ class LabTestResultEdit(models.TransientModel):
     def _default_EUR18_proteinas(self):
         return self._get_default('EUR18', 'EUR18-03-02')
     EUR18_proteinas = fields.Selection([
-        ('Negativo', 'Negativo'),
+        (u'Negativo', u'Negativo'),
         (u'Traços', u'Traços'),
         ('(+)', '(+)'),
         ('(++)', '(++)'),
@@ -162,7 +162,7 @@ class LabTestResultEdit(models.TransientModel):
     def _default_EUR18_glicose(self):
         return self._get_default('EUR18', 'EUR18-03-03')
     EUR18_glicose = fields.Selection([
-        ('Negativo', 'Negativo'),
+        (u'Negativo', u'Negativo'),
         (u'Traços', u'Traços'),
         ('(+)', '(+)'),
         ('(++)', '(++)'),
@@ -176,7 +176,7 @@ class LabTestResultEdit(models.TransientModel):
     def _default_EUR18_cetona(self):
         return self._get_default('EUR18', 'EUR18-03-04')
     EUR18_cetona = fields.Selection([
-        ('Negativo', 'Negativo'),
+        (u'Negativo', u'Negativo'),
         (u'Traços', u'Traços'),
         ('(+)', '(+)'),
         ('(++)', '(++)'),
@@ -190,7 +190,7 @@ class LabTestResultEdit(models.TransientModel):
     def _default_EUR18_pigmentos_biliares(self):
         return self._get_default('EUR18', 'EUR18-03-05')
     EUR18_pigmentos_biliares = fields.Selection([
-        ('Negativo', 'Negativo'),
+        (u'Negativo', u'Negativo'),
         (u'Traços', u'Traços'),
         ('(+)', '(+)'),
         ('(++)', '(++)'),
@@ -204,7 +204,7 @@ class LabTestResultEdit(models.TransientModel):
     def _default_EUR18_sangue(self):
         return self._get_default('EUR18', 'EUR18-03-06')
     EUR18_sangue = fields.Selection([
-        ('Negativo', 'Negativo'),
+        (u'Negativo', u'Negativo'),
         (u'Traços', u'Traços'),
         ('(+)', '(+)'),
         ('(++)', '(++)'),
@@ -218,7 +218,7 @@ class LabTestResultEdit(models.TransientModel):
     def _default_EUR18_urobilinogenio(self):
         return self._get_default('EUR18', 'EUR18-03-07')
     EUR18_urobilinogenio = fields.Selection([
-        ('Normal', 'Normal'),
+        (u'Normal', u'Normal'),
         (u'Positivo até Diluição de 1/80', u'Positivo até Diluição de 1/80'),
     ], 'Urobilinogênio', readonly=False, default=_default_EUR18_urobilinogenio)
 
@@ -228,8 +228,8 @@ class LabTestResultEdit(models.TransientModel):
     def _default_EUR18_nitrito(self):
         return self._get_default('EUR18', 'EUR18-03-08')
     EUR18_nitrito = fields.Selection([
-        ('Negativo', 'Negativo'),
-        ('Positivo', 'Positivo'),
+        (u'Negativo', u'Negativo'),
+        (u'Positivo', u'Positivo'),
     ], 'Nitrito', readonly=False, default=_default_EUR18_nitrito)
 
     def _write_EUR18_nitrito(self):
@@ -238,10 +238,10 @@ class LabTestResultEdit(models.TransientModel):
     def _default_EUR18_celulas_epiteliais(self):
         return self._get_default('EUR18', 'EUR18-04-01')
     EUR18_celulas_epiteliais = fields.Selection([
-        ('Ausente', 'Ausente'),
-        ('Raras', 'Raras'),
-        ('Frequentes', 'Frequentes'),
-        ('Numerosas', 'Numerosas'),
+        (u'Ausente', u'Ausente'),
+        (u'Raras', u'Raras'),
+        (u'Frequentes', u'Frequentes'),
+        (u'Numerosas', u'Numerosas'),
     ], 'Células Epiteliais', readonly=False, default=_default_EUR18_celulas_epiteliais)
 
     def _write_EUR18_celulas_epiteliais(self):
@@ -250,10 +250,10 @@ class LabTestResultEdit(models.TransientModel):
     def _default_EUR18_muco(self):
         return self._get_default('EUR18', 'EUR18-04-02')
     EUR18_muco = fields.Selection([
-        ('Ausente', 'Ausente'),
-        ('Raros Filamentos', 'Raros Filamentos'),
-        ('Frequentes Filamentos', 'Frequentes Filamentos'),
-        ('Numerosos Filamentos', 'Numerosos Filamentos'),
+        (u'Ausente', u'Ausente'),
+        (u'Raros Filamentos', u'Raros Filamentos'),
+        (u'Frequentes Filamentos', u'Frequentes Filamentos'),
+        (u'Numerosos Filamentos', u'Numerosos Filamentos'),
     ], 'Muco', readonly=False, default=_default_EUR18_muco)
 
     def _write_EUR18_muco(self):
@@ -297,8 +297,8 @@ class LabTestResultEdit(models.TransientModel):
     def _default_EUR18_cilindros(self):
         return self._get_default('EUR18', 'EUR18-04-06')
     EUR18_cilindros = fields.Selection([
-        ('Ausente', 'Ausente'),
-        ('Presentes', 'Presentes'),
+        (u'Ausente', u'Ausente'),
+        (u'Presentes', u'Presentes'),
     ], 'Cilindros', readonly=False, default=_default_EUR18_cilindros)
 
     def _write_EUR18_cilindros(self):
