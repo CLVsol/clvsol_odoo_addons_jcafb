@@ -18,12 +18,24 @@
 #
 ###############################################################################
 
-import person_mng_person_confirm
-import person_mng_address_confirm
-import person_mng_person_create
-import person_mng_address_create
-import person_mng_person_address_move
-import lab_test_request_setup
-import person_off_address_confirm
-import person_off_address_create
-import person_off_person_create
+from odoo import fields, models
+
+
+class PersonOffPersonCreate(models.TransientModel):
+    _inherit = 'clv.person.off.person_create'
+
+    def _default_history_marker_id(self):
+        HistoryMarker = self.env['clv.history_marker']
+        history_marker = HistoryMarker.search([
+            ('name', '=', 'JCAFB-2018'),
+        ])
+        history_marker_id = False
+        if history_marker.id is not False:
+            history_marker_id = history_marker.id
+        return history_marker_id
+    history_marker_id = fields.Many2one(
+        comodel_name='clv.history_marker',
+        string='History Marker',
+        ondelete='restrict',
+        default=_default_history_marker_id
+    )
