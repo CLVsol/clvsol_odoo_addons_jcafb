@@ -18,29 +18,24 @@
 #
 ###############################################################################
 
-{
-    'name': 'Default Parameters for CLVhealth-JCAFB Solution (2018)',
-    'summary': 'Default Parameters for CLVhealth-JCAFB Solution (2018).',
-    'version': '3.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'https://github.com/CLVsol',
-    'depends': [
-        'clv_base_jcafb',
-        'clv_person_mng_jcafb',
-        'clv_lab_test_jcafb',
-        'clv_person_off_jcafb',
-    ],
-    'data': [
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+from odoo import fields, models
+
+
+class PersonOffAddressCreate(models.TransientModel):
+    _inherit = 'clv.person.off.address_create'
+
+    def _default_history_marker_id(self):
+        HistoryMarker = self.env['clv.history_marker']
+        history_marker = HistoryMarker.search([
+            ('name', '=', 'JCAFB-2018'),
+        ])
+        history_marker_id = False
+        if history_marker.id is not False:
+            history_marker_id = history_marker.id
+        return history_marker_id
+    history_marker_id = fields.Many2one(
+        comodel_name='clv.history_marker',
+        string='History Marker',
+        ondelete='restrict',
+        default=_default_history_marker_id
+    )
