@@ -46,7 +46,8 @@ class PersonSelGroupSetUp(models.TransientModel):
     def do_person_sel_group_setup(self):
         self.ensure_one()
 
-        person_available_states = ['available', 'waiting', 'selected', 'unselected']
+        # person_available_states = ['available', 'waiting', 'selected', 'unselected']
+        person_available_states = ['available', 'waiting', 'selected']
         person_selected_states = ['selected']
 
         PersonSelGroup = self.env['clv.person_sel.group']
