@@ -70,7 +70,8 @@ class PersonSelSummarySetUp(models.TransientModel):
         row_max = 18
         col_max = 64
 
-        person_available_states = ['available', 'waiting', 'selected', 'unselected']
+        # person_available_states = ['available', 'waiting', 'selected', 'unselected']
+        person_available_states = ['available', 'waiting', 'selected']
         person_selected_states = ['selected']
 
         addr_categories = [u'Zona Urbana', u'Zona Rural']
