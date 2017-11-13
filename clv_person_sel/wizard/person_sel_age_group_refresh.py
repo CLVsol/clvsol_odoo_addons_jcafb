@@ -55,6 +55,10 @@ class PersonSelAgeGroupRefresh(models.TransientModel):
     def do_person_sel_age_group_refresh(self):
         self.ensure_one()
 
+        # person_available_states = ['available', 'waiting', 'selected', 'unselected']
+        person_available_states = ['available', 'waiting', 'selected']
+        person_selected_states = ['selected']
+
         PersonCategory = self.env['clv.person.category']
 
         Person = self.env['clv.person']
@@ -64,7 +68,7 @@ class PersonSelAgeGroupRefresh(models.TransientModel):
             _logger.info(u'%s %s', '>>>>>', age_group.name)
 
             available_persons = Person.search([
-                ('state', '!=', 'unavailable'),
+                ('state', 'in', person_available_states),
                 ('age_reference', '>=', age_group.min_age),
                 ('age_reference', '<=', age_group.max_age),
             ])
@@ -78,7 +82,7 @@ class PersonSelAgeGroupRefresh(models.TransientModel):
             age_group.available_persons = count
 
             selected_persons = Person.search([
-                ('state', '=', 'selected'),
+                ('state', 'in', person_selected_states),
                 ('age_reference', '>=', age_group.min_age),
                 ('age_reference', '<=', age_group.max_age),
             ])
