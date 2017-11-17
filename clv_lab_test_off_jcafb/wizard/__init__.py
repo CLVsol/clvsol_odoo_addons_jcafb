@@ -19,3 +19,4 @@
 ###############################################################################
 
 import lab_test_off_request_code_setup
+import lab_test_off_request_set_code
