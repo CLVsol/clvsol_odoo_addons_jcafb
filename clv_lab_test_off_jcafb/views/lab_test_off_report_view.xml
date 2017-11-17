@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        
+        <record id="clv_lab_test_off_report_view_form_lab_test_off_report" model="ir.ui.view">
+            <field name="name">clv.lab_test.off.report.form</field>
+            <field name="model">clv.lab_test.off.report</field>
+            <field name="inherit_id" ref="clv_lab_test_off.clv_lab_test_off_report_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <label for="lab_test_type_id" position="before">
+                    <label for="person_off_id" class="oe_edit_only"/>
+                    <h3><field name="person_off_id" placeholder="Person..." options="{'no_open': False, 'no_create': True}"/></h3>
+                </label>
+                <field name="date_report" position="before">
+                    <field name="survey_id" options="{'no_open': False, 'no_create': True}"/>
+                </field>
+            </field>
+        </record>
+       
+        <record id="clv_lab_test_off_report_view_tree_lab_test_off_report" model="ir.ui.view">
+            <field name="name">clv.lab_test.off.report.tree</field>
+            <field name="model">clv.lab_test.off.report</field>
+            <field name="inherit_id" ref="clv_lab_test_off.clv_lab_test_off_report_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="lab_test_type_id" position="before">
+                    <field name="person_off_id"/>
+                </field>
+                <field name="lab_test_type_id" position="after">
+                    <field name="survey_id"/>
+                </field>
+            </field>
+        </record>
+       
+        <record id="clv_lab_test_off_report_view_search_lab_test_off_report" model="ir.ui.view">
+            <field name="name">clv.lab_test.off.report.tree</field>
+            <field name="model">clv.lab_test.off.report</field>
+            <field name="inherit_id" ref="clv_lab_test_off.clv_lab_test_off_report_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="lab_test_type_id" position="before">
+                    <field name="person_off_id"/>
+                </field>
+                <field name="lab_test_type_id" position="after">
+                    <field name="survey_id"/>
+                </field>
+                <group name="group_by" position="inside">
+                    <filter string="Person" context="{'group_by': 'person_off_id'}"/>
+                    <filter string="Related Survey Type" domain="[]"  context="{'group_by': 'survey_id'}"/>
+                </group>
+            </field>
+        </record>
+       
+        <record id="clv_person_off_view_form_lab_test_off_report" model="ir.ui.view">
+            <field name="name">clv.person.off.form</field>
+            <field name="model">clv.person.off</field>
+            <field name="inherit_id" ref="clv_person_off.clv_person_off_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Lab Test (Off) Reports">
+                        <group>
+                            <field name="lab_test_off_report_ids" colspan="4" nolabel="1"/>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -18,31 +18,31 @@
 #
 ###############################################################################
 
-{
-    'name': 'Lab Test (Off) (customizations for CLVhealth-JCAFB Solution)',
-    'summary': 'Lab Test (Off) Module customizations for CLVhealth-JCAFB Solution.',
-    'version': '3.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'https://github.com/CLVsol',
-    'depends': [
-        'clv_lab_test_off',
-        'clv_person_off_jcafb',
-        'clv_document_off_jcafb',
-        'clv_lab_test_jcafb',
-    ],
-    'data': [
-        'views/lab_test_off_request_view.xml',
-        'views/lab_test_off_report_view.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+from odoo import fields, models
+
+
+class LabTestOffReport(models.Model):
+    _inherit = 'clv.lab_test.off.report'
+
+    person_off_id = fields.Many2one(
+        comodel_name='clv.person.off',
+        string="Person (Off)",
+        ondelete='restrict'
+    )
+
+    survey_id = fields.Many2one(
+        comodel_name='survey.survey',
+        string='Related Survey Type',
+        related='lab_test_type_id.survey_id',
+        store=True
+    )
+
+
+class PersonOff(models.Model):
+    _inherit = 'clv.person.off'
+
+    lab_test_off_report_ids = fields.One2many(
+        comodel_name='clv.lab_test.off.report',
+        inverse_name='person_off_id',
+        string='Lab Test (Off) Reports'
+    )
