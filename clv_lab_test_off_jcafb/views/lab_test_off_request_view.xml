@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        
+        <record id="clv_lab_test_off_request_view_form_lab_test_off_request" model="ir.ui.view">
+            <field name="name">clv.lab_test.off.request.form</field>
+            <field name="model">clv.lab_test.off.request</field>
+            <field name="inherit_id" ref="clv_lab_test_off.clv_lab_test_off_request_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <label for="date_requested" position="before">
+                    <label for="person_off_id" class="oe_edit_only"/>
+                    <h3><field name="person_off_id" placeholder="Person..." options="{'no_open': False, 'no_create': True}"/></h3>
+                    <!--label for="person_employee_id" class="oe_edit_only"/>
+                    <h3></h3-->
+                </label>
+                <group name="group_left" position="inside">
+                    <!--field name="person_employee_id" placeholder="Responsible Empĺoyee..." options="{'no_open': False, 'no_create': True}"/-->
+                    <field name="document_off_id" placeholder="Related Document..." options="{'no_open': False, 'no_create': True}"/>
+                    <!--field name="survey_user_input_id" options="{'no_open': False, 'no_create': True}"/-->
+                </group>
+                <group name="group_right" position="inside">
+                    <field name="employee_id" options="{'no_open': False, 'no_create': True}"/>
+                    <field name="date_received"/>
+                </group>
+            </field>
+        </record>
+       
+        <record id="clv_lab_test_off_request_view_tree_lab_test_off_request" model="ir.ui.view">
+            <field name="name">clv.lab_test.off.request.tree</field>
+            <field name="model">clv.lab_test.off.request</field>
+            <field name="inherit_id" ref="clv_lab_test_off.clv_lab_test_off_request_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="date_requested" position="before">
+                    <field name="person_off_id"/>
+                    <!--field name="person_employee_id"/-->
+                    <field name="document_off_id"/>
+                    <!--field name="survey_user_input_id"/-->
+                </field>
+            </field>
+        </record>
+       
+        <record id="clv_lab_test_off_request_view_search_lab_test_off_request" model="ir.ui.view">
+            <field name="name">clv.lab_test.off.request.tree</field>
+            <field name="model">clv.lab_test.off.request</field>
+            <field name="inherit_id" ref="clv_lab_test_off.clv_lab_test_off_request_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="person_off_id"/>
+                    <!--field name="person_employee_id"/-->
+                    <field name="document_off_id"/>
+                    <!--field name="survey_user_input_id"-->
+                </field>
+                <group name="group_by" position="inside">
+                    <filter string="Person" context="{'group_by': 'person_off_id'}"/>
+                    <!--filter string="Responsible Empĺoyee" domain="[]"  context="{'group_by': 'person_employee_id'}"/-->
+                </group>
+            </field>
+        </record>
+       
+        <record id="clv_person_off_view_form_lab_test_off_request" model="ir.ui.view">
+            <field name="name">clv.person.off.form</field>
+            <field name="model">clv.person.off</field>
+            <field name="inherit_id" ref="clv_person_off.clv_person_off_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Lab Test (Off) Requests">
+                        <group>
+                            <field name="lab_test_off_request_ids" colspan="4" nolabel="1"/>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+    </data>
+</odoo>
