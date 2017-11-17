@@ -33,8 +33,11 @@
         'clv_lab_test_jcafb',
     ],
     'data': [
+        'security/ir.model.access.csv',
         'views/lab_test_off_request_view.xml',
+        'views/lab_test_off_request_code_view.xml',
         'views/lab_test_off_report_view.xml',
+        'views/lab_test_off_menu_view.xml',
     ],
     'demo': [],
     'test': [],

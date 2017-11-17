@@ -19,4 +19,5 @@
 ###############################################################################
 
 from . import lab_test_off_request
+from . import lab_test_off_request_code
 from . import lab_test_off_report
