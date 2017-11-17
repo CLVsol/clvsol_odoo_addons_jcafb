@@ -38,6 +38,7 @@
         'views/lab_test_off_request_code_view.xml',
         'views/lab_test_off_report_view.xml',
         'views/lab_test_off_report_code_view.xml',
+        'wizard/lab_test_off_request_code_setup_view.xml',
         'views/lab_test_off_menu_view.xml',
     ],
     'demo': [],

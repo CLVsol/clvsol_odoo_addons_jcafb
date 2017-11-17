@@ -18,5 +18,4 @@
 #
 ###############################################################################
 
-from . import models
-from . import wizard
+import lab_test_off_request_code_setup
