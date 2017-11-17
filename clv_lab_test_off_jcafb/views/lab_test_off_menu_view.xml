@@ -8,5 +8,11 @@
             sequence="10"
             action="clv_lab_test_off_jcafb.clv_lab_test_off_request_code_action"/>
 
+        <menuitem name="Codes" id="menu_health_health_lab_test_reports_off_codes"
+            parent="clv_lab_test_off.menu_health_health_lab_test_reports_off"
+            groups="clv_lab_test_off.group_user"
+            sequence="10"
+            action="clv_lab_test_off_jcafb.clv_lab_test_off_report_code_action"/>
+
     </data>
 </odoo>
