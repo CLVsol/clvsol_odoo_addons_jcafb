@@ -73,7 +73,7 @@
         </record>
         
         <record id="clv_person_off_code_action" model="ir.actions.act_window">
-            <field name="name">Person Off Codes</field>
+            <field name="name">Person (Off) Codes</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">clv.person.off.code</field>
             <field name="view_type">form</field>
