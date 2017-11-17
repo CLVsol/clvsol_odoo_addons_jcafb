@@ -29,25 +29,11 @@ class LabTestOffRequest(models.Model):
         string="Person (Off)",
         ondelete='restrict'
     )
-    # person_employee_id = fields.Many2one(
-    #     comodel_name='hr.employee',
-    #     string='Responsible Empĺoyee (Person)',
-    #     related='person_off_id.address_id.employee_id',
-    #     store=True,
-    #     readonly=True
-    # )
 
     document_off_id = fields.Many2one(
         comodel_name='clv.document.off',
         string='Related Document (Off)'
     )
-    # survey_user_input_id = fields.Many2one(
-    #     comodel_name='survey.user_input',
-    #     string='Related Survey User Input',
-    #     related='document_off_id.survey_user_input_id',
-    #     store=False,
-    #     readonly=True
-    # )
 
     employee_id = fields.Many2one(comodel_name='hr.employee', string='Received by')
     date_received = fields.Datetime(string='Received Date')
