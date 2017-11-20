@@ -20,3 +20,4 @@
 
 import lab_test_off_request_code_setup
 import lab_test_off_request_set_code
+import lab_test_off_report_code_setup

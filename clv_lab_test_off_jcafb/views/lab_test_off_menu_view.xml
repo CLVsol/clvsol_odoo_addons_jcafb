@@ -20,5 +20,11 @@
             sequence="10"
             action="clv_lab_test_off_jcafb.clv_lab_test_off_report_code_action"/>
 
+        <menuitem name="Set Up" id="menu_health_health_lab_test_reports_off_codes_setup" 
+            parent="menu_health_health_lab_test_reports_off_codes"
+            groups="clv_lab_test_off.group_user"
+            sequence="10"
+            action="clv_lab_test_off_jcafb.clv_lab_test_off_report_code_setup_action"/>
+
     </data>
 </odoo>
