@@ -18,9 +18,29 @@
 #
 ###############################################################################
 
-import lab_test_off_request_code_setup
-import lab_test_off_request_set_code
-import lab_test_off_report_setup
-import lab_test_off_report_code_setup
-import lab_test_off_report_set_code
-import lab_test_off_report_edit
+import logging
+
+from odoo import api, fields, models
+
+_logger = logging.getLogger(__name__)
+
+
+class LabTestOffReportEdit(models.TransientModel):
+    _inherit = 'clv.lab_test.off.report.edit'
+
+    def _default_person_off_id(self):
+        return self.env['clv.lab_test.off.report'].browse(self._context.get('active_id')).person_off_id
+    person_off_id = fields.Many2one(
+        comodel_name='clv.person.off',
+        string='Person (Off)',
+        readonly=True,
+        default=_default_person_off_id
+    )
+
+    @api.multi
+    def do_report_updt(self):
+        self.ensure_one()
+
+        super(LabTestOffReportEdit, self).do_report_updt()
+
+        return True
