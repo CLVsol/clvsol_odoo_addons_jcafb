@@ -18,18 +18,28 @@
 #
 ###############################################################################
 
-import lab_test_result_edit_EAN18
-import lab_test_result_edit_EDH18
-import lab_test_result_edit_ECP18
-import lab_test_result_edit_EEV18
-import lab_test_result_edit_EUR18
-import lab_test_result_edit
-import lab_test_report_edit_EAN18
-import lab_test_report_edit_EDH18
-import lab_test_report_edit_ECP18
-import lab_test_report_edit_EEV18
-import lab_test_report_edit_EUR18
-import lab_test_report_edit
-import lab_test_off_report_edit_EAN18
-import lab_test_off_report_edit_EDH18
-import lab_test_off_report_edit
+import logging
+
+from odoo import api, models
+
+_logger = logging.getLogger(__name__)
+
+
+class LabTestOffReportEdit(models.TransientModel):
+    _inherit = 'clv.lab_test.off.report.edit'
+
+    @api.multi
+    def do_report_updt(self):
+        self.ensure_one()
+
+        super(LabTestOffReportEdit, self).do_report_updt()
+
+        active_id = self.env['clv.lab_test.off.report'].browse(self._context.get('active_id'))
+
+        if active_id.lab_test_type_id.code == 'EAN18':
+            self._do_report_updt_EAN18()
+
+        if active_id.lab_test_type_id.code == 'EDH18':
+            self._do_report_updt_EDH18()
+
+        return True

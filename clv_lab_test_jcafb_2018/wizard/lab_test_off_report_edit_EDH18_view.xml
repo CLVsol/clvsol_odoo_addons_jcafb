@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="clv_lab_test_off_report_edit_view_form_jcafb_EDH18" model="ir.ui.view">
+            <field name="name">clv.lab_test.off.report.edit.form</field>
+            <field name="model">clv.lab_test.off.report.edit</field>
+            <field name="inherit_id" ref="clv_lab_test_off.clv_lab_test_off_report_edit_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <group  name="group_top" position="after">
+                    <group attrs="{'invisible':[('is_EDH18', '=', False)]}">
+                        <field name="is_EDH18" invisible="True"/>
+                        <group string='Medidas Antropométricas'>
+                            <field name="EDH18_peso"/>
+                            <field name="EDH18_altura"/>
+                            <field name="EDH18_circ_abdominal"/>
+                        </group>
+                        <group string='Medidas da Pressão Arterial'>
+                            <field name="EDH18_pa"/>
+                        </group>
+                        <group string='Glicemia e Colesterolemia'>
+                            <field name="EDH18_glicemia"/>
+                            <field name="EDH18_colesterol"/>
+                        </group>
+                        <field name="EDH18_obs"/>
+                    </group>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</odoo>

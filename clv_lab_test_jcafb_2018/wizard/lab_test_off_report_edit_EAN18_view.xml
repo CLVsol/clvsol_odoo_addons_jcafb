@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="clv_lab_test_off_report_edit_view_form_jcafb_EAN18" model="ir.ui.view">
+            <field name="name">clv.lab_test.off.report.edit.form</field>
+            <field name="model">clv.lab_test.off.report.edit</field>
+            <field name="inherit_id" ref="clv_lab_test_off.clv_lab_test_off_report_edit_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <group  name="group_top" position="after">
+                    <group attrs="{'invisible':[('is_EAN18', '=', False)]}">
+                        <field name="is_EAN18" invisible="True"/>
+                        <group string='Peso'>
+                            <field name="EAN18_peso"/>
+                        </group>
+                        <group string='Altura'>
+                            <field name="EAN18_altura"/>
+                        </group>
+                        <group string='Circunferência abdominal'>
+                            <field name="EAN18_circ_abdominal"/>
+                        </group>
+                        <group string='Hemoglobina'>
+                            <field name="EAN18_hemoglobina_valor"/>
+                            <field name="EAN18_hemoglobina_interpretacao"/>
+                        </group>
+                        <field name="EAN18_obs"/>
+                    </group>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</odoo>

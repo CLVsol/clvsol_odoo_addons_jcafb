@@ -28,6 +28,7 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_lab_test_jcafb',
+        'clv_lab_test_off_jcafb',
     ],
     'data': [
         'data/lab_test_EAN18_data.xml',
@@ -45,6 +46,8 @@
         'wizard/lab_test_report_edit_ECP18_view.xml',
         'wizard/lab_test_report_edit_EEV18_view.xml',
         'wizard/lab_test_report_edit_EUR18_view.xml',
+        'wizard/lab_test_off_report_edit_EAN18_view.xml',
+        'wizard/lab_test_off_report_edit_EDH18_view.xml',
     ],
     'demo': [],
     'test': [],
