@@ -36,21 +36,6 @@ class LabTestReportEdit(models.TransientModel):
 
         active_id = self.env['clv.lab_test.report'].browse(self._context.get('active_id'))
 
-        if active_id.lab_test_type_id.code == 'EAN17':
-            self._do_report_updt_EAN17()
-
-        if active_id.lab_test_type_id.code == 'EDH17':
-            self._do_report_updt_EDH17()
-
-        if active_id.lab_test_type_id.code == 'ECP17':
-            self._do_report_updt_ECP17()
-
-        if active_id.lab_test_type_id.code == 'EEV17':
-            self._do_report_updt_EEV17()
-
-        if active_id.lab_test_type_id.code == 'EUR17':
-            self._do_report_updt_EUR17()
-
         if active_id.lab_test_type_id.code == 'EAN18':
             self._do_report_updt_EAN18()
 
