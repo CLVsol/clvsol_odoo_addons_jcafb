@@ -55,7 +55,8 @@ class PersonSelGroupSelect(models.TransientModel):
     def do_person_sel_group_select(self):
         self.ensure_one()
 
-        person_available_states = ['available', 'waiting', 'selected', 'unselected']
+        # person_available_states = ['available', 'waiting', 'selected', 'unselected']
+        person_available_states = ['available', 'waiting', 'selected']
         person_to_select_states = ['available', 'waiting']
         person_selected_states = ['selected']
 
