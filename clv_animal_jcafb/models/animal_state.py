@@ -31,7 +31,8 @@ class Animal(models.Model):
          ('waiting', 'Waiting'),
          ('selected', 'Selected'),
          ('unselected', 'Unselected'),
-         ('unavailable', 'Unavailable')
+         ('unavailable', 'Unavailable'),
+         ('unknown', 'Unknown')
          ], string='State', default='new', readonly=True, required=True
     )
 
@@ -93,3 +94,8 @@ class Animal(models.Model):
     def action_unavailable(self):
         for animal in self:
             animal.change_state('unavailable')
+
+    @api.multi
+    def action_unknown(self):
+        for animal in self:
+            animal.change_state('unknown')
