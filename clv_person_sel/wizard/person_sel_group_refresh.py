@@ -55,7 +55,8 @@ class PersonSelGroupRefresh(models.TransientModel):
     def do_person_sel_group_refresh(self):
         self.ensure_one()
 
-        person_available_states = ['available', 'waiting', 'selected', 'unselected']
+        # person_available_states = ['available', 'waiting', 'selected', 'unselected']
+        person_available_states = ['available', 'waiting', 'selected']
         person_selected_states = ['selected']
 
         Person = self.env['clv.person']
