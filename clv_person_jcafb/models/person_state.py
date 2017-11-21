@@ -31,7 +31,8 @@ class Person(models.Model):
          ('waiting', 'Waiting'),
          ('selected', 'Selected'),
          ('unselected', 'Unselected'),
-         ('unavailable', 'Unavailable')
+         ('unavailable', 'Unavailable'),
+         ('unknown', 'Unknown')
          ], string='State', default='new', readonly=True, required=True
     )
 
@@ -94,6 +95,11 @@ class Person(models.Model):
         for person in self:
             person.change_state('unavailable')
 
+    @api.multi
+    def action_unknown(self):
+        for person in self:
+            person.change_state('unknown')
+
 
 class PersonHistory(models.Model):
     _inherit = 'clv.person.history'
@@ -104,6 +110,7 @@ class PersonHistory(models.Model):
          ('waiting', 'Waiting'),
          ('selected', 'Selected'),
          ('unselected', 'Unselected'),
-         ('unavailable', 'Unavailable')
+         ('unavailable', 'Unavailable'),
+         ('unknown', 'Unknown')
          ], string='State', default='new', readonly=True, required=True
     )
