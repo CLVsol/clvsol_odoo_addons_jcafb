@@ -31,7 +31,8 @@ class Address(models.Model):
          ('waiting', 'Waiting'),
          ('selected', 'Selected'),
          ('unselected', 'Unselected'),
-         ('unavailable', 'Unavailable')
+         ('unavailable', 'Unavailable'),
+         ('unknown', 'Unknown')
          ], string='State', default='new', readonly=True, required=True
     )
 
@@ -94,6 +95,11 @@ class Address(models.Model):
         for address in self:
             address.change_state('unavailable')
 
+    @api.multi
+    def action_unknown(self):
+        for address in self:
+            address.change_state('unknown')
+
 
 class AddressHistory(models.Model):
     _inherit = 'clv.address.history'
@@ -104,6 +110,7 @@ class AddressHistory(models.Model):
          ('waiting', 'Waiting'),
          ('selected', 'Selected'),
          ('unselected', 'Unselected'),
-         ('unavailable', 'Unavailable')
+         ('unavailable', 'Unavailable'),
+         ('unknown', 'Unknown')
          ], string='State', default='new', readonly=True, required=True
     )
