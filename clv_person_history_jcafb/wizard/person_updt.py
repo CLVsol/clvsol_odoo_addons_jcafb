@@ -71,7 +71,8 @@ class PersonHistoryUpdate(models.TransientModel):
          ('waiting', 'Waiting'),
          ('selected', 'Selected'),
          ('unselected', 'Unselected'),
-         ('unavailable', 'Unavailable')
+         ('unavailable', 'Unavailable'),
+         ('unknown', 'Unknown')
          ], string='State', default=False, readonly=False, required=False
     )
     state_selection = fields.Selection(
