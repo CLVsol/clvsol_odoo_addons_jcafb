@@ -18,28 +18,4 @@
 #
 ###############################################################################
 
-{
-    'name': 'Employee Management (customizations for CLVhealth-JCAFB Solution)',
-    'summary': 'Employee Management Module customizations for CLVhealth-JCAFB Solution.',
-    'version': '3.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'https://github.com/CLVsol',
-    'depends': [
-        'clv_employee_mng',
-    ],
-    'data': [
-        'views/employee_mng_state_view.xml',
-        'wizard/employee_mng_updt_view.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+import employee_mng_updt
