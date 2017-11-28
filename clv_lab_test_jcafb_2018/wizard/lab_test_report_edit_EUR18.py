@@ -239,7 +239,7 @@ class LabTestReportEdit(models.TransientModel):
         return self._get_default('EUR18', 'EUR18-04-06')
     EUR18_cilindros = fields.Selection([
         (u'Ausente', u'Ausente'),
-        (u'Presentes', u'Presentes'),
+        (u'Presente', u'Presente'),
     ], 'Cilindros', readonly=False, default=_default_EUR18_cilindros)
 
     def _write_EUR18_cilindros(self):
@@ -311,7 +311,7 @@ class LabTestReportEdit(models.TransientModel):
     def _default_EUR18_cristais(self):
         return self._get_default('EUR18', 'EUR18-04-03')
     EUR18_cristais = fields.Char(
-        'Parasitas', readonly=False, default=_default_EUR18_cristais
+        'Cristais', readonly=False, default=_default_EUR18_cristais
     )
 
     def _write_EUR18_cristais(self):
@@ -337,7 +337,7 @@ class LabTestReportEdit(models.TransientModel):
     )
 
     EUR18_lab_test_crystal_names = fields.Char(
-        string='Parasitas',
+        string='Cristais',
         compute='_compute_EUR18_lab_test_crystal_names',
         store=True
     )
