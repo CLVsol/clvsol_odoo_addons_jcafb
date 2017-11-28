@@ -30,7 +30,7 @@
         'clv_base_jcafb',
         'clv_person_mng_jcafb',
         'clv_lab_test_jcafb',
-        # 'clv_person_off_jcafb',
+        'clv_person_off_jcafb',
     ],
     'data': [
     ],
