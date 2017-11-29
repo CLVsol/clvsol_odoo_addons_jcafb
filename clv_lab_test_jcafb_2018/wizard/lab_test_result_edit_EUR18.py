@@ -241,7 +241,7 @@ class LabTestResultEdit(models.TransientModel):
     def _default_EUR18_celulas_epiteliais(self):
         return self._get_default('EUR18', 'EUR18-04-01')
     EUR18_celulas_epiteliais = fields.Selection([
-        (u'Ausente', u'Ausente'),
+        (u'Ausentes', u'Ausentes'),
         (u'Raras', u'Raras'),
         (u'Frequentes', u'Frequentes'),
         (u'Numerosas', u'Numerosas'),
@@ -283,8 +283,8 @@ class LabTestResultEdit(models.TransientModel):
     def _default_EUR18_cilindros(self):
         return self._get_default('EUR18', 'EUR18-04-06')
     EUR18_cilindros = fields.Selection([
-        (u'Ausente', u'Ausente'),
-        (u'Presente', u'Presente'),
+        (u'Ausentes', u'Ausentes'),
+        (u'Presentes', u'Presentes'),
     ], 'Cilindros', readonly=False, default=_default_EUR18_cilindros)
 
     def _write_EUR18_cilindros(self):
