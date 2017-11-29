@@ -19,7 +19,7 @@
                         <button 
                             type="object"
                             name="do_person_off_set_code"
-                            string="Person Off Set Code"
+                            string="Person (Off) Set Code"
                             class="oe_highlight"
                             />
                         <button special="cancel" string="Cancel"/>
@@ -32,7 +32,7 @@
         <!-- More button Action -->
         <act_window 
             id="clv_person_off_set_code_action"
-            name="Persons Off Set Code"
+            name="Person (Off) Set Code"
             src_model="clv.person.off"
             res_model="clv.person.off.set_code"
             view_mode="form, tree"
