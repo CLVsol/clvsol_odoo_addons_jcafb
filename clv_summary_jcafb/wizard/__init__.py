@@ -18,30 +18,4 @@
 #
 ###############################################################################
 
-{
-    'name': 'Summary (customizations for CLVhealth-JCAFB Solution)',
-    'summary': 'Summary Module customizations for CLVhealth-JCAFB Solution.',
-    'version': '3.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'https://github.com/CLVsol',
-    'depends': [
-        'clv_summary',
-        'clv_address_jcafb',
-        'clv_person_jcafb',
-    ],
-    'data': [
-        'views/summary_view.xml',
-        'wizard/address_summary_setup_view.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+from . import address_summary_setup
