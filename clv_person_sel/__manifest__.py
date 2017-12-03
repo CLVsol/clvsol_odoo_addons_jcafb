@@ -27,6 +27,7 @@
     'license': 'AGPL-3',
     'website': 'https://github.com/CLVsol',
     'depends': [
+        'clv_address_jcafb',
         'clv_person_jcafb',
     ],
     'data': [
@@ -42,6 +43,7 @@
         'wizard/person_sel_group_refresh_view.xml',
         'wizard/person_sel_group_select_view.xml',
         'wizard/person_sel_summary_setup_view.xml',
+        'wizard/address_selection_refresh_view.xml',
         'views/person_sel_menu_view.xml',
     ],
     'demo': [],
