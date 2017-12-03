@@ -61,6 +61,7 @@ class AddressSummarySetUp(models.TransientModel):
             _logger.info(u'%s %s', '>>>>>', address.name)
 
             summary = Summary.search([
+                ('is_address_summary', '=', True),
                 ('address_id', '=', address.id),
             ])
 
