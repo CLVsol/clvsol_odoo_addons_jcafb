@@ -54,10 +54,32 @@ class PersonSummarySetUp(models.TransientModel):
     def do_person_summary_setup(self):
         self.ensure_one()
 
+        Summary = self.env['clv.summary']
+
         for person in self.person_ids:
 
             _logger.info(u'%s %s', '>>>>>', person.name)
 
+            summary = Summary.search([
+                ('person_id', '=', person.id),
+            ])
+
+            if summary.id is False:
+
+                name = person.name
+                person_id = person.id
+                address_id = person.address_id.id
+
+                values = {
+                    'name': name,
+                    'person_id': person_id,
+                    'is_person_summary': True,
+                    'address_id': address_id,
+                }
+                new_summary = Summary.create(values)
+                _logger.info(u'%s %s', '>>>>>>>>>>', new_summary.name)
+
+        return True
         return True
 
     @api.multi
