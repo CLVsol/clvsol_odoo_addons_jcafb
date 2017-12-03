@@ -34,6 +34,7 @@
     'data': [
         'views/summary_view.xml',
         'wizard/address_summary_setup_view.xml',
+        'wizard/person_summary_setup_view.xml',
     ],
     'demo': [],
     'test': [],

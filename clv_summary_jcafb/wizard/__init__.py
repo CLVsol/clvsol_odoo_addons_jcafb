@@ -19,3 +19,4 @@
 ###############################################################################
 
 from . import address_summary_setup
+from . import person_summary_setup
