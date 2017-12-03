@@ -54,9 +54,28 @@ class AddressSummarySetUp(models.TransientModel):
     def do_address_summary_setup(self):
         self.ensure_one()
 
+        Summary = self.env['clv.summary']
+
         for address in self.address_ids:
 
             _logger.info(u'%s %s', '>>>>>', address.name)
+
+            summary = Summary.search([
+                ('address_id', '=', address.id),
+            ])
+
+            if summary.id is False:
+
+                name = address.name
+                address_id = address.id
+
+                values = {
+                    'name': name,
+                    'address_id': address_id,
+                    'is_address_summary': True,
+                }
+                new_summary = Summary.create(values)
+                _logger.info(u'%s %s', '>>>>>>>>>>', new_summary.name)
 
         return True
 
