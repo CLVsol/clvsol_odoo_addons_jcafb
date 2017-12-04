@@ -38,6 +38,7 @@
         'views/address_state_view.xml',
         'data/address_seq.xml',
         'wizard/address_updt_view.xml',
+        'wizard/address_document_setup_view.xml',
     ],
     'demo': [],
     'test': [],
