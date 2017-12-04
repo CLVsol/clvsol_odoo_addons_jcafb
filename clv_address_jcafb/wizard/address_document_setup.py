@@ -104,7 +104,7 @@ class AddressDocumentSetUp(models.TransientModel):
                     }
                     new_document = Document.create(values)
 
-                    if self.category_id is not False:
+                    if self.category_id.id is not False:
 
                         values = {
                             'category_ids': [(4, self.category_id.id)],
