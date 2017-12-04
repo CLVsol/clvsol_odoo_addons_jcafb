@@ -46,6 +46,7 @@
         'data/person_seq.xml',
         'wizard/person_updt_view.xml',
         'wizard/person_direct_mail_setup_view.xml',
+        'wizard/person_document_setup_view.xml',
         'views/person_direct_mail_menu_view.xml',
     ],
     'demo': [],
