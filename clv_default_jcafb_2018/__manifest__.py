@@ -32,6 +32,7 @@
         'clv_lab_test_jcafb',
         'clv_person_off_jcafb',
         'clv_address_jcafb',
+        'clv_person_jcafb',
     ],
     'data': [
     ],
