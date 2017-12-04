@@ -19,3 +19,4 @@
 ###############################################################################
 
 from . import summary
+from . import summary_address_person

@@ -55,6 +55,7 @@ class AddressSummarySetUp(models.TransientModel):
         self.ensure_one()
 
         Summary = self.env['clv.summary']
+        SummaryAddressPerson = self.env['clv.summary.address.person']
 
         for address in self.address_ids:
 
@@ -77,6 +78,47 @@ class AddressSummarySetUp(models.TransientModel):
                 }
                 new_summary = Summary.create(values)
                 _logger.info(u'%s %s', '>>>>>>>>>>', new_summary.name)
+
+                summary_address_persons = SummaryAddressPerson.search([
+                    ('summary_id', '=', new_summary.id),
+                    ('address_id', '=', new_summary.address_id.id),
+                ])
+                summary_address_persons.unlink()
+
+                for person in summary.address_id.person_ids:
+
+                    values = {
+                        'summary_id': new_summary.id,
+                        'address_id': new_summary.address_id.id,
+                        'person_id': person.person_id.id,
+                        'person_address_role_id': person.person_address_role_id.id,
+                    }
+                    SummaryAddressPerson.create(values)
+
+            else:
+
+                name = address.name
+                address_id = address.id
+
+                summary.name = name
+
+                _logger.info(u'%s %s', '>>>>>>>>>>', summary.name)
+
+                summary_address_persons = SummaryAddressPerson.search([
+                    ('summary_id', '=', summary.id),
+                    ('address_id', '=', summary.address_id.id),
+                ])
+                summary_address_persons.unlink()
+
+                for person in summary.address_id.person_ids:
+
+                    values = {
+                        'summary_id': summary.id,
+                        'address_id': summary.address_id.id,
+                        'person_id': person.id,
+                        'person_address_role_id': person.person_address_role_id.id,
+                    }
+                    SummaryAddressPerson.create(values)
 
         return True
 
