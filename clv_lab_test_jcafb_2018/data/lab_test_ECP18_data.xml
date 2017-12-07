@@ -1,16 +1,199 @@
 <?xml version="1.0" ?>
 <odoo>
-	<!--data noupdate="1"-->
-	<data noupdate="0">
+	<data noupdate="1">
 	
 		<record id="clv_lab_test_ECP18" model="clv.lab_test.type">
 			<field name="code" eval="&quot;&quot;&quot;ECP18&quot;&quot;&quot;"/>
 			<field name="name" eval="&quot;&quot;&quot;JCAFB 2018 - Laboratório - Parasitologia&quot;&quot;&quot;"/>
 		</record>
 	 
-		<record id="clv_lab_test_criterion_ECP18_exame_coproparasitologico" model="clv.lab_test.criterion">
+		<record id="clv_lab_test_criterion_ECP18_exame_coproparasitologico_1" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
 			<field name="sequence" eval="100"/>
+			<field name="name" eval="&quot;&quot;&quot;Exame Coproparasitológico (1)&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_ECP18_coprop_resultado_metodologia_1" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="101"/>
+			<field name="code">ECP18-01-01</field>
+			<field name="name" eval="&quot;&quot;&quot;Metodologia Empregada (1)&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_ECP18_coprop_resultado_1" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="102"/>
+			<field name="code">ECP18-01-02</field>
+			<field name="name" eval="&quot;&quot;&quot;Resultado (1)&quot;&quot;&quot;"/>
+			<field name="normal_range" eval="&quot;&quot;&quot;Negativo&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_ECP18_examinador_1" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="103"/>
+			<field name="code">ECP18-01-03</field>
+			<field name="name" eval="&quot;&quot;&quot;Examinador (1)&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+
+		<record id="clv_lab_test_criterion_ECP18_coprop_parasitas_1" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="104"/>
+			<field name="code">ECP18-01-04</field>
+			<field name="name" eval="&quot;&quot;&quot;Parasitas (1)&quot;&quot;&quot;"/>
+			<!--field name="normal_range" eval="&quot;&quot;&quot;Negativo&quot;&quot;&quot;"/-->
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_ECP18_exame_coproparasitologico_2" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="200"/>
+			<field name="name" eval="&quot;&quot;&quot;Exame Coproparasitológico (2)&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_ECP18_coprop_resultado_metodologia_2" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="201"/>
+			<field name="code">ECP18-02-01</field>
+			<field name="name" eval="&quot;&quot;&quot;Metodologia Empregada (2)&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_ECP18_coprop_resultado_2" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="202"/>
+			<field name="code">ECP18-02-02</field>
+			<field name="name" eval="&quot;&quot;&quot;Resultado (2)&quot;&quot;&quot;"/>
+			<field name="normal_range" eval="&quot;&quot;&quot;Negativo&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_ECP18_examinador_2" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="203"/>
+			<field name="code">ECP18-02-03</field>
+			<field name="name" eval="&quot;&quot;&quot;Examinador (2)&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+
+		<record id="clv_lab_test_criterion_ECP18_coprop_parasitas_2" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="204"/>
+			<field name="code">ECP18-02-04</field>
+			<field name="name" eval="&quot;&quot;&quot;Parasitas (2)&quot;&quot;&quot;"/>
+			<!--field name="normal_range" eval="&quot;&quot;&quot;Negativo&quot;&quot;&quot;"/-->
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_ECP18_exame_coproparasitologico_3" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="300"/>
+			<field name="name" eval="&quot;&quot;&quot;Exame Coproparasitológico (3)&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_ECP18_coprop_resultado_metodologia_3" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="301"/>
+			<field name="code">ECP18-03-01</field>
+			<field name="name" eval="&quot;&quot;&quot;Metodologia Empregada (3)&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_ECP18_coprop_resultado_3" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="302"/>
+			<field name="code">ECP18-03-02</field>
+			<field name="name" eval="&quot;&quot;&quot;Resultado (3)&quot;&quot;&quot;"/>
+			<field name="normal_range" eval="&quot;&quot;&quot;Negativo&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_ECP18_examinador_3" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="303"/>
+			<field name="code">ECP18-03-03</field>
+			<field name="name" eval="&quot;&quot;&quot;Examinador (3)&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+
+		<record id="clv_lab_test_criterion_ECP18_coprop_parasitas_3" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="304"/>
+			<field name="code">ECP18-03-04</field>
+			<field name="name" eval="&quot;&quot;&quot;Parasitas (3)&quot;&quot;&quot;"/>
+			<!--field name="normal_range" eval="&quot;&quot;&quot;Negativo&quot;&quot;&quot;"/-->
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_ECP18_exame_coproparasitologico_4" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="400"/>
+			<field name="name" eval="&quot;&quot;&quot;Exame Coproparasitológico (4)&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_ECP18_coprop_resultado_metodologia_4" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="401"/>
+			<field name="code">ECP18-04-01</field>
+			<field name="name" eval="&quot;&quot;&quot;Metodologia Empregada (4)&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_ECP18_coprop_resultado_4" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="402"/>
+			<field name="code">ECP18-04-02</field>
+			<field name="name" eval="&quot;&quot;&quot;Resultado (4)&quot;&quot;&quot;"/>
+			<field name="normal_range" eval="&quot;&quot;&quot;Negativo&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_ECP18_examinador_4" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="403"/>
+			<field name="code">ECP18-04-03</field>
+			<field name="name" eval="&quot;&quot;&quot;Examinador (4)&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+
+		<record id="clv_lab_test_criterion_ECP18_coprop_parasitas_4" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="404"/>
+			<field name="code">ECP18-04-04</field>
+			<field name="name" eval="&quot;&quot;&quot;Parasitas (4)&quot;&quot;&quot;"/>
+			<!--field name="normal_range" eval="&quot;&quot;&quot;Negativo&quot;&quot;&quot;"/-->
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="False"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_ECP18_exame_coproparasitologico" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="500"/>
 			<field name="name" eval="&quot;&quot;&quot;Exame Coproparasitológico&quot;&quot;&quot;"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="True"/>
@@ -18,8 +201,8 @@
 	
 		<record id="clv_lab_test_criterion_ECP18_coprop_data_entrada_material" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
-			<field name="sequence" eval="101"/>
-			<field name="code">ECP18-01-01</field>
+			<field name="sequence" eval="501"/>
+			<field name="code">ECP18-05-01</field>
 			<field name="name" eval="&quot;&quot;&quot;Data de Entrada do Material&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_dd_mm_aaaa"/>
 			<field name="result_display" eval="True"/>
@@ -28,66 +211,48 @@
 	
 		<record id="clv_lab_test_criterion_ECP18_coprop_data_liberacao_resultado" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
-			<field name="sequence" eval="102"/>
-			<field name="code">ECP18-01-02</field>
+			<field name="sequence" eval="502"/>
+			<field name="code">ECP18-05-02</field>
 			<field name="name" eval="&quot;&quot;&quot;Liberação do Resultado&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_dd_mm_aaaa"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="False"/>
 		</record>
 	
+		<record id="clv_lab_test_criterion_ECP18_coprop_resultado_metodologias" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="503"/>
+			<field name="code">ECP18-05-03</field>
+			<field name="name" eval="&quot;&quot;&quot;Metodologia(s) Empregada(s)&quot;&quot;&quot;"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
+		</record>
+	
 		<record id="clv_lab_test_criterion_ECP18_coprop_resultado" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
-			<field name="sequence" eval="103"/>
-			<field name="code">ECP18-01-03</field>
+			<field name="sequence" eval="504"/>
+			<field name="code">ECP18-05-04</field>
 			<field name="name" eval="&quot;&quot;&quot;Resultado&quot;&quot;&quot;"/>
 			<field name="normal_range" eval="&quot;&quot;&quot;Negativo&quot;&quot;&quot;"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="True"/>
 		</record>
 	
-		<record id="clv_lab_test_criterion_ECP18_coprop_resultado_obs" model="clv.lab_test.criterion">
-			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
-			<field name="sequence" eval="104"/>
-			<field name="code">ECP18-01-04</field>
-			<field name="name" eval="&quot;&quot;&quot;Observações&quot;&quot;&quot;"/>
-			<field name="result_display" eval="True"/>
-			<field name="report_display" eval="True"/>
-		</record>
-	
-		<record id="clv_lab_test_criterion_ECP18_coprop_resultado_metodologia" model="clv.lab_test.criterion">
-			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
-			<field name="sequence" eval="105"/>
-			<field name="code">ECP18-01-05</field>
-			<field name="name" eval="&quot;&quot;&quot;Metodologia Empregada&quot;&quot;&quot;"/>
-			<field name="result_display" eval="True"/>
-			<field name="report_display" eval="False"/>
-		</record>
-	
-		<record id="clv_lab_test_criterion_ECP18_coprop_resultado_metodologias" model="clv.lab_test.criterion">
-			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
-			<field name="sequence" eval="106"/>
-			<field name="code">ECP18-01-06</field>
-			<field name="name" eval="&quot;&quot;&quot;Metodologia(s) Empregada(s)&quot;&quot;&quot;"/>
-			<field name="result_display" eval="False"/>
-			<field name="report_display" eval="True"/>
-		</record>
-	
-		<record id="clv_lab_test_criterion_ECP18_examinador" model="clv.lab_test.criterion">
-			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
-			<field name="sequence" eval="107"/>
-			<field name="code">ECP18-01-07</field>
-			<field name="name" eval="&quot;&quot;&quot;Examinador&quot;&quot;&quot;"/>
-			<field name="result_display" eval="True"/>
-			<field name="report_display" eval="False"/>
-		</record>
-
 		<record id="clv_lab_test_criterion_ECP18_coprop_parasitas" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
-			<field name="sequence" eval="108"/>
-			<field name="code">ECP18-01-08</field>
+			<field name="sequence" eval="505"/>
+			<field name="code">ECP18-05-05</field>
 			<field name="name" eval="&quot;&quot;&quot;Parasitas&quot;&quot;&quot;"/>
 			<!--field name="normal_range" eval="&quot;&quot;&quot;Negativo&quot;&quot;&quot;"/-->
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_ECP18_coprop_resultado_obs" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_ECP18"/>
+			<field name="sequence" eval="506"/>
+			<field name="code">ECP18-05-06</field>
+			<field name="name" eval="&quot;&quot;&quot;Observações&quot;&quot;&quot;"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="True"/>
 		</record>
