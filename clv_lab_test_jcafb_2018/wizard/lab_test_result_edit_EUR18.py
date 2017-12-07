@@ -118,10 +118,10 @@ class LabTestResultEdit(models.TransientModel):
     def _default_EUR18_cor(self):
         return self._get_default('EUR18', 'EUR18-02-04')
     EUR18_cor = fields.Selection([
-        (u'Amarelo Palha', u'Amarelo Palha'),
-        (u'Amarelo Claro', u'Amarelo Claro'),
-        (u'Amarelo Citrino', u'Amarelo Citrino'),
-        (u'Amarelo Ouro', u'Amarelo Ouro'),
+        (u'Amarela Palha', u'Amarela Palha'),
+        (u'Amarela Claro', u'Amarela Claro'),
+        (u'Amarela Citrino', u'Amarela Citrino'),
+        (u'Amarela Ouro', u'Amarela Ouro'),
         (u'Eritrocrômica', u'Eritrocrômica'),
         (u'Âmbar', u'Âmbar'),
     ], 'Cor', readonly=False, default=_default_EUR18_cor)
@@ -134,7 +134,7 @@ class LabTestResultEdit(models.TransientModel):
     EUR18_odor = fields.Selection([
         (u'Sui Generis', u'Sui Generis'),
         (u'Pútrido', u'Pútrido'),
-    ], 'Cor', readonly=False, default=_default_EUR18_odor)
+    ], 'Odor', readonly=False, default=_default_EUR18_odor)
 
     def _write_EUR18_odor(self):
         self._set_result('EUR18', 'EUR18-02-05', self.EUR18_odor)
