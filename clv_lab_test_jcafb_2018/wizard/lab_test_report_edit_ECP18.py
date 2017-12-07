@@ -41,51 +41,48 @@ class LabTestReportEdit(models.TransientModel):
         return is_ECP18
     is_ECP18 = fields.Boolean('Is ECP18', readonly=True, default=_default_is_ECP18)
 
+    def _default_ECP18_metodos_utilizados(self):
+        return self._get_default('ECP18', 'ECP18-05-03')
+    # ECP18_metodos_utilizados = fields.Selection([
+    #     ('Ritchie', 'Ritchie'),
+    #     ('Hoffmann', 'Hoffmann'),
+    #     ('Willis', 'Willis'),
+    #     ('Ritchie, Hoffmann', 'Ritchie, Hoffmann'),
+    #     ('Ritchie, Hoffmann, Willis', 'Ritchie, Hoffmann, Willis'),
+    # ], 'Metodologia(s) Empregada(s)', readonly=False, default=_default_ECP18_metodos_utilizados)
+    ECP18_metodos_utilizados = fields.Char(
+        string='Metodologia(s) Empregada(s)',
+        default=_default_ECP18_metodos_utilizados
+    )
+
+    def _write_ECP18_metodos_utilizados(self):
+        self._set_result('ECP18', 'ECP18-05-03', self.ECP18_metodos_utilizados)
+
     def _default_ECP18_resultado(self):
-        return self._get_default('ECP18', 'ECP18-01-03')
+        return self._get_default('ECP18', 'ECP18-05-04')
     ECP18_resultado = fields.Selection([
-        ('Positivo', 'Positivo'),
+        ('POSITIVO', 'POSITIVO'),
         ('NEGATIVO', 'NEGATIVO'),
-        ('Não Realizado', 'Não Realizado'),
+        ('Não realizado', 'Não realizado'),
     ], 'Resultado', readonly=False, default=_default_ECP18_resultado)
 
     def _write_ECP18_resultado(self):
-        self._set_result('ECP18', 'ECP18-01-03', self.ECP18_resultado)
-
-    def _default_ECP18_obs(self):
-        return self._get_default('ECP18', 'ECP18-01-04')
-    ECP18_obs = fields.Char(
-        'Observações', readonly=False, default=_default_ECP18_obs
-    )
-
-    def _write_ECP18_obs(self):
-        self._set_result('ECP18', 'ECP18-01-04', self.ECP18_obs)
-
-    def _default_ECP18_metodos_utilizados(self):
-        return self._get_default('ECP18', 'ECP18-01-06')
-    ECP18_metodos_utilizados = fields.Selection([
-        ('Ritchie', 'Ritchie'),
-        ('Hoffmann', 'Hoffmann'),
-        ('Ritchie e Hoffmann', 'Ritchie e Hoffmann'),
-    ], 'Medtodologia(s) Empregada(s)', readonly=False, default=_default_ECP18_metodos_utilizados)
-
-    def _write_ECP18_metodos_utilizados(self):
-        self._set_result('ECP18', 'ECP18-01-06', self.ECP18_metodos_utilizados)
+        self._set_result('ECP18', 'ECP18-05-04', self.ECP18_resultado)
 
     def _default_ECP18_parasitas(self):
-        return self._get_default('ECP18', 'ECP18-01-08')
+        return self._get_default('ECP18', 'ECP18-05-05')
     ECP18_parasitas = fields.Char(
         'Parasitas', readonly=False, default=_default_ECP18_parasitas
     )
 
     def _write_ECP18_parasitas(self):
-        self._set_result('ECP18', 'ECP18-01-08', self.ECP18_lab_test_parasite_names)
+        self._set_result('ECP18', 'ECP18-05-05', self.ECP18_lab_test_parasite_names)
 
     def _default_ECP18_lab_test_parasite_ids(self):
         LabTestParasite = self.env['clv.lab_test.parasite']
         parasite_ids = []
-        if self._get_default('ECP18', 'ECP18-01-08') is not False:
-            parasitas = self._get_default('ECP18', 'ECP18-01-08').split(', ')
+        if self._get_default('ECP18', 'ECP18-05-05') is not False:
+            parasitas = self._get_default('ECP18', 'ECP18-05-05').split(', ')
             for parasita in parasitas:
                 parasite = LabTestParasite.search([
                     ('name', '=', parasita),
@@ -126,15 +123,21 @@ class LabTestReportEdit(models.TransientModel):
                 else:
                     ECP18_lab_test_parasite_names = ECP18_lab_test_parasite_names + ', ' + parasite.name
             r.ECP18_lab_test_parasite_names_suport = ECP18_lab_test_parasite_names
-            # if r.ECP18_lab_test_parasite_names != ECP18_lab_test_parasite_names:
-            #     record = self.env['clv.lab_test.report.edit'].search([('id', '=', r.id)])
-            #     record.write({'ECP18_lab_test_parasite_ids': r.ECP18_lab_test_parasite_ids})
+
+    def _default_ECP18_obs(self):
+        return self._get_default('ECP18', 'ECP18-05-06')
+    ECP18_obs = fields.Text(
+        'Observações', readonly=False, default=_default_ECP18_obs
+    )
+
+    def _write_ECP18_obs(self):
+        self._set_result('ECP18', 'ECP18-05-06', self.ECP18_obs)
 
     def _do_report_updt_ECP18(self):
 
-        self._write_ECP18_resultado()
-        self._write_ECP18_obs()
         self._write_ECP18_metodos_utilizados()
+        self._write_ECP18_resultado()
         self._write_ECP18_parasitas()
+        self._write_ECP18_obs()
 
         return True

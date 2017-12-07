@@ -11,12 +11,12 @@
                 <group  name="group_top" position="after">
                     <group attrs="{'invisible':[('is_ECP18', '=', False)]}">
                         <field name="is_ECP18" invisible="True"/>
-                        <group>
+                        <group string="Exame Coproparasitológico">
+                            <field name="ECP18_metodos_utilizados"/>
                             <field name="ECP18_resultado"/>
                             <field name="ECP18_obs"/>
-                            <field name="ECP18_metodos_utilizados"/>
                         </group>
-                        <group>
+                        <group string="-">
                             <field name="ECP18_lab_test_parasite_names"/>
                             <field name="ECP18_parasitas" invisible='True'/>
                             <field name="ECP18_lab_test_parasite_ids">
