@@ -62,9 +62,9 @@ class LabTestResultEdit(models.TransientModel):
     def _default_EEV18_resultado(self):
         return self._get_default('EEV18', 'EEV18-01-03')
     EEV18_resultado = fields.Selection([
-        ('Positivo', 'Positivo'),
+        ('POSITIVO', 'POSITIVO'),
         ('NEGATIVO', 'NEGATIVO'),
-        ('Não Realizado', 'Não Realizado'),
+        ('Não realizado', 'Não realizado'),
     ], 'Resultado', readonly=False, default=_default_EEV18_resultado)
 
     def _write_EEV18_resultado(self):
