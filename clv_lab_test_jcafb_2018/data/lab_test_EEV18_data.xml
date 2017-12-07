@@ -1,7 +1,6 @@
 <?xml version="1.0" ?>
 <odoo>
-	<!--data noupdate="1"-->
-	<data noupdate="0">
+	<data noupdate="1">
 	
 		<record id="clv_lab_test_EEV18" model="clv.lab_test.type">
 			<field name="code" eval="&quot;&quot;&quot;EEV18&quot;&quot;&quot;"/>
