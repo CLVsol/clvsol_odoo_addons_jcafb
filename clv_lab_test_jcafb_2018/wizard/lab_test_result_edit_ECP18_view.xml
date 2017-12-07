@@ -11,15 +11,70 @@
                 <group  name="group_top" position="after">
                     <group attrs="{'invisible':[('is_ECP18', '=', False)]}">
                         <field name="is_ECP18" invisible="True"/>
-                        <group>
+                        <group string="Exame Coproparasitológico (1)">
+                            <field name="ECP18_metodo_utilizado_1"/>
+                            <field name="ECP18_resultado_1"/>
+                            <field name="ECP18_examinador_1"/>
+                        </group>
+                        <group string="-">
+                            <field name="ECP18_lab_test_parasite_1_names"/>
+                            <field name="ECP18_parasitas_1" invisible='True'/>
+                            <field name="ECP18_lab_test_parasite_1_ids">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Exame Coproparasitológico (2)">
+                            <field name="ECP18_metodo_utilizado_2"/>
+                            <field name="ECP18_resultado_2"/>
+                            <field name="ECP18_examinador_2"/>
+                        </group>
+                        <group string="-">
+                            <field name="ECP18_lab_test_parasite_2_names"/>
+                            <field name="ECP18_parasitas_2" invisible='True'/>
+                            <field name="ECP18_lab_test_parasite_2_ids">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Exame Coproparasitológico (3)">
+                            <field name="ECP18_metodo_utilizado_3"/>
+                            <field name="ECP18_resultado_3"/>
+                            <field name="ECP18_examinador_3"/>
+                        </group>
+                        <group string="-">
+                            <field name="ECP18_lab_test_parasite_3_names"/>
+                            <field name="ECP18_parasitas_3" invisible='True'/>
+                            <field name="ECP18_lab_test_parasite_3_ids">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Exame Coproparasitológico (4)">
+                            <field name="ECP18_metodo_utilizado_4"/>
+                            <field name="ECP18_resultado_4"/>
+                            <field name="ECP18_examinador_4"/>
+                        </group>
+                        <group string="-">
+                            <field name="ECP18_lab_test_parasite_4_names"/>
+                            <field name="ECP18_parasitas_4" invisible='True'/>
+                            <field name="ECP18_lab_test_parasite_4_ids">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group string="Exame Coproparasitológico">
                             <field name="ECP18_data_entrada_material"/>
                             <field name="ECP18_liberacao_resultado"/>
+                            <field name="ECP18_metodos_utilizados"/>
                             <field name="ECP18_resultado"/>
                             <field name="ECP18_obs"/>
-                            <field name="ECP18_metodo_utilizado"/>
-                            <field name="ECP18_examinador"/>
                         </group>
-                        <group>
+                        <group string="-">
                             <field name="ECP18_lab_test_parasite_names"/>
                             <field name="ECP18_parasitas" invisible='True'/>
                             <field name="ECP18_lab_test_parasite_ids">
