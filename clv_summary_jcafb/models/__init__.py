@@ -21,3 +21,4 @@
 from . import summary
 from . import summary_address_person
 from . import summary_address_document
+from . import summary_person_document

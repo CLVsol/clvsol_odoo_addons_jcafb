@@ -56,6 +56,7 @@ class SummaryRefresh(models.TransientModel):
 
         SummaryAddressPerson = self.env['clv.summary.address.person']
         SummaryAddressDocument = self.env['clv.summary.address.document']
+        SummaryPersonDocument = self.env['clv.summary.person.document']
 
         for summary in self.summary_ids:
 
@@ -107,6 +108,31 @@ class SummaryRefresh(models.TransientModel):
             elif summary.is_person_summary:
 
                 _logger.info(u'%s %s', '>>>>>>>>>>', 'is_person_summary')
+
+                name = summary.person_id.name
+                address_id = summary.person_id.address_id.id
+
+                summary.name = name
+                summary.address_id = address_id
+
+                _logger.info(u'%s %s', '>>>>>>>>>>', summary.name)
+
+                summary_person_documents = SummaryPersonDocument.search([
+                    ('summary_id', '=', summary.id),
+                    ('person_id', '=', summary.person_id.id),
+                ])
+                summary_person_documents.unlink()
+
+                for document in summary.person_id.document_ids:
+
+                    if document.history_marker_id.id == summary.person_id.history_marker_id.id:
+
+                        values = {
+                            'summary_id': summary.id,
+                            'person_id': summary.person_id.id,
+                            'document_id': document.id,
+                        }
+                        SummaryPersonDocument.create(values)
 
         return True
 

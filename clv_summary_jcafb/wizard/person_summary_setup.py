@@ -55,6 +55,7 @@ class PersonSummarySetUp(models.TransientModel):
         self.ensure_one()
 
         Summary = self.env['clv.summary']
+        SummaryPersonDocument = self.env['clv.summary.person.document']
 
         for person in self.person_ids:
 
@@ -79,7 +80,50 @@ class PersonSummarySetUp(models.TransientModel):
                 new_summary = Summary.create(values)
                 _logger.info(u'%s %s', '>>>>>>>>>>', new_summary.name)
 
-        return True
+                summary_person_documents = SummaryPersonDocument.search([
+                    ('summary_id', '=', new_summary.id),
+                    ('person_id', '=', new_summary.person_id.id),
+                ])
+                summary_person_documents.unlink()
+
+                for document in new_summary.person_id.document_ids:
+
+                    if document.history_marker_id.id == new_summary.person_id.history_marker_id.id:
+
+                        values = {
+                            'summary_id': new_summary.id,
+                            'person_id': new_summary.person_id.id,
+                            'document_id': document.id,
+                        }
+                        SummaryPersonDocument.create(values)
+
+            else:
+
+                name = person.name
+                address_id = person.address_id.id
+
+                summary.name = name
+                summary.address_id = address_id
+
+                _logger.info(u'%s %s', '>>>>>>>>>>', summary.name)
+
+                summary_person_documents = SummaryPersonDocument.search([
+                    ('summary_id', '=', summary.id),
+                    ('person_id', '=', summary.person_id.id),
+                ])
+                summary_person_documents.unlink()
+
+                for document in summary.person_id.document_ids:
+
+                    if document.history_marker_id.id == summary.person_id.history_marker_id.id:
+
+                        values = {
+                            'summary_id': summary.id,
+                            'person_id': summary.person_id.id,
+                            'document_id': document.id,
+                        }
+                        SummaryPersonDocument.create(values)
+
         return True
 
     @api.multi
