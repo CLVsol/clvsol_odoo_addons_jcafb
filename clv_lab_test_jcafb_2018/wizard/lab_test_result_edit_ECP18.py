@@ -596,8 +596,28 @@ class LabTestResultEdit(models.TransientModel):
     )
     def _compute_ECP18_metodos_utilizados(self):
         for r in self:
-            r.ECP18_metodos_utilizados = r.ECP18_metodo_utilizado_1 + ', ' + r.ECP18_metodo_utilizado_2 + ', ' + \
-                r.ECP18_metodo_utilizado_3 + ', ' + r.ECP18_metodo_utilizado_4
+            ECP18_metodos_utilizados = False
+            if r.ECP18_metodo_utilizado_1 is not False:
+                ECP18_metodos_utilizados = r.ECP18_metodo_utilizado_1
+                if r.ECP18_metodo_utilizado_2 is not False:
+                    ECP18_metodos_utilizados = ECP18_metodos_utilizados + ', ' + r.ECP18_metodo_utilizado_2
+                if r.ECP18_metodo_utilizado_3 is not False:
+                    ECP18_metodos_utilizados = ECP18_metodos_utilizados + ', ' + r.ECP18_metodo_utilizado_3
+                if r.ECP18_metodo_utilizado_4 is not False:
+                    ECP18_metodos_utilizados = ECP18_metodos_utilizados + ', ' + r.ECP18_metodo_utilizado_4
+            elif r.ECP18_metodo_utilizado_2 is not False:
+                ECP18_metodos_utilizados = r.ECP18_metodo_utilizado_2
+                if r.ECP18_metodo_utilizado_3 is not False:
+                    ECP18_metodos_utilizados = ECP18_metodos_utilizados + ', ' + r.ECP18_metodo_utilizado_3
+                if r.ECP18_metodo_utilizado_4 is not False:
+                    ECP18_metodos_utilizados = ECP18_metodos_utilizados + ', ' + r.ECP18_metodo_utilizado_4
+            elif r.ECP18_metodo_utilizado_3 is not False:
+                ECP18_metodos_utilizados = r.ECP18_metodo_utilizado_3
+                if r.ECP18_metodo_utilizado_4 is not False:
+                    ECP18_metodos_utilizados = ECP18_metodos_utilizados + ', ' + r.ECP18_metodo_utilizado_4
+            elif r.ECP18_metodo_utilizado_4 is not False:
+                ECP18_metodos_utilizados = r.ECP18_metodo_utilizado_4
+            r.ECP18_metodos_utilizados = ECP18_metodos_utilizados
 
     @api.depends(
         'ECP18_lab_test_parasite_1_ids',
