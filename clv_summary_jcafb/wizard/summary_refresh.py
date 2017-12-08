@@ -57,6 +57,7 @@ class SummaryRefresh(models.TransientModel):
         SummaryAddressPerson = self.env['clv.summary.address.person']
         SummaryAddressDocument = self.env['clv.summary.address.document']
         SummaryPersonDocument = self.env['clv.summary.person.document']
+        SummaryPersonLabTestRequest = self.env['clv.summary.person.lab_test.request']
 
         for summary in self.summary_ids:
 
@@ -133,6 +134,23 @@ class SummaryRefresh(models.TransientModel):
                             'document_id': document.id,
                         }
                         SummaryPersonDocument.create(values)
+
+                summary_person_lab_test_requests = SummaryPersonLabTestRequest.search([
+                    ('summary_id', '=', summary.id),
+                    ('person_id', '=', summary.person_id.id),
+                ])
+                summary_person_lab_test_requests.unlink()
+
+                for lab_test_request in summary.person_id.lab_test_request_ids:
+
+                    if lab_test_request.history_marker_id.id == summary.person_id.history_marker_id.id:
+
+                        values = {
+                            'summary_id': summary.id,
+                            'person_id': summary.person_id.id,
+                            'lab_test_request_id': lab_test_request.id,
+                        }
+                        SummaryPersonLabTestRequest.create(values)
 
         return True
 

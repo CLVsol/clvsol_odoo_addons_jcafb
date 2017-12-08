@@ -30,6 +30,8 @@
         'clv_summary',
         'clv_address_jcafb',
         'clv_person_jcafb',
+        'clv_document_jcafb',
+        'clv_lab_test_jcafb',
     ],
     'data': [
         'security/ir.model.access.csv',
@@ -37,6 +39,7 @@
         'views/summary_address_person_view.xml',
         'views/summary_address_document_view.xml',
         'views/summary_person_document_view.xml',
+        'views/summary_person_lab_test_request_view.xml',
         'wizard/address_summary_setup_view.xml',
         'wizard/person_summary_setup_view.xml',
         'wizard/summary_refresh_view.xml',
