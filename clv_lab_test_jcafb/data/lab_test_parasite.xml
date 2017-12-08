@@ -20,7 +20,7 @@
 		</record>
 	 
 		<record id="clv_lab_test_parasite_05" model="clv.lab_test.parasite">
-			<field name="name" eval="&quot;&quot;&quot;Cistos de Entamoeba histolytica&quot;&quot;&quot;"/>
+			<field name="name" eval="&quot;&quot;&quot;Cistos de Entamoeba histolytica / Entamoeba dispar&quot;&quot;&quot;"/>
 		</record>
 	 
 		<record id="clv_lab_test_parasite_06" model="clv.lab_test.parasite">
