@@ -85,12 +85,12 @@ class AddressSummarySetUp(models.TransientModel):
                 ])
                 summary_address_persons.unlink()
 
-                for person in summary.address_id.person_ids:
+                for person in new_summary.address_id.person_ids:
 
                     values = {
                         'summary_id': new_summary.id,
                         'address_id': new_summary.address_id.id,
-                        'person_id': person.person_id.id,
+                        'person_id': person.id,
                         'person_address_role_id': person.person_address_role_id.id,
                     }
                     SummaryAddressPerson.create(values)
