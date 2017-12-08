@@ -57,6 +57,7 @@ class PersonSummarySetUp(models.TransientModel):
         Summary = self.env['clv.summary']
         SummaryPersonDocument = self.env['clv.summary.person.document']
         SummaryPersonLabTestRequest = self.env['clv.summary.person.lab_test.request']
+        SummaryPersonEvent = self.env['clv.summary.person.event']
 
         for person in self.person_ids:
 
@@ -115,6 +116,23 @@ class PersonSummarySetUp(models.TransientModel):
                         }
                         SummaryPersonLabTestRequest.create(values)
 
+                summary_person_events = SummaryPersonEvent.search([
+                    ('summary_id', '=', new_summary.id),
+                    ('person_id', '=', new_summary.person_id.id),
+                ])
+                summary_person_events.unlink()
+
+                for event in new_summary.person_id.event_ids:
+
+                    if event.history_marker_id.id == new_summary.person_id.history_marker_id.id:
+
+                        values = {
+                            'summary_id': new_summary.id,
+                            'person_id': new_summary.person_id.id,
+                            'event_id': event.id,
+                        }
+                        SummaryPersonEvent.create(values)
+
             else:
 
                 name = person.name
@@ -158,6 +176,23 @@ class PersonSummarySetUp(models.TransientModel):
                             'lab_test_request_id': lab_test_request.id,
                         }
                         SummaryPersonLabTestRequest.create(values)
+
+                summary_person_events = SummaryPersonEvent.search([
+                    ('summary_id', '=', summary.id),
+                    ('person_id', '=', summary.person_id.id),
+                ])
+                summary_person_events.unlink()
+
+                for event in summary.person_id.event_ids:
+
+                    if event.history_marker_id.id == summary.person_id.history_marker_id.id:
+
+                        values = {
+                            'summary_id': summary.id,
+                            'person_id': summary.person_id.id,
+                            'event_id': event.id,
+                        }
+                        SummaryPersonEvent.create(values)
 
         return True
 

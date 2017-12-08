@@ -15,3 +15,7 @@ access_clv_summary_person_document_supmanager,clv.summary.person.document.supman
 access_clv_summary_person_lab_test_request_user,clv.summary.person.lab_test.request.user,model_clv_summary_person_lab_test_request,clv_summary.group_user,1,0,0,0
 access_clv_summary_person_lab_test_request_manager,clv.summary.person.lab_test.request.manager,model_clv_summary_person_lab_test_request,clv_summary.group_manager,1,1,1,0
 access_clv_summary_person_lab_test_request_supmanager,clv.summary.person.lab_test.request.supmanager,model_clv_summary_person_lab_test_request,clv_summary.group_supmanager,1,1,1,1
+
+access_clv_summary_person_event_user,clv.summary.person.event.user,model_clv_summary_person_event,clv_summary.group_user,1,0,0,0
+access_clv_summary_person_event_manager,clv.summary.person.event.manager,model_clv_summary_person_event,clv_summary.group_manager,1,1,1,0
+access_clv_summary_person_event_supmanager,clv.summary.person.event.supmanager,model_clv_summary_person_event,clv_summary.group_supmanager,1,1,1,1

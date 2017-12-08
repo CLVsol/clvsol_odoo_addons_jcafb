@@ -23,3 +23,4 @@ from . import summary_address_person
 from . import summary_address_document
 from . import summary_person_document
 from . import summary_person_lab_test_request
+from . import summary_person_event
