@@ -52,12 +52,11 @@
             <field name="arch" type="xml">
                 <tree name="address_documents" position="attributes">
                     <attribute name="decoration-muted">document_state=='new'</attribute>
-                    <attribute name="decoration-success">document_state=='unselected'</attribute>
-                    <attribute name="decoration-primary">document_state in('waiting','selected')</attribute>
-                    <attribute name="decoration-danger">document_state=='unavailable'</attribute>
-                    <attribute name="decoration-warning">document_state=='unknown'</attribute>
-                    <attribute name="decoration-it">document_state in('new','unavailable','unknown')</attribute>
-                    <attribute name="decoration-bf">document_state in('selected','unselected')</attribute>
+                    <attribute name="decoration-success">document_state=='archived'</attribute>
+                    <attribute name="decoration-primary">document_state in('waiting','returned')</attribute>
+                    <attribute name="decoration-danger">document_state=='discarded'</attribute>
+                    <attribute name="decoration-it">document_state in('new','discarded')</attribute>
+                    <attribute name="decoration-bf">document_state in('returned','archived')</attribute>
                 </tree>
             </field>
         </record>
