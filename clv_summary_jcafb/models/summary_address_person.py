@@ -29,17 +29,17 @@ class SummaryAddressPerson(models.Model):
         comodel_name='clv.summary',
         string='Summary',
         index=True,
-        ondelete='restrict'
+        ondelete='cascade'
     )
     address_id = fields.Many2one(
         comodel_name='clv.address',
         string='Address',
-        ondelete='restrict'
+        ondelete='cascade'
     )
     person_id = fields.Many2one(
         comodel_name='clv.person',
         string='Person',
-        ondelete='restrict'
+        ondelete='cascade'
     )
     person_address_role_id = fields.Many2one(
         comodel_name='clv.person.address.role',
