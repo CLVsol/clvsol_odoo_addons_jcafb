@@ -35,6 +35,7 @@
         'security/ir.model.access.csv',
         'views/summary_view.xml',
         'views/summary_address_person_view.xml',
+        'views/summary_address_document_view.xml',
         'wizard/address_summary_setup_view.xml',
         'wizard/person_summary_setup_view.xml',
         'wizard/summary_refresh_view.xml',
