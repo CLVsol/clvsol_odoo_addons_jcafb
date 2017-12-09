@@ -70,10 +70,12 @@ class AddressSummarySetUp(models.TransientModel):
             if summary.id is False:
 
                 name = address.name
+                code = address.code
                 address_id = address.id
 
                 values = {
                     'name': name,
+                    'code': code,
                     'address_id': address_id,
                     'is_address_summary': True,
                 }
@@ -116,6 +118,7 @@ class AddressSummarySetUp(models.TransientModel):
             else:
 
                 name = address.name
+                code = address.code
                 address_id = address.id
 
                 summary.name = name
