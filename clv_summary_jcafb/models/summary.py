@@ -18,6 +18,8 @@
 #
 ###############################################################################
 
+import xlwt
+
 from odoo import fields, models
 
 
@@ -53,3 +55,127 @@ class Summary(models.Model):
         store=False
     )
     person_category_names = fields.Char('Person Categories', related='person_id.category_ids.name', store=True)
+
+    def summary_export_xls(self, file_path):
+
+        book = xlwt.Workbook()
+
+        if self.is_address_summary:
+
+            sheet = book.add_sheet('AddressSummary_' + self.code)
+            row_nr = 0
+
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Summary for:')
+            row.write(3, self.name)
+            row_nr += 1
+
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Address:')
+            row.write(3, self.address_id.name)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(3, self.address_id.district)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Address Categories:')
+            row.write(3, self.address_category_ids.name)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Address Code:')
+            row.write(3, self.address_id.code)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Address State:')
+            row.write(3, self.address_id.state)
+            row_nr += 1
+
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Person ')
+            row.write(4, 'Code')
+            row.write(6, 'Birthday')
+            row.write(8, 'Reference Age')
+            row.write(10, 'Categories')
+            row.write(12, 'Status')
+            row_nr += 2
+
+            for address_person in self.summary_address_person_ids:
+
+                row = sheet.row(row_nr)
+                row.write(0, address_person.person_id.name)
+                row.write(4, address_person.person_id.code)
+                if address_person.person_id.birthday is not False:
+                    row.write(6, address_person.person_id.birthday)
+                if address_person.person_id.age_reference is not False:
+                    row.write(8, address_person.person_id.age_reference)
+                if address_person.person_category_ids.name is not False:
+                    row.write(10, address_person.person_category_ids.name)
+                row.write(12, address_person.person_state)
+                row_nr += 1
+
+        if self.is_person_summary:
+
+            sheet = book.add_sheet('PersonSummary_' + self.code)
+            row_nr = 0
+
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Summary for:')
+            row.write(3, self.name)
+            row_nr += 1
+
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Address:')
+            row.write(3, self.address_id.name)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(3, self.address_id.district)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Address Categories:')
+            row.write(3, self.address_category_ids.name)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Address Code:')
+            row.write(3, self.address_id.code)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Address State:')
+            row.write(3, self.address_id.state)
+            row_nr += 1
+
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Person:')
+            row.write(3, self.person_id.name)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Code:')
+            row.write(3, self.person_id.code)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Person Categories:')
+            row.write(3, self.person_category_ids.name)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Birthday:')
+            if self.person_id.birthday is not False:
+                row.write(3, self.person_id.birthday)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Reference Age:')
+            if self.person_id.age_reference is not False:
+                row.write(3, self.person_id.age_reference)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Person State:')
+            row.write(3, self.person_id.state)
+            row_nr += 1
+
+        book.save(file_path)
+
+        return True

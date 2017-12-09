@@ -44,6 +44,7 @@
         'wizard/address_summary_setup_view.xml',
         'wizard/person_summary_setup_view.xml',
         'wizard/summary_refresh_view.xml',
+        'wizard/summary_export_xls_view.xml',
     ],
     'demo': [],
     'test': [],
