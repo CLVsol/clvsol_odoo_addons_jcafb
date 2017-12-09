@@ -70,11 +70,13 @@ class PersonSummarySetUp(models.TransientModel):
             if summary.id is False:
 
                 name = person.name
+                code = person.code
                 person_id = person.id
                 address_id = person.address_id.id
 
                 values = {
                     'name': name,
+                    'code': code,
                     'person_id': person_id,
                     'is_person_summary': True,
                     'address_id': address_id,
@@ -136,6 +138,8 @@ class PersonSummarySetUp(models.TransientModel):
             else:
 
                 name = person.name
+                code = person.code
+                person_id = person.id
                 address_id = person.address_id.id
 
                 summary.name = name
