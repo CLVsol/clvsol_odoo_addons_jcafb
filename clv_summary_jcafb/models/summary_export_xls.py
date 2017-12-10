@@ -207,6 +207,19 @@ class Summary(models.Model):
                 row.write(4, person_document.document_category_ids.name)
                 row_nr += 1
 
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Lab Test Type ')
+            row.write(5, 'Lab Test Request')
+            row_nr += 2
+
+            for person_lab_test_request in self.summary_person_lab_test_request_ids:
+
+                row = sheet.row(row_nr)
+                row.write(0, person_lab_test_request.lab_test_type_ids.name)
+                row.write(5, person_lab_test_request.lab_test_request_id.code)
+                row_nr += 1
+
         book.save(file_path)
 
         return True
