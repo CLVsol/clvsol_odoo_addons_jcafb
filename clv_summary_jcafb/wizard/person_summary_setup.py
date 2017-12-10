@@ -37,6 +37,20 @@ class PersonSummarySetUp(models.TransientModel):
         default=_default_person_ids
     )
 
+    dir_path = fields.Char(
+        string='Directory Path',
+        required=True,
+        help="Directory Path",
+        default='/opt/openerp/clvsol_clvhealth_jcafb/summary_files/xls'
+    )
+
+    file_name = fields.Char(
+        string='File Name',
+        required=True,
+        help="File Name",
+        default='<category>_<code>.xls'
+    )
+
     @api.multi
     def _reopen_form(self):
         self.ensure_one()
@@ -62,6 +76,12 @@ class PersonSummarySetUp(models.TransientModel):
         for person in self.person_ids:
 
             _logger.info(u'%s %s', '>>>>>', person.name)
+
+            category = 'Person'
+            code = person.code
+
+            file_path = self.dir_path + '/' + \
+                self.file_name.replace('<category>', category).replace('<code>', code)
 
             summary = Summary.search([
                 ('person_id', '=', person.id),
@@ -135,6 +155,8 @@ class PersonSummarySetUp(models.TransientModel):
                         }
                         SummaryPersonEvent.create(values)
 
+                new_summary.summary_export_xls(file_path)
+
             else:
 
                 name = person.name
@@ -197,6 +219,8 @@ class PersonSummarySetUp(models.TransientModel):
                             'event_id': event.id,
                         }
                         SummaryPersonEvent.create(values)
+
+                summary.summary_export_xls(file_path)
 
         return True
 

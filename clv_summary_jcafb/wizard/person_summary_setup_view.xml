@@ -13,6 +13,8 @@
                     <label for="person_ids"/>
                     <field name="person_ids"/>
                     <group>
+                        <field name="dir_path"/>
+                        <field name="file_name"/>
                     </group>
                     <footer>
                         <button 
