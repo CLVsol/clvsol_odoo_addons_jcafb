@@ -28,6 +28,15 @@ _logger = logging.getLogger(__name__)
 class SummaryExportXLS(models.TransientModel):
     _name = 'clv.summary.export_xls'
 
+    def _default_summary_ids(self):
+        return self._context.get('active_ids')
+    summary_ids = fields.Many2many(
+        comodel_name='clv.summary',
+        relation='clv_summary_export_xls_rel',
+        string='Summaries',
+        default=_default_summary_ids
+    )
+
     def _default_dir_path(self):
         Summary = self.env['clv.summary']
         return Summary.summary_export_xls_dir_path()
@@ -41,15 +50,6 @@ class SummaryExportXLS(models.TransientModel):
     def _default_file_name(self):
         Summary = self.env['clv.summary']
         return Summary.summary_export_xls_file_name()
-    file_name = fields.Char(
-        string='File Name',
-        required=True,
-        help="File Name",
-        default=_default_file_name
-    )
-
-    def _default_file_name(self):
-        return '<category>_<code>.xls'
     file_name = fields.Char(
         string='File Name',
         required=True,
