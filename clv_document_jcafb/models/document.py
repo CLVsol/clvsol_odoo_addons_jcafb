@@ -47,3 +47,6 @@ class Document(models.Model):
     _defaults = {
         'active_log': True,
     }
+
+    def get_document_category_id(self, survey):
+        return False
