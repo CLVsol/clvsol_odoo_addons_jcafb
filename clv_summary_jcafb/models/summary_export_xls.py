@@ -107,6 +107,23 @@ class Summary(models.Model):
                 row.write(12, address_person.person_state)
                 row_nr += 1
 
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Document ')
+            row.write(2, 'Code')
+            row.write(4, 'Categories')
+            row_nr += 2
+
+            for address_document in self.summary_address_document_ids:
+
+                row = sheet.row(row_nr)
+                row.write(0, address_document.document_id.name)
+                row.write(2, address_document.document_id.code)
+                row.write(4, address_document.document_category_ids.name)
+                # if address_document.person_id.name is not False:
+                #     row.write(7, address_document.person_id.name + ' [' + address_document.person_id.code + ']')
+                row_nr += 1
+
         if self.is_person_summary:
 
             sheet = book.add_sheet('PersonSummary_' + self.code)
@@ -166,6 +183,21 @@ class Summary(models.Model):
             row.write(0, 'Person State:')
             row.write(3, self.person_id.state)
             row_nr += 1
+
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Document ')
+            row.write(2, 'Code')
+            row.write(4, 'Categories')
+            row_nr += 2
+
+            for person_document in self.summary_person_document_ids:
+
+                row = sheet.row(row_nr)
+                row.write(0, person_document.document_id.name)
+                row.write(2, person_document.document_id.code)
+                row.write(4, person_document.document_category_ids.name)
+                row_nr += 1
 
         book.save(file_path)
 
