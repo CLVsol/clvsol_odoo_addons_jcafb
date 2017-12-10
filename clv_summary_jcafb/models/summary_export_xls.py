@@ -224,7 +224,6 @@ class Summary(models.Model):
             row = sheet.row(row_nr)
             row.write(0, 'Event ')
             row.write(4, 'Code')
-            # row.write(4, 'Categories')
             row_nr += 2
 
             for person_event in self.summary_person_event_ids:
@@ -232,7 +231,6 @@ class Summary(models.Model):
                 row = sheet.row(row_nr)
                 row.write(0, person_event.event_id.name)
                 row.write(4, person_event.event_id.code)
-                # row.write(4, person_event.event_category_ids.name)
                 row_nr += 1
 
         book.save(file_path)
