@@ -70,9 +70,6 @@ class PersonDocumentSetUp(models.TransientModel):
         }
         return action
 
-    def get_category_id(self, survey_title):
-        return False
-
     @api.multi
     def do_person_document_setup(self):
         self.ensure_one()
@@ -106,6 +103,7 @@ class PersonDocumentSetUp(models.TransientModel):
                         'history_marker_id': self.history_marker_id.id,
                     }
                     new_document = Document.create(values)
+                    new_document.code = '/'
 
                     if self.category_id.id is not False:
 
@@ -116,7 +114,7 @@ class PersonDocumentSetUp(models.TransientModel):
 
                     else:
 
-                        category_id = self.get_category_id(survey.title)
+                        category_id = new_document.get_document_category_id(survey)
 
                         if category_id is not False:
 
