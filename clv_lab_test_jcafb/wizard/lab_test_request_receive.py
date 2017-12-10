@@ -77,6 +77,9 @@ class LabTestRequestReceive(models.TransientModel):
     def do_lab_test_request_receive(self):
         self.ensure_one()
 
+        LabTestResult = self.env['clv.lab_test.result']
+        LabTestReport = self.env['clv.lab_test.report']
+
         for lab_test_request in self.lab_test_request_ids:
 
             _logger.info(u'%s %s %s', '>>>>>', lab_test_request.code, lab_test_request.person_id.name)
@@ -88,5 +91,61 @@ class LabTestRequestReceive(models.TransientModel):
                 lab_test_request.employee_id = self.employee_id
                 lab_test_request.date_received = self.date_received
                 lab_test_request.state = 'received'
+
+            if lab_test_request.state not in ['draft', 'cancelled']:
+
+                for lab_test_type in lab_test_request.lab_test_type_ids:
+
+                    _logger.info(u'%s %s', '>>>>>>>>>>', lab_test_type.name)
+
+                    criteria = []
+                    for criterion in lab_test_type.criterion_ids:
+                        if criterion.result_display:
+                            criteria.append((0, 0, {'code': criterion.code,
+                                                    'name': criterion.name,
+                                                    'sequence': criterion.sequence,
+                                                    'normal_range': criterion.normal_range,
+                                                    'unit_id': criterion.unit_id.id,
+                                                    }))
+
+                    values = {
+                        'code_sequence': 'clv.lab_test.result.code',
+                        'lab_test_type_id': lab_test_type.id,
+                        'person_id': lab_test_request.person_id.id,
+                        'lab_test_request_id': lab_test_request.id,
+                        'history_marker_id': lab_test_request.history_marker_id.id,
+                        'criterion_ids': criteria,
+                    }
+                    lab_test_result = LabTestResult.create(values)
+
+                    _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', lab_test_result.code)
+
+            if lab_test_request.state not in ['draft', 'cancelled']:
+
+                for lab_test_type in lab_test_request.lab_test_type_ids:
+
+                    _logger.info(u'%s %s', '>>>>>>>>>>', lab_test_type.name)
+
+                    criteria = []
+                    for criterion in lab_test_type.criterion_ids:
+                        if criterion.report_display:
+                            criteria.append((0, 0, {'code': criterion.code,
+                                                    'name': criterion.name,
+                                                    'sequence': criterion.sequence,
+                                                    'normal_range': criterion.normal_range,
+                                                    'unit_id': criterion.unit_id.id,
+                                                    }))
+
+                    values = {
+                        'code_sequence': 'clv.lab_test.report.code',
+                        'lab_test_type_id': lab_test_type.id,
+                        'person_id': lab_test_request.person_id.id,
+                        'lab_test_request_id': lab_test_request.id,
+                        'history_marker_id': lab_test_request.history_marker_id.id,
+                        'criterion_ids': criteria,
+                    }
+                    lab_test_report = LabTestReport.create(values)
+
+                    _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', lab_test_report.code)
 
         return True
