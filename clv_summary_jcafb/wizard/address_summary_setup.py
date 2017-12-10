@@ -19,6 +19,7 @@
 ###############################################################################
 
 import logging
+from datetime import datetime
 
 from odoo import api, fields, models
 
@@ -144,6 +145,7 @@ class AddressSummarySetUp(models.TransientModel):
                 address_id = address.id
 
                 summary.name = name
+                summary.date_summary = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
                 _logger.info(u'%s %s', '>>>>>>>>>>', summary.name)
 
