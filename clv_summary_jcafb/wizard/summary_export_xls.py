@@ -28,27 +28,33 @@ _logger = logging.getLogger(__name__)
 class SummaryExportXLS(models.TransientModel):
     _name = 'clv.summary.export_xls'
 
-    def _default_summary_ids(self):
-        return self._context.get('active_ids')
-    summary_ids = fields.Many2many(
-        comodel_name='clv.summary',
-        relation='clv_summary_export_xls_rel',
-        string='Summaries',
-        default=_default_summary_ids
-    )
-
+    def _default_dir_path(self):
+        Summary = self.env['clv.summary']
+        return Summary.summary_export_xls_dir_path()
     dir_path = fields.Char(
         string='Directory Path',
         required=True,
         help="Directory Path",
-        default='/opt/openerp/clvsol_clvhealth_jcafb/summary_files/xls'
+        default=_default_dir_path
     )
 
+    def _default_file_name(self):
+        Summary = self.env['clv.summary']
+        return Summary.summary_export_xls_file_name()
     file_name = fields.Char(
         string='File Name',
         required=True,
         help="File Name",
-        default='<category>_<code>.xls'
+        default=_default_file_name
+    )
+
+    def _default_file_name(self):
+        return '<category>_<code>.xls'
+    file_name = fields.Char(
+        string='File Name',
+        required=True,
+        help="File Name",
+        default=_default_file_name
     )
 
     @api.multi
@@ -57,20 +63,8 @@ class SummaryExportXLS(models.TransientModel):
 
         for summary_reg in self.summary_ids:
 
-            if summary_reg.is_address_summary:
-                category = 'Address'
-                code = summary_reg.address_code
-            elif summary_reg.is_person_summary:
-                category = 'Person'
-                code = summary_reg.person_code
-            else:
-                break
+            _logger.info(u'%s %s', '>>>>>', summary_reg.name)
 
-            file_path = self.dir_path + '/' + \
-                self.file_name.replace('<category>', category).replace('<code>', code)
-
-            _logger.info(u'%s %s', '>>>>>', file_path)
-
-            summary_reg.summary_export_xls(file_path)
+            summary_reg.summary_export_xls(self.dir_path, self.file_name)
 
         return True

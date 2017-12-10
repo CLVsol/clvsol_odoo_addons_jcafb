@@ -37,18 +37,24 @@ class AddressSummarySetUp(models.TransientModel):
         default=_default_address_ids
     )
 
+    def _default_dir_path(self):
+        Summary = self.env['clv.summary']
+        return Summary.summary_export_xls_dir_path()
     dir_path = fields.Char(
         string='Directory Path',
         required=True,
         help="Directory Path",
-        default='/opt/openerp/clvsol_clvhealth_jcafb/summary_files/xls'
+        default=_default_dir_path
     )
 
+    def _default_file_name(self):
+        Summary = self.env['clv.summary']
+        return Summary.summary_export_xls_file_name()
     file_name = fields.Char(
         string='File Name',
         required=True,
         help="File Name",
-        default='<category>_<code>.xls'
+        default=_default_file_name
     )
 
     @api.multi
@@ -75,14 +81,6 @@ class AddressSummarySetUp(models.TransientModel):
         for address in self.address_ids:
 
             _logger.info(u'%s %s', '>>>>>', address.name)
-
-            category = 'Address'
-            code = address.code
-
-            file_path = self.dir_path + '/' + \
-                self.file_name.replace('<category>', category).replace('<code>', code)
-
-            _logger.info(u'%s %s', '>>>>>', file_path)
 
             summary = Summary.search([
                 ('is_address_summary', '=', True),
@@ -137,7 +135,7 @@ class AddressSummarySetUp(models.TransientModel):
                         }
                         SummaryAddressDocument.create(values)
 
-                new_summary.summary_export_xls(file_path)
+                new_summary.summary_export_xls(self.dir_path, self.file_name)
 
             else:
 
@@ -182,7 +180,7 @@ class AddressSummarySetUp(models.TransientModel):
                         }
                         SummaryAddressDocument.create(values)
 
-                summary.summary_export_xls(file_path)
+                summary.summary_export_xls(self.dir_path, self.file_name)
 
         return True
 
