@@ -19,6 +19,7 @@
 ###############################################################################
 
 import logging
+from datetime import datetime
 
 from odoo import api, fields, models
 
@@ -91,6 +92,7 @@ class SummaryRefresh(models.TransientModel):
                 name = summary.address_id.name
 
                 summary.name = name
+                summary.date_summary = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
                 _logger.info(u'%s %s', '>>>>>>>>>>', summary.name)
 
@@ -133,6 +135,7 @@ class SummaryRefresh(models.TransientModel):
 
                 name = summary.person_id.name
                 address_id = summary.person_id.address_id.id
+                summary.date_summary = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
                 summary.name = name
                 summary.address_id = address_id
