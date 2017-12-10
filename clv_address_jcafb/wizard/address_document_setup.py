@@ -98,11 +98,12 @@ class AddressDocumentSetUp(models.TransientModel):
                         'date_foreseen': self.date_foreseen,
                         'date_deadline': self.date_deadline,
                         'survey_id': survey.id,
-                        'category_id': self.category_id.id,
+                        # 'category_id': self.category_id.id,
                         'address_id': address.id,
                         'history_marker_id': self.history_marker_id.id,
                     }
                     new_document = Document.create(values)
+                    new_document.code = '/'
 
                     if self.category_id.id is not False:
 
@@ -110,6 +111,17 @@ class AddressDocumentSetUp(models.TransientModel):
                             'category_ids': [(4, self.category_id.id)],
                         }
                         new_document.write(values)
+
+                    else:
+
+                        category_id = new_document.get_document_category_id(survey)
+
+                        if category_id is not False:
+
+                            values = {
+                                'category_ids': [(4, category_id)],
+                            }
+                            new_document.write(values)
 
                     _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', new_document.name)
 
