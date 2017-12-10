@@ -61,6 +61,10 @@ class Summary(models.Model):
             row.write(0, 'Summary for:')
             row.write(3, self.name)
             row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Summary date:')
+            row.write(3, self.date_summary)
+            row_nr += 1
 
             row_nr += 1
             row = sheet.row(row_nr)
@@ -133,6 +137,10 @@ class Summary(models.Model):
             row = sheet.row(row_nr)
             row.write(0, 'Summary for:')
             row.write(3, self.name)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Summary date:')
+            row.write(3, self.date_summary)
             row_nr += 1
 
             row_nr += 1
