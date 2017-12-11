@@ -198,14 +198,34 @@
 			<field name="code">EDH18-03-05</field>
 			<field name="name" eval="&quot;&quot;&quot;Pressão arterial&quot;&quot;&quot;"/>
 			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_mmHg"/>
-			<field name="result_display" eval="False"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_EDH18_PAS" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
+			<field name="sequence" eval="306"/>
+			<field name="code">EDH18-03-06</field>
+			<field name="name" eval="&quot;&quot;&quot;PAS&quot;&quot;&quot;"/>
+			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_mmHg"/>
+			<field name="result_display" eval="True"/>
+			<field name="report_display" eval="True"/>
+		</record>
+	
+		<record id="clv_lab_test_criterion_EDH18_PAD" model="clv.lab_test.criterion">
+			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
+			<field name="sequence" eval="307"/>
+			<field name="code">EDH18-03-07</field>
+			<field name="name" eval="&quot;&quot;&quot;PAD&quot;&quot;&quot;"/>
+			<field name="unit_id" ref="clv_lab_test_jcafb.clv_lab_test_unit_mmHg"/>
+			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="True"/>
 		</record>
 	
 		<record id="clv_lab_test_criterion_EDH18_interpretacao_pa" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
-			<field name="sequence" eval="306"/>
-			<field name="code">EDH18-03-06</field>
+			<field name="sequence" eval="308"/>
+			<field name="code">EDH18-03-08</field>
 			<field name="name" eval="&quot;&quot;&quot;Interpretação do valor de Pressão Arterial (Diretrizes Brasileiras de Hipertensão Arterial de 2010)&quot;&quot;&quot;"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="False"/>
@@ -213,8 +233,8 @@
 	
 		<record id="clv_lab_test_criterion_EDH18_interpretacao_pa_obs" model="clv.lab_test.criterion">
 			<field name="lab_test_type_id" ref="clv_lab_test_EDH18"/>
-			<field name="sequence" eval="307"/>
-			<field name="code">EDH18-03-07</field>
+			<field name="sequence" eval="309"/>
+			<field name="code">EDH18-03-09</field>
 			<field name="name" eval="&quot;&quot;&quot;Observações&quot;&quot;&quot;"/>
 			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="False"/>
@@ -307,7 +327,7 @@
 			<field name="sequence" eval="501"/>
 			<field name="code">EDH18-05-01</field>
 			<field name="name" eval="&quot;&quot;&quot;Observações&quot;&quot;&quot;"/>
-			<field name="result_display" eval="False"/>
+			<field name="result_display" eval="True"/>
 			<field name="report_display" eval="True"/>
 		</record>
 	
