@@ -18,18 +18,25 @@
 #
 ###############################################################################
 
-from . import lab_test_type
-from . import lab_test_request
-from . import lab_test_request_code
-from . import lab_test_request_state
-from . import lab_test_result
-from . import lab_test_result_code
-from . import lab_test_result_reg_state
-from . import lab_test_result_state
-from . import lab_test_report
-from . import lab_test_report_code
-from . import lab_test_report_reg_state
-from . import lab_test_report_state
-from . import lab_test_parasite
-from . import lab_test_crystal
-from . import lab_test_request_direct_mail
+from odoo import fields, models
+
+
+class LabTestRequestDirectMail(models.Model):
+    _description = 'Lab Test Request Direct Mail'
+    _name = 'clv.lab_test.request.direct_mail'
+    _log_access = False
+    _order = 'request_code'
+
+    request_code = fields.Char(string='Request Code')
+    lab_test_type = fields.Char(string='Lab Test Type')
+
+    person_name = fields.Char(string='Person Name')
+    person_code = fields.Char(string='Person Code')
+    person_age_reference = fields.Char(string='Reference Age')
+    person_category = fields.Char(string='Person Category')
+
+    _sql_constraints = [
+        ('request_code_uniq',
+         'UNIQUE (request_code)',
+         u'Error! The Request Code must be unique!'),
+    ]

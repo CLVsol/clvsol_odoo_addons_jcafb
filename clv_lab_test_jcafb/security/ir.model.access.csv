@@ -7,3 +7,7 @@ access_clv_lab_test_parasite_supmanager,clv.lab_test.parasite.supmanager,model_c
 access_clv_lab_test_crystal_user,clv.lab_test.crystal.user,model_clv_lab_test_crystal,clv_lab_test.group_user,1,0,0,0
 access_clv_lab_test_crystal_manager,clv.lab_test.crystal.manager,model_clv_lab_test_crystal,clv_lab_test.group_manager,1,1,1,0
 access_clv_lab_test_crystal_supmanager,clv.lab_test.crystal.supmanager,model_clv_lab_test_crystal,clv_lab_test.group_supmanager,1,1,1,1
+
+access_clv_lab_test_request_direct_mail_user,clv.lab_test.request.direct_mail.user,model_clv_lab_test_request_direct_mail,clv_lab_test.group_user,1,0,0,0
+access_clv_lab_test_request_direct_mail_manager,clv.lab_test.request.direct_mail.manager,model_clv_lab_test_request_direct_mail,clv_lab_test.group_manager,1,1,1,0
+access_clv_lab_test_request_direct_mail_supmanager,clv.lab_test.request.direct_mail.supmanager,model_clv_lab_test_request_direct_mail,clv_lab_test.group_supmanager,1,1,1,1

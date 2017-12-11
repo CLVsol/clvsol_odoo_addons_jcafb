@@ -2,6 +2,12 @@
 <odoo>
     <data>
 
+        <menuitem name="Direct Mail" id="menu_health_health_lab_test_requests_direct_mail"
+            parent="clv_lab_test.menu_health_health_lab_test_requests"
+            groups="clv_lab_test.group_user"
+            sequence="30"
+            action="clv_lab_test_jcafb.clv_lab_test_request_direct_mail_actions"/>
+
         <menuitem name="Parasites" id="menu_health_config_config_lab_test_parasites"
             parent="clv_lab_test.menu_health_config_config_lab_test"
             groups="clv_lab_test.group_user"

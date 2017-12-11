@@ -48,6 +48,7 @@
         'views/lab_test_report_state_view.xml',
         'views/lab_test_parasite_view.xml',
         'views/lab_test_crystal_view.xml',
+        'views/lab_test_request_direct_mail_view.xml',
         'views/lab_test_menu_view.xml',
         'data/lab_test_request_seq.xml',
         'data/lab_test_result_seq.xml',
