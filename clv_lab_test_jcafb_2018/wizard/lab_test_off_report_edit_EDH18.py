@@ -77,6 +77,24 @@ class LabTestOffReportEdit(models.TransientModel):
     def _write_EDH18_pa(self):
         self._set_result('EDH18', 'EDH18-03-05', self.EDH18_pa)
 
+    def _default_EDH18_PAS(self):
+        return self._get_default('EDH18', 'EDH18-03-06')
+    EDH18_PAS = fields.Char(
+        'PAS', readonly=False, default=_default_EDH18_PAS
+    )
+
+    def _write_EDH18_PAS(self):
+        self._set_result('EDH18', 'EDH18-03-06', self.EDH18_PAS)
+
+    def _default_EDH18_PAD(self):
+        return self._get_default('EDH18', 'EDH18-03-07')
+    EDH18_PAD = fields.Char(
+        'PAD', readonly=False, default=_default_EDH18_PAD
+    )
+
+    def _write_EDH18_PAD(self):
+        self._set_result('EDH18', 'EDH18-03-07', self.EDH18_PAD)
+
     def _default_EDH18_glicemia(self):
         return self._get_default('EDH18', 'EDH18-04-01')
     EDH18_glicemia = fields.Char(
@@ -110,6 +128,8 @@ class LabTestOffReportEdit(models.TransientModel):
         self._write_EDH18_altura()
         self._write_EDH18_circ_abdominal()
         self._write_EDH18_pa()
+        self._write_EDH18_PAS()
+        self._write_EDH18_PAD()
         self._write_EDH18_glicemia()
         self._write_EDH18_colesterol()
         self._write_EDH18_obs()

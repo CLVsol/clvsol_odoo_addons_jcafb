@@ -18,6 +18,8 @@
                         </group>
                         <group string='Medidas da Pressão Arterial'>
                             <field name="EDH18_pa"/>
+                            <field name="EDH18_PAS"/>
+                            <field name="EDH18_PAD"/>
                         </group>
                         <group string='Glicemia e Colesterolemia'>
                             <field name="EDH18_glicemia"/>
