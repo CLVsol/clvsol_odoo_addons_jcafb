@@ -30,6 +30,9 @@
                             <field name="EDH18_pa_automatica_resp"/>
                             <field name="EDH18_pa_manual"/>
                             <field name="EDH18_pa_manual_resp"/>
+                            <field name="EDH18_pa"/>
+                            <field name="EDH18_PAS"/>
+                            <field name="EDH18_PAD"/>
                             <field name="EDH18_interpretacao_pa"/>
                             <field name="EDH18_interpretacao_pa_obs"/>
                         </group>
@@ -43,6 +46,7 @@
                             <field name="EDH18_colesterol_resp"/>
                             <field name="EDH18_interpretacao_colesterol"/>
                             <field name="EDH18_interpretacao_colesterol_obs"/>
+                            <field name="EDH18_obs"/>
                         </group>
                     </group>
                 </group>

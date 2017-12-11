@@ -324,8 +324,35 @@ class LabTestResultEdit(models.TransientModel):
         else:
             self._set_result('EDH18', 'EDH18-03-04', False)
 
-    def _default_EDH18_interpretacao_pa(self):
+    def _default_EDH18_pa(self):
+        return self._get_default('EDH18', 'EDH18-03-05')
+    EDH18_pa = fields.Char(
+        'Pressão arterial', readonly=False, default=_default_EDH18_pa
+    )
+
+    def _write_EDH18_pa(self):
+        self._set_result('EDH18', 'EDH18-03-05', self.EDH18_pa)
+
+    def _default_EDH18_PAS(self):
         return self._get_default('EDH18', 'EDH18-03-06')
+    EDH18_PAS = fields.Char(
+        'PAS', readonly=False, default=_default_EDH18_PAS
+    )
+
+    def _write_EDH18_PAS(self):
+        self._set_result('EDH18', 'EDH18-03-06', self.EDH18_PAS)
+
+    def _default_EDH18_PAD(self):
+        return self._get_default('EDH18', 'EDH18-03-07')
+    EDH18_PAD = fields.Char(
+        'PAD', readonly=False, default=_default_EDH18_PAD
+    )
+
+    def _write_EDH18_PAD(self):
+        self._set_result('EDH18', 'EDH18-03-07', self.EDH18_PAD)
+
+    def _default_EDH18_interpretacao_pa(self):
+        return self._get_default('EDH18', 'EDH18-03-08')
     EDH18_interpretacao_pa = fields.Selection([
         (u'a) Normal (PAS menor que 130 mmHg e PAD menor que 85 mmHg)',
             u'a) Normal (PAS menor que 130 mmHg e PAD menor que 85 mmHg)'),
@@ -341,16 +368,16 @@ class LabTestResultEdit(models.TransientModel):
         readonly=False, default=_default_EDH18_interpretacao_pa)
 
     def _write_EDH18_interpretacao_pa(self):
-        self._set_result('EDH18', 'EDH18-03-06', self.EDH18_interpretacao_pa)
+        self._set_result('EDH18', 'EDH18-03-08', self.EDH18_interpretacao_pa)
 
     def _default_EDH18_interpretacao_pa_obs(self):
-        return self._get_default('EDH18', 'EDH18-03-07')
+        return self._get_default('EDH18', 'EDH18-03-09')
     EDH18_interpretacao_pa_obs = fields.Char(
         'Observações', readonly=False, default=_default_EDH18_interpretacao_pa_obs
     )
 
     def _write_EDH18_interpretacao_pa_obs(self):
-        self._set_result('EDH18', 'EDH18-03-07', self.EDH18_interpretacao_pa_obs)
+        self._set_result('EDH18', 'EDH18-03-09', self.EDH18_interpretacao_pa_obs)
 
     def _default_EDH18_glicemia(self):
         return self._get_default('EDH18', 'EDH18-04-01')
@@ -484,6 +511,15 @@ class LabTestResultEdit(models.TransientModel):
     def _write_EDH18_interpretacao_colesterol_obs(self):
         self._set_result('EDH18', 'EDH18-04-08', self.EDH18_interpretacao_colesterol_obs)
 
+    def _default_EDH18_obs(self):
+        return self._get_default('EDH18', 'EDH18-05-01')
+    EDH18_obs = fields.Char(
+        'Observações', readonly=False, default=_default_EDH18_obs
+    )
+
+    def _write_EDH18_obs(self):
+        self._set_result('EDH18', 'EDH18-05-01', self.EDH18_obs)
+
     def _do_result_updt_EDH18(self):
 
         self._write_EDH18_tempo_jejum()
@@ -504,6 +540,8 @@ class LabTestResultEdit(models.TransientModel):
         self._write_EDH18_pa_manual()
         self._write_EDH18_pa_manual_resp()
         self._write_EDH18_interpretacao_pa()
+        self._write_EDH18_interpretacao_PAS()
+        self._write_EDH18_interpretacao_PAD()
         self._write_EDH18_interpretacao_pa_obs()
         self._write_EDH18_glicemia()
         self._write_EDH18_glicemia_resp()
@@ -513,5 +551,6 @@ class LabTestResultEdit(models.TransientModel):
         self._write_EDH18_colesterol_resp()
         self._write_EDH18_interpretacao_colesterol()
         self._write_EDH18_interpretacao_colesterol_obs()
+        self._write_EDH18_obs()
 
         return True
