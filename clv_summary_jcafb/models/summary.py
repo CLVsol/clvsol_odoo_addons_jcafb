@@ -39,6 +39,12 @@ class Summary(models.Model):
     )
     address_category_names = fields.Char('Address Categories', related='address_id.category_ids.name', store=True)
     address_district = fields.Char('Address District', related='address_id.district', store=True)
+    address_employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Responsible Employee (Address)',
+        related='address_id.employee_id',
+        store=True
+    )
 
     is_person_summary = fields.Boolean(
         string='Is Person Summary',
@@ -53,3 +59,9 @@ class Summary(models.Model):
         store=False
     )
     person_category_names = fields.Char('Person Categories', related='person_id.category_ids.name', store=True)
+    person_employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Responsible Employee (Person)',
+        related='person_id.employee_id',
+        store=True
+    )
