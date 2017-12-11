@@ -65,6 +65,11 @@ class Summary(models.Model):
             row.write(0, 'Summary date:')
             row.write(3, self.date_summary)
             row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Responsible Employee:')
+            row.write(3, self.address_employee_id.name)
+            row.write(5, self.address_employee_id.code)
+            row_nr += 1
 
             row_nr += 1
             row = sheet.row(row_nr)
@@ -124,8 +129,6 @@ class Summary(models.Model):
                 row.write(0, address_document.document_id.name)
                 row.write(2, address_document.document_id.code)
                 row.write(4, address_document.document_category_ids.name)
-                # if address_document.person_id.name is not False:
-                #     row.write(7, address_document.person_id.name + ' [' + address_document.person_id.code + ']')
                 row_nr += 1
 
         if self.is_person_summary:
@@ -141,6 +144,11 @@ class Summary(models.Model):
             row = sheet.row(row_nr)
             row.write(0, 'Summary date:')
             row.write(3, self.date_summary)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Responsible Employee:')
+            row.write(3, self.person_employee_id.name)
+            row.write(5, self.person_employee_id.code)
             row_nr += 1
 
             row_nr += 1
