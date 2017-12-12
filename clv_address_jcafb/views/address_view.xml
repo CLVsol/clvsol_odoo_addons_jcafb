@@ -36,6 +36,9 @@
                 <field name="code" position="after">
                     <field name="employee_id"/>
                 </field>
+                <filter name="inactive" position="after">
+                    <filter string="Responsible Empĺoyee not defined" name="no_employee_id" domain="[('employee_id','=',False)]"/>
+                </filter>
                 <group name="group_by" position="inside">
                     <filter string="Responsible Empĺoyee" domain="[]"  context="{'group_by': 'employee_id'}"/>
                 </group>
