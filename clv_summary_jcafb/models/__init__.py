@@ -18,6 +18,7 @@
 #
 ###############################################################################
 
+from . import address
 from . import person
 from . import summary
 from . import summary_address_person

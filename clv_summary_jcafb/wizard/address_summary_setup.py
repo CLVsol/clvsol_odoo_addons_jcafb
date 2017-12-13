@@ -19,7 +19,6 @@
 ###############################################################################
 
 import logging
-from datetime import datetime
 
 from odoo import api, fields, models
 
@@ -75,114 +74,11 @@ class AddressSummarySetUp(models.TransientModel):
     def do_address_summary_setup(self):
         self.ensure_one()
 
-        Summary = self.env['clv.summary']
-        SummaryAddressPerson = self.env['clv.summary.address.person']
-        SummaryAddressDocument = self.env['clv.summary.address.document']
-
         for address in self.address_ids:
 
             _logger.info(u'%s %s', '>>>>>', address.name)
 
-            summary = Summary.search([
-                ('is_address_summary', '=', True),
-                ('address_id', '=', address.id),
-            ])
-
-            if summary.id is False:
-
-                name = address.name
-                code = address.code
-                address_id = address.id
-
-                values = {
-                    'name': name,
-                    'code': code,
-                    'address_id': address_id,
-                    'is_address_summary': True,
-                }
-                new_summary = Summary.create(values)
-                _logger.info(u'%s %s', '>>>>>>>>>>', new_summary.name)
-
-                summary_address_persons = SummaryAddressPerson.search([
-                    ('summary_id', '=', new_summary.id),
-                    ('address_id', '=', new_summary.address_id.id),
-                ])
-                summary_address_persons.unlink()
-
-                for person in new_summary.address_id.person_ids:
-
-                    values = {
-                        'summary_id': new_summary.id,
-                        'address_id': new_summary.address_id.id,
-                        'person_id': person.id,
-                        'person_address_role_id': person.person_address_role_id.id,
-                    }
-                    SummaryAddressPerson.create(values)
-
-                summary_address_documents = SummaryAddressDocument.search([
-                    ('summary_id', '=', new_summary.id),
-                    ('address_id', '=', new_summary.address_id.id),
-                ])
-                summary_address_documents.unlink()
-
-                for document in new_summary.address_id.document_ids:
-
-                    if document.history_marker_id.id == new_summary.address_id.history_marker_id.id:
-
-                        values = {
-                            'summary_id': new_summary.id,
-                            'address_id': new_summary.address_id.id,
-                            'document_id': document.id,
-                        }
-                        SummaryAddressDocument.create(values)
-
-                new_summary.summary_export_xls(self.dir_path, self.file_name)
-
-            else:
-
-                name = address.name
-                code = address.code
-                address_id = address.id
-
-                summary.name = name
-                summary.date_summary = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
-                _logger.info(u'%s %s', '>>>>>>>>>>', summary.name)
-
-                summary_address_persons = SummaryAddressPerson.search([
-                    ('summary_id', '=', summary.id),
-                    ('address_id', '=', summary.address_id.id),
-                ])
-                summary_address_persons.unlink()
-
-                for person in summary.address_id.person_ids:
-
-                    values = {
-                        'summary_id': summary.id,
-                        'address_id': summary.address_id.id,
-                        'person_id': person.id,
-                        'person_address_role_id': person.person_address_role_id.id,
-                    }
-                    SummaryAddressPerson.create(values)
-
-                summary_address_documents = SummaryAddressDocument.search([
-                    ('summary_id', '=', summary.id),
-                    ('address_id', '=', summary.address_id.id),
-                ])
-                summary_address_documents.unlink()
-
-                for document in summary.address_id.document_ids:
-
-                    if document.history_marker_id.id == summary.address_id.history_marker_id.id:
-
-                        values = {
-                            'summary_id': summary.id,
-                            'address_id': summary.address_id.id,
-                            'document_id': document.id,
-                        }
-                        SummaryAddressDocument.create(values)
-
-                summary.summary_export_xls(self.dir_path, self.file_name)
+            address.address_summary_setup(self.dir_path, self.file_name)
 
         return True
 
