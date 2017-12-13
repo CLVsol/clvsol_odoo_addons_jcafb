@@ -31,14 +31,11 @@ class Person(models.Model):
     _inherit = 'clv.person'
 
     def person_summary_setup(self, dir_path, file_name):
-        # self.ensure_one()
 
         Summary = self.env['clv.summary']
         SummaryPersonDocument = self.env['clv.summary.person.document']
         SummaryPersonLabTestRequest = self.env['clv.summary.person.lab_test.request']
         SummaryPersonEvent = self.env['clv.summary.person.event']
-
-        # for person in self.person_ids:
 
         _logger.info(u'%s %s', '>>>>>', self.name)
 
