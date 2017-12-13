@@ -94,6 +94,7 @@ class PersonDocumentSetUp(models.TransientModel):
 
                     values = {
                         'name': survey.title,
+                        'code_sequence': 'clv.document.code',
                         # 'date_document': self.date_document,
                         'date_foreseen': self.date_foreseen,
                         'date_deadline': self.date_deadline,
@@ -103,7 +104,6 @@ class PersonDocumentSetUp(models.TransientModel):
                         'history_marker_id': self.history_marker_id.id,
                     }
                     new_document = Document.create(values)
-                    new_document.code = '/'
 
                     if self.category_id.id is not False:
 
