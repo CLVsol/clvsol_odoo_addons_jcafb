@@ -111,7 +111,7 @@ class Person(models.Model):
                     }
                     SummaryPersonEvent.create(values)
 
-            new_summary.summary_export_xls(self.dir_path, self.file_name)
+            new_summary.summary_export_xls(dir_path, file_name)
 
         else:
 
