@@ -30,7 +30,7 @@ class Address(models.Model):
     _name = "clv.address"
     _inherit = 'clv.address'
 
-    def address_summary_setup(self, dir_path, file_name):
+    def address_summary_setup(self, dir_path, file_name, global_tag_id=False):
         self.ensure_one()
 
         Summary = self.env['clv.summary']
@@ -56,6 +56,8 @@ class Address(models.Model):
                 'address_id': address_id,
                 'is_address_summary': True,
             }
+            if global_tag_id is not False:
+                values['global_tag_ids'] = [(4, global_tag_id)]
             new_summary = Summary.create(values)
             _logger.info(u'%s %s', '>>>>>>>>>>', new_summary.name)
 
@@ -102,6 +104,8 @@ class Address(models.Model):
 
             summary.name = name
             summary.date_summary = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            if global_tag_id is not False:
+                summary.global_tag_ids = [(4, global_tag_id)]
 
             _logger.info(u'%s %s', '>>>>>>>>>>', summary.name)
 
