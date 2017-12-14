@@ -61,11 +61,19 @@ class PersonSelect2018(models.TransientModel):
     def _default_global_tag_id(self):
         GlobalTag = self.env['clv.global_tag']
         global_tag = GlobalTag.search([
-            ('name', '=', 'Incluido Recentemente'),
+            ('name', '=', 'Selecionado Recentemente'),
         ])
         global_tag_id = False
         if global_tag.id is not False:
             global_tag_id = global_tag.id
+        else:
+            values = {
+                'name': 'Selecionado Recentemente',
+                'description':
+                    'O registro refere-se a uma Pessoa que tenha sido "selecionada" ' +
+                    '(State = "Selected") recentemente.',
+            }
+            global_tag_id = GlobalTag.create(values).id
         return global_tag_id
     global_tag_id = fields.Many2one(
         comodel_name='clv.global_tag',
