@@ -77,9 +77,9 @@ class SummaryRefresh(models.TransientModel):
 
         SummaryAddressPerson = self.env['clv.summary.address.person']
         SummaryAddressDocument = self.env['clv.summary.address.document']
-        SummaryPersonDocument = self.env['clv.summary.person.document']
-        SummaryPersonLabTestRequest = self.env['clv.summary.person.lab_test.request']
-        SummaryPersonEvent = self.env['clv.summary.person.event']
+        # SummaryPersonDocument = self.env['clv.summary.person.document']
+        # SummaryPersonLabTestRequest = self.env['clv.summary.person.lab_test.request']
+        # SummaryPersonEvent = self.env['clv.summary.person.event']
 
         for summary in self.summary_ids:
 
@@ -133,67 +133,69 @@ class SummaryRefresh(models.TransientModel):
 
                 _logger.info(u'%s %s', '>>>>>>>>>>', 'is_person_summary')
 
-                name = summary.person_id.name
-                address_id = summary.person_id.address_id.id
-                summary.date_summary = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                summary.person_id.person_summary_setup(self.dir_path, self.file_name)
 
-                summary.name = name
-                summary.address_id = address_id
+            #     name = summary.person_id.name
+            #     address_id = summary.person_id.address_id.id
+            #     summary.date_summary = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
-                _logger.info(u'%s %s', '>>>>>>>>>>', summary.name)
+            #     summary.name = name
+            #     summary.address_id = address_id
 
-                summary_person_documents = SummaryPersonDocument.search([
-                    ('summary_id', '=', summary.id),
-                    ('person_id', '=', summary.person_id.id),
-                ])
-                summary_person_documents.unlink()
+            #     _logger.info(u'%s %s', '>>>>>>>>>>', summary.name)
 
-                for document in summary.person_id.document_ids:
+            #     summary_person_documents = SummaryPersonDocument.search([
+            #         ('summary_id', '=', summary.id),
+            #         ('person_id', '=', summary.person_id.id),
+            #     ])
+            #     summary_person_documents.unlink()
 
-                    if document.history_marker_id.id == summary.person_id.history_marker_id.id:
+            #     for document in summary.person_id.document_ids:
 
-                        values = {
-                            'summary_id': summary.id,
-                            'person_id': summary.person_id.id,
-                            'document_id': document.id,
-                        }
-                        SummaryPersonDocument.create(values)
+            #         if document.history_marker_id.id == summary.person_id.history_marker_id.id:
 
-                summary_person_lab_test_requests = SummaryPersonLabTestRequest.search([
-                    ('summary_id', '=', summary.id),
-                    ('person_id', '=', summary.person_id.id),
-                ])
-                summary_person_lab_test_requests.unlink()
+            #             values = {
+            #                 'summary_id': summary.id,
+            #                 'person_id': summary.person_id.id,
+            #                 'document_id': document.id,
+            #             }
+            #             SummaryPersonDocument.create(values)
 
-                for lab_test_request in summary.person_id.lab_test_request_ids:
+            #     summary_person_lab_test_requests = SummaryPersonLabTestRequest.search([
+            #         ('summary_id', '=', summary.id),
+            #         ('person_id', '=', summary.person_id.id),
+            #     ])
+            #     summary_person_lab_test_requests.unlink()
 
-                    if lab_test_request.history_marker_id.id == summary.person_id.history_marker_id.id:
+            #     for lab_test_request in summary.person_id.lab_test_request_ids:
 
-                        values = {
-                            'summary_id': summary.id,
-                            'person_id': summary.person_id.id,
-                            'lab_test_request_id': lab_test_request.id,
-                        }
-                        SummaryPersonLabTestRequest.create(values)
+            #         if lab_test_request.history_marker_id.id == summary.person_id.history_marker_id.id:
 
-                summary_person_events = SummaryPersonEvent.search([
-                    ('summary_id', '=', summary.id),
-                    ('person_id', '=', summary.person_id.id),
-                ])
-                summary_person_events.unlink()
+            #             values = {
+            #                 'summary_id': summary.id,
+            #                 'person_id': summary.person_id.id,
+            #                 'lab_test_request_id': lab_test_request.id,
+            #             }
+            #             SummaryPersonLabTestRequest.create(values)
 
-                for event in summary.person_id.event_ids:
+            #     summary_person_events = SummaryPersonEvent.search([
+            #         ('summary_id', '=', summary.id),
+            #         ('person_id', '=', summary.person_id.id),
+            #     ])
+            #     summary_person_events.unlink()
 
-                    if event.history_marker_id.id == summary.person_id.history_marker_id.id:
+            #     for event in summary.person_id.event_ids:
 
-                        values = {
-                            'summary_id': summary.id,
-                            'person_id': summary.person_id.id,
-                            'event_id': event.id,
-                        }
-                        SummaryPersonEvent.create(values)
+            #         if event.history_marker_id.id == summary.person_id.history_marker_id.id:
 
-            summary.summary_export_xls(self.dir_path, self.file_name)
+            #             values = {
+            #                 'summary_id': summary.id,
+            #                 'person_id': summary.person_id.id,
+            #                 'event_id': event.id,
+            #             }
+            #             SummaryPersonEvent.create(values)
+
+            # summary.summary_export_xls(self.dir_path, self.file_name)
 
         return True
 
