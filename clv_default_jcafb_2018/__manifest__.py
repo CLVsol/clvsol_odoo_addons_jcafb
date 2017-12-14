@@ -37,6 +37,7 @@
     'data': [
         'views/address_view.xml',
         'views/person_view.xml',
+        'views/document_view.xml',
         'wizard/person_select_2018_view.xml',
     ],
     'demo': [],
