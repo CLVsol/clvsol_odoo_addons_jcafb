@@ -58,6 +58,23 @@ class PersonSelect2018(models.TransientModel):
         default=_default_file_name
     )
 
+    def _default_global_tag_id(self):
+        GlobalTag = self.env['clv.global_tag']
+        global_tag = GlobalTag.search([
+            ('name', '=', 'Incluido Recentemente'),
+        ])
+        global_tag_id = False
+        if global_tag.id is not False:
+            global_tag_id = global_tag.id
+        return global_tag_id
+    global_tag_id = fields.Many2one(
+        comodel_name='clv.global_tag',
+        string='Global Tag',
+        ondelete='restrict',
+        required=True,
+        default=_default_global_tag_id
+    )
+
     @api.multi
     def _reopen_form(self):
         self.ensure_one()
@@ -71,9 +88,10 @@ class PersonSelect2018(models.TransientModel):
         }
         return action
 
-    def _person_document_setup(self, person, survey, history_marker_id):
+    def _person_document_setup(self, person, survey, history_marker_id, global_tag_id):
 
         _logger.info(u'%s %s', '>>>>>>>>>>', survey.title)
+        _logger.info(u'%s %s', '>>>>>>>>>>>>>>>x', history_marker_id)
 
         Document = self.env['clv.document']
         document = Document.search([
@@ -94,7 +112,10 @@ class PersonSelect2018(models.TransientModel):
                 # 'category_id': self.category_id.id,
                 'person_id': person.id,
                 'history_marker_id': history_marker_id,
+                'global_tag_ids': [(4, global_tag_id)],
             }
+            _logger.info(u'%s %s', '>>>>>>>>>>>>>>>y', values)
+
             new_document = Document.create(values)
 
             category_id = new_document.get_document_category_id(survey)
@@ -108,7 +129,7 @@ class PersonSelect2018(models.TransientModel):
 
             _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', new_document.name)
 
-    def _person_lab_test_request_setup(self, person, lab_test_type, history_marker_id):
+    def _person_lab_test_request_setup(self, person, lab_test_type, history_marker_id, global_tag_id):
 
         _logger.info(u'%s %s', '>>>>>>>>>>', lab_test_type.name)
 
@@ -131,6 +152,7 @@ class PersonSelect2018(models.TransientModel):
                 'lab_test_type_ids': m2m_list,
                 'person_id': person.id,
                 'history_marker_id': history_marker_id,
+                'global_tag_ids': [(4, global_tag_id)],
             }
             lab_test_request = LabTestRequest.create(values)
 
@@ -159,61 +181,68 @@ class PersonSelect2018(models.TransientModel):
         for person in self.person_ids:
 
             _logger.info(u'%s %s', '>>>>>', person.name)
+            _logger.info(u'%s %s', '>>>>>>>>>>>>>>>w', history_marker_id_jcafb_2018)
 
             if person_category_id_crianca in person.category_ids:
 
                 person.state = 'selected'
+                person.global_tag_ids = [(4, self.global_tag_id.id)]
 
                 survey = Survey.search([
                     ('title', '=', '[TCR18]'),
                 ])
-                self._person_document_setup(person, survey, history_marker_id_jcafb_2018)
+                self._person_document_setup(person, survey, history_marker_id_jcafb_2018, self.global_tag_id.id)
 
                 survey = Survey.search([
                     ('title', '=', '[QSC18]'),
                 ])
-                self._person_document_setup(person, survey, history_marker_id_jcafb_2018)
+                self._person_document_setup(person, survey, history_marker_id_jcafb_2018, self.global_tag_id.id)
 
                 lab_test_type = LabTestType.search([
                     ('code', '=', 'ECP18'),
                 ])
-                self._person_lab_test_request_setup(person, lab_test_type, history_marker_id_jcafb_2018)
+                self._person_lab_test_request_setup(person, lab_test_type, history_marker_id_jcafb_2018,
+                                                    self.global_tag_id.id)
 
                 lab_test_type = LabTestType.search([
                     ('code', '=', 'EEV18'),
                 ])
-                self._person_lab_test_request_setup(person, lab_test_type, history_marker_id_jcafb_2018)
+                self._person_lab_test_request_setup(person, lab_test_type, history_marker_id_jcafb_2018,
+                                                    self.global_tag_id.id)
 
             if person_category_id_idoso in person.category_ids:
 
                 person.state = 'selected'
+                person.global_tag_ids = [(4, self.global_tag_id.id)]
 
                 survey = Survey.search([
                     ('title', '=', '[TID18]'),
                 ])
-                self._person_document_setup(person, survey, history_marker_id_jcafb_2018)
+                self._person_document_setup(person, survey, history_marker_id_jcafb_2018, self.global_tag_id.id)
 
                 survey = Survey.search([
                     ('title', '=', '[QSI18]'),
                 ])
-                self._person_document_setup(person, survey, history_marker_id_jcafb_2018)
+                self._person_document_setup(person, survey, history_marker_id_jcafb_2018, self.global_tag_id.id)
 
                 survey = Survey.search([
                     ('title', '=', '[QMD18]'),
                 ])
-                self._person_document_setup(person, survey, history_marker_id_jcafb_2018)
+                self._person_document_setup(person, survey, history_marker_id_jcafb_2018, self.global_tag_id.id)
 
                 lab_test_type = LabTestType.search([
                     ('code', '=', 'ECP18'),
                 ])
-                self._person_lab_test_request_setup(person, lab_test_type, history_marker_id_jcafb_2018)
+                self._person_lab_test_request_setup(person, lab_test_type, history_marker_id_jcafb_2018,
+                                                    self.global_tag_id.id)
 
                 lab_test_type = LabTestType.search([
                     ('code', '=', 'EUR18'),
                 ])
-                self._person_lab_test_request_setup(person, lab_test_type, history_marker_id_jcafb_2018)
+                self._person_lab_test_request_setup(person, lab_test_type, history_marker_id_jcafb_2018,
+                                                    self.global_tag_id.id)
 
-            person.person_summary_setup(self.dir_path, self.file_name)
+            person.person_summary_setup(self.dir_path, self.file_name, self.global_tag_id.id)
 
         return True
 

@@ -11,8 +11,9 @@
                         <button type="object" name="do_populate_all_persones" string="Get All Persons"/>
                     </div>
                     <label for="person_ids"/>
-                    <field name="person_ids"/>
+                    <field name="person_ids" options="{'no_open': False, 'no_create': True}"/>
                     <group>
+                        <field name="global_tag_id" options="{'no_open': False, 'no_create': True}"/>
                         <field name="dir_path"/>
                         <field name="file_name"/>
                     </group>
