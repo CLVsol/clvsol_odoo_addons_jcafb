@@ -75,12 +75,6 @@ class SummaryRefresh(models.TransientModel):
     def do_summary_refresh(self):
         self.ensure_one()
 
-        SummaryAddressPerson = self.env['clv.summary.address.person']
-        SummaryAddressDocument = self.env['clv.summary.address.document']
-        # SummaryPersonDocument = self.env['clv.summary.person.document']
-        # SummaryPersonLabTestRequest = self.env['clv.summary.person.lab_test.request']
-        # SummaryPersonEvent = self.env['clv.summary.person.event']
-
         for summary in self.summary_ids:
 
             _logger.info(u'%s %s', '>>>>>', summary.name)
@@ -89,113 +83,13 @@ class SummaryRefresh(models.TransientModel):
 
                 _logger.info(u'%s %s', '>>>>>>>>>>', 'is_address_summary')
 
-                name = summary.address_id.name
-
-                summary.name = name
-                summary.date_summary = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
-                _logger.info(u'%s %s', '>>>>>>>>>>', summary.name)
-
-                summary_address_persons = SummaryAddressPerson.search([
-                    ('summary_id', '=', summary.id),
-                    ('address_id', '=', summary.address_id.id),
-                ])
-                summary_address_persons.unlink()
-
-                for person in summary.address_id.person_ids:
-
-                    values = {
-                        'summary_id': summary.id,
-                        'address_id': summary.address_id.id,
-                        'person_id': person.id,
-                        'person_address_role_id': person.person_address_role_id.id,
-                    }
-                    SummaryAddressPerson.create(values)
-
-                summary_address_documents = SummaryAddressDocument.search([
-                    ('summary_id', '=', summary.id),
-                    ('address_id', '=', summary.address_id.id),
-                ])
-                summary_address_documents.unlink()
-
-                for document in summary.address_id.document_ids:
-
-                    if document.history_marker_id.id == summary.address_id.history_marker_id.id:
-
-                        values = {
-                            'summary_id': summary.id,
-                            'address_id': summary.address_id.id,
-                            'document_id': document.id,
-                        }
-                        SummaryAddressDocument.create(values)
+                summary.addres_id.address_summary_setup(self.dir_path, self.file_name)
 
             elif summary.is_person_summary:
 
                 _logger.info(u'%s %s', '>>>>>>>>>>', 'is_person_summary')
 
                 summary.person_id.person_summary_setup(self.dir_path, self.file_name)
-
-            #     name = summary.person_id.name
-            #     address_id = summary.person_id.address_id.id
-            #     summary.date_summary = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
-            #     summary.name = name
-            #     summary.address_id = address_id
-
-            #     _logger.info(u'%s %s', '>>>>>>>>>>', summary.name)
-
-            #     summary_person_documents = SummaryPersonDocument.search([
-            #         ('summary_id', '=', summary.id),
-            #         ('person_id', '=', summary.person_id.id),
-            #     ])
-            #     summary_person_documents.unlink()
-
-            #     for document in summary.person_id.document_ids:
-
-            #         if document.history_marker_id.id == summary.person_id.history_marker_id.id:
-
-            #             values = {
-            #                 'summary_id': summary.id,
-            #                 'person_id': summary.person_id.id,
-            #                 'document_id': document.id,
-            #             }
-            #             SummaryPersonDocument.create(values)
-
-            #     summary_person_lab_test_requests = SummaryPersonLabTestRequest.search([
-            #         ('summary_id', '=', summary.id),
-            #         ('person_id', '=', summary.person_id.id),
-            #     ])
-            #     summary_person_lab_test_requests.unlink()
-
-            #     for lab_test_request in summary.person_id.lab_test_request_ids:
-
-            #         if lab_test_request.history_marker_id.id == summary.person_id.history_marker_id.id:
-
-            #             values = {
-            #                 'summary_id': summary.id,
-            #                 'person_id': summary.person_id.id,
-            #                 'lab_test_request_id': lab_test_request.id,
-            #             }
-            #             SummaryPersonLabTestRequest.create(values)
-
-            #     summary_person_events = SummaryPersonEvent.search([
-            #         ('summary_id', '=', summary.id),
-            #         ('person_id', '=', summary.person_id.id),
-            #     ])
-            #     summary_person_events.unlink()
-
-            #     for event in summary.person_id.event_ids:
-
-            #         if event.history_marker_id.id == summary.person_id.history_marker_id.id:
-
-            #             values = {
-            #                 'summary_id': summary.id,
-            #                 'person_id': summary.person_id.id,
-            #                 'event_id': event.id,
-            #             }
-            #             SummaryPersonEvent.create(values)
-
-            # summary.summary_export_xls(self.dir_path, self.file_name)
 
         return True
 
