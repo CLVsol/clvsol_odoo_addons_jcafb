@@ -34,7 +34,7 @@ class PersonSelect2018(models.TransientModel):
     person_ids = fields.Many2many(
         comodel_name='clv.person',
         relation='clv_person_select_2018_rel',
-        string='Persones',
+        string='Persons',
         default=_default_person_ids
     )
 
@@ -99,7 +99,6 @@ class PersonSelect2018(models.TransientModel):
     def _person_document_setup(self, person, survey, history_marker_id, global_tag_id):
 
         _logger.info(u'%s %s', '>>>>>>>>>>', survey.title)
-        _logger.info(u'%s %s', '>>>>>>>>>>>>>>>x', history_marker_id)
 
         Document = self.env['clv.document']
         document = Document.search([
@@ -122,7 +121,6 @@ class PersonSelect2018(models.TransientModel):
                 'history_marker_id': history_marker_id,
                 'global_tag_ids': [(4, global_tag_id)],
             }
-            _logger.info(u'%s %s', '>>>>>>>>>>>>>>>y', values)
 
             new_document = Document.create(values)
 
@@ -189,7 +187,6 @@ class PersonSelect2018(models.TransientModel):
         for person in self.person_ids:
 
             _logger.info(u'%s %s', '>>>>>', person.name)
-            _logger.info(u'%s %s', '>>>>>>>>>>>>>>>w', history_marker_id_jcafb_2018)
 
             if person_category_id_crianca in person.category_ids:
 
