@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        
+        <record id="clv_address_view_search_jcafb_2018" model="ir.ui.view">
+            <field name="name">clv.address.search</field>
+            <field name="model">clv.address</field>
+            <field name="inherit_id" ref="clv_address.clv_address_view_search"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <filter name="inactive" position="after">
+                    <filter string="Selecionado Recentemente" name="sel_recente" domain="[[u'global_tag_ids', u'ilike', u'Selecionado Recentemente']]"/>
+                </filter>
+            </field>
+        </record>
+       
+    </data>
+</odoo>

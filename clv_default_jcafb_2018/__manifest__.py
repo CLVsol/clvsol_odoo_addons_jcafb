@@ -35,6 +35,7 @@
         'clv_person_jcafb',
     ],
     'data': [
+        'views/address_view.xml',
         'wizard/person_select_2018_view.xml',
     ],
     'demo': [],
