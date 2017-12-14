@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="clv_summary_view_search_jcafb_2018" model="ir.ui.view">
+            <field name="name">clv.summary.search</field>
+            <field name="model">clv.summary</field>
+            <field name="inherit_id" ref="clv_summary.clv_summary_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <group name="group_by" position="before">
+                    <filter string="Selecionado Recentemente" name="sel_recente" domain="[[u'global_tag_ids', u'ilike', u'Selecionado Recentemente']]"/>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</openerp>
