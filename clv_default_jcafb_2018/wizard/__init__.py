@@ -31,3 +31,4 @@ import person_off_person_create
 import address_document_setup
 import person_document_setup
 import person_select_2018
+import person_address_select_2018

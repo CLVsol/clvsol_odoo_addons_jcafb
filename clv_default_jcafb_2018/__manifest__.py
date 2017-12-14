@@ -41,6 +41,7 @@
         'views/lab_test_request_view.xml',
         'views/summary_view.xml',
         'wizard/person_select_2018_view.xml',
+        'wizard/person_address_select_2018_view.xml',
     ],
     'demo': [],
     'test': [],
