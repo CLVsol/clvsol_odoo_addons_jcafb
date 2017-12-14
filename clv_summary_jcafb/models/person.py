@@ -30,7 +30,7 @@ class Person(models.Model):
     _name = "clv.person"
     _inherit = 'clv.person'
 
-    def person_summary_setup(self, dir_path, file_name):
+    def person_summary_setup(self, dir_path, file_name, global_tag_id=False):
 
         Summary = self.env['clv.summary']
         SummaryPersonDocument = self.env['clv.summary.person.document']
@@ -57,6 +57,8 @@ class Person(models.Model):
                 'is_person_summary': True,
                 'address_id': address_id,
             }
+            if global_tag_id is not False:
+                values['global_tag_ids'] = [(4, global_tag_id)]
             new_summary = Summary.create(values)
             _logger.info(u'%s %s', '>>>>>>>>>>', new_summary.name)
 
@@ -123,6 +125,8 @@ class Person(models.Model):
             summary.name = name
             summary.address_id = address_id
             summary.date_summary = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+            if global_tag_id is not False:
+                summary.global_tag_ids = [(4, global_tag_id)]
 
             _logger.info(u'%s %s', '>>>>>>>>>>', summary.name)
 
