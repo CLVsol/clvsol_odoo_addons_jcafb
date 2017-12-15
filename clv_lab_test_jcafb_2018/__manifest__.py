@@ -46,6 +46,7 @@
         'wizard/lab_test_report_edit_ECP18_view.xml',
         'wizard/lab_test_report_edit_EEV18_view.xml',
         'wizard/lab_test_report_edit_EUR18_view.xml',
+        'wizard/lab_test_result_copy_to_report_ECP18_view.xml',
         'wizard/lab_test_off_report_edit_EAN18_view.xml',
         'wizard/lab_test_off_report_edit_EDH18_view.xml',
     ],
