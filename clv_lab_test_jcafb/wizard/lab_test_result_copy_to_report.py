@@ -18,12 +18,29 @@
 #
 ###############################################################################
 
-import lab_test_request_setup
-import lab_test_request_receive
-import lab_test_result_setup
-import lab_test_report_setup
-import lab_test_request_document_setup
-import lab_test_result_edit
-import lab_test_report_edit
-import lab_test_request_direct_mail_setup
-import lab_test_result_copy_to_report
+import logging
+
+from odoo import api, fields, models
+
+_logger = logging.getLogger(__name__)
+
+
+class LabTestResultCopyToReport(models.TransientModel):
+    _inherit = 'clv.lab_test.result.copy_to_report'
+
+    def _default_person_id(self):
+        return self.env['clv.lab_test.result'].browse(self._context.get('active_id')).person_id
+    person_id = fields.Many2one(
+        comodel_name='clv.person',
+        string='Person',
+        readonly=True,
+        default=_default_person_id
+    )
+
+    @api.multi
+    def do_result_copy_to_report(self):
+        self.ensure_one()
+
+        super(LabTestResultCopyToReport, self).do_result_copy_to_report()
+
+        return True
