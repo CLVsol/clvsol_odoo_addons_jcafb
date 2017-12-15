@@ -120,12 +120,6 @@ class LabTestRequestReceive(models.TransientModel):
 
                     _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', lab_test_result.code)
 
-            if lab_test_request.state not in ['draft', 'cancelled']:
-
-                for lab_test_type in lab_test_request.lab_test_type_ids:
-
-                    _logger.info(u'%s %s', '>>>>>>>>>>', lab_test_type.name)
-
                     criteria = []
                     for criterion in lab_test_type.criterion_ids:
                         if criterion.report_display:
@@ -147,5 +141,7 @@ class LabTestRequestReceive(models.TransientModel):
                     lab_test_report = LabTestReport.create(values)
 
                     _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', lab_test_report.code)
+
+                    lab_test_result.lab_test_report_id = lab_test_report.id
 
         return True
