@@ -14,7 +14,7 @@
                         <group string="Exame Coproparasitológico (1)">
                             <field name="ECP18_metodo_utilizado_1"/>
                             <field name="ECP18_resultado_1"/>
-                            <field name="ECP18_examinador_1"/>
+                            <field name="ECP18_examinador_1" options='{"no_open": True, "no_create": True}'/>
                         </group>
                         <group string="-">
                             <field name="ECP18_lab_test_parasite_1_names"/>
@@ -28,7 +28,7 @@
                         <group string="Exame Coproparasitológico (2)">
                             <field name="ECP18_metodo_utilizado_2"/>
                             <field name="ECP18_resultado_2"/>
-                            <field name="ECP18_examinador_2"/>
+                            <field name="ECP18_examinador_2" options='{"no_open": True, "no_create": True}'/>
                         </group>
                         <group string="-">
                             <field name="ECP18_lab_test_parasite_2_names"/>
@@ -42,7 +42,7 @@
                         <group string="Exame Coproparasitológico (3)">
                             <field name="ECP18_metodo_utilizado_3"/>
                             <field name="ECP18_resultado_3"/>
-                            <field name="ECP18_examinador_3"/>
+                            <field name="ECP18_examinador_3" options='{"no_open": True, "no_create": True}'/>
                         </group>
                         <group string="-">
                             <field name="ECP18_lab_test_parasite_3_names"/>
@@ -56,7 +56,7 @@
                         <group string="Exame Coproparasitológico (4)">
                             <field name="ECP18_metodo_utilizado_4"/>
                             <field name="ECP18_resultado_4"/>
-                            <field name="ECP18_examinador_4"/>
+                            <field name="ECP18_examinador_4" options='{"no_open": True, "no_create": True}'/>
                         </group>
                         <group string="-">
                             <field name="ECP18_lab_test_parasite_4_names"/>
