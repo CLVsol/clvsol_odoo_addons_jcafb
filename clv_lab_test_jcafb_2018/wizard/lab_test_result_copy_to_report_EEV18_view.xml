@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="clv_lab_test_result_copy_to_report_view_form_jcafb_EEV18" model="ir.ui.view">
+            <field name="name">clv.lab_test.result.copy_to_report.form</field>
+            <field name="model">clv.lab_test.result.copy_to_report</field>
+            <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_copy_to_report_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <group  name="group_top" position="after">
+                    <group attrs="{'invisible':[('is_EEV18', '=', False)]}">
+                        <field name="is_EEV18" invisible="True"/>
+                        <group>
+                            <field name="EEV18_resultado"/>
+                            <field name="EEV18_metodo_utilizado"/>
+                            <field name="EEV18_obs"/>
+                        </group>
+                    </group>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</odoo>
