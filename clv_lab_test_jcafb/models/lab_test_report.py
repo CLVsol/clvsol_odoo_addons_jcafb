@@ -43,6 +43,7 @@ class LabTestReport(models.Model):
         store=True
     )
 
+    approved = fields.Boolean(string='Approved', default=False)
     employee_id = fields.Many2one(
         comodel_name='hr.employee',
         string='Approved by',
@@ -55,8 +56,8 @@ class LabTestReport(models.Model):
         store=False,
         readonly=True
     )
-    date_approved = fields.Datetime(
-        string='Received Date',
+    date_approved = fields.Date(
+        string='Approved Date',
         readonly=True
     )
 
