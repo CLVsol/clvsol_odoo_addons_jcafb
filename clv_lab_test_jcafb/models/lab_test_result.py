@@ -43,6 +43,23 @@ class LabTestResult(models.Model):
         store=True
     )
 
+    employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Approved by',
+        readonly=True
+    )
+    professional_id = fields.Char(
+        comodel_name='hr.employee',
+        string='Professional ID',
+        related='employee_id.professional_id',
+        store=False,
+        readonly=True
+    )
+    date_approved = fields.Datetime(
+        string='Received Date',
+        readonly=True
+    )
+
 
 class Person(models.Model):
     _inherit = 'clv.person'
