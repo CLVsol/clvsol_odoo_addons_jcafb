@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="clv_lab_test_result_copy_to_report_view_form_jcafb_EUR18" model="ir.ui.view">
+            <field name="name">clv.lab_test.result.copy_to_report.form</field>
+            <field name="model">clv.lab_test.result.copy_to_report</field>
+            <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_copy_to_report_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <group  name="group_top" position="after">
+                    <group attrs="{'invisible':[('is_EUR18', '=', False)]}">
+                        <field name="is_EUR18" invisible="True"/>
+                        <group>
+                            <field name="EUR18_volume"/>
+                            <field name="EUR18_densidade"/>
+                            <field name="EUR18_aspecto"/>
+                            <field name="EUR18_cor"/>
+                            <field name="EUR18_odor"/>
+                        </group>
+                        <group>
+                            <field name="EUR18_ph"/>
+                            <field name="EUR18_proteinas"/>
+                            <field name="EUR18_glicose"/>
+                            <field name="EUR18_cetona"/>
+                            <field name="EUR18_pigmentos_biliares"/>
+                            <field name="EUR18_sangue"/>
+                            <field name="EUR18_urobilinogenio"/>
+                            <field name="EUR18_nitrito"/>
+                        </group>
+                        <group>
+                            <field name="EUR18_celulas_epiteliais"/>
+                            <field name="EUR18_muco"/>
+                            <field name="EUR18_lab_test_crystal_names"/>
+                            <field name="EUR18_cristais" invisible='True'/>
+                            <field name="EUR18_lab_test_crystal_ids">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                            <field name="EUR18_leucocitos"/>
+                            <field name="EUR18_hemacias"/>
+                        </group>
+                        <group>
+                            <field name="EUR18_cilindros"/>
+                            <field name="EUR18_cilindros_hialinos"/>
+                            <field name="EUR18_cilindros_granulosos"/>
+                            <field name="EUR18_cilindros_leucocitarios"/>
+                            <field name="EUR18_cilindros_hematicos"/>
+                            <field name="EUR18_cilindros_cereos"/>
+                            <field name="EUR18_outros_tipos_de_cilindros"/>
+                        </group>
+                        <field name="EUR18_obs"/>
+                    </group>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -35,4 +35,5 @@ import lab_test_off_report_edit_EDH18
 import lab_test_off_report_edit
 import lab_test_result_copy_to_report_ECP18
 import lab_test_result_copy_to_report_EEV18
+import lab_test_result_copy_to_report_EUR18
 import lab_test_result_copy_to_report
