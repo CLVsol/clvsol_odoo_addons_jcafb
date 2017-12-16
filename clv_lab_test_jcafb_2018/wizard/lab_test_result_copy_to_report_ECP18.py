@@ -137,7 +137,7 @@ class LabTestResultCopyToReport(models.TransientModel):
         self._set_result('ECP18', 'ECP18-05-06', self.ECP18_obs)
         self._copy_result('ECP18', 'ECP18-05-06', self.ECP18_obs)
 
-    def do_result_copy_to_report(self):
+    def _do_result_copy_to_report_ECP18(self):
 
         self._write_ECP18_metodos_utilizados()
         self._write_ECP18_resultado()
