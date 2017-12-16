@@ -26,13 +26,13 @@ _logger = logging.getLogger(__name__)
 
 
 class LabTestResultCopyToReport(models.TransientModel):
-    _inherit = 'clv.lab_test.result.edit'
+    _inherit = 'clv.lab_test.result.copy_to_report'
 
     @api.multi
-    def do_result_updt(self):
+    def do_result_copy_to_report(self):
         self.ensure_one()
 
-        super(LabTestResultCopyToReport, self).do_result_updt()
+        super(LabTestResultCopyToReport, self).do_result_copy_to_report()
 
         active_id = self.env['clv.lab_test.result'].browse(self._context.get('active_id'))
 
