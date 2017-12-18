@@ -45,8 +45,14 @@ class Summary(models.Model):
             category = 'Address'
             code = self.code
 
-        file_path = dir_path + '/' + \
-            file_name.replace('<category>', category).replace('<code>', code)
+        FileSystemDirectory = self.env['clv.file_system.directory']
+        file_system_directory = FileSystemDirectory.search([
+            ('directory', '=', dir_path),
+        ])
+
+        file_name = file_name.replace('<category>', category).replace('<code>', code)
+
+        file_path = dir_path + '/' + file_name
         _logger.info(u'%s %s', '>>>>>>>>>>', file_path)
 
         book = xlwt.Workbook()
@@ -242,5 +248,9 @@ class Summary(models.Model):
                 row_nr += 1
 
         book.save(file_path)
+
+        self.directory_id = file_system_directory.id
+        self.file_name = file_name
+        self.stored_file_name = file_name
 
         return True
