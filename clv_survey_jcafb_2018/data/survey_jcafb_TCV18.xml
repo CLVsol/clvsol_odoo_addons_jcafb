@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data noupdate="0">
+<odoo>
+    <data noupdate="1">
 
         <!-- [TCV18] -->
         <record model="survey.survey" id="TCV18">
@@ -55,24 +55,13 @@
                     <field name="constr_error_msg">Preencher com o Código do Professor Responsável que assinou o Termo de Consentimento.</field>
                 </record>
 
-                <!-- 1.4. Nome do Professor Responsável: -->
+                <!-- 1.4. Códigos do(s) Entrevistador(es) (separados por ","): -->
                 <record model="survey.question" id="TCV18_01_04">
-                    <field name="question">1.4. Nome do Professor Responsável:</field>
+                    <field name="question">1.4. Códigos do(s) Entrevistador(es) (separados por ","):</field>
                     <field name="code">TCV18_01_04</field>
                     <field name="type">textbox</field>
                     <field name="page_id" ref="TCV18_01"/>
                     <field name="sequence" eval="40"/>
-                    <field name="constr_mandatory">True</field>
-                    <field name="constr_error_msg">Preencher com o Nome do Professor Responsável que assinou o Termo de Consentimento.</field>
-                </record>
-
-                <!-- 1.5. Códigos do(s) Entrevistador(es) (separados por ","): -->
-                <record model="survey.question" id="TCV18_01_05">
-                    <field name="question">1.5. Códigos do(s) Entrevistador(es) (separados por ","):</field>
-                    <field name="code">TCV18_01_05</field>
-                    <field name="type">textbox</field>
-                    <field name="page_id" ref="TCV18_01"/>
-                    <field name="sequence" eval="50"/>
                     <field name="constr_mandatory">True</field>
                     <field name="constr_error_msg">Informar o(s) Código(s) do(s) entrevistador(es).</field>
                 </record>
@@ -112,7 +101,7 @@
                 <record model="survey.question" id="TCV18_02_03">
                     <field name="question">2.3. Espécie do Animal:</field>
                     <field name="code">TCV18_02_03</field>
-                     <field name="type">textbox</field>
+                    <field name="type">textbox</field>
                     <field name="page_id" ref="TCV18_02"/>
                     <field name="sequence" eval="30"/>
                     <field name="constr_mandatory">True</field>
@@ -180,4 +169,4 @@
                     </record>
 
     </data>
-</openerp>
+</odoo>
