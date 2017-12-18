@@ -43,6 +43,10 @@
         'data/survey_jcafb_TID18.xml',
         'data/survey_jcafb_TPR18.xml',
         'data/survey_jcafb_TUR18.xml',
+
+        'data/survey_jcafb_QVG18.xml',
+        'data/survey_jcafb_QVI18.xml',
+        'data/survey_jcafb_TCV18.xml',
     ],
     'demo': [],
     'test': [],

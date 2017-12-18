@@ -67,4 +67,11 @@ class Document(models.Model):
         if survey.code == 'TUR18':
             document_category_id = document_category_termo
 
+        if survey.code == 'QVG18':
+            document_category_id = document_category_questionario
+        if survey.code == 'QVI18':
+            document_category_id = document_category_questionario
+        if survey.code == 'TCV18':
+            document_category_id = document_category_termo
+
         return document_category_id
