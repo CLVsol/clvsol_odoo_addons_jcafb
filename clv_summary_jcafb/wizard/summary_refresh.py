@@ -19,7 +19,6 @@
 ###############################################################################
 
 import logging
-from datetime import datetime
 
 from odoo import api, fields, models
 
@@ -83,7 +82,7 @@ class SummaryRefresh(models.TransientModel):
 
                 _logger.info(u'%s %s', '>>>>>>>>>>', 'is_address_summary')
 
-                summary.addres_id.address_summary_setup(self.dir_path, self.file_name)
+                summary.address_id.address_summary_setup(self.dir_path, self.file_name)
 
             elif summary.is_person_summary:
 
