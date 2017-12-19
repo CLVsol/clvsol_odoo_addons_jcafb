@@ -74,7 +74,7 @@ class Summary(models.Model):
             row = sheet.row(row_nr)
             row.write(0, 'Responsible Employee:')
             row.write(3, self.address_employee_id.name)
-            row.write(5, self.address_employee_id.code)
+            # row.write(5, self.address_employee_id.code)
             row_nr += 1
 
             row_nr += 1
@@ -100,34 +100,13 @@ class Summary(models.Model):
 
             row_nr += 1
             row = sheet.row(row_nr)
-            row.write(0, 'Person ')
-            row.write(4, 'Code')
-            row.write(6, 'Birthday')
-            row.write(8, 'Reference Age')
-            row.write(10, 'Categories')
-            row.write(12, 'Status')
-            row_nr += 2
-
-            for address_person in self.summary_address_person_ids:
-
-                row = sheet.row(row_nr)
-                row.write(0, address_person.person_id.name)
-                row.write(4, address_person.person_id.code)
-                if address_person.person_id.birthday is not False:
-                    row.write(6, address_person.person_id.birthday)
-                if address_person.person_id.age_reference is not False:
-                    row.write(8, address_person.person_id.age_reference)
-                if address_person.person_category_ids.name is not False:
-                    row.write(10, address_person.person_category_ids.name)
-                row.write(12, address_person.person_state)
-                row_nr += 1
-
-            row_nr += 1
-            row = sheet.row(row_nr)
             row.write(0, 'Document ')
             row.write(2, 'Code')
             row.write(4, 'Categories')
-            row_nr += 2
+            row_nr += 1
+            sheet.row(row_nr).height_mismatch = True
+            sheet.row(row_nr).height = 20 * 4
+            row_nr += 1
 
             for address_document in self.summary_address_document_ids:
 
@@ -135,6 +114,38 @@ class Summary(models.Model):
                 row.write(0, address_document.document_id.name)
                 row.write(2, address_document.document_id.code)
                 row.write(4, address_document.document_category_ids.name)
+                row_nr += 1
+
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Person ')
+            row.write(5, 'Code')
+            row.write(7, 'Birthday')
+            # row.write(8, 'Reference Age')
+            # row.write(10, 'Categories')
+            # row.write(12, 'Status')
+            row.write(9, 'Categories')
+            row.write(11, 'Status')
+            row_nr += 1
+            sheet.row(row_nr).height_mismatch = True
+            sheet.row(row_nr).height = 20 * 4
+            row_nr += 1
+
+            for address_person in self.summary_address_person_ids:
+
+                row = sheet.row(row_nr)
+                row.write(0, address_person.person_id.name)
+                row.write(5, address_person.person_id.code)
+                if address_person.person_id.birthday is not False:
+                    row.write(7, address_person.person_id.birthday)
+                # if address_person.person_id.age_reference is not False:
+                #     row.write(8, address_person.person_id.age_reference)
+                # if address_person.person_category_ids.name is not False:
+                #     row.write(10, address_person.person_category_ids.name)
+                # row.write(12, address_person.person_state)
+                if address_person.person_category_ids.name is not False:
+                    row.write(9, address_person.person_category_ids.name)
+                row.write(11, address_person.person_state)
                 row_nr += 1
 
         if self.is_person_summary:
@@ -154,7 +165,7 @@ class Summary(models.Model):
             row = sheet.row(row_nr)
             row.write(0, 'Responsible Employee:')
             row.write(3, self.person_employee_id.name)
-            row.write(5, self.person_employee_id.code)
+            # row.write(5, self.person_employee_id.code)
             row_nr += 1
 
             row_nr += 1
@@ -211,7 +222,10 @@ class Summary(models.Model):
             row.write(0, 'Document ')
             row.write(2, 'Code')
             row.write(4, 'Categories')
-            row_nr += 2
+            row_nr += 1
+            sheet.row(row_nr).height_mismatch = True
+            sheet.row(row_nr).height = 20 * 4
+            row_nr += 1
 
             for person_document in self.summary_person_document_ids:
 
@@ -224,28 +238,38 @@ class Summary(models.Model):
             row_nr += 1
             row = sheet.row(row_nr)
             row.write(0, 'Lab Test Type ')
-            row.write(5, 'Lab Test Request')
-            row_nr += 2
+            row.write(8, 'Lab Test Request')
+            row_nr += 1
+            sheet.row(row_nr).height_mismatch = True
+            sheet.row(row_nr).height = 20 * 4
+            row_nr += 1
 
             for person_lab_test_request in self.summary_person_lab_test_request_ids:
 
                 row = sheet.row(row_nr)
                 row.write(0, person_lab_test_request.lab_test_type_ids.name)
-                row.write(5, person_lab_test_request.lab_test_request_id.code)
+                row.write(8, person_lab_test_request.lab_test_request_id.code)
                 row_nr += 1
 
             row_nr += 1
             row = sheet.row(row_nr)
             row.write(0, 'Event ')
-            row.write(4, 'Code')
-            row_nr += 2
+            # row.write(6, 'Code')
+            row_nr += 1
+            sheet.row(row_nr).height_mismatch = True
+            sheet.row(row_nr).height = 20 * 4
+            row_nr += 1
 
             for person_event in self.summary_person_event_ids:
 
                 row = sheet.row(row_nr)
                 row.write(0, person_event.event_id.name)
-                row.write(4, person_event.event_id.code)
+                # row.write(6, person_event.event_id.code)
                 row_nr += 1
+
+        for i in range(12):
+            sheet.col(i).width = 256 * 7
+        sheet.show_grid = False
 
         book.save(file_path)
 
