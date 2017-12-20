@@ -33,4 +33,5 @@ from . import lab_test_report_state
 from . import lab_test_parasite
 from . import lab_test_crystal
 from . import lab_test_request_direct_mail
+from . import lab_test_result_export_xls
 from . import lab_test_report_export_xls
