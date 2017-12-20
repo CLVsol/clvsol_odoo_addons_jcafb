@@ -60,6 +60,26 @@ class LabTestRequestReceive(models.TransientModel):
         default=lambda *a: datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     )
 
+    def _default_dir_path_report(self):
+        LabTestReport = self.env['clv.lab_test.report']
+        return LabTestReport.lab_test_report_export_xls_dir_path()
+    dir_path_report = fields.Char(
+        string='Directory Path (Report)',
+        required=True,
+        help="Directory Path (Report)",
+        default=_default_dir_path_report
+    )
+
+    def _default_file_name_report(self):
+        LabTestReport = self.env['clv.lab_test.report']
+        return LabTestReport.lab_test_report_export_xls_file_name()
+    file_name_report = fields.Char(
+        string='File Name (Report)',
+        required=True,
+        help="File Name (Report)",
+        default=_default_file_name_report
+    )
+
     @api.multi
     def _reopen_form(self):
         self.ensure_one()
@@ -139,6 +159,8 @@ class LabTestRequestReceive(models.TransientModel):
                         'criterion_ids': criteria,
                     }
                     lab_test_report = LabTestReport.create(values)
+
+                    lab_test_report.lab_test_report_export_xls(self.dir_path_report, self.file_name_report)
 
                     _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', lab_test_report.code)
 
