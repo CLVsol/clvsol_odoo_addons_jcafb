@@ -28,3 +28,4 @@ import lab_test_report_edit
 import lab_test_request_direct_mail_setup
 import lab_test_result_copy_to_report
 import lab_test_result_approve
+import lab_test_report_export_xls
