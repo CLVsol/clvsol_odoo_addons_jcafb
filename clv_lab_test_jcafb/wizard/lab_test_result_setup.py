@@ -52,6 +52,26 @@ class LabTestResultSetup(models.TransientModel):
         default=_default_lab_test_type_ids
     )
 
+    def _default_dir_path(self):
+        LabTestResult = self.env['clv.lab_test.result']
+        return LabTestResult.lab_test_result_export_xls_dir_path()
+    dir_path = fields.Char(
+        string='Directory Path',
+        required=True,
+        help="Directory Path",
+        default=_default_dir_path
+    )
+
+    def _default_file_name(self):
+        LabTestResult = self.env['clv.lab_test.result']
+        return LabTestResult.lab_test_result_export_xls_file_name()
+    file_name = fields.Char(
+        string='File Name',
+        required=True,
+        help="File Name",
+        default=_default_file_name
+    )
+
     @api.multi
     def _reopen_form(self):
         self.ensure_one()
@@ -100,6 +120,8 @@ class LabTestResultSetup(models.TransientModel):
                         'criterion_ids': criteria,
                     }
                     lab_test_result = LabTestResult.create(values)
+
+                    lab_test_result.lab_test_result_export_xls(self.dir_path, self.file_name)
 
                     _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', lab_test_result.code)
 
