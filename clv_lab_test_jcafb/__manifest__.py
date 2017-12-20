@@ -66,6 +66,7 @@
         'wizard/lab_test_result_copy_to_report_view.xml',
         'wizard/lab_test_request_direct_mail_setup_view.xml',
         'wizard/lab_test_result_approve_view.xml',
+        'wizard/lab_test_result_export_xls_view.xml',
         'wizard/lab_test_report_export_xls_view.xml',
     ],
     'demo': [],
