@@ -22,3 +22,4 @@ from . import lab_test_result_export_xls_ECP18
 from . import lab_test_result_export_xls_EEV18
 from . import lab_test_result_export_xls_EUR18
 from . import lab_test_result_export_xls
+from . import lab_test_report_export_xls
