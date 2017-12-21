@@ -18,6 +18,8 @@
                         </group>
                         <group>
                         </group>
+                        <field name="dir_path_result"/>
+                        <field name="file_name_result"/>
                         <field name="dir_path_report"/>
                         <field name="file_name_report"/>
                     </group>
