@@ -18,5 +18,4 @@
 #
 ###############################################################################
 
-from . import models
-from . import wizard
+from . import lab_test_result_export_xls
