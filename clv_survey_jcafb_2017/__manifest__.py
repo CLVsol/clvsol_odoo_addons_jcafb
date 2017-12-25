@@ -28,6 +28,7 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_survey',
+        'clv_document_jcafb',
     ],
     'data': [
         'data/survey_jcafb_QAN17.xml',
