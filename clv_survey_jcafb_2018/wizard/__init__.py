@@ -18,5 +18,4 @@
 #
 ###############################################################################
 
-from . import models
-from . import wizard
+from . import document_item_edit
