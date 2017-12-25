@@ -52,4 +52,8 @@ class DocumentItemEdit(models.TransientModel):
 
         super(DocumentItemEdit, self).do_document_updt()
 
+        document = self.env['clv.document'].browse(self._context.get('active_id'))
+
+        _logger.info(u'%s %s', '>>>>>>>>>>', document.code)
+
         return True
