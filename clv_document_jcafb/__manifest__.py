@@ -41,6 +41,7 @@
         'views/address_view.xml',
         'data/document_seq.xml',
         'wizard/document_updt_view.xml',
+        'wizard/document_item_edit_view.xml',
     ],
     'demo': [],
     'test': [],
