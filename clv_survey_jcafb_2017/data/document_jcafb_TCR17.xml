@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<odoo>
+	<data noupdate="1">
+	
+		<record id="clv_document_TCR17" model="clv.document.type">
+			<field name="code" eval="&quot;&quot;&quot;TCR17&quot;&quot;&quot;"/>
+			<field name="name" eval="&quot;&quot;&quot;TCR17&quot;&quot;&quot;"/>
+		</record>
+	 
+		<record id="clv_document_item_TCR17_peso_altura" model="clv.document.item">
+			<field name="document_type_id" ref="clv_document_TCR17"/>
+			<field name="sequence" eval="300"/>
+			<field name="name" eval="&quot;&quot;&quot;3. Consentimentos&quot;&quot;&quot;"/>
+			<field name="document_display" eval="True"/>
+		</record>
+	
+		<record id="clv_document_item_TCR17_03_01" model="clv.document.item">
+			<field name="document_type_id" ref="clv_document_TCR17"/>
+			<field name="sequence" eval="301"/>
+			<field name="code">TCR17-03-01</field>
+			<field name="name" eval="&quot;&quot;&quot;3.1. 1) Questionário Socioeconômico&quot;&quot;&quot;"/>
+			<field name="document_display" eval="True"/>
+		</record>
+	
+		<record id="clv_document_item_TCR17_03_02" model="clv.document.item">
+			<field name="document_type_id" ref="clv_document_TCR17"/>
+			<field name="sequence" eval="302"/>
+			<field name="code">TCR17-03-02</field>
+			<field name="name" eval="&quot;&quot;&quot;3.2. 2) Exame coproparasitológico de fezes&quot;&quot;&quot;"/>
+			<field name="document_display" eval="True"/>
+		</record>
+	
+		<record id="clv_document_item_TCR17_03_03" model="clv.document.item">
+			<field name="document_type_id" ref="clv_document_TCR17"/>
+			<field name="sequence" eval="303"/>
+			<field name="code">TCR17-03-03</field>
+			<field name="name" eval="&quot;&quot;&quot;3.3. 3) Swab Anal&quot;&quot;&quot;"/>
+			<field name="document_display" eval="True"/>
+		</record>
+	
+		<record id="clv_document_item_TCR17_03_04" model="clv.document.item">
+			<field name="document_type_id" ref="clv_document_TCR17"/>
+			<field name="sequence" eval="304"/>
+			<field name="code">TCR17-03-04</field>
+			<field name="name" eval="&quot;&quot;&quot;3.4. 4) Exame de Anemia&quot;&quot;&quot;"/>
+			<field name="document_display" eval="True"/>
+		</record>
+	
+	</data>
+</odoo>
