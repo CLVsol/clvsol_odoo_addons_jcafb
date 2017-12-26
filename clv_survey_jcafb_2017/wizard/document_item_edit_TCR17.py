@@ -42,44 +42,44 @@ class DocumentItemEdit(models.TransientModel):
     is_TCR17 = fields.Boolean('Is TCR17', readonly=True, default=_default_is_TCR17)
 
     def _default_TCR17_03_01(self):
-        return self._get_default('TCR17', 'TCR17-03-01')
+        return self._get_default('TCR17', 'TCR17_03_01')
     TCR17_03_01 = fields.Selection([
         (u'Concordo em participar', u'Concordo em participar'),
         (u'Não concordo em participar', u'Não concordo em participar'),
     ], u'3.1. 1) Questionário Socioeconômico', readonly=False, default=_default_TCR17_03_01)
 
     def _write_TCR17_03_01(self):
-        self._set_value('TCR17', 'TCR17-03-01', self.TCR17_03_01)
+        self._set_value('TCR17', 'TCR17_03_01', self.TCR17_03_01)
 
     def _default_TCR17_03_02(self):
-        return self._get_default('TCR17', 'TCR17-03-02')
+        return self._get_default('TCR17', 'TCR17_03_02')
     TCR17_03_02 = fields.Selection([
         (u'Concordo em participar', u'Concordo em participar'),
         (u'Não concordo em participar', u'Não concordo em participar'),
     ], u'3.2. 2) Exame coproparasitológico de fezes', readonly=False, default=_default_TCR17_03_02)
 
     def _write_TCR17_03_02(self):
-        self._set_value('TCR17', 'TCR17-03-02', self.TCR17_03_02)
+        self._set_value('TCR17', 'TCR17_03_02', self.TCR17_03_02)
 
     def _default_TCR17_03_03(self):
-        return self._get_default('TCR17', 'TCR17-03-03')
+        return self._get_default('TCR17', 'TCR17_03_03')
     TCR17_03_03 = fields.Selection([
         (u'Concordo em participar', u'Concordo em participar'),
         (u'Não concordo em participar', u'Não concordo em participar'),
     ], u'3.3. 3) Swab Anal', readonly=False, default=_default_TCR17_03_03)
 
     def _write_TCR17_03_03(self):
-        self._set_value('TCR17', 'TCR17-03-03', self.TCR17_03_03)
+        self._set_value('TCR17', 'TCR17_03_03', self.TCR17_03_03)
 
     def _default_TCR17_03_04(self):
-        return self._get_default('TCR17', 'TCR17-03-04')
+        return self._get_default('TCR17', 'TCR17_03_04')
     TCR17_03_04 = fields.Selection([
         (u'Concordo em participar', u'Concordo em participar'),
         (u'Não concordo em participar', u'Não concordo em participar'),
     ], u'3.4. 4) Exame de Anemia', readonly=False, default=_default_TCR17_03_04)
 
     def _write_TCR17_03_04(self):
-        self._set_value('TCR17', 'TCR17-03-04', self.TCR17_03_04)
+        self._set_value('TCR17', 'TCR17_03_04', self.TCR17_03_04)
 
     def _do_document_updt_TCR17(self):
 
