@@ -44,9 +44,9 @@
         'data/survey_jcafb_TPR18.xml',
         'data/survey_jcafb_TUR18.xml',
 
-        'data/survey_jcafb_QVG18.xml',
-        'data/survey_jcafb_QVI18.xml',
-        'data/survey_jcafb_TCV18.xml',
+        # 'data/survey_jcafb_QVG18.xml',
+        # 'data/survey_jcafb_QVI18.xml',
+        # 'data/survey_jcafb_TCV18.xml',
 
         'data/document_jcafb_TCR18.xml',
 
