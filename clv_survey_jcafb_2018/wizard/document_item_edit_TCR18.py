@@ -42,34 +42,34 @@ class DocumentItemEdit(models.TransientModel):
     is_TCR18 = fields.Boolean('Is TCR18', readonly=True, default=_default_is_TCR18)
 
     def _default_TCR18_03_01(self):
-        return self._get_default('TCR18', 'TCR18-03-01')
+        return self._get_default('TCR18', 'TCR18_03_01')
     TCR18_03_01 = fields.Selection([
         (u'Concordo em participar', u'Concordo em participar'),
         (u'Não concordo em participar', u'Não concordo em participar'),
     ], u'3.1. Questionário Socioeconômico', readonly=False, default=_default_TCR18_03_01)
 
     def _write_TCR18_03_01(self):
-        self._set_value('TCR18', 'TCR18-03-01', self.TCR18_03_01)
+        self._set_value('TCR18', 'TCR18_03_01', self.TCR18_03_01)
 
     def _default_TCR18_03_02(self):
-        return self._get_default('TCR18', 'TCR18-03-02')
+        return self._get_default('TCR18', 'TCR18_03_02')
     TCR18_03_02 = fields.Selection([
         (u'Concordo em participar', u'Concordo em participar'),
         (u'Não concordo em participar', u'Não concordo em participar'),
     ], u'3.2. Exame coproparasitológico de fezes', readonly=False, default=_default_TCR18_03_02)
 
     def _write_TCR18_03_02(self):
-        self._set_value('TCR18', 'TCR18-03-02', self.TCR18_03_02)
+        self._set_value('TCR18', 'TCR18_03_02', self.TCR18_03_02)
 
     def _default_TCR18_03_03(self):
-        return self._get_default('TCR18', 'TCR18-03-03')
+        return self._get_default('TCR18', 'TCR18_03_03')
     TCR18_03_03 = fields.Selection([
         (u'Concordo em participar', u'Concordo em participar'),
         (u'Não concordo em participar', u'Não concordo em participar'),
     ], u'3.3. Swab Anal', readonly=False, default=_default_TCR18_03_03)
 
     def _write_TCR18_03_03(self):
-        self._set_value('TCR18', 'TCR18-03-03', self.TCR18_03_03)
+        self._set_value('TCR18', 'TCR18_03_03', self.TCR18_03_03)
 
     def _do_document_updt_TCR18(self):
 
