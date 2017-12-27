@@ -56,6 +56,7 @@
         'wizard/document_item_edit_TAN18_view.xml',
         'wizard/document_item_edit_TCR18_view.xml',
         'wizard/document_item_edit_TDH18_view.xml',
+        'wizard/document_item_edit_TID18_view.xml',
     ],
     'demo': [],
     'test': [],
