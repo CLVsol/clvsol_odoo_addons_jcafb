@@ -41,6 +41,7 @@
         'data/survey_jcafb_TCR17.xml',
         'data/survey_jcafb_TID17.xml',
 
+        'data/document_jcafb_TCP17.xml',
         'data/document_jcafb_TCR17.xml',
         'data/document_jcafb_TID17.xml',
 
