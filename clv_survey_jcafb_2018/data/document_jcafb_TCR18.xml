@@ -7,7 +7,7 @@
 			<field name="name" eval="&quot;&quot;&quot;TCR18&quot;&quot;&quot;"/>
 		</record>
 	 
-		<record id="clv_document_item_TCR18_peso_altura" model="clv.document.item">
+		<record id="clv_document_item_TCR18_03_00" model="clv.document.item">
 			<field name="document_type_id" ref="clv_document_TCR18"/>
 			<field name="sequence" eval="300"/>
 			<field name="name" eval="&quot;&quot;&quot;3. Consentimentos&quot;&quot;&quot;"/>
