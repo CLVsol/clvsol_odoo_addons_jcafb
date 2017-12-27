@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="clv_document_item_edit_view_form_jcafb_TDH18" model="ir.ui.view">
+            <field name="name">clv.document.item_edit.form</field>
+            <field name="model">clv.document.item_edit</field>
+            <field name="inherit_id" ref="clv_document.clv_document_item_edit_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <group  name="group_bottom" position="after">
+                    <group attrs="{'invisible':[('is_TDH18', '=', False)]}">
+                        <field name="is_TDH18" invisible="True"/>
+                        <group string='3. Consentimentos'>
+                            <field name="TDH18_03_01"/>
+                        </group>
+                    </group>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</odoo>
