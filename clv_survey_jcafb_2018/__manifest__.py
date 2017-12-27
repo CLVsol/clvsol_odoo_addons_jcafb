@@ -48,6 +48,7 @@
         # 'data/survey_jcafb_QVI18.xml',
         # 'data/survey_jcafb_TCV18.xml',
 
+        'data/document_jcafb_TAN18.xml',
         'data/document_jcafb_TCR18.xml',
 
         'wizard/document_item_edit_TCR18_view.xml',
