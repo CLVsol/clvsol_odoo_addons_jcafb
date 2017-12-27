@@ -64,6 +64,5 @@ class DocumentItemEdit(models.TransientModel):
 
         if document.document_type_id.code == 'TID17':
             self._do_document_updt_TID17()
-            pass
 
         return True
