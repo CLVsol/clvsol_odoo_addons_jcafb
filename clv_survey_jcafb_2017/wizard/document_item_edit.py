@@ -56,12 +56,11 @@ class DocumentItemEdit(models.TransientModel):
         if document.document_type_id.code == 'QSI17':
             pass
 
+        if document.document_type_id.code == 'TCP17':
+            self._do_document_updt_TCP17()
+
         if document.document_type_id.code == 'TCR17':
             self._do_document_updt_TCR17()
-
-        if document.document_type_id.code == 'TDH17':
-            # self._do_document_updt_TDH17()
-            pass
 
         if document.document_type_id.code == 'TID17':
             self._do_document_updt_TID17()
