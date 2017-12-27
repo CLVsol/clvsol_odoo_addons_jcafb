@@ -57,8 +57,7 @@ class DocumentItemEdit(models.TransientModel):
             pass
 
         if document.document_type_id.code == 'TAN18':
-            # self._do_document_updt_TAN18()
-            pass
+            self._do_document_updt_TAN18()
 
         if document.document_type_id.code == 'TCR18':
             self._do_document_updt_TCR18()

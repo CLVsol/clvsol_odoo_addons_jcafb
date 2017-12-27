@@ -51,6 +51,7 @@
         'data/document_jcafb_TAN18.xml',
         'data/document_jcafb_TCR18.xml',
 
+        'wizard/document_item_edit_TAN18_view.xml',
         'wizard/document_item_edit_TCR18_view.xml',
     ],
     'demo': [],
