@@ -19,4 +19,5 @@
 ###############################################################################
 
 from . import document_item_edit_TCR17
+from . import document_item_edit_TID17
 from . import document_item_edit

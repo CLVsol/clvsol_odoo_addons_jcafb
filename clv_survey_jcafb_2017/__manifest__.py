@@ -45,6 +45,7 @@
         'data/document_jcafb_TID17.xml',
 
         'wizard/document_item_edit_TCR17_view.xml',
+        'wizard/document_item_edit_TID17_view.xml',
     ],
     'demo': [],
     'test': [],
