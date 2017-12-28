@@ -50,6 +50,8 @@ class LabTestResult(models.Model):
             sheet = wbook.get_sheet(0)
             file_name = file_name.replace('<type>', lab_test_type).replace('<request_code>', lab_test_request_code)
             file_path = dir_path + '/' + file_name
+            idx = book.sheet_names().index(template_file_name)
+            wbook.get_sheet(idx).name = file_name
         else:
             file_name = file_name.replace('<type>', lab_test_type).replace('<request_code>', lab_test_request_code)
             file_path = dir_path + '/' + file_name
