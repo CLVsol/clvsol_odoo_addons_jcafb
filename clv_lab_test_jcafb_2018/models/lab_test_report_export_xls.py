@@ -20,6 +20,8 @@
 
 import logging
 import xlwt
+from xlutils.copy import copy
+from xlrd import open_workbook
 
 from odoo import models
 
@@ -30,7 +32,7 @@ class LabTestReport(models.Model):
     _name = "clv.lab_test.report"
     _inherit = 'clv.lab_test.report'
 
-    def lab_test_report_export_xls(self, dir_path, file_name):
+    def lab_test_report_export_xls(self, dir_path, file_name, use_template, template_dir_path):
 
         lab_test_type = self.lab_test_type_id.code
         lab_test_request_code = self.lab_test_request_id.code
@@ -40,14 +42,24 @@ class LabTestReport(models.Model):
             ('directory', '=', dir_path),
         ])
 
-        file_name = file_name.replace('<type>', lab_test_type).replace('<request_code>', lab_test_request_code)
-        file_path = dir_path + '/' + file_name
+        if use_template:
+            template_file_name = file_name.replace('<type>', lab_test_type).replace('<request_code>', 'nnn.nnn-dd')
+            template_file_path = template_dir_path + '/' + template_file_name
+            book = open_workbook(template_file_path, formatting_info=True)
+            wbook = copy(book)
+            sheet = wbook.get_sheet(0)
+            file_name = file_name.replace('<type>', lab_test_type).replace('<request_code>', lab_test_request_code)
+            file_path = dir_path + '/' + file_name
+            idx = book.sheet_names().index(template_file_name)
+            wbook.get_sheet(idx).name = file_name
+        else:
+            file_name = file_name.replace('<type>', lab_test_type).replace('<request_code>', lab_test_request_code)
+            file_path = dir_path + '/' + file_name
+            wbook = xlwt.Workbook()
+            sheet = wbook.add_sheet(file_name)
 
-        _logger.info(u'%s %s %s', '>>>>>>>>>>', lab_test_request_code, lab_test_type)
+        _logger.info(u'%s %s %s %s', '>>>>>>>>>>', lab_test_request_code, lab_test_type, use_template)
 
-        book = xlwt.Workbook()
-
-        sheet = book.add_sheet(file_name)
         row_nr = 0
 
         save_book = False
@@ -74,7 +86,7 @@ class LabTestReport(models.Model):
 
         if save_book:
 
-            book.save(file_path)
+            wbook.save(file_path)
 
             self.directory_id = file_system_directory.id
             self.file_name = file_name
