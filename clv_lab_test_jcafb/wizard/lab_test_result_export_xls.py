@@ -57,6 +57,18 @@ class LabTestResultExportXLS(models.TransientModel):
         default=_default_file_name
     )
 
+    use_template = fields.Boolean(string='Use Template', default=True)
+
+    def _default_templates_dir_path(self):
+        LabTestResult = self.env['clv.lab_test.result']
+        return LabTestResult.lab_test_result_export_templates_dir_path()
+    templates_dir_path = fields.Char(
+        string='Template Directory Path',
+        required=True,
+        help="Template Directory Path",
+        default=_default_templates_dir_path
+    )
+
     @api.multi
     def do_lab_test_result_export_xls(self):
         self.ensure_one()
@@ -65,6 +77,7 @@ class LabTestResultExportXLS(models.TransientModel):
 
             _logger.info(u'%s %s', '>>>>>', lab_test_result_reg.code)
 
-            lab_test_result_reg.lab_test_result_export_xls(self.dir_path, self.file_name)
+            lab_test_result_reg.lab_test_result_export_xls(self.dir_path, self.file_name,
+                                                           self.use_template, self.templates_dir_path)
 
         return True
