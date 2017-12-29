@@ -38,16 +38,16 @@ class LabTestResult(models.Model):
         lab_test_request_code = self.lab_test_request_id.code
         lab_test_result_code = self.code
 
-        ExportXLS.setOutCell(sheet, 0, row_nr, u'JCAFB-2018 - FERNÃO - SP')
+        ExportXLS.setOutCell(sheet, 17, row_nr, u'JCAFB-2018 - FERNÃO - SP')
         row_nr += 1
-        ExportXLS.setOutCell(sheet, 0, row_nr, lab_test_type + ' - ' +
+        ExportXLS.setOutCell(sheet, 8, row_nr, lab_test_type + ' - ' +
                              u'EXAME COPROPARASITOLÓGICO - RESULTADOS')
         row_nr += 2
 
         ExportXLS.setOutCell(sheet, 0, row_nr, u'Código da Requisição:')
         ExportXLS.setOutCell(sheet, 10, row_nr, lab_test_request_code)
-        ExportXLS.setOutCell(sheet, 25, row_nr, u'Código do Resultado:')
-        ExportXLS.setOutCell(sheet, 35, row_nr, lab_test_result_code)
+        ExportXLS.setOutCell(sheet, 33, row_nr, u'Código do Resultado:')
+        ExportXLS.setOutCell(sheet, 43, row_nr, lab_test_result_code)
         row_nr += 1
 
         ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome da Pessoa:')
@@ -62,8 +62,8 @@ class LabTestResult(models.Model):
         row_nr += 1
         ExportXLS.setOutCell(sheet, 0, row_nr, u'Código do Recebedor:')
         ExportXLS.setOutCell(sheet, 10, row_nr, self.lab_test_request_id.employee_id.code)
-        row_nr += 2
 
+        row_nr += 1
         ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Exame:')
         row_nr += 2
 
@@ -73,15 +73,15 @@ class LabTestResult(models.Model):
         ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado:')
         row_nr += 3
 
+        ExportXLS.setOutCell(sheet, 0, row_nr, u'Observações:')
+        row_nr += 4
+
         ExportXLS.setOutCell(sheet, 0, row_nr, u'Analisador(a):')
         row_nr += 2
 
-        ExportXLS.setOutCell(sheet, 0, row_nr, u'Observações:')
-        row_nr += 3
-
         ExportXLS.setOutCell(sheet, 0, row_nr, u'Revisado por:')
         ExportXLS.setOutCell(sheet, 25, row_nr, u'Data:')
-        row_nr += 2
+        row_nr += 1
 
         ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado Confirmado (   )')
         ExportXLS.setOutCell(sheet, 25, row_nr, u'Resultado Alterado (   )')
@@ -96,16 +96,16 @@ class LabTestResult(models.Model):
             row.write(i, u'-')
         row_nr += 2
 
-        ExportXLS.setOutCell(sheet, 0, row_nr, u'JCAFB-2018 - FERNÃO - SP')
+        ExportXLS.setOutCell(sheet, 17, row_nr, u'JCAFB-2018 - FERNÃO - SP')
         row_nr += 1
-        ExportXLS.setOutCell(sheet, 0, row_nr, lab_test_type + ' - ' +
+        ExportXLS.setOutCell(sheet, 8, row_nr, lab_test_type + ' - ' +
                              u'EXAME COPROPARASITOLÓGICO - RESULTADOS')
         row_nr += 2
 
         ExportXLS.setOutCell(sheet, 0, row_nr, u'Código da Requisição:')
         ExportXLS.setOutCell(sheet, 10, row_nr, lab_test_request_code)
-        ExportXLS.setOutCell(sheet, 25, row_nr, u'Código do Resultado:')
-        ExportXLS.setOutCell(sheet, 35, row_nr, lab_test_result_code)
+        ExportXLS.setOutCell(sheet, 33, row_nr, u'Código do Resultado:')
+        ExportXLS.setOutCell(sheet, 43, row_nr, lab_test_result_code)
         row_nr += 1
 
         ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome da Pessoa:')
@@ -120,7 +120,7 @@ class LabTestResult(models.Model):
         row_nr += 1
         ExportXLS.setOutCell(sheet, 0, row_nr, u'Código do Recebedor:')
         ExportXLS.setOutCell(sheet, 10, row_nr, self.lab_test_request_id.employee_id.code)
-        row_nr += 2
+        row_nr += 1
 
         ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Exame:')
         row_nr += 2
@@ -131,15 +131,15 @@ class LabTestResult(models.Model):
         ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado:')
         row_nr += 3
 
+        ExportXLS.setOutCell(sheet, 0, row_nr, u'Observações:')
+        row_nr += 4
+
         ExportXLS.setOutCell(sheet, 0, row_nr, u'Analisador(a):')
         row_nr += 2
 
-        ExportXLS.setOutCell(sheet, 0, row_nr, u'Observações:')
-        row_nr += 3
-
         ExportXLS.setOutCell(sheet, 0, row_nr, u'Revisado por:')
         ExportXLS.setOutCell(sheet, 25, row_nr, u'Data:')
-        row_nr += 2
+        row_nr += 1
 
         ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado Confirmado (   )')
         ExportXLS.setOutCell(sheet, 25, row_nr, u'Resultado Alterado (   )')
