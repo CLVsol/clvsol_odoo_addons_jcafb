@@ -20,8 +20,12 @@
                         </group>
                         <field name="dir_path_result"/>
                         <field name="file_name_result"/>
+                        <field name="use_template_result"/>
+                        <field name="templates_dir_path_result"/>
                         <field name="dir_path_report"/>
                         <field name="file_name_report"/>
+                        <field name="use_template_report"/>
+                        <field name="templates_dir_path_report"/>
                     </group>
                     <footer>
                         <button 

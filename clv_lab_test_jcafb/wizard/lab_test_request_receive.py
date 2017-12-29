@@ -80,6 +80,18 @@ class LabTestRequestReceive(models.TransientModel):
         default=_default_file_name_result
     )
 
+    use_template_result = fields.Boolean(string='Use Template (Result)', default=True)
+
+    def _default_templates_dir_path_result(self):
+        LabTestResult = self.env['clv.lab_test.result']
+        return LabTestResult.lab_test_result_export_templates_dir_path()
+    templates_dir_path_result = fields.Char(
+        string='Template Directory Path (Result)',
+        required=True,
+        help="Template Directory Path (Result)",
+        default=_default_templates_dir_path_result
+    )
+
     def _default_dir_path_report(self):
         LabTestReport = self.env['clv.lab_test.report']
         return LabTestReport.lab_test_report_export_xls_dir_path()
@@ -98,6 +110,18 @@ class LabTestRequestReceive(models.TransientModel):
         required=True,
         help="File Name (Report)",
         default=_default_file_name_report
+    )
+
+    use_template_report = fields.Boolean(string='Use Template (Report)', default=True)
+
+    def _default_templates_dir_path_report(self):
+        LabTestReport = self.env['clv.lab_test.report']
+        return LabTestReport.lab_test_report_export_templates_dir_path()
+    templates_dir_path_report = fields.Char(
+        string='Template Directory Path (Report)',
+        required=True,
+        help="Template Directory Path (Report)",
+        default=_default_templates_dir_path_report
     )
 
     @api.multi
@@ -158,7 +182,9 @@ class LabTestRequestReceive(models.TransientModel):
                     }
                     lab_test_result = LabTestResult.create(values)
 
-                    lab_test_result.lab_test_result_export_xls(self.dir_path_result, self.file_name_result)
+                    lab_test_result.lab_test_result_export_xls(self.dir_path_result, self.file_name_result,
+                                                               self.use_template_result,
+                                                               self._default_templates_dir_path_result)
 
                     _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', lab_test_result.code)
 
@@ -182,7 +208,9 @@ class LabTestRequestReceive(models.TransientModel):
                     }
                     lab_test_report = LabTestReport.create(values)
 
-                    lab_test_report.lab_test_report_export_xls(self.dir_path_report, self.file_name_report)
+                    lab_test_report.lab_test_report_export_xls(self.dir_path_report, self.file_name_report,
+                                                               self.use_template_report,
+                                                               self._default_templates_dir_path_report)
 
                     _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', lab_test_report.code)
 
