@@ -22,6 +22,8 @@ import logging
 import xlwt
 from xlutils.copy import copy
 from xlrd import open_workbook
+import os.path
+from PIL import Image
 
 from odoo import models
 
@@ -58,6 +60,13 @@ class LabTestReport(models.Model):
             wbook = xlwt.Workbook()
             sheet = wbook.add_sheet(file_name)
 
+        logo_file_path = template_dir_path + '/' + 'jcafb.bmp'
+        if not os.path.isfile(logo_file_path):
+            img = Image.open(template_dir_path + '/' + 'jcafb.png')
+            r, g, b, a = img.split()
+            img = Image.merge('RGB', (r, g, b))
+            img.save(logo_file_path)
+
         _logger.info(u'%s %s %s %s', '>>>>>>>>>>', lab_test_request_code, lab_test_type, use_template)
 
         row_nr = 0
@@ -65,23 +74,23 @@ class LabTestReport(models.Model):
         save_book = False
 
         if lab_test_type == 'EAN18':
-            self.lab_test_report_export_xls_EAN18(sheet, row_nr)
+            self.lab_test_report_export_xls_EAN18(sheet, row_nr, logo_file_path, use_template)
             save_book = True
 
         if lab_test_type == 'ECP18':
-            self.lab_test_report_export_xls_ECP18(sheet, row_nr)
+            self.lab_test_report_export_xls_ECP18(sheet, row_nr, logo_file_path, use_template)
             save_book = True
 
         if lab_test_type == 'EDH18':
-            self.lab_test_report_export_xls_EDH18(sheet, row_nr)
+            self.lab_test_report_export_xls_EDH18(sheet, row_nr, logo_file_path, use_template)
             save_book = True
 
         if lab_test_type == 'EEV18':
-            self.lab_test_report_export_xls_EEV18(sheet, row_nr)
+            self.lab_test_report_export_xls_EEV18(sheet, row_nr, logo_file_path, use_template)
             save_book = True
 
         if lab_test_type == 'EUR18':
-            self.lab_test_report_export_xls_EUR18(sheet, row_nr)
+            self.lab_test_report_export_xls_EUR18(sheet, row_nr, logo_file_path, use_template)
             save_book = True
 
         if save_book:
