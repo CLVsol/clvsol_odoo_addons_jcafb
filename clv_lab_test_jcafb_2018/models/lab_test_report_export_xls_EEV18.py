@@ -20,6 +20,7 @@
 
 import logging
 # import xlwt
+from datetime import datetime
 
 from odoo import models
 
@@ -30,7 +31,7 @@ class LabTestReport(models.Model):
     _name = "clv.lab_test.report"
     _inherit = 'clv.lab_test.report'
 
-    def lab_test_report_export_xls_EEV18(self, sheet, row_nr):
+    def lab_test_report_export_xls_EEV18(self, sheet, row_nr, logo_file_path, use_template):
 
         ExportXLS = self.env['clv.export_xls']
 
@@ -38,79 +39,157 @@ class LabTestReport(models.Model):
         lab_test_request_code = self.lab_test_request_id.code
         # lab_test_result_code = self.code
 
-        ExportXLS.setOutCell(sheet, 17, row_nr, u'Jornada Científica dos Acadêmicos de Farmácia-Bioquímica')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 23, row_nr, u'JCAFB-2018 - FERNÃO - SP')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 12, row_nr,
-                             u'Faculdade de Ciências Farmacêuticas - Centro Acadêmico de Farmácia-Bioquímica')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 23, row_nr, u'Universidade dde São Paulo')
-        row_nr += 2
-
-        # ExportXLS.setOutCell(sheet, 0, row_nr, u'Código da Requisição:')
-        # ExportXLS.setOutCell(sheet, 10, row_nr, lab_test_request_code)
-        # ExportXLS.setOutCell(sheet, 25, row_nr, u'Código do Resultado:')
-        # ExportXLS.setOutCell(sheet, 35, row_nr, lab_test_result_code)
-        # row_nr += 1
-
-        ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome:')
-        ExportXLS.setOutCell(sheet, 4, row_nr, self.person_id.name)
-        # row_nr += 1
-        ExportXLS.setOutCell(sheet, 30, row_nr, u'Cadastro:')
-        ExportXLS.setOutCell(sheet, 35, row_nr, self.person_id.code)
-        row_nr += 2
-
-        ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Exame:')
-        ExportXLS.setOutCell(sheet, 8, row_nr, self.date_approved)
-        # row_nr += 1
-        ExportXLS.setOutCell(sheet, 30, row_nr, u'Código do Exame:')
-        ExportXLS.setOutCell(sheet, 38, row_nr, lab_test_request_code)
-        row_nr += 2
-
-        ExportXLS.setOutCell(sheet, 15, row_nr, u'PESQUISA DE Enterobius vermicularis')
-        row_nr += 5
-
-        result = self.criterion_ids.search([
-            ('lab_test_report_id', '=', self.id),
-            ('code', '=', 'EEV18-01-03'),
-        ]).result
-        ExportXLS.setOutCell(sheet, 18, row_nr, u'Resultado:')
-        ExportXLS.setOutCell(sheet, 23, row_nr, result)
-        row_nr += 5
-
-        result = self.criterion_ids.search([
-            ('lab_test_report_id', '=', self.id),
-            ('code', '=', 'EEV18-01-05'),
-        ]).result
-        ExportXLS.setOutCell(sheet, 0, row_nr, u'Métodos utilizados:')
-        ExportXLS.setOutCell(sheet, 10, row_nr, result)
-        row_nr += 1
-
-        result = self.criterion_ids.search([
-            ('lab_test_report_id', '=', self.id),
-            ('code', '=', 'EEV18-01-03'),
-        ]).normal_range
-        ExportXLS.setOutCell(sheet, 0, row_nr, u'Valor de referência:')
-        ExportXLS.setOutCell(sheet, 10, row_nr, result)
-        row_nr += 2
-
-        result = self.criterion_ids.search([
-            ('lab_test_report_id', '=', self.id),
-            ('code', '=', 'EEV18-01-06'),
-        ]).result
-        ExportXLS.setOutCell(sheet, 0, row_nr, u'Observações:')
-        ExportXLS.setOutCell(sheet, 7, row_nr, result)
-        row_nr += 5
-
-        ExportXLS.setOutCell(sheet, 10, row_nr, u'Farmacêutico(a) Responsável:')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 25, row_nr, self.employee_id.name)
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 25, row_nr, self.employee_id.professional_id)
+        sheet.header_str = ''
+        sheet.footer_str = ''
 
         for i in range(0, 49):
             sheet.col(i).width = 256 * 2
         sheet.show_grid = False
+
+        if use_template:
+
+            sheet.insert_bitmap(logo_file_path, 1, 3)
+
+            # ExportXLS.setOutCell(sheet, 13, row_nr, u'Jornada Científica dos Acadêmicos de Farmácia-Bioquímica')
+            row_nr += 1
+            # ExportXLS.setOutCell(sheet, 19, row_nr, u'JCAFB-2018 - FERNÃO - SP')
+            row_nr += 1
+            # ExportXLS.setOutCell(sheet, 17, row_nr,
+            #                      u'Centro Acadêmico de Farmácia-Bioquímica')
+            row_nr += 1
+            # ExportXLS.setOutCell(sheet, 18, row_nr,
+            #                      u'Faculdade de Ciências Farmacêuticas')
+            row_nr += 1
+            # ExportXLS.setOutCell(sheet, 20, row_nr, u'Universidade de São Paulo')
+            row_nr += 6
+
+            # ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome:')
+            ExportXLS.setOutCell(sheet, 4, row_nr, self.person_id.name)
+            # ExportXLS.setOutCell(sheet, 30, row_nr, u'Cadastro:')
+            ExportXLS.setOutCell(sheet, 35, row_nr, self.person_id.code)
+            row_nr += 2
+
+            date = datetime.strptime(self.date_approved, '%Y-%m-%d')
+            date = datetime.strftime(date, '%d-%m-%Y')
+            # ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Exame:')
+            ExportXLS.setOutCell(sheet, 8, row_nr, date)
+            # ExportXLS.setOutCell(sheet, 30, row_nr, u'Código do Exame:')
+            ExportXLS.setOutCell(sheet, 38, row_nr, lab_test_request_code)
+            row_nr += 5
+
+            # ExportXLS.setOutCell(sheet, 15, row_nr, u'PESQUISA DE')
+            # ExportXLS.setOutCell(sheet, 22, row_nr, u'Enterobius vermicularis')
+            row_nr += 5
+
+            result = self.criterion_ids.search([
+                ('lab_test_report_id', '=', self.id),
+                ('code', '=', 'EEV18-01-03'),
+            ]).result
+            # ExportXLS.setOutCell(sheet, 18, row_nr, u'Resultado:')
+            ExportXLS.setOutCell(sheet, 23, row_nr, result)
+            row_nr += 5
+
+            result = self.criterion_ids.search([
+                ('lab_test_report_id', '=', self.id),
+                ('code', '=', 'EEV18-01-05'),
+            ]).result
+            # ExportXLS.setOutCell(sheet, 0, row_nr, u'Métodos utilizados:')
+            ExportXLS.setOutCell(sheet, 10, row_nr, result)
+            row_nr += 1
+
+            result = self.criterion_ids.search([
+                ('lab_test_report_id', '=', self.id),
+                ('code', '=', 'EEV18-01-03'),
+            ]).normal_range
+            # ExportXLS.setOutCell(sheet, 0, row_nr, u'Valor de referência:')
+            ExportXLS.setOutCell(sheet, 10, row_nr, result)
+            row_nr += 2
+
+            result = self.criterion_ids.search([
+                ('lab_test_report_id', '=', self.id),
+                ('code', '=', 'EEV18-01-06'),
+            ]).result
+            # ExportXLS.setOutCell(sheet, 0, row_nr, u'Observações:')
+            ExportXLS.setOutCell(sheet, 7, row_nr, result)
+            row_nr += 12
+
+            # ExportXLS.setOutCell(sheet, 17, row_nr, u'Farmacêutico(a) Responsável:')
+            row_nr += 1
+            ExportXLS.setOutCell(sheet, 33, row_nr, self.employee_id.name)
+            row_nr += 1
+            ExportXLS.setOutCell(sheet, 36, row_nr, self.employee_id.professional_id)
+
+        else:
+
+            sheet.insert_bitmap(logo_file_path, 1, 3)
+
+            ExportXLS.setOutCell(sheet, 13, row_nr, u'Jornada Científica dos Acadêmicos de Farmácia-Bioquímica')
+            row_nr += 1
+            ExportXLS.setOutCell(sheet, 19, row_nr, u'JCAFB-2018 - FERNÃO - SP')
+            row_nr += 1
+            ExportXLS.setOutCell(sheet, 17, row_nr,
+                                 u'Centro Acadêmico de Farmácia-Bioquímica')
+            row_nr += 1
+            ExportXLS.setOutCell(sheet, 18, row_nr,
+                                 u'Faculdade de Ciências Farmacêuticas')
+            row_nr += 1
+            ExportXLS.setOutCell(sheet, 20, row_nr, u'Universidade de São Paulo')
+            row_nr += 6
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome:')
+            ExportXLS.setOutCell(sheet, 4, row_nr, self.person_id.name)
+            ExportXLS.setOutCell(sheet, 30, row_nr, u'Cadastro:')
+            ExportXLS.setOutCell(sheet, 35, row_nr, self.person_id.code)
+            row_nr += 2
+
+            date = datetime.strptime(self.date_approved, '%Y-%m-%d')
+            date = datetime.strftime(date, '%d-%m-%Y')
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Exame:')
+            ExportXLS.setOutCell(sheet, 8, row_nr, date)
+            ExportXLS.setOutCell(sheet, 30, row_nr, u'Código do Exame:')
+            ExportXLS.setOutCell(sheet, 38, row_nr, lab_test_request_code)
+            row_nr += 5
+
+            ExportXLS.setOutCell(sheet, 15, row_nr, u'PESQUISA DE')
+            ExportXLS.setOutCell(sheet, 23, row_nr, u'Enterobius vermicularis')
+            row_nr += 5
+
+            result = self.criterion_ids.search([
+                ('lab_test_report_id', '=', self.id),
+                ('code', '=', 'EEV18-01-03'),
+            ]).result
+            ExportXLS.setOutCell(sheet, 18, row_nr, u'Resultado:')
+            ExportXLS.setOutCell(sheet, 23, row_nr, result)
+            row_nr += 5
+
+            result = self.criterion_ids.search([
+                ('lab_test_report_id', '=', self.id),
+                ('code', '=', 'EEV18-01-05'),
+            ]).result
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Métodos utilizados:')
+            ExportXLS.setOutCell(sheet, 10, row_nr, result)
+            row_nr += 1
+
+            result = self.criterion_ids.search([
+                ('lab_test_report_id', '=', self.id),
+                ('code', '=', 'EEV18-01-03'),
+            ]).normal_range
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Valor de referência:')
+            ExportXLS.setOutCell(sheet, 10, row_nr, result)
+            row_nr += 2
+
+            result = self.criterion_ids.search([
+                ('lab_test_report_id', '=', self.id),
+                ('code', '=', 'EEV18-01-06'),
+            ]).result
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Observações:')
+            ExportXLS.setOutCell(sheet, 7, row_nr, result)
+            row_nr += 12
+
+            ExportXLS.setOutCell(sheet, 17, row_nr, u'Farmacêutico(a) Responsável:')
+            row_nr += 1
+            ExportXLS.setOutCell(sheet, 33, row_nr, self.employee_id.name)
+            row_nr += 1
+            ExportXLS.setOutCell(sheet, 36, row_nr, self.employee_id.professional_id)
 
         return True
