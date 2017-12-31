@@ -68,18 +68,18 @@ class LabTestResult(models.Model):
             return True
 
         if lab_test_type == 'ECP18':
-            self.lab_test_result_export_xls_ECP18(sheet, row_nr)
+            self.lab_test_result_export_xls_ECP18(sheet, row_nr, use_template)
             save_book = True
 
         if lab_test_type == 'EDH18':
             return True
 
         if lab_test_type == 'EEV18':
-            self.lab_test_result_export_xls_EEV18(sheet, row_nr)
+            self.lab_test_result_export_xls_EEV18(sheet, row_nr, use_template)
             save_book = True
 
         if lab_test_type == 'EUR18':
-            self.lab_test_result_export_xls_EUR18(sheet, row_nr)
+            self.lab_test_result_export_xls_EUR18(sheet, row_nr, use_template)
             save_book = True
 
         if save_book:
