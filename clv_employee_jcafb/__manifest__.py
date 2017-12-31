@@ -30,7 +30,10 @@
         'clv_employee',
     ],
     'data': [
+        'security/ir.model.access.csv',
         'views/hr_employee_code_view.xml',
+        'views/group_summary_view.xml',
+        'views/hr_employee_menu_view.xml',
         'data/hr_employee_seq.xml',
     ],
     'demo': [],

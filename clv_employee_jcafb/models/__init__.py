@@ -19,3 +19,4 @@
 ###############################################################################
 
 from . import hr_employee_code
+from . import group_summary

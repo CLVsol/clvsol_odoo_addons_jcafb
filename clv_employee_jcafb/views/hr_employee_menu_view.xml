@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem name="Employee" id="menu_reports_reports_employee"  
+            parent="clv_base.menu_reports_reports"
+            groups="clv_base.group_user"
+            sequence="10"/>
+
+        <menuitem name="Group Summary" id="menu_reports_reports_employee_group_summary"
+            parent="menu_reports_reports_employee"
+            groups="base.group_user"
+            sequence="10"
+            action="clv_employee_jcafb.clv_group_summary_action"/>
+
+    </data>
+</odoo>
