@@ -20,3 +20,4 @@
 
 from . import hr_employee_code
 from . import group_summary
+from . import group_summary_setup
