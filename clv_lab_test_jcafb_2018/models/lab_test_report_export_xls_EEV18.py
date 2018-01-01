@@ -69,10 +69,13 @@ class LabTestReport(models.Model):
             ExportXLS.setOutCell(sheet, 35, row_nr, self.person_id.code)
             row_nr += 2
 
-            date = datetime.strptime(self.date_approved, '%Y-%m-%d')
-            date = datetime.strftime(date, '%d-%m-%Y')
             # ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Exame:')
-            ExportXLS.setOutCell(sheet, 8, row_nr, date)
+            if self.date_approved is not False:
+                date = datetime.strptime(self.date_approved, '%Y-%m-%d')
+                date = datetime.strftime(date, '%d-%m-%Y')
+                ExportXLS.setOutCell(sheet, 8, row_nr, date)
+            else:
+                ExportXLS.setOutCell(sheet, 8, row_nr, None)
             # ExportXLS.setOutCell(sheet, 30, row_nr, u'Código do Exame:')
             ExportXLS.setOutCell(sheet, 38, row_nr, lab_test_request_code)
             row_nr += 5
@@ -142,10 +145,13 @@ class LabTestReport(models.Model):
             ExportXLS.setOutCell(sheet, 35, row_nr, self.person_id.code)
             row_nr += 2
 
-            date = datetime.strptime(self.date_approved, '%Y-%m-%d')
-            date = datetime.strftime(date, '%d-%m-%Y')
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Exame:')
-            ExportXLS.setOutCell(sheet, 8, row_nr, date)
+            if self.date_approved is not False:
+                date = datetime.strptime(self.date_approved, '%Y-%m-%d')
+                date = datetime.strftime(date, '%d-%m-%Y')
+                ExportXLS.setOutCell(sheet, 8, row_nr, date)
+            else:
+                ExportXLS.setOutCell(sheet, 8, row_nr, None)
             ExportXLS.setOutCell(sheet, 30, row_nr, u'Código do Exame:')
             ExportXLS.setOutCell(sheet, 38, row_nr, lab_test_request_code)
             row_nr += 5
