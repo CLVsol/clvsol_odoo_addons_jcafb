@@ -35,6 +35,7 @@
         'views/group_summary_view.xml',
         'views/hr_employee_menu_view.xml',
         'data/hr_employee_seq.xml',
+        'wizard/group_summary_setup_view.xml',
     ],
     'demo': [],
     'test': [],

@@ -18,5 +18,4 @@
 #
 ###############################################################################
 
-from . import models
-from . import wizard
+from . import group_summary_setup
