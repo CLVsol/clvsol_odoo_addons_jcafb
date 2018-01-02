@@ -28,6 +28,9 @@ class LabTestParasite(models.Model):
 
     name = fields.Char(string='Parasite', required=True)
 
+    part1 = fields.Char(string='Part 1', required=False)
+    part2 = fields.Char(string='Part 2', required=False)
+
     code = fields.Char(string='Parasite Code', required=False)
 
     notes = fields.Text(string='Notes')
