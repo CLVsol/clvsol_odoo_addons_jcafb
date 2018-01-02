@@ -30,7 +30,7 @@ class LabTestReport(models.Model):
     _name = "clv.lab_test.report"
     _inherit = 'clv.lab_test.report'
 
-    def lab_test_report_export_xls_EUR18(self, sheet, row_nr):
+    def lab_test_report_export_xls_EUR18(self, sheet, row_nr, logo_file_path, use_template):
 
         lab_test_type = self.lab_test_type_id.code
         lab_test_request_code = self.lab_test_request_id.code
