@@ -44,7 +44,7 @@
 		</record>
 	 
 		<record id="clv_lab_test_unit_no_ml" model="clv.lab_test.unit">
-			<field name="name" eval="&quot;&quot;&quot;nº/mL&quot;&quot;&quot;"/>
+			<field name="name" eval="&quot;&quot;&quot;/mL&quot;&quot;&quot;"/>
 			<field name="code" eval="&quot;&quot;&quot;no_mL&quot;&quot;&quot;"/>
 		</record>
 	 
