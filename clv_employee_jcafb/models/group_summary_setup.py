@@ -46,6 +46,10 @@ class GroupSummary(models.Model):
 
         group_summary_code = self.code
 
+        AddressCategory = self.env['clv.address.category']
+        Address = self.env['clv.address']
+        Person = self.env['clv.person']
+
         FileSystemDirectory = self.env['clv.file_system.directory']
         file_system_directory = FileSystemDirectory.search([
             ('directory', '=', dir_path),
@@ -77,16 +81,69 @@ class GroupSummary(models.Model):
 
         row_nr += 1
 
-        style_str = 'font: bold on; font: italic on, height 400'
+        style_bold_str = 'font: bold on'
+        style_bold = xlwt.easyxf(style_bold_str)
+
+        style_str = 'font: bold on; font: italic on, height 256'
         style = xlwt.easyxf(style_str)
         sheet.write(row_nr, 0, self.name, style=style)
-        sheet.row(row_nr).height = 400
+        sheet.row(row_nr).height = 256
         row_nr += 2
 
-        style_str = 'borders: bottom dotted'
-        style = xlwt.easyxf(style_str)
-        for col in range(0, 10):
-            sheet.write(row_nr, col, None, style=style)
+        col_address_category = 0
+        col_district = 3
+        col_address = 6
+        col_person = 9
+
+        address_categories = AddressCategory.search([])
+        for address_category in address_categories:
+
+            sheet.write(row_nr, col_address_category, address_category.name, style=style_bold)
+            row_nr += 2
+
+            addresses = Address.search([
+                ('employee_id', '=', self.employee_id.id),
+                ('category_names', '=', address_category.name),
+            ])
+
+            districts = []
+            for address in addresses:
+                if address.district not in districts:
+                    districts.append(address.district)
+
+            for district in districts:
+
+                sheet.write(row_nr, col_district, district, style=style_bold)
+                row_nr += 2
+
+                addresses_2 = Address.search([
+                    ('employee_id', '=', self.employee_id.id),
+                    ('district', '=', district),
+                ])
+
+                for address_2 in addresses_2:
+
+                    sheet.write(row_nr, col_address, '[' + address_2.code + ']')
+                    sheet.write(row_nr, col_address + 7, address_2.name, style=style_bold)
+                    row_nr += 2
+
+                    persons = Person.search([
+                        ('address_id', '=', address_2.id),
+                        ('state', '=', 'selected'),
+                    ])
+
+                    for person in persons:
+
+                        sheet.write(row_nr, col_person, '[' + person.code + ']')
+                        sheet.write(row_nr, col_person + 7, person.name, style=style_bold)
+                        sheet.write(row_nr, col_person + 22,
+                                    '(' + person.category_names + ' - ' + person.age_reference + ')')
+                        row_nr += 2
+
+        # style_str = 'borders: bottom dotted'
+        # style = xlwt.easyxf(style_str)
+        # for col in range(0, 10):
+        #     sheet.write(row_nr, col, None, style=style)
 
         wbook.save(file_path)
 
