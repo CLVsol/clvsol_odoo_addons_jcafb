@@ -46,196 +46,101 @@ class LabTestReport(models.Model):
             sheet.col(i).width = 256 * 2
         sheet.show_grid = False
 
-        if use_template:
+        # row_nr += 2
 
-            sheet.insert_bitmap(logo_file_path, 1, 3)
+        sheet.insert_bitmap(logo_file_path, row_nr, 3)
 
-            # ExportXLS.setOutCell(sheet, 13, row_nr, u'Jornada Científica dos Acadêmicos de Farmácia-Bioquímica')
-            row_nr += 1
-            # ExportXLS.setOutCell(sheet, 19, row_nr, u'JCAFB-2018 - FERNÃO - SP')
-            row_nr += 1
-            # ExportXLS.setOutCell(sheet, 17, row_nr,
-            #                      u'Centro Acadêmico de Farmácia-Bioquímica')
-            row_nr += 1
-            # ExportXLS.setOutCell(sheet, 18, row_nr,
-            #                      u'Faculdade de Ciências Farmacêuticas')
-            row_nr += 1
-            # ExportXLS.setOutCell(sheet, 20, row_nr, u'Universidade de São Paulo')
-            row_nr += 6
+        ExportXLS.setOutCell(sheet, 13, row_nr, u'Jornada Científica dos Acadêmicos de Farmácia-Bioquímica')
+        row_nr += 1
+        ExportXLS.setOutCell(sheet, 19, row_nr, u'JCAFB-2018 - FERNÃO - SP')
+        row_nr += 1
+        ExportXLS.setOutCell(sheet, 17, row_nr,
+                             u'Centro Acadêmico de Farmácia-Bioquímica')
+        row_nr += 1
+        ExportXLS.setOutCell(sheet, 18, row_nr,
+                             u'Faculdade de Ciências Farmacêuticas')
+        row_nr += 1
+        ExportXLS.setOutCell(sheet, 20, row_nr, u'Universidade de São Paulo')
+        row_nr += 3
 
-            # ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome:')
-            ExportXLS.setOutCell(sheet, 4, row_nr, self.person_id.name)
-            # ExportXLS.setOutCell(sheet, 30, row_nr, u'Cadastro:')
-            ExportXLS.setOutCell(sheet, 35, row_nr, self.person_id.code)
-            row_nr += 2
+        ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome:')
+        ExportXLS.setOutCell(sheet, 4, row_nr, self.person_id.name)
+        ExportXLS.setOutCell(sheet, 30, row_nr, u'Cadastro:')
+        ExportXLS.setOutCell(sheet, 35, row_nr, self.person_id.code)
+        row_nr += 2
 
-            # ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Exame:')
-            if self.date_approved is not False:
-                date = datetime.strptime(self.date_approved, '%Y-%m-%d')
-                date = datetime.strftime(date, '%d-%m-%Y')
-                ExportXLS.setOutCell(sheet, 8, row_nr, date)
-            else:
-                ExportXLS.setOutCell(sheet, 8, row_nr, None)
-            # ExportXLS.setOutCell(sheet, 30, row_nr, u'Código do Exame:')
-            ExportXLS.setOutCell(sheet, 38, row_nr, lab_test_request_code)
-            row_nr += 5
-
-            # ExportXLS.setOutCell(sheet, 15, row_nr, u'EXAME COPROPARASITOLÓGICO')
-            row_nr += 4
-
-            result = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'ECP18-05-04'),
-            ]).result
-            # ExportXLS.setOutCell(sheet, 15, row_nr, u'Resultado (*):')
-            ExportXLS.setOutCell(sheet, 22, row_nr, result)
-            row_nr += 1
-
-            result = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'ECP18-05-05'),
-            ]).result
-            LabTestParasite = self.env['clv.lab_test.parasite']
-            if result is not False:
-                ExportXLS.setOutCell(sheet, 15, row_nr, u'Foram encontrados:')
-                row_nr += 1
-                parasitas = result.split(', ')
-                for parasita in parasitas:
-                    parasite = LabTestParasite.search([
-                        ('name', '=', parasita),
-                    ])
-                    if parasite.id is not False:
-                        ExportXLS.setOutCell(sheet, 17, row_nr, parasite.part1)
-                        if parasite.part2 is not False:
-                            ExportXLS.setOutCell(sheet, 23, row_nr, parasite.part2)
-                        row_nr += 1
-            row_nr = 36
-
-            result = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'ECP18-05-03'),
-            ]).result
-            # ExportXLS.setOutCell(sheet, 0, row_nr, u'Método(s) utilizado(s):')
-            ExportXLS.setOutCell(sheet, 10, row_nr, result)
-            row_nr += 1
-
-            result = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'ECP18-05-04'),
-            ]).normal_range
-            # ExportXLS.setOutCell(sheet, 0, row_nr, u'Valor de referência:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, result)
-            # ExportXLS.setOutCell(sheet, 30, row_nr, u'(*) Análise de uma única amostra')
-            row_nr += 2
-
-            result = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'ECP18-05-06'),
-            ]).result
-            # ExportXLS.setOutCell(sheet, 0, row_nr, u'Observações:')
-            ExportXLS.setOutCell(sheet, 7, row_nr, result)
-            row_nr += 12
-
-            # ExportXLS.setOutCell(sheet, 17, row_nr, u'Farmacêutico(a) Responsável:')
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 33, row_nr, self.employee_id.name)
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 36, row_nr, self.employee_id.professional_id)
-
+        ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Exame:')
+        if self.date_approved is not False:
+            date = datetime.strptime(self.date_approved, '%Y-%m-%d')
+            date = datetime.strftime(date, '%d-%m-%Y')
+            ExportXLS.setOutCell(sheet, 8, row_nr, date)
         else:
+            ExportXLS.setOutCell(sheet, 8, row_nr, None)
+        ExportXLS.setOutCell(sheet, 30, row_nr, u'Código do Exame:')
+        ExportXLS.setOutCell(sheet, 38, row_nr, lab_test_request_code)
+        row_nr += 5
 
-            sheet.insert_bitmap(logo_file_path, 1, 3)
+        ExportXLS.setOutCell(sheet, 15, row_nr, u'EXAME COPROPARASITOLÓGICO')
+        row_nr += 4
 
-            ExportXLS.setOutCell(sheet, 13, row_nr, u'Jornada Científica dos Acadêmicos de Farmácia-Bioquímica')
+        result = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'ECP18-05-04'),
+        ]).result
+        ExportXLS.setOutCell(sheet, 16, row_nr, u'Resultado (*):')
+        ExportXLS.setOutCell(sheet, 23, row_nr, result)
+        row_nr += 1
+
+        result = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'ECP18-05-05'),
+        ]).result
+        LabTestParasite = self.env['clv.lab_test.parasite']
+        if result is not False:
+            ExportXLS.setOutCell(sheet, 16, row_nr, u'Foram encontrados:')
             row_nr += 1
-            ExportXLS.setOutCell(sheet, 19, row_nr, u'JCAFB-2018 - FERNÃO - SP')
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 17, row_nr,
-                                 u'Centro Acadêmico de Farmácia-Bioquímica')
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 18, row_nr,
-                                 u'Faculdade de Ciências Farmacêuticas')
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 20, row_nr, u'Universidade de São Paulo')
-            row_nr += 6
+            parasitas = result.split(', ')
+            for parasita in parasitas:
+                parasite = LabTestParasite.search([
+                    ('name', '=', parasita),
+                ])
+                if parasite.id is not False:
+                    ExportXLS.setOutCell(sheet, 18, row_nr, parasite.part1)
+                    if parasite.part2 is not False:
+                        ExportXLS.setOutCell(sheet, 24, row_nr, parasite.part2)
+                    row_nr += 1
+        row_nr += 15
 
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome:')
-            ExportXLS.setOutCell(sheet, 4, row_nr, self.person_id.name)
-            ExportXLS.setOutCell(sheet, 30, row_nr, u'Cadastro:')
-            ExportXLS.setOutCell(sheet, 35, row_nr, self.person_id.code)
-            row_nr += 2
+        result = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'ECP18-05-03'),
+        ]).result
+        ExportXLS.setOutCell(sheet, 0, row_nr, u'Método(s) utilizado(s):')
+        ExportXLS.setOutCell(sheet, 10, row_nr, result)
+        row_nr += 1
 
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Exame:')
-            if self.date_approved is not False:
-                date = datetime.strptime(self.date_approved, '%Y-%m-%d')
-                date = datetime.strftime(date, '%d-%m-%Y')
-                ExportXLS.setOutCell(sheet, 8, row_nr, date)
-            else:
-                ExportXLS.setOutCell(sheet, 8, row_nr, None)
-            ExportXLS.setOutCell(sheet, 30, row_nr, u'Código do Exame:')
-            ExportXLS.setOutCell(sheet, 38, row_nr, lab_test_request_code)
-            row_nr += 5
+        result = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'ECP18-05-04'),
+        ]).normal_range
+        ExportXLS.setOutCell(sheet, 0, row_nr, u'Valor de referência:')
+        ExportXLS.setOutCell(sheet, 10, row_nr, result)
+        ExportXLS.setOutCell(sheet, 30, row_nr, u'(*) Análise de uma única amostra')
+        row_nr += 2
 
-            ExportXLS.setOutCell(sheet, 15, row_nr, u'EXAME COPROPARASITOLÓGICO')
-            row_nr += 4
-
-            result = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'ECP18-05-04'),
-            ]).result
-            ExportXLS.setOutCell(sheet, 15, row_nr, u'Resultado (*):')
-            ExportXLS.setOutCell(sheet, 22, row_nr, result)
-            row_nr += 1
-
-            result = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'ECP18-05-05'),
-            ]).result
-            LabTestParasite = self.env['clv.lab_test.parasite']
-            if result is not False:
-                ExportXLS.setOutCell(sheet, 15, row_nr, u'Foram encontrados:')
-                row_nr += 1
-                parasitas = result.split(', ')
-                for parasita in parasitas:
-                    parasite = LabTestParasite.search([
-                        ('name', '=', parasita),
-                    ])
-                    if parasite.id is not False:
-                        ExportXLS.setOutCell(sheet, 17, row_nr, parasite.part1)
-                        if parasite.part2 is not False:
-                            ExportXLS.setOutCell(sheet, 23, row_nr, parasite.part2)
-                        row_nr += 1
-            row_nr = 36
-
-            result = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'ECP18-05-03'),
-            ]).result
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Método(s) utilizado(s):')
-            ExportXLS.setOutCell(sheet, 10, row_nr, result)
-            row_nr += 1
-
-            result = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'ECP18-05-04'),
-            ]).normal_range
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Valor de referência:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, result)
-            ExportXLS.setOutCell(sheet, 30, row_nr, u'(*) Análise de uma única amostra')
-            row_nr += 2
-
-            result = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'ECP18-05-06'),
-            ]).result
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Observações:')
+        result = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'ECP18-05-06'),
+        ]).result
+        ExportXLS.setOutCell(sheet, 0, row_nr, u'Observações:')
+        if result is not False:
             ExportXLS.setOutCell(sheet, 7, row_nr, result)
-            row_nr += 12
+        row_nr += 16
 
-            ExportXLS.setOutCell(sheet, 17, row_nr, u'Farmacêutico(a) Responsável:')
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 33, row_nr, self.employee_id.name)
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 36, row_nr, self.employee_id.professional_id)
+        ExportXLS.setOutCell(sheet, 17, row_nr, u'Farmacêutico(a) Responsável:')
+        row_nr += 1
+        ExportXLS.setOutCell(sheet, 33, row_nr, self.employee_id.name)
+        row_nr += 1
+        ExportXLS.setOutCell(sheet, 36, row_nr, self.employee_id.professional_id)
 
         return True
