@@ -46,734 +46,395 @@ class LabTestReport(models.Model):
             sheet.col(i).width = 256 * 2
         sheet.show_grid = False
 
-        if use_template:
+        # row_nr += 2
 
-            sheet.insert_bitmap(logo_file_path, 1, 3)
+        sheet.insert_bitmap(logo_file_path, row_nr, 3)
 
-            ExportXLS.setOutCell(sheet, 13, row_nr, u'Jornada Científica dos Acadêmicos de Farmácia-Bioquímica')
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 19, row_nr, u'JCAFB-2018 - FERNÃO - SP')
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 17, row_nr,
-                                 u'Centro Acadêmico de Farmácia-Bioquímica')
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 18, row_nr,
-                                 u'Faculdade de Ciências Farmacêuticas')
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 20, row_nr, u'Universidade de São Paulo')
-            row_nr += 3
+        ExportXLS.setOutCell(sheet, 13, row_nr, u'Jornada Científica dos Acadêmicos de Farmácia-Bioquímica')
+        row_nr += 1
+        ExportXLS.setOutCell(sheet, 19, row_nr, u'JCAFB-2018 - FERNÃO - SP')
+        row_nr += 1
+        ExportXLS.setOutCell(sheet, 17, row_nr,
+                             u'Centro Acadêmico de Farmácia-Bioquímica')
+        row_nr += 1
+        ExportXLS.setOutCell(sheet, 18, row_nr,
+                             u'Faculdade de Ciências Farmacêuticas')
+        row_nr += 1
+        ExportXLS.setOutCell(sheet, 20, row_nr, u'Universidade de São Paulo')
+        row_nr += 3
 
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome:')
-            ExportXLS.setOutCell(sheet, 4, row_nr, self.person_id.name)
-            ExportXLS.setOutCell(sheet, 30, row_nr, u'Cadastro:')
-            ExportXLS.setOutCell(sheet, 35, row_nr, self.person_id.code)
-            row_nr += 1
+        ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome:')
+        ExportXLS.setOutCell(sheet, 4, row_nr, self.person_id.name)
+        ExportXLS.setOutCell(sheet, 30, row_nr, u'Cadastro:')
+        ExportXLS.setOutCell(sheet, 35, row_nr, self.person_id.code)
+        row_nr += 2
 
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Exame:')
-            if self.date_approved is not False:
-                date = datetime.strptime(self.date_approved, '%Y-%m-%d')
-                date = datetime.strftime(date, '%d-%m-%Y')
-                ExportXLS.setOutCell(sheet, 8, row_nr, date)
-            else:
-                ExportXLS.setOutCell(sheet, 8, row_nr, None)
-            ExportXLS.setOutCell(sheet, 30, row_nr, u'Código do Exame:')
-            ExportXLS.setOutCell(sheet, 38, row_nr, lab_test_request_code)
-            row_nr += 3
-
-            ExportXLS.setOutCell(sheet, 20, row_nr, u'URINA TIPO I')
-            row_nr += 2
-
-            ExportXLS.setOutCell(sheet, 10, row_nr, u'Resultados')
-            # ExportXLS.setOutCell(sheet, 18, row_nr, u'Unidade')
-            ExportXLS.setOutCell(sheet, 28, row_nr, u'Valores de Referência')
-            row_nr += 1
-
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Exame Físico')
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-02-01'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Volume:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-02-02'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Densidade:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-02-03'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Aspecto:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-02-04'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Cor:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-02-05'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Odor:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 2
-
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Exame Químico (Tiras Reagentes)')
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-03-01'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'pH:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-03-02'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Proteínas:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-03-03'),
-            ])
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Glicose:')
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-03-04'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Cetona:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-03-05'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Pigmentos biliares:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-03-06'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Sangue:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-03-07'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Urobilinogênio:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-03-08'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Nitrito:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 2
-
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Exame Microscópico')
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-01'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Células epiteliais:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-02'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Muco (filamentos):')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-03'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Cristais:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 3
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-04'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Leucócitos:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-05'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Hemácias:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-06'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Cilindros:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-07'),
-            ])
-            ExportXLS.setOutCell(sheet, 2, row_nr, u'Hialinos:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-08'),
-            ])
-            ExportXLS.setOutCell(sheet, 2, row_nr, u'Granulosos:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-09'),
-            ])
-            ExportXLS.setOutCell(sheet, 2, row_nr, u'Leucocitários:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-10'),
-            ])
-            ExportXLS.setOutCell(sheet, 2, row_nr, u'Hemáticos:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-11'),
-            ])
-            ExportXLS.setOutCell(sheet, 2, row_nr, u'Céreos:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-12'),
-            ])
-            ExportXLS.setOutCell(sheet, 2, row_nr, u'Outros:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 2
-
-            result = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-05-01'),
-            ]).result
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Observações:')
-            ExportXLS.setOutCell(sheet, 8, row_nr, result)
-            row_nr += 8
-
-            ExportXLS.setOutCell(sheet, 17, row_nr, u'Farmacêutico(a) Responsável:')
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 33, row_nr, self.employee_id.name)
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 36, row_nr, self.employee_id.professional_id)
-
+        ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Exame:')
+        if self.date_approved is not False:
+            date = datetime.strptime(self.date_approved, '%Y-%m-%d')
+            date = datetime.strftime(date, '%d-%m-%Y')
+            ExportXLS.setOutCell(sheet, 8, row_nr, date)
         else:
+            ExportXLS.setOutCell(sheet, 8, row_nr, None)
+        ExportXLS.setOutCell(sheet, 30, row_nr, u'Código do Exame:')
+        ExportXLS.setOutCell(sheet, 38, row_nr, lab_test_request_code)
+        row_nr += 3
 
-            sheet.insert_bitmap(logo_file_path, 1, 3)
+        ExportXLS.setOutCell(sheet, 20, row_nr, u'URINA TIPO I')
+        row_nr += 2
 
-            ExportXLS.setOutCell(sheet, 13, row_nr, u'Jornada Científica dos Acadêmicos de Farmácia-Bioquímica')
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 19, row_nr, u'JCAFB-2018 - FERNÃO - SP')
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 17, row_nr,
-                                 u'Centro Acadêmico de Farmácia-Bioquímica')
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 18, row_nr,
-                                 u'Faculdade de Ciências Farmacêuticas')
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 20, row_nr, u'Universidade de São Paulo')
-            row_nr += 3
+        ExportXLS.setOutCell(sheet, 10, row_nr, u'Resultados')
+        # ExportXLS.setOutCell(sheet, 18, row_nr, u'Unidade')
+        ExportXLS.setOutCell(sheet, 28, row_nr, u'Valores de Referência')
+        row_nr += 1
 
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome:')
-            ExportXLS.setOutCell(sheet, 4, row_nr, self.person_id.name)
-            ExportXLS.setOutCell(sheet, 30, row_nr, u'Cadastro:')
-            ExportXLS.setOutCell(sheet, 35, row_nr, self.person_id.code)
-            row_nr += 1
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Exame Físico')
+        row_nr += 1
 
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Exame:')
-            if self.date_approved is not False:
-                date = datetime.strptime(self.date_approved, '%Y-%m-%d')
-                date = datetime.strftime(date, '%d-%m-%Y')
-                ExportXLS.setOutCell(sheet, 8, row_nr, date)
-            else:
-                ExportXLS.setOutCell(sheet, 8, row_nr, None)
-            ExportXLS.setOutCell(sheet, 30, row_nr, u'Código do Exame:')
-            ExportXLS.setOutCell(sheet, 38, row_nr, lab_test_request_code)
-            row_nr += 3
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-02-01'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Volume:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            ExportXLS.setOutCell(sheet, 20, row_nr, u'URINA TIPO I')
-            row_nr += 2
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-02-02'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Densidade:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            ExportXLS.setOutCell(sheet, 10, row_nr, u'Resultados')
-            # ExportXLS.setOutCell(sheet, 18, row_nr, u'Unidade')
-            ExportXLS.setOutCell(sheet, 28, row_nr, u'Valores de Referência')
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-02-03'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Aspecto:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Exame Físico')
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-02-04'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Cor:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-02-01'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Volume:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-02-05'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Odor:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 2
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-02-02'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Densidade:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Exame Químico (Tiras Reagentes)')
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-02-03'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Aspecto:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-03-01'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'pH:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-02-04'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Cor:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-03-02'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Proteínas:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-02-05'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Odor:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 2
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-03-03'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Glicose:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Exame Químico (Tiras Reagentes)')
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-03-04'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Cetona:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-03-01'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'pH:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-03-05'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Pigmentos biliares:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-03-02'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Proteínas:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-03-06'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Sangue:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-03-03'),
-            ])
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Glicose:')
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-03-07'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Urobilinogênio:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-03-04'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Cetona:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-03-08'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Nitrito:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 2
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-03-05'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Pigmentos biliares:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Exame Microscópico')
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-03-06'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Sangue:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-04-01'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Células epiteliais:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-03-07'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Urobilinogênio:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-04-02'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Muco (filamentos):')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-03-08'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Nitrito:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 2
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-04-03'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Cristais:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 3
 
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Exame Microscópico')
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-04-04'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Leucócitos:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-01'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Células epiteliais:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-04-05'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Hemácias:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-02'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Muco (filamentos):')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-04-06'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Cilindros:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-03'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Cristais:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 3
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-04-07'),
+        ])
+        ExportXLS.setOutCell(sheet, 5, row_nr, u'Hialinos:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-04'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Leucócitos:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-04-08'),
+        ])
+        ExportXLS.setOutCell(sheet, 5, row_nr, u'Granulosos:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-05'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Hemácias:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-04-09'),
+        ])
+        ExportXLS.setOutCell(sheet, 5, row_nr, u'Leucocitários:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-06'),
-            ])
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Cilindros:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-04-10'),
+        ])
+        ExportXLS.setOutCell(sheet, 5, row_nr, u'Hemáticos:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-07'),
-            ])
-            ExportXLS.setOutCell(sheet, 2, row_nr, u'Hialinos:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-04-11'),
+        ])
+        ExportXLS.setOutCell(sheet, 5, row_nr, u'Céreos:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 1
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-08'),
-            ])
-            ExportXLS.setOutCell(sheet, 2, row_nr, u'Granulosos:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-04-12'),
+        ])
+        ExportXLS.setOutCell(sheet, 5, row_nr, u'Outros:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 13, row_nr, criterion.result)
+        if criterion.unit_id.name is not False:
+            ExportXLS.setOutCell(sheet, 21, row_nr, criterion.unit_id.name)
+        if criterion.normal_range is not False:
+            ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
+        row_nr += 2
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-09'),
-            ])
-            ExportXLS.setOutCell(sheet, 2, row_nr, u'Leucocitários:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
+        criterion = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EUR18-05-01'),
+        ])
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Observações:')
+        if criterion.result is not False:
+            ExportXLS.setOutCell(sheet, 8, row_nr, criterion.result)
+        row_nr += 6
 
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-10'),
-            ])
-            ExportXLS.setOutCell(sheet, 2, row_nr, u'Hemáticos:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-11'),
-            ])
-            ExportXLS.setOutCell(sheet, 2, row_nr, u'Céreos:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 1
-
-            criterion = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-04-12'),
-            ])
-            ExportXLS.setOutCell(sheet, 2, row_nr, u'Outros:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, criterion.result)
-            if criterion.unit_id.name is not False:
-                ExportXLS.setOutCell(sheet, 18, row_nr, criterion.unit_id.name)
-            if criterion.normal_range is not False:
-                ExportXLS.setOutCell(sheet, 28, row_nr, criterion.normal_range)
-            row_nr += 2
-
-            result = self.criterion_ids.search([
-                ('lab_test_report_id', '=', self.id),
-                ('code', '=', 'EUR18-05-01'),
-            ]).result
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Observações:')
-            ExportXLS.setOutCell(sheet, 8, row_nr, result)
-            row_nr += 8
-
-            ExportXLS.setOutCell(sheet, 17, row_nr, u'Farmacêutico(a) Responsável:')
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 33, row_nr, self.employee_id.name)
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 36, row_nr, self.employee_id.professional_id)
+        ExportXLS.setOutCell(sheet, 17, row_nr, u'Farmacêutico(a) Responsável:')
+        row_nr += 1
+        ExportXLS.setOutCell(sheet, 33, row_nr, self.employee_id.name)
+        row_nr += 1
+        ExportXLS.setOutCell(sheet, 36, row_nr, self.employee_id.professional_id)
 
         return True
