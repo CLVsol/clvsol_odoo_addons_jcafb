@@ -20,14 +20,16 @@
                 </label-->
                 <group name="group_title_left" position="inside">
                     <field name="person_id" placeholder="Person..." options="{'no_open': False, 'no_create': True}" attrs="{'invisible':[('is_person_summary', '!=', True)]}"/>
+                    <field name="person_off_id" placeholder="Person (Off)..." options="{'no_open': False, 'no_create': True}" attrs="{'invisible':[('is_person_off_summary', '!=', True)]}"/>
                     <field name="person_category_ids" widget="many2many_tags" attrs="{'invisible':[('is_person_summary', '!=', True)]}" options="{'no_open': False, 'no_create': True}"/>
-                    <field name="address_id" placeholder="Address..." context="{'show_address_only': 1}" options='{"always_reload": True, "highlight_first_line": True, "no_open": False, "no_create": True}'/>
-                    <field name="address_code"/>
-                    <field name="address_category_ids" widget="many2many_tags" options="{'no_open': False, 'no_create': True}"/>
+                    <field name="address_id" placeholder="Address..." context="{'show_address_only': 1}" options='{"always_reload": True, "highlight_first_line": True, "no_open": False, "no_create": True}' attrs="{'invisible':[('is_person_off_summary', '=', True)]}"/>
+                    <field name="address_code" attrs="{'invisible':[('is_person_off_summary', '=', True)]}"/>
+                    <field name="address_category_ids" widget="many2many_tags" options="{'no_open': False, 'no_create': True}" attrs="{'invisible':[('is_person_off_summary', '=', True)]}"/>
                 </group>
                 <group name="group_title_right" position="inside">
                     <field name="is_address_summary"/>
                     <field name="is_person_summary"/>
+                    <field name="is_person_off_summary"/>
                 </group>
                 <field name="date_summary" position="before">
                     <field name="address_employee_id" options="{'no_open': False, 'no_create': True}" attrs="{'invisible':[('is_address_summary', '!=', True)]}"/>
@@ -45,6 +47,7 @@
                 <field name="date_summary" position="before">
                     <field name="address_id"/>
                     <field name="person_id"/>
+                    <field name="person_off_id"/>
                 </field>
             </field>
         </record>
@@ -60,10 +63,13 @@
                     <field name="address_code"/>
                     <field name="person_id"/>
                     <field name="person_code"/>
+                    <field name="person_off_id"/>
+                    <field name="person_off_code"/>
                 </field>
                 <group name="group_by" position="before">
                     <filter name="filter_is_address_summary" string="Is Address Summary" domain="[('is_address_summary','=',True)]"/>
                     <filter name="filter_is_person_summary" string="Is Person Summary" domain="[('is_person_summary','=',True)]"/>
+                    <filter name="filter_is_person_off_summary" string="Is Person (Off) Summary" domain="[('is_person_off_summary','=',True)]"/>
                 </group>
                 <group name="group_by" position="inside">
                     <filter string="Address" context="{'group_by': 'address_id'}"/>

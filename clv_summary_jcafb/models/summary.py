@@ -65,3 +65,11 @@ class Summary(models.Model):
         related='person_id.employee_id',
         store=True
     )
+
+    is_person_off_summary = fields.Boolean(
+        string='Is Person(Off) Summary',
+        help="If checked, the Summary is for a Person (Off).",
+        default=0
+    )
+    person_off_id = fields.Many2one('clv.person.off', 'Person (Off)', ondelete='restrict')
+    person_off_code = fields.Char('Person (Off) Code', related='person_off_id.code', readonly=True)

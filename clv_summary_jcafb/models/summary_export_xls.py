@@ -41,6 +41,9 @@ class Summary(models.Model):
         if self.is_person_summary:
             category = 'Person'
             code = self.code
+        if self.is_person_off_summary:
+            category = 'Person_Off'
+            code = self.code
         if self.is_address_summary:
             category = 'Address'
             code = self.code
@@ -266,6 +269,133 @@ class Summary(models.Model):
                 row.write(0, person_event.event_id.name)
                 # row.write(6, person_event.event_id.code)
                 row_nr += 1
+
+        if self.is_person_off_summary:
+
+            sheet = book.add_sheet('PersonOffSummary_' + self.code)
+            row_nr = 0
+
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Summary for:')
+            row.write(3, self.name)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Summary date:')
+            row.write(3, self.date_summary)
+            # row_nr += 1
+            # row = sheet.row(row_nr)
+            # row.write(0, 'Responsible Employee:')
+            # row.write(3, self.person_employee_id.name)
+            # row.write(5, self.person_employee_id.code)
+            row_nr += 1
+
+            # row_nr += 1
+            # row = sheet.row(row_nr)
+            # row.write(0, 'Address:')
+            # row.write(3, self.address_id.name)
+            # row_nr += 1
+            # row = sheet.row(row_nr)
+            # row.write(3, self.address_id.district)
+            # row_nr += 1
+            # row = sheet.row(row_nr)
+            # row.write(0, 'Address Categories:')
+            # row.write(3, self.address_category_ids.name)
+            # row_nr += 1
+            # row = sheet.row(row_nr)
+            # row.write(0, 'Address Code:')
+            # row.write(3, self.address_id.code)
+            # row_nr += 1
+            # row = sheet.row(row_nr)
+            # row.write(0, 'Address State:')
+            # row.write(3, self.address_id.state)
+            # row_nr += 1
+
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Person (Off):')
+            row.write(3, self.person_off_id.name)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Code:')
+            row.write(3, self.person_off_id.code)
+            row_nr += 1
+            # row = sheet.row(row_nr)
+            # row.write(0, 'Person Categories:')
+            # row.write(3, self.person_category_ids.name)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Birthday:')
+            if self.person_off_id.birthday is not False:
+                row.write(3, self.person_off_id.birthday)
+            row_nr += 1
+            # row = sheet.row(row_nr)
+            # row.write(0, 'Reference Age:')
+            # if self.person_off_id.age_reference is not False:
+            #     row.write(3, self.person_off_id.age_reference)
+            row = sheet.row(row_nr)
+            row.write(0, 'Age:')
+            if self.person_off_id.age is not False:
+                row.write(3, self.person_off_id.age)
+            row_nr += 1
+            # row = sheet.row(row_nr)
+            # row.write(0, 'Person State:')
+            # row.write(3, self.person_off_id.state)
+            # row_nr += 1
+
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Document (Off)')
+            row.write(2, 'Code')
+            # row.write(4, 'Categories')
+            row_nr += 1
+            sheet.row(row_nr).height_mismatch = True
+            sheet.row(row_nr).height = 20 * 4
+            row_nr += 1
+
+            for person_off_document in self.summary_person_off_document_ids:
+
+                row = sheet.row(row_nr)
+                row.write(0, person_off_document.document_off_id.name)
+                row.write(2, person_off_document.document_off_id.code)
+                # row.write(4, person_off_document.document_category_ids.name)
+                row_nr += 1
+
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Lab Test Type ')
+            row.write(8, 'Lab Test (Off) Request')
+            row_nr += 1
+            sheet.row(row_nr).height_mismatch = True
+            sheet.row(row_nr).height = 20 * 4
+            row_nr += 1
+
+            for person_off_lab_test_request in self.summary_person_off_lab_test_request_ids:
+
+                row = sheet.row(row_nr)
+                row.write(0, person_off_lab_test_request.lab_test_type_ids.name)
+                row.write(8, person_off_lab_test_request.lab_test_off_request_id.code)
+                row_nr += 1
+
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Event ')
+            # row.write(6, 'Code')
+            row_nr += 1
+            sheet.row(row_nr).height_mismatch = True
+            sheet.row(row_nr).height = 20 * 4
+            row_nr += 1
+
+            for person_off_event in self.summary_person_off_event_ids:
+
+                row = sheet.row(row_nr)
+                row.write(0, person_off_event.event_id.name)
+                # row.write(6, person_event.event_id.code)
+                row_nr += 1
+
+            self.person_off_id.directory_id = file_system_directory.id
+            self.person_off_id.file_name = file_name
+            self.person_off_id.stored_file_name = file_name
 
         for i in range(12):
             sheet.col(i).width = 256 * 7

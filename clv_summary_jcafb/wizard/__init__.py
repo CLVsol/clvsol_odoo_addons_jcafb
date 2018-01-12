@@ -22,3 +22,4 @@ from . import address_summary_setup
 from . import person_summary_setup
 from . import summary_refresh
 from . import summary_export_xls
+from . import person_off_summary_setup

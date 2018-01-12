@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="clv_summary_person_off_lab_test_request_view_form" model="ir.ui.view">
+            <field name="name">clv.summary.person.off.lab_test.request.form</field>
+            <field name="model">clv.summary.person.off.lab_test.request</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="summary_id" options="{'no_open': False, 'no_create': True}"/>
+                            <field name="person_off_id" options="{'no_open': False, 'no_create': True}"/>
+                            <field name="lab_test_off_request_id" options="{'no_open': False, 'no_create': True}"/>
+                            <field name="lab_test_type_ids" options="{'no_open': False, 'no_create': True}"/>
+                            <!--field name="lab_test_off_request_state"/-->
+                        </group>
+                        <notebook>
+                            <page name="settings" string="Settings" groups="clv_base.group_reguser" invisible="True">
+                                <group name="settings">
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="clv_summary_person_off_lab_test_request_view_tree" model="ir.ui.view">
+            <field name="name">clv.summary.person.off.lab_test.request.tree</field>
+            <field name="model">clv.summary.person.off.lab_test.request</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree name="person_off_lab_test_requests" string="Person (Off) Lab Test Requests">
+                    <field name="summary_id" invisible="True"/>
+                    <field name="person_off_id" invisible="True"/>
+                    <field name="lab_test_off_request_id"/>
+                    <field name="lab_test_type_ids"/>
+                    <!--field name="lab_test_off_request_state"/-->
+                </tree>
+            </field>
+        </record>
+        
+        <!--record id="clv_summary_person_off_lab_test_request_view_tree_state" model="ir.ui.view">
+            <field name="name">clv.summary.person.off.lab_test.request.tree</field>
+            <field name="model">clv.summary.person.off.lab_test.request</field>
+            <field name="inherit_id" ref="clv_summary_person_off_lab_test_request_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree name="person_off_lab_test_requests" position="attributes">
+                    <attribute name="decoration-success">lab_test_off_request_state=='received'</attribute>
+                    <attribute name="decoration-primary">lab_test_off_request_state in('tested')</attribute>
+                    <attribute name="decoration-danger">lab_test_off_request_state=='cancelled'</attribute>
+                    <attribute name="decoration-it">lab_test_off_request_state in('draft','cancelled')</attribute>
+                    <attribute name="decoration-bf">lab_test_off_request_state in('tested')</attribute>
+                </tree>
+            </field>
+        </record-->
+
+        <record id="clv_summary_person_off_lab_test_request_view_search" model="ir.ui.view">
+            <field name="name">clv.summary.person.off.lab_test.request.search</field>
+            <field name="model">clv.summary.person.off.lab_test.request</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Person Lab Test Requests">
+                    <field name="summary_id"/>
+                    <field name="person_off_id"/>
+                    <field name="lab_test_off_request_id"/>
+                    <field name="lab_test_type_ids"/>
+                    <!--field name="lab_test_off_request_state"/-->
+                    <newline/>
+                    <group expand="0" string="Group By...">
+                        <filter string="Summary" domain="[]" context="{'group_by':'summary_id'}"/>
+                        <filter string="Person (Off)" domain="[]" context="{'group_by':'person_off_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="clv_summary_view_form_summary_person_off_lab_test_request" model="ir.ui.view">
+            <field name="name">clv.summary.form</field>
+            <field name="model">clv.summary</field>
+            <field name="inherit_id" ref="clv_summary.clv_summary_view_form"/>
+            <field name="priority" eval="10"/>
+            <field name="arch" type="xml">
+                <group name="group_bottom" position="inside">
+                    <field name="summary_person_off_lab_test_request_ids" colspan="4" nolabel="0" attrs="{'invisible':[('is_person_off_summary', '!=', True)]}"/>
+                </group>
+            </field>
+        </record>
+
+    </data>
+</openerp>

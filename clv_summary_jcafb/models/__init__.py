@@ -27,3 +27,7 @@ from . import summary_person_document
 from . import summary_person_lab_test_request
 from . import summary_person_event
 from . import summary_export_xls
+from . import person_off
+from . import summary_person_off_document
+from . import summary_person_off_lab_test_request
+from . import summary_person_off_event
