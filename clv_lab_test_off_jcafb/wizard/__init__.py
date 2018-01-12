@@ -24,3 +24,6 @@ import lab_test_off_report_setup
 import lab_test_off_report_code_setup
 import lab_test_off_report_set_code
 import lab_test_off_report_edit
+import lab_test_off_request_setup
+import lab_test_off_report_approve
+import lab_test_off_report_export_xls

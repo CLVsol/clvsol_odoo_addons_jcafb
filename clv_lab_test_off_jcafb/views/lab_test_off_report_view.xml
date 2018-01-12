@@ -15,6 +15,12 @@
                 <field name="date_report" position="before">
                     <field name="survey_id" options="{'no_open': False, 'no_create': True}"/>
                 </field>
+                <group name="group_right" position="inside">
+                    <field name="approved"/>
+                    <field name="employee_id" placeholder="Approved by..." options="{'no_open': False, 'no_create': True}"/>
+                    <field name="professional_id" invisible="True"/>
+                    <field name="date_approved"/>
+                </group>
             </field>
         </record>
        

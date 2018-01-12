@@ -37,6 +37,24 @@ class LabTestOffReport(models.Model):
         store=True
     )
 
+    approved = fields.Boolean(string='Approved', default=False)
+    employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Approved by',
+        readonly=True
+    )
+    professional_id = fields.Char(
+        comodel_name='hr.employee',
+        string='Professional ID',
+        related='employee_id.professional_id',
+        store=False,
+        readonly=True
+    )
+    date_approved = fields.Date(
+        string='Approved Date',
+        readonly=True
+    )
+
 
 class PersonOff(models.Model):
     _inherit = 'clv.person.off'
