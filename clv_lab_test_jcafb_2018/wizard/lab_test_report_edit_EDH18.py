@@ -128,6 +128,8 @@ class LabTestReportEdit(models.TransientModel):
         self._write_EDH18_altura()
         self._write_EDH18_circ_abdominal()
         self._write_EDH18_pa()
+        self._write_EDH18_PAS()
+        self._write_EDH18_PAD()
         self._write_EDH18_glicemia()
         self._write_EDH18_colesterol()
         self._write_EDH18_obs()
