@@ -30,3 +30,4 @@ import lab_test_result_copy_to_report
 import lab_test_result_approve
 import lab_test_result_export_xls
 import lab_test_report_export_xls
+import lab_test_report_approve
