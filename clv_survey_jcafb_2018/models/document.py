@@ -40,6 +40,18 @@ class Document(models.Model):
         if document_category.id is not False:
             document_category_questionario = document_category.id
 
+        document_category = DocumentCategory.search([
+            ('name', '=', '(VET) Termo de Consentimento'),
+        ])
+        if document_category.id is not False:
+            document_category_termo_vet = document_category.id
+
+        document_category = DocumentCategory.search([
+            ('name', '=', '(VET) Questionário'),
+        ])
+        if document_category.id is not False:
+            document_category_questionario_vet = document_category.id
+
         document_category_id = False
 
         if survey.code == 'QAN18':
@@ -68,10 +80,10 @@ class Document(models.Model):
             document_category_id = document_category_termo
 
         if survey.code == 'QVG18':
-            document_category_id = document_category_questionario
+            document_category_id = document_category_questionario_vet
         if survey.code == 'QVI18':
-            document_category_id = document_category_questionario
+            document_category_id = document_category_questionario_vet
         if survey.code == 'TCV18':
-            document_category_id = document_category_termo
+            document_category_id = document_category_termo_vet
 
         return document_category_id
