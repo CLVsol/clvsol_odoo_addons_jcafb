@@ -24,3 +24,4 @@ from . import document_state
 from . import document
 from . import person
 from . import address
+from . import animal

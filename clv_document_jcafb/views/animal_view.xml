@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        
+        <record id="clv_animal_view_form_document" model="ir.ui.view">
+            <field name="name">clv.animal.form</field>
+            <field name="model">clv.animal</field>
+            <field name="inherit_id" ref="clv_animal.clv_animal_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <page name="settings" position="before">
+                    <page string="Documents">
+                        <group>
+                            <field name="count_documents"/>
+                            <field name="document_ids" colspan="4" nolabel="1"/>
+                        </group>
+                    </page>
+                </page>
+            </field>
+        </record>
+
+        <record id="clv_animal_view_tree_document" model="ir.ui.view">
+            <field name="name">clv.animal.tree</field>
+            <field name="model">clv.animal</field>
+            <field name="inherit_id" ref="clv_animal.clv_animal_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="count_documents"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="clv_document_view_form_animal" model="ir.ui.view">
+            <field name="name">clv.document.form</field>
+            <field name="model">clv.document</field>
+            <field name="inherit_id" ref="clv_document.clv_document_view_form"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <group name="group_right" position="inside">
+                    <field name="animal_id"  options="{'no_open': False, 'no_create': True}"/>
+                    <field name="animal_code"/>
+                    <!--field name="animal_employee_id" options="{'no_open': False, 'no_create': True}"/-->
+                </group>
+            </field>
+        </record>
+
+        <record id="clv_document_view_tree_animal" model="ir.ui.view">
+            <field name="name">clv.document.tree</field>
+            <field name="model">clv.document</field>
+            <field name="inherit_id" ref="clv_document.clv_document_view_tree"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="date_requested" position="before">
+                    <field name="animal_id"/>
+                    <!--field name="animal_employee_id"/-->
+                </field>
+            </field>
+        </record>
+
+        <record id="clv_document_view_search_animal" model="ir.ui.view">
+            <field name="name">clv.document.search</field>
+            <field name="model">clv.document</field>
+            <field name="inherit_id" ref="clv_document.clv_document_view_search"/>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <field name="date_requested" position="before">
+                    <field name="animal_id"/>
+                </field>
+                <group name="group_by" position="inside">
+                    <filter string="Animal" context="{'group_by': 'animal_id'}"/>
+                    <!--filter string="Responsible Empĺoyee (Animal)" domain="[]"  context="{'group_by': 'animal_employee_id'}"/-->
+                </group>
+            </field>
+        </record>
+
+    </data>
+</odoo>

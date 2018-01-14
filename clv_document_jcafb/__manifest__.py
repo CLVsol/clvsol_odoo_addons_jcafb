@@ -31,6 +31,7 @@
         'clv_survey',
         'clv_address_jcafb',
         'clv_person_jcafb',
+        'clv_animal_jcafb',
     ],
     'data': [
         'views/document_code_view.xml',
@@ -39,6 +40,7 @@
         'views/document_view.xml',
         'views/person_view.xml',
         'views/address_view.xml',
+        'views/animal_view.xml',
         'data/document_seq.xml',
         'wizard/document_updt_view.xml',
         'wizard/document_item_edit_view.xml',
