@@ -67,7 +67,7 @@ class AnimalMng(models.Model):
         comodel_name='clv.animal.breed',
         string='Breed',
         ondelete='restrict',
-        domain="[('species_id','in',species_id)]"
+        domain="[('species_id','=',species_id)]"
     )
 
     birthday = fields.Date(string="Date of Birth")
