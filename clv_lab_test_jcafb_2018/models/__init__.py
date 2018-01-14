@@ -28,5 +28,6 @@ from . import lab_test_report_export_xls_EDH18
 from . import lab_test_report_export_xls_EEV18
 from . import lab_test_report_export_xls_EUR18
 from . import lab_test_report_export_xls
+from . import lab_test_off_report_export_xls_EAN18
 from . import lab_test_off_report_export_xls_EDH18
 from . import lab_test_off_report_export_xls
