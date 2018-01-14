@@ -37,6 +37,7 @@
         'views/animal_state_view.xml',
         'data/animal_seq.xml',
         'wizard/animal_updt_view.xml',
+        'wizard/animal_document_setup_view.xml',
     ],
     'demo': [],
     'test': [],
