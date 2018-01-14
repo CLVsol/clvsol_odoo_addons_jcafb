@@ -207,15 +207,15 @@ class LabTestOffReport(models.Model):
             ('code', '=', 'EDH18-02-09'),
         ]).result
         ExportXLS.setOutCell(sheet, 2, row_nr, u'Peso:')
-        if result_pas is not False:
+        if result_peso is not False:
             ExportXLS.setOutCell(sheet, 5, row_nr, result_peso)
         ExportXLS.setOutCell(sheet, 7, row_nr, 'kg')
         ExportXLS.setOutCell(sheet, 15, row_nr, 'Altura:')
-        if result_pad is not False:
+        if result_altura is not False:
             ExportXLS.setOutCell(sheet, 19, row_nr, result_altura)
         ExportXLS.setOutCell(sheet, 21, row_nr, u'cm')
         ExportXLS.setOutCell(sheet, 27, row_nr, u'Circunferência abdominal:')
-        if result_pad is not False:
+        if result_circunf is not False:
             ExportXLS.setOutCell(sheet, 39, row_nr, result_circunf)
         ExportXLS.setOutCell(sheet, 41, row_nr, u'cm')
         row_nr += 2
@@ -232,32 +232,6 @@ class LabTestOffReport(models.Model):
         ExportXLS.setOutCell(sheet, 2, row_nr, u'Nota: (1): Glicemia:Critérios Diagnósticos segundo Associação Americana de Diabetes (2014); (2) Colesterol total: V Diretrizes Brasileiras de Dislipidemias e Prevenção da Aterosclerose-2013); (3): VI Diretrizes Brasileiras de Hipertensão Arterial - 2010.')
 
         row_nr += 4
-
-        # result = self.criterion_ids.search([
-        #     ('lab_test_off_report_id', '=', self.id),
-        #     ('code', '=', 'EEV18-01-05'),
-        # ]).result
-        # ExportXLS.setOutCell(sheet, 0, row_nr, u'Métodos utilizados:')
-        # if result is not False:
-        #     ExportXLS.setOutCell(sheet, 10, row_nr, result)
-        # row_nr += 1
-
-        # result = self.criterion_ids.search([
-        #     ('lab_test_off_report_id', '=', self.id),
-        #     ('code', '=', 'EEV18-01-03'),
-        # ]).normal_range
-        # ExportXLS.setOutCell(sheet, 0, row_nr, u'Valor de referência:')
-        # ExportXLS.setOutCell(sheet, 10, row_nr, result)
-        # row_nr += 2
-
-        # result = self.criterion_ids.search([
-        #     ('lab_test_off_report_id', '=', self.id),
-        #     ('code', '=', 'EEV18-01-06'),
-        # ]).result
-        # ExportXLS.setOutCell(sheet, 0, row_nr, u'Observações:')
-        # if result is not False:
-        #     ExportXLS.setOutCell(sheet, 7, row_nr, result)
-        # row_nr += 5
 
         ExportXLS.setOutCell(sheet, 17, row_nr, u'Farmacêutico(a) Responsável:')
         row_nr += 1
