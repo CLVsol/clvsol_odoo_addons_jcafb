@@ -46,6 +46,7 @@
         'wizard/mfile_validate_view.xml',
         'wizard/mfile_import_view.xml',
         'wizard/mfile_archive_view.xml',
+        'wizard/mfile_unarchive_view.xml',
         'views/mfile_menu_view.xml',
     ],
     'demo': [],
