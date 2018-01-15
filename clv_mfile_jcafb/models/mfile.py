@@ -21,7 +21,7 @@
 from openerp import fields, models
 
 
-class Address(models.Model):
+class MediaFile(models.Model):
     _inherit = 'clv.mfile'
 
     survey_title = fields.Char(string='Survey Title')
