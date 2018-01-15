@@ -39,14 +39,14 @@ class MfileArchive(models.TransientModel):
     )
 
     dir_path = fields.Char(
-        'Directory Path',
+        'Directory Path (Input)',
         required=True,
-        help="Directory Path",
+        help="Input Directory Path",
         default='/opt/openerp/clvsol_clvhealth_jcafb/survey_files/input'
     )
 
     archive_dir_path = fields.Char(
-        'Directory Path',
+        'Directory Path (Archive)',
         required=True,
         help="Archive Directory Path",
         default='/opt/openerp/clvsol_clvhealth_jcafb/survey_files/archive'
@@ -69,6 +69,11 @@ class MfileArchive(models.TransientModel):
     def do_mfile_archive(self):
         self.ensure_one()
 
+        FileSystemDirectory = self.env['clv.file_system.directory']
+        file_system_directory = FileSystemDirectory.search([
+            ('directory', '=', self.archive_dir_path),
+        ])
+
         for mfile in self.mfile_ids:
 
             filepath = self.dir_path + '/' + mfile.name
@@ -79,6 +84,10 @@ class MfileArchive(models.TransientModel):
             if mfile.state == 'imported':
 
                 shutil.move(filepath, archive_filepath)
+
+                mfile.directory_id = file_system_directory.id
+                mfile.file_name = mfile.name
+                mfile.stored_file_name = mfile.name
 
                 mfile.state = 'archived'
 
