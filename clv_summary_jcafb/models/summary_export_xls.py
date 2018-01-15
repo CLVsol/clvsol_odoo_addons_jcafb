@@ -151,6 +151,10 @@ class Summary(models.Model):
                 row.write(11, address_person.person_state)
                 row_nr += 1
 
+            self.address_id.directory_id = file_system_directory.id
+            self.address_id.file_name = file_name
+            self.address_id.stored_file_name = file_name
+
         if self.is_person_summary:
 
             sheet = book.add_sheet('PersonSummary_' + self.code)
