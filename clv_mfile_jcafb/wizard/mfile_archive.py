@@ -34,7 +34,7 @@ class MfileArchive(models.TransientModel):
     mfile_ids = fields.Many2many(
         comodel_name='clv.mfile',
         relation='clv_mfile_mfile_archive_rel',
-        string='Documents',
+        string='Media Files',
         default=_default_mfile_ids
     )
 
