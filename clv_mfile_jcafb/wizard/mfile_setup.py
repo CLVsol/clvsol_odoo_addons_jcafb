@@ -30,7 +30,7 @@ class MfileSetUp(models.TransientModel):
 
     document_ids = fields.Many2many(
         comodel_name='clv.document',
-        relation='clv_document_mfile_setup_rel',
+        relation='clv_mfile_setup_rel',
         string='Documents',
         domain=['|', ('active', '=', False), ('active', '=', True)],
     )
