@@ -270,6 +270,10 @@ class Summary(models.Model):
                 # row.write(6, person_event.event_id.code)
                 row_nr += 1
 
+            self.person_id.directory_id = file_system_directory.id
+            self.person_id.file_name = file_name
+            self.person_id.stored_file_name = file_name
+
         if self.is_person_off_summary:
 
             sheet = book.add_sheet('PersonOffSummary_' + self.code)
