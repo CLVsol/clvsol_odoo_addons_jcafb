@@ -27,3 +27,4 @@ from . import person_direct_mail
 from . import person_annotation
 from . import community
 from . import event
+from . import summary_file_system
