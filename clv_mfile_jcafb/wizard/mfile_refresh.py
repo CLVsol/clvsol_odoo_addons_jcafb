@@ -69,6 +69,11 @@ class MfileRefresh(models.TransientModel):
     def do_mfile_refresh(self):
         self.ensure_one()
 
+        FileSystemDirectory = self.env['clv.file_system.directory']
+        file_system_directory = FileSystemDirectory.search([
+            ('directory', '=', self.dir_path),
+        ])
+
         SurveyQuestion = self.env['survey.question']
 
         listdir = os.listdir(self.dir_path)
@@ -81,6 +86,10 @@ class MfileRefresh(models.TransientModel):
 
                 filepath = self.dir_path + '/' + mfile.name
                 _logger.info(u'%s %s', '>>>>>>>>>>', filepath)
+
+                mfile.directory_id = file_system_directory.id
+                mfile.file_name = mfile.name
+                mfile.stored_file_name = mfile.name
 
                 if mfile.state in ['new', 'returned', 'checked', 'validated']:
 
@@ -181,6 +190,10 @@ class MfileRefresh(models.TransientModel):
             else:
 
                 if mfile.state in ['new', 'returned', 'checked', 'validated']:
+
+                    mfile.directory_id = False
+                    mfile.file_name = False
+                    mfile.stored_file_name = False
 
                     mfile.state = 'new'
                     mfile.document_code = False
