@@ -39,6 +39,7 @@
         'views/mfile_view.xml',
         'views/mfile_reg_state_view.xml',
         'views/mfile_state_view.xml',
+        'views/summary_file_system_view.xml',
         'wizard/mfile_updt_view.xml',
         'wizard/mfile_setup_view.xml',
         'wizard/mfile_refresh_view.xml',
