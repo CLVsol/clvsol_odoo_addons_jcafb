@@ -188,7 +188,14 @@ class LabTestResultCopyToReport(models.TransientModel):
         return self._get_default('EUR18', 'EUR18-03-07')
     EUR18_urobilinogenio = fields.Selection([
         (u'Normal', u'Normal'),
+        (u'Positivo até Diluição de 1/20', u'Positivo até Diluição de 1/20'),
+        (u'Positivo até Diluição de 1/40', u'Positivo até Diluição de 1/40'),
         (u'Positivo até Diluição de 1/80', u'Positivo até Diluição de 1/80'),
+        (u'Positivo até Diluição de 1/160', u'Positivo até Diluição de 1/160'),
+        (u'Positivo até Diluição de 1/320', u'Positivo até Diluição de 1/320'),
+        (u'Positivo até Diluição de 1/640', u'Positivo até Diluição de 1/640'),
+        (u'Positivo até Diluição de 1/1280', u'Positivo até Diluição de 1/1280'),
+        (u'Positivo até Diluição de 1/2560', u'Positivo até Diluição de 1/2560'),
     ], 'Urobilinogênio', readonly=False, default=_default_EUR18_urobilinogenio)
 
     def _write_EUR18_urobilinogenio(self):
