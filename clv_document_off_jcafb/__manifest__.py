@@ -39,6 +39,7 @@
         'views/document_off_code_view.xml',
         'wizard/document_off_code_setup_view.xml',
         'wizard/document_off_set_code_view.xml',
+        'wizard/document_off_copy_to_document_view.xml',
         'views/document_off_menu_view.xml',
     ],
     'demo': [],
