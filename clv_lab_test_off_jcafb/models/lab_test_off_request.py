@@ -38,6 +38,12 @@ class LabTestOffRequest(models.Model):
     employee_id = fields.Many2one(comodel_name='hr.employee', string='Received by')
     date_received = fields.Datetime(string='Received Date')
 
+    lab_test_request_id = fields.Many2one(
+        comodel_name='clv.lab_test.request',
+        string="Related Lab Test Requests",
+        ondelete='restrict'
+    )
+
 
 class PersonOff(models.Model):
     _inherit = 'clv.person.off'

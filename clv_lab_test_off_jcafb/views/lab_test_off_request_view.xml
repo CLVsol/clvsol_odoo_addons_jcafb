@@ -16,8 +16,7 @@
                     <field name="document_off_id" placeholder="Related Document..." options="{'no_open': False, 'no_create': True}"/>
                 </group>
                 <group name="group_right" position="inside">
-                    <field name="employee_id" options="{'no_open': False, 'no_create': True}"/>
-                    <field name="date_received"/>
+                    <field name="lab_test_request_id" options="{'no_open': False, 'no_create': True}"/>
                 </group>
             </field>
         </record>
@@ -30,6 +29,7 @@
             <field name="arch" type="xml">
                 <field name="date_requested" position="before">
                     <field name="person_off_id"/>
+                    <field name="lab_test_request_id"/>
                     <field name="document_off_id"/>
                 </field>
             </field>
