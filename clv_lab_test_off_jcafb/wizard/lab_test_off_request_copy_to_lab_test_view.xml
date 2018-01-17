@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="clv_lab_test_off_request_set_code_view_form" model="ir.ui.view">
+            <field name="name">clv.lab_test.off.request.copy_to_lab_test.form</field>
+            <field name="model">clv.lab_test.off.request.copy_to_lab_test</field>
+            <field name="arch" type="xml">
+                <form>
+                    <div class="oe_right">
+                    </div>
+                    <label for="lab_test_off_request_ids"/>
+                    <field name="lab_test_off_request_ids"/>
+                    <group>
+                        <group>
+                            <field name="history_marker_id" options="{'no_open': False, 'no_create': True}"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button 
+                            type="object"
+                            name="do_lab_test_off_request_copy_to_lab_test"
+                            string="Lab Test (Off) Request Copy to Lab Test"
+                            class="oe_highlight"
+                            />
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+                </form>
+
+            </field>
+        </record>
+
+        <!-- More button Action -->
+        <act_window 
+            id="clv_lab_test_off_request_set_code_action"
+            name="Lab Test (Off) Requests Copy to Lab Test"
+            src_model="clv.lab_test.off.request"
+            res_model="clv.lab_test.off.request.copy_to_lab_test"
+            view_mode="form, tree"
+            key2="client_action_multi"
+            target="new"
+        />
+
+    </data>
+</odoo>

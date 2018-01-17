@@ -49,6 +49,7 @@
         'wizard/lab_test_off_request_setup_view.xml',
         'wizard/lab_test_off_report_approve_view.xml',
         'wizard/lab_test_off_report_export_xls_view.xml',
+        'wizard/lab_test_off_request_copy_to_lab_test_view.xml',
         'views/lab_test_off_menu_view.xml',
     ],
     'demo': [],
