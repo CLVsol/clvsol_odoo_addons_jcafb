@@ -109,7 +109,8 @@ class LabTestReport(models.Model):
                     if parasite.part2 is not False:
                         ExportXLS.setOutCell(sheet, 24, row_nr, parasite.part2)
                     row_nr += 1
-        row_nr += 15
+        # row_nr += 15
+        row_nr = 34
 
         result = self.criterion_ids.search([
             ('lab_test_report_id', '=', self.id),
