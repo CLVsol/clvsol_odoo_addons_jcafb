@@ -33,6 +33,7 @@
         'clv_person_off_jcafb',
         'clv_address_jcafb',
         'clv_person_jcafb',
+        'clv_lab_test_off_jcafb',
     ],
     'data': [
         'views/address_view.xml',
