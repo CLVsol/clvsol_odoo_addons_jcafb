@@ -20,6 +20,7 @@
                     <field name="employee_id" placeholder="Approved by..." options="{'no_open': False, 'no_create': True}"/>
                     <field name="professional_id" invisible="True"/>
                     <field name="date_approved"/>
+                    <field name="lab_test_report_id" options="{'no_open': False, 'no_create': True}"/>
                 </group>
             </field>
         </record>
@@ -32,6 +33,7 @@
             <field name="arch" type="xml">
                 <field name="lab_test_type_id" position="before">
                     <field name="person_off_id"/>
+                    <field name="lab_test_report_id"/>
                 </field>
                 <field name="lab_test_type_id" position="after">
                     <field name="survey_id"/>

@@ -55,6 +55,12 @@ class LabTestOffReport(models.Model):
         readonly=True
     )
 
+    lab_test_report_id = fields.Many2one(
+        comodel_name='clv.lab_test.report',
+        string="Related Lab Test Report",
+        ondelete='restrict'
+    )
+
 
 class PersonOff(models.Model):
     _inherit = 'clv.person.off'
