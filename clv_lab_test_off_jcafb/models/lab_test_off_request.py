@@ -40,7 +40,7 @@ class LabTestOffRequest(models.Model):
 
     lab_test_request_id = fields.Many2one(
         comodel_name='clv.lab_test.request',
-        string="Related Lab Test Requests",
+        string="Related Lab Test Request",
         ondelete='restrict'
     )
 
