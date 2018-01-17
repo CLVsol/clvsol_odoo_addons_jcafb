@@ -8,5 +8,11 @@
             sequence="10"
             action="clv_mfile_jcafb.clv_mfile_setup_action"/>
 
+        <menuitem name="Media File Directory Refresh" id="menu_mfmng_config_config_media_directory_refresh" 
+            parent="clv_base.menu_mfmng_config_config"
+            groups="clv_mfile.group_user"
+            sequence="100"
+            action="clv_mfile_jcafb.clv_mfile_directory_refresh_action"/>
+
     </data>
 </odoo>
