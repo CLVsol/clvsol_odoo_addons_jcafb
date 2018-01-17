@@ -24,3 +24,4 @@ from . import lab_test_off_report
 from . import lab_test_off_report_code
 from . import lab_test_off_report_export_xls
 from . import lab_test_off_request_state
+from . import lab_test_off_report_state
