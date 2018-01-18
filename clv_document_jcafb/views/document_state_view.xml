@@ -29,7 +29,7 @@
                             groups="clv_document.group_manager"/>
                     <button name="action_archive" type="object"
                             string="Archived"
-                            attrs="{'invisible':[('state','not in',['returned'])]}"
+                            attrs="{'invisible':[('state','not in',['new','available','waiting','returned'])]}"
                             groups="clv_document.group_manager"/>
                     <button name="action_discarded" type="object"
                             string="Discarded"
