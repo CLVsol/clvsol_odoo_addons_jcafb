@@ -61,64 +61,64 @@ class LabTestOffRequestCopyToLabTest(models.TransientModel):
     def do_lab_test_off_request_copy_to_lab_test(self):
         self.ensure_one()
 
-        LabTestRequest = self.env['clv.lab_test.request']
-        LabTestReport = self.env['clv.lab_test.report']
-        LabTestOffReport = self.env['clv.lab_test.off.report']
+        # LabTestRequest = self.env['clv.lab_test.request']
+        # LabTestReport = self.env['clv.lab_test.report']
+        # LabTestOffReport = self.env['clv.lab_test.off.report']
 
         for lab_test_off_request in self.lab_test_off_request_ids:
 
             _logger.info(u'%s %s', '>>>>>', lab_test_off_request.code)
 
-            lab_test_request = LabTestRequest.search([
-                ('code', '=', lab_test_off_request.code),
-            ])
+            # lab_test_request = LabTestRequest.search([
+            #     ('code', '=', lab_test_off_request.code),
+            # ])
 
-            if lab_test_request.id is False:
+            # if lab_test_request.id is False:
 
-                m2m_list = []
-                for lab_test_type in lab_test_off_request.lab_test_type_ids:
-                    m2m_list.append((4, lab_test_type.id))
+            #     m2m_list = []
+            #     for lab_test_type in lab_test_off_request.lab_test_type_ids:
+            #         m2m_list.append((4, lab_test_type.id))
 
-                values = {
-                    'code': lab_test_off_request.code,
-                    'code_sequence': 'clv.lab_test.request.code',
-                    'date_requested': lab_test_off_request.date_requested,
-                    'lab_test_type_ids': m2m_list,
-                    'person_id': lab_test_off_request.person_off_id.person_id.id,
-                    'history_marker_id': self.history_marker_id.id,
-                    'state': 'tested'
-                }
-                new_lab_test_request = LabTestRequest.create(values)
+            #     values = {
+            #         'code': lab_test_off_request.code,
+            #         'code_sequence': 'clv.lab_test.request.code',
+            #         'date_requested': lab_test_off_request.date_requested,
+            #         'lab_test_type_ids': m2m_list,
+            #         'person_id': lab_test_off_request.person_off_id.person_id.id,
+            #         'history_marker_id': self.history_marker_id.id,
+            #         'state': 'tested'
+            #     }
+            #     new_lab_test_request = LabTestRequest.create(values)
 
-                # lab_test_off_request.state = 'done'
-                lab_test_off_request.lab_test_request_id = new_lab_test_request.id
+            #     # lab_test_off_request.state = 'done'
+            #     lab_test_off_request.lab_test_request_id = new_lab_test_request.id
 
-                _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', new_lab_test_request.code)
+            #     _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', new_lab_test_request.code)
 
-                lab_test_off_report = LabTestOffReport.search([
-                    ('lab_test_off_request_id', '=', lab_test_off_request.id),
-                ])
+            #     lab_test_off_report = LabTestOffReport.search([
+            #         ('lab_test_off_request_id', '=', lab_test_off_request.id),
+            #     ])
 
-                if lab_test_off_report.id is not False:
+            #     if lab_test_off_report.id is not False:
 
-                    lab_test_report = LabTestReport.search([
-                        ('code', '=', lab_test_off_report.code),
-                    ])
+            #         lab_test_report = LabTestReport.search([
+            #             ('code', '=', lab_test_off_report.code),
+            #         ])
 
-                    if lab_test_report.id is False:
+            #         if lab_test_report.id is False:
 
-                        values = {
-                            'code': lab_test_off_report.code,
-                            'code_sequence': 'clv.lab_test.report.code',
-                            'date_requested': lab_test_off_report.date_requested,
-                            'lab_test_type_ids': m2m_list,
-                            'person_id': lab_test_off_report.person_off_id.person_id.id,
-                            'history_marker_id': self.history_marker_id.id,
-                            'reg_state': 'tested',
-                            'state': 'tested'
-                        }
-                        new_lab_test_report = LabTestRequest.create(values)
+            #             values = {
+            #                 'code': lab_test_off_report.code,
+            #                 'code_sequence': 'clv.lab_test.report.code',
+            #                 'date_requested': lab_test_off_report.date_requested,
+            #                 'lab_test_type_ids': m2m_list,
+            #                 'person_id': lab_test_off_report.person_off_id.person_id.id,
+            #                 'history_marker_id': self.history_marker_id.id,
+            #                 'reg_state': 'tested',
+            #                 'state': 'tested'
+            #             }
+            #             new_lab_test_report = LabTestRequest.create(values)
 
-                        _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', new_lab_test_report.code)
+            #             _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', new_lab_test_report.code)
 
         return True
