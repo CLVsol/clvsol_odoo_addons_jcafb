@@ -73,33 +73,37 @@ class DocumentOffCopyToDocument(models.TransientModel):
 
             if document.id is False:
 
-                values = {
-                    'name': document_off.name,
-                    'code': document_off.code,
-                    'code_sequence': 'clv.document.code',
-                    'date_requested': document_off.date_requested,
-                    # 'date_document': self.date_document,
-                    # 'date_foreseen': document_off.date_foreseen,
-                    # 'date_deadline': document_off.date_deadline,
-                    'survey_id': document_off.survey_id.id,
-                    # 'category_id': self.category_id.id,
-                    'person_id': document_off.person_off_id.person_id.id,
-                    'history_marker_id': self.history_marker_id.id,
-                }
-                new_document = Document.create(values)
+                if document_off.person_off_id.person_id.id is not False:
 
-                category_id = new_document.get_document_category_id(document_off.survey_id)
+                    if document_off.state != 'cancelled':
 
-                if category_id is not False:
+                        values = {
+                            'name': document_off.name,
+                            'code': document_off.code,
+                            'code_sequence': 'clv.document.code',
+                            'date_requested': document_off.date_requested,
+                            # 'date_document': self.date_document,
+                            # 'date_foreseen': document_off.date_foreseen,
+                            # 'date_deadline': document_off.date_deadline,
+                            'survey_id': document_off.survey_id.id,
+                            # 'category_id': self.category_id.id,
+                            'person_id': document_off.person_off_id.person_id.id,
+                            'history_marker_id': self.history_marker_id.id,
+                        }
+                        new_document = Document.create(values)
 
-                    values = {
-                        'category_ids': [(4, category_id)],
-                    }
-                    new_document.write(values)
+                        category_id = new_document.get_document_category_id(document_off.survey_id)
 
-                document_off.state = 'done'
-                document_off.document_id = new_document.id
+                        if category_id is not False:
 
-                _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', new_document.code)
+                            values = {
+                                'category_ids': [(4, category_id)],
+                            }
+                            new_document.write(values)
+
+                        document_off.state = 'done'
+                        document_off.document_id = new_document.id
+
+                        _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', new_document.code)
 
         return True
