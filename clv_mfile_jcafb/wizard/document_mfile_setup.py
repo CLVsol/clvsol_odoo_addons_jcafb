@@ -91,6 +91,8 @@ class DocumentMfileSetUp(models.TransientModel):
                 mfile = MFile.create(values)
                 _logger.info(u'%s %s', '>>>>>>>>>>', mfile.name)
 
+                document.state = 'returned'
+
         return True
 
     @api.multi
