@@ -255,7 +255,7 @@ class MfileValidate(models.TransientModel):
                                             except Exception:
                                                 if mfile.notes is False:
                                                     mfile.notes = \
-                                                        'Erro: Questão ' + question_code + ' com formato invalido!'
+                                                        u'Erro: Questão ' + question_code + ' com formato invalido!'
                                                 else:
                                                     mfile.notes += \
                                                         '\nErro: Questão ' + question_code + ' com formato invalido!'
