@@ -22,3 +22,4 @@ from . import document_item_edit_TCP17
 from . import document_item_edit_TCR17
 from . import document_item_edit_TID17
 from . import document_item_edit
+from . import document_type_item_setup
