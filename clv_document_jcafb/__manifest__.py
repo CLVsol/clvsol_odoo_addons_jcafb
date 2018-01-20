@@ -45,6 +45,7 @@
         'wizard/document_updt_view.xml',
         'wizard/document_item_edit_view.xml',
         'wizard/document_item_updt_from_survey_view.xml',
+        'wizard/document_type_setup_view.xml',
     ],
     'demo': [],
     'test': [],

@@ -21,3 +21,4 @@
 import document_updt
 import document_item_edit
 import document_item_updt_from_survey
+import document_type_setup
