@@ -27,8 +27,7 @@
     'license': 'AGPL-3',
     'website': 'https://github.com/CLVsol',
     'depends': [
-        'clv_survey',
-        'clv_document_jcafb',
+        'clv_survey_jcafb',
     ],
     'data': [
         'data/survey_jcafb_QAN18.xml',
