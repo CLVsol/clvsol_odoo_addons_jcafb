@@ -147,7 +147,7 @@ class LabTestOffReport(models.Model):
         )
         row_nr += 3
 
-        ExportXLS.setOutCell(sheet, 15, row_nr, u'MEDIDADA DE PRESSÃO ARTERIAL (mmHg)')
+        ExportXLS.setOutCell(sheet, 15, row_nr, u'MEDIDA DE PRESSÃO ARTERIAL (mmHg)')
         row_nr += 2
 
         ExportXLS.setOutCell(sheet, 25, row_nr, u'Valores de referência (1)')
