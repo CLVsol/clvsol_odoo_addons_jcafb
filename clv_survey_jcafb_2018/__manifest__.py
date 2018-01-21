@@ -51,11 +51,13 @@
         'data/document_jcafb_TCR18.xml',
         'data/document_jcafb_TDH18.xml',
         'data/document_jcafb_TID18.xml',
+        'data/document_jcafb_TCV18.xml',
 
         'wizard/document_item_edit_TAN18_view.xml',
         'wizard/document_item_edit_TCR18_view.xml',
         'wizard/document_item_edit_TDH18_view.xml',
         'wizard/document_item_edit_TID18_view.xml',
+        'wizard/document_item_edit_TCV18_view.xml',
     ],
     'demo': [],
     'test': [],

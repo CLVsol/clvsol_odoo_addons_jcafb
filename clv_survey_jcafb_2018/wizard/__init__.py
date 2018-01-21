@@ -22,5 +22,6 @@ from . import document_item_edit_TAN18
 from . import document_item_edit_TCR18
 from . import document_item_edit_TDH18
 from . import document_item_edit_TID18
+from . import document_item_edit_TCV18
 from . import document_item_edit
 from . import document_type_item_setup

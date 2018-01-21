@@ -76,4 +76,7 @@ class DocumentItemEdit(models.TransientModel):
             # self._do_document_updt_TUR8()
             pass
 
+        if document.document_type_id.code == 'TCV18':
+            self._do_document_updt_TCV18()
+
         return True
