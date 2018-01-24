@@ -3,3 +3,7 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_clv_person_direct_mail_user,clv.person.direct_mail.user,model_clv_person_direct_mail,clv_person.group_user,1,0,0,0
 access_clv_person_direct_mail_manager,clv.person.direct_mail.manager,model_clv_person_direct_mail,clv_person.group_manager,1,1,1,0
 access_clv_person_direct_mail_supmanager,clv.person.direct_mail.supmanager,model_clv_person_direct_mail,clv_person.group_supmanager,1,1,1,1
+
+access_clv_data_export_document_item_user,clv.data_export.document_item.user,model_clv_data_export_document_item,clv_data_export.group_user,1,0,0,0
+access_clv_data_export_document_item_manager,clv.data_export.document_item.manager,model_clv_data_export_document_item,clv_data_export.group_manager,1,1,1,0
+access_clv_data_export_document_item_supmanager,clv.data_export.document_item.supmanager,model_clv_data_export_document_item,clv_data_export.group_supmanager,1,1,1,1
