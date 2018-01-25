@@ -34,8 +34,6 @@ class DataExportSetUp(models.TransientModel):
     def do_data_export_setup(self):
         self.ensure_one()
 
-        category = 'Person'
-
         FileSystemDirectory = self.env['clv.file_system.directory']
         file_system_directory = FileSystemDirectory.search([
             ('directory', '=', self.dir_path),
@@ -47,8 +45,17 @@ class DataExportSetUp(models.TransientModel):
 
             data_export.date_data_export = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
+            model_name = data_export.model_id.name
+            label = ''
+            if data_export.label is not False:
+                label = '_' + data_export.label
             code = data_export.code
-            file_name = self.file_name.replace('<category>', category).replace('<code>', code)
+            timestamp = datetime.now().strftime('%Y%m%d%H%M%S')[2:]
+            file_name = self.file_name\
+                .replace('<model>', model_name)\
+                .replace('_<label>', label)\
+                .replace('<code>', code)\
+                .replace('<timestamp>', timestamp)
             file_path = self.dir_path + '/' + file_name
             _logger.info(u'%s %s', '>>>>>>>>>>', file_path)
 
@@ -60,15 +67,24 @@ class DataExportSetUp(models.TransientModel):
             row = sheet.row(row_nr)
             col_nr = 0
             for field in data_export.data_export_field_ids:
-                row.write(col_nr, field.field_id.field_description)
-                col_nr += 1
-
-            for lab_test_criterion in data_export.data_export_lab_test_criterion_ids:
-                row.write(col_nr, lab_test_criterion.lab_test_criterion_id.code)
+                col_name = field.field_id.field_description
+                if field.name is not False:
+                    col_name = field.name
+                row.write(col_nr, col_name)
                 col_nr += 1
 
             for document_item in data_export.data_export_document_item_ids:
-                row.write(col_nr, document_item.document_item_id.code)
+                col_name = document_item.document_item_id.code
+                if document_item.name is not False:
+                    col_name = document_item.name
+                row.write(col_nr, col_name)
+                col_nr += 1
+
+            for lab_test_criterion in data_export.data_export_lab_test_criterion_ids:
+                col_name = lab_test_criterion.lab_test_criterion_id.code
+                if lab_test_criterion.name is not False:
+                    col_name = lab_test_criterion.name
+                row.write(col_nr, col_name)
                 col_nr += 1
 
             for item in eval('data_export.' + data_export.model_items):
@@ -90,19 +106,6 @@ class DataExportSetUp(models.TransientModel):
                         row.write(col_nr, eval(cmd))
                     col_nr += 1
 
-                for lab_test_criterion in data_export.data_export_lab_test_criterion_ids:
-                    result = None
-                    for lab_test_result in item.lab_test_result_ids:
-                        if lab_test_result.lab_test_type_id.id == \
-                           lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
-                            result = lab_test_result.criterion_ids.search([
-                                ('lab_test_result_id', '=', lab_test_result.id),
-                                ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
-                            ]).result
-                            break
-                    row.write(col_nr, result)
-                    col_nr += 1
-
                 for document_item in data_export.data_export_document_item_ids:
                     value = None
                     for document in item.document_ids:
@@ -118,6 +121,19 @@ class DataExportSetUp(models.TransientModel):
                                 value = document.survey_user_input_id.get_value(document_item.document_item_id.code)
                                 break
                     row.write(col_nr, value)
+                    col_nr += 1
+
+                for lab_test_criterion in data_export.data_export_lab_test_criterion_ids:
+                    result = None
+                    for lab_test_result in item.lab_test_result_ids:
+                        if lab_test_result.lab_test_type_id.id == \
+                           lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
+                            result = lab_test_result.criterion_ids.search([
+                                ('lab_test_result_id', '=', lab_test_result.id),
+                                ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
+                            ]).result
+                            break
+                    row.write(col_nr, result)
                     col_nr += 1
 
             book.save(file_path)
