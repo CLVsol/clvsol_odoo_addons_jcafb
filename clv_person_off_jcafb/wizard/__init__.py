@@ -22,3 +22,4 @@ import person_off_updt
 import person_off_code_setup
 import person_off_set_code
 import person_off_document_setup
+import person_off_copy_event

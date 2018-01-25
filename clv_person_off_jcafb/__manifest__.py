@@ -39,6 +39,7 @@
         'wizard/person_off_code_setup_view.xml',
         'wizard/person_off_set_code_view.xml',
         'wizard/person_off_document_setup_view.xml',
+        'wizard/person_off_copy_event_view.xml',
         'views/person_off_menu_view.xml',
     ],
     'demo': [],
