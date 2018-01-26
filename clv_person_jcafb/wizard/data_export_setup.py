@@ -87,7 +87,8 @@ class DataExportSetUp(models.TransientModel):
                 row.write(col_nr, col_name)
                 col_nr += 1
 
-            for item in eval('data_export.' + data_export.model_items):
+            # for item in eval('data_export.' + data_export.model_items):
+            for item in data_export.data_export_person_ids + data_export.data_export_community_id.person_ids:
                 row_nr += 1
                 row = sheet.row(row_nr)
                 col_nr = 0
