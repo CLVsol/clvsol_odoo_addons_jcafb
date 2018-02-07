@@ -40,6 +40,7 @@
         'data/address_seq.xml',
         'wizard/address_updt_view.xml',
         'wizard/address_document_setup_view.xml',
+        'views/address_menu_view.xml',
     ],
     'demo': [],
     'test': [],
