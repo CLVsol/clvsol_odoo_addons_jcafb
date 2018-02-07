@@ -30,6 +30,7 @@
         'clv_base',
     ],
     'data': [
+        'views/base_menu_view.xml',
         'data/annotation_seq.xml',
     ],
     'demo': [],
