@@ -49,6 +49,7 @@
         'wizard/person_off_summary_setup_view.xml',
         'wizard/summary_refresh_view.xml',
         'wizard/summary_export_xls_view.xml',
+        'views/summary_menu_view.xml',
     ],
     'demo': [],
     'test': [],
