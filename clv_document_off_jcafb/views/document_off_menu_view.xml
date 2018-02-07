@@ -2,14 +2,20 @@
 <odoo>
     <data>
 
-        <menuitem name="Codes" id="menu_base_base_documents_off_codes"
+        <menuitem name="Off" id="clv_document_off.menu_base_base_documents_off"
+            parent="clv_document.menu_base_base_documents"
+            groups="clv_document_off.group_user"
+            sequence="10"
+            action="clv_document_off.clv_document_off_action"/>
+
+        <menuitem name="Codes" id="clv_document_off.menu_base_base_documents_off_codes"
             parent="clv_document_off.menu_base_base_documents_off"
             groups="clv_document_off.group_user"
             sequence="10"
             action="clv_document_off_jcafb.clv_document_off_code_action"/>
 
-        <menuitem name="Set Up" id="menu_base_base_documents_off_codes_setup" 
-            parent="menu_base_base_documents_off_codes"
+        <menuitem name="Set Up" id="clv_document_off.menu_base_base_documents_off_codes_setup" 
+            parent="clv_document_off.menu_base_base_documents_off_codes"
             groups="clv_document_off.group_user"
             sequence="10"
             action="clv_document_off_jcafb.clv_document_off_code_setup_action"/>
