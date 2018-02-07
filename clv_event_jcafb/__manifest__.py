@@ -36,6 +36,7 @@
         'views/event_state_view.xml',
         'data/event_seq.xml',
         'wizard/event_updt_view.xml',
+        'views/event_menu_view.xml',
     ],
     'demo': [],
     'test': [],
