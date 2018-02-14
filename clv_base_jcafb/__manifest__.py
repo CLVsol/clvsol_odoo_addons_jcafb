@@ -31,6 +31,7 @@
     ],
     'data': [
         'views/base_menu_view.xml',
+        'views/community_menu_view.xml',
         'data/annotation_seq.xml',
     ],
     'demo': [],
