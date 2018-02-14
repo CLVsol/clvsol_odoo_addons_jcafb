@@ -31,6 +31,7 @@
     ],
     'data': [
         'wizard/person_updt_view.xml',
+        'views/person_history_menu_view.xml',
     ],
     'demo': [],
     'test': [],
