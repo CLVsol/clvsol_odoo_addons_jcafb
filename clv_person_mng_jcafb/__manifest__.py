@@ -32,6 +32,7 @@
     'data': [
         'views/person_mng_state_view.xml',
         'wizard/person_mng_updt_view.xml',
+        'views/person_mng_menu_view.xml',
     ],
     'demo': [],
     'test': [],
