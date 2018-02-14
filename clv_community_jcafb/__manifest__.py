@@ -35,6 +35,7 @@
         'views/community_code_view.xml',
         'data/community_seq.xml',
         'wizard/community_updt_view.xml',
+        'views/community_menu_view.xml',
     ],
     'demo': [],
     'test': [],
