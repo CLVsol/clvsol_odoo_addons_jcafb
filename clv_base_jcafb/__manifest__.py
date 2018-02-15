@@ -35,6 +35,7 @@
         'views/community_menu_view.xml',
         'views/health_menu_view.xml',
         'views/report_menu_view.xml',
+        'views/data_export_menu_view.xml',
         'data/annotation_seq.xml',
     ],
     'demo': [],
