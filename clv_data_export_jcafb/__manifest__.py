@@ -31,6 +31,7 @@
     ],
     'data': [
         'data/data_export_seq.xml',
+        'views/data_export_menu_view.xml',
     ],
     'demo': [],
     'test': [],
