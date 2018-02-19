@@ -28,6 +28,7 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_data_export',
+        'clv_history_marker',
     ],
     'data': [
         'data/data_export_seq.xml',
