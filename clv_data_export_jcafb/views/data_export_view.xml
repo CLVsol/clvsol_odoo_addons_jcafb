@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="clv_data_export_view_form_jcafb" model="ir.ui.view">
+            <field name="name">clv.data_export.form</field>
+            <field name="model">clv.data_export</field>
+            <field name="inherit_id" ref="clv_data_export.clv_data_export_view_form"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="file_name"  position="before">
+                    <field name="history_marker_id" options='{"no_open": True, "no_create": True}'/>
+                </field>
+            </field>
+        </record>
+       
+        <record id="clv_data_export_view_tree_jcafb" model="ir.ui.view">
+            <field name="name">clv.data_export.tree</field>
+            <field name="model">clv.data_export</field>
+            <field name="inherit_id" ref="clv_data_export.clv_data_export_view_tree"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="model_model" position="after">
+                    <field name="history_marker_id" groups="clv_history_marker.group_user"/>
+                </field>
+            </field>
+        </record>
+       
+        <record id="clv_data_export_view_search_random" model="ir.ui.view">
+            <field name="name">clv.data_export.search</field>
+            <field name="model">clv.data_export</field>
+            <field name="inherit_id" ref="clv_data_export.clv_data_export_view_search"/>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <field name="code" position="after">
+                    <field name="history_marker_id"/>
+                </field>
+                <group name="group_by" position="inside">
+                    <filter string="History Markers" context="{'group_by': 'history_marker_id'}"/>
+                </group>
+            </field>
+        </record>
+       
+    </data>
+</odoo>

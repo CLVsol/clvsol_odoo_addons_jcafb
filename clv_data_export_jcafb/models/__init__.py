@@ -18,4 +18,5 @@
 #
 ###############################################################################
 
+from . import history_marker
 from . import data_export
