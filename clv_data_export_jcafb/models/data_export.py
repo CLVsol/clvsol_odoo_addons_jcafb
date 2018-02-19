@@ -18,4 +18,11 @@
 #
 ###############################################################################
 
-from . import models
+from openerp import models
+
+
+class DataExport(models.AbstractModel):
+    _inherit = 'clv.object.data_export'
+
+    def data_export_dir_path(self):
+        return '/opt/openerp/clvsol_clvhealth_jcafb/data_export_files/xls'
