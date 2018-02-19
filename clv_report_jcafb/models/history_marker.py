@@ -18,28 +18,15 @@
 #
 ###############################################################################
 
-{
-    'name': 'Report (customizations for CLVhealth-JCAFB Solution)',
-    'summary': 'Report Module customizations for CLVhealth-JCAFB Solution.',
-    'version': '3.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'https://github.com/CLVsol',
-    'depends': [
-        'clv_report',
-        'clv_history_marker',
-    ],
-    'data': [
-        'data/report_seq.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+from odoo import models, fields
+
+
+class Document(models.AbstractModel):
+    _inherit = 'clv.object.report'
+
+    history_marker_id = fields.Many2one(
+        comodel_name='clv.history_marker',
+        string='History Marker',
+        ondelete='restrict',
+        required=True
+    )
