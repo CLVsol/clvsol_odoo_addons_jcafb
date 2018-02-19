@@ -44,6 +44,7 @@
         'views/community_view.xml',
         'views/event_view.xml',
         'views/summary_file_system_view.xml',
+        'views/data_export_view.xml',
         'views/data_export_document_item_view.xml',
         'views/data_export_lab_test_criterion_view.xml',
         'data/person_seq.xml',
