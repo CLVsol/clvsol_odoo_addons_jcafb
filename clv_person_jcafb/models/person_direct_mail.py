@@ -53,8 +53,9 @@ class PersonDirectMail(models.Model):
          ('waiting', 'Waiting'),
          ('selected', 'Selected'),
          ('unselected', 'Unselected'),
-         ('unavailable', 'Unavailable')
-         ], string='State', default='new', readonly=True, required=False
+         ('unavailable', 'Unavailable'),
+         ('unknown', 'Unknown')
+         ], string='State', default='new', readonly=True, required=True
     )
     responsible_name = fields.Char(string='Responsible Name')
     responsible_code = fields.Char(string='Responsible Code')
