@@ -911,7 +911,8 @@ class PersonSelSummarySetUp(models.TransientModel):
                     col_str = '0' + col_str
                 col_str = 'c' + col_str
                 command = 'rows[{}].{} = matrix[{}][{}]'.format(row_nr, col_str, row_nr, col_nr)
-                exec command
+                # exec command
+                exec(command)
 
         _logger.info(u'%s %s %s %s',
                      '>>>>>', 'do_person_sel_summary_setup', ' - Execution time:', secondsToStr(time() - start)
