@@ -18,7 +18,7 @@
 #
 ###############################################################################
 
-import animal_mng_address_confirm
-import animal_mng_animal_confirm
-import animal_mng_address_create
-import animal_mng_animal_create
+from . import animal_mng_address_confirm
+from . import animal_mng_animal_confirm
+from . import animal_mng_address_create
+from . import animal_mng_animal_create

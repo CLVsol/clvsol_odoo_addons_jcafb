@@ -18,5 +18,5 @@
 #
 ###############################################################################
 
-import animal_updt
-import animal_document_setup
+from . import animal_updt
+from . import animal_document_setup

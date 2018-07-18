@@ -18,6 +18,6 @@
 #
 ###############################################################################
 
-import address_updt
-import address_history_updt
-import address_document_setup
+from . import address_updt
+from . import address_history_updt
+from . import address_document_setup
