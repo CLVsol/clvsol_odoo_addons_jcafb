@@ -18,7 +18,7 @@
 #
 ###############################################################################
 
-import document_updt
-import document_item_edit
-import document_item_updt_from_survey
-import document_type_setup
+from . import document_updt
+from . import document_item_edit
+from . import document_item_updt_from_survey
+from . import document_type_setup

@@ -18,12 +18,12 @@
 #
 ###############################################################################
 
-import mfile_updt
-import mfile_setup
-import mfile_refresh
-import mfile_validate
-import mfile_import
-import mfile_archive
-import mfile_unarchive
-import document_mfile_setup
-import mfile_directory_refresh
+from . import mfile_updt
+from . import mfile_setup
+from . import mfile_refresh
+from . import mfile_validate
+from . import mfile_import
+from . import mfile_archive
+from . import mfile_unarchive
+from . import document_mfile_setup
+from . import mfile_directory_refresh

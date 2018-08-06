@@ -18,13 +18,13 @@
 #
 ###############################################################################
 
-import lab_test_off_request_code_setup
-import lab_test_off_request_set_code
-import lab_test_off_report_setup
-import lab_test_off_report_code_setup
-import lab_test_off_report_set_code
-import lab_test_off_report_edit
-import lab_test_off_request_setup
-import lab_test_off_report_approve
-import lab_test_off_report_export_xls
-import lab_test_off_request_copy_to_lab_test
+from . import lab_test_off_request_code_setup
+from . import lab_test_off_request_set_code
+from . import lab_test_off_report_setup
+from . import lab_test_off_report_code_setup
+from . import lab_test_off_report_set_code
+from . import lab_test_off_report_edit
+from . import lab_test_off_request_setup
+from . import lab_test_off_report_approve
+from . import lab_test_off_report_export_xls
+from . import lab_test_off_request_copy_to_lab_test

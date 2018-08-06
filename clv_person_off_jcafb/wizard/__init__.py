@@ -18,8 +18,8 @@
 #
 ###############################################################################
 
-import person_off_updt
-import person_off_code_setup
-import person_off_set_code
-import person_off_document_setup
-import person_off_copy_event
+from . import person_off_updt
+from . import person_off_code_setup
+from . import person_off_set_code
+from . import person_off_document_setup
+from . import person_off_copy_event

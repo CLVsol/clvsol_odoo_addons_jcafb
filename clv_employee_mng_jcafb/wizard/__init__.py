@@ -18,4 +18,4 @@
 #
 ###############################################################################
 
-import employee_mng_updt
+from . import employee_mng_updt

@@ -18,16 +18,16 @@
 #
 ###############################################################################
 
-import lab_test_request_setup
-import lab_test_request_receive
-import lab_test_result_setup
-import lab_test_report_setup
-import lab_test_request_document_setup
-import lab_test_result_edit
-import lab_test_report_edit
-import lab_test_request_direct_mail_setup
-import lab_test_result_copy_to_report
-import lab_test_result_approve
-import lab_test_result_export_xls
-import lab_test_report_export_xls
-import lab_test_report_approve
+from . import lab_test_request_setup
+from . import lab_test_request_receive
+from . import lab_test_result_setup
+from . import lab_test_report_setup
+from . import lab_test_request_document_setup
+from . import lab_test_result_edit
+from . import lab_test_report_edit
+from . import lab_test_request_direct_mail_setup
+from . import lab_test_result_copy_to_report
+from . import lab_test_result_approve
+from . import lab_test_result_export_xls
+from . import lab_test_report_export_xls
+from . import lab_test_report_approve

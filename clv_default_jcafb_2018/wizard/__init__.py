@@ -18,20 +18,20 @@
 #
 ###############################################################################
 
-import person_mng_person_confirm
-import person_mng_address_confirm
-import person_mng_person_create
-import person_mng_address_create
-import person_mng_person_address_move
-import lab_test_request_setup
-import person_off_address_confirm
-import person_off_address_create
-import person_off_person_confirm
-import person_off_person_create
-import address_document_setup
-import person_document_setup
-import person_select_2018
-import person_address_select_2018
-import animal_document_setup
-import document_off_copy_to_document
-import lab_test_off_request_copy_to_lab_test
+from . import person_mng_person_confirm
+from . import person_mng_address_confirm
+from . import person_mng_person_create
+from . import person_mng_address_create
+from . import person_mng_person_address_move
+from . import lab_test_request_setup
+from . import person_off_address_confirm
+from . import person_off_address_create
+from . import person_off_person_confirm
+from . import person_off_person_create
+from . import address_document_setup
+from . import person_document_setup
+from . import person_select_2018
+from . import person_address_select_2018
+from . import animal_document_setup
+from . import document_off_copy_to_document
+from . import lab_test_off_request_copy_to_lab_test
