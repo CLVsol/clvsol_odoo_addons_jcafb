@@ -64,6 +64,9 @@
                     <field name="off_instance_id"/>
                     <field name="lab_test_off_request_id"/>
                     <separator/>
+                    <filter name="filter_used" string="Used" domain="[('lab_test_off_request_id','!=',False)]"/>
+                    <filter name="filter_not_used" string="Not Used" domain="[('lab_test_off_request_id','=',False)]"/>
+                    <separator/>
                     <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
                     <group name="group_by" expand="0" string="Group By...">
                         <filter string="Off Instance" context="{'group_by': 'off_instance_id'}"/>
