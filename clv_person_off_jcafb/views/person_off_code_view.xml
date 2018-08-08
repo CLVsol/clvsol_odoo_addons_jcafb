@@ -64,6 +64,9 @@
                     <field name="off_instance_id"/>
                     <field name="person_off_id"/>
                     <separator/>
+                    <filter name="filter_used" string="Used" domain="[('person_off_id','!=',False)]"/>
+                    <filter name="filter_not_used" string="Not Used" domain="[('person_off_id','=',False)]"/>
+                    <separator/>
                     <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
                     <group name="group_by" expand="0" string="Group By...">
                         <filter string="Off Instance" context="{'group_by': 'off_instance_id'}"/>
