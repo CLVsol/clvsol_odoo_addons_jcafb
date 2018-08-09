@@ -19,25 +19,19 @@
 ###############################################################################
 
 {
-    'name': 'Base Module (customizations for CLVhealth-JCAFB Solution)',
-    'summary': 'Base Module Module customizations for CLVhealth-JCAFB Solution.',
+    'name': 'Export (customizations for CLVhealth-JCAFB Solution)',
+    'summary': 'Export Module customizations for CLVhealth-JCAFB Solution.',
     'version': '3.0.0',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
     'category': 'Generic Modules/Others',
     'license': 'AGPL-3',
     'website': 'https://github.com/CLVsol',
     'depends': [
-        'clv_base',
+        'clv_export',
     ],
     'data': [
-        'views/base_menu_view.xml',
-        'views/mfmng_menu_view.xml',
-        'views/community_menu_view.xml',
-        'views/health_menu_view.xml',
-        'views/report_menu_view.xml',
-        'views/data_export_menu_view.xml',
+        'data/export_seq.xml',
         'views/export_menu_view.xml',
-        'data/annotation_seq.xml',
     ],
     'demo': [],
     'test': [],

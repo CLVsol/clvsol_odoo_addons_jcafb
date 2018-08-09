@@ -18,34 +18,4 @@
 #
 ###############################################################################
 
-{
-    'name': 'Base Module (customizations for CLVhealth-JCAFB Solution)',
-    'summary': 'Base Module Module customizations for CLVhealth-JCAFB Solution.',
-    'version': '3.0.0',
-    'author': 'Carlos Eduardo Vercelino - CLVsol',
-    'category': 'Generic Modules/Others',
-    'license': 'AGPL-3',
-    'website': 'https://github.com/CLVsol',
-    'depends': [
-        'clv_base',
-    ],
-    'data': [
-        'views/base_menu_view.xml',
-        'views/mfmng_menu_view.xml',
-        'views/community_menu_view.xml',
-        'views/health_menu_view.xml',
-        'views/report_menu_view.xml',
-        'views/data_export_menu_view.xml',
-        'views/export_menu_view.xml',
-        'data/annotation_seq.xml',
-    ],
-    'demo': [],
-    'test': [],
-    'init_xml': [],
-    'test': [],
-    'update_xml': [],
-    'installable': True,
-    'application': False,
-    'active': False,
-    'css': [],
-}
+from . import models
