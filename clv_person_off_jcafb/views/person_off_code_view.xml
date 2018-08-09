@@ -45,7 +45,7 @@
             <field name="model">clv.person.off.code</field>
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
-                <tree name="persons" string="Persons">
+                <tree name="persons" string="Persons (Off)">
                     <field name="code"/>
                     <field name="off_instance_id"/>
                     <field name="person_off_id"/>
