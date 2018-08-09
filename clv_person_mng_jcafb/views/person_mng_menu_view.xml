@@ -2,7 +2,7 @@
 <odoo>
     <data>
 
-        <menuitem name="Management" id="clv_person_mng.menu_community_community_persons_management"
+        <menuitem name="Mng" id="clv_person_mng.menu_community_community_persons_mng"
             parent="clv_person.menu_community_community_persons"
             groups="clv_person_mng.group_user"
             sequence="90"
