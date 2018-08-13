@@ -2,8 +2,8 @@
 <odoo>
     <data>
 
-        <menuitem name="History" id="clv_address_history.menu_base_base_addresses_history"
-            parent="clv_address.menu_base_base_addresses"
+        <menuitem name="History" id="clv_address_history.menu_community_community_addresses_history"
+            parent="clv_address.menu_community_community_addresses"
             groups="base.group_user"
             sequence="20"
             action="clv_address_history.clv_address_history_actions"/>
