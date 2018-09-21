@@ -31,6 +31,7 @@
         'clv_employee',
         'clv_community',
         'clv_event',
+        'clv_document',
     ],
     'data': [
         'security/ir.model.access.csv',
@@ -47,7 +48,9 @@
         'views/data_export_view.xml',
         'views/data_export_document_item_view.xml',
         'views/data_export_lab_test_criterion_view.xml',
+        'views/document_view.xml',
         'data/person_seq.xml',
+        'data/document_referenceable_model.xml',
         'wizard/person_updt_view.xml',
         'wizard/person_direct_mail_setup_view.xml',
         'wizard/person_document_setup_view.xml',

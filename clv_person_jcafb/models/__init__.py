@@ -31,3 +31,4 @@ from . import summary_file_system
 from . import data_export
 from . import data_export_document_item
 from . import data_export_lab_test_criterion
+from . import document
