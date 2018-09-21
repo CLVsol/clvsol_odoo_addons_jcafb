@@ -29,6 +29,7 @@
     'depends': [
         'clv_address',
         'clv_employee',
+        'clv_document',
     ],
     'data': [
         'views/address_view.xml',
@@ -37,7 +38,9 @@
         'views/address_reg_state_view.xml',
         'views/address_state_view.xml',
         'views/summary_file_system_view.xml',
+        'views/document_view.xml',
         'data/address_seq.xml',
+        'data/document_referenceable_model.xml',
         'wizard/address_updt_view.xml',
         'wizard/address_document_setup_view.xml',
         'views/address_menu_view.xml',

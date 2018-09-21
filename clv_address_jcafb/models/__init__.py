@@ -24,3 +24,4 @@ from . import address_annotation
 from . import address_reg_state
 from . import address_state
 from . import summary_file_system
+from . import document
