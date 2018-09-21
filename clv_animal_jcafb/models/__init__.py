@@ -22,3 +22,4 @@ from . import animal_code
 from . import address
 from . import animal_reg_state
 from . import animal_state
+from . import document
