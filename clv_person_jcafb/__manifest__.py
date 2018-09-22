@@ -1,22 +1,6 @@
 # -*- coding: utf-8 -*-
-###############################################################################
-#
 # Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-#
-# You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-###############################################################################
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
     'name': 'Person (customizations for CLVhealth-JCAFB Solution)',
@@ -32,6 +16,7 @@
         'clv_community',
         'clv_event',
         'clv_document',
+        'clv_lab_test',
     ],
     'data': [
         'security/ir.model.access.csv',
@@ -49,8 +34,10 @@
         'views/data_export_document_item_view.xml',
         'views/data_export_lab_test_criterion_view.xml',
         'views/document_view.xml',
+        'views/lab_test_view.xml',
         'data/person_seq.xml',
         'data/document_referenceable_model.xml',
+        'data/lab_test_referenceable_model.xml',
         'wizard/person_updt_view.xml',
         'wizard/person_direct_mail_setup_view.xml',
         'wizard/person_document_setup_view.xml',
