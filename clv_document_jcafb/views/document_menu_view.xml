@@ -31,11 +31,5 @@
             sequence="30"
             action="clv_document.clv_document_item_action"/>
 
-        <menuitem name="Referenceable Models" id="clv_document.menu_base_config_config_document_referenceable_models"
-            parent="clv_document.menu_base_config_config_document"
-            groups="clv_document.group_user"
-            sequence="100"
-            action="clv_document.clv_document_referenceable_model_action"/>
-
     </data>
 </odoo>
