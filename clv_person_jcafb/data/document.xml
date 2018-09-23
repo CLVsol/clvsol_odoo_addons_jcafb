@@ -4,7 +4,8 @@
 
 <odoo noupdate="1">
 
-    <record id="clv_lab_test_referenceable_model_person" model="clv.lab_test.referenceable.model">
+    <record id="clv_referenceable_model_document" model="clv.referenceable.model">
+        <field name="base_model">clv.document</field>
         <field name="name">Person</field>
         <field name="model">clv.person</field>
         <field name="priority">10</field>
