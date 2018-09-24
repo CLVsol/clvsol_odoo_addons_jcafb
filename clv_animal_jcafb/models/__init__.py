@@ -8,3 +8,4 @@ from . import animal_reg_state
 from . import animal_state
 from . import document
 from . import lab_test
+from . import event_attendee
