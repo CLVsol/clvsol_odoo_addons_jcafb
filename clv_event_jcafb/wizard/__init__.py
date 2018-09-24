@@ -19,3 +19,4 @@
 ###############################################################################
 
 from . import event_updt
+from . import event_attendee_setup

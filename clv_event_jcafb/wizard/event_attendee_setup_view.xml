@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="clv_event_attendee_setup_view_form" model="ir.ui.view">
+        <field name="name">clv.event.attendee_setup.form</field>
+        <field name="model">clv.event.attendee_setup</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_right">
+                    </div>
+                    <label for="event_ids"/>
+                    <field name="event_ids"/>
+                    <group  name="group_top">
+                    </group>
+                </sheet>
+                <footer>
+                    <button 
+                        type="object"
+                        name="do_event_attendee_ref_setup"
+                        string="Event Attendee Set Up"
+                        class="oe_highlight"
+                        />
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+
+        </field>
+    </record>
+
+    <!-- More button Action -->
+    <act_window 
+        id="clv_event_attendee_setup_action"
+        name="Event Attendee Set Up (*)"
+        src_model="clv.event"
+        res_model="clv.event.attendee_setup"
+        view_mode="form, tree"
+        key2="client_action_multi"
+        target="new"
+    />
+
+</odoo>
