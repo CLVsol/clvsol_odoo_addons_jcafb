@@ -18,3 +18,4 @@ from . import data_export_document_item
 from . import data_export_lab_test_criterion
 from . import document
 from . import lab_test
+from . import event_attendee
