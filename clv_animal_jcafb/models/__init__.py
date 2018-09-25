@@ -9,3 +9,4 @@ from . import animal_state
 from . import document
 from . import lab_test
 from . import event_attendee
+from . import community_member
