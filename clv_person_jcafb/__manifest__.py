@@ -13,9 +13,9 @@
     'depends': [
         'clv_person',
         'clv_employee',
+        'clv_document',
         'clv_community',
         'clv_event',
-        'clv_document',
         'clv_lab_test',
     ],
     'data': [
@@ -34,10 +34,12 @@
         'views/data_export_document_item_view.xml',
         'views/data_export_lab_test_criterion_view.xml',
         'views/document_view.xml',
+        'views/community_member_view.xml',
         'views/event_attendee_view.xml',
         'views/lab_test_view.xml',
         'data/person_seq.xml',
         'data/document.xml',
+        'data/community_member.xml',
         'data/event_attendee.xml',
         'data/lab_test.xml',
         'wizard/person_updt_view.xml',

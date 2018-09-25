@@ -13,7 +13,7 @@ class Person(models.Model):
         comodel_name='clv.event.attendee',
         compute='_compute_event_attendee_ids_and_count',
     )
-    count_events = fields.Integer(
+    _count_events = fields.Integer(
         compute='_compute_event_attendee_ids_and_count',
     )
 
@@ -23,5 +23,5 @@ class Person(models.Model):
             event_attendees = self.env['clv.event.attendee'].search([
                 ('ref_id', '=', self._name + ',' + str(record.id)),
             ])
-            record.count_events = len(event_attendees)
+            record._count_events = len(event_attendees)
             record.event_attendee_ids = [(6, 0, event_attendees.ids)]
