@@ -11,3 +11,4 @@ from . import summary_file_system
 from . import document
 from . import lab_test
 from . import event_attendee
+from . import community_member
