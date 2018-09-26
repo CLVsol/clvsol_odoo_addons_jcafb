@@ -31,3 +31,6 @@ from . import lab_test_result_approve
 from . import lab_test_result_export_xls
 from . import lab_test_report_export_xls
 from . import lab_test_report_approve
+from . import lab_test_request_ref_setup
+from . import lab_test_result_ref_setup
+from . import lab_test_report_ref_setup

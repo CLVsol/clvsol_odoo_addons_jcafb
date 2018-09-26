@@ -8,6 +8,12 @@
             sequence="60"
             action="clv_event.clv_event_action"/>
 
+        <menuitem name="Attendees" id="clv_event.menu_base_base_events_attendees" 
+            parent="clv_event.menu_base_base_events"
+            groups="clv_event.group_user"
+            sequence="10"
+            action="clv_event.clv_event_attendee_actions"/>
+
         <menuitem name="Event" id="clv_event.menu_base_config_config_event" 
             parent="clv_base.menu_base_config_config"
             groups="clv_event.group_user"

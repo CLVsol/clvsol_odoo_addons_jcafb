@@ -21,5 +21,11 @@
             groups="clv_base.group_manager"
             sequence="10"/>
 
+        <menuitem name="Referenceable Models" id="clv_base.menu_base_config_config_referenceable_models"
+            parent="clv_base.menu_base_config_config"
+            groups="clv_base.group_user"
+            sequence="100"
+            action="clv_base.clv_referenceable_model_action"/>
+
     </data>
 </odoo>

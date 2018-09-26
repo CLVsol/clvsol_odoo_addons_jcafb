@@ -1,22 +1,6 @@
 # -*- coding: utf-8 -*-
-###############################################################################
-#
 # Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-#
-# You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-###############################################################################
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
     'name': 'Animal (customizations for CLVhealth-JCAFB Solution)',
@@ -29,13 +13,25 @@
     'depends': [
         'clv_address_jcafb',
         'clv_animal',
+        'clv_document',
+        'clv_community',
+        'clv_event',
+        'clv_lab_test',
     ],
     'data': [
         'views/animal_code_view.xml',
         'views/address_view.xml',
         'views/animal_reg_state_view.xml',
         'views/animal_state_view.xml',
+        'views/document_view.xml',
+        'views/community_member_view.xml',
+        'views/event_attendee_view.xml',
+        'views/lab_test_view.xml',
         'data/animal_seq.xml',
+        'data/document.xml',
+        'data/community_member.xml',
+        'data/event_attendee.xml',
+        'data/lab_test.xml',
         'wizard/animal_updt_view.xml',
         'wizard/animal_document_setup_view.xml',
         'views/animal_menu_view.xml',
