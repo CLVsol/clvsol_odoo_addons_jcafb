@@ -14,6 +14,7 @@ class Person(models.Model):
         compute='_compute_lab_test_request_ids_and_count',
     )
     _count_lab_test_requests = fields.Integer(
+        string='Lab Test Requests',
         compute='_compute_lab_test_request_ids_and_count',
     )
 
@@ -32,6 +33,7 @@ class Person(models.Model):
         compute='_compute_lab_test_result_ids_and_count',
     )
     _count_lab_test_results = fields.Integer(
+        string='Lab Test Results',
         compute='_compute_lab_test_result_ids_and_count',
     )
 
@@ -50,6 +52,7 @@ class Person(models.Model):
         compute='_compute_lab_test_report_ids_and_count',
     )
     _count_lab_test_reports = fields.Integer(
+        string='Lab Test Reports',
         compute='_compute_lab_test_report_ids_and_count',
     )
 

@@ -14,6 +14,7 @@ class Person(models.Model):
         compute='_compute_event_attendee_ids_and_count',
     )
     _count_events = fields.Integer(
+        string='Events',
         compute='_compute_event_attendee_ids_and_count',
     )
 

@@ -14,6 +14,7 @@ class Person(models.Model):
         compute='_compute_community_member_ids_and_count',
     )
     _count_communities = fields.Integer(
+        string='Communities',
         compute='_compute_community_member_ids_and_count',
     )
 

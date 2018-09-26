@@ -14,8 +14,8 @@
                 <page string="Events (*)">
                     <group>
                         <field name="_count_events"/>
-                        <field name="event_attendee_ids" colspan="4" nolabel="1"/>
                     </group>
+                    <field name="event_attendee_ids" colspan="4" nolabel="1"/>
                 </page>
             </page>
         </field>
