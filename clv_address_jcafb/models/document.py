@@ -14,6 +14,7 @@ class Address(models.Model):
         compute='_compute_document_ids_and_count',
     )
     _count_documents = fields.Integer(
+        string='Documents',
         compute='_compute_document_ids_and_count',
     )
 

@@ -5,7 +5,7 @@
         <menuitem name="Addresses" id="clv_address.menu_community_community_addresses"
             parent="clv_base.menu_community_community"
             groups="clv_address.group_user"
-            sequence="15"
+            sequence="100"
             action="clv_address.clv_address_action"/>
 
         <menuitem name="Annotations" id="clv_address.menu_community_community_addresses_annotations"
@@ -17,7 +17,7 @@
         <menuitem name="Address Categories" id="clv_address.menu_community_config_config_address_categories" 
             parent="clv_base.menu_community_config_config"
             groups="clv_address.group_user"
-            sequence="15"
+            sequence="100"
             action="clv_address.clv_address_category_action"/>
 
     </data>

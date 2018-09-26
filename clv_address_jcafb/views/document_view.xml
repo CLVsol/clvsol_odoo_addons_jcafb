@@ -14,8 +14,8 @@
                 <page string="Documents (*)">
                     <group>
                         <field name="_count_documents"/>
-                        <field name="_document_ids" colspan="4" nolabel="1"/>
                     </group>
+                    <field name="_document_ids" colspan="4" nolabel="1"/>
                 </page>
             </page>
         </field>
