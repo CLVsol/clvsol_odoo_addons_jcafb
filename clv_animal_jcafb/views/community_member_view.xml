@@ -14,8 +14,8 @@
                 <page string="Communities (*)">
                     <group>
                         <field name="_count_communities"/>
-                        <field name="community_member_ids" colspan="4" nolabel="1"/>
                     </group>
+                    <field name="community_member_ids" colspan="4" nolabel="1"/>
                 </page>
             </page>
         </field>
