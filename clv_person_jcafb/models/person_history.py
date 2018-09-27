@@ -2,21 +2,11 @@
 # Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import api, models
 
 
 class Person(models.Model):
     _inherit = 'clv.person'
-
-    _document_ids = fields.One2many(
-        string='Documents',
-        comodel_name='clv.document',
-        compute='_compute_document_ids_and_count',
-    )
-    _count_documents = fields.Integer(
-        string='Documents',
-        compute='_compute_document_ids_and_count',
-    )
 
     @api.multi
     def _compute_document_ids_and_count(self):
@@ -25,6 +15,10 @@ class Person(models.Model):
             search_domain = [
                 ('ref_id', '=', self._name + ',' + str(record.id)),
             ]
+            if record.history_marker_id.id is not False:
+                search_domain.append(
+                    ('history_marker_id.id', '=', record.history_marker_id.id),
+                )
 
             documents = self.env['clv.document'].search(search_domain)
 
