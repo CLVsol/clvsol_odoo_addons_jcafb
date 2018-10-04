@@ -20,3 +20,4 @@ from . import document
 from . import lab_test
 from . import event_attendee
 from . import community_member
+from . import person_history

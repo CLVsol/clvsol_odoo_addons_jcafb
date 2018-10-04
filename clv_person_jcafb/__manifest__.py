@@ -37,6 +37,7 @@
         'views/community_member_view.xml',
         'views/event_attendee_view.xml',
         'views/lab_test_view.xml',
+        'views/person_history_view.xml',
         'data/person_seq.xml',
         'data/document.xml',
         'data/community_member.xml',
