@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!--menuitem name="CLV Config Settings" id="clv_base.menu_administration_config_settings"
+            parent="base.menu_administration"
+            groups="clv_base.group_manager"
+            sequence="5"
+            action="clv_base.clv_config_settings_action"/-->
+
+        <menuitem name="Config Settings" id="clv_base.menu_base_config_config_settings"
+            parent="clv_base.menu_base_config"
+            groups="clv_base.group_manager"
+            sequence="20"
+            action="clv_base.clv_config_settings_action"/>
+
+    </data>
+</odoo>
