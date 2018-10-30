@@ -10,21 +10,21 @@
         sequence="50"
         action="clv_community.clv_community_action"/>
 
-    <menuitem name="Members" id="clv_community.menu_base_base_communities_members" 
-        parent="clv_community.menu_base_base_communities"
-        groups="clv_community.group_user"
-        sequence="10"
-        action="clv_community.clv_community_member_actions"/>
-
-    <menuitem name="Community" id="clv_community.menu_base_config_config_community" 
-        parent="clv_base.menu_base_config_config"
+    <menuitem name="Community" id="clv_community.menu_base_config_community" 
+        parent="clv_base.menu_base_config"
         groups="clv_community.group_user"
         sequence="50"/>
 
-    <menuitem name="Categories" id="clv_community.menu_base_config_config_community_categories" 
-        parent="clv_community.menu_base_config_config_community"
+    <menuitem name="Categories" id="clv_community.menu_base_config_community_categories" 
+        parent="clv_community.menu_base_config_community"
         groups="clv_community.group_user"
         sequence="10"
         action="clv_community.clv_community_category_action"/>
+
+    <menuitem name="Members" id="clv_community.menu_base_config_community_members" 
+        parent="clv_community.menu_base_config_community"
+        groups="clv_community.group_user"
+        sequence="10"
+        action="clv_community.clv_community_member_actions"/>
 
 </odoo>
