@@ -4,10 +4,10 @@
 
 <odoo>
 
-    <menuitem name="Phases" id="clv_base.menu_base_config_phases"
+    <menuitem name="Referenceable Models" id="clv_base.menu_base_config_referenceable_models"
         parent="clv_base.menu_base_config"
-        groups="clv_phase.group_user"
-        sequence="10"
-        action="clv_phase.clv_phase_action"/>
+        groups="clv_base.group_user"
+        sequence="100"
+        action="clv_base.clv_referenceable_model_action"/>
 
 </odoo>

@@ -27,25 +27,25 @@
         sequence="40"
         action="clv_lab_test.clv_lab_test_report_action"/>
 
-    <menuitem name="Lab Test" id="clv_lab_test.menu_health_config_config_lab_test" 
-        parent="clv_base.menu_health_config_config"
+    <menuitem name="Lab Test" id="clv_lab_test.menu_health_config_lab_test" 
+        parent="clv_base.menu_health_config"
         groups="clv_lab_test.group_user"
         sequence="20"/>
 
     <menuitem name="Units" id="menu_community_config_config_lab_test_units"
-        parent="clv_lab_test.menu_health_config_config_lab_test"
+        parent="clv_lab_test.menu_health_config_lab_test"
         groups="clv_lab_test.group_user"
         sequence="10"
         action="clv_lab_test.clv_lab_test_unit_action"/>
 
     <menuitem name="Criteria" id="menu_community_config_config_lab_test_criterias"
-        parent="clv_lab_test.menu_health_config_config_lab_test"
+        parent="clv_lab_test.menu_health_config_lab_test"
         groups="clv_lab_test.group_user"
         sequence="20"
         action="clv_lab_test.clv_lab_test_criterion_action"/>
 
-    <menuitem name="Types" id="clv_lab_test.menu_health_config_config_lab_test_types"
-        parent="clv_lab_test.menu_health_config_config_lab_test"
+    <menuitem name="Types" id="clv_lab_test.menu_health_config_lab_test_types"
+        parent="clv_lab_test.menu_health_config_lab_test"
         groups="clv_lab_test.group_user"
         sequence="30"
         action="clv_lab_test.clv_lab_test_type_action"/>
@@ -56,14 +56,14 @@
         sequence="30"
         action="clv_lab_test_jcafb.clv_lab_test_request_direct_mail_actions"/-->
 
-    <!--menuitem name="Parasites" id="clv_lab_test.menu_health_config_config_lab_test_parasites"
-        parent="clv_lab_test.menu_health_config_config_lab_test"
+    <!--menuitem name="Parasites" id="clv_lab_test.menu_health_config_lab_test_parasites"
+        parent="clv_lab_test.menu_health_config_lab_test"
         groups="clv_lab_test.group_user"
         sequence="40"
         action="clv_lab_test_jcafb.clv_lab_test_parasite_action"/-->
 
-    <!--menuitem name="Crystals" id="clv_lab_test.menu_health_config_config_lab_test_crystals"
-        parent="clv_lab_test.menu_health_config_config_lab_test"
+    <!--menuitem name="Crystals" id="clv_lab_test.menu_health_config_lab_test_crystals"
+        parent="clv_lab_test.menu_health_config_lab_test"
         groups="clv_lab_test.group_user"
         sequence="50"
         action="clv_lab_test_jcafb.clv_lab_test_crystal_action"/-->

@@ -18,9 +18,4 @@
         groups="clv_base.group_manager"
         sequence="90"/>
 
-    <menuitem name="Configuration" id="clv_base.menu_exports_config_config"  
-        parent="clv_base.menu_exports_config"
-        groups="clv_base.group_manager"
-        sequence="10"/>
-
 </odoo>

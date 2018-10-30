@@ -15,7 +15,6 @@
         'clv_external_sync',
     ],
     'data': [
-        'views/address_view.xml',
         'data/external_sync.xml',
     ],
     'demo': [],
