@@ -15,8 +15,6 @@
         'clv_external_sync',
     ],
     'data': [
-        'views/event_view.xml',
-        'views/event_attendee_view.xml',
         'data/external_sync.xml',
     ],
     'demo': [],
