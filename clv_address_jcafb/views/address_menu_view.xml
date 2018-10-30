@@ -11,7 +11,7 @@
         action="clv_address.clv_address_action"/>
 
     <menuitem name="Address" id="clv_address.menu_community_community_config_address" 
-        parent="clv_base.menu_community_config_config"
+        parent="clv_base.menu_community_config"
         groups="clv_address.group_user"
         sequence="100"/>
 

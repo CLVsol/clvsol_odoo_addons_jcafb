@@ -14,7 +14,7 @@ class Address(models.Model):
         compute='_compute_lab_test_request_ids_and_count',
     )
     count_lab_test_requests = fields.Integer(
-        string='Lab Test Requests',
+        string='Lab Test Requests (count)',
         compute='_compute_lab_test_request_ids_and_count',
     )
 
@@ -33,7 +33,7 @@ class Address(models.Model):
         compute='_compute_lab_test_result_ids_and_count',
     )
     count_lab_test_results = fields.Integer(
-        string='Lab Test Results',
+        string='Lab Test Results (count)',
         compute='_compute_lab_test_result_ids_and_count',
     )
 
@@ -52,7 +52,7 @@ class Address(models.Model):
         compute='_compute_lab_test_report_ids_and_count',
     )
     count_lab_test_reports = fields.Integer(
-        string='Lab Test Reports',
+        string='Lab Test Reports (count)',
         compute='_compute_lab_test_report_ids_and_count',
     )
 
