@@ -15,7 +15,6 @@
         'clv_external_sync',
     ],
     'data': [
-        'views/document_view.xml',
         'data/external_sync.xml',
     ],
     'demo': [],
