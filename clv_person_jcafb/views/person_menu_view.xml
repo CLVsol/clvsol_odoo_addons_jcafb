@@ -10,13 +10,13 @@
         sequence="10"
         action="clv_person.clv_person_action"/>
 
-    <menuitem name="Person" id="clv_person.menu_community_community_config_person" 
-        parent="clv_base.menu_community_config_config"
+    <menuitem name="Person" id="clv_person.menu_community_config_person" 
+        parent="clv_base.menu_community_config"
         groups="clv_person.group_user"
         sequence="10"/>
 
-    <menuitem name="Categories" id="clv_person.menu_community_community_config_person_categories" 
-        parent="clv_person.menu_community_community_config_person"
+    <menuitem name="Categories" id="clv_person.menu_community_config_person_categories" 
+        parent="clv_person.menu_community_config_person"
         groups="clv_person.group_user"
         sequence="10"
         action="clv_person.clv_person_category_action"/>
