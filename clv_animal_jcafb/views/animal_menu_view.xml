@@ -11,7 +11,7 @@
         action="clv_animal.clv_animal_action"/>
 
     <menuitem name="Animal" id="clv_animal.menu_community_community_config_animal" 
-        parent="clv_base.menu_community_config_config"
+        parent="clv_base.menu_community_config"
         groups="clv_animal.group_user"
         sequence="90"/>
 

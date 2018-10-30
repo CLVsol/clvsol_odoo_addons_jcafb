@@ -14,7 +14,7 @@ class Animal(models.Model):
         compute='_compute_document_ids_and_count',
     )
     count_documents = fields.Integer(
-        string='Documents',
+        string='Documents (count)',
         compute='_compute_document_ids_and_count',
     )
 
