@@ -172,13 +172,13 @@ class PersonSelSummarySetUp(models.TransientModel):
 
         for row_nr in range(row_first_district, row_last_district + 1):
             for col_nr in range(col_first_age_group, col_last_age_group + 1):
+                _logger.info(u'%s %s', '>>>>>>>>>>', str(row_nr) + ',' + str(col_nr))
                 if (matrix[row_nr][col_district] is not False) and \
                    (matrix[row_age_group][col_nr] is not False):
                     district = matrix[row_nr][col_district].replace(mark_str, '')
                     age_group = matrix[row_age_group][col_nr].replace(mark_str, '')
                     if (district in district_names) and \
                        (age_group in age_group_names):
-
                         person_sel_district = PersonSelDistrict.search([
                             ('name', '=', district),
                         ])
@@ -192,6 +192,9 @@ class PersonSelSummarySetUp(models.TransientModel):
                             ('age_reference', '>=', person_age_group.min_age),
                             ('age_reference', '<=', person_age_group.max_age),
                         ])
+
+                        _logger.info(u'%s %s %s %s', '>>>>>>>>>>>>>>>',
+                                     district, age_group, len(available_persons))
 
                         count = 0
                         for available_person in available_persons:
@@ -215,6 +218,9 @@ class PersonSelSummarySetUp(models.TransientModel):
                             ('age_reference', '>=', person_age_group.min_age),
                             ('age_reference', '<=', person_age_group.max_age),
                         ])
+
+                        _logger.info(u'%s %s %s %s', '>>>>>>>>>>>>>>>',
+                                     district, age_group, len(available_persons))
 
                         count = 0
                         for available_person in available_persons:
@@ -240,6 +246,9 @@ class PersonSelSummarySetUp(models.TransientModel):
                             ('state', 'in', person_states),
                         ])
 
+                        _logger.info(u'%s %s %s %s', '>>>>>>>>>>>>>>>',
+                                     district, age_group, len(available_persons))
+
                         count = 0
                         for available_person in available_persons:
                             person_category_id = PersonCategory.search([
@@ -256,6 +265,9 @@ class PersonSelSummarySetUp(models.TransientModel):
                         available_persons = Person.search([
                             ('state', 'in', person_states),
                         ])
+
+                        _logger.info(u'%s %s %s %s', '>>>>>>>>>>>>>>>',
+                                     district, age_group, len(available_persons))
 
                         count = 0
                         for available_person in available_persons:
@@ -280,6 +292,10 @@ class PersonSelSummarySetUp(models.TransientModel):
                     available_persons = Person.search([
                         ('state', 'in', person_states),
                     ])
+
+                    _logger.info(u'%s %s %s %s', '>>>>>>>>>>>>>>>',
+                                 district, age_group, len(available_persons))
+
                     count = 0
                     for available_person in available_persons:
                         if (available_person.category_ids.id is not False) and \
@@ -293,6 +309,10 @@ class PersonSelSummarySetUp(models.TransientModel):
                     available_persons = Person.search([
                         ('state', 'in', person_states),
                     ])
+
+                    _logger.info(u'%s %s %s %s', '>>>>>>>>>>>>>>>',
+                                 district, age_group, len(available_persons))
+
                     count = 0
                     for available_person in available_persons:
                         if (available_person.category_ids.id is not False) and \
@@ -315,6 +335,10 @@ class PersonSelSummarySetUp(models.TransientModel):
                     person_category_id = PersonCategory.search([
                         ('name', '=', person_sel_age_group.person_category_ids.name),
                     ]).id
+
+                    _logger.info(u'%s %s %s %s', '>>>>>>>>>>>>>>>',
+                                 district, age_group, len(available_persons))
+
                     count = 0
                     for available_person in available_persons:
                         if (available_person.category_ids.id == person_category_id) and \
@@ -328,6 +352,10 @@ class PersonSelSummarySetUp(models.TransientModel):
                     available_persons = Person.search([
                         ('state', 'in', person_states),
                     ])
+
+                    _logger.info(u'%s %s %s %s', '>>>>>>>>>>>>>>>',
+                                 district, age_group, len(available_persons))
+
                     count = 0
                     for available_person in available_persons:
                         if (available_person.category_ids.id == person_category_id) and \
@@ -338,6 +366,9 @@ class PersonSelSummarySetUp(models.TransientModel):
         available_persons = Person.search([
             ('state', 'in', person_states),
         ])
+
+        _logger.info(u'%s %s %s %s', '>>>>>>>>>>>>>>>',
+                     district, age_group, len(available_persons))
 
         count = 0
         for available_person in available_persons:
