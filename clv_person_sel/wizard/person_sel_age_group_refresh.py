@@ -72,6 +72,10 @@ class PersonSelAgeGroupRefresh(models.TransientModel):
                 ('age_reference', '>=', age_group.min_age),
                 ('age_reference', '<=', age_group.max_age),
             ])
+
+            _logger.info(u'%s %s %s', '>>>>>>>>>>>>>>>',
+                         age_group.name, len(available_persons))
+
             count = 0
             for available_person in available_persons:
                 category_id = PersonCategory.search([
@@ -86,6 +90,10 @@ class PersonSelAgeGroupRefresh(models.TransientModel):
                 ('age_reference', '>=', age_group.min_age),
                 ('age_reference', '<=', age_group.max_age),
             ])
+
+            _logger.info(u'%s %s %s', '>>>>>>>>>>>>>>>',
+                         age_group.name, len(selected_persons))
+
             count = 0
             for available_person in selected_persons:
                 category_id = PersonCategory.search([
