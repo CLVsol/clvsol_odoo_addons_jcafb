@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="clv_lab_test_result_edit_view_form_jcafb_ECP19" model="ir.ui.view">
+        <field name="name">clv.lab_test.result.edit.form</field>
+        <field name="model">clv.lab_test.result.edit</field>
+        <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_edit_view_form"/>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <group  name="group_top" position="after">
+                <group attrs="{'invisible':[('is_ECP19', '=', False)]}">
+                    <field name="is_ECP19" invisible="True"/>
+                    <group string="Exame Coproparasitológico (1)">
+                        <field name="ECP19_metodo_utilizado_1"/>
+                        <field name="ECP19_resultado_1"/>
+                        <field name="ECP19_examinador_1" options='{"no_open": True, "no_create": True}'/>
+                    </group>
+                    <group string="-">
+                        <field name="ECP19_lab_test_parasite_1_names"/>
+                        <field name="ECP19_parasitas_1" invisible='True'/>
+                        <field name="ECP19_lab_test_parasite_1_ids">
+                            <tree>
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <group string="Exame Coproparasitológico (2)">
+                        <field name="ECP19_metodo_utilizado_2"/>
+                        <field name="ECP19_resultado_2"/>
+                        <field name="ECP19_examinador_2" options='{"no_open": True, "no_create": True}'/>
+                    </group>
+                    <group string="-">
+                        <field name="ECP19_lab_test_parasite_2_names"/>
+                        <field name="ECP19_parasitas_2" invisible='True'/>
+                        <field name="ECP19_lab_test_parasite_2_ids">
+                            <tree>
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <group string="Exame Coproparasitológico (3)">
+                        <field name="ECP19_metodo_utilizado_3"/>
+                        <field name="ECP19_resultado_3"/>
+                        <field name="ECP19_examinador_3" options='{"no_open": True, "no_create": True}'/>
+                    </group>
+                    <group string="-">
+                        <field name="ECP19_lab_test_parasite_3_names"/>
+                        <field name="ECP19_parasitas_3" invisible='True'/>
+                        <field name="ECP19_lab_test_parasite_3_ids">
+                            <tree>
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <group string="Exame Coproparasitológico (4)">
+                        <field name="ECP19_metodo_utilizado_4"/>
+                        <field name="ECP19_resultado_4"/>
+                        <field name="ECP19_examinador_4" options='{"no_open": True, "no_create": True}'/>
+                    </group>
+                    <group string="-">
+                        <field name="ECP19_lab_test_parasite_4_names"/>
+                        <field name="ECP19_parasitas_4" invisible='True'/>
+                        <field name="ECP19_lab_test_parasite_4_ids">
+                            <tree>
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </group>
+                    <group string="Exame Coproparasitológico">
+                        <field name="ECP19_data_entrada_material"/>
+                        <field name="ECP19_liberacao_resultado"/>
+                        <field name="ECP19_metodos_utilizados"/>
+                        <field name="ECP19_resultado"/>
+                        <field name="ECP19_obs"/>
+                    </group>
+                    <group string="-">
+                        <field name="ECP19_lab_test_parasite_names"/>
+                        <field name="ECP19_parasitas" invisible='True'/>
+                        <field name="ECP19_lab_test_parasite_ids">
+                            <tree>
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </group>
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>

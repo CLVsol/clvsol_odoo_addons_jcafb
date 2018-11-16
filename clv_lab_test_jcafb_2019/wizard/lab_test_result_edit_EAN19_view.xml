@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="clv_lab_test_result_edit_view_form_jcafb_EAN19" model="ir.ui.view">
+        <field name="name">clv.lab_test.result.edit.form</field>
+        <field name="model">clv.lab_test.result.edit</field>
+        <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_edit_view_form"/>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <group  name="group_top" position="after">
+                <group attrs="{'invisible':[('is_EAN19', '=', False)]}">
+                    <field name="is_EAN19" invisible="True"/>
+                    <group string='Peso'>
+                        <field name="EAN19_peso"/>
+                        <field name="EAN19_peso_resp"/>
+                    </group>
+                    <group string='Altura'>
+                        <field name="EAN19_altura"/>
+                        <field name="EAN19_altura_resp"/>
+                    </group>
+                    <group string='Hemoglobina'>
+                        <field name="EAN19_hemoglobina_coleta_horario"/>
+                        <field name="EAN19_hemoglobina_coleta_resp"/>
+                        <field name="EAN19_hemoglobina_valor"/>
+                        <field name="EAN19_hemoglobina_valor_resp"/>
+                        <field name="EAN19_hemoglobina_interpretacao"/>
+                    </group>
+                    <field name="EAN19_obs"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>

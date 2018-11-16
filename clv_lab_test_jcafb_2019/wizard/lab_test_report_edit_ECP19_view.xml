@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="clv_lab_test_report_edit_view_form_jcafb_ECP19" model="ir.ui.view">
+        <field name="name">clv.lab_test.report.edit.form</field>
+        <field name="model">clv.lab_test.report.edit</field>
+        <field name="inherit_id" ref="clv_lab_test.clv_lab_test_report_edit_view_form"/>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <group  name="group_top" position="after">
+                <group attrs="{'invisible':[('is_ECP19', '=', False)]}">
+                    <field name="is_ECP19" invisible="True"/>
+                    <group string="Exame Coproparasitológico">
+                        <field name="ECP19_metodos_utilizados"/>
+                        <field name="ECP19_resultado"/>
+                        <field name="ECP19_obs"/>
+                    </group>
+                    <group string="-">
+                        <field name="ECP19_lab_test_parasite_names"/>
+                        <field name="ECP19_parasitas" invisible='True'/>
+                        <field name="ECP19_lab_test_parasite_ids">
+                            <tree>
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </group>
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>

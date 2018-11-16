@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="clv_lab_test_off_report_edit_view_form_jcafb_EDH19" model="ir.ui.view">
+        <field name="name">clv.lab_test.off.report.edit.form</field>
+        <field name="model">clv.lab_test.off.report.edit</field>
+        <field name="inherit_id" ref="clv_lab_test_off.clv_lab_test_off_report_edit_view_form"/>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <group  name="group_top" position="after">
+                <group attrs="{'invisible':[('is_EDH19', '=', False)]}">
+                    <field name="is_EDH19" invisible="True"/>
+                    <group string='Medidas Antropométricas'>
+                        <field name="EDH19_peso"/>
+                        <field name="EDH19_altura"/>
+                        <field name="EDH19_circ_abdominal"/>
+                    </group>
+                    <group string='Medidas da Pressão Arterial'>
+                        <field name="EDH19_pa"/>
+                        <field name="EDH19_PAS"/>
+                        <field name="EDH19_PAD"/>
+                    </group>
+                    <group string='Glicemia e Colesterolemia'>
+                        <field name="EDH19_glicemia"/>
+                        <field name="EDH19_colesterol"/>
+                    </group>
+                    <field name="EDH19_obs"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>

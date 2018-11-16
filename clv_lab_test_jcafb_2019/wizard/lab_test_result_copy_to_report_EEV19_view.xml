@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="clv_lab_test_result_copy_to_report_view_form_jcafb_EEV19" model="ir.ui.view">
+        <field name="name">clv.lab_test.result.copy_to_report.form</field>
+        <field name="model">clv.lab_test.result.copy_to_report</field>
+        <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_copy_to_report_view_form"/>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <group  name="group_top" position="after">
+                <group attrs="{'invisible':[('is_EEV19', '=', False)]}">
+                    <field name="is_EEV19" invisible="True"/>
+                    <group>
+                        <field name="EEV19_resultado"/>
+                        <field name="EEV19_metodo_utilizado"/>
+                        <field name="EEV19_obs"/>
+                    </group>
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>

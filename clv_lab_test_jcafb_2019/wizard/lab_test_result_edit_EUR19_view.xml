@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="clv_lab_test_result_edit_view_form_jcafb_EUR19" model="ir.ui.view">
+        <field name="name">clv.lab_test.result.edit.form</field>
+        <field name="model">clv.lab_test.result.edit</field>
+        <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_edit_view_form"/>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <group  name="group_top" position="after">
+                <group attrs="{'invisible':[('is_EUR19', '=', False)]}">
+                    <field name="is_EUR19" invisible="True"/>
+                    <group>
+                        <field name="EUR19_data_entrada_material"/>
+                        <field name="EUR19_liberacao_resultado"/>
+                        <field name="EUR19_examinador"/>
+                        <field name="EUR19_volume"/>
+                        <field name="EUR19_densidade"/>
+                        <field name="EUR19_aspecto"/>
+                        <field name="EUR19_cor"/>
+                        <field name="EUR19_odor"/>
+                    </group>
+                    <group>
+                        <field name="EUR19_ph"/>
+                        <field name="EUR19_proteinas"/>
+                        <field name="EUR19_glicose"/>
+                        <field name="EUR19_cetona"/>
+                        <field name="EUR19_pigmentos_biliares"/>
+                        <field name="EUR19_sangue"/>
+                        <field name="EUR19_urobilinogenio"/>
+                        <field name="EUR19_nitrito"/>
+                    </group>
+                    <group>
+                        <field name="EUR19_celulas_epiteliais"/>
+                        <field name="EUR19_muco"/>
+                        <field name="EUR19_lab_test_crystal_names"/>
+                        <field name="EUR19_cristais" invisible='True'/>
+                        <field name="EUR19_lab_test_crystal_ids">
+                            <tree>
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                        <field name="EUR19_leucocitos"/>
+                        <field name="EUR19_hemacias"/>
+                    </group>
+                    <group>
+                        <field name="EUR19_cilindros"/>
+                        <field name="EUR19_cilindros_hialinos"/>
+                        <field name="EUR19_cilindros_granulosos"/>
+                        <field name="EUR19_cilindros_leucocitarios"/>
+                        <field name="EUR19_cilindros_hematicos"/>
+                        <field name="EUR19_cilindros_cereos"/>
+                        <field name="EUR19_outros_tipos_de_cilindros"/>
+                    </group>
+                    <field name="EUR19_obs"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>
