@@ -62,7 +62,8 @@ class LabTestResult(models.Model):
         row_nr += 1
         row = sheet.row(row_nr)
         row.write(0, 'Person:')
-        row.write(3, self.person_id.name)
+        # row.write(3, self.person_id.name)
+        row.write(3, self.ref_id.name)
         row_nr += 1
         row = sheet.row(row_nr)
         row.write(0, 'Lab Test Type:')
