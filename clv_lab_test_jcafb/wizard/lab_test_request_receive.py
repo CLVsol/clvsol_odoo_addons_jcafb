@@ -146,7 +146,10 @@ class LabTestRequestReceive(models.TransientModel):
 
         for lab_test_request in self.lab_test_request_ids:
 
-            _logger.info(u'%s %s %s', '>>>>>', lab_test_request.code, lab_test_request.person_id.name)
+            # _logger.info(u'%s %s %s', '>>>>>', lab_test_request.code, lab_test_request.person_id.name)
+            _logger.info(u'%s %s %s', '>>>>>', lab_test_request.code, lab_test_request.ref_name)
+
+            ref_id = lab_test_request.ref_id._name + ',' + str(lab_test_request.ref_id.id)
 
             if lab_test_request.state == 'draft':
 
@@ -175,7 +178,8 @@ class LabTestRequestReceive(models.TransientModel):
                     values = {
                         'code_sequence': 'clv.lab_test.result.code',
                         'lab_test_type_id': lab_test_type.id,
-                        'person_id': lab_test_request.person_id.id,
+                        # 'person_id': lab_test_request.person_id.id,
+                        'ref_id': ref_id,
                         'lab_test_request_id': lab_test_request.id,
                         'history_marker_id': lab_test_request.history_marker_id.id,
                         'criterion_ids': criteria,
@@ -201,7 +205,8 @@ class LabTestRequestReceive(models.TransientModel):
                     values = {
                         'code_sequence': 'clv.lab_test.report.code',
                         'lab_test_type_id': lab_test_type.id,
-                        'person_id': lab_test_request.person_id.id,
+                        # 'person_id': lab_test_request.person_id.id,
+                        'ref_id': ref_id,
                         'lab_test_request_id': lab_test_request.id,
                         'history_marker_id': lab_test_request.history_marker_id.id,
                         'criterion_ids': criteria,
