@@ -75,10 +75,13 @@ class AddressDocumentSetUp(models.TransientModel):
         self.ensure_one()
 
         Document = self.env['clv.document']
+        DocumentType = self.env['clv.document.type']
 
         for address in self.address_ids:
 
-            _logger.info(u'%s %s', '>>>>>', address.name)
+            ref_id = address._name + ',' + str(address.id)
+
+            _logger.info(u'%s %s %s', '>>>>>', address.name, ref_id)
 
             for survey in self.survey_ids:
 
@@ -86,7 +89,8 @@ class AddressDocumentSetUp(models.TransientModel):
 
                 document = Document.search([
                     ('survey_id', '=', survey.id),
-                    ('address_id', '=', address.id),
+                    # ('address_id', '=', address.id),
+                    ('ref_id', '=', ref_id),
                     ('history_marker_id', '=', self.history_marker_id.id,),
                 ])
 
@@ -99,7 +103,8 @@ class AddressDocumentSetUp(models.TransientModel):
                         'date_deadline': self.date_deadline,
                         'survey_id': survey.id,
                         # 'category_id': self.category_id.id,
-                        'address_id': address.id,
+                        # 'address_id': address.id,
+                        'ref_id': ref_id,
                         'history_marker_id': self.history_marker_id.id,
                     }
                     new_document = Document.create(values)
@@ -122,6 +127,19 @@ class AddressDocumentSetUp(models.TransientModel):
                                 'category_ids': [(4, category_id)],
                             }
                             new_document.write(values)
+
+                    document_type = DocumentType.search([
+                        ('code', '=', new_document.survey_id.code),
+                    ])
+
+                    document_type_id = False
+                    if document_type.id is not False:
+                        document_type_id = document_type.id
+
+                    values = {
+                        'document_type_id': document_type_id,
+                    }
+                    new_document.write(values)
 
                     _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', new_document.name)
 
