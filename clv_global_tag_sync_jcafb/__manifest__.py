@@ -15,7 +15,7 @@
         'clv_external_sync',
     ],
     'data': [
-        'data/external_sync.xml',
+        'data/global_tag_sync.xml',
     ],
     'demo': [],
     'test': [],
