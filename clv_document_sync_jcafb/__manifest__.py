@@ -15,7 +15,7 @@
         'clv_external_sync',
     ],
     'data': [
-        'data/external_sync.xml',
+        'data/document_sync.xml',
     ],
     'demo': [],
     'test': [],
