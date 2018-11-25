@@ -15,7 +15,12 @@
         'clv_external_sync',
     ],
     'data': [
-        'data/external_sync.xml',
+        'data/lab_test_unit_sync.xml',
+        'data/lab_test_type_sync.xml',
+        'data/lab_test_request_sync.xml',
+        'data/lab_test_result_sync.xml',
+        'data/lab_test_report_sync.xml',
+        'data/lab_test_criterion_sync.xml',
     ],
     'demo': [],
     'test': [],
