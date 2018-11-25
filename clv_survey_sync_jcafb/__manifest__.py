@@ -17,6 +17,9 @@
     'data': [
         'data/survey_stage_sync.xml',
         'data/survey_survey_sync.xml',
+        'data/survey_page_sync.xml',
+        'data/survey_question_sync.xml',
+        'data/survey_label_sync.xml',
     ],
     'demo': [],
     'test': [],
