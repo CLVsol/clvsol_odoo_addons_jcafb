@@ -31,5 +31,11 @@
             sequence="20"
             action="clv_person.clv_person_address_role_action"/>
 
+        <menuitem name="Markers" id="clv_person.menu_community_config_person_markers" 
+            parent="clv_person.menu_community_community_config_person"
+            groups="clv_person.group_user"
+            sequence="30"
+            action="clv_person.clv_person_marker_action"/>
+
     </data>
 </odoo>
