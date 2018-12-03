@@ -47,21 +47,21 @@ class LabTestReport(models.Model):
         ExportXLS.setOutCell(sheet, 20, row_nr, u'Universidade de São Paulo')
         row_nr += 3
 
-        ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome:')
+        ExportXLS.setOutCell(sheet, 2, row_nr, u'Nome:')
         # ExportXLS.setOutCell(sheet, 4, row_nr, self.person_id.name)
-        ExportXLS.setOutCell(sheet, 4, row_nr, self.ref_id.name)
+        ExportXLS.setOutCell(sheet, 6, row_nr, self.ref_id.name)
         ExportXLS.setOutCell(sheet, 30, row_nr, u'Cadastro:')
         # ExportXLS.setOutCell(sheet, 35, row_nr, self.person_id.code)
         ExportXLS.setOutCell(sheet, 35, row_nr, self.ref_id.code)
         row_nr += 2
 
-        ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Exame:')
+        ExportXLS.setOutCell(sheet, 2, row_nr, u'Data do Exame:')
         if self.date_approved is not False:
             date = datetime.strptime(self.date_approved, '%Y-%m-%d')
             date = datetime.strftime(date, '%d-%m-%Y')
-            ExportXLS.setOutCell(sheet, 8, row_nr, date)
+            ExportXLS.setOutCell(sheet, 10, row_nr, date)
         else:
-            ExportXLS.setOutCell(sheet, 8, row_nr, None)
+            ExportXLS.setOutCell(sheet, 10, row_nr, None)
         ExportXLS.setOutCell(sheet, 30, row_nr, u'Código do Exame:')
         ExportXLS.setOutCell(sheet, 38, row_nr, lab_test_request_code)
         row_nr += 5
@@ -102,16 +102,16 @@ class LabTestReport(models.Model):
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'ECP19-05-03'),
         ]).result
-        ExportXLS.setOutCell(sheet, 0, row_nr, u'Método(s) utilizado(s):')
-        ExportXLS.setOutCell(sheet, 10, row_nr, result)
+        ExportXLS.setOutCell(sheet, 2, row_nr, u'Método(s) utilizado(s):')
+        ExportXLS.setOutCell(sheet, 12, row_nr, result)
         row_nr += 1
 
         result = self.criterion_ids.search([
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'ECP19-05-04'),
         ]).normal_range
-        ExportXLS.setOutCell(sheet, 0, row_nr, u'Valor de referência:')
-        ExportXLS.setOutCell(sheet, 10, row_nr, result)
+        ExportXLS.setOutCell(sheet, 2, row_nr, u'Valor de referência:')
+        ExportXLS.setOutCell(sheet, 12, row_nr, result)
         ExportXLS.setOutCell(sheet, 30, row_nr, u'(*) Análise de uma única amostra')
         row_nr += 2
 
@@ -119,9 +119,9 @@ class LabTestReport(models.Model):
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'ECP19-05-06'),
         ]).result
-        ExportXLS.setOutCell(sheet, 0, row_nr, u'Observações:')
+        ExportXLS.setOutCell(sheet, 2, row_nr, u'Observações:')
         if result is not False:
-            ExportXLS.setOutCell(sheet, 7, row_nr, result)
+            ExportXLS.setOutCell(sheet, 9, row_nr, result)
         row_nr += 16
 
         ExportXLS.setOutCell(sheet, 17, row_nr, u'Farmacêutico(a) Responsável:')
