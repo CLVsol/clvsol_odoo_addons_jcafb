@@ -100,12 +100,6 @@ class LabTestOffReport(models.Model):
         ExportXLS.setOutCell(sheet, 18, row_nr, u'COLESTEROLEMIA')
         row_nr += 2
 
-        ExportXLS.setOutCell(sheet, 25, row_nr, u'Valores de referência (1)')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Adulto (>20 anos):')
-        ExportXLS.setOutCell(sheet, 35, row_nr, u'2 a 19 anos:')
-        row_nr += 1
-
         result = self.criterion_ids.search([
             ('lab_test_off_report_id', '=', self.id),
             ('code', '=', 'EDH19-04-05'),
@@ -114,31 +108,48 @@ class LabTestOffReport(models.Model):
         if result is not False:
             ExportXLS.setOutCell(sheet, 10, row_nr, result)
         ExportXLS.setOutCell(sheet, 13, row_nr, u'mg/dL')
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Desejável : < 200 mg/dL')
-        ExportXLS.setOutCell(sheet, 35, row_nr, u'Desejável : < 150 mg/dL')
+        ExportXLS.setOutCell(sheet, 25, row_nr, u'Valores de referência (1)')
         row_nr += 1
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Limítrofe: 200 – 239 mg/dL')
-        ExportXLS.setOutCell(sheet, 35, row_nr, u'Limítrofe: 150 – 169 mg/dL')
+        ExportXLS.setOutCell(sheet, 20, row_nr, u'Adulto (>20 anos):')
+        ExportXLS.setOutCell(sheet, 35, row_nr, u'2 a 19 anos:')
         row_nr += 1
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Elevado: > 240 mg/dL')
-        ExportXLS.setOutCell(sheet, 35, row_nr, u'Elevado: > 170 mg/dLL')
-        row_nr += 1
+
+        ExportXLS.setOutCell(sheet, 20, row_nr, u'Desejável : < 190 mg/dL')
+        ExportXLS.setOutCell(sheet, 35, row_nr, u'Desejável : < 170 mg/dL')
+        row_nr += 2
+        # ExportXLS.setOutCell(sheet, 20, row_nr, u'Limítrofe: 200 – 239 mg/dL')
+        # ExportXLS.setOutCell(sheet, 35, row_nr, u'Limítrofe: 150 – 169 mg/dL')
+        # row_nr += 1
+        # ExportXLS.setOutCell(sheet, 20, row_nr, u'Elevado: > 240 mg/dL')
+        # ExportXLS.setOutCell(sheet, 35, row_nr, u'Elevado: > 170 mg/dLL')
+        # row_nr += 1
         ExportXLS.setOutCell(sheet, 2, row_nr, u'Material: Sangue total, colhido por punção digital.')
         row_nr += 1
         ExportXLS.setOutCell(
             sheet, 2, row_nr,
             u'Método utilizado: Colesterol total: leitura de tiras reagentes pelo sistema Accutrend Cholesterol (Roche)'
         )
-        row_nr += 3
+        row_nr += 1
+        ExportXLS.setOutCell(sheet, 2, row_nr, u'Obs:')
+        ExportXLS.setOutCell(
+            sheet, 5, row_nr,
+            u'Valores >= 310 mg/dL para adultos e >= 230 para crianças e adolescentes podem ser indicativos de Hipercolesterolemia ')
+        row_nr += 1
+        ExportXLS.setOutCell(sheet, 5, row_nr, u'Familiar, se excluídas as dislipidemias secundárias.')
+        row_nr += 1
+
+        row_nr += 2
 
         ExportXLS.setOutCell(sheet, 15, row_nr, u'MEDIDA DE PRESSÃO ARTERIAL (mmHg)')
         row_nr += 2
 
         ExportXLS.setOutCell(sheet, 25, row_nr, u'Valores de referência (1)')
         row_nr += 1
+        ExportXLS.setOutCell(sheet, 27, row_nr, u'(maiores de 18 anos)')
+        row_nr += 1
         ExportXLS.setOutCell(sheet, 10, row_nr, u'PAS')
         ExportXLS.setOutCell(sheet, 13, row_nr, u'PAD')
-        ExportXLS.setOutCell(sheet, 27, row_nr, u'PAS')
+        ExportXLS.setOutCell(sheet, 29, row_nr, u'PAS')
         ExportXLS.setOutCell(sheet, 35, row_nr, u'PAD')
         row_nr += 1
 
@@ -156,22 +167,26 @@ class LabTestOffReport(models.Model):
         ExportXLS.setOutCell(sheet, 12, row_nr, 'X')
         if result_pad is not False:
             ExportXLS.setOutCell(sheet, 13, row_nr, result_pad)
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Ótimo:')
-        ExportXLS.setOutCell(sheet, 27, row_nr, u'<120')
-        ExportXLS.setOutCell(sheet, 35, row_nr, u'<80')
-        row_nr += 1
         ExportXLS.setOutCell(sheet, 20, row_nr, u'Normal:')
-        ExportXLS.setOutCell(sheet, 27, row_nr, u'120-129')
-        ExportXLS.setOutCell(sheet, 35, row_nr, u'80-84')
+        ExportXLS.setOutCell(sheet, 29, row_nr, u'  <= 120')
+        ExportXLS.setOutCell(sheet, 35, row_nr, u'   <= 80')
         row_nr += 1
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Limítrofe:')
-        ExportXLS.setOutCell(sheet, 27, row_nr, u'130-139')
-        ExportXLS.setOutCell(sheet, 35, row_nr, u'85-89')
+        ExportXLS.setOutCell(sheet, 20, row_nr, u'Pré-hipertensão:')
+        ExportXLS.setOutCell(sheet, 29, row_nr, u'121-139')
+        ExportXLS.setOutCell(sheet, 35, row_nr, u'   81-89')
         row_nr += 1
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Hipertensão:')
-        ExportXLS.setOutCell(sheet, 27, row_nr, u'>140')
-        ExportXLS.setOutCell(sheet, 35, row_nr, u'>90')
+        ExportXLS.setOutCell(sheet, 20, row_nr, u'Hipertensão estágio 1:')
+        ExportXLS.setOutCell(sheet, 29, row_nr, u'140-159')
+        ExportXLS.setOutCell(sheet, 35, row_nr, u'   90-99')
         row_nr += 1
+        ExportXLS.setOutCell(sheet, 20, row_nr, u'Hipertensão estágio 2:')
+        ExportXLS.setOutCell(sheet, 29, row_nr, u'160-179')
+        ExportXLS.setOutCell(sheet, 35, row_nr, u'100-109')
+        row_nr += 1
+        ExportXLS.setOutCell(sheet, 20, row_nr, u'Hipertensão estágio 3:')
+        ExportXLS.setOutCell(sheet, 29, row_nr, u'160-180')
+        ExportXLS.setOutCell(sheet, 35, row_nr, u'  >= 110')
+        row_nr += 2
         ExportXLS.setOutCell(sheet, 2, row_nr, u'Método utilizado: Esfigmomanometria.')
         row_nr += 3
 
@@ -213,14 +228,17 @@ class LabTestOffReport(models.Model):
             ExportXLS.setOutCell(sheet, 9, row_nr, result)
         row_nr += 3
 
-        ExportXLS.setOutCell(sheet, 2, row_nr, u'Nota: (1): Glicemia:Critérios Diagnósticos segundo Associação Americana de Diabetes (2014); (2) Colesterol total: V Diretrizes Brasileiras de Dislipidemias e Prevenção da Aterosclerose-2013); (3): VI Diretrizes Brasileiras de Hipertensão Arterial - 2010.')
+        ExportXLS.setOutCell(
+            sheet, 2, row_nr,
+            u'Nota: (1): Glicemia:Critérios Diagnósticos segundo Associação Americana de Diabetes (2014); (2) Colesterol total: V Diretrizes Brasileiras de Dislipidemias e Prevenção da Aterosclerose-2013); (3): VI Diretrizes Brasileiras de Hipertensão Arterial - 2010.'
+        )
 
         row_nr += 4
 
         ExportXLS.setOutCell(sheet, 17, row_nr, u'Farmacêutico(a) Responsável:')
         row_nr += 1
-        ExportXLS.setOutCell(sheet, 33, row_nr, self.employee_id.name)
+        ExportXLS.setOutCell(sheet, 32, row_nr, self.employee_id.name)
         row_nr += 1
-        ExportXLS.setOutCell(sheet, 36, row_nr, self.employee_id.professional_id)
+        ExportXLS.setOutCell(sheet, 35, row_nr, self.employee_id.professional_id)
 
         return True
