@@ -63,9 +63,9 @@ class LabTestOffReport(models.Model):
         if self.date_approved is not False:
             date = datetime.strptime(self.date_approved, '%Y-%m-%d')
             date = datetime.strftime(date, '%d-%m-%Y')
-            ExportXLS.setOutCell(sheet, 10, row_nr, date)
+            ExportXLS.setOutCell(sheet, 9, row_nr, date)
         else:
-            ExportXLS.setOutCell(sheet, 10, row_nr, None)
+            ExportXLS.setOutCell(sheet, 9, row_nr, None)
         ExportXLS.setOutCell(sheet, 30, row_nr, u'Código do Exame:')
         ExportXLS.setOutCell(sheet, 38, row_nr, lab_test_off_request_code)
         row_nr += 1
@@ -87,10 +87,10 @@ class LabTestOffReport(models.Model):
         ExportXLS.setOutCell(sheet, 2, row_nr, u'Material: Sangue total/EDTA')
         row_nr += 1
         ExportXLS.setOutCell(sheet, 2, row_nr, u'Método utilizado: Automatizado - equipamento Micros 60, Horiba-ABX')
-        row_nr += 4
+        row_nr += 3
 
         ExportXLS.setOutCell(sheet, 2, row_nr, u'Resultado:')
-        row_nr += 1
+        row_nr += 2
 
         result = self.criterion_ids.search([
             ('lab_test_off_report_id', '=', self.id),
@@ -181,19 +181,22 @@ class LabTestOffReport(models.Model):
         ExportXLS.setOutCell(sheet, 38, row_nr, u'13,0 - 16,0')
         row_nr += 1
         ExportXLS.setOutCell(sheet, 2, row_nr, u'2 meses')
-        ExportXLS.setOutCell(sheet, 12, row_nr, u'9,0 - 14,0')
+        ExportXLS.setOutCell(sheet, 12, row_nr, u'  9,0 - 14,0')
         ExportXLS.setOutCell(sheet, 26, row_nr, u'Adulto - F')
         ExportXLS.setOutCell(sheet, 38, row_nr, u'12,0 - 16,0')
         row_nr += 1
         ExportXLS.setOutCell(sheet, 2, row_nr, u'3 a 6 meses')
-        ExportXLS.setOutCell(sheet, 12, row_nr, u'9,5 - 13,5')
+        ExportXLS.setOutCell(sheet, 12, row_nr, u'  9,5 - 13,5')
         ExportXLS.setOutCell(sheet, 26, row_nr, u'Adulto - M')
         ExportXLS.setOutCell(sheet, 38, row_nr, u'13,5 - 17,5')
         row_nr += 1
 
         for i in range(0, 49):
             sheet.write(row_nr, i, style=bottom_border)
-        row_nr += 2
+        row_nr += 1
+
+        ExportXLS.setOutCell(sheet, 2, row_nr, u'Valores de Referência segundo Wintrobe, 12 ed., 2009.')
+        row_nr += 1
 
         row_nr += 8
 
