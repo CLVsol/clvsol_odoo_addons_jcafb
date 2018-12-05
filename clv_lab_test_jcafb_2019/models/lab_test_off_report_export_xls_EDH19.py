@@ -230,7 +230,7 @@ class LabTestOffReport(models.Model):
 
         ExportXLS.setOutCell(
             sheet, 2, row_nr,
-            u'Nota: (1): Glicemia:Critérios Diagnósticos segundo Associação Americana de Diabetes (2014); (2) Colesterol total: V Diretrizes Brasileiras de Dislipidemias e Prevenção da Aterosclerose-2013); (3): VI Diretrizes Brasileiras de Hipertensão Arterial - 2010.'
+            u'Nota: (1): Glicemia: Diretrizes Sociedade Brasileira de Diabetes (2017-2018); (2) Colesterol total: atualização da Diretriz Brasileira de Dislipidemias e Prevenção da Aterosclerose-2017); (3): VII Diretriz Brasileira de Hipertensão Arterial - 2016.'
         )
 
         row_nr += 4
