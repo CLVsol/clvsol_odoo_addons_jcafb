@@ -47,21 +47,21 @@ class LabTestReport(models.Model):
         ExportXLS.setOutCell(sheet, 20, row_nr, u'Universidade de São Paulo')
         row_nr += 3
 
-        ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome:')
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Nome:')
         # ExportXLS.setOutCell(sheet, 4, row_nr, self.person_id.name)
-        ExportXLS.setOutCell(sheet, 4, row_nr, self.ref_id.name)
+        ExportXLS.setOutCell(sheet, 8, row_nr, self.ref_id.name)
         ExportXLS.setOutCell(sheet, 30, row_nr, u'Cadastro:')
         # ExportXLS.setOutCell(sheet, 35, row_nr, self.person_id.code)
         ExportXLS.setOutCell(sheet, 35, row_nr, self.ref_id.code)
         row_nr += 2
 
-        ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Exame:')
+        ExportXLS.setOutCell(sheet, 4, row_nr, u'Data do Exame:')
         if self.date_approved is not False:
             date = datetime.strptime(self.date_approved, '%Y-%m-%d')
             date = datetime.strftime(date, '%d-%m-%Y')
-            ExportXLS.setOutCell(sheet, 8, row_nr, date)
+            ExportXLS.setOutCell(sheet, 12, row_nr, date)
         else:
-            ExportXLS.setOutCell(sheet, 8, row_nr, None)
+            ExportXLS.setOutCell(sheet, 12, row_nr, None)
         ExportXLS.setOutCell(sheet, 30, row_nr, u'Código do Exame:')
         ExportXLS.setOutCell(sheet, 38, row_nr, lab_test_request_code)
         row_nr += 3
