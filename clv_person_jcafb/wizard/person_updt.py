@@ -28,6 +28,21 @@ _logger = logging.getLogger(__name__)
 class PersonUpdate(models.TransientModel):
     _inherit = 'clv.person.updt'
 
+    address_state = fields.Selection(
+        [('new', 'New'),
+         ('available', 'Available'),
+         ('waiting', 'Waiting'),
+         ('selected', 'Selected'),
+         ('unselected', 'Unselected'),
+         ('unavailable', 'Unavailable'),
+         ('unknown', 'Unknown')
+         ], string='Address State', default=False, readonly=False, required=False
+    )
+    address_state_selection = fields.Selection(
+        [('set', 'Set'),
+         ], string='Address State', default=False, readonly=False, required=False
+    )
+
     reg_state = fields.Selection(
         [('draft', 'Draft'),
          ('revised', 'Revised'),
@@ -111,6 +126,22 @@ class PersonUpdate(models.TransientModel):
         for person in self.person_ids:
 
             _logger.info(u'%s %s', '>>>>>', person.name)
+
+            Address = self.env['clv.address']
+            address = Address.search([
+                ('id', '=', person.address_id.id),
+            ])
+            if address.id is not False:
+                if self.address_state_selection == 'set':
+                    values = {
+                        'state': self.address_state,
+                    }
+                    address.write(values)
+                if self.address_state_selection == 'remove':
+                    values = {
+                        'state': False,
+                    }
+                    address.write(values)
 
             if self.reg_state_selection == 'set':
                 person.reg_state = self.reg_state

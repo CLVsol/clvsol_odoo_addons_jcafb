@@ -10,6 +10,12 @@
             <field name="arch" type="xml">
                 <group name="global_tag_ids_selection" position="before">
                     <group>
+                        <field name="address_state_selection"/>
+                    </group>
+                    <group>
+                        <field name="address_state" nolabel='1'/>
+                    </group>
+                    <group>
                         <field name="reg_state_selection"/>
                     </group>
                     <group>
