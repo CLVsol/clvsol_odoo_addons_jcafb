@@ -51,9 +51,14 @@ class PersonDocumentSetUp(models.TransientModel):
     date_foreseen = fields.Date(string='Foreseen Date', index=True)
     date_deadline = fields.Date(string='Deadline', index=True)
 
+    def _default_history_marker_id(self):
+        history_marker_id = int(self.env['ir.config_parameter'].get_param(
+            'clv.config.settings.current_history_marker_id', '').strip())
+        return history_marker_id
     history_marker_id = fields.Many2one(
         comodel_name='clv.history_marker',
         string='History Marker',
+        default=_default_history_marker_id,
         ondelete='restrict'
     )
 
