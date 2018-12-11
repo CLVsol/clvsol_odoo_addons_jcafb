@@ -68,7 +68,12 @@ class Person(models.Model):
             ])
             summary_person_documents.unlink()
 
-            for document in new_summary.person_id.document_ids:
+            search_domain = [
+                ('ref_id', '=', self._name + ',' + str(self.id)),
+            ]
+            documents = self.env['clv.document'].search(search_domain)
+
+            for document in documents:
 
                 if document.history_marker_id.id == new_summary.person_id.history_marker_id.id:
 
@@ -85,7 +90,12 @@ class Person(models.Model):
             ])
             summary_person_lab_test_requests.unlink()
 
-            for lab_test_request in new_summary.person_id.lab_test_request_ids:
+            search_domain = [
+                ('ref_id', '=', self._name + ',' + str(self.id)),
+            ]
+            lab_test_requests = self.env['clv.lab_test.request'].search(search_domain)
+
+            for lab_test_request in lab_test_requests:
 
                 if lab_test_request.history_marker_id.id == new_summary.person_id.history_marker_id.id:
 
@@ -136,7 +146,12 @@ class Person(models.Model):
             ])
             summary_person_documents.unlink()
 
-            for document in summary.person_id.document_ids:
+            search_domain = [
+                ('ref_id', '=', self._name + ',' + str(self.id)),
+            ]
+            documents = self.env['clv.document'].search(search_domain)
+
+            for document in documents:
 
                 if document.history_marker_id.id == summary.person_id.history_marker_id.id:
 
@@ -153,7 +168,12 @@ class Person(models.Model):
             ])
             summary_person_lab_test_requests.unlink()
 
-            for lab_test_request in summary.person_id.lab_test_request_ids:
+            search_domain = [
+                ('ref_id', '=', self._name + ',' + str(self.id)),
+            ]
+            lab_test_requests = self.env['clv.lab_test.request'].search(search_domain)
+
+            for lab_test_request in lab_test_requests:
 
                 if lab_test_request.history_marker_id.id == summary.person_id.history_marker_id.id:
 
