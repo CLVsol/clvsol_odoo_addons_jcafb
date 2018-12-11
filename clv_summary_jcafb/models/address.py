@@ -83,7 +83,12 @@ class Address(models.Model):
             ])
             summary_address_documents.unlink()
 
-            for document in new_summary.address_id.document_ids:
+            search_domain = [
+                ('ref_id', '=', self._name + ',' + str(self.id)),
+            ]
+            documents = self.env['clv.document'].search(search_domain)
+
+            for document in documents:
 
                 if document.history_marker_id.id == new_summary.address_id.history_marker_id.id:
 
@@ -131,7 +136,12 @@ class Address(models.Model):
             ])
             summary_address_documents.unlink()
 
-            for document in summary.address_id.document_ids:
+            search_domain = [
+                ('ref_id', '=', self._name + ',' + str(self.id)),
+            ]
+            documents = self.env['clv.document'].search(search_domain)
+
+            for document in documents:
 
                 if document.history_marker_id.id == summary.address_id.history_marker_id.id:
 
