@@ -91,9 +91,9 @@ class GroupSummary(models.Model):
         row_nr += 2
 
         col_address_category = 0
-        col_district = 3
-        col_address = 6
-        col_person = 9
+        col_district = 2
+        col_address = 4
+        col_person = 6
 
         address_categories = AddressCategory.search([])
         for address_category in address_categories:
@@ -119,12 +119,14 @@ class GroupSummary(models.Model):
                 addresses_2 = Address.search([
                     ('employee_id', '=', self.employee_id.id),
                     ('district', '=', district),
+                    ('state', '=', 'selected'),
                 ])
 
                 for address_2 in addresses_2:
 
                     sheet.write(row_nr, col_address, '[' + address_2.code + ']')
                     sheet.write(row_nr, col_address + 7, address_2.name, style=style_bold)
+                    sheet.write(row_nr, col_address + 36, address_2.state, style=style_bold)
                     row_nr += 2
 
                     persons = Person.search([
@@ -136,8 +138,64 @@ class GroupSummary(models.Model):
 
                         sheet.write(row_nr, col_person, '[' + person.code + ']')
                         sheet.write(row_nr, col_person + 7, person.name, style=style_bold)
-                        sheet.write(row_nr, col_person + 22,
+                        sheet.write(row_nr, col_person + 30,
                                     '(' + person.category_names + ' - ' + person.age_reference + ')')
+                        sheet.write(row_nr, col_person + 36, person.state)
+                        row_nr += 2
+
+                    persons = Person.search([
+                        ('address_id', '=', address_2.id),
+                        ('state', '=', 'waiting'),
+                    ])
+
+                    for person in persons:
+
+                        sheet.write(row_nr, col_person, '[' + person.code + ']')
+                        sheet.write(row_nr, col_person + 7, person.name, style=style_bold)
+                        sheet.write(row_nr, col_person + 30,
+                                    '(' + person.category_names + ' - ' + person.age_reference + ')')
+                        sheet.write(row_nr, col_person + 36, person.state)
+                        row_nr += 2
+
+                addresses_2 = Address.search([
+                    ('employee_id', '=', self.employee_id.id),
+                    ('district', '=', district),
+                    ('state', '=', 'waiting'),
+                ])
+
+                for address_2 in addresses_2:
+
+                    sheet.write(row_nr, col_address, '[' + address_2.code + ']')
+                    sheet.write(row_nr, col_address + 7, address_2.name, style=style_bold)
+                    sheet.write(row_nr, col_address + 36, address_2.state, style=style_bold)
+                    row_nr += 2
+
+                    persons = Person.search([
+                        ('address_id', '=', address_2.id),
+                        ('state', '=', 'selected'),
+                    ])
+
+                    for person in persons:
+
+                        sheet.write(row_nr, col_person, '[' + person.code + ']')
+                        sheet.write(row_nr, col_person + 7, person.name, style=style_bold)
+                        sheet.write(row_nr, col_person + 30,
+                                    '(' + person.category_names + ' - ' + person.age_reference + ')')
+                        sheet.write(row_nr, col_person + 36, person.state)
+                        row_nr += 2
+
+                    persons = Person.search([
+                        ('address_id', '=', address_2.id),
+                        ('state', '=', 'waiting'),
+                    ])
+
+                    for person in persons:
+
+                        sheet.write(row_nr, col_person, '[' + person.code + ']')
+                        sheet.write(row_nr, col_person + 7, person.name, style=style_bold)
+                        sheet.write(row_nr, col_person + 30,
+                                    '(' + person.category_names + ' - ' + person.age_reference + ')')
+                        sheet.write(row_nr, col_person + 36, person.state)
                         row_nr += 2
 
         # style_str = 'borders: bottom dotted'
