@@ -32,6 +32,7 @@ class LabTestResultEdit(models.TransientModel):
     ECP19_metodo_utilizado_1 = fields.Selection([
         ('Ritchie', 'Ritchie'),
         ('Hoffmann', 'Hoffmann'),
+        ('Faust', 'Faust'),
         ('Willis', 'Willis'),
     ], 'Metodologia Empregada (1)', readonly=False, default=_default_ECP19_metodo_utilizado_1)
 
@@ -138,6 +139,7 @@ class LabTestResultEdit(models.TransientModel):
     ECP19_metodo_utilizado_2 = fields.Selection([
         ('Ritchie', 'Ritchie'),
         ('Hoffmann', 'Hoffmann'),
+        ('Faust', 'Faust'),
         ('Willis', 'Willis'),
     ], 'Metodologia Empregada (2)', readonly=False, default=_default_ECP19_metodo_utilizado_2)
 
@@ -244,6 +246,7 @@ class LabTestResultEdit(models.TransientModel):
     ECP19_metodo_utilizado_3 = fields.Selection([
         ('Ritchie', 'Ritchie'),
         ('Hoffmann', 'Hoffmann'),
+        ('Faust', 'Faust'),
         ('Willis', 'Willis'),
     ], 'Metodologia Empregada (3)', readonly=False, default=_default_ECP19_metodo_utilizado_3)
 
@@ -350,6 +353,7 @@ class LabTestResultEdit(models.TransientModel):
     # ECP19_metodo_utilizado_4 = fields.Selection([
     #     ('Ritchie', 'Ritchie'),
     #     ('Hoffmann', 'Hoffmann'),
+    #     ('Faust', 'Faust'),
     #     ('Willis', 'Willis'),
     # ], 'Metodologia Empregada (4)', readonly=False, default=_default_ECP19_metodo_utilizado_4)
     ECP19_metodo_utilizado_4 = fields.Char(
