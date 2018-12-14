@@ -9,7 +9,7 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <page name="settings" position="before">
-                    <page string="Documents">
+                    <page string="Documents" invisible="True">
                         <group>
                             <field name="count_documents"/>
                             <field name="document_ids" colspan="4" nolabel="1"/>
