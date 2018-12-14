@@ -69,7 +69,7 @@
             <field name="priority" eval="8"/>
             <field name="arch" type="xml">
                 <page name="settings" position="before">
-                    <page string="Lab Test Results">
+                    <page string="Lab Test Results" invisible="True">
                         <group>
                             <field name="lab_test_result_ids" colspan="4" nolabel="1"/>
                         </group>
