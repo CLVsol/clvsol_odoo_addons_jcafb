@@ -40,6 +40,7 @@
         view_mode="form, tree"
         key2="client_action_multi"
         target="new"
+        groups="clv_base.make_invisible"
     />
 
 </odoo>
