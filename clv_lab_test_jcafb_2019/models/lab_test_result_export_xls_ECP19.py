@@ -37,9 +37,7 @@ class LabTestResult(models.Model):
 
         if use_template:
 
-            ExportXLS.setOutCell(sheet, 17, row_nr, u'JCAFB-2019 - FERNÃO - SP')
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 8, row_nr, lab_test_type + ' - ' +
+            ExportXLS.setOutCell(sheet, 1, row_nr, u'JCAFB-2019 - FERNÃO (SP) - ' + lab_test_type + ' - ' +
                                  u'EXAME COPROPARASITOLÓGICO - RESULTADOS')
             row_nr += 2
 
@@ -52,17 +50,14 @@ class LabTestResult(models.Model):
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome da Pessoa:')
             # ExportXLS.setOutCell(sheet, 10, row_nr, self.person_id.name)
             ExportXLS.setOutCell(sheet, 10, row_nr, self.ref_id.name)
+            ExportXLS.setOutCell(sheet, 33, row_nr, u'Código da Pessoa:')
+            ExportXLS.setOutCell(sheet, 43, row_nr, self.ref_id.code)
             row_nr += 1
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Código da Pessoa:')
-            # ExportXLS.setOutCell(sheet, 10, row_nr, self.person_id.code)
-            ExportXLS.setOutCell(sheet, 10, row_nr, self.ref_id.code)
-            row_nr += 2
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Recebido por:')
             ExportXLS.setOutCell(sheet, 10, row_nr, self.lab_test_request_id.employee_id.name)
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Código do Recebedor:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, self.lab_test_request_id.employee_id.code)
+            ExportXLS.setOutCell(sheet, 33, row_nr, u'Código do Recebedor:')
+            ExportXLS.setOutCell(sheet, 43, row_nr, self.lab_test_request_id.employee_id.code)
             row_nr += 1
             date_time = datetime.strptime(self.lab_test_request_id.date_received,
                                           '%Y-%m-%d %H:%M:%S') + timedelta(hours=delta_hours)
@@ -72,16 +67,16 @@ class LabTestResult(models.Model):
             row_nr += 2
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Método Utilizado:')
-            row_nr += 2
+            row_nr += 1
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado:')
-            row_nr += 4
+            row_nr += 2
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Observações:')
             row_nr += 3
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Analisador(a):')
-            row_nr += 2
+            row_nr += 1
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Revisado por:')
             ExportXLS.setOutCell(sheet, 25, row_nr, u'Data:')
@@ -89,20 +84,18 @@ class LabTestResult(models.Model):
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado Confirmado (   )')
             ExportXLS.setOutCell(sheet, 25, row_nr, u'Resultado Alterado (   )')
-            row_nr += 2
+            row_nr += 1
 
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado digitado em:')
-            ExportXLS.setOutCell(sheet, 25, row_nr, u'Digitado por:')
-            row_nr += 2
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Digitado por::')
+            ExportXLS.setOutCell(sheet, 25, row_nr, u'Resultado digitado em:')
+            row_nr += 1
 
             row = sheet.row(row_nr)
             for i in range(0, 49):
                 row.write(i, u'-')
-            row_nr += 2
-
-            ExportXLS.setOutCell(sheet, 17, row_nr, u'JCAFB-2019 - FERNÃO - SP')
             row_nr += 1
-            ExportXLS.setOutCell(sheet, 8, row_nr, lab_test_type + ' - ' +
+
+            ExportXLS.setOutCell(sheet, 1, row_nr, u'JCAFB-2019 - FERNÃO (SP) - ' + lab_test_type + ' - ' +
                                  u'EXAME COPROPARASITOLÓGICO - RESULTADOS')
             row_nr += 2
 
@@ -115,17 +108,14 @@ class LabTestResult(models.Model):
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome da Pessoa:')
             # ExportXLS.setOutCell(sheet, 10, row_nr, self.person_id.name)
             ExportXLS.setOutCell(sheet, 10, row_nr, self.ref_id.name)
+            ExportXLS.setOutCell(sheet, 33, row_nr, u'Código da Pessoa:')
+            ExportXLS.setOutCell(sheet, 43, row_nr, self.ref_id.code)
             row_nr += 1
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Código da Pessoa:')
-            # ExportXLS.setOutCell(sheet, 10, row_nr, self.person_id.code)
-            ExportXLS.setOutCell(sheet, 10, row_nr, self.ref_id.code)
-            row_nr += 2
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Recebido por:')
             ExportXLS.setOutCell(sheet, 10, row_nr, self.lab_test_request_id.employee_id.name)
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Código do Recebedor:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, self.lab_test_request_id.employee_id.code)
+            ExportXLS.setOutCell(sheet, 33, row_nr, u'Código do Recebedor:')
+            ExportXLS.setOutCell(sheet, 43, row_nr, self.lab_test_request_id.employee_id.code)
             row_nr += 1
             date_time = datetime.strptime(self.lab_test_request_id.date_received,
                                           '%Y-%m-%d %H:%M:%S') + timedelta(hours=delta_hours)
@@ -135,16 +125,16 @@ class LabTestResult(models.Model):
             row_nr += 2
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Método Utilizado:')
-            row_nr += 2
+            row_nr += 1
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado:')
-            row_nr += 4
+            row_nr += 2
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Observações:')
             row_nr += 3
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Analisador(a):')
-            row_nr += 2
+            row_nr += 1
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Revisado por:')
             ExportXLS.setOutCell(sheet, 25, row_nr, u'Data:')
@@ -152,17 +142,73 @@ class LabTestResult(models.Model):
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado Confirmado (   )')
             ExportXLS.setOutCell(sheet, 25, row_nr, u'Resultado Alterado (   )')
+            row_nr += 1
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Digitado por::')
+            ExportXLS.setOutCell(sheet, 25, row_nr, u'Resultado digitado em:')
+            row_nr += 1
+
+            row = sheet.row(row_nr)
+            for i in range(0, 49):
+                row.write(i, u'-')
+            row_nr += 1
+
+            ExportXLS.setOutCell(sheet, 1, row_nr, u'JCAFB-2019 - FERNÃO (SP) - ' + lab_test_type + ' - ' +
+                                 u'EXAME COPROPARASITOLÓGICO - RESULTADOS')
             row_nr += 2
 
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado digitado em:')
-            ExportXLS.setOutCell(sheet, 25, row_nr, u'Digitado por:')
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Código da Requisição:')
+            ExportXLS.setOutCell(sheet, 10, row_nr, lab_test_request_code)
+            ExportXLS.setOutCell(sheet, 33, row_nr, u'Código do Resultado:')
+            ExportXLS.setOutCell(sheet, 43, row_nr, lab_test_result_code)
+            row_nr += 1
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome da Pessoa:')
+            # ExportXLS.setOutCell(sheet, 10, row_nr, self.person_id.name)
+            ExportXLS.setOutCell(sheet, 10, row_nr, self.ref_id.name)
+            ExportXLS.setOutCell(sheet, 33, row_nr, u'Código da Pessoa:')
+            ExportXLS.setOutCell(sheet, 43, row_nr, self.ref_id.code)
+            row_nr += 1
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Recebido por:')
+            ExportXLS.setOutCell(sheet, 10, row_nr, self.lab_test_request_id.employee_id.name)
+            ExportXLS.setOutCell(sheet, 33, row_nr, u'Código do Recebedor:')
+            ExportXLS.setOutCell(sheet, 43, row_nr, self.lab_test_request_id.employee_id.code)
+            row_nr += 1
+            date_time = datetime.strptime(self.lab_test_request_id.date_received,
+                                          '%Y-%m-%d %H:%M:%S') + timedelta(hours=delta_hours)
+            date_time = datetime.strftime(date_time, '%d-%m-%Y  %H:%M:%S')
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Recebimento:')
+            ExportXLS.setOutCell(sheet, 10, row_nr, date_time)
             row_nr += 2
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Método Utilizado:')
+            row_nr += 1
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado:')
+            row_nr += 2
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Observações:')
+            row_nr += 3
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Analisador(a):')
+            row_nr += 1
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Revisado por:')
+            ExportXLS.setOutCell(sheet, 25, row_nr, u'Data:')
+            row_nr += 1
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado Confirmado (   )')
+            ExportXLS.setOutCell(sheet, 25, row_nr, u'Resultado Alterado (   )')
+            row_nr += 1
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Digitado por::')
+            ExportXLS.setOutCell(sheet, 25, row_nr, u'Resultado digitado em:')
+            row_nr += 1
 
         else:
 
-            ExportXLS.setOutCell(sheet, 17, row_nr, u'JCAFB-2019 - FERNÃO - SP')
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 8, row_nr, lab_test_type + ' - ' +
+            ExportXLS.setOutCell(sheet, 1, row_nr, u'JCAFB-2019 - FERNÃO (SP) - ' + lab_test_type + ' - ' +
                                  u'EXAME COPROPARASITOLÓGICO - RESULTADOS')
             row_nr += 2
 
@@ -173,17 +219,16 @@ class LabTestResult(models.Model):
             row_nr += 1
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome da Pessoa:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, self.person_id.name)
+            # ExportXLS.setOutCell(sheet, 10, row_nr, self.person_id.name)
+            ExportXLS.setOutCell(sheet, 10, row_nr, self.ref_id.name)
+            ExportXLS.setOutCell(sheet, 33, row_nr, u'Código da Pessoa:')
+            ExportXLS.setOutCell(sheet, 43, row_nr, self.ref_id.code)
             row_nr += 1
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Código da Pessoa:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, self.person_id.code)
-            row_nr += 2
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Recebido por:')
             ExportXLS.setOutCell(sheet, 10, row_nr, self.lab_test_request_id.employee_id.name)
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Código do Recebedor:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, self.lab_test_request_id.employee_id.code)
+            ExportXLS.setOutCell(sheet, 33, row_nr, u'Código do Recebedor:')
+            ExportXLS.setOutCell(sheet, 43, row_nr, self.lab_test_request_id.employee_id.code)
             row_nr += 1
             date_time = datetime.strptime(self.lab_test_request_id.date_received,
                                           '%Y-%m-%d %H:%M:%S') + timedelta(hours=delta_hours)
@@ -193,16 +238,16 @@ class LabTestResult(models.Model):
             row_nr += 2
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Método Utilizado:')
-            row_nr += 2
+            row_nr += 1
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado:')
-            row_nr += 4
+            row_nr += 2
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Observações:')
             row_nr += 3
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Analisador(a):')
-            row_nr += 2
+            row_nr += 1
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Revisado por:')
             ExportXLS.setOutCell(sheet, 25, row_nr, u'Data:')
@@ -210,20 +255,18 @@ class LabTestResult(models.Model):
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado Confirmado (   )')
             ExportXLS.setOutCell(sheet, 25, row_nr, u'Resultado Alterado (   )')
-            row_nr += 2
+            row_nr += 1
 
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado digitado em:')
-            ExportXLS.setOutCell(sheet, 25, row_nr, u'Digitado por:')
-            row_nr += 2
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Digitado por::')
+            ExportXLS.setOutCell(sheet, 25, row_nr, u'Resultado digitado em:')
+            row_nr += 1
 
             row = sheet.row(row_nr)
             for i in range(0, 49):
                 row.write(i, u'-')
-            row_nr += 2
-
-            ExportXLS.setOutCell(sheet, 17, row_nr, u'JCAFB-2019 - FERNÃO - SP')
             row_nr += 1
-            ExportXLS.setOutCell(sheet, 8, row_nr, lab_test_type + ' - ' +
+
+            ExportXLS.setOutCell(sheet, 1, row_nr, u'JCAFB-2019 - FERNÃO (SP) - ' + lab_test_type + ' - ' +
                                  u'EXAME COPROPARASITOLÓGICO - RESULTADOS')
             row_nr += 2
 
@@ -234,17 +277,16 @@ class LabTestResult(models.Model):
             row_nr += 1
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome da Pessoa:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, self.person_id.name)
+            # ExportXLS.setOutCell(sheet, 10, row_nr, self.person_id.name)
+            ExportXLS.setOutCell(sheet, 10, row_nr, self.ref_id.name)
+            ExportXLS.setOutCell(sheet, 33, row_nr, u'Código da Pessoa:')
+            ExportXLS.setOutCell(sheet, 43, row_nr, self.ref_id.code)
             row_nr += 1
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Código da Pessoa:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, self.person_id.code)
-            row_nr += 2
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Recebido por:')
             ExportXLS.setOutCell(sheet, 10, row_nr, self.lab_test_request_id.employee_id.name)
-            row_nr += 1
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Código do Recebedor:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, self.lab_test_request_id.employee_id.code)
+            ExportXLS.setOutCell(sheet, 33, row_nr, u'Código do Recebedor:')
+            ExportXLS.setOutCell(sheet, 43, row_nr, self.lab_test_request_id.employee_id.code)
             row_nr += 1
             date_time = datetime.strptime(self.lab_test_request_id.date_received,
                                           '%Y-%m-%d %H:%M:%S') + timedelta(hours=delta_hours)
@@ -254,16 +296,16 @@ class LabTestResult(models.Model):
             row_nr += 2
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Método Utilizado:')
-            row_nr += 2
+            row_nr += 1
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado:')
-            row_nr += 4
+            row_nr += 2
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Observações:')
             row_nr += 3
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Analisador(a):')
-            row_nr += 2
+            row_nr += 1
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Revisado por:')
             ExportXLS.setOutCell(sheet, 25, row_nr, u'Data:')
@@ -271,10 +313,68 @@ class LabTestResult(models.Model):
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado Confirmado (   )')
             ExportXLS.setOutCell(sheet, 25, row_nr, u'Resultado Alterado (   )')
+            row_nr += 1
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Digitado por::')
+            ExportXLS.setOutCell(sheet, 25, row_nr, u'Resultado digitado em:')
+            row_nr += 1
+
+            row = sheet.row(row_nr)
+            for i in range(0, 49):
+                row.write(i, u'-')
+            row_nr += 1
+
+            ExportXLS.setOutCell(sheet, 1, row_nr, u'JCAFB-2019 - FERNÃO (SP) - ' + lab_test_type + ' - ' +
+                                 u'EXAME COPROPARASITOLÓGICO - RESULTADOS')
             row_nr += 2
 
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado digitado em:')
-            ExportXLS.setOutCell(sheet, 25, row_nr, u'Digitado por:')
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Código da Requisição:')
+            ExportXLS.setOutCell(sheet, 10, row_nr, lab_test_request_code)
+            ExportXLS.setOutCell(sheet, 33, row_nr, u'Código do Resultado:')
+            ExportXLS.setOutCell(sheet, 43, row_nr, lab_test_result_code)
+            row_nr += 1
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome da Pessoa:')
+            # ExportXLS.setOutCell(sheet, 10, row_nr, self.person_id.name)
+            ExportXLS.setOutCell(sheet, 10, row_nr, self.ref_id.name)
+            ExportXLS.setOutCell(sheet, 33, row_nr, u'Código da Pessoa:')
+            ExportXLS.setOutCell(sheet, 43, row_nr, self.ref_id.code)
+            row_nr += 1
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Recebido por:')
+            ExportXLS.setOutCell(sheet, 10, row_nr, self.lab_test_request_id.employee_id.name)
+            ExportXLS.setOutCell(sheet, 33, row_nr, u'Código do Recebedor:')
+            ExportXLS.setOutCell(sheet, 43, row_nr, self.lab_test_request_id.employee_id.code)
+            row_nr += 1
+            date_time = datetime.strptime(self.lab_test_request_id.date_received,
+                                          '%Y-%m-%d %H:%M:%S') + timedelta(hours=delta_hours)
+            date_time = datetime.strftime(date_time, '%d-%m-%Y  %H:%M:%S')
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Recebimento:')
+            ExportXLS.setOutCell(sheet, 10, row_nr, date_time)
             row_nr += 2
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Método Utilizado:')
+            row_nr += 1
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado:')
+            row_nr += 2
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Observações:')
+            row_nr += 3
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Analisador(a):')
+            row_nr += 1
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Revisado por:')
+            ExportXLS.setOutCell(sheet, 25, row_nr, u'Data:')
+            row_nr += 1
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Resultado Confirmado (   )')
+            ExportXLS.setOutCell(sheet, 25, row_nr, u'Resultado Alterado (   )')
+            row_nr += 1
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Digitado por::')
+            ExportXLS.setOutCell(sheet, 25, row_nr, u'Resultado digitado em:')
+            row_nr += 1
 
         return True
