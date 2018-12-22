@@ -63,10 +63,14 @@ class LabTestRequestDirectMailSetUp(models.TransientModel):
 
             request_code = lab_test_request.code
             lab_test_type = lab_test_request.lab_test_type_ids.name
-            person_name = lab_test_request.person_id.name
-            person_code = lab_test_request.person_id.code
-            person_age_reference = lab_test_request.person_id.age_reference
-            person_category = lab_test_request.person_id.category_ids.name
+            # person_name = lab_test_request.person_id.name
+            person_name = lab_test_request.ref_id.name
+            # person_code = lab_test_request.person_id.code
+            person_code = lab_test_request.ref_id.code
+            # person_age_reference = lab_test_request.person_id.age_reference
+            person_age_reference = lab_test_request.ref_id.age_reference
+            # person_category = lab_test_request.person_id.category_ids.name
+            person_category = lab_test_request.ref_id.category_ids.name
 
             values = {
                 'request_code': request_code,
