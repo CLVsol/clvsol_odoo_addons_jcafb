@@ -20,6 +20,7 @@
                                 <field name="person_code"/>
                                 <field name="person_age_reference"/>
                                 <field name="person_category"/>
+                                <field name="person_state"/>
                             </group>
                         </group>
                     </sheet>
@@ -39,6 +40,7 @@
                         <field name="person_code"/>
                         <field name="person_age_reference"/>
                         <field name="person_category"/>
+                        <field name="person_state"/>
                 </tree>
             </field>
         </record>
@@ -55,12 +57,14 @@
                         <field name="person_code"/>
                         <field name="person_age_reference"/>
                         <field name="person_category"/>
+                        <field name="person_state"/>
                     <newline/>
                     <group expand="0" string="Group By...">
                         <filter string="Lab Test Type" domain="[]" context="{'group_by':'lab_test_type'}"/>
                         <filter string="Person" domain="[]" context="{'group_by':'person_name'}"/>
                         <filter string="Reference Age" domain="[]" context="{'group_by':'person_age_reference'}"/>
                         <filter string="Person Category" domain="[]" context="{'group_by':'person_category'}"/>
+                        <filter string="Person State" domain="[]" context="{'group_by':'person_state'}"/>
                     </group>
                 </search>
             </field>

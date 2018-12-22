@@ -34,6 +34,7 @@ class LabTestRequestDirectMail(models.Model):
     person_code = fields.Char(string='Person Code')
     person_age_reference = fields.Char(string='Reference Age')
     person_category = fields.Char(string='Person Category')
+    person_state = fields.Char(string='Person State')
 
     _sql_constraints = [
         ('request_code_uniq',

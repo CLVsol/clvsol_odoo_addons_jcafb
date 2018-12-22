@@ -71,6 +71,7 @@ class LabTestRequestDirectMailSetUp(models.TransientModel):
             person_age_reference = lab_test_request.ref_id.age_reference
             # person_category = lab_test_request.person_id.category_ids.name
             person_category = lab_test_request.ref_id.category_ids.name
+            person_state = lab_test_request.ref_id.state
 
             values = {
                 'request_code': request_code,
@@ -79,6 +80,7 @@ class LabTestRequestDirectMailSetUp(models.TransientModel):
                 'person_code': person_code,
                 'person_age_reference': person_age_reference,
                 'person_category': person_category,
+                'person_state': person_state,
             }
             LabTestRequestDirectMail.create(values)
 
