@@ -16,6 +16,7 @@
     ],
     'data': [
         'data/person_sync.xml',
+        'data/person_category_sync.xml',
     ],
     'demo': [],
     'test': [],
