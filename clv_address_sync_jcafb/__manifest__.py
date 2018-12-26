@@ -15,6 +15,7 @@
         'clv_external_sync',
     ],
     'data': [
+        'data/address_category_sync.xml',
         'data/address_sync.xml',
     ],
     'demo': [],
