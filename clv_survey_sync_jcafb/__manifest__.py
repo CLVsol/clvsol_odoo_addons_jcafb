@@ -21,6 +21,7 @@
         'data/survey_question_sync.xml',
         'data/survey_label_sync.xml',
         'data/survey_user_input_sync.xml',
+        'data/survey_user_input_line_sync.xml',
     ],
     'demo': [],
     'test': [],
