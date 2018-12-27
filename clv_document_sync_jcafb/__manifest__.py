@@ -16,6 +16,7 @@
     ],
     'data': [
         'data/document_sync.xml',
+        'data/document_item_sync.xml',
     ],
     'demo': [],
     'test': [],
