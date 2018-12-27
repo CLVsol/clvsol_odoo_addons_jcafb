@@ -15,8 +15,9 @@
         'clv_external_sync',
     ],
     'data': [
-        'data/person_sync.xml',
         'data/person_category_sync.xml',
+        'data/person_marker_sync.xml',
+        'data/person_sync.xml',
     ],
     'demo': [],
     'test': [],
