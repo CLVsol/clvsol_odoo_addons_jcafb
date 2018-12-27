@@ -47,6 +47,24 @@
 		<field name="sequence" eval="10"/>
 	</record>
 	 
+	<record id="clv_person_clv_person_template_object_field_marker_ids" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;marker_ids&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;marker_ids&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_person_clv_person_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_person_clv_person_template_object_field_global_tag_ids" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;global_tag_ids&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;global_tag_ids&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_person_clv_person_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
 	<record id="clv_person_clv_person_template_object_field_active" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;active&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;active&quot;&quot;&quot;"/>
