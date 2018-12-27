@@ -29,6 +29,24 @@
 		<field name="sequence" eval="10"/>
 	</record>
 	 
+	<record id="clv_document_clv_document_template_object_field_document_type_id" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;document_type_id&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;document_type_id&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_document_clv_document_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_document_clv_document_template_object_field_base_document_id" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;base_document_id&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;base_document_id&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_document_clv_document_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
 	<record id="clv_document_clv_document_template_object_field_date_inclusion" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;date_requested&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;date_inclusion&quot;&quot;&quot;"/>
