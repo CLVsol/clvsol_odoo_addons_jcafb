@@ -20,6 +20,7 @@
         'data/survey_page_sync.xml',
         'data/survey_question_sync.xml',
         'data/survey_label_sync.xml',
+        'data/survey_user_input_sync.xml',
     ],
     'demo': [],
     'test': [],
