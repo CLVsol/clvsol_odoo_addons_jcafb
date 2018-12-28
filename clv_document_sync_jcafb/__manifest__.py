@@ -15,6 +15,7 @@
         'clv_external_sync',
     ],
     'data': [
+        'data/document_category_sync.xml',
         'data/document_type_sync.xml',
         'data/document_sync.xml',
         'data/document_item_sync.xml',
