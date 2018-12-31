@@ -56,6 +56,105 @@
 		<field name="sequence" eval="10"/>
 	</record>
 	 
+	<record id="clv_address_clv_address_template_object_field_zip" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;zip&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;zip&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_address_clv_address_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_address_clv_address_template_object_field_street" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;street&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;street&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_address_clv_address_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_address_clv_address_template_object_field_number" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;number&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;number&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_address_clv_address_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_address_clv_address_template_object_field_street2" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;street2&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;street2&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_address_clv_address_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_address_clv_address_template_object_field_district" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;district&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;district&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_address_clv_address_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_address_clv_address_template_object_field_country_id" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;country_id&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;country_id&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_address_clv_address_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_address_clv_address_template_object_field_state_id" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;state_id&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;state_id&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_address_clv_address_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_address_clv_address_template_object_field_l10n_br_city_id" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;l10n_br_city_id&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;l10n_br_city_id&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_address_clv_address_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_address_clv_address_template_object_field_phone" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;phone&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;phone&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_address_clv_address_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_address_clv_address_template_object_field_mobile" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;mobile&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;mobile&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_address_clv_address_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_address_clv_address_template_object_field_email" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;email&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;email&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_address_clv_address_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
 	<record id="clv_address_clv_address_template_object_field_active" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;active&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;active&quot;&quot;&quot;"/>
