@@ -414,7 +414,7 @@ class LabTestReport(models.Model):
         ])
         ExportXLS.setOutCell(sheet, 4, row_nr, u'Observações:')
         if criterion.result is not False:
-            ExportXLS.setOutCell(sheet, 8, row_nr, criterion.result)
+            ExportXLS.setOutCell(sheet, 11, row_nr, criterion.result)
         row_nr += 6
 
         ExportXLS.setOutCell(sheet, 17, row_nr, u'Farmacêutico(a) Responsável:')
