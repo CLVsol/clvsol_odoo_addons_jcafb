@@ -77,6 +77,9 @@ class DocumentOffCopyToDocument(models.TransientModel):
 
                     if document_off.state != 'cancelled':
 
+                        ref_id = document_off.person_off_id.person_id._name + ',' + \
+                            str(document_off.person_off_id.person_id.id)
+
                         values = {
                             'name': document_off.name,
                             'code': document_off.code,
@@ -87,7 +90,8 @@ class DocumentOffCopyToDocument(models.TransientModel):
                             # 'date_deadline': document_off.date_deadline,
                             'survey_id': document_off.survey_id.id,
                             # 'category_id': self.category_id.id,
-                            'person_id': document_off.person_off_id.person_id.id,
+                            # 'person_id': document_off.person_off_id.person_id.id,
+                            'ref_id': ref_id,
                             'history_marker_id': self.history_marker_id.id,
                         }
                         new_document = Document.create(values)
