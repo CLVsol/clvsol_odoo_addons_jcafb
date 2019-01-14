@@ -55,16 +55,33 @@ class PersonOffCopyEvent(models.TransientModel):
     def do_person_off_copy_event(self):
         self.ensure_one()
 
+        EventAttendee = self.env['clv.event.attendee']
+
         for person_off in self.person_off_ids:
 
             _logger.info(u'%s %s %s %s', '>>>>>', person_off.name, len(person_off.event_ids), person_off.person_id)
 
             if person_off.person_id.id is not False:
 
-                m2m_list = []
+                # m2m_list = []
+                # for event_id in person_off.event_ids:
+                #     m2m_list.append((4, event_id.id))
+                # _logger.info(u'%s %s', '>>>>>>>>>>', m2m_list)
+                # person_off.person_id.event_ids = m2m_list
+
+                ref_id = 'clv.person' + ',' + str(person_off.person_id.id)
+
                 for event_id in person_off.event_ids:
-                    m2m_list.append((4, event_id.id))
-                _logger.info(u'%s %s', '>>>>>>>>>>', m2m_list)
-                person_off.person_id.event_ids = m2m_list
+
+                    event_attendee = EventAttendee.search([
+                        ('event_id', '=', event_id.id),
+                        ('ref_id', '=', ref_id),
+                    ])
+                    if event_attendee.id is False:
+                        values = {
+                            'event_id': event_id.id,
+                            'ref_id': ref_id,
+                        }
+                        EventAttendee.create(values)
 
         return True
