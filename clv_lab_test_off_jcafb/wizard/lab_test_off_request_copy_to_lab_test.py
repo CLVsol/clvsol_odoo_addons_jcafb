@@ -82,12 +82,16 @@ class LabTestOffRequestCopyToLabTest(models.TransientModel):
                     for lab_test_type in lab_test_off_request.lab_test_type_ids:
                         m2m_list.append((4, lab_test_type.id))
 
+                    ref_id = lab_test_off_request.person_off_id.person_id._name + ',' + \
+                        str(lab_test_off_request.person_off_id.person_id.id)
+
                     values = {
                         'code': lab_test_off_request.code,
                         'code_sequence': 'clv.lab_test.request.code',
                         'date_requested': lab_test_off_request.date_requested,
                         'lab_test_type_ids': m2m_list,
-                        'person_id': lab_test_off_request.person_off_id.person_id.id,
+                        # 'person_id': lab_test_off_request.person_off_id.person_id.id,
+                        'ref_id': ref_id,
                         'history_marker_id': self.history_marker_id.id,
                         'state': 'tested'
                     }
@@ -119,7 +123,8 @@ class LabTestOffRequestCopyToLabTest(models.TransientModel):
                             values = {
                                 'code_sequence': 'clv.lab_test.result.code',
                                 'lab_test_type_id': lab_test_type.id,
-                                'person_id': lab_test_off_request.person_off_id.person_id.id,
+                                # 'person_id': lab_test_off_request.person_off_id.person_id.id,
+                                'ref_id': ref_id,
                                 'lab_test_request_id': new_lab_test_request.id,
                                 'history_marker_id': self.history_marker_id.id,
                                 'criterion_ids': criteria,
@@ -157,7 +162,8 @@ class LabTestOffRequestCopyToLabTest(models.TransientModel):
                                 # 'date_requested': lab_test_off_report.date_requested,
                                 'lab_test_type_id': lab_test_off_report.lab_test_type_id.id,
                                 'lab_test_request_id': new_lab_test_request.id,
-                                'person_id': lab_test_off_request.person_off_id.person_id.id,
+                                # 'person_id': lab_test_off_request.person_off_id.person_id.id,
+                                'ref_id': ref_id,
                                 'history_marker_id': self.history_marker_id.id,
                                 'criterion_ids': criteria,
                                 'reg_state': 'done',
