@@ -70,21 +70,35 @@ class DocumentMfileSetUp(models.TransientModel):
 
             if mfile.id is False:
 
-                lab_test_request = LabTestRequest.search([
-                    ('document_id', '=', document.id),
-                    ('person_id', '=', document.person_id.id),
-                ])
+                ref_id = document.ref_id._name + ',' + str(document.ref_id.id)
+
                 lab_test_request_id = False
-                if lab_test_request.id != []:
-                    lab_test_request_id = lab_test_request.id
+                if document.ref_id._name == 'clv.person':
+                    lab_test_request = LabTestRequest.search([
+                        ('document_id', '=', document.id),
+                        # ('person_id', '=', document.person_id.id),
+                        ('ref_id', '=', ref_id),
+                    ])
+                    # lab_test_request_id = False
+                    if lab_test_request.id != []:
+                        lab_test_request_id = lab_test_request.id
+
+                person_id = False
+                if document.ref_id._name == 'clv.person':
+                    person_id = document.ref_id.id
+                address_id = False
+                if document.ref_id._name == 'clv.address':
+                    address_id = document.ref_id.id
 
                 values = {
                     'name': mfile_name,
                     'code': document.code,
                     'document_id': document.id,
                     'survey_id': document.survey_id.id,
-                    'person_id': document.person_id.id,
-                    'address_id': document.address_id.id,
+                    # 'person_id': document.person_id.id,
+                    # 'address_id': document.address_id.id,
+                    'person_id': person_id,
+                    'address_id': address_id,
                     'lab_test_request_id': lab_test_request_id,
                     'history_marker_id': document.history_marker_id.id,
                 }
