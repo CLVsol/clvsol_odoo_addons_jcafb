@@ -18,7 +18,7 @@
 #
 ###############################################################################
 
-from openerp import fields, models
+from openerp import api, fields, models
 
 
 class DocumentCategory(models.Model):
@@ -31,6 +31,22 @@ class DocumentCategory(models.Model):
 
 class Document(models.Model):
     _inherit = 'clv.document'
+
+    ref_employee_id = fields.Many2one(
+        comodel_name='hr.employee',
+        string='Refers to (Responsible Empĺoyee)',
+        compute='_compute_refenceable_employee',
+        store=True
+    )
+
+    @api.depends('ref_id')
+    def _compute_refenceable_employee(self):
+        for record in self:
+            try:
+                if record.ref_id:
+                    record.ref_employee_id = record.ref_id.employee_id.id
+            except Exception:
+                record.ref_employee_id = False
 
     survey_id = fields.Many2one(
         comodel_name='survey.survey',

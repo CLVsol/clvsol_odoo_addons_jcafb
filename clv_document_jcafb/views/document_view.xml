@@ -16,6 +16,9 @@
                     <label for="base_survey_user_input_id" class="oe_edit_only"/>
                     <h3><field name="base_survey_user_input_id" placeholder="Base Survey User Input..." options="{'no_open': False, 'no_create': True}"/></h3>
                 </div>
+                <group name="group_right" position="inside">
+                    <field name="ref_employee_id"/>
+                </group>
             </field>
         </record>
 
@@ -33,6 +36,9 @@
                 </group>
                 <group name="group_by" position="inside">
                     <filter string="Survey Type" context="{'group_by': 'survey_id'}"/>
+                </group>
+                <group name="group_by" position="inside">
+                    <filter string="Refers to (Responsible Empĺoyee)" context="{'group_by': 'ref_employee_id'}"/>
                 </group>
             </field>
         </record>
