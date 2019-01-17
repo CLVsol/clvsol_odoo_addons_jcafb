@@ -25,7 +25,7 @@
 
     <menuitem name="Global Logs" id="clv_base.menu_base_global_logs"
         parent="clv_base.menu_base"
-        groups="clv_external_sync.group_user"
+        groups="clv_base.group_user"
         sequence="200"/>
 
 </odoo>
