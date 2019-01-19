@@ -58,13 +58,18 @@ class LabTestRequestDocumentSetUp(models.TransientModel):
 
         for lab_test_request in self.lab_test_request_ids:
 
-            _logger.info(u'%s %s %s %s', '>>>>>', lab_test_request.code, lab_test_request.person_id.name,
+            _logger.info(u'%s %s %s %s', '>>>>>', lab_test_request.code, lab_test_request.ref_id.name,
                          lab_test_request.lab_test_type_ids.survey_id.id)
 
             if lab_test_request.lab_test_type_ids.survey_id.id:
+                person_id = False
+                if lab_test_request.ref_id._name == 'clv.person':
+                    person_id = lab_test_request.ref_id.id
+                ref_id = lab_test_request.ref_id._name + ',' + str(person_id)
+                survey_id = lab_test_request.lab_test_type_ids.survey_id.id
                 documents = Document.search([
-                    ('person_id', '=', lab_test_request.person_id.id),
-                    ('survey_id', '=', lab_test_request.lab_test_type_ids.survey_id.id),
+                    ('ref_id', '=', ref_id),
+                    ('survey_id', '=', survey_id),
                     ('state', '!=', 'discarded'),
                 ])
                 _logger.info(u'%s %s', '>>>>>>>>>>', documents.name)
