@@ -109,14 +109,18 @@ class DataExportSetUp(models.TransientModel):
 
                 for document_item in data_export.data_export_document_item_ids:
                     value = None
-                    for document in item.document_ids:
-                        if document.person_id.id is not False:
+                    # for document in item.document_ids:
+                    for document in item._document_ids:
+                        # if document.person_id.id is not False:
+                        if document.ref_id.id is not False:
                             if document.document_type_id.id == \
                                document_item.document_item_id.document_type_id.id:
                                 value = document.survey_user_input_id.get_value(document_item.document_item_id.code)
                                 break
-                    for document in item.address_id.document_ids:
-                        if document.address_id.id is not False:
+                    # for document in item.address_id.document_ids:
+                    for document in item.address_id._document_ids:
+                        # if document.address_id.id is not False:
+                        if document.ref_id.id is not False:
                             if document.document_type_id.id == \
                                document_item.document_item_id.document_type_id.id:
                                 value = document.survey_user_input_id.get_value(document_item.document_item_id.code)
@@ -126,7 +130,8 @@ class DataExportSetUp(models.TransientModel):
 
                 for lab_test_criterion in data_export.data_export_lab_test_criterion_ids:
                     result = None
-                    for lab_test_result in item.lab_test_result_ids:
+                    # for lab_test_result in item.lab_test_result_ids:
+                    for lab_test_result in item._lab_test_result_ids:
                         if lab_test_result.lab_test_type_id.id == \
                            lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
                             result = lab_test_result.criterion_ids.search([
