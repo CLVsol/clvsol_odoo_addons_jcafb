@@ -49,6 +49,7 @@
         'wizard/mfile_archive_view.xml',
         'wizard/mfile_unarchive_view.xml',
         'wizard/mfile_directory_refresh_view.xml',
+        'wizard/mfile_verify_view.xml',
         'views/mfile_menu_view.xml',
     ],
     'demo': [],

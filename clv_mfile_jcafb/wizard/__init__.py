@@ -27,3 +27,4 @@ from . import mfile_archive
 from . import mfile_unarchive
 from . import document_mfile_setup
 from . import mfile_directory_refresh
+from . import mfile_verify
