@@ -7,7 +7,7 @@
 	<record id="survey_user_input_survey_user_input_template" model="clv.external_sync.template">
 		<field name="name" eval="&quot;&quot;&quot;survey.user_input (survey.user_input)&quot;&quot;&quot;"/>
 		<field name="model" eval="&quot;&quot;&quot;survey.user_input&quot;&quot;&quot;"/>
-		<field name="method" eval="&quot;&quot;&quot;_object_external_sync_2&quot;&quot;&quot;"/>
+		<field name="method" eval="&quot;&quot;&quot;_object_external_sync&quot;&quot;&quot;"/>
 		<field name="external_model" eval="&quot;&quot;&quot;survey.user_input&quot;&quot;&quot;"/>
 	</record>
 	 
