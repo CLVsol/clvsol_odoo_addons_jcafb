@@ -7,7 +7,7 @@
 	<record id="clv_event_attendee_clv_event_attendee_template" model="clv.external_sync.template">
 		<field name="name" eval="&quot;&quot;&quot;clv.event.attendee (clv.event.attendee)&quot;&quot;&quot;"/>
 		<field name="model" eval="&quot;&quot;&quot;clv.event.attendee&quot;&quot;&quot;"/>
-		<field name="method" eval="&quot;&quot;&quot;_object_external_sync_2&quot;&quot;&quot;"/>
+		<field name="method" eval="&quot;&quot;&quot;_object_external_sync&quot;&quot;&quot;"/>
 		<field name="external_model" eval="&quot;&quot;&quot;clv.event.attendee&quot;&quot;&quot;"/>
 	</record>
 	 
