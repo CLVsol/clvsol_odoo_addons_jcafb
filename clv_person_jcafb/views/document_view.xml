@@ -26,9 +26,9 @@
                                     >
                                 <div class="o_form_field o_stat_info">
                                     <span class="o_stat_value">
-                                        <!--field name="count_documents"/-->
+                                        <field name="count_documents_2"/>
                                     </span>
-                                    <span class="o_stat_text">Document(s)</span>
+                                    <span class="o_stat_text"> Document(s)</span>
                                 </div>
                             </button>
                         </group>

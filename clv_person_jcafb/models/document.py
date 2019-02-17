@@ -17,6 +17,10 @@ class Person(models.Model):
         string='Documents (count)',
         compute='_compute_document_ids_and_count',
     )
+    count_documents_2 = fields.Integer(
+        string='Documents 2 (count)',
+        compute='_compute_document_ids_and_count',
+    )
 
     @api.multi
     def _compute_document_ids_and_count(self):
@@ -29,4 +33,5 @@ class Person(models.Model):
             documents = self.env['clv.document'].search(search_domain)
 
             record.count_documents = len(documents)
+            record.count_documents_2 = len(documents)
             record.document_ids = [(6, 0, documents.ids)]
