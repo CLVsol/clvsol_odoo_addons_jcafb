@@ -14,15 +14,24 @@ class Person(models.Model):
         compute='_compute_event_attendee_ids_and_count',
     )
     count_events = fields.Integer(
-        string='Events',
+        string='Events (count)',
+        compute='_compute_event_attendee_ids_and_count',
+    )
+    count_events_2 = fields.Integer(
+        string='Events 2 (count)',
         compute='_compute_event_attendee_ids_and_count',
     )
 
     @api.multi
     def _compute_event_attendee_ids_and_count(self):
         for record in self:
-            event_attendees = self.env['clv.event.attendee'].search([
+
+            search_domain = [
                 ('ref_id', '=', self._name + ',' + str(record.id)),
-            ])
+            ]
+
+            event_attendees = self.env['clv.event.attendee'].search(search_domain)
+
             record.count_events = len(event_attendees)
+            record.count_events_2 = len(event_attendees)
             record.event_attendee_ids = [(6, 0, event_attendees.ids)]
