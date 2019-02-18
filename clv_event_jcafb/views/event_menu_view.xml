@@ -25,6 +25,6 @@
         parent="clv_event.menu_base_config_event"
         groups="clv_event.group_user"
         sequence="20"
-        action="clv_event.clv_event_attendee_actions"/>
+        action="clv_event.clv_event_attendee_action"/>
 
 </odoo>
