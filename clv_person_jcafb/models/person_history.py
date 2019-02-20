@@ -28,6 +28,25 @@ class Person(models.Model):
             record.document_ids = [(6, 0, documents.ids)]
 
     @api.multi
+    def _compute_event_attendee_ids_and_count(self):
+        for record in self:
+
+            search_domain = [
+                ('ref_id', '=', self._name + ',' + str(record.id)),
+            ]
+            event_attendees_2 = self.env['clv.event.attendee'].search(search_domain)
+
+            if record.phase_id.id is not False:
+                search_domain.append(
+                    ('event_phase_id.id', '=', record.phase_id.id),
+                )
+            event_attendees = self.env['clv.event.attendee'].search(search_domain)
+
+            record.count_events = len(event_attendees)
+            record.count_events_2 = len(event_attendees_2)
+            record.event_attendee_ids = [(6, 0, event_attendees.ids)]
+
+    @api.multi
     def _compute_lab_test_request_ids_and_count(self):
         for record in self:
 
