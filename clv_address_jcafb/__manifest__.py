@@ -13,6 +13,7 @@
     'depends': [
         'clv_base_jcafb',
         'clv_address',
+        'clv_address_history',
         'clv_document',
         'clv_community',
         'clv_event',
@@ -27,6 +28,7 @@
         'views/community_member_view.xml',
         'views/event_attendee_view.xml',
         'views/lab_test_view.xml',
+        'views/address_history_view.xml',
         'views/address_menu_view.xml',
     ],
     'demo': [],

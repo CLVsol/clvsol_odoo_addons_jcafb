@@ -6,3 +6,5 @@ from . import document
 from . import community_member
 from . import event_attendee
 from . import lab_test
+from . import address_history
+

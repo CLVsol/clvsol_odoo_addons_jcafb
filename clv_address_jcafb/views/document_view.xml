@@ -13,7 +13,25 @@
             <page name="settings" position="before">
                 <page string="Documents">
                     <group>
-                        <field name="count_documents"/>
+                        <group>
+                            <field name="count_documents"/>
+                        </group>
+                        <group>
+                            <button name="clv_document.clv_document_action"
+                                    type="action"
+                                    class="oe_stat_button"
+                                    icon="fa-list"
+                                    context="{'search_default_ref_name': name, 'search_default_ref_code': code}"
+                                    attrs="{'invisible': [('document_ids', '=', [])]}"
+                                    >
+                                <div class="o_form_field o_stat_info">
+                                    <span class="o_stat_value">
+                                        <field name="count_documents_2"/>
+                                    </span>
+                                    <span class="o_stat_text"> Document(s)</span>
+                                </div>
+                            </button>
+                        </group>
                     </group>
                     <field name="document_ids" colspan="4" nolabel="1"/>
                 </page>
