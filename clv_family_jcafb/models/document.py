@@ -5,8 +5,8 @@
 from odoo import api, fields, models
 
 
-class Address(models.Model):
-    _inherit = 'clv.address'
+class Family(models.Model):
+    _inherit = 'clv.family'
 
     document_ids = fields.One2many(
         string='Documents',

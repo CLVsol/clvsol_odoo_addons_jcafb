@@ -4,10 +4,10 @@
 
 <odoo>
         
-    <record id="clv_address_view_form_document" model="ir.ui.view">
-        <field name="name">clv.address.form</field>
-        <field name="model">clv.address</field>
-        <field name="inherit_id" ref="clv_address.clv_address_view_form"/>
+    <record id="clv_family_view_form_document" model="ir.ui.view">
+        <field name="name">clv.family.form</field>
+        <field name="model">clv.family</field>
+        <field name="inherit_id" ref="clv_family.clv_family_view_form"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <page name="settings" position="before">
@@ -21,10 +21,10 @@
         </field>
     </record>
 
-    <record id="clv_address_view_tree_document" model="ir.ui.view">
-        <field name="name">clv.address.tree</field>
-        <field name="model">clv.address</field>
-        <field name="inherit_id" ref="clv_address.clv_address_view_tree"/>
+    <record id="clv_family_view_tree_document" model="ir.ui.view">
+        <field name="name">clv.family.tree</field>
+        <field name="model">clv.family</field>
+        <field name="inherit_id" ref="clv_family.clv_family_view_tree"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <field name="email" position="before">
