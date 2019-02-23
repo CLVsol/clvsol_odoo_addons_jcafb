@@ -74,6 +74,96 @@
 		<field name="sequence" eval="10"/>
 	</record>
 	 
+	<record id="clv_person_clv_person_template_object_field_estimated_age" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;estimated_age&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;estimated_age&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_person_clv_person_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_person_clv_person_template_object_field_birthday" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;birthday&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;birthday&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_person_clv_person_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_person_clv_person_template_object_field_date_reference" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;date_reference&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;date_reference&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_person_clv_person_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_person_clv_person_template_object_field_gender" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;gender&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;gender&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_person_clv_person_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_person_clv_person_template_object_field_marital" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;marital&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;marital&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_person_clv_person_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_person_clv_person_template_object_field_spouse_id" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;spouse_id&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;spouse_id&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_person_clv_person_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_person_clv_person_template_object_field_father_id" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;father_id&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;father_id&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_person_clv_person_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_person_clv_person_template_object_field_mother_id" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;mother_id&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;mother_id&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_person_clv_person_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_person_clv_person_template_object_field_responsible_id" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;responsible_id&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;responsible_id&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_person_clv_person_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_person_clv_person_template_object_field_caregiver_id" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;caregiver_id&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;caregiver_id&quot;&quot;&quot;"/>
+		<field name="inclusion" eval="False"/>
+		<field name="update" eval="True"/>
+		<field name="template_id" eval="clv_person_clv_person_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
 	<record id="clv_person_clv_person_template_object_field_active" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;active&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;active&quot;&quot;&quot;"/>
