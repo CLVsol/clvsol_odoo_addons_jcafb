@@ -14,7 +14,7 @@ class Address(models.Model):
         compute='_compute_event_attendee_ids_and_count',
     )
     count_events = fields.Integer(
-        string='Events',
+        string='Events (count)',
         compute='_compute_event_attendee_ids_and_count',
     )
 
