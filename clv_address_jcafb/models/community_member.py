@@ -14,7 +14,7 @@ class Address(models.Model):
         compute='_compute_community_member_ids_and_count',
     )
     count_communities = fields.Integer(
-        string='Communities',
+        string='Communities (count)',
         compute='_compute_community_member_ids_and_count',
     )
 
