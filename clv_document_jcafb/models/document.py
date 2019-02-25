@@ -5,14 +5,6 @@
 from openerp import fields, models
 
 
-class DocumentCategory(models.Model):
-    _inherit = 'clv.document.category'
-
-    _defaults = {
-        'active_log': True,
-    }
-
-
 class Document(models.Model):
     _inherit = 'clv.document'
 
@@ -27,10 +19,3 @@ class Document(models.Model):
         comodel_name='survey.user_input',
         string='Base Survey User Input'
     )
-
-    _defaults = {
-        'active_log': True,
-    }
-
-    def get_document_category_id(self, survey):
-        return False
