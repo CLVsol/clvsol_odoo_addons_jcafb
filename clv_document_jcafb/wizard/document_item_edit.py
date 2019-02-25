@@ -34,7 +34,7 @@ class DocumentItemEdit(models.TransientModel):
     def do_document_updt(self):
         self.ensure_one()
 
-        super(DocumentItemEdit, self).do_document_updt()
+        super().do_document_updt()
 
         document = self.env['clv.document'].browse(self._context.get('active_id'))
 

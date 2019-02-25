@@ -26,7 +26,7 @@ class EventUpdate(models.TransientModel):
     def do_event_updt(self):
         self.ensure_one()
 
-        super(EventUpdate, self).do_event_updt()
+        super().do_event_updt()
 
         for event in self.event_ids:
 

@@ -26,7 +26,7 @@ class CommunityUpdate(models.TransientModel):
     def do_community_updt(self):
         self.ensure_one()
 
-        super(CommunityUpdate, self).do_community_updt()
+        super().do_community_updt()
 
         for community in self.community_ids:
 
