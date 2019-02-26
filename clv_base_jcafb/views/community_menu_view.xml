@@ -13,6 +13,11 @@
         groups="clv_base.group_user"
         sequence="10"/>
 
+    <menuitem name="History" id="clv_base.menu_community_history"  
+        parent="clv_base.menu_community"
+        groups="clv_base.group_manager"
+        sequence="20"/>
+
     <menuitem name="Configuration" id="clv_base.menu_community_config"  
         parent="clv_base.menu_community"
         groups="clv_base.group_manager"
