@@ -21,4 +21,10 @@
         sequence="10"
         action="clv_address.clv_address_category_action"/>
 
+    <menuitem name="Markers" id="clv_address.menu_community_config_address_markers" 
+        parent="clv_address.menu_community_community_config_address"
+        groups="clv_address.group_user"
+        sequence="20"
+        action="clv_address.clv_address_marker_action"/>
+
 </odoo>

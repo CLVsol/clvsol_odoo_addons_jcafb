@@ -18,6 +18,7 @@
         'clv_community',
         'clv_event',
         'clv_lab_test',
+        'clv_employee',
     ],
     'data': [
         'data/document.xml',
@@ -28,6 +29,7 @@
         'views/community_member_view.xml',
         'views/event_attendee_view.xml',
         'views/lab_test_view.xml',
+        'views/employee_view.xml',
         'views/address_history_view.xml',
         'views/address_menu_view.xml',
     ],
