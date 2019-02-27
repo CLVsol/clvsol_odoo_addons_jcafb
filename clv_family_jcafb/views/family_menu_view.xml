@@ -10,15 +10,21 @@
         sequence="100"
         action="clv_family.clv_family_action"/>
 
-    <menuitem name="Address" id="clv_family.menu_community_community_config_family" 
+    <menuitem name="Family" id="clv_family.menu_community_config_family" 
         parent="clv_base.menu_community_config"
         groups="clv_family.group_user"
         sequence="100"/>
 
-    <menuitem name="Categories" id="clv_family.menu_community_community_config_family_categories" 
-        parent="clv_family.menu_community_community_config_family"
+    <menuitem name="Categories" id="clv_family.menu_community_config_family_categories" 
+        parent="clv_family.menu_community_config_family"
         groups="clv_family.group_user"
         sequence="10"
         action="clv_family.clv_family_category_action"/>
+
+    <menuitem name="Markers" id="clv_family.menu_community_config_family_markers" 
+        parent="clv_family.menu_community_config_family"
+        groups="clv_family.group_user"
+        sequence="20"
+        action="clv_family.clv_family_marker_action"/>
 
 </odoo>
