@@ -9,6 +9,7 @@
 		<field name="model" eval="&quot;&quot;&quot;clv.lab_test.criterion&quot;&quot;&quot;"/>
 		<field name="method" eval="&quot;&quot;&quot;_object_external_sync&quot;&quot;&quot;"/>
 		<field name="external_model" eval="&quot;&quot;&quot;clv.lab_test.criterion&quot;&quot;&quot;"/>
+		<field name="external_disable_check_missing" eval="True"/>
 	</record>
 	 
 	<record id="clv_lab_test_criterion_clv_lab_test_criterion_template_object_field_name" model="clv.external_sync.object_field">

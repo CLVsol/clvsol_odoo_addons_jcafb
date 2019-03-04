@@ -9,6 +9,7 @@
 		<field name="model" eval="&quot;&quot;&quot;survey.label&quot;&quot;&quot;"/>
 		<field name="method" eval="&quot;&quot;&quot;_object_external_sync&quot;&quot;&quot;"/>
 		<field name="external_model" eval="&quot;&quot;&quot;survey.label&quot;&quot;&quot;"/>
+		<field name="external_disable_check_missing" eval="True"/>
 	</record>
 	 
 	<record id="survey_label_survey_label_template_object_field_value" model="clv.external_sync.object_field">
