@@ -10,15 +10,12 @@
 		<field name="method" eval="&quot;&quot;&quot;_object_external_recognize&quot;&quot;&quot;"/>
 		<field name="external_model" eval="&quot;&quot;&quot;l10n_br_base.city&quot;&quot;&quot;"/>
 		<field name="external_disable_check_missing" eval="True"/>
-		<field name="external_disable_inclusion" eval="True"/>
-		<field name="external_disable_sync" eval="True"/>
 	</record>
 	 
 	<record id="l10n_br_base_city_l10n_br_base_city_template_object_field_state_id" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;state_id&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;state_id&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="True"/>
-		<field name="update" eval="False"/>
+		<field name="identification" eval="True"/>
 		<field name="template_id" eval="l10n_br_base_city_l10n_br_base_city_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -26,8 +23,7 @@
 	<record id="l10n_br_base_city_l10n_br_base_city_template_object_field_name" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;name&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;name&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="True"/>
-		<field name="update" eval="False"/>
+		<field name="identification" eval="True"/>
 		<field name="template_id" eval="l10n_br_base_city_l10n_br_base_city_template"/>
 		<field name="sequence" eval="10"/>
 	</record>

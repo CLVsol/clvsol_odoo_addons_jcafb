@@ -15,8 +15,7 @@
 	<record id="clv_document_clv_document_template_object_field_name" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;name&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;name&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="True"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_clv_document_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -24,8 +23,7 @@
 	<record id="clv_document_clv_document_template_object_field_code" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;code&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;code&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_clv_document_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -33,8 +31,7 @@
 	<record id="clv_document_clv_document_template_object_field_document_type_id" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;document_type_id&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;document_type_id&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_clv_document_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -42,8 +39,7 @@
 	<record id="clv_document_clv_document_template_object_field_category_ids" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;category_ids&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;category_ids&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_clv_document_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -51,8 +47,7 @@
 	<record id="clv_document_clv_document_template_object_field_global_tag_ids" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;global_tag_ids&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;global_tag_ids&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_clv_document_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -60,8 +55,7 @@
 	<record id="clv_document_clv_document_template_object_field_base_document_id" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;base_document_id&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;base_document_id&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_clv_document_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -69,8 +63,7 @@
 	<record id="clv_document_clv_document_template_object_field_date_inclusion" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;date_requested&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;date_inclusion&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_clv_document_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -78,8 +71,7 @@
 	<record id="clv_document_clv_document_template_object_field_date_document" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;date_document&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;date_document&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_clv_document_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -87,8 +79,7 @@
 	<record id="clv_document_clv_document_template_object_field_date_foreseen" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;date_foreseen&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;date_foreseen&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_clv_document_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -96,8 +87,7 @@
 	<record id="clv_document_clv_document_template_object_field_date_deadline" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;date_deadline&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;date_deadline&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_clv_document_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -105,8 +95,7 @@
 	<record id="clv_document_clv_document_template_object_field_ref_id" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;ref_id&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;ref_id&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_clv_document_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -114,8 +103,7 @@
 	<record id="clv_document_clv_document_template_object_field_phase_id" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;history_marker_id&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;phase_id&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_clv_document_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -123,8 +111,7 @@
 	<record id="clv_document_clv_document_template_object_field_items_ok" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;items_ok&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;items_ok&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_clv_document_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -132,8 +119,7 @@
 	<record id="clv_document_clv_document_template_object_field_survey_id" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;survey_id&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;survey_id&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_clv_document_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -141,8 +127,7 @@
 	<record id="clv_document_clv_document_template_object_field_survey_user_input_id" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;survey_user_input_id&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;survey_user_input_id&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_clv_document_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -150,8 +135,7 @@
 	<record id="clv_document_clv_document_template_object_field_base_survey_user_input_id" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;base_survey_user_input_id&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;base_survey_user_input_id&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_clv_document_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -159,8 +143,7 @@
 	<record id="clv_document_clv_document_template_object_field_active" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;active&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;active&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_clv_document_template"/>
 		<field name="sequence" eval="10"/>
 	</record>

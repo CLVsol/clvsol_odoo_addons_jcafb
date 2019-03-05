@@ -15,8 +15,7 @@
 	<record id="clv_event_attendee_clv_event_attendee_template_object_field_event_id" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;event_id&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;event_id&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="True"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_event_attendee_clv_event_attendee_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -24,8 +23,7 @@
 	<record id="clv_event_attendee_clv_event_attendee_template_object_field_ref_id" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;ref_id&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;ref_id&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="True"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_event_attendee_clv_event_attendee_template"/>
 		<field name="sequence" eval="10"/>
 	</record>

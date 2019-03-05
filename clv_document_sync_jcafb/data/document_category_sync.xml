@@ -15,8 +15,7 @@
 	<record id="clv_document_category_clv_document_category_template_object_field_parent_id" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;parent_id&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;parent_id&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_category_clv_document_category_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -24,8 +23,7 @@
 	<record id="clv_document_category_clv_document_category_template_object_field_name" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;name&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;name&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="True"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_category_clv_document_category_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -33,8 +31,7 @@
 	<record id="clv_document_category_clv_document_category_template_object_field_code" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;code&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;code&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_category_clv_document_category_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -42,8 +39,7 @@
 	<record id="clv_document_category_clv_document_category_template_object_field_description" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;description&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;description&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_category_clv_document_category_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -51,8 +47,7 @@
 	<record id="clv_document_category_clv_document_category_template_object_field_notes" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;notes&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;notes&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_category_clv_document_category_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -60,8 +55,7 @@
 	<record id="clv_document_category_clv_document_category_template_object_field_color" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;color&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;color&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_category_clv_document_category_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -69,8 +63,7 @@
 	<record id="clv_document_category_clv_document_category_template_object_field_active" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;active&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;active&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_document_category_clv_document_category_template"/>
 		<field name="sequence" eval="10"/>
 	</record>

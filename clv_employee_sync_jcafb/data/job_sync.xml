@@ -15,8 +15,7 @@
 	<record id="hr_job_hr_job_template_object_field_name" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;name&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;name&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="True"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="hr_job_hr_job_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
@@ -24,8 +23,7 @@
 	<record id="hr_job_hr_job_template_object_field_active" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;active&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;active&quot;&quot;&quot;"/>
-		<field name="inclusion" eval="False"/>
-		<field name="update" eval="True"/>
+		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="hr_job_hr_job_template"/>
 		<field name="sequence" eval="10"/>
 	</record>
