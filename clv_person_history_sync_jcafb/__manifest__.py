@@ -11,7 +11,7 @@
     'license': 'AGPL-3',
     'website': 'https://github.com/CLVsol',
     'depends': [
-        'clv_person_history',
+        'clv_person_history_jcafb',
         'clv_external_sync',
     ],
     'data': [
