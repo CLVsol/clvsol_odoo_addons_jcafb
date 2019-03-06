@@ -29,6 +29,8 @@
         'views/event_attendee_view.xml',
         'views/lab_test_view.xml',
         'views/person_history_view.xml',
+        'views/person_reg_state_view.xml',
+        'views/person_state_view.xml',
         'views/person_menu_view.xml',
     ],
     'demo': [],

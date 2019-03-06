@@ -7,3 +7,5 @@ from . import community_member
 from . import event_attendee
 from . import lab_test
 from . import person_history
+from . import person_reg_state
+from . import person_state
