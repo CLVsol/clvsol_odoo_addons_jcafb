@@ -16,5 +16,5 @@ class PersonHistory(models.Model):
          ('unselected', 'Unselected'),
          ('unavailable', 'Unavailable'),
          ('unknown', 'Unknown')
-         ], string='State', default='new', readonly=True, required=True
+         ], string='Person State', default='new', readonly=True, required=True
     )

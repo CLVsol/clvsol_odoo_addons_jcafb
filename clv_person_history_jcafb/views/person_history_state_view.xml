@@ -38,7 +38,7 @@
                 <field name="state"/>
             </field>
             <group name="group_by" position="inside">
-                <filter name="group_by_state" string="State" context="{'group_by': 'state'}"/>
+                <filter name="group_by_state" string="Person State" context="{'group_by': 'state'}"/>
             </group>
         </field>
     </record>
