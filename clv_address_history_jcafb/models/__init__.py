@@ -4,3 +4,5 @@
 
 # from . import address
 from . import employee
+from . import address_history_reg_state
+from . import address_history_state
