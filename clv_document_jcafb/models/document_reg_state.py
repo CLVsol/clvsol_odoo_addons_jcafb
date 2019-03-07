@@ -2,8 +2,8 @@
 # Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import api, fields, models
-from openerp.exceptions import UserError
+from odoo import api, fields, models
+from odoo.exceptions import UserError
 
 
 class Documenmt(models.Model):
@@ -21,11 +21,6 @@ class Documenmt(models.Model):
     def is_allowed_transition_reg_state(self, old_reg_state, new_reg_state):
         # allowed = [
         #     ('cancelled', 'draft'),
-        #     ('draft', 'revised'),
-        #     ('done', 'revised'),
-        #     ('revised', 'done'),
-        #     ('draft', 'cancelled'),
-        #     ('revised', 'cancelled')
         # ]
         # return (old_reg_state, new_reg_state) in allowed
         return True
