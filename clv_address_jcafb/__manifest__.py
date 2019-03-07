@@ -31,6 +31,8 @@
         'views/lab_test_view.xml',
         'views/employee_view.xml',
         'views/address_history_view.xml',
+        'views/address_reg_state_view.xml',
+        'views/address_state_view.xml',
         'views/address_menu_view.xml',
     ],
     'demo': [],

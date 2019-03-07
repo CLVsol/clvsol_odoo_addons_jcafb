@@ -8,3 +8,5 @@ from . import event_attendee
 from . import lab_test
 from . import employee
 from . import address_history
+from . import address_reg_state
+from . import address_state
