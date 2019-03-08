@@ -14,7 +14,7 @@ class LabTestResult(models.Model):
          ('available', 'Available'),
          ('approved', 'Approved'),
          ('discarded', 'Discarded')
-         ], string='State', default='new', readonly=True, required=True
+         ], string='Result State', default='new', readonly=True, required=True
     )
 
     @api.model
