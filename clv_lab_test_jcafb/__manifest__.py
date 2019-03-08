@@ -15,6 +15,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'views/lab_test_request_state_view.xml',
         'views/lab_test_menu_view.xml',
     ],
     'demo': [],
