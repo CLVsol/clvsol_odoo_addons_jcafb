@@ -12,42 +12,28 @@
         <field name="arch" type="xml">
             <header name="header" position="inside">
                 <field name="state" widget="statusbar"
-                       statusbar_visible="draft,confirm,done,cancel"/>
+                       statusbar_visible="confirm,done"/>
                 <button name="action_draft" type="object"
                         string="Unconfirm"
+                        confirm="Change Event State to 'Unconfirmed'?"
                         attrs="{'invisible':[('state','not in',['cancel'])]}"
                         groups="clv_event.group_manager"/>
                 <button name="action_confirm" type="object"
                         string="Confirm"
+                        confirm="Change Event State to 'Confirmed'?"
                         attrs="{'invisible':[('state','not in',['draft'])]}"
                         groups="clv_event.group_manager"/>
                 <button name="action_done" type="object"
                         string="Done"
+                        confirm="Change Event State to 'Done'?"
                         attrs="{'invisible':[('state','not in',['confirm'])]}"
                         groups="clv_event.group_manager"/>
                 <button name="action_cancel" type="object"
                         string="Cancel"
+                        confirm="Change Event State to 'Cancelled'?"
                         attrs="{'invisible':[('state','not in',['draft','confirm'])]}"
                         groups="clv_event.group_manager"/>
            </header>
-            <!--div name="button_box_2" position="inside">
-                <button name="action_draft" type="object"
-                        string="Unconfirmed"
-                        attrs="{'invisible':[('state','not in',['cancel'])]}"
-                        groups="clv_event.group_manager"/>
-                <button name="action_confirm" type="object"
-                        string="Confirmed"
-                        attrs="{'invisible':[('state','not in',['draft'])]}"
-                        groups="clv_event.group_manager"/>
-                <button name="action_done" type="object"
-                        string="Done"
-                        attrs="{'invisible':[('state','not in',['confirm'])]}"
-                        groups="clv_event.group_manager"/>
-                <button name="action_cancel" type="object"
-                        string="Cancelled"
-                        attrs="{'invisible':[('state','not in',['draft','confirm'])]}"
-                        groups="clv_event.group_manager"/>
-            </div-->
         </field>
     </record>
 
@@ -81,7 +67,7 @@
                 <field name="state"/>
             </field>
             <group name="group_by" position="inside">
-                <filter string="State" domain="[]" context="{'group_by':'state'}"/>
+                <filter name="group_by_state" string="Event State" domain="[]" context="{'group_by':'state'}"/>
             </group>
         </field>
     </record>
