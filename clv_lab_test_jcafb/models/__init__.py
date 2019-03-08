@@ -3,3 +3,5 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from . import lab_test_request_state
+from . import lab_test_result_reg_state
+from . import lab_test_result_state
