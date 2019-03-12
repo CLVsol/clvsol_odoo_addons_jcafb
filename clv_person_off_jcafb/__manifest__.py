@@ -30,6 +30,7 @@
         'views/lab_test_view.xml',
         'views/person_off_reg_state_view.xml',
         'views/person_code_off_view.xml',
+        'views/document_code_off_view.xml',
         'views/person_off_menu_view.xml',
     ],
     'demo': [],

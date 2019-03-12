@@ -15,10 +15,16 @@
         groups="clv_person_off.group_user"
         sequence="100"/>
 
-    <menuitem name="Person Codes (Off)" id="clv_person_off.menu_community_config_person_off_person_codes_off" 
+    <menuitem name="Person Codes (Off)" id="clv_person_off.menu_community_config_person_off_person_codes_off"
         parent="clv_person_off.menu_community_config_person_off"
         groups="clv_person_off.group_user"
         sequence="10"
         action="clv_person_code_off_action"/>
+
+    <menuitem name="Document Codes (Off)" id="clv_person_off.menu_community_config_person_off_document_codes_off"
+        parent="clv_person_off.menu_community_config_person_off"
+        groups="clv_person_off.group_user"
+        sequence="20"
+        action="clv_document_code_off_action"/>
 
 </odoo>

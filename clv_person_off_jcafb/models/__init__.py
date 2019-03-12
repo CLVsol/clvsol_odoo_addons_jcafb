@@ -8,3 +8,4 @@ from . import event_attendee
 from . import lab_test
 from . import person_off_reg_state
 from . import person_code_off
+from . import document_code_off
