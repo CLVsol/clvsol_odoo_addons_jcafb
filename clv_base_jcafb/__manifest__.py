@@ -25,7 +25,7 @@
         'views/export_menu_view.xml',
         'views/external_sync_menu_view.xml',
         'views/verification_menu_view.xml',
-        # 'data/annotation_seq.xml',
+        'data/annotation_seq.xml',
     ],
     'demo': [],
     'test': [],
