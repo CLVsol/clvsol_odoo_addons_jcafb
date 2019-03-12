@@ -19,6 +19,7 @@
         'clv_lab_test',
     ],
     'data': [
+        'security/ir.model.access.csv',
         'data/document.xml',
         'data/community_member.xml',
         'data/event_attendee.xml',
@@ -28,6 +29,7 @@
         'views/event_attendee_view.xml',
         'views/lab_test_view.xml',
         'views/person_off_reg_state_view.xml',
+        'views/person_off_code_view.xml',
         'views/person_off_menu_view.xml',
     ],
     'demo': [],
