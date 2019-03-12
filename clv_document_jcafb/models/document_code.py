@@ -7,7 +7,7 @@ from odoo import fields, models
 
 class Document(models.Model):
     _name = "clv.document"
-    _inherit = 'clv.document', 'clv.code.model'
+    _inherit = 'clv.document', 'clv.abstract.code'
 
     code = fields.Char(string='Document Code', required=False, default='/')
     code_sequence = fields.Char(default='clv.document.code')
