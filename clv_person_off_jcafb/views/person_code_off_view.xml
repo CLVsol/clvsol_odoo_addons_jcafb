@@ -4,9 +4,9 @@
 
 <odoo>
 
-    <record id="clv_person_off_code_view_form" model="ir.ui.view">
-        <field name="name">clv.person_off.code.form</field>
-        <field name="model">clv.person_off.code</field>
+    <record id="clv_person_code_off_view_form" model="ir.ui.view">
+        <field name="name">clv.person.code_off.form</field>
+        <field name="model">clv.person.code_off</field>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <form>
@@ -42,12 +42,12 @@
         </field>
     </record>
     
-    <record id="clv_person_off_code_view_tree" model="ir.ui.view">
-        <field name="name">clv.person_off.code.tree</field>
-        <field name="model">clv.person_off.code</field>
+    <record id="clv_person_code_off_view_tree" model="ir.ui.view">
+        <field name="name">clv.person.code_off.tree</field>
+        <field name="model">clv.person.code_off</field>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-            <tree name="persons" string="Persons (Off)">
+            <tree name="persons" string="Person Codes (Off)">
                 <field name="code"/>
                 <field name="off_instance_id"/>
                 <field name="person_off_id"/>
@@ -56,9 +56,9 @@
         </field>
     </record>
     
-    <record id="clv_person_off_code_view_search" model="ir.ui.view">
-        <field name="name">clv.person_off.code.search</field>
-        <field name="model">clv.person_off.code</field>
+    <record id="clv_person_code_off_view_search" model="ir.ui.view">
+        <field name="name">clv.person.code_off.search</field>
+        <field name="model">clv.person.code_off</field>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <search>
@@ -77,18 +77,18 @@
         </field>
     </record>
     
-    <record id="clv_person_off_code_action" model="ir.actions.act_window">
-        <field name="name">Person (Off) Codes</field>
+    <record id="clv_person_code_off_action" model="ir.actions.act_window">
+        <field name="name">Person Codes (Off)</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">clv.person_off.code</field>
+        <field name="res_model">clv.person.code_off</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
-        <field name="search_view_id" ref="clv_person_off_code_view_search"/>
+        <field name="search_view_id" ref="clv_person_code_off_view_search"/>
         <field name="domain">[]</field>
         <field name="context">{}</field>
         <field name="help" type="html">
           <p class="oe_view_nocontent_create">
-            Click to add a new person (off) code.
+            Click to add a new person code (off).
           </p>
         </field>
     </record>

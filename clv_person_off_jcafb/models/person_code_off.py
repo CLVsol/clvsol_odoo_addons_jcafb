@@ -5,14 +5,14 @@
 from odoo import fields, models
 
 
-class PersonOffCode(models.Model):
-    _description = 'Person (Off) Code'
-    _name = 'clv.person_off.code'
+class PersonCodeOff(models.Model):
+    _description = 'Person Code (Off)'
+    _name = 'clv.person.code_off'
     _inherit = 'clv.abstract.code'
     _rec_name = 'code'
     _order = 'code'
 
-    code = fields.Char(string='Person (Off) Code', required=False, default='/')
+    code = fields.Char(string='Person Code (Off)', required=False, default='/')
     code_sequence = fields.Char(default='clv.person.code')
 
     off_instance_id = fields.Many2one(comodel_name='clv.off.instance', string='Off Instance', ondelete='restrict')

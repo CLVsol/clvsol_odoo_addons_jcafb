@@ -29,7 +29,7 @@
         'views/event_attendee_view.xml',
         'views/lab_test_view.xml',
         'views/person_off_reg_state_view.xml',
-        'views/person_off_code_view.xml',
+        'views/person_code_off_view.xml',
         'views/person_off_menu_view.xml',
     ],
     'demo': [],
