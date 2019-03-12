@@ -21,10 +21,12 @@
         'clv_employee',
     ],
     'data': [
+        'data/address_seq.xml',
         'data/document.xml',
         'data/community_member.xml',
         'data/event_attendee.xml',
         'data/lab_test.xml',
+        'views/address_code_view.xml',
         'views/document_view.xml',
         'views/community_member_view.xml',
         'views/event_attendee_view.xml',
