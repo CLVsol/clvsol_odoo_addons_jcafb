@@ -15,3 +15,7 @@ access_clv_lab_test_request_code_off_supmanager,clv.lab_test.request.code_off.su
 access_clv_lab_test_result_code_off_user,clv.lab_test.result.code_off.user,model_clv_lab_test_result_code_off,clv_person_off.group_user,1,0,0,0
 access_clv_lab_test_result_code_off_manager,clv.lab_test.result.code_off.manager,model_clv_lab_test_result_code_off,clv_person_off.group_manager,1,1,1,0
 access_clv_lab_test_result_code_off_supmanager,clv.lab_test.result.code_off.supmanager,model_clv_lab_test_result_code_off,clv_person_off.group_supmanager,1,1,1,1
+
+access_clv_lab_test_report_code_off_user,clv.lab_test.report.code_off.user,model_clv_lab_test_report_code_off,clv_person_off.group_user,1,0,0,0
+access_clv_lab_test_report_code_off_manager,clv.lab_test.report.code_off.manager,model_clv_lab_test_report_code_off,clv_person_off.group_manager,1,1,1,0
+access_clv_lab_test_report_code_off_supmanager,clv.lab_test.report.code_off.supmanager,model_clv_lab_test_report_code_off,clv_person_off.group_supmanager,1,1,1,1
