@@ -32,6 +32,7 @@
         'views/person_code_off_view.xml',
         'views/document_code_off_view.xml',
         'views/lab_test_request_code_off_view.xml',
+        'views/lab_test_result_code_off_view.xml',
         'views/person_off_menu_view.xml',
     ],
     'demo': [],

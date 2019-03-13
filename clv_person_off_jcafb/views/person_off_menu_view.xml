@@ -33,4 +33,10 @@
         sequence="30"
         action="clv_lab_test_request_code_off_action"/>
 
+    <menuitem name="Lab Test Result Codes (Off)" id="clv_person_off.menu_community_config_person_off_lab_test_result_codes_off"
+        parent="clv_person_off.menu_community_config_person_off"
+        groups="clv_person_off.group_user"
+        sequence="30"
+        action="clv_lab_test_result_code_off_action"/>
+
 </odoo>
