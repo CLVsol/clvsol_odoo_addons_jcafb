@@ -14,4 +14,10 @@
         sequence="10"
         action="clv_off.clv_off_instance_action"/>
 
+    <menuitem name="Codes" id="clv_off.menu_base_config_off_codes" 
+        parent="clv_off.menu_base_config_off"
+        groups="clv_off.group_user"
+        sequence="20"
+        action="clv_off.clv_off_code_action"/>
+
 </odoo>
