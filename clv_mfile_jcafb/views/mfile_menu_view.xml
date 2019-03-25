@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <menuitem name="Media Files" id="clv_mfile.menu_mfmng_mfmng_media_files"
+        parent="clv_base.menu_mfmng_mfmng"
+        groups="clv_mfile.group_user"
+        sequence="50"
+        action="clv_mfile.clv_mfile_action"/>
+
+    <menuitem name="Annotations" id="clv_mfile.menu_mfmng_mfmng_media_files_annotations"
+        parent="clv_mfile.menu_mfmng_mfmng_media_files"
+        groups="clv_mfile.group_user"
+        sequence="10"
+        action="clv_mfile.clv_mfile_annotation_action"/>
+
+    <menuitem name="Media File Categories" id="clv_mfile.menu_mfmng_config_config_media_file_categories" 
+        parent="clv_base.menu_mfmng_config_config"
+        groups="clv_mfile.group_user"
+        sequence="50"
+        action="clv_mfile.clv_mfile_category_action"/>
+
+    <menuitem name="Media File Formats" id="clv_mfile.menu_mfmng_config_config_media_file_formats" 
+        parent="clv_base.menu_mfmng_config_config"
+        groups="clv_mfile.group_user"
+        sequence="60"
+        action="clv_mfile.clv_mfile_format_action"/>
+
+    <menuitem name="Media File Set Up" id="clv_mfile.menu_mfmng_config_config_media_file_setup" 
+        parent="clv_base.menu_mfmng_config_config"
+        groups="clv_mfile.group_user"
+        sequence="10"
+        action="clv_mfile_jcafb.clv_mfile_setup_action"/>
+
+    <menuitem name="Media File Directory Refresh" id="clv_mfile.menu_mfmng_config_config_media_directory_refresh" 
+        parent="clv_base.menu_mfmng_config_config"
+        groups="clv_mfile.group_user"
+        sequence="100"
+        action="clv_mfile_jcafb.clv_mfile_directory_refresh_action"/>
+
+</odoo>
