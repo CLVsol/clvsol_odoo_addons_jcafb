@@ -12,7 +12,6 @@
 		<field name="external_model" eval="&quot;&quot;&quot;clv.document&quot;&quot;&quot;"/>
 		<field name="external_disable_check_missing" eval="True"/>
 		<field name="enable_sequence_code_sync" eval="True"/>
-		<field name="external_disable_check_missing" eval="True"/>
 	</record>
 	 
 	<record id="clv_document_clv_document_template_object_field_name" model="clv.external_sync.object_field">
