@@ -16,6 +16,7 @@
                         <group>
                             <field name="document_id" options="{'no_open': False, 'no_create': True}"/>
                             <field name="document_code"/>
+                            <field name="document_type_id" options="{'no_open': False, 'no_create': True}"/>
                             <field name="document_state"/>
                         </group>
                     </group>
@@ -33,6 +34,7 @@
             <field name="code" position="after">
                 <field name="document_id"/>
                 <field name="document_code"/>
+                <field name="document_type_id"/>
                 <field name="document_state"/>
             </field>
         </field>
@@ -47,10 +49,12 @@
             <field name="code" position="after">
                 <field name="document_id"/>
                 <field name="document_code"/>
+                <field name="document_type_id"/>
                 <field name="document_state"/>
             </field>
             <group name="group_by" position="inside">
-                <filter name="group_by_document_state" string="Related Document State" domain="[]" context="{'group_by':'document_state'}"/>
+                <filter name="group_by_document_type_id" string="Document Type" domain="[]" context="{'group_by':'document_type_id'}"/>
+                <filter name="group_by_document_state" string="Document State" domain="[]" context="{'group_by':'document_state'}"/>
             </group>
         </field>
     </record>

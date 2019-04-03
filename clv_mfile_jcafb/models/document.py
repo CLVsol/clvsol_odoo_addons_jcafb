@@ -18,6 +18,13 @@ class MediaFile(models.Model):
         store=False,
         readonly=True
     )
+    document_type_id = fields.Many2one(
+        comodel_name='clv.document.type',
+        string='Document Type',
+        related='document_id.document_type_id',
+        store=True,
+        readonly=True
+    )
     document_state = fields.Selection(
         string='Document State',
         related='document_id.state',
