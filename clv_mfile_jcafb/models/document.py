@@ -32,22 +32,52 @@ class MediaFile(models.Model):
         readonly=True
     )
 
-    # survey_title = fields.Char(string='Survey Title')
-    # survey_id = fields.Many2one(
-    #     comodel_name='survey.survey',
-    #     string='Survey Type'
-    # )
-    # survey_description = fields.Html(
-    #     string='Survey Type Description',
-    #     related='survey_id.description',
-    #     store=False,
-    #     readonly=True
-    # )
-    # survey_user_input_id = fields.Many2one(
-    #     comodel_name='survey.user_input',
-    #     string='Survey User Input'
-    # )
+    survey_id = fields.Many2one(
+        comodel_name='survey.survey',
+        string='Survey Type',
+        related='document_id.survey_id',
+        store=True,
+        readonly=True
+    )
+    survey_description = fields.Html(
+        string='Survey Type Description',
+        related='document_id.survey_id.description',
+        store=False,
+        readonly=True
+    )
+    survey_user_input_id = fields.Many2one(
+        comodel_name='survey.user_input',
+        string='Survey User Input',
+        related='document_id.survey_user_input_id',
+        store=False,
+        readonly=True
+    )
 
+    ref_id = fields.Reference(
+        selection='referenceable_models',
+        string='Refers to',
+        related='document_id.ref_id',
+        store=False,
+        readonly=True
+    )
+    ref_model = fields.Char(
+        string='Refers to (Model)',
+        related='document_id.ref_model',
+        store=False,
+        readonly=True
+    )
+    ref_name = fields.Char(
+        string='Refers to (Name)',
+        related='document_id.ref_name',
+        store=False,
+        readonly=True
+    )
+    ref_code = fields.Char(
+        string='Refers to (Code)',
+        related='document_id.ref_code',
+        store=False,
+        readonly=True
+    )
     # person_code = fields.Char(string="Person Code")
     # person_id = fields.Many2one(
     #     comodel_name='clv.person',

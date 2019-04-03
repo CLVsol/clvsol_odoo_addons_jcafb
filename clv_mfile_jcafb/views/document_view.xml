@@ -10,30 +10,23 @@
         <field name="inherit_id" ref="clv_mfile_view_form"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-            <!--group name="survey" position="inside">
-                <field name="survey_title"/>
-                <field name="survey_id"/>
-                <field name="survey_description"/>
-                <field name="survey_user_input_id"/>
-            </group-->
             <group name="document" position="inside">
                 <field name="document_id" options="{'no_open': False, 'no_create': True}"/>
                 <field name="document_code"/>
                 <field name="document_type_id" options="{'no_open': False, 'no_create': True}"/>
                 <field name="document_state"/>
             </group>
-            <!--group name="person" position="inside">
-                <field name="person_code"/>
-                <field name="person_id"/>
-                <field name="person_state"/>
-                <field name="person_employee_id" options="{'no_open': False, 'no_create': True}"/>
-            </group-->
-            <!--group name="address" position="inside">
-                <field name="address_code"/>
-                <field name="address_id"/>
-                <field name="address_state"/>
-                <field name="address_employee_id" options="{'no_open': False, 'no_create': True}"/>
-            </group-->
+            <group name="survey" position="inside">
+                <field name="survey_id"/>
+                <field name="survey_description"/>
+                <field name="survey_user_input_id"/>
+            </group>
+            <group name="refers_to" position="inside">
+                <field name="ref_id"/>
+                <field name="ref_model"/>
+                <field name="ref_name"/>
+                <field name="ref_code"/>
+            </group>
             <!--group name="lab_test" position="inside">
                 <field name="lab_test_request_code"/>
                 <field name="lab_test_request_id"/>
@@ -52,22 +45,14 @@
                 <field name="document_code"/>
                 <field name="document_type_id"/>
                 <field name="document_state"/>
-                <!--field name="survey_title"/>
                 <field name="survey_id"/>
                 <field name="survey_description"/>
                 <field name="survey_user_input_id"/>
-                <field name="document_code"/>
-                <field name="document_id"/>
-                <field name="document_state"/>
-                <field name="person_code"/>
-                <field name="person_id"/>
-                <field name="person_state"/>
-                <field name="person_employee_id"/>
-                <field name="address_code"/>
-                <field name="address_id"/>
-                <field name="address_state"/>
-                <field name="address_employee_id"/>
-                <field name="lab_test_request_code"/>
+                <field name="ref_id"/>
+                <field name="ref_model"/>
+                <field name="ref_name"/>
+                <field name="ref_code"/>
+                <!--field name="lab_test_request_code"/>
                 <field name="lab_test_request_id"/-->
             </field>
         </field>
@@ -84,32 +69,24 @@
                 <field name="document_code"/>
                 <field name="document_type_id"/>
                 <field name="document_state"/>
-                <!--field name="survey_title"/>
                 <field name="survey_id"/>
                 <field name="survey_description"/>
                 <field name="survey_user_input_id"/>
-                <field name="document_code"/>
-                <field name="document_id"/>
-                <field name="document_state"/>
-                <field name="person_code"/>
-                <field name="person_id"/>
-                <field name="person_state"/>
-                <field name="person_employee_id"/>
-                <field name="address_code"/>
-                <field name="address_id"/>
-                <field name="address_state"/>
-                <field name="address_employee_id"/>
-                <field name="lab_test_request_code"/>
+                <field name="ref_id"/>
+                <field name="ref_model"/>
+                <field name="ref_name"/>
+                <field name="ref_code"/>
+                <!--field name="lab_test_request_code"/>
                 <field name="lab_test_request_id"/-->
             </field>
             <group name="group_by" position="inside">
                 <filter name="group_by_document_type_id" string="Document Type" domain="[]" context="{'group_by':'document_type_id'}"/>
                 <filter name="group_by_document_state" string="Document State" domain="[]" context="{'group_by':'document_state'}"/>
-                <!--filter string="Responsible Empĺoyee (Person)" domain="[]" context="{'group_by':'person_employee_id'}"/>
-                <filter string="Responsible Empĺoyee (Address)" domain="[]" context="{'group_by':'address_employee_id'}"/>
-                <filter string="Survey Title" domain="[]" context="{'group_by':'survey_title'}"/>
-                <filter string="Survey Type" domain="[]" context="{'group_by':'survey_id'}"/>
-                <filter string="Related Person" domain="[]" context="{'group_by':'person_id'}"/>
+                <!--filter string="Responsible Empĺoyee (Person)" domain="[]" context="{'group_by':'person_employee_id'}"/-->
+                <!--filter string="Responsible Empĺoyee (Address)" domain="[]" context="{'group_by':'address_employee_id'}"/-->
+                <!--filter string="Survey Title" domain="[]" context="{'group_by':'survey_title'}"/-->
+                <filter name="group_by_document_survey_id" string="Survey Type" domain="[]" context="{'group_by':'survey_id'}"/>
+                <!--filter string="Related Person" domain="[]" context="{'group_by':'person_id'}"/>
                 <filter string="Related Address" domain="[]" context="{'group_by':'address_id'}"/-->
             </group>
         </field>

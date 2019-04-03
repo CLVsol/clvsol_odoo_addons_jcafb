@@ -31,17 +31,12 @@
             <page name="information" position="before">
                 <page name="file_data" string="File Data">
                     <group>
+                        <group name="document">
+                        </group>
                         <group name="survey">
                             <field name="date_file"/>
                         </group>
-                        <group name="document">
-                            <field name="document_code"/>
-                            <field name="document_id"/>
-                            <field name="document_state"/>
-                        </group>
-                        <group name="person">
-                        </group>
-                        <group name="address">
+                        <group name="refers_to">
                         </group>
                         <group name="lab_test">
                         </group>
