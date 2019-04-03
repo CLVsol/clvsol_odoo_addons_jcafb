@@ -77,6 +77,14 @@
 		<field name="sequence" eval="10"/>
 	</record>
 	 
+	<record id="clv_mfile_clv_mfile_template_object_field_date_file" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;date_survey_file&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;date_file&quot;&quot;&quot;"/>
+		<field name="synchronization" eval="True"/>
+		<field name="template_id" eval="clv_mfile_clv_mfile_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
 	<record id="clv_mfile_clv_mfile_template_object_field_active" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;active&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;active&quot;&quot;&quot;"/>
