@@ -20,7 +20,7 @@
         # 'clv_lab_test_jcafb',
     ],
     'data': [
-        # 'views/mfile_view.xml',
+        'views/mfile_view.xml',
         'views/mfile_state_view.xml',
         'views/document_view.xml',
         # 'views/summary_file_system_view.xml',

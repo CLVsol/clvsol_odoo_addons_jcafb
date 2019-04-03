@@ -4,31 +4,47 @@
 
 <odoo>
 
-    <record id="clv_mfile_view_form" model="ir.ui.view">
+    <record id="clv_mfile_view_form_document" model="ir.ui.view">
         <field name="name">clv.mfile.form</field>
         <field name="model">clv.mfile</field>
-        <field name="inherit_id" ref="clv_mfile.clv_mfile_view_form"/>
+        <field name="inherit_id" ref="clv_mfile_view_form"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-            <page name="information" position="before">
-                <page name="file_data" string="File Data">
-                    <group>
-                        <group>
-                            <field name="document_id" options="{'no_open': False, 'no_create': True}"/>
-                            <field name="document_code"/>
-                            <field name="document_type_id" options="{'no_open': False, 'no_create': True}"/>
-                            <field name="document_state"/>
-                        </group>
-                    </group>
-                </page>
-           </page>
+            <!--group name="survey" position="inside">
+                <field name="survey_title"/>
+                <field name="survey_id"/>
+                <field name="survey_description"/>
+                <field name="survey_user_input_id"/>
+            </group-->
+            <group name="document" position="inside">
+                <field name="document_id" options="{'no_open': False, 'no_create': True}"/>
+                <field name="document_code"/>
+                <field name="document_type_id" options="{'no_open': False, 'no_create': True}"/>
+                <field name="document_state"/>
+            </group>
+            <!--group name="person" position="inside">
+                <field name="person_code"/>
+                <field name="person_id"/>
+                <field name="person_state"/>
+                <field name="person_employee_id" options="{'no_open': False, 'no_create': True}"/>
+            </group-->
+            <!--group name="address" position="inside">
+                <field name="address_code"/>
+                <field name="address_id"/>
+                <field name="address_state"/>
+                <field name="address_employee_id" options="{'no_open': False, 'no_create': True}"/>
+            </group-->
+            <!--group name="lab_test" position="inside">
+                <field name="lab_test_request_code"/>
+                <field name="lab_test_request_id"/>
+            </group-->
         </field>
     </record>
 
-    <record id="clv_mfile_view_tree" model="ir.ui.view">
+    <record id="clv_mfile_view_tree_document" model="ir.ui.view">
         <field name="name">clv.mfile.form</field>
         <field name="model">clv.mfile</field>
-        <field name="inherit_id" ref="clv_mfile.clv_mfile_view_tree"/>
+        <field name="inherit_id" ref="clv_mfile_view_tree"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <field name="code" position="after">
@@ -36,14 +52,31 @@
                 <field name="document_code"/>
                 <field name="document_type_id"/>
                 <field name="document_state"/>
+                <!--field name="survey_title"/>
+                <field name="survey_id"/>
+                <field name="survey_description"/>
+                <field name="survey_user_input_id"/>
+                <field name="document_code"/>
+                <field name="document_id"/>
+                <field name="document_state"/>
+                <field name="person_code"/>
+                <field name="person_id"/>
+                <field name="person_state"/>
+                <field name="person_employee_id"/>
+                <field name="address_code"/>
+                <field name="address_id"/>
+                <field name="address_state"/>
+                <field name="address_employee_id"/>
+                <field name="lab_test_request_code"/>
+                <field name="lab_test_request_id"/-->
             </field>
         </field>
     </record>
 
-    <record id="clv_mfile_view_search" model="ir.ui.view">
+    <record id="clv_mfile_view_search_document" model="ir.ui.view">
         <field name="name">clv.mfile.search</field>
         <field name="model">clv.mfile</field>
-        <field name="inherit_id" ref="clv_mfile.clv_mfile_view_search"/>
+        <field name="inherit_id" ref="clv_mfile_view_search"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <field name="code" position="after">
@@ -51,10 +84,33 @@
                 <field name="document_code"/>
                 <field name="document_type_id"/>
                 <field name="document_state"/>
+                <!--field name="survey_title"/>
+                <field name="survey_id"/>
+                <field name="survey_description"/>
+                <field name="survey_user_input_id"/>
+                <field name="document_code"/>
+                <field name="document_id"/>
+                <field name="document_state"/>
+                <field name="person_code"/>
+                <field name="person_id"/>
+                <field name="person_state"/>
+                <field name="person_employee_id"/>
+                <field name="address_code"/>
+                <field name="address_id"/>
+                <field name="address_state"/>
+                <field name="address_employee_id"/>
+                <field name="lab_test_request_code"/>
+                <field name="lab_test_request_id"/-->
             </field>
             <group name="group_by" position="inside">
                 <filter name="group_by_document_type_id" string="Document Type" domain="[]" context="{'group_by':'document_type_id'}"/>
                 <filter name="group_by_document_state" string="Document State" domain="[]" context="{'group_by':'document_state'}"/>
+                <!--filter string="Responsible Empĺoyee (Person)" domain="[]" context="{'group_by':'person_employee_id'}"/>
+                <filter string="Responsible Empĺoyee (Address)" domain="[]" context="{'group_by':'address_employee_id'}"/>
+                <filter string="Survey Title" domain="[]" context="{'group_by':'survey_title'}"/>
+                <filter string="Survey Type" domain="[]" context="{'group_by':'survey_id'}"/>
+                <filter string="Related Person" domain="[]" context="{'group_by':'person_id'}"/>
+                <filter string="Related Address" domain="[]" context="{'group_by':'address_id'}"/-->
             </group>
         </field>
     </record>
