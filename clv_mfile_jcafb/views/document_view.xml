@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="clv_mfile_view_form" model="ir.ui.view">
+        <field name="name">clv.mfile.form</field>
+        <field name="model">clv.mfile</field>
+        <field name="inherit_id" ref="clv_mfile.clv_mfile_view_form"/>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <page name="information" position="before">
+                <page name="file_data" string="File Data">
+                    <group>
+                        <group>
+                            <field name="document_id" options="{'no_open': False, 'no_create': True}"/>
+                            <field name="document_code"/>
+                            <field name="document_state"/>
+                        </group>
+                    </group>
+                </page>
+           </page>
+        </field>
+    </record>
+
+    <record id="clv_mfile_view_tree" model="ir.ui.view">
+        <field name="name">clv.mfile.form</field>
+        <field name="model">clv.mfile</field>
+        <field name="inherit_id" ref="clv_mfile.clv_mfile_view_tree"/>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <field name="code" position="after">
+                <field name="document_id"/>
+                <field name="document_code"/>
+                <field name="document_state"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="clv_mfile_view_search" model="ir.ui.view">
+        <field name="name">clv.mfile.search</field>
+        <field name="model">clv.mfile</field>
+        <field name="inherit_id" ref="clv_mfile.clv_mfile_view_search"/>
+        <field name="priority" eval="8"/>
+        <field name="arch" type="xml">
+            <field name="code" position="after">
+                <field name="document_id"/>
+                <field name="document_code"/>
+                <field name="document_state"/>
+            </field>
+            <group name="group_by" position="inside">
+                <filter name="group_by_document_state" string="Related Document State" domain="[]" context="{'group_by':'document_state'}"/>
+            </group>
+        </field>
+    </record>
+
+</odoo>
