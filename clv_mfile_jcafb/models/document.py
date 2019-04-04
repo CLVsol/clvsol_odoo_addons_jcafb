@@ -78,42 +78,6 @@ class MediaFile(models.Model):
         store=False,
         readonly=True
     )
-    # person_code = fields.Char(string="Person Code")
-    # person_id = fields.Many2one(
-    #     comodel_name='clv.person',
-    #     string="Related Person"
-    # )
-    # # person_state = fields.Selection(
-    # #     string='Person State',
-    # #     related='person_id.state',
-    # #     store=False,
-    # #     readonly=True
-    # # )
-    # person_employee_id = fields.Many2one(
-    #     comodel_name='hr.employee',
-    #     string='Responsible Empĺoyee (Person)',
-    #     related='person_id.address_id.employee_id',
-    #     store=True
-    # )
-
-    # address_code = fields.Char(help="Address Code")
-    # address_id = fields.Many2one(
-    #     comodel_name='clv.address',
-    #     string="Related Address"
-    # )
-    # # address_state = fields.Selection(
-    # #     string='Address State',
-    # #     related='address_id.state',
-    # #     store=False,
-    # #     readonly=True
-    # # )
-    # address_employee_id = fields.Many2one(
-    #     comodel_name='hr.employee',
-    #     string='Responsible Empĺoyee (Address)',
-    #     related='address_id.employee_id',
-    #     store=True
-    # )
-
     # lab_test_request_code = fields.Char(string="Lab Test Request Code")
     # lab_test_request_id = fields.Many2one(
     #     comodel_name='clv.lab_test.request',
