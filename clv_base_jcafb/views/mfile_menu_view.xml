@@ -4,17 +4,17 @@
 
 <odoo>
 
-    <menuitem name="Media File Management" id="clv_base.menu_mfmng" 
+    <menuitem name="Media Files" id="clv_base.menu_mfiles" 
         groups="clv_base.group_user"
         sequence="14"/>
 
-    <menuitem name="Media File Management" id="clv_base.menu_mfmng_mfmng"  
-        parent="clv_base.menu_mfmng"
+    <menuitem name="Media Files" id="clv_base.menu_mfiles_mfiles"  
+        parent="clv_base.menu_mfiles"
         groups="clv_base.group_user"
         sequence="10"/>
 
-    <menuitem name="Configuration" id="clv_base.menu_mfmng_config"  
-        parent="clv_base.menu_mfmng"
+    <menuitem name="Configuration" id="clv_base.menu_mfiles_config"  
+        parent="clv_base.menu_mfiles"
         groups="clv_base.group_manager"
         sequence="90"/>
 
