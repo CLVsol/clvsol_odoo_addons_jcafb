@@ -21,6 +21,7 @@
         'clv_file_system',
     ],
     'data': [
+        'data/file_system.xml',
         'views/mfile_view.xml',
         'views/mfile_state_view.xml',
         'views/document_view.xml',
