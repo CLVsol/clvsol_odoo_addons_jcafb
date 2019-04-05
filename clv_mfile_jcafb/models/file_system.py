@@ -4,6 +4,7 @@
 
 import logging
 import os
+import base64
 
 from odoo import api, fields, models, _
 from odoo.exceptions import Warning
@@ -45,7 +46,8 @@ class MediaFile(models.Model):
             if bin_size:
                 r = human_size(os.path.getsize(full_path))
             else:
-                r = open(full_path, 'rb').read().encode('base64')
+                # r = open(full_path, 'rb').read().encode('base64')
+                r = base64.b64encode(open(full_path, 'rb').read())
         except (IOError, OSError):
             _logger.info("_read_file reading %s", fname, exc_info=True)
         return r

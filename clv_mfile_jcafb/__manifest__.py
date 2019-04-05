@@ -26,6 +26,7 @@
         'views/mfile_state_view.xml',
         'views/document_view.xml',
         'views/file_system_view.xml',
+        'wizard/mfile_file_search_view.xml',
         # 'wizard/mfile_updt_view.xml',
         # 'wizard/mfile_setup_view.xml',
         # 'wizard/document_mfile_setup_view.xml',
