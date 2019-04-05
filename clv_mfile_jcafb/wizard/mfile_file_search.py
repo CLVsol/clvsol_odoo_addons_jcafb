@@ -29,11 +29,10 @@ class MfileFileSearch(models.TransientModel):
         default=_default_mfile_ids
     )
 
-    dir_path = fields.Char(
-        'Directory Path',
-        required=True,
-        help="Directory Path",
-        default='/opt/odoo/clvsol_filestore/clvhealth_jcafb/survey_files/archive'
+    directory_id = fields.Many2one(
+        comodel_name='clv.file_system.directory',
+        string='Directory',
+        required="True"
     )
 
     @api.multi
@@ -55,21 +54,18 @@ class MfileFileSearch(models.TransientModel):
 
         FileSystemDirectory = self.env['clv.file_system.directory']
         file_system_directory = FileSystemDirectory.search([
-            ('directory', '=', self.dir_path),
+            ('id', '=', self.directory_id.id),
         ])
 
-        # SurveyQuestion = self.env['survey.question']
-
-        listdir = os.listdir(self.dir_path)
+        listdir = os.listdir(file_system_directory.directory)
 
         for mfile in self.mfile_ids:
 
             _logger.info(u'%s %s (%s)', '>>>>>', mfile.name, mfile.state)
 
-            if mfile.name in listdir and \
-               mfile.state in ['archived']:
+            if mfile.name in listdir:
 
-                filepath = self.dir_path + '/' + mfile.name
+                filepath = file_system_directory.directory + '/' + mfile.name
                 _logger.info(u'%s %s', '>>>>>>>>>>', filepath)
 
                 values = {}

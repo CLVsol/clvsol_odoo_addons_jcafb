@@ -15,7 +15,7 @@
                 <label for="mfile_ids"/>
                 <field name="mfile_ids"/>
                 <group>
-                    <field name="dir_path"/>
+                    <field name="directory_id" options="{'no_open': False, 'no_create': True}"/>
                 </group>
                 <footer>
                     <button 
