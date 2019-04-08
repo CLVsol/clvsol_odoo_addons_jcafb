@@ -26,6 +26,7 @@
         'views/external_sync_menu_view.xml',
         'views/verification_menu_view.xml',
         'data/annotation_seq.xml',
+        'data/global_settings_filestore.xml',
     ],
     'demo': [],
     'test': [],
