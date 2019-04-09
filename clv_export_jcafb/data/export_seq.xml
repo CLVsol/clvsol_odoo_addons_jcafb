@@ -4,7 +4,7 @@
 
 <odoo noupdate="1">
 
-    <record id="clv_export.clv_export_seq" model="ir.sequence">
+    <record id="clv_export_seq" model="ir.sequence">
         <field name="name">Export Sequence</field>
         <field name="code">clv.export.code</field>
         <!--field name="padding" eval="9"/-->

@@ -3,5 +3,5 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from . import abstract_model_export
-# from . import model_export_template_code
-# from . import model_export_code
+from . import model_export_template_code
+from . import model_export_code

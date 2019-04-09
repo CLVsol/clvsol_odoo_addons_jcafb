@@ -9,8 +9,18 @@ class AbstractModelExport(models.AbstractModel):
     _inherit = 'clv.abstract.model_export'
 
     def model_export_dir_path(self, export_type):
-        if export_type == 'xls':
-            return '/opt/odoo/filestore/jcafb/export/xls'
+        filestore_path = self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_filestore_path', '').strip()
+        if export_type == 'csv':
+            export_files_directory_csv = self.env['ir.config_parameter'].sudo().get_param(
+                'clv.global_settings.current_export_files_directory_csv', '').strip()
+            return filestore_path + '/' + export_files_directory_csv
         if export_type == 'sqlite':
-            return '/opt/odoo/filestore/jcafb/export/sqlite'
+            export_files_directory_sqlite = self.env['ir.config_parameter'].sudo().get_param(
+                'clv.global_settings.current_export_files_directory_sqlite', '').strip()
+            return filestore_path + '/' + export_files_directory_sqlite
+        if export_type == 'xls':
+            export_files_directory_xls = self.env['ir.config_parameter'].sudo().get_param(
+                'clv.global_settings.current_export_files_directory_xls', '').strip()
+            return filestore_path + '/' + export_files_directory_xls
         return False
