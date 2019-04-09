@@ -22,10 +22,12 @@
     ],
     'data': [
         'data/file_system.xml',
+        'data/global_settings.xml',
         'views/mfile_view.xml',
         'views/mfile_state_view.xml',
         'views/document_view.xml',
         'views/file_system_view.xml',
+        'views/global_settings_view.xml',
         'wizard/mfile_file_search_view.xml',
         # 'wizard/mfile_updt_view.xml',
         # 'wizard/mfile_setup_view.xml',

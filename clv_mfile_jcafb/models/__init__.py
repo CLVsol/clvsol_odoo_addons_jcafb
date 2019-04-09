@@ -7,3 +7,4 @@ from . import mfile
 from . import mfile_state
 from . import document
 from . import file_system
+from . import global_settings

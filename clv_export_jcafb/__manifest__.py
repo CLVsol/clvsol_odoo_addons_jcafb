@@ -16,7 +16,7 @@
     'data': [
         'data/export_seq.xml',
         'data/file_system.xml',
-        'data/global_settings_filestore.xml',
+        'data/global_settings.xml',
         'views/model_export_template_code_view.xml',
         'views/model_export_code_view.xml',
         'views/export_menu_view.xml',
