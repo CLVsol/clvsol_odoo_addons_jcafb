@@ -27,6 +27,12 @@
         sequence="30"
         action="clv_export.clv_model_export_document_item_action"/>
 
+    <menuitem name="Lab Test Criteria" id="clv_export.menu_exports_exports_model_exports_lab_test_criteria"  
+        parent="clv_export.menu_exports_exports_model_exports"
+        groups="clv_base.group_user"
+        sequence="40"
+        action="clv_export.clv_model_export_lab_test_criterion_action"/>
+
     <menuitem name="Model Export Templates" id="clv_export.menu_exports_config_model_export_templates"  
         parent="clv_base.menu_exports_config"
         groups="clv_base.group_user"
