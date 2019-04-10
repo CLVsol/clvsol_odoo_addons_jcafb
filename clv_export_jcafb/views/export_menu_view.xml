@@ -21,6 +21,12 @@
         sequence="20"
         action="clv_export.clv_model_export_field_action"/>
 
+    <menuitem name="Document Items" id="clv_export.menu_exports_exports_model_exports_document_items"  
+        parent="clv_export.menu_exports_exports_model_exports"
+        groups="clv_base.group_user"
+        sequence="30"
+        action="clv_export.clv_model_export_document_item_action"/>
+
     <menuitem name="Model Export Templates" id="clv_export.menu_exports_config_model_export_templates"  
         parent="clv_base.menu_exports_config"
         groups="clv_base.group_user"
