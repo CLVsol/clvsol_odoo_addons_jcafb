@@ -3,8 +3,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Verification (customizations for CLVhealth-PBM Solution)',
-    'summary': 'Verification Module customizations for CLVhealth-PBM Solution.',
+    'name': 'Verification (customizations for CLVhealth-JCAFB Solution)',
+    'summary': 'Verification Module customizations for CLVhealth-JCAFB Solution.',
     'version': '4.0.0',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
     'category': 'Generic Modules/Others',
