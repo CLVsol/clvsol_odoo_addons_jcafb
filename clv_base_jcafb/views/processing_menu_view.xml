@@ -4,17 +4,17 @@
 
 <odoo>
 
-    <menuitem name="Data Processing" id="clv_base.menu_data_processing" 
+    <menuitem name="Processing" id="clv_base.menu_processing" 
         groups="clv_base.group_user"
         sequence="19"/>
 
-    <menuitem name="Data Processing" id="clv_base.menu_data_processing_data_processing"  
-        parent="clv_base.menu_data_processing"
+    <menuitem name="Processing" id="clv_base.menu_processing_processing"  
+        parent="clv_base.menu_processing"
         groups="clv_base.group_user"
         sequence="10"/>
 
-    <menuitem name="Configuration" id="clv_base.menu_data_processing_config"  
-        parent="clv_base.menu_data_processing"
+    <menuitem name="Configuration" id="clv_base.menu_processing_config"  
+        parent="clv_base.menu_processing"
         groups="clv_base.group_manager"
         sequence="90"/>
 
