@@ -8,7 +8,7 @@
         groups="clv_base.group_user"
         sequence="19"/>
 
-    <menuitem name="Reports" id="clv_base.menu_reports_reports"  
+    <menuitem name="Report" id="clv_base.menu_reports_report"  
         parent="clv_base.menu_reports"
         groups="clv_base.group_user"
         sequence="10"/>
