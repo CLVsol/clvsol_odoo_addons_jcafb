@@ -38,4 +38,15 @@
         sequence="20"
         action="clv_export.clv_model_export_template_field_action"/>
 
+    <menuitem name="Model Export" id="clv_export.menu_exports_config_model_export"  
+        parent="clv_base.menu_exports_config"
+        groups="clv_base.group_user"
+        sequence="30"/>
+
+    <menuitem name="Methods" id="clv_export.menu_exports_config_model_export_methods"  
+        parent="clv_export.menu_exports_config_model_export"
+        groups="clv_base.group_user"
+        sequence="100"
+        action="clv_export.clv_model_export_method_action"/>
+
 </odoo>
