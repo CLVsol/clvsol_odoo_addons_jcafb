@@ -19,6 +19,59 @@ def secondsToStr(t):
     return "%d:%02d:%02d.%03d" % reduce(lambda ll, b: divmod(ll[0], b) + ll[1:], [(t * 1000,), 1000, 60, 60])
 
 
+class ModelExport(models.Model):
+    _inherit = 'clv.model_export'
+
+    @api.model
+    def create(self, values):
+
+        ModelExportField = self.env['clv.model_export.document_item']
+
+        new_model_export = super().create(values)
+
+        model_export_document_item_ids = []
+        for model_export_template_document_item in \
+                new_model_export.template_id.model_export_template_document_item_ids:
+            values = {
+                'name': model_export_template_document_item.name,
+                'model_export_id': new_model_export.id,
+                'model_export_display': model_export_template_document_item.model_export_display,
+                'document_item_id': model_export_template_document_item.document_item_id.id,
+                'sequence': model_export_template_document_item.sequence,
+            }
+            new_model_export_template_document_item = ModelExportField.create(values)
+            model_export_document_item_ids += [new_model_export_template_document_item.id]
+
+        return new_model_export
+
+    @api.multi
+    def write(self, values):
+
+        ModelExportField = self.env['clv.model_export.document_item']
+
+        res = super().write(values)
+
+        if 'template_id' in values:
+
+            for model_export_document_item in self.model_export_document_item_ids:
+                model_export_document_item.unlink()
+
+            model_export_document_item_ids = []
+            for model_export_template_document_item in \
+                    self.template_id.model_export_template_document_item_ids:
+                values = {
+                    'name': model_export_template_document_item.name,
+                    'model_export_id': self.id,
+                    'model_export_display': model_export_template_document_item.model_export_display,
+                    'document_item_id': model_export_template_document_item.document_item_id.id,
+                    'sequence': model_export_template_document_item.sequence,
+                }
+                new_model_export_template_document_item = ModelExportField.create(values)
+                model_export_document_item_ids += [new_model_export_template_document_item.id]
+
+        return res
+
+
 class ModelExport_xls(models.Model):
     _inherit = 'clv.model_export'
 
@@ -73,6 +126,18 @@ class ModelExport_xls(models.Model):
                 row.write(col_nr, col_name)
                 col_nr += 1
 
+        if self.use_document_items is not False:
+
+            for document_item in self.model_export_document_item_ids:
+                col_name = document_item.document_item_id.code
+                if document_item.name is not False:
+                    col_name = document_item.name
+                row.write(col_nr, col_name)
+                col_nr += 1
+
+        PersonHistory = self.env['clv.person.history']
+        Document = self.env['clv.document']
+
         item_count = 0
         items = False
         if (self.export_all_items is False) and \
@@ -85,6 +150,9 @@ class ModelExport_xls(models.Model):
         if items is not False:
             for item in items:
                 item_count += 1
+
+                _logger.info(u'>>>>>>>>>>>>>>> %s %s', item_count, item)
+
                 row_nr += 1
                 row = sheet.row(row_nr)
                 col_nr = 0
@@ -104,7 +172,48 @@ class ModelExport_xls(models.Model):
                         )
                         col_nr += 1
 
-                _logger.info(u'>>>>>>>>>>>>>>> %s %s', item_count, item)
+                if self.use_document_items is not False:
+
+                    for document_item in self.model_export_document_item_ids:
+
+                        value = None
+
+                        documents = Document.search([
+                            ('ref_id', '=', 'clv.person,' + str(eval('item.id'))),
+                        ])
+
+                        for document in documents:
+                            if document.ref_id.id is not False:
+                                if document.document_type_id.id == \
+                                   document_item.document_item_id.document_type_id.id:
+                                    # value = document.survey_user_input_id.get_value(
+                                    #     document_item.document_item_id.code)
+                                    value = str(document.get_value(
+                                        document_item.document_item_id.code))
+                                    break
+
+                        person_histories = PersonHistory.search([
+                            ('person_id', '=', eval('item.id')),
+                        ])
+
+                        for person_history in person_histories:
+
+                            documents = Document.search([
+                                ('ref_id', '=', 'clv.address,' + str(person_history.ref_address_id.id)),
+                            ])
+
+                            for document in documents:
+                                if document.ref_id.id is not False:
+                                    if document.document_type_id.id == \
+                                       document_item.document_item_id.document_type_id.id:
+                                        # value = document.survey_user_input_id.get_value(
+                                        #     document_item.document_item_id.code)
+                                        value = str(document.get_value(
+                                            document_item.document_item_id.code))
+                                        break
+
+                        row.write(col_nr, value)
+                        col_nr += 1
 
         book.save(file_path)
 
@@ -170,7 +279,19 @@ class ModelExport_csv(models.Model):
                 headings.insert(col_nr, col_name)
                 col_nr += 1
 
+        if self.use_document_items is not False:
+
+            for document_item in self.model_export_document_item_ids:
+                col_name = document_item.document_item_id.code
+                if document_item.name is not False:
+                    col_name = document_item.name
+                headings.insert(col_nr, col_name)
+                col_nr += 1
+
         writer.writerow(headings)
+
+        PersonHistory = self.env['clv.person.history']
+        Document = self.env['clv.document']
 
         item_count = 0
         items = False
@@ -184,6 +305,9 @@ class ModelExport_csv(models.Model):
         if items is not False:
             for item in items:
                 item_count += 1
+
+                _logger.info(u'>>>>>>>>>>>>>>> %s %s', item_count, item)
+
                 row = []
                 col_nr = 0
                 if self.export_all_fields is False:
@@ -204,7 +328,48 @@ class ModelExport_csv(models.Model):
                         )
                         col_nr += 1
 
-                _logger.info(u'>>>>>>>>>>>>>>> %s %s', item_count, item)
+                if self.use_document_items is not False:
+
+                    for document_item in self.model_export_document_item_ids:
+
+                        value = None
+
+                        documents = Document.search([
+                            ('ref_id', '=', 'clv.person,' + str(eval('item.id'))),
+                        ])
+
+                        for document in documents:
+                            if document.ref_id.id is not False:
+                                if document.document_type_id.id == \
+                                   document_item.document_item_id.document_type_id.id:
+                                    # value = document.survey_user_input_id.get_value(
+                                    #     document_item.document_item_id.code)
+                                    value = str(document.get_value(
+                                        document_item.document_item_id.code))
+                                    break
+
+                        person_histories = PersonHistory.search([
+                            ('person_id', '=', eval('item.id')),
+                        ])
+
+                        for person_history in person_histories:
+
+                            documents = Document.search([
+                                ('ref_id', '=', 'clv.address,' + str(person_history.ref_address_id.id)),
+                            ])
+
+                            for document in documents:
+                                if document.ref_id.id is not False:
+                                    if document.document_type_id.id == \
+                                       document_item.document_item_id.document_type_id.id:
+                                        # value = document.survey_user_input_id.get_value(
+                                        #     document_item.document_item_id.code)
+                                        value = str(document.get_value(
+                                            document_item.document_item_id.code))
+                                        break
+
+                        row.insert(col_nr, value)
+                        col_nr += 1
 
                 writer.writerow(row)
 
@@ -303,6 +468,17 @@ class ModelExport_sqlite(models.Model):
                     insert_into_values_1 += ',?'
                 col_nr += 1
 
+        if self.use_document_items is not False:
+
+            for document_item in self.model_export_document_item_ids:
+                col_name = document_item.document_item_id.code
+                if document_item.name is not False:
+                    col_name = document_item.name
+                create_table += col_name + ', '
+                insert_into_fields += ', ' + col_name
+                insert_into_values_1 += ',?'
+                col_nr += 1
+
         create_table += 'new_id INTEGER'
         create_table += ');'
 
@@ -317,6 +493,9 @@ class ModelExport_sqlite(models.Model):
 
         self.date_export = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
+        PersonHistory = self.env['clv.person.history']
+        Document = self.env['clv.document']
+
         item_count = 0
         items = False
         if (self.export_all_items is False) and \
@@ -330,12 +509,14 @@ class ModelExport_sqlite(models.Model):
         if items is not False:
             for item in items:
                 item_count += 1
+
+                _logger.info(u'>>>>>>>>>>>>>>> %s %s', item_count, item)
+
                 row_nr += 1
                 col_nr = 0
                 values = ()
                 if self.export_all_fields is False:
                     for field in self.model_export_field_ids:
-                        # values += (self._get_value_sqlite(
                         values += (self._get_value(
                             item, field.field_id,
                             self.export_date_format, self.export_datetime_format),
@@ -344,14 +525,54 @@ class ModelExport_sqlite(models.Model):
 
                 else:
                     for field in all_model_fields:
-                        # values += (self._get_value_sqlite(
                         values += (self._get_value(
                             item, field,
                             self.export_date_format, self.export_datetime_format),
                         )
                         col_nr += 1
 
-                _logger.info(u'>>>>>>>>>>>>>>> %s %s', item_count, item)
+                if self.use_document_items is not False:
+
+                    for document_item in self.model_export_document_item_ids:
+
+                        value = None
+
+                        documents = Document.search([
+                            ('ref_id', '=', 'clv.person,' + str(eval('item.id'))),
+                        ])
+
+                        for document in documents:
+                            if document.ref_id.id is not False:
+                                if document.document_type_id.id == \
+                                   document_item.document_item_id.document_type_id.id:
+                                    # value = document.survey_user_input_id.get_value(
+                                    #     document_item.document_item_id.code)
+                                    value = str(document.get_value(
+                                        document_item.document_item_id.code))
+                                    break
+
+                        person_histories = PersonHistory.search([
+                            ('person_id', '=', eval('item.id')),
+                        ])
+
+                        for person_history in person_histories:
+
+                            documents = Document.search([
+                                ('ref_id', '=', 'clv.address,' + str(person_history.ref_address_id.id)),
+                            ])
+
+                            for document in documents:
+                                if document.ref_id.id is not False:
+                                    if document.document_type_id.id == \
+                                       document_item.document_item_id.document_type_id.id:
+                                        # value = document.survey_user_input_id.get_value(
+                                        #     document_item.document_item_id.code)
+                                        value = str(document.get_value(
+                                            document_item.document_item_id.code))
+                                        break
+
+                        values += (value,)
+                        col_nr += 1
 
                 cursor.execute(insert_into, values)
 
