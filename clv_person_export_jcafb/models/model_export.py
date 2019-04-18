@@ -25,12 +25,13 @@ class ModelExport(models.Model):
     @api.model
     def create(self, values):
 
-        ModelExportField = self.env['clv.model_export.document_item']
+        ModelExportDocumentItem = self.env['clv.model_export.document_item']
+        ModelExportLabTestCriterion = self.env['clv.model_export.lab_test_criterion']
 
         new_model_export = super().create(values)
 
         model_export_document_item_ids = []
-        for model_export_template_document_item in \
+        for model_export_ModelExportDocumentItemtemplate_document_item in \
                 new_model_export.template_id.model_export_template_document_item_ids:
             values = {
                 'name': model_export_template_document_item.name,
@@ -39,15 +40,29 @@ class ModelExport(models.Model):
                 'document_item_id': model_export_template_document_item.document_item_id.id,
                 'sequence': model_export_template_document_item.sequence,
             }
-            new_model_export_template_document_item = ModelExportField.create(values)
+            new_model_export_template_document_item = ModelExportDocumentItem.create(values)
             model_export_document_item_ids += [new_model_export_template_document_item.id]
+
+        model_export_lab_test_criterion_ids = []
+        for model_export_template_lab_test_criterion in \
+                new_model_export.template_id.model_export_template_lab_test_criterion_ids:
+            values = {
+                'name': model_export_template_lab_test_criterion.name,
+                'model_export_id': new_model_export.id,
+                'model_export_display': model_export_template_lab_test_criterion.model_export_display,
+                'lab_test_criterion_id': model_export_template_lab_test_criterion.lab_test_criterion_id.id,
+                'sequence': model_export_template_lab_test_criterion.sequence,
+            }
+            new_model_export_template_lab_test_criterion = ModelExportLabTestCriterion.create(values)
+            model_export_lab_test_criterion_ids += [new_model_export_template_lab_test_criterion.id]
 
         return new_model_export
 
     @api.multi
     def write(self, values):
 
-        ModelExportField = self.env['clv.model_export.document_item']
+        ModelExportDocumentItem = self.env['clv.model_export.document_item']
+        ModelExportLabTestCriterion = self.env['clv.model_export.lab_test_criterion']
 
         res = super().write(values)
 
@@ -66,8 +81,21 @@ class ModelExport(models.Model):
                     'document_item_id': model_export_template_document_item.document_item_id.id,
                     'sequence': model_export_template_document_item.sequence,
                 }
-                new_model_export_template_document_item = ModelExportField.create(values)
+                new_model_export_template_document_item = ModelExportDocumentItem.create(values)
                 model_export_document_item_ids += [new_model_export_template_document_item.id]
+
+            model_export_lab_test_criterion_ids = []
+            for model_export_template_lab_test_criterion in \
+                    self.template_id.model_export_template_lab_test_criterion_ids:
+                values = {
+                    'name': model_export_template_lab_test_criterion.name,
+                    'model_export_id': self.id,
+                    'model_export_display': model_export_template_lab_test_criterion.model_export_display,
+                    'lab_test_criterion_id': model_export_template_lab_test_criterion.lab_test_criterion_id.id,
+                    'sequence': model_export_template_lab_test_criterion.sequence,
+                }
+                new_model_export_template_lab_test_criterion = ModelExportLabTestCriterion.create(values)
+                model_export_lab_test_criterion_ids += [new_model_export_template_lab_test_criterion.id]
 
         return res
 
@@ -135,8 +163,19 @@ class ModelExport_xls(models.Model):
                 row.write(col_nr, col_name)
                 col_nr += 1
 
+        if self.use_lab_test_criteria is not False:
+
+            for lab_test_criterion in self.model_export_lab_test_criterion_ids:
+                col_name = lab_test_criterion.lab_test_criterion_id.code
+                if lab_test_criterion.name is not False:
+                    col_name = lab_test_criterion.name
+                row.write(col_nr, col_name)
+                col_nr += 1
+
         PersonHistory = self.env['clv.person.history']
         Document = self.env['clv.document']
+        LabTestResult = self.env['clv.lab_test.result']
+        LabTestReport = self.env['clv.lab_test.report']
 
         item_count = 0
         items = False
@@ -215,6 +254,43 @@ class ModelExport_xls(models.Model):
                         row.write(col_nr, value)
                         col_nr += 1
 
+                if self.use_lab_test_criteria is not False:
+
+                    for lab_test_criterion in self.model_export_lab_test_criterion_ids:
+
+                        result = None
+
+                        lab_test_results = LabTestResult.search([
+                            ('ref_id', '=', 'clv.person,' + str(eval('item.id'))),
+                        ])
+
+                        for lab_test_result in lab_test_results:
+
+                            if lab_test_result.lab_test_type_id.id == \
+                               lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
+                                result = lab_test_result.criterion_ids.search([
+                                    ('lab_test_result_id', '=', lab_test_result.id),
+                                    ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
+                                ]).result
+                                break
+
+                        lab_test_reports = LabTestReport.search([
+                            ('ref_id', '=', 'clv.person,' + str(eval('item.id'))),
+                        ])
+
+                        for lab_test_report in lab_test_reports:
+
+                            if lab_test_report.lab_test_type_id.id == \
+                               lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
+                                result = lab_test_report.criterion_ids.search([
+                                    ('lab_test_report_id', '=', lab_test_report.id),
+                                    ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
+                                ]).result
+                                break
+
+                        row.write(col_nr, result)
+                        col_nr += 1
+
         book.save(file_path)
 
         self.directory_id = file_system_directory.id
@@ -288,10 +364,21 @@ class ModelExport_csv(models.Model):
                 headings.insert(col_nr, col_name)
                 col_nr += 1
 
+        if self.use_lab_test_criteria is not False:
+
+            for lab_test_criterion in self.model_export_lab_test_criterion_ids:
+                col_name = lab_test_criterion.lab_test_criterion_id.code
+                if lab_test_criterion.name is not False:
+                    col_name = lab_test_criterion.name
+                headings.insert(col_nr, col_name)
+                col_nr += 1
+
         writer.writerow(headings)
 
         PersonHistory = self.env['clv.person.history']
         Document = self.env['clv.document']
+        LabTestResult = self.env['clv.lab_test.result']
+        LabTestReport = self.env['clv.lab_test.report']
 
         item_count = 0
         items = False
@@ -369,6 +456,43 @@ class ModelExport_csv(models.Model):
                                         break
 
                         row.insert(col_nr, value)
+                        col_nr += 1
+
+                if self.use_lab_test_criteria is not False:
+
+                    for lab_test_criterion in self.model_export_lab_test_criterion_ids:
+
+                        result = None
+
+                        lab_test_results = LabTestResult.search([
+                            ('ref_id', '=', 'clv.person,' + str(eval('item.id'))),
+                        ])
+
+                        for lab_test_result in lab_test_results:
+
+                            if lab_test_result.lab_test_type_id.id == \
+                               lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
+                                result = lab_test_result.criterion_ids.search([
+                                    ('lab_test_result_id', '=', lab_test_result.id),
+                                    ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
+                                ]).result
+                                break
+
+                        lab_test_reports = LabTestReport.search([
+                            ('ref_id', '=', 'clv.person,' + str(eval('item.id'))),
+                        ])
+
+                        for lab_test_report in lab_test_reports:
+
+                            if lab_test_report.lab_test_type_id.id == \
+                               lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
+                                result = lab_test_report.criterion_ids.search([
+                                    ('lab_test_report_id', '=', lab_test_report.id),
+                                    ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
+                                ]).result
+                                break
+
+                        row.insert(col_nr, result)
                         col_nr += 1
 
                 writer.writerow(row)
@@ -479,6 +603,17 @@ class ModelExport_sqlite(models.Model):
                 insert_into_values_1 += ',?'
                 col_nr += 1
 
+        if self.use_lab_test_criteria is not False:
+
+            for lab_test_criterion in self.model_export_lab_test_criterion_ids:
+                col_name = lab_test_criterion.lab_test_criterion_id.code
+                if lab_test_criterion.name is not False:
+                    col_name = lab_test_criterion.name
+                create_table += col_name + ', '
+                insert_into_fields += ', ' + col_name
+                insert_into_values_1 += ',?'
+                col_nr += 1
+
         create_table += 'new_id INTEGER'
         create_table += ');'
 
@@ -495,6 +630,8 @@ class ModelExport_sqlite(models.Model):
 
         PersonHistory = self.env['clv.person.history']
         Document = self.env['clv.document']
+        LabTestResult = self.env['clv.lab_test.result']
+        LabTestReport = self.env['clv.lab_test.report']
 
         item_count = 0
         items = False
@@ -572,6 +709,43 @@ class ModelExport_sqlite(models.Model):
                                         break
 
                         values += (value,)
+                        col_nr += 1
+
+                if self.use_lab_test_criteria is not False:
+
+                    for lab_test_criterion in self.model_export_lab_test_criterion_ids:
+
+                        result = None
+
+                        lab_test_results = LabTestResult.search([
+                            ('ref_id', '=', 'clv.person,' + str(eval('item.id'))),
+                        ])
+
+                        for lab_test_result in lab_test_results:
+
+                            if lab_test_result.lab_test_type_id.id == \
+                               lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
+                                result = lab_test_result.criterion_ids.search([
+                                    ('lab_test_result_id', '=', lab_test_result.id),
+                                    ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
+                                ]).result
+                                break
+
+                        lab_test_reports = LabTestReport.search([
+                            ('ref_id', '=', 'clv.person,' + str(eval('item.id'))),
+                        ])
+
+                        for lab_test_report in lab_test_reports:
+
+                            if lab_test_report.lab_test_type_id.id == \
+                               lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
+                                result = lab_test_report.criterion_ids.search([
+                                    ('lab_test_report_id', '=', lab_test_report.id),
+                                    ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
+                                ]).result
+                                break
+
+                        values += (result,)
                         col_nr += 1
 
                 cursor.execute(insert_into, values)
