@@ -18,7 +18,7 @@
     'data': [
         'data/res_country_sync.xml',
         'data/res_country_state_sync.xml',
-        'data/l10n_br_base_city_sync.xml',
+        'data/res_city_sync.xml',
     ],
     'demo': [],
     'test': [],
