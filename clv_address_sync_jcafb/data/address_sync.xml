@@ -71,9 +71,9 @@
 		<field name="sequence" eval="10"/>
 	</record>
 	 
-	<record id="clv_address_clv_address_template_object_field_number" model="clv.external_sync.object_field">
+	<record id="clv_address_clv_address_template_object_field_street_number" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;number&quot;&quot;&quot;"/>
-		<field name="local_object_field" eval="&quot;&quot;&quot;number&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;street_number&quot;&quot;&quot;"/>
 		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_address_clv_address_template"/>
 		<field name="sequence" eval="10"/>
@@ -111,9 +111,9 @@
 		<field name="sequence" eval="10"/>
 	</record>
 	 
-	<record id="clv_address_clv_address_template_object_field_l10n_br_city_id" model="clv.external_sync.object_field">
+	<record id="clv_address_clv_address_template_object_field_city" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;l10n_br_city_id&quot;&quot;&quot;"/>
-		<field name="local_object_field" eval="&quot;&quot;&quot;l10n_br_city_id&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;city_id&quot;&quot;&quot;"/>
 		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_address_clv_address_template"/>
 		<field name="sequence" eval="10"/>
