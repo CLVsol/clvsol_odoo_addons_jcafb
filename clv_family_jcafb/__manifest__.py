@@ -20,6 +20,8 @@
         'data/document.xml',
         'views/document_view.xml',
         'views/family_code_view.xml',
+        'views/family_reg_state_view.xml',
+        'views/family_state_view.xml',
         'views/family_menu_view.xml',
     ],
     'demo': [],
