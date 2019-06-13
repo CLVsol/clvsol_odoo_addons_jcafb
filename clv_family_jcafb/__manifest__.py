@@ -18,6 +18,7 @@
     'data': [
         'data/family_seq.xml',
         'data/document.xml',
+        'views/family_view.xml',
         'views/document_view.xml',
         'views/family_code_view.xml',
         'views/family_reg_state_view.xml',
