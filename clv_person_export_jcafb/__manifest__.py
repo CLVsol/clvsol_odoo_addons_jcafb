@@ -15,6 +15,7 @@
         'clv_export',
     ],
     'data': [
+        'data/person_export_cadastro.xml',
     ],
     'demo': [],
     'test': [],
