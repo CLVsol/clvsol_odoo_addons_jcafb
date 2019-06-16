@@ -18,7 +18,6 @@
     'data': [
         'data/family_seq.xml',
         'data/document.xml',
-        'data/global_settings.xml',
         'views/family_view.xml',
         'views/document_view.xml',
         'views/family_code_view.xml',

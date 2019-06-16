@@ -7,13 +7,13 @@
     <menuitem name="Families" id="clv_family.menu_community_community_familyes"
         parent="clv_base.menu_community_community"
         groups="clv_family.group_user"
-        sequence="100"
+        sequence="90"
         action="clv_family.clv_family_action"/>
 
     <menuitem name="Family" id="clv_family.menu_community_config_family" 
         parent="clv_base.menu_community_config"
         groups="clv_family.group_user"
-        sequence="100"/>
+        sequence="90"/>
 
     <menuitem name="Categories" id="clv_family.menu_community_config_family_categories" 
         parent="clv_family.menu_community_config_family"
