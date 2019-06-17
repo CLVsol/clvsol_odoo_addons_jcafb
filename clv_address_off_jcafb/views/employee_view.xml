@@ -10,7 +10,7 @@
         <field name="inherit_id" ref="clv_address_off.clv_address_off_view_form"/>
         <field name="priority" eval="8" />
         <field name="arch" type="xml">
-            <group name="group_left" position="inside">
+            <group name="group_top_left" position="inside">
                 <field name="employee_id" placeholder="Responsible Empĺoyee..." options="{'no_open': False, 'no_create': True}"/>
             </group>
         </field>
