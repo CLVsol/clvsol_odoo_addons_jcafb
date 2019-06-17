@@ -18,6 +18,11 @@
         groups="clv_base.group_manager"
         sequence="20"/>
 
+    <menuitem name="Off" id="clv_base.menu_community_off"  
+        parent="clv_base.menu_community"
+        groups="clv_base.group_user"
+        sequence="25"/>
+
     <menuitem name="Configuration" id="clv_base.menu_community_config"  
         parent="clv_base.menu_community"
         groups="clv_base.group_manager"
