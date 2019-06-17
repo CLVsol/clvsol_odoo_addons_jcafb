@@ -4,10 +4,10 @@
 
 <odoo>
 
-    <menuitem name="Families (Off)" id="clv_family_off.menu_community_community_family_offes_off"
-        parent="clv_base.menu_community_community"
+    <menuitem name="Families (Off)" id="clv_family_off.menu_community_off_family_offes_off"
+        parent="clv_base.menu_community_off"
         groups="clv_family_off.group_user"
-        sequence="110"
+        sequence="20"
         action="clv_family_off.clv_family_off_action"/>
 
 </odoo>
