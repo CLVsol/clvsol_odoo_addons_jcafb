@@ -6,6 +6,7 @@ from . import person
 from . import person_code
 from . import document
 from . import community_member
+from . import set_element
 from . import event_attendee
 from . import lab_test
 from . import person_history
