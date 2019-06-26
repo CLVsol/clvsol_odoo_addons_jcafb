@@ -67,6 +67,30 @@
 		<field name="field_id" ref="clv_person.field_clv_person__category_ids"/>
 	</record>
 	 
+	<record id="clv_person_export_cadastro_template_object_field_state" model="clv.model_export.template.field">
+		<field name="sequence" eval="10"/>
+		<field name="name" eval="&quot;&quot;&quot;Person State&quot;&quot;&quot;"/>
+		<field name="model_export_template_id" eval="clv_person_export_cadastro_template"/>
+		<field name="model_export_display" eval="True"/>
+		<field name="field_id" ref="clv_person_jcafb.field_clv_person__state"/>
+	</record>
+	 
+	<record id="clv_person_export_cadastro_template_object_field_marker_ids" model="clv.model_export.template.field">
+		<field name="sequence" eval="10"/>
+		<field name="name" eval="&quot;&quot;&quot;Markers&quot;&quot;&quot;"/>
+		<field name="model_export_template_id" eval="clv_person_export_cadastro_template"/>
+		<field name="model_export_display" eval="True"/>
+		<field name="field_id" ref="clv_person.field_clv_person__marker_ids"/>
+	</record>
+	 
+	<record id="clv_person_export_cadastro_template_object_field_global_tag_ids" model="clv.model_export.template.field">
+		<field name="sequence" eval="10"/>
+		<field name="name" eval="&quot;&quot;&quot;Global Tags&quot;&quot;&quot;"/>
+		<field name="model_export_template_id" eval="clv_person_export_cadastro_template"/>
+		<field name="model_export_display" eval="True"/>
+		<field name="field_id" ref="clv_person.field_clv_person__global_tag_ids"/>
+	</record>
+	 
 	<record id="clv_person_export_cadastro_template_object_field_ref_address_id" model="clv.model_export.template.field">
 		<field name="sequence" eval="10"/>
 		<field name="name" eval="&quot;&quot;&quot;Endereço&quot;&quot;&quot;"/>
