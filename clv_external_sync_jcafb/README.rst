@@ -6,6 +6,6 @@
 External Sync
 =============
 
-External Sync Module customizations for CLVhealth-PBM Solution.
+External Sync Module customizations for CLVhealth-JCAFB Solution.
 
 Developed by `CLVsol <https://github.com/CLVsol>`_.
