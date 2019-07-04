@@ -6,7 +6,7 @@
 File System
 ===========
 
-File System Module customizations for CLVhealth-BioBox Solution.
+File System Module customizations for CLVhealth-JCAFB Solution.
 
 Developed by `CLVsol <https://github.com/CLVsol>`_.
 
