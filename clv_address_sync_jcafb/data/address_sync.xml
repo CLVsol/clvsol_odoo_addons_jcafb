@@ -10,7 +10,7 @@
 		<field name="method" eval="&quot;&quot;&quot;_object_external_sync&quot;&quot;&quot;"/>
 		<field name="sequence_code" eval="&quot;&quot;&quot;clv.address.code&quot;&quot;&quot;"/>
 		<field name="external_model" eval="&quot;&quot;&quot;clv.address&quot;&quot;&quot;"/>
-		<field name="external_disable_check_missing" eval="True"/>
+		<field name="external_sequence_code" eval="&quot;&quot;&quot;clv.address.code&quot;&quot;&quot;"/>
 		<field name="external_disable_check_missing" eval="True"/>
 		<field name="enable_sequence_code_sync" eval="True"/>
 	</record>
