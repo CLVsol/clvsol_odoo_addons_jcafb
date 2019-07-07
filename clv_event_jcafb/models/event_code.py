@@ -7,7 +7,7 @@ from odoo import fields, models
 
 class Event(models.Model):
     _name = "clv.event"
-    _inherit = 'clv.event', 'clv.code.model'
+    _inherit = 'clv.event', 'clv.abstract.code'
 
     code = fields.Char(string='Event Code', required=False, default='/')
     code_sequence = fields.Char(default='clv.event.code')

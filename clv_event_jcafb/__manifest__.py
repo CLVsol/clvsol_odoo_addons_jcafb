@@ -5,7 +5,7 @@
 {
     'name': 'Event (customizations for CLVhealth-JCAFB Solution)',
     'summary': 'Event Module customizations for CLVhealth-JCAFB Solution.',
-    'version': '4.0.0',
+    'version': '12.0.4.0.0',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
     'category': 'Generic Modules/Others',
     'license': 'AGPL-3',
@@ -16,9 +16,9 @@
     ],
     'data': [
         # 'views/event_view.xml',
-        # 'views/event_code_view.xml',
+        'views/event_code_view.xml',
         'views/event_state_view.xml',
-        # 'data/event_seq.xml',
+        'data/event_seq.xml',
         # 'wizard/event_updt_view.xml',
         'views/event_menu_view.xml',
     ],
