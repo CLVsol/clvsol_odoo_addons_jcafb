@@ -39,6 +39,22 @@
 		<field name="sequence" eval="10"/>
 	</record>
 	 
+	<record id="hr_employee_hr_employee_template_object_field_work_email" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;work_email&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;work_email&quot;&quot;&quot;"/>
+		<field name="synchronization" eval="True"/>
+		<field name="template_id" eval="hr_employee_hr_employee_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="hr_employee_hr_employee_template_object_field_user_id" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;user_id&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;user_id&quot;&quot;&quot;"/>
+		<field name="synchronization" eval="True"/>
+		<field name="template_id" eval="hr_employee_hr_employee_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
 	<record id="hr_employee_hr_employee_template_object_field_phase_id" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;history_marker_id&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;phase_id&quot;&quot;&quot;"/>
