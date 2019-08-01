@@ -2,10 +2,10 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-===========
-Off Module
-===========
+================
+Auxiliary Module
+================
 
-Off Module customizations for CLVhealth-JCAFB Solution.
+Auxiliary Module customizations for CLVhealth-JCAFB Solution.
 
 Developed by `CLVsol <https://github.com/CLVsol>`_.

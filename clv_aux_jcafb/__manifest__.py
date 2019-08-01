@@ -3,18 +3,18 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Off Module (customizations for CLVhealth-BioBox Solution)',
-    'summary': 'Off Module customizations for CLVhealth-BioBox Solution.',
+    'name': 'Auxiliary Module (customizations for CLVhealth-BioBox Solution)',
+    'summary': 'Auxiliary Module customizations for CLVhealth-BioBox Solution.',
     'version': '4.0.0',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
     'category': 'Generic Modules/Others',
     'license': 'AGPL-3',
     'website': 'https://github.com/CLVsol',
     'depends': [
-        'clv_off',
+        'clv_aux',
     ],
     'data': [
-        'views/off_menu_view.xml',
+        'views/aux_menu_view.xml',
     ],
     'demo': [],
     'test': [],
