@@ -4,10 +4,10 @@
 
 <odoo noupdate="1">
 
-    <record id="clv_referenceable_model_event_attendee" model="clv.referenceable.model">
-        <field name="base_model">clv.event.attendee</field>
-        <field name="name">Address (Off)</field>
-        <field name="model">clv.address_off</field>
+    <record id="clv_referenceable_model_community_member" model="clv.referenceable.model">
+        <field name="base_model">clv.community.member</field>
+        <field name="name">Address (Aux)</field>
+        <field name="model">clv.address_aux</field>
         <field name="priority">10</field>
     </record>
 

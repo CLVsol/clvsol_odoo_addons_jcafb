@@ -3,8 +3,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Address (Off) (customizations for CLVhealth-JCAFB Solution)',
-    'summary': 'Address (Off) Module customizations for CLVhealth-JCAFB Solution.',
+    'name': 'Address (Aux) (customizations for CLVhealth-JCAFB Solution)',
+    'summary': 'Address (Aux) Module customizations for CLVhealth-JCAFB Solution.',
     'version': '4.0.0',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
     'category': 'Generic Modules/Others',
@@ -12,7 +12,7 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_base_jcafb',
-        'clv_address_off',
+        'clv_address_aux',
         'clv_document',
         'clv_community',
         'clv_event',
@@ -29,8 +29,8 @@
         'views/event_attendee_view.xml',
         'views/lab_test_view.xml',
         'views/employee_view.xml',
-        'views/address_off_reg_state_view.xml',
-        'views/address_off_menu_view.xml',
+        'views/address_aux_reg_state_view.xml',
+        'views/address_aux_menu_view.xml',
     ],
     'demo': [],
     'test': [],

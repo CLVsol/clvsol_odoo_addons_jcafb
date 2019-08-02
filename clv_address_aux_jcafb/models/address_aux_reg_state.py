@@ -6,8 +6,8 @@ from odoo import api, fields, models
 from odoo.exceptions import UserError
 
 
-class AddressOff(models.Model):
-    _inherit = 'clv.address_off'
+class AddressAux(models.Model):
+    _inherit = 'clv.address_aux'
 
     reg_state = fields.Selection(
         [('draft', 'Draft'),
@@ -29,39 +29,39 @@ class AddressOff(models.Model):
 
     @api.multi
     def change_reg_state(self, new_reg_state):
-        for address_off in self:
-            if address_off.is_allowed_transition_reg_state(address_off.reg_state, new_reg_state):
-                address_off.reg_state = new_reg_state
+        for address_aux in self:
+            if address_aux.is_allowed_transition_reg_state(address_aux.reg_state, new_reg_state):
+                address_aux.reg_state = new_reg_state
             else:
-                raise UserError('Status transition (' + address_off.reg_state + ', ' + new_reg_state +
+                raise UserError('Status transition (' + address_aux.reg_state + ', ' + new_reg_state +
                                 ') is not allowed!')
 
     @api.multi
     def action_draft(self):
-        for address_off in self:
-            address_off.change_reg_state('draft')
+        for address_aux in self:
+            address_aux.change_reg_state('draft')
 
     @api.multi
     def action_revised(self):
-        for address_off in self:
-            address_off.change_reg_state('revised')
+        for address_aux in self:
+            address_aux.change_reg_state('revised')
 
     @api.multi
     def action_verified(self):
-        for address_off in self:
-            address_off.change_reg_state('verified')
+        for address_aux in self:
+            address_aux.change_reg_state('verified')
 
     @api.multi
     def action_ready(self):
-        for address_off in self:
-            address_off.change_reg_state('ready')
+        for address_aux in self:
+            address_aux.change_reg_state('ready')
 
     @api.multi
     def action_done(self):
-        for address_off in self:
-            address_off.change_reg_state('done')
+        for address_aux in self:
+            address_aux.change_reg_state('done')
 
     @api.multi
     def action_cancel(self):
-        for address_off in self:
-            address_off.change_reg_state('canceled')
+        for address_aux in self:
+            address_aux.change_reg_state('canceled')

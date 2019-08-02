@@ -4,10 +4,10 @@
 
 <odoo>
         
-    <record id="clv_address_off_view_form_employee" model="ir.ui.view">
-        <field name="name">clv.address_off.form</field>
-        <field name="model">clv.address_off</field>
-        <field name="inherit_id" ref="clv_address_off.clv_address_off_view_form"/>
+    <record id="clv_address_aux_view_form_employee" model="ir.ui.view">
+        <field name="name">clv.address_aux.form</field>
+        <field name="model">clv.address_aux</field>
+        <field name="inherit_id" ref="clv_address_aux.clv_address_aux_view_form"/>
         <field name="priority" eval="8" />
         <field name="arch" type="xml">
             <group name="group_top_left" position="inside">
@@ -16,10 +16,10 @@
         </field>
     </record>
    
-    <record id="clv_address_off_view_tree_employee" model="ir.ui.view">
-        <field name="name">clv.address_off.tree</field>
-        <field name="model">clv.address_off</field>
-        <field name="inherit_id" ref="clv_address_off.clv_address_off_view_tree"/>
+    <record id="clv_address_aux_view_tree_employee" model="ir.ui.view">
+        <field name="name">clv.address_aux.tree</field>
+        <field name="model">clv.address_aux</field>
+        <field name="inherit_id" ref="clv_address_aux.clv_address_aux_view_tree"/>
         <field name="priority" eval="8" />
         <field name="arch" type="xml">
             <field name="code" position="after">
@@ -28,10 +28,10 @@
         </field>
     </record>
    
-    <record id="clv_address_off_view_search_employee" model="ir.ui.view">
-        <field name="name">clv.address_off.search</field>
-        <field name="model">clv.address_off</field>
-        <field name="inherit_id" ref="clv_address_off.clv_address_off_view_search"/>
+    <record id="clv_address_aux_view_search_employee" model="ir.ui.view">
+        <field name="name">clv.address_aux.search</field>
+        <field name="model">clv.address_aux</field>
+        <field name="inherit_id" ref="clv_address_aux.clv_address_aux_view_search"/>
         <field name="priority" eval="8" />
         <field name="arch" type="xml">
             <field name="code" position="after">

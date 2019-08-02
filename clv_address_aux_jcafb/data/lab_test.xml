@@ -6,22 +6,22 @@
 
     <record id="clv_referenceable_model_lab_test_request" model="clv.referenceable.model">
         <field name="base_model">clv.lab_test.request</field>
-        <field name="name">Address (Off)</field>
-        <field name="model">clv.address_off</field>
+        <field name="name">Address (Aux)</field>
+        <field name="model">clv.address_aux</field>
         <field name="priority">10</field>
     </record>
 
     <record id="clv_referenceable_model_lab_test_result" model="clv.referenceable.model">
         <field name="base_model">clv.lab_test.result</field>
-        <field name="name">Address (Off)</field>
-        <field name="model">clv.address_off</field>
+        <field name="name">Address (Aux)</field>
+        <field name="model">clv.address_aux</field>
         <field name="priority">10</field>
     </record>
 
     <record id="clv_referenceable_model_lab_test_report" model="clv.referenceable.model">
         <field name="base_model">clv.lab_test.report</field>
-        <field name="name">Address (Off)</field>
-        <field name="model">clv.address_off</field>
+        <field name="name">Address (Aux)</field>
+        <field name="model">clv.address_aux</field>
         <field name="priority">10</field>
     </record>
 

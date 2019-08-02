@@ -5,8 +5,8 @@
 from odoo import fields, models
 
 
-class AddressOff(models.Model):
-    _inherit = 'clv.address_off'
+class AddressAux(models.Model):
+    _inherit = 'clv.address_aux'
 
     employee_id = fields.Many2one(
         comodel_name='hr.employee',
