@@ -4,10 +4,10 @@
 
 <odoo>
         
-    <record id="clv_person_off_view_form_lab_test_request" model="ir.ui.view">
-        <field name="name">clv.person_off.form</field>
-        <field name="model">clv.person_off</field>
-        <field name="inherit_id" ref="clv_person_off.clv_person_off_view_form"/>
+    <record id="clv_person_aux_view_form_lab_test_request" model="ir.ui.view">
+        <field name="name">clv.person_aux.form</field>
+        <field name="model">clv.person_aux</field>
+        <field name="inherit_id" ref="clv_person_aux.clv_person_aux_view_form"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <page name="settings" position="before">
@@ -39,10 +39,10 @@
         </field>
     </record>
 
-    <record id="clv_person_off_view_tree_lab_test_request" model="ir.ui.view">
-        <field name="name">clv.person_off.tree</field>
-        <field name="model">clv.person_off</field>
-        <field name="inherit_id" ref="clv_person_off.clv_person_off_view_tree"/>
+    <record id="clv_person_aux_view_tree_lab_test_request" model="ir.ui.view">
+        <field name="name">clv.person_aux.tree</field>
+        <field name="model">clv.person_aux</field>
+        <field name="inherit_id" ref="clv_person_aux.clv_person_aux_view_tree"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <field name="email" position="before">
@@ -51,10 +51,10 @@
         </field>
     </record>
 
-    <record id="clv_person_off_view_form_lab_test_result" model="ir.ui.view">
-        <field name="name">clv.person_off.form</field>
-        <field name="model">clv.person_off</field>
-        <field name="inherit_id" ref="clv_person_off.clv_person_off_view_form"/>
+    <record id="clv_person_aux_view_form_lab_test_result" model="ir.ui.view">
+        <field name="name">clv.person_aux.form</field>
+        <field name="model">clv.person_aux</field>
+        <field name="inherit_id" ref="clv_person_aux.clv_person_aux_view_form"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <page name="settings" position="before">
@@ -86,10 +86,10 @@
         </field>
     </record>
 
-    <record id="clv_person_off_view_tree_lab_test_result" model="ir.ui.view">
-        <field name="name">clv.person_off.tree</field>
-        <field name="model">clv.person_off</field>
-        <field name="inherit_id" ref="clv_person_off.clv_person_off_view_tree"/>
+    <record id="clv_person_aux_view_tree_lab_test_result" model="ir.ui.view">
+        <field name="name">clv.person_aux.tree</field>
+        <field name="model">clv.person_aux</field>
+        <field name="inherit_id" ref="clv_person_aux.clv_person_aux_view_tree"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <field name="email" position="before">
@@ -98,10 +98,10 @@
         </field>
     </record>
 
-    <record id="clv_person_off_view_form_lab_test_report" model="ir.ui.view">
-        <field name="name">clv.person_off.form</field>
-        <field name="model">clv.person_off</field>
-        <field name="inherit_id" ref="clv_person_off.clv_person_off_view_form"/>
+    <record id="clv_person_aux_view_form_lab_test_report" model="ir.ui.view">
+        <field name="name">clv.person_aux.form</field>
+        <field name="model">clv.person_aux</field>
+        <field name="inherit_id" ref="clv_person_aux.clv_person_aux_view_form"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <page name="settings" position="before">
@@ -133,10 +133,10 @@
         </field>
     </record>
 
-    <record id="clv_person_off_view_tree_lab_test_report" model="ir.ui.view">
-        <field name="name">clv.person_off.tree</field>
-        <field name="model">clv.person_off</field>
-        <field name="inherit_id" ref="clv_person_off.clv_person_off_view_tree"/>
+    <record id="clv_person_aux_view_tree_lab_test_report" model="ir.ui.view">
+        <field name="name">clv.person_aux.tree</field>
+        <field name="model">clv.person_aux</field>
+        <field name="inherit_id" ref="clv_person_aux.clv_person_aux_view_tree"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <field name="email" position="before">

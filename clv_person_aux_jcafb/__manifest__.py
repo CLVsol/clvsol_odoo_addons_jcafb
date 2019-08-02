@@ -3,8 +3,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Person (Off) (customizations for CLVhealth-JCAFB Solution)',
-    'summary': 'Person (Off) Module customizations for CLVhealth-JCAFB Solution.',
+    'name': 'Person (Aux) (customizations for CLVhealth-JCAFB Solution)',
+    'summary': 'Person (Aux) Module customizations for CLVhealth-JCAFB Solution.',
     'version': '4.0.0',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
     'category': 'Generic Modules/Others',
@@ -12,7 +12,7 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_base_jcafb',
-        'clv_person_off',
+        'clv_person_aux',
         'clv_document',
         'clv_community',
         'clv_event',
@@ -27,8 +27,8 @@
         'views/community_member_view.xml',
         'views/event_attendee_view.xml',
         'views/lab_test_view.xml',
-        'views/person_off_reg_state_view.xml',
-        'views/person_off_menu_view.xml',
+        'views/person_aux_reg_state_view.xml',
+        'views/person_aux_menu_view.xml',
     ],
     'demo': [],
     'test': [],

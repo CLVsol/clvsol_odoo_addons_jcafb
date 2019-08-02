@@ -6,8 +6,8 @@
 
     <record id="clv_referenceable_model_document" model="clv.referenceable.model">
         <field name="base_model">clv.document</field>
-        <field name="name">Person (Off)</field>
-        <field name="model">clv.person_off</field>
+        <field name="name">Person (Aux)</field>
+        <field name="model">clv.person_aux</field>
         <field name="priority">10</field>
     </record>
 

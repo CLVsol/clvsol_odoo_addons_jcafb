@@ -5,8 +5,8 @@
 from odoo import api, fields, models
 
 
-class PersonOff(models.Model):
-    _inherit = 'clv.person_off'
+class PersonAux(models.Model):
+    _inherit = 'clv.person_aux'
 
     community_member_ids = fields.One2many(
         string='Community Members',

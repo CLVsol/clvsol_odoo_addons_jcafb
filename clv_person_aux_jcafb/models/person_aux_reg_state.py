@@ -6,8 +6,8 @@ from odoo import api, fields, models
 from odoo.exceptions import UserError
 
 
-class PersonOff(models.Model):
-    _inherit = 'clv.person_off'
+class PersonAux(models.Model):
+    _inherit = 'clv.person_aux'
 
     reg_state = fields.Selection(
         [('draft', 'Draft'),
@@ -29,39 +29,39 @@ class PersonOff(models.Model):
 
     @api.multi
     def change_reg_state(self, new_reg_state):
-        for person_off in self:
-            if person_off.is_allowed_transition_reg_state(person_off.reg_state, new_reg_state):
-                person_off.reg_state = new_reg_state
+        for person_aux in self:
+            if person_aux.is_allowed_transition_reg_state(person_aux.reg_state, new_reg_state):
+                person_aux.reg_state = new_reg_state
             else:
-                raise UserError('Status transition (' + person_off.reg_state + ', ' + new_reg_state +
+                raise UserError('Status transition (' + person_aux.reg_state + ', ' + new_reg_state +
                                 ') is not allowed!')
 
     @api.multi
     def action_draft(self):
-        for person_off in self:
-            person_off.change_reg_state('draft')
+        for person_aux in self:
+            person_aux.change_reg_state('draft')
 
     @api.multi
     def action_revised(self):
-        for person_off in self:
-            person_off.change_reg_state('revised')
+        for person_aux in self:
+            person_aux.change_reg_state('revised')
 
     @api.multi
     def action_verified(self):
-        for person_off in self:
-            person_off.change_reg_state('verified')
+        for person_aux in self:
+            person_aux.change_reg_state('verified')
 
     @api.multi
     def action_ready(self):
-        for person_off in self:
-            person_off.change_reg_state('ready')
+        for person_aux in self:
+            person_aux.change_reg_state('ready')
 
     @api.multi
     def action_done(self):
-        for person_off in self:
-            person_off.change_reg_state('done')
+        for person_aux in self:
+            person_aux.change_reg_state('done')
 
     @api.multi
     def action_cancel(self):
-        for person_off in self:
-            person_off.change_reg_state('canceled')
+        for person_aux in self:
+            person_aux.change_reg_state('canceled')
