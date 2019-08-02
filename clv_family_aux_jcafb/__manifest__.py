@@ -3,8 +3,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 {
-    'name': 'Family (Off) (customizations for CLVhealth-JCAFB Solution)',
-    'summary': 'Family (Off) Module customizations for CLVhealth-JCAFB Solution.',
+    'name': 'Family (Aux) (customizations for CLVhealth-JCAFB Solution)',
+    'summary': 'Family (Aux) Module customizations for CLVhealth-JCAFB Solution.',
     'version': '4.0.0',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
     'category': 'Generic Modules/Others',
@@ -12,14 +12,14 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_base_jcafb',
-        'clv_family_off',
+        'clv_family_aux',
         'clv_document',
     ],
     'data': [
         'data/document.xml',
         'views/document_view.xml',
-        'views/family_off_reg_state_view.xml',
-        'views/family_off_menu_view.xml',
+        'views/family_aux_reg_state_view.xml',
+        'views/family_aux_menu_view.xml',
     ],
     'demo': [],
     'test': [],
