@@ -18,7 +18,7 @@
         groups="clv_base.group_manager"
         sequence="20"/>
 
-    <menuitem name="Off" id="clv_base.menu_community_off"  
+    <menuitem name="Auxiliary" id="clv_base.menu_community_aux"  
         parent="clv_base.menu_community"
         groups="clv_base.group_user"
         sequence="25"/>
