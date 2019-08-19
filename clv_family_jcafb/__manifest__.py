@@ -13,6 +13,7 @@
     'depends': [
         'clv_base_jcafb',
         'clv_family',
+        'clv_family_history',
         'clv_document',
     ],
     'data': [
