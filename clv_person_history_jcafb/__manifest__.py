@@ -18,6 +18,7 @@
         'views/person_history_reg_state_view.xml',
         'views/person_history_state_view.xml',
         'views/person_history_menu_view.xml',
+        'wizard/person_history_updt_view.xml',
     ],
     'demo': [],
     'test': [],
