@@ -37,6 +37,7 @@
         'views/person_reg_state_view.xml',
         'views/person_state_view.xml',
         'views/person_menu_view.xml',
+        'wizard/person_mass_edit_view.xml',
         'wizard/person_associate_to_set_view.xml',
     ],
     'demo': [],
