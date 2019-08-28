@@ -4,3 +4,4 @@
 
 from . import person_mass_edit
 from . import person_associate_to_set
+from . import person_lab_test_request_setup
