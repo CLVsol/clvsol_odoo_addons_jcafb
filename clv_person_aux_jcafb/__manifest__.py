@@ -29,6 +29,7 @@
         'views/lab_test_view.xml',
         'views/person_aux_reg_state_view.xml',
         'views/person_aux_menu_view.xml',
+        'wizard/person_auz_lab_test_request_setup_view.xml',
     ],
     'demo': [],
     'test': [],
