@@ -44,6 +44,14 @@
 		<field name="sequence" eval="10"/>
 	</record>
 	 
+	<record id="survey_label_survey_label_template_object_field_sequence" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;sequence&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;sequence&quot;&quot;&quot;"/>
+		<field name="synchronization" eval="True"/>
+		<field name="template_id" eval="survey_label_survey_label_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
 	<record id="survey_label_survey_label_schedule" model="clv.external_sync.schedule">
 		<field name="name" eval="&quot;&quot;&quot;survey.label (survey.label)&quot;&quot;&quot;"/>
 		<field name="template_id" eval="survey_label_survey_label_template"/>
