@@ -34,7 +34,7 @@ class PersonLabTestRequestSetup(models.TransientModel):
         return phase_id
     phase_id = fields.Many2one(
         comodel_name='clv.phase',
-        string='History Marker',
+        string='Phase',
         default=_default_phase_id,
         ondelete='restrict'
     )
