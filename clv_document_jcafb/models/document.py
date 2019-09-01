@@ -19,3 +19,6 @@ class Document(models.Model):
         comodel_name='survey.user_input',
         string='Base Survey User Input'
     )
+
+    def get_document_category_id(self, survey):
+        return False
