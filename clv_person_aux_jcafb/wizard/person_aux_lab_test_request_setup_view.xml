@@ -14,7 +14,7 @@
                 <label for="person_aux_ids"/>
                 <field name="person_aux_ids"/>
                 <label for="lab_test_type_ids"/>
-                <field name="lab_test_type_ids"/>
+                <field name="lab_test_type_ids" options="{'no_open': False, 'no_create': True}" context="{'search_default_phase_id': phase_id}"/>
                 <group>
                     <group>
                         <field name="phase_id" options="{'no_open': False, 'no_create': True}"/>
