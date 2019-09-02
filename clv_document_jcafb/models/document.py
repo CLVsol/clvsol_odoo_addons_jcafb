@@ -2,7 +2,7 @@
 # Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import fields, models
+from odoo import fields, models
 
 
 class Document(models.Model):
@@ -19,6 +19,3 @@ class Document(models.Model):
         comodel_name='survey.user_input',
         string='Base Survey User Input'
     )
-
-    def get_document_category_id(self, survey):
-        return False

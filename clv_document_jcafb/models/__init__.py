@@ -6,3 +6,4 @@ from . import document_code
 from . import document_reg_state
 from . import document_state
 from . import document
+from . import document_type
