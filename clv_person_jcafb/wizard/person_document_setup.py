@@ -18,14 +18,20 @@ class PersonDocumentSetUp(models.TransientModel):
     person_ids = fields.Many2many(
         comodel_name='clv.person',
         relation='clv_person_document_setup_rel',
-        string='Persones',
+        string='Persons',
         default=_default_person_ids
     )
 
-    survey_ids = fields.Many2many(
-        comodel_name='survey.survey',
-        relation='clv_person_document_setup_survey_rel',
-        string='Surveys'
+    # survey_ids = fields.Many2many(
+    #     comodel_name='survey.survey',
+    #     relation='clv_person_document_setup_survey_rel',
+    #     string='Surveys'
+    # )
+
+    document_type_ids = fields.Many2many(
+        comodel_name='clv.document.type',
+        relation='clv_person_document_setup_document_type_rel',
+        string='Document Types'
     )
 
     category_id = fields.Many2one(
@@ -73,28 +79,24 @@ class PersonDocumentSetUp(models.TransientModel):
 
             _logger.info(u'%s %s %s', '>>>>>', person.name, ref_id)
 
-            for survey in self.survey_ids:
+            for document_type in self.document_type_ids:
 
-                _logger.info(u'%s %s', '>>>>>>>>>>', survey.title)
+                _logger.info(u'%s %s', '>>>>>>>>>>', document_type.name)
 
                 document = Document.search([
-                    ('survey_id', '=', survey.id),
-                    # ('person_id', '=', person.id),
+                    ('document_type_id', '=', document_type.id),
                     ('ref_id', '=', ref_id),
-                    ('phase_id', '=', self.phase_id.id,),
                 ])
 
                 if document.id is False:
 
                     values = {
-                        'name': survey.title,
+                        'name': document_type.name,
                         'code_sequence': 'clv.document.code',
-                        # 'date_document': self.date_document,
                         'date_foreseen': self.date_foreseen,
                         'date_deadline': self.date_deadline,
-                        'survey_id': survey.id,
+                        'survey_id': document_type.survey_id.id,
                         # 'category_id': self.category_id.id,
-                        # 'person_id': person.id,
                         'ref_id': ref_id,
                         'phase_id': self.phase_id.id,
                     }
@@ -109,14 +111,13 @@ class PersonDocumentSetUp(models.TransientModel):
 
                     else:
 
-                        category_id = new_document.get_document_category_id(survey)
-
-                        if category_id is not False:
+                        for category_id in document_type.category_ids:
 
                             values = {
-                                'category_ids': [(4, category_id)],
+                                'category_ids': [(4, category_id.id)],
                             }
-                            new_document.write(values)
+
+                        new_document.write(values)
 
                     document_type = DocumentType.search([
                         ('code', '=', new_document.survey_id.code),
