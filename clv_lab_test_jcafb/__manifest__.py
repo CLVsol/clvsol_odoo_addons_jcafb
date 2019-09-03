@@ -12,9 +12,12 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_lab_test',
+        'clv_employee',
+        # 'clv_document_jcafb',
     ],
     'data': [
         'security/ir.model.access.csv',
+        'views/lab_test_request_view.xml',
         'views/lab_test_request_code_view.xml',
         'views/lab_test_request_state_view.xml',
         'views/lab_test_result_code_view.xml',
