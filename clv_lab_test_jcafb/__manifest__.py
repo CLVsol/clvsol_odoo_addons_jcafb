@@ -34,6 +34,7 @@
         'data/lab_test_parasite.xml',
         'data/lab_test_crystal.xml',
         'views/lab_test_menu_view.xml',
+        'wizard/lab_test_request_receive_view.xml',
     ],
     'demo': [],
     'test': [],
