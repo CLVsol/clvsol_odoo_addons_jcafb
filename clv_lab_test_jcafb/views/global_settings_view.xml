@@ -15,10 +15,14 @@
                     <group name="lab_test_files">
                         <field name="lab_test_result_files_directory_xls"/>
                         <field name="current_lab_test_result_files_directory_xls" invisible="True"/>
+                        <field name="lab_test_result_file_name_xls"/>
+                        <field name="current_lab_test_result_file_name_xls" invisible="True"/>
                         <field name="lab_test_result_files_directory_templates"/>
                         <field name="current_lab_test_result_files_directory_templates" invisible="True"/>
                         <field name="lab_test_report_files_directory_xls"/>
                         <field name="current_lab_test_report_files_directory_xls" invisible="True"/>
+                        <field name="lab_test_report_file_name_xls"/>
+                        <field name="current_lab_test_report_file_name_xls" invisible="True"/>
                         <field name="lab_test_report_files_directory_templates"/>
                         <field name="current_lab_test_report_files_directory_templates" invisible="True"/>
                     </group>

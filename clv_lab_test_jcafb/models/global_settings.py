@@ -7,10 +7,14 @@ from odoo import api, fields, models
 PARAMS = [
     ("current_lab_test_result_files_directory_xls",
         "clv.global_settings.current_lab_test_result_files_directory_xls"),
+    ("current_lab_test_result_file_name_xls",
+        "clv.global_settings.current_lab_test_result_file_name_xls"),
     ("current_lab_test_result_files_directory_templates",
         "clv.global_settings.current_lab_test_result_files_directory_templates"),
     ("current_lab_test_report_files_directory_xls",
         "clv.global_settings.current_lab_test_report_files_directory_xls"),
+    ("current_lab_test_report_file_name_xls",
+        "clv.global_settings.current_lab_test_report_file_name_xls"),
     ("current_lab_test_report_files_directory_templates",
         "clv.global_settings.current_lab_test_report_files_directory_templates"),
 ]
@@ -25,6 +29,12 @@ class GlobalSettings(models.TransientModel):
         store=False,
     )
 
+    current_lab_test_result_file_name_xls = fields.Char(
+        string='Lab Test Result File Name (XLS)',
+        compute='_compute_current_lab_test_result_file_name_xls',
+        store=False,
+    )
+
     current_lab_test_result_files_directory_templates = fields.Char(
         string='Lab Test Result Files Directory (Templates)',
         compute='_compute_current_lab_test_result_files_directory_templates',
@@ -34,6 +44,12 @@ class GlobalSettings(models.TransientModel):
     current_lab_test_report_files_directory_xls = fields.Char(
         string='Lab Test Report Files Directory (XLS)',
         compute='_compute_current_lab_test_report_files_directory_xls',
+        store=False,
+    )
+
+    current_lab_test_report_file_name_xls = fields.Char(
+        string='Lab Test Report File Name (XLS)',
+        compute='_compute_current_lab_test_report_file_name_xls',
         store=False,
     )
 
@@ -69,12 +85,20 @@ class GlobalSettings_2(models.TransientModel):
         string='Lab Test Result Files Directory (XLS):'
     )
 
+    lab_test_result_file_name_xls = fields.Char(
+        string='Lab Test Result File Name (XLS):'
+    )
+
     lab_test_result_files_directory_templates = fields.Char(
         string='Lab Test Result Files Directory (Templates):'
     )
 
     lab_test_report_files_directory_xls = fields.Char(
         string='Lab Test Report Files Directory (XLS):'
+    )
+
+    lab_test_report_file_name_xls = fields.Char(
+        string='Lab Test Report File Name (XLS):'
     )
 
     lab_test_report_files_directory_templates = fields.Char(
@@ -86,6 +110,11 @@ class GlobalSettings_2(models.TransientModel):
         for r in self:
             r.current_lab_test_result_files_directory_xls = r.lab_test_result_files_directory_xls
 
+    @api.depends('lab_test_result_file_name_xls')
+    def _compute_current_lab_test_result_file_name_xls(self):
+        for r in self:
+            r.current_lab_test_result_file_name_xls = r.lab_test_result_file_name_xls
+
     @api.depends('lab_test_result_files_directory_templates')
     def _compute_current_lab_test_result_files_directory_templates(self):
         for r in self:
@@ -95,6 +124,11 @@ class GlobalSettings_2(models.TransientModel):
     def _compute_current_lab_test_report_files_directory_xls(self):
         for r in self:
             r.current_lab_test_report_files_directory_xls = r.lab_test_report_files_directory_xls
+
+    @api.depends('lab_test_report_file_name_xls')
+    def _compute_current_lab_test_report_file_name_xls(self):
+        for r in self:
+            r.current_lab_test_report_file_name_xls = r.lab_test_report_file_name_xls
 
     @api.depends('lab_test_report_files_directory_templates')
     def _compute_current_lab_test_report_files_directory_templates(self):
@@ -110,6 +144,10 @@ class GlobalSettings_2(models.TransientModel):
             defaults['current_lab_test_result_files_directory_xls']
         defaults['lab_test_result_files_directory_xls'] = current_lab_test_result_files_directory_xls
 
+        current_lab_test_result_file_name_xls = \
+            defaults['current_lab_test_result_file_name_xls']
+        defaults['lab_test_result_file_name_xls'] = current_lab_test_result_file_name_xls
+
         current_lab_test_report_files_directory_xls = \
             defaults['current_lab_test_report_files_directory_xls']
         defaults['lab_test_report_files_directory_xls'] = current_lab_test_report_files_directory_xls
@@ -117,6 +155,10 @@ class GlobalSettings_2(models.TransientModel):
         current_lab_test_result_files_directory_templates = \
             defaults['current_lab_test_result_files_directory_templates']
         defaults['lab_test_result_files_directory_templates'] = current_lab_test_result_files_directory_templates
+
+        current_lab_test_report_file_name_xls = \
+            defaults['current_lab_test_report_file_name_xls']
+        defaults['lab_test_report_file_name_xls'] = current_lab_test_report_file_name_xls
 
         current_lab_test_report_files_directory_templates = \
             defaults['current_lab_test_report_files_directory_templates']
