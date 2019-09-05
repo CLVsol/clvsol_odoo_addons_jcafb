@@ -46,9 +46,11 @@ class LabTestRequestReceive(models.TransientModel):
     )
 
     def _default_dir_path_result(self):
-        LabTestResult = self.env['clv.lab_test.result']
-        # return LabTestResult.lab_test_result_export_xls_dir_path()
-        return False
+        file_store_path = self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_filestore_path', '').strip()
+        lab_test_result_files_directory_xls = self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_lab_test_result_files_directory_xls', '').strip()
+        return file_store_path + '/' + lab_test_result_files_directory_xls
     dir_path_result = fields.Char(
         string='Directory Path (Result)',
         required=True,
@@ -57,9 +59,9 @@ class LabTestRequestReceive(models.TransientModel):
     )
 
     def _default_file_name_result(self):
-        LabTestResult = self.env['clv.lab_test.result']
-        # return LabTestResult.lab_test_result_export_xls_file_name()
-        return False
+        lab_test_result_file_name_xls = self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_lab_test_result_file_name_xls', '').strip()
+        return lab_test_result_file_name_xls
     file_name_result = fields.Char(
         string='File Name (Result)',
         required=True,
@@ -70,9 +72,11 @@ class LabTestRequestReceive(models.TransientModel):
     use_template_result = fields.Boolean(string='Use Template (Result)', default=True)
 
     def _default_templates_dir_path_result(self):
-        LabTestResult = self.env['clv.lab_test.result']
-        # return LabTestResult.lab_test_result_export_templates_dir_path()
-        return False
+        file_store_path = self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_filestore_path', '').strip()
+        lab_test_result_files_directory_templates = self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_lab_test_result_files_directory_templates', '').strip()
+        return file_store_path + '/' + lab_test_result_files_directory_templates
     templates_dir_path_result = fields.Char(
         string='Template Directory Path (Result)',
         required=True,
@@ -81,9 +85,11 @@ class LabTestRequestReceive(models.TransientModel):
     )
 
     def _default_dir_path_report(self):
-        LabTestReport = self.env['clv.lab_test.report']
-        # return LabTestReport.lab_test_report_export_xls_dir_path()
-        return False
+        file_store_path = self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_filestore_path', '').strip()
+        lab_test_report_files_directory_xls = self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_lab_test_report_files_directory_xls', '').strip()
+        return file_store_path + '/' + lab_test_report_files_directory_xls
     dir_path_report = fields.Char(
         string='Directory Path (Report)',
         required=True,
@@ -92,9 +98,9 @@ class LabTestRequestReceive(models.TransientModel):
     )
 
     def _default_file_name_report(self):
-        LabTestReport = self.env['clv.lab_test.report']
-        # return LabTestReport.lab_test_report_export_xls_file_name()
-        return False
+        lab_test_report_file_name_xls = self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_lab_test_report_file_name_xls', '').strip()
+        return lab_test_report_file_name_xls
     file_name_report = fields.Char(
         string='File Name (Report)',
         required=True,
@@ -105,9 +111,11 @@ class LabTestRequestReceive(models.TransientModel):
     use_template_report = fields.Boolean(string='Use Template (Report)', default=True)
 
     def _default_templates_dir_path_report(self):
-        LabTestReport = self.env['clv.lab_test.report']
-        # return LabTestReport.lab_test_report_export_templates_dir_path()
-        return False
+        file_store_path = self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_filestore_path', '').strip()
+        lab_test_report_files_directory_templates = self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_lab_test_report_files_directory_templates', '').strip()
+        return file_store_path + '/' + lab_test_report_files_directory_templates
     templates_dir_path_report = fields.Char(
         string='Template Directory Path (Report)',
         required=True,
@@ -170,7 +178,7 @@ class LabTestRequestReceive(models.TransientModel):
                         'lab_test_type_id': lab_test_type.id,
                         'ref_id': ref_id,
                         'lab_test_request_id': lab_test_request.id,
-                        'history_marker_id': lab_test_request.history_marker_id.id,
+                        'phase_id': lab_test_request.phase_id.id,
                         'criterion_ids': criteria,
                     }
                     lab_test_result = LabTestResult.create(values)
@@ -196,7 +204,7 @@ class LabTestRequestReceive(models.TransientModel):
                         'lab_test_type_id': lab_test_type.id,
                         'ref_id': ref_id,
                         'lab_test_request_id': lab_test_request.id,
-                        'history_marker_id': lab_test_request.history_marker_id.id,
+                        'phase_id': lab_test_request.phase_id.id,
                         'criterion_ids': criteria,
                     }
                     lab_test_report = LabTestReport.create(values)
