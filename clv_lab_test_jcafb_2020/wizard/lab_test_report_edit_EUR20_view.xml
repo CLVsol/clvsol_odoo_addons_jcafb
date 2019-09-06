@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="clv_lab_test_report_edit_view_form_jcafb_EUR20" model="ir.ui.view">
+        <field name="name">clv.lab_test.report.edit.form</field>
+        <field name="model">clv.lab_test.report.edit</field>
+        <field name="inherit_id" ref="clv_lab_test.clv_lab_test_report_edit_view_form"/>
+        <field name="priority" eval="8" />
+        <field name="arch" type="xml">
+            <group  name="group_top" position="after">
+                <group attrs="{'invisible':[('is_EUR20', '=', False)]}">
+                    <field name="is_EUR20" invisible="True"/>
+                    <group>
+                        <field name="EUR20_volume"/>
+                        <field name="EUR20_densidade"/>
+                        <field name="EUR20_aspecto"/>
+                        <field name="EUR20_cor"/>
+                        <field name="EUR20_odor"/>
+                    </group>
+                    <group>
+                        <field name="EUR20_ph"/>
+                        <field name="EUR20_proteinas"/>
+                        <field name="EUR20_glicose"/>
+                        <field name="EUR20_cetona"/>
+                        <field name="EUR20_pigmentos_biliares"/>
+                        <field name="EUR20_sangue"/>
+                        <field name="EUR20_urobilinogenio"/>
+                        <field name="EUR20_nitrito"/>
+                    </group>
+                    <group>
+                        <field name="EUR20_celulas_epiteliais"/>
+                        <field name="EUR20_muco"/>
+                        <field name="EUR20_lab_test_crystal_names"/>
+                        <field name="EUR20_cristais" invisible='True'/>
+                        <field name="EUR20_lab_test_crystal_ids">
+                            <tree>
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                        <field name="EUR20_leucocitos"/>
+                        <field name="EUR20_hemacias"/>
+                    </group>
+                    <group>
+                        <field name="EUR20_cilindros"/>
+                        <field name="EUR20_cilindros_hialinos"/>
+                        <field name="EUR20_cilindros_granulosos"/>
+                        <field name="EUR20_cilindros_leucocitarios"/>
+                        <field name="EUR20_cilindros_hematicos"/>
+                        <field name="EUR20_cilindros_cereos"/>
+                        <field name="EUR20_outros_tipos_de_cilindros"/>
+                    </group>
+                    <field name="EUR20_obs"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+</odoo>
