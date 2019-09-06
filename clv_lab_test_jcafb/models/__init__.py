@@ -8,6 +8,7 @@ from . import lab_test_request_state
 from . import lab_test_result_code
 from . import lab_test_result_reg_state
 from . import lab_test_result_state
+from . import lab_test_report
 from . import lab_test_report_code
 from . import lab_test_report_reg_state
 from . import lab_test_report_state
