@@ -23,8 +23,8 @@ class LabTestReport(models.Model):
         lab_test_request_code = self.lab_test_request_id.code
         # lab_test_result_code = self.code
 
-        sheet.header_str = ''
-        sheet.footer_str = ''
+        sheet.header_str = ''.encode()
+        sheet.footer_str = ''.encode()
 
         for i in range(0, 49):
             sheet.col(i).width = 256 * 2
