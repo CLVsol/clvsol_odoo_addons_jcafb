@@ -143,13 +143,17 @@ class LabTestRequestReceive(models.TransientModel):
         LabTestResult = self.env['clv.lab_test.result']
         LabTestReport = self.env['clv.lab_test.report']
 
+        current_phase_id = int(self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_phase_id', '').strip())
+
         for lab_test_request in self.lab_test_request_ids:
 
             _logger.info(u'%s %s %s', '>>>>>', lab_test_request.code, lab_test_request.ref_name)
 
             ref_id = lab_test_request.ref_id._name + ',' + str(lab_test_request.ref_id.id)
 
-            if lab_test_request.state == 'draft':
+            if (lab_test_request.phase_id.id == current_phase_id) and \
+               (lab_test_request.state == 'draft'):
 
                 _logger.info(u'%s %s %s', '>>>>>', self.employee_id.name, self.date_received)
 
@@ -157,7 +161,7 @@ class LabTestRequestReceive(models.TransientModel):
                 lab_test_request.date_received = self.date_received
                 lab_test_request.state = 'received'
 
-            if lab_test_request.state not in ['draft', 'cancelled']:
+                # if lab_test_request.state not in ['draft', 'cancelled']:
 
                 for lab_test_type in lab_test_request.lab_test_type_ids:
 
