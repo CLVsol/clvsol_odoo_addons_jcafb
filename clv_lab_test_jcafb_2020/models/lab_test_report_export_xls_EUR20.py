@@ -23,8 +23,8 @@ class LabTestReport(models.Model):
         lab_test_request_code = self.lab_test_request_id.code
         # lab_test_result_code = self.code
 
-        sheet.header_str = ''
-        sheet.footer_str = ''
+        sheet.header_str = ''.encode()
+        sheet.footer_str = ''.encode()
 
         for i in range(0, 49):
             sheet.col(i).width = 256 * 2
@@ -48,10 +48,8 @@ class LabTestReport(models.Model):
         row_nr += 3
 
         ExportXLS.setOutCell(sheet, 4, row_nr, u'Nome:')
-        # ExportXLS.setOutCell(sheet, 4, row_nr, self.person_id.name)
         ExportXLS.setOutCell(sheet, 8, row_nr, self.ref_id.name)
         ExportXLS.setOutCell(sheet, 30, row_nr, u'Cadastro:')
-        # ExportXLS.setOutCell(sheet, 35, row_nr, self.person_id.code)
         ExportXLS.setOutCell(sheet, 35, row_nr, self.ref_id.code)
         row_nr += 2
 
