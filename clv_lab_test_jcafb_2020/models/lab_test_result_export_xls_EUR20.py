@@ -19,7 +19,7 @@ class LabTestResult(models.Model):
 
         # todo:
         # Make data_hours GMT aware.
-        delta_hours = -2
+        delta_hours = -3
 
         ExportXLS = self.env['clv.export_xls']
 
@@ -27,8 +27,8 @@ class LabTestResult(models.Model):
         lab_test_request_code = self.lab_test_request_id.code
         lab_test_result_code = self.code
 
-        sheet.header_str = ''
-        sheet.footer_str = ''
+        sheet.header_str = ''.encode()
+        sheet.footer_str = ''.encode()
 
         for i in range(0, 49):
             sheet.col(i).width = 256 * 2
@@ -48,11 +48,9 @@ class LabTestResult(models.Model):
             row_nr += 1
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome da Pessoa:')
-            # ExportXLS.setOutCell(sheet, 10, row_nr, self.person_id.name)
             ExportXLS.setOutCell(sheet, 10, row_nr, self.ref_id.name)
             row_nr += 1
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Código da Pessoa:')
-            # ExportXLS.setOutCell(sheet, 10, row_nr, self.person_id.code)
             ExportXLS.setOutCell(sheet, 10, row_nr, self.ref_id.code)
             row_nr += 2
 
@@ -62,11 +60,11 @@ class LabTestResult(models.Model):
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Código do Recebedor:')
             ExportXLS.setOutCell(sheet, 10, row_nr, self.lab_test_request_id.employee_id.code)
             row_nr += 1
-            date_time = datetime.strptime(self.lab_test_request_id.date_received,
-                                          '%Y-%m-%d %H:%M:%S') + timedelta(hours=delta_hours)
-            date_time = datetime.strftime(date_time, '%d-%m-%Y  %H:%M:%S')
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Recebimento:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, date_time)
+            ExportXLS.setOutCell(
+                sheet, 10, row_nr,
+                (self.lab_test_request_id.date_received + timedelta(hours=delta_hours)).strftime('%d-%m-%Y  %H:%M:%S')
+            )
             row_nr += 2
 
             ExportXLS.setOutCell(sheet, 20, row_nr, u'Resultado')
