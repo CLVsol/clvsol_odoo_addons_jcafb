@@ -28,6 +28,7 @@
         'views/lab_test_report_reg_state_view.xml',
         'views/lab_test_report_code_view.xml',
         'views/lab_test_report_state_view.xml',
+        'views/file_system_view.xml',
         'views/lab_test_parasite_view.xml',
         'views/lab_test_crystal_view.xml',
         'views/global_settings_view.xml',
