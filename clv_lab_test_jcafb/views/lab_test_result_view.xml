@@ -42,26 +42,30 @@
         </field>
     </record-->
    
-    <!--record id="clv_lab_test_result_view_search_lab_test_result" model="ir.ui.view">
+    <record id="clv_lab_test_result_view_search_lab_test_result" model="ir.ui.view">
         <field name="name">clv.lab_test.result.tree</field>
         <field name="model">clv.lab_test.result</field>
         <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_view_search"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-            <field name="lab_test_type_id" position="before">
+            <!--field name="lab_test_type_id" position="before">
                 <field name="person_id"/>
                 <field name="person_employee_id"/>
-            </field>
-            <field name="lab_test_type_id" position="after">
+            </field-->
+            <!--field name="lab_test_type_id" position="after">
                 <field name="survey_id"/>
+            </field-->
+            <field name="lab_test_type_id" position="after">
+                <field name="employee_id"/>
             </field>
             <group name="group_by" position="inside">
-                <filter string="Person" context="{'group_by': 'person_id'}"/>
+                <filter name="group_by_employee_id" string="Approved by" context="{'group_by': 'employee_id'}"/>
+                <!--filter string="Person" context="{'group_by': 'person_id'}"/>
                 <filter string="Responsible Empĺoyee" domain="[]"  context="{'group_by': 'person_employee_id'}"/>
-                <filter string="Related Survey Type" domain="[]"  context="{'group_by': 'survey_id'}"/>
+                <filter string="Related Survey Type" domain="[]"  context="{'group_by': 'survey_id'}"/-->
             </group>
         </field>
-    </record-->
+    </record>
    
     <!--record id="clv_person_view_form_lab_test_result" model="ir.ui.view">
         <field name="name">clv.person.form</field>
