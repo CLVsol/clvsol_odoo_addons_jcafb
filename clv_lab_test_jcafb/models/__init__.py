@@ -5,6 +5,7 @@
 from . import lab_test_request
 from . import lab_test_request_code
 from . import lab_test_request_state
+from . import lab_test_result
 from . import lab_test_result_code
 from . import lab_test_result_reg_state
 from . import lab_test_result_state
