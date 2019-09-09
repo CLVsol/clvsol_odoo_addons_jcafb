@@ -9,23 +9,60 @@ from odoo import api, fields, models
 _logger = logging.getLogger(__name__)
 
 
-class LabTestResultEdit(models.TransientModel):
-    _inherit = 'clv.lab_test.result.edit'
+class LabTestResultEditECP20(models.TransientModel):
+    _description = 'Lab Test Result Edit (ECP20)'
+    _name = 'clv.lab_test.result.edit_ecp20'
+
+    def _get_default(self, lab_test_type_id_code, criterion_code):
+        active_id = self.env['clv.lab_test.result'].browse(self._context.get('active_id'))
+        if active_id.lab_test_type_id.code == lab_test_type_id_code:
+            result = active_id.criterion_ids.search([
+                ('lab_test_result_id', '=', active_id.id),
+                ('code', '=', criterion_code),
+            ]).result
+        else:
+            result = False
+        return result
+
+    def _set_result(self, lab_test_type_id_code, criterion_code, result):
+        active_id = self.env['clv.lab_test.result'].browse(self._context.get('active_id'))
+        if active_id.lab_test_type_id.code == lab_test_type_id_code:
+            criterion_reg = active_id.criterion_ids.search([
+                ('lab_test_result_id', '=', active_id.id),
+                ('code', '=', criterion_code),
+            ])
+            criterion_reg.result = result
+
+    def _default_result_id(self):
+        return self._context.get('active_id')
+    result_id = fields.Many2one(
+        comodel_name='clv.lab_test.result',
+        string='Result',
+        readonly=True,
+        default=_default_result_id
+    )
+
+    def _default_lab_test_type_id(self):
+        return self.env['clv.lab_test.result'].browse(self._context.get('active_id')).lab_test_type_id
+    lab_test_type_id = fields.Many2one(
+        comodel_name='clv.lab_test.type',
+        string='Lab Test Type',
+        readonly=True,
+        default=_default_lab_test_type_id
+    )
+
+    def _default_lab_test_request_id(self):
+        return self.env['clv.lab_test.result'].browse(self._context.get('active_id')).lab_test_request_id
+    lab_test_request_id = fields.Many2one(
+        comodel_name='clv.lab_test.request',
+        string='Lab Test Request',
+        readonly=True,
+        default=_default_lab_test_request_id
+    )
 
     #
     # ECP20
     #
-
-    def _default_is_ECP20(self):
-        active_id = self.env['clv.lab_test.result'].browse(self._context.get('active_id'))
-        if active_id.lab_test_type_id.code == 'ECP20':
-            is_ECP20 = True
-        else:
-            is_ECP20 = False
-        return is_ECP20
-    is_ECP20 = fields.Boolean('Is ECP20', readonly=True, default=_default_is_ECP20)
-
-    # Exame Coproparasitológico (1)
 
     def _default_ECP20_metodo_utilizado_1(self):
         return self._get_default('ECP20', 'ECP20-01-01')
@@ -80,7 +117,7 @@ class LabTestResultEdit(models.TransientModel):
     def _default_ECP20_parasitas_1(self):
         return self._get_default('ECP20', 'ECP20-01-04')
     ECP20_parasitas_1 = fields.Char(
-        'Parasitas (1)', readonly=False, default=_default_ECP20_parasitas_1
+        'Parasitas (1):', readonly=False, default=_default_ECP20_parasitas_1
     )
 
     def _write_ECP20_parasitas_1(self):
@@ -100,7 +137,7 @@ class LabTestResultEdit(models.TransientModel):
         return parasite_ids
     ECP20_lab_test_parasite_1_ids = fields.Many2many(
         comodel_name='clv.lab_test.parasite',
-        relation='clv_lab_test_parasite_1_lab_test_result_edit_rel',
+        relation='clv_lab_test_parasite_1_lab_test_result_edit_ecp20_rel',
         string='Lab Test Parasites (1)',
         default=_default_ECP20_lab_test_parasite_1_ids
     )
@@ -187,7 +224,7 @@ class LabTestResultEdit(models.TransientModel):
     def _default_ECP20_parasitas_2(self):
         return self._get_default('ECP20', 'ECP20-02-04')
     ECP20_parasitas_2 = fields.Char(
-        'Parasitas (2)', readonly=False, default=_default_ECP20_parasitas_2
+        'Parasitas (2):', readonly=False, default=_default_ECP20_parasitas_2
     )
 
     def _write_ECP20_parasitas_2(self):
@@ -207,7 +244,7 @@ class LabTestResultEdit(models.TransientModel):
         return parasite_ids
     ECP20_lab_test_parasite_2_ids = fields.Many2many(
         comodel_name='clv.lab_test.parasite',
-        relation='clv_lab_test_parasite_2_lab_test_result_edit_rel',
+        relation='clv_lab_test_parasite_2_lab_test_result_edit_ecp20_rel',
         string='Lab Test Parasites (2)',
         default=_default_ECP20_lab_test_parasite_2_ids
     )
@@ -294,7 +331,7 @@ class LabTestResultEdit(models.TransientModel):
     def _default_ECP20_parasitas_3(self):
         return self._get_default('ECP20', 'ECP20-03-04')
     ECP20_parasitas_3 = fields.Char(
-        'Parasitas (3)', readonly=False, default=_default_ECP20_parasitas_3
+        'Parasitas (3):', readonly=False, default=_default_ECP20_parasitas_3
     )
 
     def _write_ECP20_parasitas_3(self):
@@ -314,7 +351,7 @@ class LabTestResultEdit(models.TransientModel):
         return parasite_ids
     ECP20_lab_test_parasite_3_ids = fields.Many2many(
         comodel_name='clv.lab_test.parasite',
-        relation='clv_lab_test_parasite_3_lab_test_result_edit_rel',
+        relation='clv_lab_test_parasite_3_lab_test_result_edit_ecp20_rel',
         string='Lab Test Parasites (3)',
         default=_default_ECP20_lab_test_parasite_3_ids
     )
@@ -357,7 +394,7 @@ class LabTestResultEdit(models.TransientModel):
     #     ('Willis', 'Willis'),
     # ], 'Metodologia Empregada (4)', readonly=False, default=_default_ECP20_metodo_utilizado_4)
     ECP20_metodo_utilizado_4 = fields.Char(
-        string='Metodologia(s) Empregada(s)',
+        string='Metodologia Empregada (4)',
         default=_default_ECP20_metodo_utilizado_4,
     )
 
@@ -405,7 +442,7 @@ class LabTestResultEdit(models.TransientModel):
     def _default_ECP20_parasitas_4(self):
         return self._get_default('ECP20', 'ECP20-04-04')
     ECP20_parasitas_4 = fields.Char(
-        'Parasitas (4)', readonly=False, default=_default_ECP20_parasitas_4
+        'Parasitas (4):', readonly=False, default=_default_ECP20_parasitas_4
     )
 
     def _write_ECP20_parasitas_4(self):
@@ -425,7 +462,7 @@ class LabTestResultEdit(models.TransientModel):
         return parasite_ids
     ECP20_lab_test_parasite_4_ids = fields.Many2many(
         comodel_name='clv.lab_test.parasite',
-        relation='clv_lab_test_parasite_4_lab_test_result_edit_rel',
+        relation='clv_lab_test_parasite_4_lab_test_result_edit_ecp20_rel',
         string='Lab Test Parasites (4)',
         default=_default_ECP20_lab_test_parasite_4_ids
     )
@@ -479,13 +516,6 @@ class LabTestResultEdit(models.TransientModel):
 
     def _default_ECP20_metodos_utilizados(self):
         return self._get_default('ECP20', 'ECP20-05-03')
-    # ECP20_metodos_utilizados = fields.Selection([
-    #     ('Ritchie', 'Ritchie'),
-    #     ('Hoffmann', 'Hoffmann'),
-    #     ('Willis', 'Willis'),
-    #     ('Ritchie, Hoffmann', 'Ritchie, Hoffmann'),
-    #     ('Ritchie, Hoffmann, Willis', 'Ritchie, Hoffmann, Willis'),
-    # ], 'Metodologia(s) Empregada(s)', readonly=False, default=_default_ECP20_metodos_utilizados)
     ECP20_metodos_utilizados = fields.Char(
         string='Metodologia(s) Empregada(s)',
         default=_default_ECP20_metodos_utilizados,
@@ -514,7 +544,7 @@ class LabTestResultEdit(models.TransientModel):
     def _default_ECP20_parasitas(self):
         return self._get_default('ECP20', 'ECP20-05-05')
     ECP20_parasitas = fields.Char(
-        'Parasitas', readonly=False, default=_default_ECP20_parasitas
+        'Parasitas:', readonly=False, default=_default_ECP20_parasitas
     )
 
     def _write_ECP20_parasitas(self):
@@ -534,7 +564,7 @@ class LabTestResultEdit(models.TransientModel):
         return parasite_ids
     ECP20_lab_test_parasite_ids = fields.Many2many(
         comodel_name='clv.lab_test.parasite',
-        relation='clv_lab_test_parasite_lab_test_result_edit_rel_2',
+        relation='clv_lab_test_parasite_lab_test_result_edit_ecp20_rel_2',
         string='Lab Test Parasites',
         default=_default_ECP20_lab_test_parasite_ids,
         compute='_compute_ECP20_lab_test_parasite_ids',
@@ -630,7 +660,7 @@ class LabTestResultEdit(models.TransientModel):
                     parasite_ids.append((4, parasite.id))
             r.ECP20_lab_test_parasite_ids = parasite_ids
 
-    def _do_result_updt_ECP20(self):
+    def do_result_updt_ECP20(self):
 
         self._write_ECP20_metodo_utilizado_1()
         self._write_ECP20_resultado_1()
@@ -658,5 +688,28 @@ class LabTestResultEdit(models.TransientModel):
         self._write_ECP20_resultado()
         self._write_ECP20_parasitas()
         self._write_ECP20_obs()
+
+        return True
+
+    @api.multi
+    def _reopen_form(self):
+        self.ensure_one()
+        action = {
+            'type': 'ir.actions.act_window',
+            'res_model': self._name,
+            'res_id': self.id,
+            'view_type': 'form',
+            'view_mode': 'form',
+            'target': 'new',
+        }
+        return action
+
+    @api.multi
+    def do_result_updt(self):
+        self.ensure_one()
+
+        result = self.env['clv.lab_test.result'].browse(self._context.get('active_id'))
+
+        _logger.info(u'%s %s', '>>>>>', result.code)
 
         return True
