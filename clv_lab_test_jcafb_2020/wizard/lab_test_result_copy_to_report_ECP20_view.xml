@@ -4,32 +4,58 @@
 
 <odoo>
 
-    <record id="clv_lab_test_result_copy_to_report_view_form_jcafb_ECP20" model="ir.ui.view">
-        <field name="name">clv.lab_test.result.copy_to_report.form</field>
-        <field name="model">clv.lab_test.result.copy_to_report</field>
-        <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_copy_to_report_view_form"/>
-        <field name="priority" eval="8" />
+    <record id="clv_lab_test_result_copy_to_report_ecp20_view_form" model="ir.ui.view">
+        <field name="name">clv.lab_test.result.copy_to_report_ecp20.form</field>
+        <field name="model">clv.lab_test.result.copy_to_report_ecp20</field>
         <field name="arch" type="xml">
-            <group  name="group_top" position="after">
-                <group attrs="{'invisible':[('is_ECP20', '=', False)]}">
-                    <field name="is_ECP20" invisible="True"/>
-                  <group string="Exame Coproparasitológico">
-                        <field name="ECP20_metodos_utilizados"/>
-                        <field name="ECP20_resultado"/>
-                        <field name="ECP20_obs"/>
+            <form>
+                <sheet>
+                    <div class="oe_right">
+                    </div>
+                    <group  name="group_top">
+                        <field name="result_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
+                        <field name="lab_test_type_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
+                        <field name="lab_test_request_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
                     </group>
-                    <group string="-">
-                        <field name="ECP20_lab_test_parasite_names"/>
-                        <field name="ECP20_parasitas" invisible='True'/>
-                        <field name="ECP20_lab_test_parasite_ids">
-                            <tree>
-                                <field name="name"/>
-                            </tree>
-                        </field>
+                    <group name="bottom">
+                      <group string="Exame Coproparasitológico">
+                            <field name="ECP20_metodos_utilizados"/>
+                            <field name="ECP20_resultado"/>
+                            <field name="ECP20_obs"/>
+                        </group>
+                        <group string="-">
+                            <field name="ECP20_lab_test_parasite_names"/>
+                            <field name="ECP20_parasitas" invisible='True'/>
+                            <field name="ECP20_lab_test_parasite_ids">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </group>
                     </group>
-                </group>
-            </group>
+                </sheet>
+                <footer>
+                    <button 
+                        type="object"
+                        name="do_result_copy_to_report_ECP20"
+                        string="Result Copy to Report"
+                        class="oe_highlight"
+                        />
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+
         </field>
     </record>
+
+    <!-- More button Action -->
+    <act_window 
+        id="clv_lab_test_result_copy_to_report_ecp20_action"
+        name="Result Copy to Report"
+        src_model="clv.lab_test.result"
+        res_model="clv.lab_test.result.copy_to_report_ecp20"
+        view_mode="form"
+        target="new"
+    />
 
 </odoo>
