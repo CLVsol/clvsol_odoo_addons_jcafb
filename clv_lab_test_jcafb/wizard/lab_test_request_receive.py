@@ -213,9 +213,9 @@ class LabTestRequestReceive(models.TransientModel):
                     }
                     lab_test_report = LabTestReport.create(values)
 
-                    lab_test_report.lab_test_report_export_xls(self.dir_path_report, self.file_name_report,
-                                                               self.use_template_report,
-                                                               self.templates_dir_path_report)
+                    # lab_test_report.lab_test_report_export_xls(self.dir_path_report, self.file_name_report,
+                    #                                            self.use_template_report,
+                    #                                            self.templates_dir_path_report)
 
                     _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', lab_test_report.code)
 
