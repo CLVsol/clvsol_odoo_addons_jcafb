@@ -3,5 +3,6 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from . import lab_test_request_receive
+from . import lab_test_result_approve
 from . import lab_test_report_approve
 from . import lab_test_report_export_xls

@@ -20,6 +20,7 @@
         'views/lab_test_request_view.xml',
         'views/lab_test_request_code_view.xml',
         'views/lab_test_request_state_view.xml',
+        'wizard/lab_test_result_approve_view.xml',
         'wizard/lab_test_report_approve_view.xml',
         'views/lab_test_result_view.xml',
         'views/lab_test_result_code_view.xml',

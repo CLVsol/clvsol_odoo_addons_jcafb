@@ -21,10 +21,10 @@
                 <button
                     type="action"
                     name="%(clv_lab_test_report_approve_action)d"
-                    string="Lab Test Result Approve"
+                    string="Lab Test Report Approve"
                     class="oe_stat_button"
                     icon="fa-check-square-o"
-                    help="Lab Test Result Approve"
+                    help="Lab Test Report Approve"
                     groups="clv_lab_test.group_approver"
                 />
                 <field name="approved"/>
