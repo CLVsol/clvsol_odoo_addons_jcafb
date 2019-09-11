@@ -10,11 +10,11 @@
         <field name="inherit_id" ref="clv_lab_test.clv_lab_test_report_view_form"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-            <group name="group_top" position="after">
+            <group name="group_middle" position="after">
                 <button
                     type="action"
                     name="%(clv_lab_test_report_edit_ecp20_action)d"
-                    string="Lab Test Report Edit (ECP20)"
+                    string="Lab Test Report Edit"
                     class="oe_stat_button"
                     icon="fa-edit"
                     help="Lab Test Report Edit"
