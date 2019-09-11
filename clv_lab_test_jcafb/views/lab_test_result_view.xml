@@ -17,7 +17,7 @@
                 <field name="person_employee_id" placeholder="Responsible Empĺoyee..." options="{'no_open': False, 'no_create': True}"/>
                 <field name="survey_id" options="{'no_open': False, 'no_create': True}"/>
             </field-->
-            <group name="group_right" position="inside">
+            <group name="group_middle_left" position="inside">
                 <button
                     type="action"
                     name="%(clv_lab_test_result_approve_action)d"
