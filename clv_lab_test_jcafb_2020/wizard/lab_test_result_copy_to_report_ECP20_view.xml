@@ -52,7 +52,6 @@
     <act_window 
         id="clv_lab_test_result_copy_to_report_ecp20_action"
         name="Result Copy to Report"
-        src_model="clv.lab_test.result"
         res_model="clv.lab_test.result.copy_to_report_ecp20"
         view_mode="form"
         target="new"

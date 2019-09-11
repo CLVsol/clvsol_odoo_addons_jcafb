@@ -10,27 +10,26 @@
         <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_view_form"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-            <group name="group_top" position="after">
+            <group name="group_middle" position="after">
                 <button
                     type="action"
                     name="%(clv_lab_test_result_edit_ecp20_action)d"
-                    string="Lab Test Result Edit (ECP20)"
+                    string="Lab Test Result Edit"
                     class="oe_stat_button"
                     icon="fa-edit"
                     help="Lab Test Result Edit"
-                    attrs="{'invisible': [('lab_test_type_code', '!=', 'ECP20')]}"
+                    attrs="{'invisible': ['|', ('lab_test_type_code', '!=', 'ECP20'), ('approved', '!=', False)]}"
                 />
-                <separator/>
                 <button
                     type="action"
                     name="%(clv_lab_test_result_copy_to_report_ecp20_action)d"
-                    string="Lab Test Result Copy to Report (ECP20)"
+                    string="Lab Test Result Copy to Report"
                     class="oe_stat_button"
-                    icon="fa-edit"
+                    icon="fa-clone"
                     help="Lab Test Result Copy to Report"
-                    attrs="{'invisible': [('lab_test_type_code', '!=', 'ECP20')]}"
+                    attrs="{'invisible': ['|', ('lab_test_type_code', '!=', 'ECP20'), ('approved', '=', False)]}"
+                    groups="clv_lab_test.group_approver"
                 />
-                <separator/>
             </group>
         </field>
     </record>
