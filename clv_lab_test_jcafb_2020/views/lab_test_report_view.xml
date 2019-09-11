@@ -20,7 +20,6 @@
                     help="Lab Test Report Edit"
                     attrs="{'invisible': [('lab_test_type_code', '!=', 'ECP20')]}"
                 />
-                <separator/>
             </group>
         </field>
     </record>
