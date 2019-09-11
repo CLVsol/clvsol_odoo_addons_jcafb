@@ -23,6 +23,17 @@
                 <field name="professional_id" invisible="True"/>
                 <field name="date_approved"/>
             </group>
+            <group name="group_top" position="after">
+                <button
+                    type="action"
+                    name="%(clv_lab_test_report_export_xls_action)d"
+                    string="Lab Test Report Export XLS"
+                    class="oe_stat_button"
+                    icon="fa-file-excel-o"
+                    help="Lab Test Report Export XLS"
+                />
+                <separator/>
+            </group>
         </field>
     </record>
    
