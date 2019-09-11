@@ -17,7 +17,7 @@
                 <field name="person_employee_id" placeholder="Responsible Empĺoyee..." options="{'no_open': False, 'no_create': True}"/>
                 <field name="survey_id" options="{'no_open': False, 'no_create': True}"/>
             </field-->
-            <group name="group_right" position="inside">
+            <group name="group_middle_left" position="inside">
                 <button
                     type="action"
                     name="%(clv_lab_test_report_approve_action)d"
@@ -31,17 +31,6 @@
                 <field name="employee_id" placeholder="Approved by..." options="{'no_open': False, 'no_create': True}"/>
                 <field name="professional_id" invisible="True"/>
                 <field name="date_approved"/>
-            </group>
-            <group name="group_top" position="after">
-                <button
-                    type="action"
-                    name="%(clv_lab_test_report_export_xls_action)d"
-                    string="Lab Test Report Export XLS"
-                    class="oe_stat_button"
-                    icon="fa-file-excel-o"
-                    help="Lab Test Report Export XLS"
-                />
-                <separator/>
             </group>
         </field>
     </record>
