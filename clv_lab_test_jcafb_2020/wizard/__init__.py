@@ -11,10 +11,9 @@ from . import lab_test_result_edit_EUR20
 # from . import lab_test_report_edit_EDH20
 from . import lab_test_report_edit_ECP20
 from . import lab_test_report_edit_EEV20
-# from . import lab_test_report_edit_EUR20
+from . import lab_test_report_edit_EUR20
 # from . import lab_test_off_report_edit_EAN20
 # from . import lab_test_off_report_edit_EDH20
-# from . import lab_test_off_report_edit
 from . import lab_test_result_copy_to_report_ECP20
 from . import lab_test_result_copy_to_report_EEV20
 from . import lab_test_result_copy_to_report_EUR20

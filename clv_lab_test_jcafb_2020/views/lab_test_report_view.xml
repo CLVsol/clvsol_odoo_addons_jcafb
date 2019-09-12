@@ -29,6 +29,15 @@
                     help="Lab Test Report Edit"
                     attrs="{'invisible': [('lab_test_type_code', '!=', 'EEV20')]}"
                 />
+                <button
+                    type="action"
+                    name="%(clv_lab_test_report_edit_eur20_action)d"
+                    string="Lab Test Report Edit"
+                    class="oe_stat_button"
+                    icon="fa-edit"
+                    help="Lab Test Report Edit"
+                    attrs="{'invisible': [('lab_test_type_code', '!=', 'EUR20')]}"
+                />
             </group>
         </field>
     </record>

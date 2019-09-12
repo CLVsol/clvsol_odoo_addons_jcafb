@@ -55,8 +55,7 @@ class LabTestReport(models.Model):
 
         ExportXLS.setOutCell(sheet, 4, row_nr, u'Data do Exame:')
         if self.date_approved is not False:
-            date = datetime.strptime(self.date_approved, '%Y-%m-%d')
-            date = datetime.strftime(date, '%d-%m-%Y')
+            date = datetime.strftime(self.date_approved, '%d-%m-%Y')
             ExportXLS.setOutCell(sheet, 12, row_nr, date)
         else:
             ExportXLS.setOutCell(sheet, 12, row_nr, None)
