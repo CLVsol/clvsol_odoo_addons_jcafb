@@ -395,7 +395,7 @@ class LabTestResultEditEUR20(models.TransientModel):
     def _default_EUR20_cristais(self):
         return self._get_default('EUR20', 'EUR20-04-03')
     EUR20_cristais = fields.Char(
-        'Cristais', readonly=False, default=_default_EUR20_cristais
+        'Cristais:', readonly=False, default=_default_EUR20_cristais
     )
 
     def _write_EUR20_cristais(self):

@@ -58,6 +58,16 @@
                     help="Lab Test Result Edit"
                     attrs="{'invisible': ['|', ('lab_test_type_code', '!=', 'EUR20'), ('approved', '!=', False)]}"
                 />
+                <button
+                    type="action"
+                    name="%(clv_lab_test_result_copy_to_report_eur20_action)d"
+                    string="Lab Test Result Copy to Report"
+                    class="oe_stat_button"
+                    icon="fa-clone"
+                    help="Lab Test Result Copy to Report"
+                    attrs="{'invisible': ['|', ('lab_test_type_code', '!=', 'EUR20'), ('approved', '=', False)]}"
+                    groups="clv_lab_test.group_approver"
+                />
             </group>
         </field>
     </record>
