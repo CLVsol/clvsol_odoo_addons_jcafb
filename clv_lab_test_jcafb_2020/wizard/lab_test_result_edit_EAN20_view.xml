@@ -4,34 +4,58 @@
 
 <odoo>
 
-    <record id="clv_lab_test_result_edit_view_form_jcafb_EAN20" model="ir.ui.view">
-        <field name="name">clv.lab_test.result.edit.form</field>
-        <field name="model">clv.lab_test.result.edit</field>
-        <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_edit_view_form"/>
-        <field name="priority" eval="8" />
+    <record id="clv_lab_test_result_edit_ean20_view_form" model="ir.ui.view">
+        <field name="name">clv.lab_test.result.edit_ean20.form</field>
+        <field name="model">clv.lab_test.result.edit_ean20</field>
         <field name="arch" type="xml">
-            <group  name="group_top" position="after">
-                <group attrs="{'invisible':[('is_EAN20', '=', False)]}">
-                    <field name="is_EAN20" invisible="True"/>
-                    <group string='Peso'>
-                        <field name="EAN20_peso"/>
-                        <field name="EAN20_peso_resp"/>
+            <form>
+                <sheet>
+                    <div class="oe_right">
+                    </div>
+                    <group  name="group_top">
+                        <field name="result_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
+                        <field name="lab_test_type_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
+                        <field name="lab_test_request_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
                     </group>
-                    <group string='Altura'>
-                        <field name="EAN20_altura"/>
-                        <field name="EAN20_altura_resp"/>
+                    <group name="group_bottom">
+                        <group string='Peso'>
+                            <field name="EAN20_peso"/>
+                            <field name="EAN20_peso_resp"/>
+                        </group>
+                        <group string='Altura'>
+                            <field name="EAN20_altura"/>
+                            <field name="EAN20_altura_resp"/>
+                        </group>
+                        <group string='Hemoglobina'>
+                            <field name="EAN20_hemoglobina_coleta_horario"/>
+                            <field name="EAN20_hemoglobina_coleta_resp"/>
+                            <field name="EAN20_hemoglobina_valor"/>
+                            <field name="EAN20_hemoglobina_valor_resp"/>
+                            <field name="EAN20_hemoglobina_interpretacao"/>
+                        </group>
+                        <field name="EAN20_obs"/>
                     </group>
-                    <group string='Hemoglobina'>
-                        <field name="EAN20_hemoglobina_coleta_horario"/>
-                        <field name="EAN20_hemoglobina_coleta_resp"/>
-                        <field name="EAN20_hemoglobina_valor"/>
-                        <field name="EAN20_hemoglobina_valor_resp"/>
-                        <field name="EAN20_hemoglobina_interpretacao"/>
-                    </group>
-                    <field name="EAN20_obs"/>
-                </group>
-            </group>
+                </sheet>
+                <footer>
+                    <button 
+                        type="object"
+                        name="do_result_updt_EAN20"
+                        string="Result Update"
+                        class="oe_highlight"
+                        />
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+
         </field>
     </record>
+
+    <act_window 
+        id="clv_lab_test_result_edit_ean20_action"
+        name="Lab Test Result Edit (EAN20)"
+        res_model="clv.lab_test.result.edit_ean20"
+        view_mode="form"
+        target="new"
+    />
 
 </odoo>
