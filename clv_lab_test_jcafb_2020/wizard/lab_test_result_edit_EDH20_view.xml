@@ -4,55 +4,84 @@
 
 <odoo>
 
-    <record id="clv_lab_test_result_edit_view_form_jcafb_EDH20" model="ir.ui.view">
-        <field name="name">clv.lab_test.result.edit.form</field>
-        <field name="model">clv.lab_test.result.edit</field>
-        <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_edit_view_form"/>
-        <field name="priority" eval="8" />
+    <record id="clv_lab_test_result_edit_edh20_view_form" model="ir.ui.view">
+        <field name="name">clv.lab_test.result.edit_edh20.form</field>
+        <field name="model">clv.lab_test.result.edit_edh20</field>
         <field name="arch" type="xml">
-            <group  name="group_top" position="after">
-                <group attrs="{'invisible':[('is_EDH20', '=', False)]}">
-                    <field name="is_EDH20" invisible="True"/>
-                    <group string='Medidas Antropométricas'>
-                        <field name="EDH20_peso"/>
-                        <field name="EDH20_peso_resp"/>
-                        <field name="EDH20_altura"/>
-                        <field name="EDH20_altura_resp"/>
-                        <field name="EDH20_imc"/>
-                        <field name="EDH20_imc_resp"/>
-                        <field name="EDH20_interpretacao_imc"/>
-                        <field name="EDH20_interpretacao_imc_obs"/>
-                        <field name="EDH20_circ_abdominal"/>
-                        <field name="EDH20_circ_abdominal_resp"/>
-                        <field name="EDH20_interpretacao_circ_abdominal"/>
-                        <field name="EDH20_interpretacao_circ_abdominal_obs"/>
+            <form>
+                <sheet>
+                    <div class="oe_right">
+                    </div>
+                    <group  name="group_top">
+                        <field name="result_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
+                        <field name="lab_test_type_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
+                        <field name="lab_test_request_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
                     </group>
-                    <group string='Medidas da Pressão Arterial'>
-                        <field name="EDH20_pa_automatica"/>
-                        <field name="EDH20_pa_automatica_resp"/>
-                        <field name="EDH20_pa_manual"/>
-                        <field name="EDH20_pa_manual_resp"/>
-                        <field name="EDH20_pa"/>
-                        <field name="EDH20_PAS"/>
-                        <field name="EDH20_PAD"/>
-                        <field name="EDH20_interpretacao_pa"/>
-                        <field name="EDH20_interpretacao_pa_obs"/>
-                    </group>
-                    <group string='Glicemia e Colesterolemia'>
-                        <field name="EDH20_tempo_jejum"/>
-                        <field name="EDH20_glicemia"/>
-                        <field name="EDH20_glicemia_resp"/>
-                        <field name="EDH20_interpretacao_glicemia"/>
-                        <field name="EDH20_interpretacao_glicemia_obs"/>
-                        <field name="EDH20_colesterol"/>
-                        <field name="EDH20_colesterol_resp"/>
-                        <field name="EDH20_interpretacao_colesterol"/>
-                        <field name="EDH20_interpretacao_colesterol_obs"/>
+                    <group name="group_bottom">
+                        <group string='Medidas Antropométricas'>
+                            <field name="EDH20_peso"/>
+                            <field name="EDH20_peso_resp"/>
+                            <separator/>
+                            <field name="EDH20_altura"/>
+                            <field name="EDH20_altura_resp"/>
+                            <separator/>
+                            <field name="EDH20_imc"/>
+                            <field name="EDH20_imc_resp"/>
+                            <field name="EDH20_interpretacao_imc"/>
+                            <field name="EDH20_interpretacao_imc_obs"/>
+                            <separator/>
+                            <field name="EDH20_circ_abdominal"/>
+                            <field name="EDH20_circ_abdominal_resp"/>
+                            <field name="EDH20_interpretacao_circ_abdominal"/>
+                            <field name="EDH20_interpretacao_circ_abdominal_obs"/>
+                        </group>
+                        <group string='Medidas da Pressão Arterial'>
+                            <field name="EDH20_pa_automatica"/>
+                            <field name="EDH20_pa_automatica_resp"/>
+                            <field name="EDH20_pa_manual"/>
+                            <field name="EDH20_pa_manual_resp"/>
+                            <field name="EDH20_pa"/>
+                            <field name="EDH20_PAS"/>
+                            <field name="EDH20_PAD"/>
+                            <field name="EDH20_interpretacao_pa"/>
+                            <field name="EDH20_interpretacao_pa_obs"/>
+                        </group>
+                        <group string='Glicemia e Colesterolemia'>
+                            <field name="EDH20_tempo_jejum"/>
+                            <field name="EDH20_glicemia"/>
+                            <field name="EDH20_glicemia_resp"/>
+                            <field name="EDH20_interpretacao_glicemia"/>
+                            <field name="EDH20_interpretacao_glicemia_obs"/>
+                            <separator/>
+                            <field name="EDH20_colesterol"/>
+                            <field name="EDH20_colesterol_resp"/>
+                            <field name="EDH20_interpretacao_colesterol"/>
+                            <field name="EDH20_interpretacao_colesterol_obs"/>
+                        </group>
+                        <label for="EDH20_obs"/>
                         <field name="EDH20_obs"/>
                     </group>
-                </group>
-            </group>
+                </sheet>
+                <footer>
+                    <button 
+                        type="object"
+                        name="do_result_updt_EDH20"
+                        string="Result Update"
+                        class="oe_highlight"
+                        />
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+
         </field>
     </record>
+
+    <act_window 
+        id="clv_lab_test_result_edit_edh20_action"
+        name="Lab Test Result Edit (EDH20)"
+        res_model="clv.lab_test.result.edit_edh20"
+        view_mode="form"
+        target="new"
+    />
 
 </odoo>

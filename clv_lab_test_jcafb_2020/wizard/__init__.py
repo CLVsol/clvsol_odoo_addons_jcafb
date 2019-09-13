@@ -3,7 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from . import lab_test_result_edit_EAN20
-# from . import lab_test_result_edit_EDH20
+from . import lab_test_result_edit_EDH20
 from . import lab_test_result_edit_ECP20
 from . import lab_test_result_edit_EEV20
 from . import lab_test_result_edit_EUR20
