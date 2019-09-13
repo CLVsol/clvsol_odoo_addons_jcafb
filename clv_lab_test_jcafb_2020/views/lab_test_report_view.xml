@@ -18,7 +18,7 @@
                     class="oe_stat_button"
                     icon="fa-edit"
                     help="Lab Test Report Edit"
-                    attrs="{'invisible': [('lab_test_type_code', '!=', 'EAN20')]}"
+                    attrs="{'invisible': ['|', ('lab_test_type_code', '!=', 'EAN20'), ('approved', '!=', False)]}"
                 />
                 <button
                     type="action"
@@ -27,7 +27,16 @@
                     class="oe_stat_button"
                     icon="fa-edit"
                     help="Lab Test Report Edit"
-                    attrs="{'invisible': [('lab_test_type_code', '!=', 'ECP20')]}"
+                    attrs="{'invisible': ['|', ('lab_test_type_code', '!=', 'ECP20'), ('approved', '!=', False)]}"
+                />
+                <button
+                    type="action"
+                    name="%(clv_lab_test_report_edit_edh20_action)d"
+                    string="Lab Test Report Edit"
+                    class="oe_stat_button"
+                    icon="fa-edit"
+                    help="Lab Test Report Edit"
+                    attrs="{'invisible': ['|', ('lab_test_type_code', '!=', 'EDH20'), ('approved', '!=', False)]}"
                 />
                 <button
                     type="action"
@@ -36,7 +45,7 @@
                     class="oe_stat_button"
                     icon="fa-edit"
                     help="Lab Test Report Edit"
-                    attrs="{'invisible': [('lab_test_type_code', '!=', 'EEV20')]}"
+                    attrs="{'invisible': ['|', ('lab_test_type_code', '!=', 'EEV20'), ('approved', '!=', False)]}"
                 />
                 <button
                     type="action"
@@ -45,7 +54,7 @@
                     class="oe_stat_button"
                     icon="fa-edit"
                     help="Lab Test Report Edit"
-                    attrs="{'invisible': [('lab_test_type_code', '!=', 'EUR20')]}"
+                    attrs="{'invisible': ['|', ('lab_test_type_code', '!=', 'EUR20'), ('approved', '!=', False)]}"
                 />
             </group>
         </field>
