@@ -26,6 +26,7 @@
         'wizard/lab_test_report_edit_EUR20_view.xml',
         'wizard/lab_test_result_copy_to_report_EAN20_view.xml',
         'wizard/lab_test_result_copy_to_report_ECP20_view.xml',
+        'wizard/lab_test_result_copy_to_report_EDH20_view.xml',
         'wizard/lab_test_result_copy_to_report_EEV20_view.xml',
         'wizard/lab_test_result_copy_to_report_EUR20_view.xml',
         'views/lab_test_result_view.xml',
