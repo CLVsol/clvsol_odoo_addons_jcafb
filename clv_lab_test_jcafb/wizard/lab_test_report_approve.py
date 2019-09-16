@@ -72,14 +72,18 @@ class LabTestReportApprove(models.TransientModel):
 
             _logger.info(u'%s %s %s', '>>>>>', self.employee_id.name, self.date_approved)
 
-            lab_test_report.approved = self.approved
-            lab_test_report.employee_id = self.employee_id
-            lab_test_report.date_approved = self.date_approved
-            # lab_test_report.state = 'approved'
+            if self.approved:
 
-            # lab_test_report.lab_test_report_id.approved = self.approved
-            # lab_test_report.lab_test_report_id.employee_id = self.employee_id
-            # lab_test_report.lab_test_report_id.date_approved = self.date_approved
-            # # lab_test_report.lab_test_report_id.state = 'approved'
+                lab_test_report.approved = self.approved
+                lab_test_report.employee_id = self.employee_id
+                lab_test_report.date_approved = self.date_approved
+                lab_test_report.state = 'approved'
+
+            else:
+
+                lab_test_report.approved = False
+                lab_test_report.employee_id = False
+                lab_test_report.date_approved = False
+                lab_test_report.state = 'available'
 
         return True
