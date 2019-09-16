@@ -64,15 +64,6 @@ class LabTestReportEditEUR20(models.TransientModel):
     # EUR20
     #
 
-    def _default_is_EUR20(self):
-        active_id = self.env['clv.lab_test.report'].browse(self._context.get('active_id'))
-        if active_id.lab_test_type_id.code == 'EUR20':
-            is_EUR20 = True
-        else:
-            is_EUR20 = False
-        return is_EUR20
-    is_EUR20 = fields.Boolean('Is EUR20', readonly=True, default=_default_is_EUR20)
-
     def _default_EUR20_volume(self):
         return self._get_default('EUR20', 'EUR20-02-01')
     EUR20_volume = fields.Char(

@@ -64,15 +64,6 @@ class LabTestReportEditEEV20(models.TransientModel):
     # EEV20
     #
 
-    def _default_is_EEV20(self):
-        active_id = self.env['clv.lab_test.report'].browse(self._context.get('active_id'))
-        if active_id.lab_test_type_id.code == 'EEV20':
-            is_EEV20 = True
-        else:
-            is_EEV20 = False
-        return is_EEV20
-    is_EEV20 = fields.Boolean('Is EEV20', readonly=True, default=_default_is_EEV20)
-
     def _default_EEV20_resultado(self):
         return self._get_default('EEV20', 'EEV20-01-03')
     EEV20_resultado = fields.Selection([

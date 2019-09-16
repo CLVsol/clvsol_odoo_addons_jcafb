@@ -64,15 +64,6 @@ class LabTestReportEditEAN20(models.TransientModel):
     # EAN20
     #
 
-    def _default_is_EAN20(self):
-        active_id = self.env['clv.lab_test.report'].browse(self._context.get('active_id'))
-        if active_id.lab_test_type_id.code == 'EAN20':
-            is_EAN20 = True
-        else:
-            is_EAN20 = False
-        return is_EAN20
-    is_EAN20 = fields.Boolean('Is EAN20', readonly=True, default=_default_is_EAN20)
-
     def _default_EAN20_peso(self):
         return self._get_default('EAN20', 'EAN20-01-01')
     EAN20_peso = fields.Char(

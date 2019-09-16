@@ -57,6 +57,7 @@
                             <field name="EUR20_cilindros_cereos"/>
                             <field name="EUR20_outros_tipos_de_cilindros"/>
                         </group>
+                        <label for="EUR20_obs"/>
                         <field name="EUR20_obs"/>
                     </group>
                 </sheet>

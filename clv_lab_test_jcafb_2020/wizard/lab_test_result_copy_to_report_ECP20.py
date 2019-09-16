@@ -73,15 +73,6 @@ class LabTestResultCopyToReportECP20(models.TransientModel):
     # ECP20
     #
 
-    def _default_is_ECP20(self):
-        active_id = self.env['clv.lab_test.result'].browse(self._context.get('active_id'))
-        if active_id.lab_test_type_id.code == 'ECP20':
-            is_ECP20 = True
-        else:
-            is_ECP20 = False
-        return is_ECP20
-    is_ECP20 = fields.Boolean('Is ECP20', readonly=True, default=_default_is_ECP20)
-
     def _default_ECP20_metodos_utilizados(self):
         return self._get_default('ECP20', 'ECP20-05-03')
     # ECP20_metodos_utilizados = fields.Selection([
