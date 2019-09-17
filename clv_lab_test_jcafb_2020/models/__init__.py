@@ -2,6 +2,7 @@
 # Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from . import lab_test_result_export_xls_EAN20
 from . import lab_test_result_export_xls_ECP20
 from . import lab_test_result_export_xls_EEV20
 from . import lab_test_result_export_xls_EUR20

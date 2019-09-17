@@ -49,7 +49,8 @@ class LabTestResult(models.Model):
         save_book = False
 
         if lab_test_type == 'EAN20':
-            return True
+            self.lab_test_result_export_xls_EAN20(sheet, row_nr, use_template)
+            save_book = True
 
         if lab_test_type == 'ECP20':
             self.lab_test_result_export_xls_ECP20(sheet, row_nr, use_template)
