@@ -4,6 +4,7 @@
 
 from . import lab_test_result_export_xls_EAN20
 from . import lab_test_result_export_xls_ECP20
+from . import lab_test_result_export_xls_EDH20
 from . import lab_test_result_export_xls_EEV20
 from . import lab_test_result_export_xls_EUR20
 from . import lab_test_result_export_xls

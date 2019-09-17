@@ -57,7 +57,8 @@ class LabTestResult(models.Model):
             save_book = True
 
         if lab_test_type == 'EDH20':
-            return True
+            self.lab_test_result_export_xls_EDH20(sheet, row_nr, use_template)
+            save_book = True
 
         if lab_test_type == 'EEV20':
             self.lab_test_result_export_xls_EEV20(sheet, row_nr, use_template)
