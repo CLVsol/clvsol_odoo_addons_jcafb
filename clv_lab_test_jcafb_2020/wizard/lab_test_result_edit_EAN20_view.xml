@@ -33,6 +33,7 @@
                             <field name="EAN20_hemoglobina_valor_resp"/>
                             <field name="EAN20_hemoglobina_interpretacao"/>
                         </group>
+                        <label for="EAN20_obs"/>
                         <field name="EAN20_obs"/>
                     </group>
                 </sheet>
