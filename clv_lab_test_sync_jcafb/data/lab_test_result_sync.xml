@@ -95,6 +95,30 @@
 		<field name="sequence" eval="10"/>
 	</record>
 	 
+	<record id="clv_lab_test_result_clv_lab_test_result_template_object_field_approved" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;approved&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;approved&quot;&quot;&quot;"/>
+		<field name="synchronization" eval="True"/>
+		<field name="template_id" eval="clv_lab_test_result_clv_lab_test_result_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_lab_test_result_clv_lab_test_result_template_object_field_employee_id" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;employee_id&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;employee_id&quot;&quot;&quot;"/>
+		<field name="synchronization" eval="True"/>
+		<field name="template_id" eval="clv_lab_test_result_clv_lab_test_result_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
+	<record id="clv_lab_test_result_clv_lab_test_result_template_object_field_date_approved" model="clv.external_sync.object_field">
+		<field name="external_object_field" eval="&quot;&quot;&quot;date_approved&quot;&quot;&quot;"/>
+		<field name="local_object_field" eval="&quot;&quot;&quot;date_approved&quot;&quot;&quot;"/>
+		<field name="synchronization" eval="True"/>
+		<field name="template_id" eval="clv_lab_test_result_clv_lab_test_result_template"/>
+		<field name="sequence" eval="10"/>
+	</record>
+	 
 	<record id="clv_lab_test_result_clv_lab_test_result_template_object_field_active" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;active&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;active&quot;&quot;&quot;"/>
