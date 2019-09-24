@@ -16,7 +16,7 @@
     ],
     'data': [
         'data/person_verification.xml',
-        'views/verification_view.xml',
+        'views/verification_outcome_view.xml',
     ],
     'demo': [],
     'test': [],
