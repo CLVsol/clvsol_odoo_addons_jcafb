@@ -15,7 +15,8 @@
         'clv_verification',
     ],
     'data': [
-        'views/verification_view.xml'
+        'data/person_verification.xml',
+        'views/verification_view.xml',
     ],
     'demo': [],
     'test': [],
