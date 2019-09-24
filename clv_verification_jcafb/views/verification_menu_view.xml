@@ -4,11 +4,11 @@
 
 <odoo>
 
-    <menuitem name="Verifications" id="clv_verification.menu_verification_verification_verifications" 
+    <menuitem name="Verification Outcomes" id="clv_verification.menu_verification_verification_verification_outcomes" 
         parent="clv_base.menu_verification_verification"
         groups="clv_verification.group_user"
         sequence="10"
-        action="clv_verification.clv_verification_action"/>
+        action="clv_verification.clv_verification_outcome_action"/>
 
     <menuitem name="Verification" id="clv_verification.menu_verification_verification_verification"
         parent="clv_base.menu_verification_verification"
