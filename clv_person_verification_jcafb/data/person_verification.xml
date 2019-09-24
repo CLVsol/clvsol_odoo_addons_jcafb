@@ -8,7 +8,7 @@
 		<field name="name" eval="&quot;&quot;&quot;clv.person&quot;&quot;&quot;"/>
 		<field name="model" eval="&quot;&quot;&quot;clv.person&quot;&quot;&quot;"/>
 		<field name="method" eval="&quot;&quot;&quot;_object_verification&quot;&quot;&quot;"/>
-		<field name="external_disable_check_missing" eval="False"/>
+		<field name="verification_disable_check_missing" eval="False"/>
 	</record>
 	 
 	<record id="clv_person_clv_person_schedule" model="clv.verification.schedule">
