@@ -8,6 +8,7 @@
 		<field name="name" eval="&quot;&quot;&quot;clv.person&quot;&quot;&quot;"/>
 		<field name="model" eval="&quot;&quot;&quot;clv.person&quot;&quot;&quot;"/>
 		<field name="method" eval="&quot;&quot;&quot;_object_verification&quot;&quot;&quot;"/>
+		<field name="action" eval="&quot;&quot;&quot;_person_verification&quot;&quot;&quot;"/>
 		<field name="verification_disable_check_missing" eval="False"/>
 	</record>
 	 
