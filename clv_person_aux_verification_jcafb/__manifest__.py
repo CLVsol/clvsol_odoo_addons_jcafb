@@ -17,6 +17,7 @@
     'data': [
         'data/person_aux_verification.xml',
         'views/verification_outcome_view.xml',
+        'wizard/person_aux_verification_exec_view.xml',
     ],
     'demo': [],
     'test': [],
