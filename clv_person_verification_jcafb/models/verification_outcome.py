@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import logging
+from datetime import datetime
 
 from odoo import api, fields, models
 
@@ -49,5 +50,6 @@ class VerificationOutcome(models.Model):
 
         _logger.info(u'%s %s', '>>>>>>>>>>>>>>> (model_object):', model_object.name)
 
+        verification_outcome.date_verification = datetime.now()
         verification_outcome.outcome_text = 'Executed "_person_verification"'
-        # verification_outcome.state = 'ok'
+        verification_outcome.state = 'warned'
