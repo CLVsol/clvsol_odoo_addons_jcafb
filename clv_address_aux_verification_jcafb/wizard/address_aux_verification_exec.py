@@ -22,19 +22,19 @@ class AddressAuxVerificationExecute(models.TransientModel):
     address_aux_ids = fields.Many2many(
         comodel_name='clv.address_aux',
         relation='clv_address_aux_verification_outcome_refresh_rel',
-        string='Addresss (Aux)',
+        string='Addresses (Aux)',
         default=_default_address_aux_ids)
-    count_addresss_aux = fields.Integer(
-        string='Number of Addresss (Aux)',
-        compute='_compute_count_addresss_aux',
+    count_addresses_aux = fields.Integer(
+        string='Number of Addresses (Aux)',
+        compute='_compute_count_addresses_aux',
         store=False
     )
 
     @api.multi
     @api.depends('address_aux_ids')
-    def _compute_count_addresss_aux(self):
+    def _compute_count_addresses_aux(self):
         for r in self:
-            r.count_addresss_aux = len(r.address_aux_ids)
+            r.count_addresses_aux = len(r.address_aux_ids)
 
     @api.multi
     def _reopen_form(self):
