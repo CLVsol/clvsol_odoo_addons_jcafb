@@ -53,38 +53,38 @@ class VerificationOutcome(models.Model):
         date_verification = datetime.now()
 
         state = 'ok'
-        outcome_text = ''
+        outcome_info = ''
 
         if model_object.street is False:
 
-            if outcome_text != '':
-                outcome_text += '\n'
-            outcome_text += '"Contact Information" is missing.'
+            if outcome_info != '':
+                outcome_info += '\n'
+            outcome_info += '"Contact Information" is missing.'
 
             state = 'warned'
 
         if model_object.gender is False:
 
-            if outcome_text != '':
-                outcome_text += '\n'
-            outcome_text += '"Gender" is missing.'
+            if outcome_info != '':
+                outcome_info += '\n'
+            outcome_info += '"Gender" is missing.'
 
             state = 'warned'
 
         if model_object.birthday is False:
 
-            if outcome_text != '':
-                outcome_text += '\n'
-            outcome_text += '"Date of Birth" is missing.'
+            if outcome_info != '':
+                outcome_info += '\n'
+            outcome_info += '"Date of Birth" is missing.'
 
             state = 'warned'
 
-        if outcome_text == '':
-            outcome_text = False
+        if outcome_info == '':
+            outcome_info = False
 
         verification_values = {}
         verification_values['date_verification'] = date_verification
-        verification_values['outcome_text'] = outcome_text
+        verification_values['outcome_info'] = outcome_info
         verification_values['state'] = state
         verification_outcome.write(verification_values)
 
@@ -97,15 +97,15 @@ class VerificationOutcome(models.Model):
         related_person = model_object.related_person_id
 
         state = 'ok'
-        outcome_text = ''
+        outcome_info = ''
 
         if related_person.id is not False:
 
             if (model_object.name != related_person.name):
 
-                if outcome_text != '':
-                    outcome_text += '\n'
-                outcome_text += '"Name" has changed.'
+                if outcome_info != '':
+                    outcome_info += '\n'
+                outcome_info += '"Name" has changed.'
 
                 state = 'warned'
 
@@ -121,39 +121,39 @@ class VerificationOutcome(models.Model):
                (model_object.mobile != related_person.mobile) or \
                (model_object.email != related_person.email):
 
-                if outcome_text != '':
-                    outcome_text += '\n'
-                outcome_text += '"Contact Information" has changed.'
+                if outcome_info != '':
+                    outcome_info += '\n'
+                outcome_info += '"Contact Information" has changed.'
 
                 state = 'warned'
 
             if (model_object.gender != related_person.gender):
 
-                if outcome_text != '':
-                    outcome_text += '\n'
-                outcome_text += '"Gender" has changed.'
+                if outcome_info != '':
+                    outcome_info += '\n'
+                outcome_info += '"Gender" has changed.'
 
                 state = 'warned'
 
             if (model_object.birthday != related_person.birthday):
 
-                if outcome_text != '':
-                    outcome_text += '\n'
-                outcome_text += '"Date of Birth" has changed.'
+                if outcome_info != '':
+                    outcome_info += '\n'
+                outcome_info += '"Date of Birth" has changed.'
 
                 state = 'warned'
 
         else:
 
-            outcome_text = 'Missing "Related Person".'
+            outcome_info = 'Missing "Related Person".'
             state = 'warned'
 
-        if outcome_text == '':
-            outcome_text = False
+        if outcome_info == '':
+            outcome_info = False
 
         verification_values = {}
         verification_values['date_verification'] = date_verification
-        verification_values['outcome_text'] = outcome_text
+        verification_values['outcome_info'] = outcome_info
         verification_values['state'] = state
         verification_outcome.write(verification_values)
 
@@ -166,7 +166,7 @@ class VerificationOutcome(models.Model):
         ref_address_aux = model_object.ref_address_aux_id
 
         state = 'ok'
-        outcome_text = ''
+        outcome_info = ''
 
         if ref_address_aux.id is not False:
 
@@ -179,23 +179,23 @@ class VerificationOutcome(models.Model):
                (model_object.state_id != ref_address_aux.state_id) or \
                (model_object.city_id != ref_address_aux.city_id):
 
-                if outcome_text != '':
-                    outcome_text += '\n'
-                outcome_text += 'Address (Aux) "Contact Information" mismatch.'
+                if outcome_info != '':
+                    outcome_info += '\n'
+                outcome_info += 'Address (Aux) "Contact Information" mismatch.'
 
                 state = 'warned'
 
         else:
 
-            outcome_text = 'Missing "Address (Aux)".'
+            outcome_info = 'Missing "Address (Aux)".'
             state = 'warned'
 
-        if outcome_text == '':
-            outcome_text = False
+        if outcome_info == '':
+            outcome_info = False
 
         verification_values = {}
         verification_values['date_verification'] = date_verification
-        verification_values['outcome_text'] = outcome_text
+        verification_values['outcome_info'] = outcome_info
         verification_values['state'] = state
         verification_outcome.write(verification_values)
 
@@ -208,7 +208,7 @@ class VerificationOutcome(models.Model):
         family_aux = model_object.family_aux_id
 
         state = 'ok'
-        outcome_text = ''
+        outcome_info = ''
 
         if family_aux.id is not False:
 
@@ -221,22 +221,22 @@ class VerificationOutcome(models.Model):
                (model_object.state_id != family_aux.state_id) or \
                (model_object.city_id != family_aux.city_id):
 
-                if outcome_text != '':
-                    outcome_text += '\n'
-                outcome_text += 'Family (Aux) "Contact Information" mismatch.'
+                if outcome_info != '':
+                    outcome_info += '\n'
+                outcome_info += 'Family (Aux) "Contact Information" mismatch.'
 
                 state = 'warned'
 
         else:
 
-            outcome_text = 'Missing "Family (Aux)".'
+            outcome_info = 'Missing "Family (Aux)".'
             state = 'warned'
 
-        if outcome_text == '':
-            outcome_text = False
+        if outcome_info == '':
+            outcome_info = False
 
         verification_values = {}
         verification_values['date_verification'] = date_verification
-        verification_values['outcome_text'] = outcome_text
+        verification_values['outcome_info'] = outcome_info
         verification_values['state'] = state
         verification_outcome.write(verification_values)
