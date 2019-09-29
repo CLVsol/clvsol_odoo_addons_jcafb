@@ -10,6 +10,20 @@
         <field name="inherit_id" ref="clv_person.clv_person_mass_edit_view_form"/>
         <field name="priority" eval="8" />
         <field name="arch" type="xml">
+            <group name="global_tag_ids_selection" position="before">
+                <group>
+                    <field name="reg_state_selection"/>
+                </group>
+                <group>
+                    <field name="reg_state" nolabel='1'/>
+                </group>
+                <group>
+                    <field name="state_selection"/>
+                </group>
+                <group>
+                    <field name="state" nolabel='1'/>
+                </group>
+            </group>
             <group name="marker_ids" position="after">
                 <group>
                     <field name="random_field_selection"/>
