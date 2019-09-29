@@ -83,7 +83,7 @@
                 <field name="state"/>
             </field>
             <group name="group_by" position="inside">
-                <filter name="group_by_state" string="Family State" domain="[]" context="{'group_by':'state'}"/>
+                <filter name="group_by_state" string="Family (Aux) State" domain="[]" context="{'group_by':'state'}"/>
             </group>
         </field>
     </record>
