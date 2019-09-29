@@ -32,6 +32,7 @@
         'views/person_aux_menu_view.xml',
         'wizard/person_aux_document_setup_view.xml',
         'wizard/person_aux_lab_test_request_setup_view.xml',
+        'wizard/person_aux_mass_edit_view.xml',
     ],
     'demo': [],
     'test': [],
