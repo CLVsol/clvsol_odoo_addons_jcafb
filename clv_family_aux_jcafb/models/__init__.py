@@ -4,3 +4,4 @@
 
 from . import document
 from . import family_aux_reg_state
+from . import family_aux_state

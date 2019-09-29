@@ -19,6 +19,7 @@
         'data/document.xml',
         'views/document_view.xml',
         'views/family_aux_reg_state_view.xml',
+        'views/family_aux_state_view.xml',
         'views/family_aux_menu_view.xml',
     ],
     'demo': [],
