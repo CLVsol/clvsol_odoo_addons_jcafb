@@ -63,6 +63,14 @@ class VerificationOutcome(models.Model):
 
             state = 'warned'
 
+        if model_object.phase_id.id is False:
+
+            if outcome_info != '':
+                outcome_info += '\n'
+            outcome_info += '"Phase" is missing.'
+
+            state = 'warned'
+
         if outcome_info == '':
             outcome_info = False
 
@@ -90,6 +98,14 @@ class VerificationOutcome(models.Model):
                 if outcome_info != '':
                     outcome_info += '\n'
                 outcome_info += '"Name" has changed.'
+
+                state = 'warned'
+
+            if (model_object.phase_id != related_address.phase_id):
+
+                if outcome_info != '':
+                    outcome_info += '\n'
+                outcome_info += '"Phase" has changed.'
 
                 state = 'warned'
 
