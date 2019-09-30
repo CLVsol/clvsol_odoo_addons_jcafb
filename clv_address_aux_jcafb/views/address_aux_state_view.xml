@@ -61,7 +61,7 @@
             <field name="code" position="after">
                 <field name="state"/>
             </field>
-            <tree name="partner_entities" position="attributes">
+            <!--tree name="partner_entities" position="attributes">
                 <attribute name="decoration-muted">state=='new'</attribute>
                 <attribute name="decoration-success">state=='unselected'</attribute>
                 <attribute name="decoration-primary">state in('waiting','selected')</attribute>
@@ -69,7 +69,7 @@
                 <attribute name="decoration-warning">state=='unknown'</attribute>
                 <attribute name="decoration-it">state in('new','unavailable','unknown')</attribute>
                 <attribute name="decoration-bf">state in('selected','unselected')</attribute>
-            </tree>
+            </tree-->
         </field>
     </record>
 
