@@ -109,6 +109,22 @@ class VerificationOutcome(models.Model):
 
                 state = 'warned'
 
+            if (model_object.reg_state != related_address.reg_state):
+
+                if outcome_info != '':
+                    outcome_info += '\n'
+                outcome_info += '"Register State" has changed.'
+
+                state = 'warned'
+
+            if (model_object.state != related_address.state):
+
+                if outcome_info != '':
+                    outcome_info += '\n'
+                outcome_info += '"State" has changed.'
+
+                state = 'warned'
+
             if (model_object.zip != related_address.zip) or \
                (model_object.street != related_address.street) or \
                (model_object.street_number != related_address.street_number) or \
