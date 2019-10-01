@@ -55,7 +55,7 @@ class VerificationOutcome(models.Model):
         state = 'ok'
         outcome_info = ''
 
-        if model_object.street is False:
+        if (model_object.contact_info_unavailable is False) and (model_object.street is False):
 
             if outcome_info != '':
                 outcome_info += '\n'
