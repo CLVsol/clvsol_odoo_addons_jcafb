@@ -55,7 +55,7 @@ class VerificationOutcome(models.Model):
         state = 'ok'
         outcome_info = ''
 
-        if (model_object.contact_info_unavailable is False) and (model_object.street is False):
+        if (model_object.contact_info_is_unavailable is False) and (model_object.street is False):
 
             if outcome_info != '':
                 outcome_info += '\n'
@@ -91,62 +91,71 @@ class VerificationOutcome(models.Model):
         state = 'ok'
         outcome_info = ''
 
-        if related_address.id is not False:
+        if model_object.related_address_is_unavailable is False:
 
-            if (model_object.name != related_address.name):
+            if related_address.id is not False:
 
-                if outcome_info != '':
-                    outcome_info += '\n'
-                outcome_info += '"Name" has changed.'
+                if (model_object.name != related_address.name):
 
+                    if outcome_info != '':
+                        outcome_info += '\n'
+                    outcome_info += '"Name" has changed.'
+
+                    state = 'warned'
+
+                if (model_object.phase_id != related_address.phase_id):
+
+                    if outcome_info != '':
+                        outcome_info += '\n'
+                    outcome_info += '"Phase" has changed.'
+
+                    state = 'warned'
+
+                if (model_object.reg_state != related_address.reg_state):
+
+                    if outcome_info != '':
+                        outcome_info += '\n'
+                    outcome_info += '"Register State" has changed.'
+
+                    state = 'warned'
+
+                if (model_object.state != related_address.state):
+
+                    if outcome_info != '':
+                        outcome_info += '\n'
+                    outcome_info += '"State" has changed.'
+
+                    state = 'warned'
+
+                if (model_object.zip != related_address.zip) or \
+                   (model_object.street != related_address.street) or \
+                   (model_object.street_number != related_address.street_number) or \
+                   (model_object.street2 != related_address.street2) or \
+                   (model_object.district != related_address.district) or \
+                   (model_object.country_id != related_address.country_id) or \
+                   (model_object.state_id != related_address.state_id) or \
+                   (model_object.city_id != related_address.city_id) or \
+                   (model_object.phone != related_address.phone) or \
+                   (model_object.mobile != related_address.mobile) or \
+                   (model_object.email != related_address.email):
+
+                    if outcome_info != '':
+                        outcome_info += '\n'
+                    outcome_info += '"Contact Information" has changed.'
+
+                    state = 'warned'
+
+            else:
+
+                outcome_info = 'Missing "Related Address".'
                 state = 'warned'
 
-            if (model_object.phase_id != related_address.phase_id):
+        if model_object.related_address_is_unavailable is True:
 
-                if outcome_info != '':
-                    outcome_info += '\n'
-                outcome_info += '"Phase" has changed.'
+            if related_address.id is not False:
 
+                outcome_info = '"Related Address" should not be set.'
                 state = 'warned'
-
-            if (model_object.reg_state != related_address.reg_state):
-
-                if outcome_info != '':
-                    outcome_info += '\n'
-                outcome_info += '"Register State" has changed.'
-
-                state = 'warned'
-
-            if (model_object.state != related_address.state):
-
-                if outcome_info != '':
-                    outcome_info += '\n'
-                outcome_info += '"State" has changed.'
-
-                state = 'warned'
-
-            if (model_object.zip != related_address.zip) or \
-               (model_object.street != related_address.street) or \
-               (model_object.street_number != related_address.street_number) or \
-               (model_object.street2 != related_address.street2) or \
-               (model_object.district != related_address.district) or \
-               (model_object.country_id != related_address.country_id) or \
-               (model_object.state_id != related_address.state_id) or \
-               (model_object.city_id != related_address.city_id) or \
-               (model_object.phone != related_address.phone) or \
-               (model_object.mobile != related_address.mobile) or \
-               (model_object.email != related_address.email):
-
-                if outcome_info != '':
-                    outcome_info += '\n'
-                outcome_info += '"Contact Information" has changed.'
-
-                state = 'warned'
-
-        else:
-
-            outcome_info = 'Missing "Related Address".'
-            state = 'warned'
 
         if outcome_info == '':
             outcome_info = False
