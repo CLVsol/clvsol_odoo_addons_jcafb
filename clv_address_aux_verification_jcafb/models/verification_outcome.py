@@ -5,7 +5,7 @@
 import logging
 from datetime import datetime
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 
 _logger = logging.getLogger(__name__)
 
@@ -55,21 +55,47 @@ class VerificationOutcome(models.Model):
         state = 'ok'
         outcome_info = ''
 
-        if (model_object.contact_info_is_unavailable is False) and (model_object.street is False):
+        if model_object.contact_info_is_unavailable:
 
-            if outcome_info != '':
-                outcome_info += '\n'
-            outcome_info += '"Contact Information" is missing.'
+            # if model_object.street is not False:
 
-            state = 'warned'
+            #     outcome_info = _('"Contact Information" should not be set.\n')
+            #     state = 'error'
+
+            outcome_info = _('"Contact Information is Unavailable" should not be set.\n')
+            state = 'error'
+
+        else:
+
+            if model_object.street is False:
+
+                if outcome_info != '':
+                    outcome_info += '\n'
+                outcome_info += _('"Contact Information" is missing.\n')
+
+                state = 'error'
+
+            if model_object.reg_state not in ['ready', 'done', 'canceled']:
+
+                if (model_object.zip is False) or \
+                   (model_object.street is False) or \
+                   (model_object.street_number is False) or \
+                   (model_object.street2 is False) or \
+                   (model_object.district is False) or \
+                   (model_object.country_id is False) or \
+                   (model_object.state_id is False) or \
+                   (model_object.city_id is False):
+
+                    outcome_info += _('Please, verify "Contact Information" data.\n')
+
+                    if state != 'error':
+                        state = 'warning'
 
         if model_object.phase_id.id is False:
 
-            if outcome_info != '':
-                outcome_info += '\n'
-            outcome_info += '"Phase" is missing.'
+            outcome_info += _('"Phase" is missing.\n')
 
-            state = 'warned'
+            state = 'error'
 
         if outcome_info == '':
             outcome_info = False
@@ -91,41 +117,47 @@ class VerificationOutcome(models.Model):
         state = 'ok'
         outcome_info = ''
 
-        if model_object.related_address_is_unavailable is False:
+        if model_object.related_address_is_unavailable:
+
+            # if related_address.id is not False:
+
+            #     outcome_info = _('"Related Address" should not be set\n.')
+            #     state = 'error'
+
+            outcome_info = _('"Related Address is Unavailable" should not be set.\n')
+            state = 'error'
+
+        else:
 
             if related_address.id is not False:
 
                 if (model_object.name != related_address.name):
 
-                    if outcome_info != '':
-                        outcome_info += '\n'
-                    outcome_info += '"Name" has changed.'
+                    outcome_info += _('"Name" has changed.\n')
 
-                    state = 'warned'
+                    if state != 'error':
+                        state = 'warning'
 
                 if (model_object.phase_id != related_address.phase_id):
 
-                    if outcome_info != '':
-                        outcome_info += '\n'
-                    outcome_info += '"Phase" has changed.'
+                    outcome_info += _('"Phase" has changed.\n')
 
-                    state = 'warned'
+                    if state != 'error':
+                        state = 'warning'
 
-                if (model_object.reg_state != related_address.reg_state):
+                # if (model_object.reg_state != related_address.reg_state):
 
-                    if outcome_info != '':
-                        outcome_info += '\n'
-                    outcome_info += '"Register State" has changed.'
+                #     outcome_info += _('"Register State" has changed.\n')
 
-                    state = 'warned'
+                #     if state != 'error':
+                #         state = 'warning'
 
                 if (model_object.state != related_address.state):
 
-                    if outcome_info != '':
-                        outcome_info += '\n'
-                    outcome_info += '"State" has changed.'
+                    outcome_info += _('"State" has changed.\n')
 
-                    state = 'warned'
+                    if state != 'error':
+                        state = 'warning'
 
                 if (model_object.zip != related_address.zip) or \
                    (model_object.street != related_address.street) or \
@@ -139,23 +171,16 @@ class VerificationOutcome(models.Model):
                    (model_object.mobile != related_address.mobile) or \
                    (model_object.email != related_address.email):
 
-                    if outcome_info != '':
-                        outcome_info += '\n'
-                    outcome_info += '"Contact Information" has changed.'
+                    outcome_info += _('"Contact Information" has changed.\n')
 
-                    state = 'warned'
+                    if state != 'error':
+                        state = 'warning'
 
             else:
 
-                outcome_info = 'Missing "Related Address".'
-                state = 'warned'
+                outcome_info = _('Missing "Related Address".\n')
 
-        if model_object.related_address_is_unavailable is True:
-
-            if related_address.id is not False:
-
-                outcome_info = '"Related Address" should not be set.'
-                state = 'warned'
+                state = 'error'
 
         if outcome_info == '':
             outcome_info = False
