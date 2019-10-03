@@ -43,4 +43,17 @@
 		<field name="template_id" eval="clv_family_aux_family_aux_verification_ref_address_aux_template"/>
 	</record>
 	 
+	<record id="clv_family_aux_family_aux_verification_ref_address_template" model="clv.verification.template">
+		<field name="name" eval="&quot;&quot;&quot;clv.family_aux [_family_aux_verification_ref_address]&quot;&quot;&quot;"/>
+		<field name="model" eval="&quot;&quot;&quot;clv.family_aux&quot;&quot;&quot;"/>
+		<field name="method" eval="&quot;&quot;&quot;_object_verification&quot;&quot;&quot;"/>
+		<field name="action" eval="&quot;&quot;&quot;_family_aux_verification_ref_address&quot;&quot;&quot;"/>
+		<field name="verification_disable_check_missing" eval="False"/>
+	</record>
+	 
+	<record id="clv_family_aux_family_aux_verification_ref_address_schedule" model="clv.verification.schedule">
+		<field name="name" eval="&quot;&quot;&quot;clv.family_aux [_family_aux_verification_ref_address]&quot;&quot;&quot;"/>
+		<field name="template_id" eval="clv_family_aux_family_aux_verification_ref_address_template"/>
+	</record>
+	 
 </odoo>
