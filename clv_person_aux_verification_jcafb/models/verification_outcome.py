@@ -5,7 +5,7 @@
 import logging
 from datetime import datetime
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 
 _logger = logging.getLogger(__name__)
 
@@ -55,37 +55,63 @@ class VerificationOutcome(models.Model):
         state = 'ok'
         outcome_info = ''
 
-        if (model_object.contact_info_is_unavailable is False) and (model_object.street is False):
+        if model_object.contact_info_is_unavailable:
 
-            if outcome_info != '':
-                outcome_info += '\n'
-            outcome_info += '"Contact Information" is missing.'
+            if model_object.street is not False:
 
-            state = 'warned'
+                outcome_info = _('"Contact Information" should not be set.\n')
+                state = 'error'
 
-        if model_object.gender is False:
+            # outcome_info = _('"Contact Information is Unavailable" should not be set.\n')
+            # state = 'error'
 
-            if outcome_info != '':
-                outcome_info += '\n'
-            outcome_info += '"Gender" is missing.'
+        else:
 
-            state = 'warned'
+            if model_object.street is False:
 
-        if model_object.birthday is False:
+                if outcome_info != '':
+                    outcome_info += '\n'
+                outcome_info += _('"Contact Information" is missing.\n')
 
-            if outcome_info != '':
-                outcome_info += '\n'
-            outcome_info += '"Date of Birth" is missing.'
+                state = 'error'
 
-            state = 'warned'
+            if model_object.reg_state not in ['ready', 'done', 'canceled']:
+
+                if (model_object.zip is False) or \
+                   (model_object.street is False) or \
+                   (model_object.street_number is False) or \
+                   (model_object.street2 is False) or \
+                   (model_object.district is False) or \
+                   (model_object.country_id is False) or \
+                   (model_object.state_id is False) or \
+                   (model_object.city_id is False):
+
+                    outcome_info += _('Please, verify "Contact Information" data.\n')
+
+                    if state != 'error':
+                        state = 'warning'
+
+        if model_object.reg_state not in ['ready', 'done', 'canceled']:
+
+            if model_object.gender is False:
+
+                outcome_info += _('"Gender" is missing.\n')
+
+                if state != 'error':
+                    state = 'warning'
+
+            if model_object.birthday is False:
+
+                outcome_info += _('"Date of Birth" is missing.\n')
+
+                if state != 'error':
+                    state = 'warning'
 
         if model_object.phase_id.id is False:
 
-            if outcome_info != '':
-                outcome_info += '\n'
-            outcome_info += '"Phase" is missing.'
+            outcome_info += _('"Phase" is missing.\n')
 
-            state = 'warned'
+            state = 'error'
 
         if outcome_info == '':
             outcome_info = False
@@ -107,78 +133,84 @@ class VerificationOutcome(models.Model):
         state = 'ok'
         outcome_info = ''
 
-        if related_person.id is not False:
+        if model_object.related_person_is_unavailable:
 
-            if (model_object.name != related_person.name):
+            # if related_person.id is not False:
 
-                if outcome_info != '':
-                    outcome_info += '\n'
-                outcome_info += '"Name" has changed.'
+            #     outcome_info = _('"Related Person" should not be set\n.')
+            #     state = 'error'
 
-                state = 'warned'
-
-            if (model_object.zip != related_person.zip) or \
-               (model_object.street != related_person.street) or \
-               (model_object.street_number != related_person.street_number) or \
-               (model_object.street2 != related_person.street2) or \
-               (model_object.district != related_person.district) or \
-               (model_object.country_id != related_person.country_id) or \
-               (model_object.state_id != related_person.state_id) or \
-               (model_object.city_id != related_person.city_id) or \
-               (model_object.phone != related_person.phone) or \
-               (model_object.mobile != related_person.mobile) or \
-               (model_object.email != related_person.email):
-
-                if outcome_info != '':
-                    outcome_info += '\n'
-                outcome_info += '"Contact Information" has changed.'
-
-                state = 'warned'
-
-            if (model_object.gender != related_person.gender):
-
-                if outcome_info != '':
-                    outcome_info += '\n'
-                outcome_info += '"Gender" has changed.'
-
-                state = 'warned'
-
-            if (model_object.birthday != related_person.birthday):
-
-                if outcome_info != '':
-                    outcome_info += '\n'
-                outcome_info += '"Date of Birth" has changed.'
-
-                state = 'warned'
-
-            if (model_object.phase_id != related_person.phase_id):
-
-                if outcome_info != '':
-                    outcome_info += '\n'
-                outcome_info += '"Phase" has changed.'
-
-                state = 'warned'
-
-            if (model_object.reg_state != related_person.reg_state):
-
-                if outcome_info != '':
-                    outcome_info += '\n'
-                outcome_info += '"Register State" has changed.'
-
-                state = 'warned'
-
-            if (model_object.state != related_person.state):
-
-                if outcome_info != '':
-                    outcome_info += '\n'
-                outcome_info += '"State" has changed.'
-
-                state = 'warned'
+            outcome_info = _('"Related Person is Unavailable" should not be set.\n')
+            state = 'error'
 
         else:
 
-            outcome_info = 'Missing "Related Person".'
-            state = 'warned'
+            if related_person.id is not False:
+
+                if (model_object.name != related_person.name):
+
+                    outcome_info += _('"Name" has changed.\n')
+
+                    if state != 'error':
+                        state = 'warning'
+
+                if (model_object.gender != related_person.gender):
+
+                    outcome_info += _('"Gender" has changed.\n')
+
+                    if state != 'error':
+                        state = 'warning'
+
+                if (model_object.birthday != related_person.birthday):
+
+                    outcome_info += _('"Date of Birth" has changed.\n')
+
+                    if state != 'error':
+                        state = 'warning'
+
+                if (model_object.phase_id != related_person.phase_id):
+
+                    outcome_info += _('"Phase" has changed.\n')
+
+                    if state != 'error':
+                        state = 'warning'
+
+                # if (model_object.reg_state != related_person.reg_state):
+
+                #     outcome_info += _('"Register State" has changed.\n')
+
+                #     if state != 'error':
+                #         state = 'warning'
+
+                if (model_object.state != related_person.state):
+
+                    outcome_info += _('"State" has changed.\n')
+
+                    if state != 'error':
+                        state = 'warning'
+
+                if (model_object.zip != related_person.zip) or \
+                   (model_object.street != related_person.street) or \
+                   (model_object.street_number != related_person.street_number) or \
+                   (model_object.street2 != related_person.street2) or \
+                   (model_object.district != related_person.district) or \
+                   (model_object.country_id != related_person.country_id) or \
+                   (model_object.state_id != related_person.state_id) or \
+                   (model_object.city_id != related_person.city_id) or \
+                   (model_object.phone != related_person.phone) or \
+                   (model_object.mobile != related_person.mobile) or \
+                   (model_object.email != related_person.email):
+
+                    outcome_info += _('"Contact Information" has changed.\n')
+
+                    if state != 'error':
+                        state = 'warning'
+
+            else:
+
+                outcome_info = _('Missing "Related Person".\n')
+
+                state = 'error'
 
         if outcome_info == '':
             outcome_info = False
@@ -200,27 +232,97 @@ class VerificationOutcome(models.Model):
         state = 'ok'
         outcome_info = ''
 
-        if ref_address_aux.id is not False:
+        if model_object.ref_address_aux_is_unavailable:
 
-            if (model_object.zip != ref_address_aux.zip) or \
-               (model_object.street != ref_address_aux.street) or \
-               (model_object.street_number != ref_address_aux.street_number) or \
-               (model_object.street2 != ref_address_aux.street2) or \
-               (model_object.district != ref_address_aux.district) or \
-               (model_object.country_id != ref_address_aux.country_id) or \
-               (model_object.state_id != ref_address_aux.state_id) or \
-               (model_object.city_id != ref_address_aux.city_id):
+            if ref_address_aux.id is not False:
 
-                if outcome_info != '':
-                    outcome_info += '\n'
-                outcome_info += 'Address (Aux) "Contact Information" mismatch.'
+                outcome_info = _('"Address (Aux)" should not be set\n.')
+                state = 'error'
 
-                state = 'warned'
+            # outcome_info = _('"Address (Aux) is Unavailable" should not be set.\n')
+            # state = 'error'
 
         else:
 
-            outcome_info = 'Missing "Address (Aux)".'
-            state = 'warned'
+            if ref_address_aux.id is not False:
+
+                if (model_object.zip != ref_address_aux.zip) or \
+                   (model_object.street != ref_address_aux.street) or \
+                   (model_object.street_number != ref_address_aux.street_number) or \
+                   (model_object.street2 != ref_address_aux.street2) or \
+                   (model_object.district != ref_address_aux.district) or \
+                   (model_object.country_id != ref_address_aux.country_id) or \
+                   (model_object.state_id != ref_address_aux.state_id) or \
+                   (model_object.city_id != ref_address_aux.city_id):
+
+                    if outcome_info != '':
+                        outcome_info += '\n'
+                    outcome_info += _('Address (Aux) "Contact Information" mismatch.')
+
+                    if state != 'error':
+                        state = 'warning'
+
+            else:
+
+                outcome_info = _('Missing "Address (Aux)".')
+                if state != 'error':
+                    state = 'warning'
+
+        if outcome_info == '':
+            outcome_info = False
+
+        verification_values = {}
+        verification_values['date_verification'] = date_verification
+        verification_values['outcome_info'] = outcome_info
+        verification_values['state'] = state
+        verification_outcome.write(verification_values)
+
+    def _person_aux_verification_ref_address(self, verification_outcome, model_object):
+
+        _logger.info(u'%s %s', '>>>>>>>>>>>>>>> (model_object):', model_object.name)
+
+        date_verification = datetime.now()
+
+        ref_address = model_object.ref_address_id
+
+        state = 'ok'
+        outcome_info = ''
+
+        if model_object.ref_address_is_unavailable:
+
+            if ref_address.id is not False:
+
+                outcome_info = _('"Address" should not be set\n.')
+                state = 'error'
+
+            # outcome_info = _('"Address is Unavailable" should not be set.\n')
+            # state = 'error'
+
+        else:
+
+            if ref_address.id is not False:
+
+                if (model_object.zip != ref_address.zip) or \
+                   (model_object.street != ref_address.street) or \
+                   (model_object.street_number != ref_address.street_number) or \
+                   (model_object.street2 != ref_address.street2) or \
+                   (model_object.district != ref_address.district) or \
+                   (model_object.country_id != ref_address.country_id) or \
+                   (model_object.state_id != ref_address.state_id) or \
+                   (model_object.city_id != ref_address.city_id):
+
+                    if outcome_info != '':
+                        outcome_info += '\n'
+                    outcome_info += _('Address "Contact Information" mismatch.')
+
+                    if state != 'error':
+                        state = 'warning'
+
+            else:
+
+                outcome_info = _('Missing "Address".')
+                if state != 'error':
+                    state = 'warning'
 
         if outcome_info == '':
             outcome_info = False
@@ -242,27 +344,97 @@ class VerificationOutcome(models.Model):
         state = 'ok'
         outcome_info = ''
 
-        if family_aux.id is not False:
+        if model_object.family_aux_is_unavailable:
 
-            if (model_object.zip != family_aux.zip) or \
-               (model_object.street != family_aux.street) or \
-               (model_object.street_number != family_aux.street_number) or \
-               (model_object.street2 != family_aux.street2) or \
-               (model_object.district != family_aux.district) or \
-               (model_object.country_id != family_aux.country_id) or \
-               (model_object.state_id != family_aux.state_id) or \
-               (model_object.city_id != family_aux.city_id):
+            if family_aux.id is not False:
 
-                if outcome_info != '':
-                    outcome_info += '\n'
-                outcome_info += 'Family (Aux) "Contact Information" mismatch.'
+                outcome_info = _('"Family (Aux)" should not be set\n.')
+                state = 'error'
 
-                state = 'warned'
+            # outcome_info = _('"Family (Aux) is Unavailable" should not be set.\n')
+            # state = 'error'
 
         else:
 
-            outcome_info = 'Missing "Family (Aux)".'
-            state = 'warned'
+            if family_aux.id is not False:
+
+                if (model_object.zip != family_aux.zip) or \
+                   (model_object.street != family_aux.street) or \
+                   (model_object.street_number != family_aux.street_number) or \
+                   (model_object.street2 != family_aux.street2) or \
+                   (model_object.district != family_aux.district) or \
+                   (model_object.country_id != family_aux.country_id) or \
+                   (model_object.state_id != family_aux.state_id) or \
+                   (model_object.city_id != family_aux.city_id):
+
+                    if outcome_info != '':
+                        outcome_info += '\n'
+                    outcome_info += _('Family (Aux) "Contact Information" mismatch.')
+
+                    if state != 'error':
+                        state = 'warning'
+
+            else:
+
+                outcome_info = _('Missing "Family (Aux)".')
+                if state != 'error':
+                    state = 'warning'
+
+        if outcome_info == '':
+            outcome_info = False
+
+        verification_values = {}
+        verification_values['date_verification'] = date_verification
+        verification_values['outcome_info'] = outcome_info
+        verification_values['state'] = state
+        verification_outcome.write(verification_values)
+
+    def _person_aux_verification_family(self, verification_outcome, model_object):
+
+        _logger.info(u'%s %s', '>>>>>>>>>>>>>>> (model_object):', model_object.name)
+
+        date_verification = datetime.now()
+
+        family = model_object.family_id
+
+        state = 'ok'
+        outcome_info = ''
+
+        if model_object.family_is_unavailable:
+
+            if family.id is not False:
+
+                outcome_info = _('"Family" should not be set\n.')
+                state = 'error'
+
+            # outcome_info = _('"Family is Unavailable" should not be set.\n')
+            # state = 'error'
+
+        else:
+
+            if family.id is not False:
+
+                if (model_object.zip != family.zip) or \
+                   (model_object.street != family.street) or \
+                   (model_object.street_number != family.street_number) or \
+                   (model_object.street2 != family.street2) or \
+                   (model_object.district != family.district) or \
+                   (model_object.country_id != family.country_id) or \
+                   (model_object.state_id != family.state_id) or \
+                   (model_object.city_id != family.city_id):
+
+                    if outcome_info != '':
+                        outcome_info += '\n'
+                    outcome_info += _('Family "Contact Information" mismatch.')
+
+                    if state != 'error':
+                        state = 'warning'
+
+            else:
+
+                outcome_info = _('Missing "Family".')
+                if state != 'error':
+                    state = 'warning'
 
         if outcome_info == '':
             outcome_info = False
