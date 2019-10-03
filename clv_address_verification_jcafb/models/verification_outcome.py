@@ -5,7 +5,7 @@
 import logging
 from datetime import datetime
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
 
 _logger = logging.getLogger(__name__)
 
@@ -55,13 +55,41 @@ class VerificationOutcome(models.Model):
         state = 'ok'
         outcome_info = ''
 
-        if (model_object.contact_info_is_unavailable is False) and (model_object.street is False):
+        if model_object.contact_info_is_unavailable:
 
-            if outcome_info != '':
-                outcome_info += '\n'
-            outcome_info += '"Contact Information" is missing.'
+            # if model_object.street is not False:
 
-            state = 'warned'
+            #     outcome_info = _('"Contact Information" should not be set.\n')
+            #     state = 'error'
+
+            outcome_info = _('"Contact Information is Unavailable" should not be set.\n')
+            state = 'error'
+
+        else:
+
+            if model_object.street is False:
+
+                if outcome_info != '':
+                    outcome_info += '\n'
+                outcome_info += _('"Contact Information" is missing.\n')
+
+                state = 'error'
+
+            if model_object.reg_state not in ['done', 'canceled']:
+
+                if (model_object.zip is False) or \
+                   (model_object.street is False) or \
+                   (model_object.street_number is False) or \
+                   (model_object.street2 is False) or \
+                   (model_object.district is False) or \
+                   (model_object.country_id is False) or \
+                   (model_object.state_id is False) or \
+                   (model_object.city_id is False):
+
+                    outcome_info += _('Please, verify "Contact Information" data.\n')
+
+                    if state != 'error':
+                        state = 'warning'
 
         if outcome_info == '':
             outcome_info = False
