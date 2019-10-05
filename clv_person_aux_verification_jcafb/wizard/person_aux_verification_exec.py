@@ -82,7 +82,7 @@ class PersonAuxVerificationExecute(models.TransientModel):
                     verification_outcome_values['model'] = model_name
                     verification_outcome_values['res_id'] = person_aux.id
                     verification_outcome_values['res_last_update'] = person_aux['__last_update']
-                    verification_outcome_values['state'] = 'unknown'
+                    verification_outcome_values['state'] = 'Unknown'
                     verification_outcome_values['method'] = verification_template.method
                     verification_outcome_values['action'] = verification_template.action
                     _logger.info(u'>>>>>>>>>>>>>>> %s %s',
@@ -99,7 +99,7 @@ class PersonAuxVerificationExecute(models.TransientModel):
 
                 if action_call:
 
-                    verification_outcome.state = 'unknown'
+                    verification_outcome.state = 'Unknown'
                     verification_outcome.outcome_text = False
 
                     exec(action_call)
