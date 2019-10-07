@@ -27,6 +27,12 @@ class AddressAux(models.Model):
         compute='_compute_verification_outcome_ids_and_count',
     )
 
+    verification_state = fields.Char(
+        string='Verification State',
+        default='Unknown',
+        readonly=True
+    )
+
     @api.multi
     def _compute_verification_outcome_ids_and_count(self):
         for record in self:
@@ -52,7 +58,7 @@ class VerificationOutcome(models.Model):
 
         date_verification = datetime.now()
 
-        state = 'ok'
+        state = 'Ok'
         outcome_info = ''
 
         if model_object.contact_info_is_unavailable:
@@ -60,20 +66,17 @@ class VerificationOutcome(models.Model):
             # if model_object.street is not False:
 
             #     outcome_info = _('"Contact Information" should not be set.\n')
-            #     state = 'error'
+            #     state = self._get_verification_outcome_state(state, 'Error (L0)')
 
             outcome_info = _('"Contact Information is Unavailable" should not be set.\n')
-            state = 'error'
+            state = self._get_verification_outcome_state(state, 'Error (L0)')
 
         else:
 
             if model_object.street is False:
 
-                if outcome_info != '':
-                    outcome_info += '\n'
                 outcome_info += _('"Contact Information" is missing.\n')
-
-                state = 'error'
+                state = self._get_verification_outcome_state(state, 'Error (L0)')
 
             if model_object.reg_state not in ['ready', 'done', 'canceled']:
 
@@ -87,18 +90,19 @@ class VerificationOutcome(models.Model):
                    (model_object.city_id is False):
 
                     outcome_info += _('Please, verify "Contact Information" data.\n')
-
-                    if state != 'error':
-                        state = 'warning'
+                    state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
         if model_object.phase_id.id is False:
 
             outcome_info += _('"Phase" is missing.\n')
-
-            state = 'error'
+            state = self._get_verification_outcome_state(state, 'Error (L0)')
 
         if outcome_info == '':
             outcome_info = False
+
+        self._object_verification_outcome_updt(
+            verification_outcome, state, outcome_info, date_verification, model_object
+        )
 
         verification_values = {}
         verification_values['date_verification'] = date_verification
@@ -114,7 +118,7 @@ class VerificationOutcome(models.Model):
 
         related_address = model_object.related_address_id
 
-        state = 'ok'
+        state = 'Ok'
         outcome_info = ''
 
         if model_object.related_address_is_unavailable:
@@ -122,10 +126,10 @@ class VerificationOutcome(models.Model):
             # if related_address.id is not False:
 
             #     outcome_info = _('"Related Address" should not be set\n.')
-            #     state = 'error'
+            #     state = self._get_verification_outcome_state(state, 'Error (L0)')
 
             outcome_info = _('"Related Address is Unavailable" should not be set.\n')
-            state = 'error'
+            state = self._get_verification_outcome_state(state, 'Error (L0)')
 
         else:
 
@@ -134,30 +138,22 @@ class VerificationOutcome(models.Model):
                 if (model_object.name != related_address.name):
 
                     outcome_info += _('"Name" has changed.\n')
-
-                    if state != 'error':
-                        state = 'warning'
+                    state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
                 if (model_object.phase_id != related_address.phase_id):
 
                     outcome_info += _('"Phase" has changed.\n')
-
-                    if state != 'error':
-                        state = 'warning'
+                    state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
                 # if (model_object.reg_state != related_address.reg_state):
 
                 #     outcome_info += _('"Register State" has changed.\n')
-
-                #     if state != 'error':
-                #         state = 'warning'
+                #     state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
                 if (model_object.state != related_address.state):
 
                     outcome_info += _('"State" has changed.\n')
-
-                    if state != 'error':
-                        state = 'warning'
+                    state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
                 if (model_object.zip != related_address.zip) or \
                    (model_object.street != related_address.street) or \
@@ -172,18 +168,19 @@ class VerificationOutcome(models.Model):
                    (model_object.email != related_address.email):
 
                     outcome_info += _('"Contact Information" has changed.\n')
-
-                    if state != 'error':
-                        state = 'warning'
+                    state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
             else:
 
                 outcome_info = _('Missing "Related Address".\n')
-
-                state = 'error'
+                state = self._get_verification_outcome_state(state, 'Error (L0)')
 
         if outcome_info == '':
             outcome_info = False
+
+        self._object_verification_outcome_updt(
+            verification_outcome, state, outcome_info, date_verification, model_object
+        )
 
         verification_values = {}
         verification_values['date_verification'] = date_verification
