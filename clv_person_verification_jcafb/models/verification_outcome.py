@@ -27,6 +27,12 @@ class Person(models.Model):
         compute='_compute_verification_outcome_ids_and_count',
     )
 
+    verification_state = fields.Char(
+        string='Verification State',
+        default='Unknown',
+        readonly=True
+    )
+
     @api.multi
     def _compute_verification_outcome_ids_and_count(self):
         for record in self:
@@ -52,7 +58,7 @@ class VerificationOutcome(models.Model):
 
         date_verification = datetime.now()
 
-        state = 'ok'
+        state = 'Ok'
         outcome_info = ''
 
         if model_object.contact_info_is_unavailable:
@@ -60,20 +66,17 @@ class VerificationOutcome(models.Model):
             if model_object.street is not False:
 
                 outcome_info = _('"Contact Information" should not be set.\n')
-                state = 'error'
+                state = self._get_verification_outcome_state(state, 'Error (L0)')
 
             # outcome_info = _('"Contact Information is Unavailable" should not be set.\n')
-            # state = 'error'
+            # state = self._get_verification_outcome_state(state, 'Error (L0)')
 
         else:
 
             if model_object.street is False:
 
-                if outcome_info != '':
-                    outcome_info += '\n'
                 outcome_info += _('"Contact Information" is missing.\n')
-
-                state = 'error'
+                state = self._get_verification_outcome_state(state, 'Error (L0)')
 
             if model_object.reg_state not in ['done', 'canceled']:
 
@@ -87,28 +90,26 @@ class VerificationOutcome(models.Model):
                    (model_object.city_id is False):
 
                     outcome_info += _('Please, verify "Contact Information" data.\n')
-
-                    if state != 'error':
-                        state = 'warning'
+                    state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
         if model_object.reg_state not in ['ready', 'done', 'canceled']:
 
             if model_object.gender is False:
 
                 outcome_info += _('"Gender" is missing.\n')
-
-                if state != 'error':
-                    state = 'warning'
+                state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
             if model_object.birthday is False:
 
                 outcome_info += _('"Date of Birth" is missing.\n')
-
-                if state != 'error':
-                    state = 'warning'
+                state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
         if outcome_info == '':
             outcome_info = False
+
+        self._object_verification_outcome_updt(
+            verification_outcome, state, outcome_info, date_verification, model_object
+        )
 
         verification_values = {}
         verification_values['date_verification'] = date_verification
@@ -124,7 +125,7 @@ class VerificationOutcome(models.Model):
 
         ref_address = model_object.ref_address_id
 
-        state = 'ok'
+        state = 'Ok'
         outcome_info = ''
 
         if model_object.ref_address_is_unavailable:
@@ -132,10 +133,10 @@ class VerificationOutcome(models.Model):
             if ref_address.id is not False:
 
                 outcome_info = _('"Address" should not be set\n.')
-                state = 'error'
+                state = self._get_verification_outcome_state(state, 'Error (L0)')
 
             # outcome_info = _('"Address is Unavailable" should not be set.\n')
-            # state = 'error'
+            # state = self._get_verification_outcome_state(state, 'Error (L0)')
 
         else:
 
@@ -150,21 +151,20 @@ class VerificationOutcome(models.Model):
                    (model_object.state_id != ref_address.state_id) or \
                    (model_object.city_id != ref_address.city_id):
 
-                    if outcome_info != '':
-                        outcome_info += '\n'
                     outcome_info += _('Address "Contact Information" mismatch.')
-
-                    if state != 'error':
-                        state = 'warning'
+                    state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
             else:
 
                 outcome_info = _('Missing "Address".')
-                if state != 'error':
-                    state = 'warning'
+                state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
         if outcome_info == '':
             outcome_info = False
+
+        self._object_verification_outcome_updt(
+            verification_outcome, state, outcome_info, date_verification, model_object
+        )
 
         verification_values = {}
         verification_values['date_verification'] = date_verification
@@ -180,7 +180,7 @@ class VerificationOutcome(models.Model):
 
         family = model_object.family_id
 
-        state = 'ok'
+        state = 'Ok'
         outcome_info = ''
 
         if model_object.family_is_unavailable:
@@ -188,10 +188,10 @@ class VerificationOutcome(models.Model):
             if family.id is not False:
 
                 outcome_info = _('"Family" should not be set\n.')
-                state = 'error'
+                state = self._get_verification_outcome_state(state, 'Error (L0)')
 
             # outcome_info = _('"Family is Unavailable" should not be set.\n')
-            # state = 'error'
+            # state = self._get_verification_outcome_state(state, 'Error (L0)')
 
         else:
 
@@ -206,21 +206,20 @@ class VerificationOutcome(models.Model):
                    (model_object.state_id != family.state_id) or \
                    (model_object.city_id != family.city_id):
 
-                    if outcome_info != '':
-                        outcome_info += '\n'
                     outcome_info += _('Family "Contact Information" mismatch.')
-
-                    if state != 'error':
-                        state = 'warning'
+                    state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
             else:
 
                 outcome_info = _('Missing "Family".')
-                if state != 'error':
-                    state = 'warning'
+                state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
         if outcome_info == '':
             outcome_info = False
+
+        self._object_verification_outcome_updt(
+            verification_outcome, state, outcome_info, date_verification, model_object
+        )
 
         verification_values = {}
         verification_values['date_verification'] = date_verification
