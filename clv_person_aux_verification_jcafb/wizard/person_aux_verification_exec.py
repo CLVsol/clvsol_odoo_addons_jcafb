@@ -95,7 +95,7 @@ class PersonAuxVerificationExecute(models.TransientModel):
                     verification_outcome.action + \
                     '(verification_outcome, person_aux)'
 
-                _logger.info(u'%s %s', '>>>>>>>>>>', action_call)
+                _logger.info(u'%s %s', '>>>>>>>>>> (action_call):', action_call)
 
                 if action_call:
 
@@ -103,6 +103,13 @@ class PersonAuxVerificationExecute(models.TransientModel):
                     verification_outcome.outcome_text = False
 
                     exec(action_call)
+
+            self.env.cr.commit()
+
+            this_person_aux = self.env['clv.person_aux'].with_context({'active_test': False}).search([
+                ('id', '=', person_aux.id),
+            ])
+            VerificationOutcome._object_verification_outcome_model_object_verification_state_updt(this_person_aux)
 
         return True
         # return self._reopen_form()
