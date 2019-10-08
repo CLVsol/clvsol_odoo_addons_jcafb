@@ -104,5 +104,12 @@ class PersonVerificationExecute(models.TransientModel):
 
                     exec(action_call)
 
+            self.env.cr.commit()
+
+            this_person = self.env['clv.person'].with_context({'active_test': False}).search([
+                ('id', '=', person.id),
+            ])
+            VerificationOutcome._object_verification_outcome_model_object_verification_state_updt(this_person)
+
         return True
         # return self._reopen_form()
