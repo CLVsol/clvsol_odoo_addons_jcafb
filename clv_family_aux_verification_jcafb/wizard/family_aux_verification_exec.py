@@ -104,5 +104,12 @@ class FamilyAuxVerificationExecute(models.TransientModel):
 
                     exec(action_call)
 
+            self.env.cr.commit()
+
+            this_family_aux = self.env['clv.family_aux'].with_context({'active_test': False}).search([
+                ('id', '=', family_aux.id),
+            ])
+            VerificationOutcome._object_verification_outcome_model_object_verification_state_updt(this_family_aux)
+
         return True
         # return self._reopen_form()
