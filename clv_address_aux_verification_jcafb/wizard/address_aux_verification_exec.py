@@ -104,5 +104,12 @@ class AddressAuxVerificationExecute(models.TransientModel):
 
                     exec(action_call)
 
+            self.env.cr.commit()
+
+            this_address_aux = self.env['clv.address_aux'].with_context({'active_test': False}).search([
+                ('id', '=', address_aux.id),
+            ])
+            VerificationOutcome._object_verification_outcome_model_object_verification_state_updt(this_address_aux)
+
         return True
         # return self._reopen_form()
