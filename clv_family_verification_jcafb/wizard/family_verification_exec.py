@@ -104,5 +104,12 @@ class FamilyVerificationExecute(models.TransientModel):
 
                     exec(action_call)
 
+            self.env.cr.commit()
+
+            this_family = self.env['clv.family'].with_context({'active_test': False}).search([
+                ('id', '=', family.id),
+            ])
+            VerificationOutcome._object_verification_outcome_model_object_verification_state_updt(this_family)
+
         return True
         # return self._reopen_form()
