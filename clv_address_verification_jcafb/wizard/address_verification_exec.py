@@ -83,7 +83,7 @@ class AddressVerificationExecute(models.TransientModel):
                     verification_outcome_values['res_id'] = address.id
                     verification_outcome_values['res_last_update'] = address['__last_update']
                     verification_outcome_values['state'] = 'Unknown'
-                    verification_outcome_values['method'] = verification_template.method
+                    # verification_outcome_values['method'] = verification_template.method
                     verification_outcome_values['action'] = verification_template.action
                     _logger.info(u'>>>>>>>>>>>>>>> %s %s',
                                  '(verification_outcome_values):', verification_outcome_values)
