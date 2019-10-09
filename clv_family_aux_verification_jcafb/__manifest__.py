@@ -17,6 +17,7 @@
     'data': [
         'data/family_aux_verification.xml',
         'views/verification_outcome_view.xml',
+        'wizard/family_aux_mass_edit_view.xml',
         'wizard/family_aux_verification_exec_view.xml',
     ],
     'demo': [],
