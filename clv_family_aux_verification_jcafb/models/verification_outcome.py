@@ -33,6 +33,19 @@ class FamilyAux(models.Model):
         readonly=True
     )
 
+    verification_marker_ids = fields.Many2many(
+        comodel_name='clv.verification.marker',
+        relation='clv_family_aux_verification_marker_rel',
+        column1='family_aux_id',
+        column2='verification_marker_id',
+        string='Verification Markers'
+    )
+    verification_marker_names = fields.Char(
+        string='Verification Marker Names',
+        compute='_compute_verification_marker_names',
+        store=True
+    )
+
     @api.multi
     def _compute_verification_outcome_ids_and_count(self):
         for record in self:
@@ -47,6 +60,17 @@ class FamilyAux(models.Model):
             record.count_verification_outcomes = len(verification_outcomes)
             record.count_verification_outcomes_2 = len(verification_outcomes)
             record.verification_outcome_ids = [(6, 0, verification_outcomes.ids)]
+
+    @api.depends('verification_marker_ids')
+    def _compute_verification_marker_names(self):
+        for r in self:
+            verification_marker_names = False
+            for verification_marker in r.verification_marker_ids:
+                if verification_marker_names is False:
+                    verification_marker_names = verification_marker.name
+                else:
+                    verification_marker_names = verification_marker_names + ', ' + verification_marker.name
+            r.verification_marker_names = verification_marker_names
 
 
 class VerificationOutcome(models.Model):
@@ -188,20 +212,20 @@ class VerificationOutcome(models.Model):
         verification_values['state'] = state
         verification_outcome.write(verification_values)
 
-    def _family_aux_verification_ref_address_aux(self, verification_outcome, model_object):
+    def _family_aux_verification_ref_family_aux(self, verification_outcome, model_object):
 
         _logger.info(u'%s %s', '>>>>>>>>>>>>>>> (model_object):', model_object.name)
 
         date_verification = datetime.now()
 
-        ref_address_aux = model_object.ref_address_aux_id
+        ref_family_aux = model_object.ref_family_aux_id
 
         state = 'Ok'
         outcome_info = ''
 
-        if model_object.ref_address_aux_is_unavailable:
+        if model_object.ref_family_aux_is_unavailable:
 
-            if ref_address_aux.id is not False:
+            if ref_family_aux.id is not False:
 
                 outcome_info = _('"Address (Aux)" should not be set\n.')
                 state = self._get_verification_outcome_state(state, 'Error (L0)')
@@ -211,16 +235,16 @@ class VerificationOutcome(models.Model):
 
         else:
 
-            if ref_address_aux.id is not False:
+            if ref_family_aux.id is not False:
 
-                if (model_object.zip != ref_address_aux.zip) or \
-                   (model_object.street != ref_address_aux.street) or \
-                   (model_object.street_number != ref_address_aux.street_number) or \
-                   (model_object.street2 != ref_address_aux.street2) or \
-                   (model_object.district != ref_address_aux.district) or \
-                   (model_object.country_id != ref_address_aux.country_id) or \
-                   (model_object.state_id != ref_address_aux.state_id) or \
-                   (model_object.city_id != ref_address_aux.city_id):
+                if (model_object.zip != ref_family_aux.zip) or \
+                   (model_object.street != ref_family_aux.street) or \
+                   (model_object.street_number != ref_family_aux.street_number) or \
+                   (model_object.street2 != ref_family_aux.street2) or \
+                   (model_object.district != ref_family_aux.district) or \
+                   (model_object.country_id != ref_family_aux.country_id) or \
+                   (model_object.state_id != ref_family_aux.state_id) or \
+                   (model_object.city_id != ref_family_aux.city_id):
 
                     outcome_info += _('Address (Aux) "Contact Information" mismatch.')
                     state = self._get_verification_outcome_state(state, 'Warning (L0)')

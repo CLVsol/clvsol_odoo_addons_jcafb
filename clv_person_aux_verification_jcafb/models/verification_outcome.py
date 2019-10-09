@@ -33,6 +33,19 @@ class PersonAux(models.Model):
         readonly=True
     )
 
+    verification_marker_ids = fields.Many2many(
+        comodel_name='clv.verification.marker',
+        relation='clv_person_aux_verification_marker_rel',
+        column1='person_aux_id',
+        column2='verification_marker_id',
+        string='Verification Markers'
+    )
+    verification_marker_names = fields.Char(
+        string='Verification Marker Names',
+        compute='_compute_verification_marker_names',
+        store=True
+    )
+
     @api.multi
     def _compute_verification_outcome_ids_and_count(self):
         for record in self:
@@ -47,6 +60,17 @@ class PersonAux(models.Model):
             record.count_verification_outcomes = len(verification_outcomes)
             record.count_verification_outcomes_2 = len(verification_outcomes)
             record.verification_outcome_ids = [(6, 0, verification_outcomes.ids)]
+
+    @api.depends('verification_marker_ids')
+    def _compute_verification_marker_names(self):
+        for r in self:
+            verification_marker_names = False
+            for verification_marker in r.verification_marker_ids:
+                if verification_marker_names is False:
+                    verification_marker_names = verification_marker.name
+                else:
+                    verification_marker_names = verification_marker_names + ', ' + verification_marker.name
+            r.verification_marker_names = verification_marker_names
 
 
 class VerificationOutcome(models.Model):
@@ -296,20 +320,20 @@ class VerificationOutcome(models.Model):
             verification_outcome, state, outcome_info, date_verification, model_object
         )
 
-    def _person_aux_verification_family_aux(self, verification_outcome, model_object):
+    def _person_aux_verification_person_aux(self, verification_outcome, model_object):
 
         _logger.info(u'%s %s', '>>>>>>>>>>>>>>> (model_object):', model_object.name)
 
         date_verification = datetime.now()
 
-        family_aux = model_object.family_aux_id
+        person_aux = model_object.person_aux_id
 
         state = 'Ok'
         outcome_info = ''
 
-        if model_object.family_aux_is_unavailable:
+        if model_object.person_aux_is_unavailable:
 
-            if family_aux.id is not False:
+            if person_aux.id is not False:
 
                 outcome_info = _('"Family (Aux)" should not be set\n.')
                 state = self._get_verification_outcome_state(state, 'Error (L0)')
@@ -319,16 +343,16 @@ class VerificationOutcome(models.Model):
 
         else:
 
-            if family_aux.id is not False:
+            if person_aux.id is not False:
 
-                if (model_object.zip != family_aux.zip) or \
-                   (model_object.street != family_aux.street) or \
-                   (model_object.street_number != family_aux.street_number) or \
-                   (model_object.street2 != family_aux.street2) or \
-                   (model_object.district != family_aux.district) or \
-                   (model_object.country_id != family_aux.country_id) or \
-                   (model_object.state_id != family_aux.state_id) or \
-                   (model_object.city_id != family_aux.city_id):
+                if (model_object.zip != person_aux.zip) or \
+                   (model_object.street != person_aux.street) or \
+                   (model_object.street_number != person_aux.street_number) or \
+                   (model_object.street2 != person_aux.street2) or \
+                   (model_object.district != person_aux.district) or \
+                   (model_object.country_id != person_aux.country_id) or \
+                   (model_object.state_id != person_aux.state_id) or \
+                   (model_object.city_id != person_aux.city_id):
 
                     outcome_info += _('Family (Aux) "Contact Information" mismatch.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L0)')

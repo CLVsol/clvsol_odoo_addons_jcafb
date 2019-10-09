@@ -32,6 +32,12 @@
         groups="clv_verification.group_user"
         sequence="10"/>
 
+    <menuitem name="Markers" id="clv_verification.menu_verification_config_verification_markers" 
+        parent="clv_verification.menu_verification_config_verification"
+        groups="clv_verification.group_user"
+        sequence="20"
+        action="clv_verification.clv_verification_marker_action"/>
+
     <menuitem name="Templates" id="clv_verification.menu_verification_config_verification_templates" 
         parent="clv_verification.menu_verification_config_verification"
         groups="clv_verification.group_user"

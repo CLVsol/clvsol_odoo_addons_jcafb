@@ -33,6 +33,19 @@ class Family(models.Model):
         readonly=True
     )
 
+    verification_marker_ids = fields.Many2many(
+        comodel_name='clv.verification.marker',
+        relation='clv_family_verification_marker_rel',
+        column1='family_id',
+        column2='verification_marker_id',
+        string='Verification Markers'
+    )
+    verification_marker_names = fields.Char(
+        string='Verification Marker Names',
+        compute='_compute_verification_marker_names',
+        store=True
+    )
+
     @api.multi
     def _compute_verification_outcome_ids_and_count(self):
         for record in self:
@@ -47,6 +60,17 @@ class Family(models.Model):
             record.count_verification_outcomes = len(verification_outcomes)
             record.count_verification_outcomes_2 = len(verification_outcomes)
             record.verification_outcome_ids = [(6, 0, verification_outcomes.ids)]
+
+    @api.depends('verification_marker_ids')
+    def _compute_verification_marker_names(self):
+        for r in self:
+            verification_marker_names = False
+            for verification_marker in r.verification_marker_ids:
+                if verification_marker_names is False:
+                    verification_marker_names = verification_marker.name
+                else:
+                    verification_marker_names = verification_marker_names + ', ' + verification_marker.name
+            r.verification_marker_names = verification_marker_names
 
 
 class VerificationOutcome(models.Model):
