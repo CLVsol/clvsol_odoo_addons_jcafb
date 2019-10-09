@@ -17,6 +17,7 @@
     'data': [
         'data/address_verification.xml',
         'views/verification_outcome_view.xml',
+        'wizard/address_mass_edit_view.xml',
         'wizard/address_verification_exec_view.xml',
     ],
     'demo': [],
