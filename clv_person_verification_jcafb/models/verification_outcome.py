@@ -72,6 +72,67 @@ class Person(models.Model):
                     verification_marker_names = verification_marker_names + ', ' + verification_marker.name
             r.verification_marker_names = verification_marker_names
 
+    @api.multi
+    def person_verification_exec(self):
+
+        VerificationTemplate = self.env['clv.verification.template']
+        VerificationOutcome = self.env['clv.verification.outcome']
+
+        model_name = 'clv.person'
+
+        for person in self:
+
+            _logger.info(u'%s %s', '>>>>> (person):', person.name)
+
+            verification_templates = VerificationTemplate.with_context({'active_test': False}).search([
+                ('model', '=', model_name),
+            ])
+
+            for verification_template in verification_templates:
+
+                _logger.info(u'%s %s', '>>>>>>>>>> (verification_template):', verification_template.name)
+
+                verification_outcome = VerificationOutcome.with_context({'active_test': False}).search([
+                    ('model', '=', model_name),
+                    ('res_id', '=', person.id),
+                    ('action', '=', verification_template.action),
+                ])
+
+                if verification_outcome.state is False:
+
+                    verification_outcome_values = {}
+                    verification_outcome_values['model'] = model_name
+                    verification_outcome_values['res_id'] = person.id
+                    verification_outcome_values['res_last_update'] = person['__last_update']
+                    verification_outcome_values['state'] = 'Unknown'
+                    # verification_outcome_values['method'] = verification_template.method
+                    verification_outcome_values['action'] = verification_template.action
+                    _logger.info(u'>>>>>>>>>>>>>>> %s %s',
+                                 '(verification_outcome_values):', verification_outcome_values)
+                    verification_outcome = VerificationOutcome.create(verification_outcome_values)
+
+                _logger.info(u'%s %s', '>>>>>>>>>>>>>>> (verification_outcome):', verification_outcome)
+
+                action_call = 'self.env["clv.verification.outcome"].' + \
+                    verification_outcome.action + \
+                    '(verification_outcome, person)'
+
+                _logger.info(u'%s %s', '>>>>>>>>>>', action_call)
+
+                if action_call:
+
+                    verification_outcome.state = 'Unknown'
+                    verification_outcome.outcome_text = False
+
+                    exec(action_call)
+
+            self.env.cr.commit()
+
+            this_person = self.env['clv.person'].with_context({'active_test': False}).search([
+                ('id', '=', person.id),
+            ])
+            VerificationOutcome._object_verification_outcome_model_object_verification_state_updt(this_person)
+
 
 class VerificationOutcome(models.Model):
     _inherit = 'clv.verification.outcome'

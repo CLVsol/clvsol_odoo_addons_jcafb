@@ -53,63 +53,8 @@ class FamilyAuxVerificationExecute(models.TransientModel):
     def do_family_aux_verification_exec(self):
         self.ensure_one()
 
-        VerificationTemplate = self.env['clv.verification.template']
-        VerificationOutcome = self.env['clv.verification.outcome']
-
-        model_name = 'clv.family_aux'
-
         for family_aux in self.family_aux_ids:
 
-            _logger.info(u'%s %s', '>>>>> (family_aux):', family_aux.name)
-
-            verification_templates = VerificationTemplate.with_context({'active_test': False}).search([
-                ('model', '=', model_name),
-            ])
-
-            for verification_template in verification_templates:
-
-                _logger.info(u'%s %s', '>>>>>>>>>> (verification_template):', verification_template.name)
-
-                verification_outcome = VerificationOutcome.with_context({'active_test': False}).search([
-                    ('model', '=', model_name),
-                    ('res_id', '=', family_aux.id),
-                    ('action', '=', verification_template.action),
-                ])
-
-                if verification_outcome.state is False:
-
-                    verification_outcome_values = {}
-                    verification_outcome_values['model'] = model_name
-                    verification_outcome_values['res_id'] = family_aux.id
-                    verification_outcome_values['res_last_update'] = family_aux['__last_update']
-                    verification_outcome_values['state'] = 'Unknown'
-                    # verification_outcome_values['method'] = verification_template.method
-                    verification_outcome_values['action'] = verification_template.action
-                    _logger.info(u'>>>>>>>>>>>>>>> %s %s',
-                                 '(verification_outcome_values):', verification_outcome_values)
-                    verification_outcome = VerificationOutcome.create(verification_outcome_values)
-
-                _logger.info(u'%s %s', '>>>>>>>>>>>>>>> (verification_outcome):', verification_outcome)
-
-                action_call = 'self.env["clv.verification.outcome"].' + \
-                    verification_outcome.action + \
-                    '(verification_outcome, family_aux)'
-
-                _logger.info(u'%s %s', '>>>>>>>>>>', action_call)
-
-                if action_call:
-
-                    verification_outcome.state = 'Unknown'
-                    verification_outcome.outcome_text = False
-
-                    exec(action_call)
-
-            self.env.cr.commit()
-
-            this_family_aux = self.env['clv.family_aux'].with_context({'active_test': False}).search([
-                ('id', '=', family_aux.id),
-            ])
-            VerificationOutcome._object_verification_outcome_model_object_verification_state_updt(this_family_aux)
+            family_aux.family_aux_verification_exec()
 
         return True
-        # return self._reopen_form()

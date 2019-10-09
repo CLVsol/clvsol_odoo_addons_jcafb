@@ -72,6 +72,67 @@ class FamilyAux(models.Model):
                     verification_marker_names = verification_marker_names + ', ' + verification_marker.name
             r.verification_marker_names = verification_marker_names
 
+    @api.multi
+    def family_aux_verification_exec(self):
+
+        VerificationTemplate = self.env['clv.verification.template']
+        VerificationOutcome = self.env['clv.verification.outcome']
+
+        model_name = 'clv.family_aux'
+
+        for family_aux in self:
+
+            _logger.info(u'%s %s', '>>>>> (family_aux):', family_aux.name)
+
+            verification_templates = VerificationTemplate.with_context({'active_test': False}).search([
+                ('model', '=', model_name),
+            ])
+
+            for verification_template in verification_templates:
+
+                _logger.info(u'%s %s', '>>>>>>>>>> (verification_template):', verification_template.name)
+
+                verification_outcome = VerificationOutcome.with_context({'active_test': False}).search([
+                    ('model', '=', model_name),
+                    ('res_id', '=', family_aux.id),
+                    ('action', '=', verification_template.action),
+                ])
+
+                if verification_outcome.state is False:
+
+                    verification_outcome_values = {}
+                    verification_outcome_values['model'] = model_name
+                    verification_outcome_values['res_id'] = family_aux.id
+                    verification_outcome_values['res_last_update'] = family_aux['__last_update']
+                    verification_outcome_values['state'] = 'Unknown'
+                    # verification_outcome_values['method'] = verification_template.method
+                    verification_outcome_values['action'] = verification_template.action
+                    _logger.info(u'>>>>>>>>>>>>>>> %s %s',
+                                 '(verification_outcome_values):', verification_outcome_values)
+                    verification_outcome = VerificationOutcome.create(verification_outcome_values)
+
+                _logger.info(u'%s %s', '>>>>>>>>>>>>>>> (verification_outcome):', verification_outcome)
+
+                action_call = 'self.env["clv.verification.outcome"].' + \
+                    verification_outcome.action + \
+                    '(verification_outcome, family_aux)'
+
+                _logger.info(u'%s %s', '>>>>>>>>>>', action_call)
+
+                if action_call:
+
+                    verification_outcome.state = 'Unknown'
+                    verification_outcome.outcome_text = False
+
+                    exec(action_call)
+
+            self.env.cr.commit()
+
+            this_family_aux = self.env['clv.family_aux'].with_context({'active_test': False}).search([
+                ('id', '=', family_aux.id),
+            ])
+            VerificationOutcome._object_verification_outcome_model_object_verification_state_updt(this_family_aux)
+
 
 class VerificationOutcome(models.Model):
     _inherit = 'clv.verification.outcome'
@@ -212,20 +273,20 @@ class VerificationOutcome(models.Model):
         verification_values['state'] = state
         verification_outcome.write(verification_values)
 
-    def _family_aux_verification_ref_family_aux(self, verification_outcome, model_object):
+    def _family_aux_verification_ref_address_aux(self, verification_outcome, model_object):
 
         _logger.info(u'%s %s', '>>>>>>>>>>>>>>> (model_object):', model_object.name)
 
         date_verification = datetime.now()
 
-        ref_family_aux = model_object.ref_family_aux_id
+        ref_address_aux = model_object.ref_address_aux_id
 
         state = 'Ok'
         outcome_info = ''
 
-        if model_object.ref_family_aux_is_unavailable:
+        if model_object.ref_address_aux_is_unavailable:
 
-            if ref_family_aux.id is not False:
+            if ref_address_aux.id is not False:
 
                 outcome_info = _('"Address (Aux)" should not be set\n.')
                 state = self._get_verification_outcome_state(state, 'Error (L0)')
@@ -235,16 +296,16 @@ class VerificationOutcome(models.Model):
 
         else:
 
-            if ref_family_aux.id is not False:
+            if ref_address_aux.id is not False:
 
-                if (model_object.zip != ref_family_aux.zip) or \
-                   (model_object.street != ref_family_aux.street) or \
-                   (model_object.street_number != ref_family_aux.street_number) or \
-                   (model_object.street2 != ref_family_aux.street2) or \
-                   (model_object.district != ref_family_aux.district) or \
-                   (model_object.country_id != ref_family_aux.country_id) or \
-                   (model_object.state_id != ref_family_aux.state_id) or \
-                   (model_object.city_id != ref_family_aux.city_id):
+                if (model_object.zip != ref_address_aux.zip) or \
+                   (model_object.street != ref_address_aux.street) or \
+                   (model_object.street_number != ref_address_aux.street_number) or \
+                   (model_object.street2 != ref_address_aux.street2) or \
+                   (model_object.district != ref_address_aux.district) or \
+                   (model_object.country_id != ref_address_aux.country_id) or \
+                   (model_object.state_id != ref_address_aux.state_id) or \
+                   (model_object.city_id != ref_address_aux.city_id):
 
                     outcome_info += _('Address (Aux) "Contact Information" mismatch.')
                     state = self._get_verification_outcome_state(state, 'Warning (L0)')

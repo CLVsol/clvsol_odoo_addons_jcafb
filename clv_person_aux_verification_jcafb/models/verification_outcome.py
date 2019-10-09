@@ -72,6 +72,67 @@ class PersonAux(models.Model):
                     verification_marker_names = verification_marker_names + ', ' + verification_marker.name
             r.verification_marker_names = verification_marker_names
 
+    @api.multi
+    def person_aux_verification_exec(self):
+
+        VerificationTemplate = self.env['clv.verification.template']
+        VerificationOutcome = self.env['clv.verification.outcome']
+
+        model_name = 'clv.person_aux'
+
+        for person_aux in self:
+
+            _logger.info(u'%s %s', '>>>>> (person_aux):', person_aux.name)
+
+            verification_templates = VerificationTemplate.with_context({'active_test': False}).search([
+                ('model', '=', model_name),
+            ])
+
+            for verification_template in verification_templates:
+
+                _logger.info(u'%s %s', '>>>>>>>>>> (verification_template):', verification_template.name)
+
+                verification_outcome = VerificationOutcome.with_context({'active_test': False}).search([
+                    ('model', '=', model_name),
+                    ('res_id', '=', person_aux.id),
+                    ('action', '=', verification_template.action),
+                ])
+
+                if verification_outcome.state is False:
+
+                    verification_outcome_values = {}
+                    verification_outcome_values['model'] = model_name
+                    verification_outcome_values['res_id'] = person_aux.id
+                    verification_outcome_values['res_last_update'] = person_aux['__last_update']
+                    verification_outcome_values['state'] = 'Unknown'
+                    # verification_outcome_values['method'] = verification_template.method
+                    verification_outcome_values['action'] = verification_template.action
+                    _logger.info(u'>>>>>>>>>>>>>>> %s %s',
+                                 '(verification_outcome_values):', verification_outcome_values)
+                    verification_outcome = VerificationOutcome.create(verification_outcome_values)
+
+                _logger.info(u'%s %s', '>>>>>>>>>>>>>>> (verification_outcome):', verification_outcome)
+
+                action_call = 'self.env["clv.verification.outcome"].' + \
+                    verification_outcome.action + \
+                    '(verification_outcome, person_aux)'
+
+                _logger.info(u'%s %s', '>>>>>>>>>> (action_call):', action_call)
+
+                if action_call:
+
+                    verification_outcome.state = 'Unknown'
+                    verification_outcome.outcome_text = False
+
+                    exec(action_call)
+
+            self.env.cr.commit()
+
+            this_person_aux = self.env['clv.person_aux'].with_context({'active_test': False}).search([
+                ('id', '=', person_aux.id),
+            ])
+            VerificationOutcome._object_verification_outcome_model_object_verification_state_updt(this_person_aux)
+
 
 class VerificationOutcome(models.Model):
     _inherit = 'clv.verification.outcome'
@@ -320,20 +381,20 @@ class VerificationOutcome(models.Model):
             verification_outcome, state, outcome_info, date_verification, model_object
         )
 
-    def _person_aux_verification_person_aux(self, verification_outcome, model_object):
+    def _person_aux_verification_family_aux(self, verification_outcome, model_object):
 
         _logger.info(u'%s %s', '>>>>>>>>>>>>>>> (model_object):', model_object.name)
 
         date_verification = datetime.now()
 
-        person_aux = model_object.person_aux_id
+        family_aux = model_object.family_aux_id
 
         state = 'Ok'
         outcome_info = ''
 
-        if model_object.person_aux_is_unavailable:
+        if model_object.family_aux_is_unavailable:
 
-            if person_aux.id is not False:
+            if family_aux.id is not False:
 
                 outcome_info = _('"Family (Aux)" should not be set\n.')
                 state = self._get_verification_outcome_state(state, 'Error (L0)')
@@ -343,16 +404,16 @@ class VerificationOutcome(models.Model):
 
         else:
 
-            if person_aux.id is not False:
+            if family_aux.id is not False:
 
-                if (model_object.zip != person_aux.zip) or \
-                   (model_object.street != person_aux.street) or \
-                   (model_object.street_number != person_aux.street_number) or \
-                   (model_object.street2 != person_aux.street2) or \
-                   (model_object.district != person_aux.district) or \
-                   (model_object.country_id != person_aux.country_id) or \
-                   (model_object.state_id != person_aux.state_id) or \
-                   (model_object.city_id != person_aux.city_id):
+                if (model_object.zip != family_aux.zip) or \
+                   (model_object.street != family_aux.street) or \
+                   (model_object.street_number != family_aux.street_number) or \
+                   (model_object.street2 != family_aux.street2) or \
+                   (model_object.district != family_aux.district) or \
+                   (model_object.country_id != family_aux.country_id) or \
+                   (model_object.state_id != family_aux.state_id) or \
+                   (model_object.city_id != family_aux.city_id):
 
                     outcome_info += _('Family (Aux) "Contact Information" mismatch.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L0)')
