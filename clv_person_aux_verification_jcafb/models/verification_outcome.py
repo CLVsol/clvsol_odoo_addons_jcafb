@@ -189,6 +189,8 @@ class VerificationOutcome(models.Model):
                 outcome_info += _('"Date of Birth" is missing.\n')
                 state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
+        if model_object.reg_state not in ['verified', 'ready', 'done', 'canceled']:
+
             if model_object.phase_id.id is False:
 
                 outcome_info += _('"Phase" is missing.\n')
