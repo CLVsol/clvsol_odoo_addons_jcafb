@@ -15,6 +15,8 @@ class PersonAuxMassEdit(models.TransientModel):
     reg_state = fields.Selection(
         [('draft', 'Draft'),
          ('revised', 'Revised'),
+         ('verified', 'Verified'),
+         ('ready', 'Ready'),
          ('done', 'Done'),
          ('canceled', 'Canceled')
          ], string='Register State', default=False, readonly=False, required=False
