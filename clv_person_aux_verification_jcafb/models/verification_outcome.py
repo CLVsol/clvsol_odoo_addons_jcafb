@@ -189,11 +189,26 @@ class VerificationOutcome(models.Model):
                 outcome_info += _('"Date of Birth" is missing.\n')
                 state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
+            if (model_object.force_is_deceased is True) and (model_object.date_death is False):
+
+                outcome_info += _('"Deceased Date" is missing.\n')
+                state = self._get_verification_outcome_state(state, 'Warning (L0)')
+
         if model_object.reg_state not in ['verified', 'ready', 'done', 'canceled']:
 
             if model_object.phase_id.id is False:
 
                 outcome_info += _('"Phase" is missing.\n')
+                state = self._get_verification_outcome_state(state, 'Error (L0)')
+
+        if (model_object.is_absent is True) and (model_object.state not in ['unavailable']):
+
+                outcome_info += _('"Person (Aux) State" should be "Unavailable".\n')
+                state = self._get_verification_outcome_state(state, 'Error (L0)')
+
+        if (model_object.is_deceased is True) and (model_object.state not in ['unavailable']):
+
+                outcome_info += _('"Person (Aux) State" should be "Unavailable".\n')
                 state = self._get_verification_outcome_state(state, 'Error (L0)')
 
         if outcome_info == '':
@@ -233,6 +248,11 @@ class VerificationOutcome(models.Model):
                     outcome_info += _('"Name" has changed.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L1)')
 
+                if (model_object.is_absent != related_person.is_absent):
+
+                    outcome_info += _('"Is Absent" has changed.\n')
+                    state = self._get_verification_outcome_state(state, 'Warning (L1)')
+
                 if (model_object.gender != related_person.gender):
 
                     outcome_info += _('"Gender" has changed.\n')
@@ -241,6 +261,11 @@ class VerificationOutcome(models.Model):
                 if (model_object.birthday != related_person.birthday):
 
                     outcome_info += _('"Date of Birth" has changed.\n')
+                    state = self._get_verification_outcome_state(state, 'Warning (L1)')
+
+                if (model_object.force_is_deceased != related_person.force_is_deceased):
+
+                    outcome_info += _('"Force Is Deceased" has changed.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L1)')
 
                 if (model_object.date_death != related_person.date_death):
