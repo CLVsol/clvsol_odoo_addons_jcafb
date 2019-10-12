@@ -167,6 +167,16 @@ class VerificationOutcome(models.Model):
 
                 if (model_object.zip is False) or \
                    (model_object.street is False) or \
+                   (model_object.district is False) or \
+                   (model_object.country_id is False) or \
+                   (model_object.state_id is False) or \
+                   (model_object.city_id is False):
+
+                    outcome_info += _('Please, verify "Contact Information (Street)" data.\n')
+                    state = self._get_verification_outcome_state(state, 'Warning (L0)')
+
+                if (model_object.zip is False) or \
+                   (model_object.street is False) or \
                    (model_object.street_number is False) or \
                    (model_object.street2 is False) or \
                    (model_object.district is False) or \
@@ -174,7 +184,7 @@ class VerificationOutcome(models.Model):
                    (model_object.state_id is False) or \
                    (model_object.city_id is False):
 
-                    outcome_info += _('Please, verify "Contact Information" data.\n')
+                    outcome_info += _('Please, verify "Contact Information (Complement)" data.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
         if model_object.reg_state not in ['ready', 'done', 'canceled']:
@@ -355,6 +365,12 @@ class VerificationOutcome(models.Model):
                 if (model_object.family_id != related_person.family_id):
 
                     outcome_info += _('"Family" has changed.\n')
+                    state = self._get_verification_outcome_state(state, 'Warning (L1)')
+
+                if model_object.related_person_id.verification_state != 'Ok':
+
+                    outcome_info += _('Related Person "Verification State" is "') + \
+                        model_object.related_person_id.verification_state + '".\n'
                     state = self._get_verification_outcome_state(state, 'Warning (L1)')
 
             else:
