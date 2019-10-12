@@ -290,12 +290,16 @@ class VerificationOutcome(models.Model):
                    (model_object.district != related_person.district) or \
                    (model_object.country_id != related_person.country_id) or \
                    (model_object.state_id != related_person.state_id) or \
-                   (model_object.city_id != related_person.city_id) or \
-                   (model_object.phone != related_person.phone) or \
+                   (model_object.city_id != related_person.city_id):
+
+                    outcome_info += _('"Contact Information (Address)" has changed.\n')
+                    state = self._get_verification_outcome_state(state, 'Warning (L1)')
+
+                if (model_object.phone != related_person.phone) or \
                    (model_object.mobile != related_person.mobile) or \
                    (model_object.email != related_person.email):
 
-                    outcome_info += _('"Contact Information" has changed.\n')
+                    outcome_info += _('"Contact Information (Phones)" has changed.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L1)')
 
                 if (model_object.global_tag_ids.id is not False):
@@ -399,7 +403,7 @@ class VerificationOutcome(models.Model):
                    (model_object.state_id != ref_address_aux.state_id) or \
                    (model_object.city_id != ref_address_aux.city_id):
 
-                    outcome_info += _('Address (Aux) "Contact Information" mismatch.\n')
+                    outcome_info += _('Address (Aux) "Contact Information (Address)" mismatch.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
                 if model_object.ref_address_aux_id.verification_state != 'Ok':
@@ -454,7 +458,7 @@ class VerificationOutcome(models.Model):
                    (model_object.state_id != ref_address.state_id) or \
                    (model_object.city_id != ref_address.city_id):
 
-                    outcome_info += _('Address "Contact Information" mismatch.\n')
+                    outcome_info += _('Address "Contact Information (Address)" mismatch.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L1)')
 
                 if model_object.ref_address_id.verification_state != 'Ok':
@@ -509,7 +513,7 @@ class VerificationOutcome(models.Model):
                    (model_object.state_id != family_aux.state_id) or \
                    (model_object.city_id != family_aux.city_id):
 
-                    outcome_info += _('Family (Aux) "Contact Information" mismatch.\n')
+                    outcome_info += _('Family (Aux) "Contact Information (Address)" mismatch.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
                 if model_object.family_aux_id.verification_state != 'Ok':
@@ -564,7 +568,7 @@ class VerificationOutcome(models.Model):
                    (model_object.state_id != family.state_id) or \
                    (model_object.city_id != family.city_id):
 
-                    outcome_info += _('Family "Contact Information" mismatch.\n')
+                    outcome_info += _('Family "Contact Information (Address)" mismatch.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L1)')
 
                 if model_object.family_id.verification_state != 'Ok':
