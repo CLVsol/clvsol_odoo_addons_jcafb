@@ -255,6 +255,51 @@ class VerificationOutcome(models.Model):
                     outcome_info += _('"Contact Information" has changed.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
+                if (model_object.global_tag_ids.id is not False):
+
+                    related_family_global_tag_ids = []
+                    for global_tag_id in related_family.global_tag_ids:
+                        related_family_global_tag_ids.append(global_tag_id.id)
+
+                    count_new_global_tag_ids = 0
+                    for global_tag_id in model_object.global_tag_ids:
+                        if global_tag_id.id not in related_family_global_tag_ids:
+                            count_new_global_tag_ids += 1
+
+                    if count_new_global_tag_ids > 0:
+                        outcome_info += _('Added "Global Tag(s)".\n')
+                        state = self._get_verification_outcome_state(state, 'Warning (L1)')
+
+                if (model_object.category_ids.id is not False):
+
+                    related_family_global_tag_ids = []
+                    for global_tag_id in related_family.global_tag_ids:
+                        related_family_global_tag_ids.append(global_tag_id.id)
+
+                    count_new_global_tag_ids = 0
+                    for global_tag_id in model_object.global_tag_ids:
+                        if global_tag_id.id not in related_family_global_tag_ids:
+                            count_new_global_tag_ids += 1
+
+                    if count_new_global_tag_ids > 0:
+                        outcome_info += _('Added "Person Category(ies)".\n')
+                        state = self._get_verification_outcome_state(state, 'Warning (L1)')
+
+                if (model_object.marker_ids.id is not False):
+
+                    related_family_marker_ids = []
+                    for marker_id in related_family.marker_ids:
+                        related_family_marker_ids.append(marker_id.id)
+
+                    count_new_marker_ids = 0
+                    for marker_id in model_object.marker_ids:
+                        if marker_id.id not in related_family_marker_ids:
+                            count_new_marker_ids += 1
+
+                    if count_new_marker_ids > 0:
+                        outcome_info += _('Added "Person Marker(s)".\n')
+                        state = self._get_verification_outcome_state(state, 'Warning (L1)')
+
             else:
 
                 outcome_info = _('Missing "Related Family".\n')
