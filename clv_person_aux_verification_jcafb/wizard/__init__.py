@@ -4,3 +4,4 @@
 
 from . import person_aux_mass_edit
 from . import person_aux_verification_exec
+from . import person_aux_related_person_updt
