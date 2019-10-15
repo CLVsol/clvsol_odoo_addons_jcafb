@@ -12,6 +12,15 @@ _logger = logging.getLogger(__name__)
 class PersonMassEdit(models.TransientModel):
     _inherit = 'clv.person.mass_edit'
 
+    family_is_unavailable = fields.Boolean(
+        string='Family is unavailable'
+    )
+    family_is_unavailable_selection = fields.Selection(
+        [('set', 'Set'),
+         ('remove', 'Remove'),
+         ], string='Family is unavailable:', default=False, readonly=False, required=False
+    )
+
     verification_marker_ids = fields.Many2many(
         comodel_name='clv.verification.marker',
         relation='clv_person_mass_edit_verification_marker_rel',
@@ -35,6 +44,11 @@ class PersonMassEdit(models.TransientModel):
         for person in self.person_ids:
 
             _logger.info(u'%s %s', '>>>>>', person.name)
+
+            if self.family_is_unavailable_selection == 'set':
+                person.family_is_unavailable = self.family_is_unavailable
+            if self.family_is_unavailable_selection == 'remove':
+                person.family_is_unavailable = False
 
             if self.verification_marker_ids_selection == 'add':
                 m2m_list = []

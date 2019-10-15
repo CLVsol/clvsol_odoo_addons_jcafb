@@ -12,6 +12,12 @@
         <field name="arch" type="xml">
             <group name="marker_ids" position="after">
                 <group>
+                    <field name="family_is_unavailable_selection"/>
+                </group>
+                <group name="family_is_unavailable">
+                    <field name="family_is_unavailable" nolabel='1'/>
+                </group>
+                <group>
                     <field name="verification_marker_ids_selection"/>
                 </group>
                 <group name="verification_marker_ids">
