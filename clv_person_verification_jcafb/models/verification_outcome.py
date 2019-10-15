@@ -163,7 +163,17 @@ class VerificationOutcome(models.Model):
                 outcome_info += _('"Contact Information" is missing.\n')
                 state = self._get_verification_outcome_state(state, 'Error (L0)')
 
-            if model_object.reg_state not in ['done', 'canceled']:
+            if model_object.reg_state not in ['ready', 'done', 'canceled']:
+
+                if (model_object.zip is False) or \
+                   (model_object.street is False) or \
+                   (model_object.district is False) or \
+                   (model_object.country_id is False) or \
+                   (model_object.state_id is False) or \
+                   (model_object.city_id is False):
+
+                    outcome_info += _('Please, verify "Contact Information (Street)" data.\n')
+                    state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
                 if (model_object.zip is False) or \
                    (model_object.street is False) or \
@@ -174,7 +184,7 @@ class VerificationOutcome(models.Model):
                    (model_object.state_id is False) or \
                    (model_object.city_id is False):
 
-                    outcome_info += _('Please, verify "Contact Information" data.\n')
+                    outcome_info += _('Please, verify "Contact Information (Complement)" data.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
         if model_object.reg_state not in ['ready', 'done', 'canceled']:
