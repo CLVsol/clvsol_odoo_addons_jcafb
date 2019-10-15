@@ -14,6 +14,11 @@
                 <label for="person_aux_ids"/>
                 <field name="person_aux_ids"/>
                 <group>
+                    <group>
+                        <field name="update_contact_info_data"/>
+                        <field name="update_ref_address_data"/>
+                        <field name="update_family_data"/>
+                    </group>
                 </group>
                 <footer>
                     <button 

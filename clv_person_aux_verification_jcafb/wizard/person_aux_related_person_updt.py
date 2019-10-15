@@ -19,6 +19,24 @@ class PersonAuxRelatePersonUpdt(models.TransientModel):
         string='Persons (Aux)'
     )
 
+    update_contact_info_data = fields.Boolean(
+        string='Update Contact Information Data',
+        default=True,
+        readonly=False
+    )
+
+    update_ref_address_data = fields.Boolean(
+        string='Update Address Data',
+        default=False,
+        readonly=False
+    )
+
+    update_family_data = fields.Boolean(
+        string='Update Family Data',
+        default=False,
+        readonly=False
+    )
+
     @api.multi
     def _reopen_form(self):
         self.ensure_one()
@@ -62,46 +80,6 @@ class PersonAuxRelatePersonUpdt(models.TransientModel):
 
                     vals['state'] = person_aux.state
 
-                if (person_aux.zip != related_person.zip):
-
-                    vals['zip'] = person_aux.zip
-
-                if (person_aux.street != related_person.street):
-
-                    vals['street'] = person_aux.street
-
-                if (person_aux.street_number != related_person.street_number):
-
-                    vals['street_number'] = person_aux.street_number
-
-                if (person_aux.street2 != related_person.street2):
-
-                    vals['street2'] = person_aux.street2
-
-                if (person_aux.district != related_person.district):
-
-                    vals['district'] = person_aux.district
-
-                if (person_aux.country_id != related_person.country_id):
-
-                    vals['country_id'] = person_aux.country_id.id
-
-                if (person_aux.state_id != related_person.state_id):
-
-                    vals['state_id'] = person_aux.state_id.id
-
-                if (person_aux.city_id != related_person.city_id):
-
-                    vals['city_id'] = person_aux.city_id.id
-
-                if (person_aux.phone is not False) and (person_aux.phone != related_person.phone):
-
-                    vals['phone'] = person_aux.phone
-
-                if (person_aux.mobile is not False) and (person_aux.mobile != related_person.mobile):
-
-                    vals['mobile'] = person_aux.mobile
-
                 if (person_aux.global_tag_ids.id is not False):
 
                     m2m_list = []
@@ -134,6 +112,88 @@ class PersonAuxRelatePersonUpdt(models.TransientModel):
 
                     if count > 0:
                         vals['marker_ids'] = m2m_list
+
+                if (person_aux.name != related_person.name):
+
+                    vals['name'] = person_aux.name
+
+                if (person_aux.birthday != related_person.birthday):
+
+                    vals['birthday'] = person_aux.birthday
+
+                if (person_aux.date_death != related_person.date_death):
+
+                    vals['date_death'] = person_aux.date_death
+
+                if (person_aux.force_is_deceased != related_person.force_is_deceased):
+
+                    vals['force_is_deceased'] = person_aux.force_is_deceased
+
+                if self.update_contact_info_data:
+
+                    if (person_aux.contact_info_is_unavailable != related_person.contact_info_is_unavailable):
+
+                        vals['contact_info_is_unavailable'] = person_aux.contact_info_is_unavailable
+
+                    if (person_aux.zip != related_person.zip):
+
+                        vals['zip'] = person_aux.zip
+
+                    if (person_aux.street != related_person.street):
+
+                        vals['street'] = person_aux.street
+
+                    if (person_aux.street_number != related_person.street_number):
+
+                        vals['street_number'] = person_aux.street_number
+
+                    if (person_aux.street2 != related_person.street2):
+
+                        vals['street2'] = person_aux.street2
+
+                    if (person_aux.district != related_person.district):
+
+                        vals['district'] = person_aux.district
+
+                    if (person_aux.country_id != related_person.country_id):
+
+                        vals['country_id'] = person_aux.country_id.id
+
+                    if (person_aux.state_id != related_person.state_id):
+
+                        vals['state_id'] = person_aux.state_id.id
+
+                    if (person_aux.city_id != related_person.city_id):
+
+                        vals['city_id'] = person_aux.city_id.id
+
+                    if (person_aux.phone is not False) and (person_aux.phone != related_person.phone):
+
+                        vals['phone'] = person_aux.phone
+
+                    if (person_aux.mobile is not False) and (person_aux.mobile != related_person.mobile):
+
+                        vals['mobile'] = person_aux.mobile
+
+                if self.update_ref_address_data:
+
+                    if (person_aux.ref_address_is_unavailable != related_person.ref_address_is_unavailable):
+
+                        vals['ref_address_is_unavailable'] = person_aux.ref_address_is_unavailable
+
+                    if (person_aux.ref_address_id != related_person.ref_address_id):
+
+                        vals['ref_address_id'] = person_aux.ref_address_id.id
+
+                if self.update_family_data:
+
+                    if (person_aux.family_is_unavailable != related_person.family_is_unavailable):
+
+                        vals['family_is_unavailable'] = person_aux.family_is_unavailable
+
+                    if (person_aux.family_id != related_person.family_id):
+
+                        vals['family_id'] = person_aux.family_id.id
 
                 if vals != {}:
 
