@@ -305,9 +305,9 @@ class VerificationOutcome(models.Model):
                     outcome_info += _('"Contact Information (Address)" has changed.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L1)')
 
-                if (model_object.phone != related_person.phone) or \
-                   (model_object.mobile != related_person.mobile) or \
-                   (model_object.email != related_person.email):
+                if ((model_object.phone is not False) and (model_object.phone != related_person.phone)) or \
+                   ((model_object.mobile is not False) and (model_object.mobile != related_person.mobile)) or \
+                   ((model_object.email is not False) and (model_object.email != related_person.email)):
 
                     outcome_info += _('"Contact Information (Phones)" has changed.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L1)')
