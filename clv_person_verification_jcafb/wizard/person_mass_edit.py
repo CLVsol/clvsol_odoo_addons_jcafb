@@ -35,6 +35,10 @@ class PersonMassEdit(models.TransientModel):
          ], string='Verification Markers:', default=False, readonly=False, required=False
     )
 
+    person_verification_exec = fields.Boolean(
+        string='Person Verification Execute'
+    )
+
     @api.multi
     def do_person_mass_edit(self):
         self.ensure_one()
@@ -73,5 +77,8 @@ class PersonMassEdit(models.TransientModel):
                     m2m_list.append((4, verification_marker_id.id))
                 _logger.info(u'%s %s', '>>>>>>>>>>', m2m_list)
                 person.verification_marker_ids = m2m_list
+
+            if self.person_verification_exec:
+                person.person_verification_exec()
 
         return True
