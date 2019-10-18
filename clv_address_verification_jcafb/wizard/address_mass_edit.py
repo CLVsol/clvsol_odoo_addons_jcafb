@@ -26,6 +26,10 @@ class AddressMassEdit(models.TransientModel):
          ], string='Verification Markers:', default=False, readonly=False, required=False
     )
 
+    address_verification_exec = fields.Boolean(
+        string='Address Verification Execute'
+    )
+
     @api.multi
     def do_address_mass_edit(self):
         self.ensure_one()
@@ -59,5 +63,8 @@ class AddressMassEdit(models.TransientModel):
                     m2m_list.append((4, verification_marker_id.id))
                 _logger.info(u'%s %s', '>>>>>>>>>>', m2m_list)
                 address.verification_marker_ids = m2m_list
+
+            if self.address_verification_exec:
+                address.address_verification_exec()
 
         return True
