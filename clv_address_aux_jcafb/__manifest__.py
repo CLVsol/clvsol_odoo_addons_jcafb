@@ -29,6 +29,7 @@
         'views/event_attendee_view.xml',
         'views/lab_test_view.xml',
         'views/employee_view.xml',
+        'views/address_aux_code_view.xml',
         'views/address_aux_reg_state_view.xml',
         'views/address_aux_state_view.xml',
         'views/address_aux_menu_view.xml',
