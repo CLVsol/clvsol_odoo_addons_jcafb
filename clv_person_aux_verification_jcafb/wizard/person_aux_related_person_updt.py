@@ -121,6 +121,10 @@ class PersonAuxRelatePersonUpdt(models.TransientModel):
 
                     vals['is_absent'] = person_aux.is_absent
 
+                if (person_aux.gender != related_person.gender):
+
+                    vals['gender'] = person_aux.gender
+
                 if (person_aux.birthday != related_person.birthday):
 
                     vals['birthday'] = person_aux.birthday
