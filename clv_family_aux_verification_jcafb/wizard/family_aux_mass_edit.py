@@ -26,6 +26,10 @@ class FamilyAuxMassEdit(models.TransientModel):
          ], string='Verification Markers:', default=False, readonly=False, required=False
     )
 
+    family_aux_verification_exec = fields.Boolean(
+        string='Family (Aux) Verification Execute'
+    )
+
     @api.multi
     def do_family_aux_mass_edit(self):
         self.ensure_one()
@@ -59,5 +63,8 @@ class FamilyAuxMassEdit(models.TransientModel):
                     m2m_list.append((4, verification_marker_id.id))
                 _logger.info(u'%s %s', '>>>>>>>>>>', m2m_list)
                 family_aux.verification_marker_ids = m2m_list
+
+            if self.family_aux_verification_exec:
+                family_aux.family_aux_verification_exec()
 
         return True
