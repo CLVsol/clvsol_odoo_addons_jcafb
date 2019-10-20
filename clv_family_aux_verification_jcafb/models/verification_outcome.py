@@ -167,6 +167,16 @@ class VerificationOutcome(models.Model):
 
                 if (model_object.zip is False) or \
                    (model_object.street is False) or \
+                   (model_object.district is False) or \
+                   (model_object.country_id is False) or \
+                   (model_object.state_id is False) or \
+                   (model_object.city_id is False):
+
+                    outcome_info += _('Please, verify "Contact Information (Street)" data.\n')
+                    state = self._get_verification_outcome_state(state, 'Warning (L0)')
+
+                if (model_object.zip is False) or \
+                   (model_object.street is False) or \
                    (model_object.street_number is False) or \
                    (model_object.street2 is False) or \
                    (model_object.district is False) or \
@@ -174,7 +184,7 @@ class VerificationOutcome(models.Model):
                    (model_object.state_id is False) or \
                    (model_object.city_id is False):
 
-                    outcome_info += _('Please, verify "Contact Information" data.\n')
+                    outcome_info += _('Please, verify "Contact Information (Complement)" data.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
         if model_object.phase_id.id is False:
@@ -247,13 +257,17 @@ class VerificationOutcome(models.Model):
                    (model_object.district != related_family.district) or \
                    (model_object.country_id != related_family.country_id) or \
                    (model_object.state_id != related_family.state_id) or \
-                   (model_object.city_id != related_family.city_id) or \
-                   (model_object.phone != related_family.phone) or \
-                   (model_object.mobile != related_family.mobile) or \
-                   (model_object.email != related_family.email):
+                   (model_object.city_id != related_family.city_id):
 
-                    outcome_info += _('"Contact Information" has changed.\n')
-                    state = self._get_verification_outcome_state(state, 'Warning (L0)')
+                    outcome_info += _('"Contact Information (Address)" has changed.\n')
+                    state = self._get_verification_outcome_state(state, 'Warning (L1)')
+
+                if ((model_object.phone is not False) and (model_object.phone != related_family.phone)) or \
+                   ((model_object.mobile is not False) and (model_object.mobile != related_family.mobile)) or \
+                   ((model_object.email is not False) and (model_object.email != related_family.email)):
+
+                    outcome_info += _('"Contact Information (Phones)" has changed.\n')
+                    state = self._get_verification_outcome_state(state, 'Warning (L1)')
 
                 if (model_object.global_tag_ids.id is not False):
 
