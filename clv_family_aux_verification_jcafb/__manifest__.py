@@ -19,6 +19,7 @@
         'views/verification_outcome_view.xml',
         'wizard/family_aux_mass_edit_view.xml',
         'wizard/family_aux_verification_exec_view.xml',
+        'wizard/family_aux_related_family_updt_view.xml',
     ],
     'demo': [],
     'test': [],
