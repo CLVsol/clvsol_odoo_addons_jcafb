@@ -135,6 +135,10 @@ class AddressAuxRelateAddressUpdt(models.TransientModel):
                     if count > 0:
                         vals['marker_ids'] = m2m_list
 
+                if (address_aux.code != related_address.code):
+
+                    vals['code'] = address_aux.code
+
                 if vals != {}:
 
                     vals['reg_state'] = 'revised'
