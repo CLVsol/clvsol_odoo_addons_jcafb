@@ -270,62 +270,31 @@ class VerificationOutcome(models.Model):
             ('family_id', '=', model_object.id),
         ])
 
-        # ref_address_associated_persons = Person.search([
-        #     ('ref_address_id', '=', model_object.ref_address_id.id),
-        # ])
+        associated_person_list = []
 
         for family_associated_person in family_associated_persons:
 
-            if (model_object.zip != family_associated_person.zip) or \
-               (model_object.street != family_associated_person.street) or \
-               (model_object.street_number != family_associated_person.street_number) or \
-               (model_object.street2 != family_associated_person.street2) or \
-               (model_object.district != family_associated_person.district) or \
-               (model_object.country_id != family_associated_person.country_id) or \
-               (model_object.state_id != family_associated_person.state_id) or \
-               (model_object.city_id != family_associated_person.city_id):
+            associated_person_list.append(family_associated_person.id)
 
-                outcome_info += _('Associated Person "Contact Information" mismatch.') + \
+            if model_object.ref_address_id.id != family_associated_person.ref_address_id.id:
+
+                outcome_info += _('Associated Person "Address" mismatch.') + \
                     ' (' + family_associated_person.name + ' [' + family_associated_person.code + '])\n'
                 state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
-        # if model_object.ref_address_is_unavailable:
+        if model_object.ref_address_id.id is not False:
 
-        #     if ref_address.id is not False:
+            ref_address_associated_persons = Person.search([
+                ('ref_address_id', '=', model_object.ref_address_id.id),
+            ])
 
-        #         outcome_info = _('"Address" should not be set\n.')
-        #         state = self._get_verification_outcome_state(state, 'Error (L0)')
+            for ref_address_associated_person in ref_address_associated_persons:
 
-        #     # outcome_info = _('"Address is Unavailable" should not be set.\n')
-        #     # state = self._get_verification_outcome_state(state, 'Error (L0)')
+                if ref_address_associated_person.id not in associated_person_list:
 
-        # else:
-
-        #     if ref_address.id is not False:
-
-        #         if (model_object.zip != ref_address.zip) or \
-        #            (model_object.street != ref_address.street) or \
-        #            (model_object.street_number != ref_address.street_number) or \
-        #            (model_object.street2 != ref_address.street2) or \
-        #            (model_obfamily_associated_personject.district != ref_address.district) or \
-        #            (model_object.country_id != ref_address.country_id) or \
-        #            (model_object.state_id != ref_address.state_id) or \
-        #            (model_object.city_id != ref_address.city_id):
-
-        #             outcome_info += _('Address "Contact Information" mismatch.')
-        #             state = self._get_verification_outcome_state(state, 'Warning (L0)')
-
-        #     else:
-
-        #         outcome_info = _('Missing "Address".')
-        #         state = self._get_verification_outcome_state(state, 'Warning (L0)')
-
-        # if outcome_info == '':
-        #     outcome_info = False
-
-        # self._object_verification_outcome_updt(
-        #     verification_outcome, state, outcome_info, date_verification, model_object
-        # )
+                    outcome_info += _('Missing Associated Person.') + \
+                        ' (' + ref_address_associated_person.name + ' [' + ref_address_associated_person.code + '])\n'
+                    state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
         verification_values = {}
         verification_values['date_verification'] = date_verification
