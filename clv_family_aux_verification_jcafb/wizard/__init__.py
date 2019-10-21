@@ -5,3 +5,4 @@
 from . import family_aux_mass_edit
 from . import family_aux_verification_exec
 from . import family_aux_related_family_updt
+from . import family_aux_related_family_create
