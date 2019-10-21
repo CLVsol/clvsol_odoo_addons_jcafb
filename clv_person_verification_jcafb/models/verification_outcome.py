@@ -158,6 +158,11 @@ class VerificationOutcome(models.Model):
 
         else:
 
+            if model_object.code is False:
+
+                outcome_info += _('"Person Code" is missing.\n')
+                state = self._get_verification_outcome_state(state, 'Error (L0)')
+
             if model_object.street is False:
 
                 outcome_info += _('"Contact Information" is missing.\n')
