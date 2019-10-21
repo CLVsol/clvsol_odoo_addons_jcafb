@@ -117,6 +117,10 @@ class PersonAuxRelatePersonUpdt(models.TransientModel):
 
                     vals['name'] = person_aux.name
 
+                if (person_aux.code != related_person.code):
+
+                    vals['code'] = person_aux.code
+
                 if (person_aux.is_absent != related_person.is_absent):
 
                     vals['is_absent'] = person_aux.is_absent
