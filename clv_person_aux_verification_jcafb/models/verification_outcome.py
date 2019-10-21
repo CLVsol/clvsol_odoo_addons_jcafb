@@ -158,6 +158,11 @@ class VerificationOutcome(models.Model):
 
         else:
 
+            if model_object.code is False:
+
+                outcome_info += _('"Person Code" is missing.\n')
+                state = self._get_verification_outcome_state(state, 'Warning (L0)')
+
             if model_object.street is False:
 
                 outcome_info += _('"Contact Information" is missing.\n')
@@ -256,6 +261,11 @@ class VerificationOutcome(models.Model):
                 if (model_object.name != related_person.name):
 
                     outcome_info += _('"Name" has changed.\n')
+                    state = self._get_verification_outcome_state(state, 'Warning (L1)')
+
+                if (model_object.code != related_person.code):
+
+                    outcome_info += _('"Person Code" has changed.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L1)')
 
                 if (model_object.is_absent != related_person.is_absent):
