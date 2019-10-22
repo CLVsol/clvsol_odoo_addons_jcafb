@@ -372,10 +372,10 @@ class VerificationOutcome(models.Model):
                     outcome_info += _('"Address" has changed.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L1)')
 
-                # if (model_object.family_id != related_person.family_id):
+                if (model_object.family_id != related_person.family_id):
 
-                #     outcome_info += _('"Family" has changed.\n')
-                #     state = self._get_verification_outcome_state(state, 'Warning (L1)')
+                    outcome_info += _('"Family" has changed.\n')
+                    state = self._get_verification_outcome_state(state, 'Warning (L1)')
 
                 if model_object.related_person_id.verification_state != 'Ok':
 
@@ -597,11 +597,11 @@ class VerificationOutcome(models.Model):
                     outcome_info += _('Family "Contact Information (Address)" mismatch.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L1)')
 
-                if model_object.family_id.verification_state != 'Ok':
+                # if model_object.family_id.verification_state != 'Ok':
 
-                    outcome_info += _('Family "Verification State" is "') + \
-                        model_object.family_id.verification_state + '".\n'
-                    state = self._get_verification_outcome_state(state, 'Warning (L1)')
+                #     outcome_info += _('Family "Verification State" is "') + \
+                #         model_object.family_id.verification_state + '".\n'
+                #     state = self._get_verification_outcome_state(state, 'Warning (L1)')
 
             else:
 
