@@ -234,8 +234,22 @@ class VerificationOutcome(models.Model):
                    (model_object.state_id != ref_address.state_id) or \
                    (model_object.city_id != ref_address.city_id):
 
-                    outcome_info += _('Address "Contact Information" mismatch.')
+                    outcome_info += _('Address "Contact Information" mismatch.\n')
                     state = self._get_verification_outcome_state(state, 'Warning (L0)')
+
+                Family = self.env['clv.family']
+
+                ref_address_families = Family.search([
+                    ('ref_address_id', '=', ref_address.id),
+                ])
+
+                for ref_address_familiy in ref_address_families:
+
+                    if ref_address_familiy.id != model_object.id:
+
+                        outcome_info += _('Additional Address at the same Address.') + \
+                            ' (' + ref_address_familiy.name + ' [' + ref_address_familiy.code + '])\n'
+                        state = self._get_verification_outcome_state(state, 'Error (L0)')
 
             else:
 
@@ -290,7 +304,8 @@ class VerificationOutcome(models.Model):
 
             for ref_address_associated_person in ref_address_associated_persons:
 
-                if ref_address_associated_person.id not in associated_person_list:
+                if (ref_address_associated_person.id not in associated_person_list) and \
+                   (ref_address_associated_person.family_id is False):
 
                     outcome_info += _('Missing Associated Person.') + \
                         ' (' + ref_address_associated_person.name + ' [' + ref_address_associated_person.code + '])\n'
