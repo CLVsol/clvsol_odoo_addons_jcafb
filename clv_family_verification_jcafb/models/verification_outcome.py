@@ -247,7 +247,7 @@ class VerificationOutcome(models.Model):
 
                     if ref_address_familiy.id != model_object.id:
 
-                        outcome_info += _('Additional Address at the same Address.') + \
+                        outcome_info += _('Additional Family at the same Address.') + \
                             ' (' + ref_address_familiy.name + ' [' + ref_address_familiy.code + '])\n'
                         state = self._get_verification_outcome_state(state, 'Error (L0)')
 
