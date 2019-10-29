@@ -61,6 +61,17 @@
                         <label for="EDH20_obs"/>
                         <field name="EDH20_obs"/>
                     </group>
+                    <group>
+                        <group string='Colesterol Total e Frações'>
+                            <field name="EDH20_colesterol_total"/>
+                            <field name="EDH20_interpretacao_colesterol_total"/>
+                            <field name="EDH20_interpretacao_colesterol_total_obs"/>
+                            <separator/>
+                            <field name="EDH20_hdl_colesterol"/>
+                            <field name="EDH20_interpretacao_hdl_colesterol"/>
+                            <field name="EDH20_interpretacao_hdl_colesterol_obs"/>
+                        </group>
+                    </group>
                 </sheet>
                 <footer>
                     <button 

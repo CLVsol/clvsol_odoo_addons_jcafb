@@ -66,9 +66,20 @@ class LabTestResultEditEDH20(models.TransientModel):
 
     def _default_EDH20_tempo_jejum(self):
         return self._get_default('EDH20', 'EDH20-01-01')
-    EDH20_tempo_jejum = fields.Char(
-        'Tempo de Jejum', readonly=False, default=_default_EDH20_tempo_jejum
-    )
+    EDH20_tempo_jejum = fields.Selection([
+        (u'a) Menor que 8 hs',
+            u'a) Menor que 8 hs'),
+        (u'b) Entre 8 e 12 hs',
+            u'b) Entre 8 e 12 hs'),
+        (u'c) Maior que 12 hs',
+            u'c) Maior que 12 hs'),
+        (u'd) Não sabe',
+            u'd) Não sabe'),
+        (u'e) Não quis responder',
+            u'e) Não quis responder'),
+        (u'f) Não se aplica',
+            'f) Não se aplica'),
+    ], 'Tempo de Jejum', readonly=False, default=_default_EDH20_tempo_jejum)
 
     def _write_EDH20_tempo_jejum(self):
         self._set_result('EDH20', 'EDH20-01-01', self.EDH20_tempo_jejum)
@@ -509,16 +520,14 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_interpretacao_colesterol(self):
         return self._get_default('EDH20', 'EDH20-04-07')
     EDH20_interpretacao_colesterol = fields.Selection([
-        (u'a) Desejável:Acima de 20 anos:menor que 200 mg/dL;2-19 anos:menor que 150 mg/dL',
-            u'a) Desejável:Acima de 20 anos:menor que 200 mg/dL;2-19 anos:menor que 150 mg/dL'),
-        (u'b) Limítrofe:Acima de 20 anos:200–239 mg/dL;2-19 anos:150-169 mg/dL',
-            u'b) Limítrofe:Acima de 20 anos:200–239 mg/dL;2-19 anos:150-169 mg/dL'),
-        (u'c) Elevado: Acima de 20 anos:maior ou igual a 240 mg/dL;2-19 anos:maior ou igual a 180 mg/dL',
-            u'c) Elevado: Acima de 20 anos:maior ou igual a 240 mg/dL;2-19 anos:maior ou igual a 180 mg/dL'),
-        (u'd) Não interpretado (justificar em "Observações")',
-            u'd) Não interpretado (justificar em "Observações")'),
-        (u'e) Não se aplica',
-            u'e) Não se aplica'),
+        (u'a) Desejável:Acima de 20 anos:menor que 190 mg/dL;2-19 anos:menor que 170 mg/dL',
+            u'a) Desejável:Acima de 20 anos:menor que 190 mg/dL;2-19 anos:menor que 170 mg/dL'),
+        (u'b) Alto: Acima de 20 anos:maior ou igual a 190 mg/dL;2-19 anos:maior ou igual a 170 mg/dL',
+            u'b) Alto: Acima de 20 anos:maior ou igual a 190 mg/dL;2-19 anos:maior ou igual a 170 mg/dL'),
+        (u'c) Não interpretado (justificar em "Observações")',
+            u'c) Não interpretado (justificar em "Observações")'),
+        (u'd) Não se aplica',
+            u'd) Não se aplica'),
     ], 'Interpretação do valor de Colesterol',
         readonly=False, default=_default_EDH20_interpretacao_colesterol)
 
@@ -542,6 +551,78 @@ class LabTestResultEditEDH20(models.TransientModel):
 
     def _write_EDH20_obs(self):
         self._set_result('EDH20', 'EDH20-05-01', self.EDH20_obs)
+
+    def _default_EDH20_colesterol_total(self):
+        return self._get_default('EDH20', 'EDH20-06-01')
+    EDH20_colesterol_total = fields.Char(
+        'Colesterol total', readonly=False, default=_default_EDH20_colesterol_total
+    )
+
+    def _write_EDH20_colesterol_total(self):
+        self._set_result('EDH20', 'EDH20-06-01', self.EDH20_colesterol_total)
+
+    def _default_EDH20_interpretacao_colesterol_total(self):
+        return self._get_default('EDH20', 'EDH20-06-02')
+    EDH20_interpretacao_colesterol_total = fields.Selection([
+        (u'a) Desejável:Acima de 20 anos:menor que 190 mg/dL;2-19 anos:menor que 170 mg/dL',
+            u'a) Desejável:Acima de 20 anos:menor que 190 mg/dL;2-19 anos:menor que 170 mg/dL'),
+        (u'b) Alto: Acima de 20 anos:maior ou igual a 190 mg/dL;2-19 anos:maior ou igual a 170 mg/dL',
+            u'b) Alto: Acima de 20 anos:maior ou igual a 190 mg/dL;2-19 anos:maior ou igual a 170 mg/dL'),
+        (u'c) Não interpretado (justificar em "Observações")',
+            u'c) Não interpretado (justificar em "Observações")'),
+        (u'd) Não se aplica',
+            u'd) Não se aplica'),
+    ], 'Interpretação do valor de Colesterol total',
+        readonly=False, default=_default_EDH20_interpretacao_colesterol_total)
+
+    def _write_EDH20_interpretacao_colesterol_total(self):
+        self._set_result('EDH20', 'EDH20-06-02', self.EDH20_interpretacao_colesterol_total)
+
+    def _default_EDH20_interpretacao_colesterol_total_obs(self):
+        return self._get_default('EDH20', 'EDH20-06-03')
+    EDH20_interpretacao_colesterol_total_obs = fields.Char(
+        'Observações (Colesterol total)', readonly=False, default=_default_EDH20_interpretacao_colesterol_total_obs
+    )
+
+    def _write_EDH20_interpretacao_colesterol_total_obs(self):
+        self._set_result('EDH20', 'EDH20-06-03', self.EDH20_interpretacao_colesterol_total_obs)
+
+    def _default_EDH20_hdl_colesterol(self):
+        return self._get_default('EDH20', 'EDH20-06-04')
+    EDH20_hdl_colesterol = fields.Char(
+        'HDL-Colesterol', readonly=False, default=_default_EDH20_hdl_colesterol
+    )
+
+    def _write_EDH20_hdl_colesterol(self):
+        self._set_result('EDH20', 'EDH20-06-04', self.EDH20_hdl_colesterol)
+
+    def _default_EDH20_interpretacao_hdl_colesterol(self):
+        return self._get_default('EDH20', 'EDH20-06-05')
+    EDH20_interpretacao_hdl_colesterol = fields.Selection([
+        (u'a) Desejável:Acima de 20 anos: maior que 40 mg/dL;2-19 anos: maior que 45 mg/dLL',
+            u'a) Desejável:Acima de 20 anos: maior que 40 mg/dL;2-19 anos: maior que 45 mg/dL'),
+        (u'b) Baixo: Acima de 20 anos: menor ou igual a 40 mg/dL;2-19 anos: menor ou igual a 45 mg/dL',
+            u'b) Baixo: Acima de 20 anos: menor ou igual a 40 mg/dL;2-19 anos: menor ou igual a 45 mg/dL'),
+        (u'c) Leitura não realizada pelo equipamento',
+            u'c) Leitura não realizada pelo equipamento'),
+        (u'd) Não interpretado (justificar em "Observações")',
+            u'd) Não interpretado (justificar em "Observações")'),
+        (u'e) Não se aplica',
+            u'e) Não se aplica'),
+    ], 'Interpretação do valor de HDL-Colesterol',
+        readonly=False, default=_default_EDH20_interpretacao_hdl_colesterol)
+
+    def _write_EDH20_interpretacao_hdl_colesterol(self):
+        self._set_result('EDH20', 'EDH20-06-05', self.EDH20_interpretacao_hdl_colesterol)
+
+    def _default_EDH20_interpretacao_hdl_colesterol_obs(self):
+        return self._get_default('EDH20', 'EDH20-06-06')
+    EDH20_interpretacao_hdl_colesterol_obs = fields.Char(
+        'Observações (HDL-Colesterol)', readonly=False, default=_default_EDH20_interpretacao_hdl_colesterol_obs
+    )
+
+    def _write_EDH20_interpretacao_hdl_colesterol_obs(self):
+        self._set_result('EDH20', 'EDH20-06-06', self.EDH20_interpretacao_hdl_colesterol_obs)
 
     def do_result_updt_EDH20(self):
 
@@ -576,6 +657,13 @@ class LabTestResultEditEDH20(models.TransientModel):
         self._write_EDH20_interpretacao_colesterol()
         self._write_EDH20_interpretacao_colesterol_obs()
         self._write_EDH20_obs()
+
+        self._write_EDH20_colesterol_total()
+        self._write_EDH20_interpretacao_colesterol_total()
+        self._write_EDH20_interpretacao_colesterol_total_obs()
+        self._write_EDH20_hdl_colesterol()
+        self._write_EDH20_interpretacao_hdl_colesterol()
+        self._write_EDH20_interpretacao_hdl_colesterol_obs()
 
         return True
 
