@@ -599,7 +599,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_interpretacao_hdl_colesterol(self):
         return self._get_default('EDH20', 'EDH20-06-05')
     EDH20_interpretacao_hdl_colesterol = fields.Selection([
-        (u'a) Desejável:Acima de 20 anos: maior que 40 mg/dL;2-19 anos: maior que 45 mg/dLL',
+        (u'a) Desejável:Acima de 20 anos: maior que 40 mg/dL;2-19 anos: maior que 45 mg/dL',
             u'a) Desejável:Acima de 20 anos: maior que 40 mg/dL;2-19 anos: maior que 45 mg/dL'),
         (u'b) Baixo: Acima de 20 anos: menor ou igual a 40 mg/dL;2-19 anos: menor ou igual a 45 mg/dL',
             u'b) Baixo: Acima de 20 anos: menor ou igual a 40 mg/dL;2-19 anos: menor ou igual a 45 mg/dL'),
@@ -623,6 +623,121 @@ class LabTestResultEditEDH20(models.TransientModel):
 
     def _write_EDH20_interpretacao_hdl_colesterol_obs(self):
         self._set_result('EDH20', 'EDH20-06-06', self.EDH20_interpretacao_hdl_colesterol_obs)
+
+    def _default_EDH20_ldl_colesterol(self):
+        return self._get_default('EDH20', 'EDH20-06-07')
+    EDH20_ldl_colesterol = fields.Char(
+        'LDL-Colesterol', readonly=False, default=_default_EDH20_ldl_colesterol
+    )
+
+    def _write_EDH20_ldl_colesterol(self):
+        self._set_result('EDH20', 'EDH20-06-07', self.EDH20_ldl_colesterol)
+
+    def _default_EDH20_fracao_nao_hdl(self):
+        return self._get_default('EDH20', 'EDH20-06-08')
+    EDH20_fracao_nao_hdl = fields.Char(
+        'Fração não HDL', readonly=False, default=_default_EDH20_fracao_nao_hdl
+    )
+
+    def _write_EDH20_fracao_nao_hdl(self):
+        self._set_result('EDH20', 'EDH20-06-08', self.EDH20_fracao_nao_hdl)
+
+    def _default_EDH20_interpretacao_ldl_colesterol_fracao_nao_hdl(self):
+        return self._get_default('EDH20', 'EDH20-06-09')
+    EDH20_interpretacao_ldl_colesterol_fracao_nao_hdl = fields.Selection([
+        (u'a) A interpretação dos resultados deverá considerar a categoria de risco cardiovascular do paciente, e esta deve ser analisada pelo médico',
+            u'a) A interpretação dos resultados deverá considerar a categoria de risco cardiovascular do paciente, e esta deve ser analisada pelo médico'),
+        (u'b) Leitura não realizada pelo equipamento',
+            u'b) Leitura não realizada pelo equipamento'),
+        (u'c) Não se aplica',
+            u'c) Não se aplica'),
+    ], 'Interpretação do valor de LDL-Colesterol e Fração não HDL',
+        readonly=False, default=_default_EDH20_interpretacao_ldl_colesterol_fracao_nao_hdl)
+
+    def _write_EDH20_interpretacao_ldl_colesterol_fracao_nao_hdl(self):
+        self._set_result('EDH20', 'EDH20-06-09', self.EDH20_interpretacao_ldl_colesterol_fracao_nao_hdl)
+
+    def _default_EDH20_interpretacao_ldl_colesterol_fracao_nao_hdl_obs(self):
+        return self._get_default('EDH20', 'EDH20-06-10')
+    EDH20_interpretacao_ldl_colesterol_fracao_nao_hdl_obs = fields.Char(
+        'Observações (LDL-Colesterol / Fração não HDL)', readonly=False,
+        default=_default_EDH20_interpretacao_ldl_colesterol_fracao_nao_hdl_obs
+    )
+
+    def _write_EDH20_interpretacao_ldl_colesterol_fracao_nao_hdl_obs(self):
+        self._set_result('EDH20', 'EDH20-06-10', self.EDH20_interpretacao_ldl_colesterol_fracao_nao_hdl_obs)
+
+    def _default_EDH20_triglicerides(self):
+        return self._get_default('EDH20', 'EDH20-07-01')
+    EDH20_triglicerides = fields.Char(
+        'Triglicérides', readonly=False, default=_default_EDH20_triglicerides
+    )
+
+    def _write_EDH20_triglicerides(self):
+        self._set_result('EDH20', 'EDH20-07-01', self.EDH20_triglicerides)
+
+    def _default_EDH20_interpretacao_triglicerides(self):
+        return self._get_default('EDH20', 'EDH20-07-02')
+    EDH20_interpretacao_triglicerides = fields.Selection([
+        (u'a) Desejável:Acima de 20 anos:menor que 150 mg/dL;10-19 anos:menor que 190 mg/dL;0-9 anos:menor que 75 mg/dL',
+            u'a) Desejável:Acima de 20 anos:menor que 150 mg/dL;10-19 anos:menor que 190 mg/dL;0-9 anos:menor que 75 mg/dL'),
+        (u'b) Alto: Acima de 20 anos:maior ou igual a 150 mg/dL;2-19 anos:maior ou igual a 190 mg/dL;0-9 anos:maior ou igual a 75 mg/dL',
+            u'b) Alto: Acima de 20 anos:maior ou igual a 150 mg/dL;2-19 anos:maior ou igual a 190 mg/dL;0-9 anos:maior ou igual a 75 mg/dL'),
+        (u'c) Leitura não realizada pelo equipamento',
+            u'c) Leitura não realizada pelo equipamento'),
+        (u'd) Não interpretado (justificar em "Observações")',
+            u'd) Não interpretado (justificar em "Observações")'),
+        (u'e) Não se aplica',
+            u'e) Não se aplica'),
+    ], 'Interpretação do valor de Triglicérides',
+        readonly=False, default=_default_EDH20_interpretacao_triglicerides)
+
+    def _write_EDH20_interpretacao_triglicerides(self):
+        self._set_result('EDH20', 'EDH20-07-02', self.EDH20_interpretacao_triglicerides)
+
+    def _default_EDH20_interpretacao_triglicerides_obs(self):
+        return self._get_default('EDH20', 'EDH20-07-03')
+    EDH20_interpretacao_triglicerides_obs = fields.Char(
+        'Observações (Triglicérides)', readonly=False, default=_default_EDH20_interpretacao_triglicerides_obs
+    )
+
+    def _write_EDH20_interpretacao_triglicerides_obs(self):
+        self._set_result('EDH20', 'EDH20-07-03', self.EDH20_interpretacao_triglicerides_obs)
+
+    def _default_EDH20_medidas_resp(self):
+        employee_model = self.env['hr.employee']
+        code = self._get_default('EDH20', 'EDH20-08-01')
+        if code is not False:
+            code = code[code.find('[') + 1:code.find(']')]
+            employee_search = employee_model.search([
+                ('code', '=', code),
+            ])
+            return employee_search
+        else:
+            return False
+    EDH20_medidas_resp = fields.Many2one(
+        'hr.employee',
+        string='Responsável pelas medidas',
+        readonly=False,
+        default=_default_EDH20_medidas_resp
+    )
+
+    def _write_EDH20_medidas_resp(self):
+        if self.EDH20_medidas_resp.name is not False:
+            self._set_result(
+                'EDH20', 'EDH20-08-01', self.EDH20_medidas_resp.name + ' [' + self.EDH20_medidas_resp.code + ']'
+            )
+        else:
+            self._set_result('EDH20', 'EDH20-08-01', False)
+
+    def _default_EDH20_obs_2(self):
+        return self._get_default('EDH20', 'EDH20-08-02')
+    EDH20_obs_2 = fields.Char(
+        'Observações (2)', readonly=False, default=_default_EDH20_obs_2
+    )
+
+    def _write_EDH20_obs_2(self):
+        self._set_result('EDH20', 'EDH20-08-02', self.EDH20_obs_2)
 
     def do_result_updt_EDH20(self):
 
@@ -664,6 +779,15 @@ class LabTestResultEditEDH20(models.TransientModel):
         self._write_EDH20_hdl_colesterol()
         self._write_EDH20_interpretacao_hdl_colesterol()
         self._write_EDH20_interpretacao_hdl_colesterol_obs()
+        self._write_EDH20_ldl_colesterol()
+        self._write_EDH20_fracao_nao_hdl()
+        self._write_EDH20_interpretacao_ldl_colesterol_fracao_nao_hdl()
+        self._write_EDH20_interpretacao_ldl_colesterol_fracao_nao_hdl_obs()
+        self._write_EDH20_triglicerides()
+        self._write_EDH20_interpretacao_triglicerides()
+        self._write_EDH20_interpretacao_triglicerides_obs()
+        self._write_EDH20_medidas_resp()
+        self._write_EDH20_obs_2()
 
         return True
 

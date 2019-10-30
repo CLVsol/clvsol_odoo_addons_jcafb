@@ -70,7 +70,22 @@
                             <field name="EDH20_hdl_colesterol"/>
                             <field name="EDH20_interpretacao_hdl_colesterol"/>
                             <field name="EDH20_interpretacao_hdl_colesterol_obs"/>
+                            <separator/>
+                            <field name="EDH20_ldl_colesterol"/>
+                            <field name="EDH20_fracao_nao_hdl"/>
+                            <field name="EDH20_interpretacao_ldl_colesterol_fracao_nao_hdl"/>
+                            <field name="EDH20_interpretacao_ldl_colesterol_fracao_nao_hdl_obs"/>
                         </group>
+                        <group string='Triglicérides'>
+                            <field name="EDH20_triglicerides"/>
+                            <field name="EDH20_interpretacao_triglicerides"/>
+                            <field name="EDH20_interpretacao_triglicerides_obs"/>
+                        </group>
+                        <group>
+                            <field name="EDH20_medidas_resp"/>
+                        </group>
+                        <label for="EDH20_obs_2"/>
+                        <field name="EDH20_obs_2"/>
                     </group>
                 </sheet>
                 <footer>
