@@ -16,6 +16,7 @@
                         <field name="report_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
                         <field name="lab_test_type_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
                         <field name="lab_test_request_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
+                        <field name="has_complement" options="{'readonly': True}"/>
                     </group>
                     <group name="group_bottom">
                         <group string='Medidas Antropométricas'>
