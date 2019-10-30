@@ -145,6 +145,63 @@ class LabTestReportEditEDH20(models.TransientModel):
     def _write_EDH20_obs(self):
         self._set_result('EDH20', 'EDH20-05-01', self.EDH20_obs)
 
+    def _default_EDH20_colesterol_total(self):
+        return self._get_default('EDH20', 'EDH20-06-01')
+    EDH20_colesterol_total = fields.Char(
+        'Colesterol total', readonly=False, default=_default_EDH20_colesterol_total
+    )
+
+    def _write_EDH20_colesterol_total(self):
+        self._set_result('EDH20', 'EDH20-06-01', self.EDH20_colesterol_total)
+
+    def _write_EDH20_interpretacao_colesterol_total_obs(self):
+        self._set_result('EDH20', 'EDH20-06-03', self.EDH20_interpretacao_colesterol_total_obs)
+
+    def _default_EDH20_hdl_colesterol(self):
+        return self._get_default('EDH20', 'EDH20-06-04')
+    EDH20_hdl_colesterol = fields.Char(
+        'HDL-Colesterol', readonly=False, default=_default_EDH20_hdl_colesterol
+    )
+
+    def _write_EDH20_hdl_colesterol(self):
+        self._set_result('EDH20', 'EDH20-06-04', self.EDH20_hdl_colesterol)
+
+    def _default_EDH20_ldl_colesterol(self):
+        return self._get_default('EDH20', 'EDH20-06-07')
+    EDH20_ldl_colesterol = fields.Char(
+        'LDL-Colesterol', readonly=False, default=_default_EDH20_ldl_colesterol
+    )
+
+    def _write_EDH20_ldl_colesterol(self):
+        self._set_result('EDH20', 'EDH20-06-07', self.EDH20_ldl_colesterol)
+
+    def _default_EDH20_fracao_nao_hdl(self):
+        return self._get_default('EDH20', 'EDH20-06-08')
+    EDH20_fracao_nao_hdl = fields.Char(
+        'Fração não HDL', readonly=False, default=_default_EDH20_fracao_nao_hdl
+    )
+
+    def _write_EDH20_fracao_nao_hdl(self):
+        self._set_result('EDH20', 'EDH20-06-08', self.EDH20_fracao_nao_hdl)
+
+    def _default_EDH20_triglicerides(self):
+        return self._get_default('EDH20', 'EDH20-07-01')
+    EDH20_triglicerides = fields.Char(
+        'Triglicérides', readonly=False, default=_default_EDH20_triglicerides
+    )
+
+    def _write_EDH20_triglicerides(self):
+        self._set_result('EDH20', 'EDH20-07-01', self.EDH20_triglicerides)
+
+    def _default_EDH20_obs_2(self):
+        return self._get_default('EDH20', 'EDH20-08-02')
+    EDH20_obs_2 = fields.Char(
+        'Observações (2)', readonly=False, default=_default_EDH20_obs_2
+    )
+
+    def _write_EDH20_obs_2(self):
+        self._set_result('EDH20', 'EDH20-08-02', self.EDH20_obs_2)
+
     def do_report_updt_EDH20(self):
 
         self._write_EDH20_peso()

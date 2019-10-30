@@ -32,7 +32,23 @@
                             <field name="EDH20_glicemia"/>
                             <field name="EDH20_colesterol"/>
                         </group>
+                        <label for="EDH20_obs"/>
                         <field name="EDH20_obs"/>
+                    </group>
+                    <group>
+                        <group string='Colesterol Total e Frações'>
+                            <field name="EDH20_colesterol_total"/>
+                            <separator/>
+                            <field name="EDH20_hdl_colesterol"/>
+                            <separator/>
+                            <field name="EDH20_ldl_colesterol"/>
+                            <field name="EDH20_fracao_nao_hdl"/>
+                        </group>
+                        <group string='Triglicérides'>
+                            <field name="EDH20_triglicerides"/>
+                        </group>
+                        <label for="EDH20_obs_2"/>
+                        <field name="EDH20_obs_2"/>
                     </group>
                 </sheet>
                 <footer>
