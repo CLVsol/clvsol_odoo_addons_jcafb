@@ -44,13 +44,13 @@ class LabTestResult(models.Model):
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Código da Requisição:')
             ExportXLS.setOutCell(sheet, 10, row_nr, lab_test_request_code)
-            ExportXLS.setOutCell(sheet, 33, row_nr, u'Código do Resultado:')
-            ExportXLS.setOutCell(sheet, 43, row_nr, lab_test_result_code)
-            row_nr += 1
+            ExportXLS.setOutCell(sheet, 25, row_nr, u'Código do Resultado:')
+            ExportXLS.setOutCell(sheet, 35, row_nr, lab_test_result_code)
+            row_nr += 2
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome da Pessoa:')
             ExportXLS.setOutCell(sheet, 10, row_nr, self.ref_id.name)
-            row_nr += 1
+            row_nr += 2
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Código da Pessoa:')
             ExportXLS.setOutCell(sheet, 10, row_nr, self.ref_id.code)
             row_nr += 2
@@ -68,58 +68,66 @@ class LabTestResult(models.Model):
             )
             row_nr += 2
 
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Peso')
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Peso e Altura')
             row_nr += 2
 
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Peso:')
-            row_nr += 1
+            ref_row_nr = row_nr
 
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Responsável pela medida do Peso:')
+            ExportXLS.setOutCell(sheet, 1, row_nr, u'Peso (kg):')
             row_nr += 2
 
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Altura')
+            ExportXLS.setOutCell(sheet, 1, row_nr, u'Altura (cm):')
             row_nr += 2
 
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Altura:')
-            row_nr += 1
+            row_nr = ref_row_nr
+            delta = 22
 
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Responsável pela medida da Altura')
+            ExportXLS.setOutCell(sheet, delta, row_nr, u'Responsável (medida):')
             row_nr += 2
 
-            ExportXLS.setOutCell(sheet, 0, row_nr, u'Hemoglobina')
+            ExportXLS.setOutCell(sheet, delta, row_nr, u'Responsável (medida)')
             row_nr += 2
+
+            ExportXLS.setOutCell(sheet, 0, row_nr, u'Dosagem de Hemoglobina')
+            row_nr += 2
+
+            ref_row_nr = row_nr
 
             ExportXLS.setOutCell(sheet, 1, row_nr, u'Horário da coleta:')
-            row_nr += 1
-
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Responsável pela coleta:')
             row_nr += 2
 
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Valor da Hemoglobina:')
-            row_nr += 1
-
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Responsável pela dosagem:')
+            ExportXLS.setOutCell(sheet, 1, row_nr, u'Valor da Hemoglobina (g/dL):')
             row_nr += 2
 
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Interpretação do Resultado de Hemoglobina:')
-            row_nr += 1
+            row_nr = ref_row_nr
+            delta = 22
 
-            ExportXLS.setOutCell(sheet, 2, row_nr, u'a) Normal')
-            row_nr += 1
-
-            ExportXLS.setOutCell(sheet, 2, row_nr, u'b) Abaixo no normal (anemia)')
-            row_nr += 1
-
-            ExportXLS.setOutCell(sheet, 2, row_nr, u'c) Acima do normal')
+            ExportXLS.setOutCell(sheet, delta, row_nr, u'Responsável (coleta):')
             row_nr += 2
 
-            ExportXLS.setOutCell(sheet, 1, row_nr, u'Observações:')
-            row_nr += 1
-
-            row = sheet.row(row_nr)
-            for i in range(0, 49):
-                row.write(i, u'-')
+            ExportXLS.setOutCell(sheet, delta, row_nr, u'Responsável (dosagem):')
             row_nr += 2
+
+            ExportXLS.setOutCell(sheet, 1, row_nr,
+                                 u'Interpretação do Resultado de Hemoglobina (Wintrobe, 12ª ed., 2009):')
+            row_nr += 2
+
+            ExportXLS.setOutCell(sheet, 4, row_nr, u'a) Normal')
+            row_nr += 2
+
+            ExportXLS.setOutCell(sheet, 4, row_nr, u'b) Abaixo no normal (anemia)')
+            row_nr += 2
+
+            ExportXLS.setOutCell(sheet, 4, row_nr, u'c) Acima do normal')
+            row_nr += 2
+
+            ExportXLS.setOutCell(sheet, 4, row_nr, u'Observações:')
+            row_nr += 2
+
+            # row = sheet.row(row_nr)
+            # for i in range(0, 49):
+            #     row.write(i, u'-')
+            # row_nr += 2
 
         else:
 
