@@ -60,6 +60,10 @@ class LabTestReportEditEDH20(models.TransientModel):
         default=_default_lab_test_request_id
     )
 
+    def _default_has_complement(self):
+        return self.env['clv.lab_test.report'].browse(self._context.get('active_id')).has_complement
+    has_complement = fields.Boolean(string='Has Complement', default=_default_has_complement)
+
     #
     # EDH20
     #
