@@ -27,6 +27,8 @@ class LabTestResult(models.Model):
     #     store=True
     # )
 
+    has_complement = fields.Boolean(string='Has Complement', default=False)
+
     approved = fields.Boolean(string='Approved', default=False, readonly=True)
     employee_id = fields.Many2one(
         comodel_name='hr.employee',

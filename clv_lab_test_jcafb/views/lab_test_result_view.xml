@@ -17,6 +17,9 @@
                 <field name="person_employee_id" placeholder="Responsible Empĺoyee..." options="{'no_open': False, 'no_create': True}"/>
                 <field name="survey_id" options="{'no_open': False, 'no_create': True}"/>
             </field-->
+            <group name="group_left" position="inside">
+                <field name="has_complement"/>
+            </group>
             <group name="group_middle_left" position="inside">
                 <button
                     type="action"
@@ -64,10 +67,14 @@
             <!--field name="lab_test_type_id" position="after">
                 <field name="survey_id"/>
             </field-->
+            <field name="code" position="after">
+                <field name="has_complement"/>
+            </field>
             <field name="lab_test_type_id" position="after">
                 <field name="employee_id"/>
             </field>
             <group name="group_by" position="inside">
+                <filter name="group_by_has_complement" string="Has Complement" context="{'group_by': 'has_complement'}"/>
                 <filter name="group_by_employee_id" string="Approved by" context="{'group_by': 'employee_id'}"/>
                 <!--filter string="Person" context="{'group_by': 'person_id'}"/>
                 <filter string="Responsible Empĺoyee" domain="[]"  context="{'group_by': 'person_employee_id'}"/>
