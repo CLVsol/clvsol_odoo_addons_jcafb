@@ -42,6 +42,11 @@ class LabTestResultCopyToReportEDH20(models.TransientModel):
             ])
             criterion_reg.result = result
 
+    def _copy_has_complement(self):
+        result_id = self.env['clv.lab_test.result'].browse(self._context.get('active_id'))
+        report_id = self.env['clv.lab_test.result'].browse(self._context.get('active_id')).lab_test_report_id
+        report_id.has_complement = result_id.has_complement
+
     def _default_result_id(self):
         return self._context.get('active_id')
     result_id = fields.Many2one(
@@ -228,6 +233,8 @@ class LabTestResultCopyToReportEDH20(models.TransientModel):
         self._copy_result('EDH20', 'EDH20-08-02', self.EDH20_obs_2)
 
     def do_result_copy_to_report_EDH20(self):
+
+        self._copy_has_complement()
 
         self._write_EDH20_peso()
         self._write_EDH20_altura()
