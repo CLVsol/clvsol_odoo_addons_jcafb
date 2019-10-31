@@ -43,27 +43,27 @@ class LabTestResult(models.Model):
             row_nr += 2
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Código da Requisição:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, lab_test_request_code)
+            ExportXLS.setOutCell(sheet, 11, row_nr, lab_test_request_code)
             ExportXLS.setOutCell(sheet, 25, row_nr, u'Código do Resultado:')
             ExportXLS.setOutCell(sheet, 35, row_nr, lab_test_result_code)
             row_nr += 2
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Nome da Pessoa:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, self.ref_id.name)
+            ExportXLS.setOutCell(sheet, 11, row_nr, self.ref_id.name)
             row_nr += 2
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Código da Pessoa:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, self.ref_id.code)
+            ExportXLS.setOutCell(sheet, 11, row_nr, self.ref_id.code)
             row_nr += 2
 
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Recebido por:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, self.lab_test_request_id.employee_id.name)
+            ExportXLS.setOutCell(sheet, 11, row_nr, self.lab_test_request_id.employee_id.name)
             row_nr += 1
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Código do Recebedor:')
-            ExportXLS.setOutCell(sheet, 10, row_nr, self.lab_test_request_id.employee_id.code)
+            ExportXLS.setOutCell(sheet, 11, row_nr, self.lab_test_request_id.employee_id.code)
             row_nr += 1
             ExportXLS.setOutCell(sheet, 0, row_nr, u'Data do Recebimento:')
             ExportXLS.setOutCell(
-                sheet, 10, row_nr,
+                sheet, 11, row_nr,
                 (self.lab_test_request_id.date_received + timedelta(hours=delta_hours)).strftime('%d-%m-%Y  %H:%M:%S')
             )
             row_nr += 2
