@@ -444,7 +444,7 @@ class LabTestResult(models.Model):
 
             ExportXLS.setOutCell(
                 sheet, 4, row_nr,
-                u'd) Não se aplica')
+                u'e) Não se aplica')
             row_nr += 2
 
             ExportXLS.setOutCell(sheet, 4, row_nr, u'Observações:')
@@ -602,7 +602,7 @@ class LabTestResult(models.Model):
 
             ExportXLS.setOutCell(
                 sheet, 4, row_nr,
-                u'd) Não se aplica')
+                u'e) Não se aplica')
             row_nr += 2
 
             ExportXLS.setOutCell(sheet, 4, row_nr, u'Observações:')
