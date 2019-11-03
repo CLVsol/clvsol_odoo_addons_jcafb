@@ -143,6 +143,8 @@ class VerificationOutcome(models.Model):
 
         date_verification = datetime.now()
 
+        PartnerEntityStreetPattern = self.env['clv.partner_entity.street_pattern']
+
         state = 'Ok'
         outcome_info = ''
 
@@ -169,6 +171,17 @@ class VerificationOutcome(models.Model):
                 state = self._get_verification_outcome_state(state, 'Error (L0)')
 
             if model_object.reg_state not in ['ready', 'done', 'canceled']:
+
+                street_patern = PartnerEntityStreetPattern.search([
+                    ('street', '=', model_object.street),
+                    ('district', '=', model_object.district),
+                ])
+
+                if street_patern.street is False:
+
+                    outcome_info += _('"Street Pattern" was not recognised.') + \
+                        ' (' + str(model_object.street) + ' [' + str(model_object.district) + '])\n'
+                    state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
                 if (model_object.zip is False) or \
                    (model_object.street is False) or \
