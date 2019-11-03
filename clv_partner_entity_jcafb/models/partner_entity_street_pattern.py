@@ -16,7 +16,7 @@ class PartnerEntityStreetPattern(models.Model):
     def name_get(self):
         result = []
         for record in self:
-            if record.code and record.age_years:
+            if record.district:
                 result.append(
                     (record.id,
                      u'%s (%s)' % (record.street, record.district)
