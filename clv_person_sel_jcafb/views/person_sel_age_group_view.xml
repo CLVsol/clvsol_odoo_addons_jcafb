@@ -106,7 +106,7 @@
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <field name="code" position="before">
-                <field name="person_category_ids"/>
+                <field name="person_category_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                 <field name="person_category_names_suport" invisible="True"/>
             </field>
         </field>
