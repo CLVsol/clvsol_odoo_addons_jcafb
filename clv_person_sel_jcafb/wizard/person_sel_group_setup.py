@@ -78,7 +78,7 @@ class PersonSelGroupSetUp(models.TransientModel):
                         ('name', '=', age_group.person_category_ids.name),
                     ]).id
                     if (person.category_ids.id == category_id) and \
-                       (person.address_id.district == district.name):
+                       (person.ref_address_id.district == district.name):
                         count += 1
                 person_sel_group.available_persons = count
 
@@ -93,7 +93,7 @@ class PersonSelGroupSetUp(models.TransientModel):
                         ('name', '=', age_group.person_category_ids.name),
                     ]).id
                     if (person.category_ids.id == category_id) and \
-                       (person.address_id.district == district.name):
+                       (person.ref_address_id.district == district.name):
                         count += 1
                 person_sel_group.selected_persons = count
 
