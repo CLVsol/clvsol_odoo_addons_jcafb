@@ -7,7 +7,7 @@
     <record id="clv_person_sel_summary_view_tree" model="ir.ui.view">
         <field name="name">clv.person_sel.summary.tree</field>
         <field name="model">clv.person_sel.summary</field>
-        <field name="inherit_id" ref="clv_report.clv_abstract_row_view_tree"/>
+        <field name="inherit_id" ref="clv_abstract_row_view_tree"/>
         <field name="mode">primary</field>
         <field name="arch" type="xml">
             <xpath expr="//tree" position="attributes">
