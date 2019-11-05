@@ -43,11 +43,14 @@ class PersonSelDistrictSetUp(models.TransientModel):
         cr = self.env.cr
         cr.execute('''
             SELECT
-                address.district AS district_name,
+                res_partner.district AS district_name,
                 address_category.id AS addr_category_id,
                 COUNT(address.id) AS nr_address
             FROM
                 clv_address AS address
+            INNER JOIN
+                res_partner AS res_partner
+                    ON res_partner.id = address.partner_id
             LEFT JOIN
                 clv_address_category_rel AS address_category_rel
                     ON address_category_rel.address_id = address.id
@@ -66,7 +69,7 @@ class PersonSelDistrictSetUp(models.TransientModel):
 
             _logger.info(u'%s %s %s (%s)', '>>>>>', district[0], district[1], district[2])
 
-            if district[0] is not None:
+            if (district[0] is not None) and (district[0] != ''):
 
                 name = district[0]
 

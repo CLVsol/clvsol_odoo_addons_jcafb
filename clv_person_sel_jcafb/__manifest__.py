@@ -11,7 +11,6 @@
     'license': 'AGPL-3',
     'website': 'https://github.com/CLVsol',
     'depends': [
-        'clv_report',
         'clv_address_jcafb',
         'clv_person_jcafb',
     ],
@@ -21,6 +20,7 @@
         'views/person_sel_age_group_view.xml',
         'views/person_sel_district_view.xml',
         'views/person_sel_group_view.xml',
+        'views/abstract_row_view.xml',
         'views/person_sel_summary_view.xml',
         'wizard/person_sel_district_setup_view.xml',
         'wizard/person_sel_age_group_refresh_view.xml',

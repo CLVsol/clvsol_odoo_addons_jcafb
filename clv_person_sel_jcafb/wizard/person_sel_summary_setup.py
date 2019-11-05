@@ -3,6 +3,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import logging
+from functools import reduce
 
 # from odoo import api, fields, models
 from odoo import api, models
@@ -60,7 +61,7 @@ class PersonSelSummarySetUp(models.TransientModel):
         person_selected_states = ['selected']
 
         addr_categories = [u'Zona Urbana', u'Zona Rural']
-        person_categories = [u'Criança', u'Idoso']
+        person_categories = [u'Criança', u'Idoso', u'Gestante']
 
         matrix = [[False for col_nr in range(col_max + 1)] for row_nr in range(row_max + 1)]
         for row_nr in range(0, row_max + 1):
@@ -187,7 +188,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                                 ('name', '=', person_age_group.person_category_ids.name),
                             ]).id
                             if (available_person.category_ids.id == person_category_id) and \
-                               (available_person.address_id.district == person_sel_district.name):
+                               (available_person.ref_address_id.district == person_sel_district.name):
                                 count += 1
                         matrix[row_nr][col_nr] = format_number(count)
 
@@ -216,7 +217,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                                 ('name', '=', person_age_group.person_category_ids.name),
                             ]).id
                             if (available_person.category_ids.id == person_category_id) and \
-                               (available_person.address_id.category_ids.id == addr_category_id):
+                               (available_person.ref_address_id.category_ids.id == addr_category_id):
                                 count += 1
                         matrix[row_nr][col_nr] = format_number(count)
 
@@ -240,7 +241,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                                 ('name', '=', age_group),
                             ]).id
                             if (available_person.category_ids.id == person_category_id) and \
-                               (available_person.address_id.district == person_sel_district.name):
+                               (available_person.ref_address_id.district == person_sel_district.name):
                                 count += 1
                         matrix[row_nr][col_nr] = format_number(count)
 
@@ -263,7 +264,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                                 ('name', '=', age_group),
                             ]).id
                             if (available_person.category_ids.id == person_category_id) and \
-                               (available_person.address_id.category_ids.id == addr_category_id):
+                               (available_person.ref_address_id.category_ids.id == addr_category_id):
                                 count += 1
                         matrix[row_nr][col_nr] = format_number(count)
 
@@ -284,7 +285,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                     count = 0
                     for available_person in available_persons:
                         if (available_person.category_ids.id is not False) and \
-                           (available_person.address_id.district == person_sel_district.name):
+                           (available_person.ref_address_id.district == person_sel_district.name):
                             count += 1
                     matrix[row_nr][col_total] = format_number(count)
                 if district in addr_category_names:
@@ -301,7 +302,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                     count = 0
                     for available_person in available_persons:
                         if (available_person.category_ids.id is not False) and \
-                           (available_person.address_id.category_ids.id == addr_category_id):
+                           (available_person.ref_address_id.category_ids.id == addr_category_id):
                             count += 1
                     matrix[row_nr][col_total] = format_number(count)
 
@@ -327,7 +328,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                     count = 0
                     for available_person in available_persons:
                         if (available_person.category_ids.id == person_category_id) and \
-                           (available_person.address_id.category_ids.id is not False):
+                           (available_person.ref_address_id.category_ids.id is not False):
                             count += 1
                     matrix[row_total][col_nr] = format_number(count)
                 if age_group in person_category_names:
@@ -344,7 +345,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                     count = 0
                     for available_person in available_persons:
                         if (available_person.category_ids.id == person_category_id) and \
-                           (available_person.address_id.category_ids.id is not False):
+                           (available_person.ref_address_id.category_ids.id is not False):
                             count += 1
                     matrix[row_total][col_nr] = format_number(count)
 
@@ -358,7 +359,7 @@ class PersonSelSummarySetUp(models.TransientModel):
         count = 0
         for available_person in available_persons:
             if (available_person.category_ids.id is not False) and \
-               (available_person.address_id.category_ids.id is not False):
+               (available_person.ref_address_id.category_ids.id is not False):
                 count += 1
         matrix[row_total][col_total] = format_number(count)
 
@@ -756,7 +757,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                                 ('name', '=', person_age_group.person_category_ids.name),
                             ]).id
                             if (available_person.category_ids.id == person_category_id) and \
-                               (available_person.address_id.district == person_sel_district.name):
+                               (available_person.ref_address_id.district == person_sel_district.name):
                                 count += 1
                         matrix[row_nr][col_nr] = format_number(count)
 
@@ -782,7 +783,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                                 ('name', '=', person_age_group.person_category_ids.name),
                             ]).id
                             if (available_person.category_ids.id == person_category_id) and \
-                               (available_person.address_id.category_ids.id == addr_category_id):
+                               (available_person.ref_address_id.category_ids.id == addr_category_id):
                                 count += 1
                         matrix[row_nr][col_nr] = format_number(count)
 
@@ -803,7 +804,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                                 ('name', '=', age_group),
                             ]).id
                             if (available_person.category_ids.id == person_category_id) and \
-                               (available_person.address_id.district == person_sel_district.name):
+                               (available_person.ref_address_id.district == person_sel_district.name):
                                 count += 1
                         matrix[row_nr][col_nr] = format_number(count)
 
@@ -823,7 +824,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                                 ('name', '=', age_group),
                             ]).id
                             if (available_person.category_ids.id == person_category_id) and \
-                               (available_person.address_id.category_ids.id == addr_category_id):
+                               (available_person.ref_address_id.category_ids.id == addr_category_id):
                                 count += 1
                         matrix[row_nr][col_nr] = format_number(count)
 
@@ -840,7 +841,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                     count = 0
                     for available_person in available_persons:
                         if (available_person.category_ids.id is not False) and \
-                           (available_person.address_id.district == person_sel_district.name):
+                           (available_person.ref_address_id.district == person_sel_district.name):
                             count += 1
                     matrix[row_nr][col_total] = format_number(count)
                 if district in addr_category_names:
@@ -853,7 +854,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                     count = 0
                     for available_person in available_persons:
                         if (available_person.category_ids.id is not False) and \
-                           (available_person.address_id.category_ids.id == addr_category_id):
+                           (available_person.ref_address_id.category_ids.id == addr_category_id):
                             count += 1
                     matrix[row_nr][col_total] = format_number(count)
 
@@ -875,7 +876,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                     count = 0
                     for available_person in available_persons:
                         if (available_person.category_ids.id == person_category_id) and \
-                           (available_person.address_id.category_ids.id is not False):
+                           (available_person.ref_address_id.category_ids.id is not False):
                             count += 1
                     matrix[row_total][col_nr] = format_number(count)
                 if age_group in person_category_names:
@@ -888,14 +889,14 @@ class PersonSelSummarySetUp(models.TransientModel):
                     count = 0
                     for available_person in available_persons:
                         if (available_person.category_ids.id == person_category_id) and \
-                           (available_person.address_id.category_ids.id is not False):
+                           (available_person.ref_address_id.category_ids.id is not False):
                             count += 1
                     matrix[row_total][col_nr] = format_number(count)
 
         count = 0
         for available_person in available_persons:
             if (available_person.category_ids.id is not False) and \
-               (available_person.address_id.category_ids.id is not False):
+               (available_person.ref_address_id.category_ids.id is not False):
                 count += 1
         matrix[row_total][col_total] = format_number(count)
 
