@@ -105,7 +105,7 @@
         <field name="priority" eval="20"/>
         <field name="arch" type="xml">
             <field name="code" position="after">
-                <field name="addr_category_ids"/>
+                <field name="addr_category_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
                 <field name="addr_category_names_suport" invisible="True"/>
             </field>
         </field>
@@ -119,7 +119,7 @@
         <field name="arch" type="xml">
             <label for="name" position="before">
                 <label for="addr_category_ids" class="oe_edit_only"/>
-                <h4><field name="addr_category_ids" widget="many2many_tags" placeholder="Address Categories..." options="{'no_open': False, 'no_create': True}"/></h4>
+                <h4><field name="addr_category_ids" widget="many2many_tags" placeholder="Address Categories..." options="{'color_field': 'color', 'no_open': False, 'no_create': True}"/></h4>
             </label>
         </field>
     </record>
