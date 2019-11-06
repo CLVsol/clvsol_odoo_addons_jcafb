@@ -15,7 +15,8 @@
     ],
     'data': [
         'views/processing_menu_view.xml',
-        # 'data/processing.xml',
+        'data/family_address_restore.xml',
+        'data/person_family_restore.xml',
     ],
     'demo': [],
     'test': [],
