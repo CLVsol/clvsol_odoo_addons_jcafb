@@ -19,6 +19,7 @@
         'views/person_history_state_view.xml',
         'views/person_history_menu_view.xml',
         'wizard/person_history_updt_view.xml',
+        'wizard/person_history_person_associate_to_set_view.xml',
     ],
     'demo': [],
     'test': [],
