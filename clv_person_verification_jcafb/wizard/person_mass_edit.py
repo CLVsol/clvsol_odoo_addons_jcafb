@@ -21,6 +21,16 @@ class PersonMassEdit(models.TransientModel):
          ], string='Family is unavailable:', default=False, readonly=False, required=False
     )
 
+    family_id = fields.Many2one(
+        comodel_name='clv.address',
+        string='Family'
+    )
+    family_id_selection = fields.Selection(
+        [('set', 'Set'),
+         ('remove', 'Remove'),
+         ], string='Family:', default=False, readonly=False, required=False
+    )
+
     verification_marker_ids = fields.Many2many(
         comodel_name='clv.verification.marker',
         relation='clv_person_mass_edit_verification_marker_rel',
@@ -53,6 +63,11 @@ class PersonMassEdit(models.TransientModel):
                 person.family_is_unavailable = self.family_is_unavailable
             if self.family_is_unavailable_selection == 'remove':
                 person.family_is_unavailable = False
+
+            if self.family_id_selection == 'set':
+                person.family_id = self.family_id
+            if self.family_id_selection == 'remove':
+                person.family_id = False
 
             if self.verification_marker_ids_selection == 'add':
                 m2m_list = []
