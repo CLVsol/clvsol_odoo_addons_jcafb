@@ -15,11 +15,11 @@
         sequence="40"
         action="clv_processing.clv_processing_schedule_action"/>
 
-    <menuitem name="Batches" id="clv_processing.menu_processing_processing_processing_batches" 
+    <!--menuitem name="Batches" id="clv_processing.menu_processing_processing_processing_batches" 
         parent="clv_processing.menu_processing_processing_processing"
         groups="clv_processing.group_user"
         sequence="50"
-        action="clv_processing.clv_processing_batch_action"/>
+        action="clv_processing.clv_processing_batch_action"/-->
 
     <menuitem name="Processing" id="clv_processing.menu_processing_config_processing"
         parent="clv_base.menu_processing_config"
@@ -32,10 +32,10 @@
         sequence="30"
         action="clv_processing.clv_processing_template_action"/>
 
-    <menuitem name="Batch Members" id="clv_processing.menu_processing_config_processing_batch_members" 
+    <!--menuitem name="Batch Members" id="clv_processing.menu_processing_config_processing_batch_members" 
         parent="clv_processing.menu_processing_config_processing"
         groups="clv_processing.group_user"
         sequence="60"
-        action="clv_processing.clv_processing_batch_member_actions"/>
+        action="clv_processing.clv_processing_batch_member_actions"/-->
 
 </odoo>
