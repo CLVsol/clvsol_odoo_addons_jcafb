@@ -5,8 +5,7 @@
 import logging
 from functools import reduce
 
-# from odoo import api, fields, models
-from odoo import api, models
+from odoo import api, fields, models
 
 from time import time
 
@@ -32,6 +31,17 @@ def format_number(value):
 class PersonSelSummarySetUp(models.TransientModel):
     _description = 'Person Sel Summary SetUp'
     _name = 'clv.person_sel.summary.setup'
+
+    def _default_phase_id(self):
+        phase_id = int(self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_phase_id', '').strip())
+        return phase_id
+    phase_id = fields.Many2one(
+        comodel_name='clv.phase',
+        string='Phase',
+        default=_default_phase_id,
+        ondelete='restrict'
+    )
 
     @api.multi
     def _reopen_form(self):
@@ -175,6 +185,7 @@ class PersonSelSummarySetUp(models.TransientModel):
 
                         available_persons = Person.search([
                             ('state', 'in', person_states),
+                            ('phase_id', '=', self.phase_id.id),
                             ('age_reference', '>=', person_age_group.min_age),
                             ('age_reference', '<=', person_age_group.max_age),
                         ])
@@ -201,6 +212,7 @@ class PersonSelSummarySetUp(models.TransientModel):
 
                         available_persons = Person.search([
                             ('state', 'in', person_states),
+                            ('phase_id', '=', self.phase_id.id),
                             ('age_reference', '>=', person_age_group.min_age),
                             ('age_reference', '<=', person_age_group.max_age),
                         ])
@@ -230,6 +242,7 @@ class PersonSelSummarySetUp(models.TransientModel):
 
                         available_persons = Person.search([
                             ('state', 'in', person_states),
+                            ('phase_id', '=', self.phase_id.id),
                         ])
 
                         _logger.info(u'%s %s %s %s', '>>>>>>>>>>>>>>>',
@@ -250,6 +263,7 @@ class PersonSelSummarySetUp(models.TransientModel):
 
                         available_persons = Person.search([
                             ('state', 'in', person_states),
+                            ('phase_id', '=', self.phase_id.id),
                         ])
 
                         _logger.info(u'%s %s %s %s', '>>>>>>>>>>>>>>>',
@@ -277,6 +291,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                     ])
                     available_persons = Person.search([
                         ('state', 'in', person_states),
+                        ('phase_id', '=', self.phase_id.id),
                     ])
 
                     _logger.info(u'%s %s %s %s', '>>>>>>>>>>>>>>>',
@@ -294,6 +309,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                     ]).id
                     available_persons = Person.search([
                         ('state', 'in', person_states),
+                        ('phase_id', '=', self.phase_id.id),
                     ])
 
                     _logger.info(u'%s %s %s %s', '>>>>>>>>>>>>>>>',
@@ -315,6 +331,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                     ])
                     available_persons = Person.search([
                         ('state', 'in', person_states),
+                        ('phase_id', '=', self.phase_id.id),
                         ('age_reference', '>=', person_sel_age_group.min_age),
                         ('age_reference', '<=', person_sel_age_group.max_age),
                     ])
@@ -337,6 +354,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                     ]).id
                     available_persons = Person.search([
                         ('state', 'in', person_states),
+                        ('phase_id', '=', self.phase_id.id),
                     ])
 
                     _logger.info(u'%s %s %s %s', '>>>>>>>>>>>>>>>',
@@ -351,6 +369,7 @@ class PersonSelSummarySetUp(models.TransientModel):
 
         available_persons = Person.search([
             ('state', 'in', person_states),
+            ('phase_id', '=', self.phase_id.id),
         ])
 
         _logger.info(u'%s %s %s %s', '>>>>>>>>>>>>>>>',
@@ -747,6 +766,7 @@ class PersonSelSummarySetUp(models.TransientModel):
 
                         available_persons = Person.search([
                             ('state', 'in', person_states),
+                            ('phase_id', '=', self.phase_id.id),
                             ('age_reference', '>=', person_age_group.min_age),
                             ('age_reference', '<=', person_age_group.max_age),
                         ])
@@ -770,6 +790,7 @@ class PersonSelSummarySetUp(models.TransientModel):
 
                         available_persons = Person.search([
                             ('state', 'in', person_states),
+                            ('phase_id', '=', self.phase_id.id),
                             ('age_reference', '>=', person_age_group.min_age),
                             ('age_reference', '<=', person_age_group.max_age),
                         ])
@@ -796,6 +817,7 @@ class PersonSelSummarySetUp(models.TransientModel):
 
                         available_persons = Person.search([
                             ('state', 'in', person_states),
+                            ('phase_id', '=', self.phase_id.id),
                         ])
 
                         count = 0
@@ -813,6 +835,7 @@ class PersonSelSummarySetUp(models.TransientModel):
 
                         available_persons = Person.search([
                             ('state', 'in', person_states),
+                            ('phase_id', '=', self.phase_id.id),
                         ])
 
                         count = 0
@@ -837,6 +860,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                     ])
                     available_persons = Person.search([
                         ('state', 'in', person_states),
+                        ('phase_id', '=', self.phase_id.id),
                     ])
                     count = 0
                     for available_person in available_persons:
@@ -850,6 +874,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                     ]).id
                     available_persons = Person.search([
                         ('state', 'in', person_states),
+                        ('phase_id', '=', self.phase_id.id),
                     ])
                     count = 0
                     for available_person in available_persons:
@@ -867,6 +892,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                     ])
                     available_persons = Person.search([
                         ('state', 'in', person_states),
+                        ('phase_id', '=', self.phase_id.id),
                         ('age_reference', '>=', person_sel_age_group.min_age),
                         ('age_reference', '<=', person_sel_age_group.max_age),
                     ])
@@ -885,6 +911,7 @@ class PersonSelSummarySetUp(models.TransientModel):
                     ]).id
                     available_persons = Person.search([
                         ('state', 'in', person_states),
+                        ('phase_id', '=', self.phase_id.id),
                     ])
                     count = 0
                     for available_person in available_persons:

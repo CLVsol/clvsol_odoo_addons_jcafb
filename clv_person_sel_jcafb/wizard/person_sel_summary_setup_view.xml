@@ -14,6 +14,11 @@
                 </div>
                 <!--label for="summary_ids"/>
                 <field name="summary_ids"/-->
+                <group>
+                    <group>
+                        <field name="phase_id" options="{'no_open': False, 'no_create': True}"/>
+                    </group>
+                </group>
                 <footer>
                     <!--button type="object"
                         name="do_delete_all"
