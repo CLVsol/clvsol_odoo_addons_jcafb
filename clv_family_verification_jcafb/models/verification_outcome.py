@@ -318,7 +318,7 @@ class VerificationOutcome(models.Model):
             for ref_address_associated_person in ref_address_associated_persons:
 
                 if (ref_address_associated_person.id not in associated_person_list) and \
-                   (ref_address_associated_person.family_id is False):
+                   (ref_address_associated_person.family_id.id is False):
 
                     outcome_info += _('Missing Associated Person.') + \
                         ' (' + ref_address_associated_person.name + ' [' + ref_address_associated_person.code + '])\n'
