@@ -9,7 +9,28 @@ class MediaFile(models.Model):
     _inherit = 'clv.mfile'
 
     date_file = fields.Datetime(
-        string='File Date'
+        string='File Date',
+        readonly=True
+    )
+
+    survey_title = fields.Char(
+        string='Survey Title',
+        readonly=True
+    )
+
+    person_code = fields.Char(
+        string='Person Code',
+        readonly=True
+    )
+
+    family_code = fields.Char(
+        string='Family Code',
+        readonly=True
+    )
+
+    address_code = fields.Char(
+        string='Address Code',
+        readonly=True
     )
 
     _sql_constraints = [

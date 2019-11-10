@@ -35,8 +35,12 @@
                         </group>
                         <group name="survey">
                             <field name="date_file"/>
+                            <field name="survey_title"/>
                         </group>
                         <group name="refers_to">
+                            <field name="person_code"/>
+                            <field name="family_code"/>
+                            <field name="address_code"/>
                         </group>
                         <group name="lab_test">
                         </group>
@@ -57,6 +61,10 @@
             </field>
             <field name="code" position="after">
                 <field name="date_file"/>
+                <field name="survey_title"/>
+                <field name="person_code"/>
+                <field name="family_code"/>
+                <field name="address_code"/>
                 <field name="notes"/>
             </field>
         </field>
@@ -70,6 +78,10 @@
         <field name="arch" type="xml">
             <field name="code" position="after">
                 <field name="date_file"/>
+                <field name="survey_title"/>
+                <field name="person_code"/>
+                <field name="family_code"/>
+                <field name="address_code"/>
                 <field name="notes"/>
             </field>
             <group name="group_by" position="inside">
