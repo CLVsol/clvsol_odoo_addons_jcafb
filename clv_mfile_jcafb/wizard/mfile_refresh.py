@@ -18,6 +18,7 @@ def modification_date(filepath):
 
 
 class MfileRefresh(models.TransientModel):
+    _description = 'Media File Refresh'
     _name = 'clv.mfile.refresh'
 
     def _default_mfile_ids(self):
@@ -29,11 +30,18 @@ class MfileRefresh(models.TransientModel):
         default=_default_mfile_ids
     )
 
-    dir_path = fields.Char(
-        'Directory Path',
-        required=True,
-        help="Directory Path",
-        default='/opt/openerp/clvsol_clvhealth_jcafb/survey_files/input'
+    def _default_directory_id(self):
+        FileSystemDirectory = self.env['clv.file_system.directory']
+        file_system_directory = FileSystemDirectory.search([
+            ('name', '=', 'Survey Files (Input)'),
+        ])
+        directory_id = file_system_directory.id
+        return directory_id
+    directory_id = fields.Many2one(
+        comodel_name='clv.file_system.directory',
+        string='Directory',
+        default=_default_directory_id,
+        required="True"
     )
 
     @api.multi
@@ -55,12 +63,12 @@ class MfileRefresh(models.TransientModel):
 
         FileSystemDirectory = self.env['clv.file_system.directory']
         file_system_directory = FileSystemDirectory.search([
-            ('directory', '=', self.dir_path),
+            ('id', '=', self.directory_id.id),
         ])
 
         SurveyQuestion = self.env['survey.question']
 
-        listdir = os.listdir(self.dir_path)
+        listdir = os.listdir(file_system_directory.directory)
 
         for mfile in self.mfile_ids:
 
@@ -68,37 +76,33 @@ class MfileRefresh(models.TransientModel):
 
             if mfile.name in listdir:
 
-                filepath = self.dir_path + '/' + mfile.name
+                filepath = file_system_directory.directory + '/' + mfile.name
                 _logger.info(u'%s %s', '>>>>>>>>>>', filepath)
 
-                mfile.directory_id = file_system_directory.id
-                mfile.file_name = mfile.name
-                mfile.stored_file_name = mfile.name
+                # mfile.directory_id = file_system_directory.id
+                # mfile.file_name = mfile.name
+                # mfile.stored_file_name = mfile.name
 
                 if mfile.state in ['new', 'returned', 'checked', 'validated']:
 
                     mfile.state = 'checked'
-                    mfile.document_code = False
+                    mfile.code = False
                     mfile.person_code = False
+                    mfile.family_code = False
                     mfile.address_code = False
                     mfile.notes = False
+                    mfile.document_id = False
 
                     book = xlrd.open_workbook(filepath)
                     sheet = book.sheet_by_index(0)
                     survey_title = sheet.cell_value(0, 0)
-
-                    mfile.date_survey_file = modification_date(filepath)
-
                     mfile.survey_title = survey_title
-                    if mfile.document_id.survey_id.title != survey_title:
-                        mfile.state = 'returned'
-                        if mfile.notes is False:
-                            mfile.notes = u'Erro: Tipo de Questionário inconsistente com o Documento!'
-                        else:
-                            mfile.notes += u'\nErro: Tipo de Questionário inconsistente com o Documento!'
+
+                    mfile.date_file = modification_date(filepath)
 
                     document_code = False
                     person_code = False
+                    family_code = False
                     address_code = False
 
                     for i in range(sheet.nrows):
@@ -133,57 +137,93 @@ class MfileRefresh(models.TransientModel):
 
                                             if question_parameter == 'document_code':
                                                 document_code = value
-                                                mfile.document_code = document_code
-                                                if mfile.document_id.code != document_code:
-                                                    mfile.state = 'returned'
-                                                    if mfile.notes is False:
-                                                        mfile.notes = u'Erro: Código do Documento inválido!'
-                                                    else:
-                                                        mfile.notes += u'\nErro: Código do Documento inválido!'
+                                                mfile.code = document_code
 
                                             if question_parameter == 'person_code':
                                                 person_code = value
                                                 mfile.person_code = person_code
-                                                if mfile.person_id.code != person_code:
-                                                    mfile.state = 'returned'
-                                                    if mfile.notes is False:
-                                                        mfile.notes = u'Erro: Código da Pessoa inválido!'
-                                                    else:
-                                                        mfile.notes += u'\nErro: Código da Pessoa inválido!'
+
+                                            if question_parameter == 'family_code':
+                                                family_code = value
+                                                mfile.family_code = family_code
 
                                             if question_parameter == 'address_code':
                                                 address_code = value
                                                 mfile.address_code = address_code
-                                                if mfile.address_id.code != address_code:
-                                                    mfile.state = 'returned'
-                                                    if mfile.notes is False:
-                                                        mfile.notes = u'Erro: Código do Endereço inválido!'
-                                                    else:
-                                                        mfile.notes += u'\nErro: Código do Endereço inválido!'
 
-                                            if question_parameter == 'lab_test_request_code':
-                                                lab_test_request_code = value
-                                                mfile.lab_test_request_code = lab_test_request_code
-                                                if mfile.lab_test_request_id.code != lab_test_request_code:
-                                                    mfile.state = 'returned'
-                                                    if mfile.notes is False:
-                                                        mfile.notes = u'Codigo da Requisicao de Exames invalido!'
-                                                    else:
-                                                        mfile.notes += u'\nCodigo da Requisicao de Exames invalido!'
+                if document_code is not False:
+
+                    Document = self.env['clv.document']
+                    document = Document.search([
+                        ('code', '=', document_code),
+                    ])
+
+                    if document.code != document_code:
+                        mfile.state = 'returned'
+                        if mfile.notes is False:
+                            mfile.notes = u'Erro: Código do Documento inválido!'
+                        else:
+                            mfile.notes += u'\nErro: Código do Documento inválido!'
+
+                    else:
+
+                        mfile.document_id = document.id
+
+                        if document.survey_id.title != survey_title:
+                            mfile.state = 'returned'
+                            if mfile.notes is False:
+                                mfile.notes = u'Erro: Tipo de Questionário inconsistente com o Documento!'
+                            else:
+                                mfile.notes += u'\nErro: Tipo de Questionário inconsistente com o Documento!'
+
+                        if mfile.name != mfile.document_id.name + '_' + mfile.document_id.code + '.xls':
+
+                            mfile.state = 'returned'
+                            if mfile.notes is False:
+                                mfile.notes = u'Erro: Nome do Documento inválido!!'
+                            else:
+                                mfile.notes += u'\nErro: Nome do Documento inválido!!'
+
+                        if person_code is not False:
+
+                            if document.ref_id.code != person_code:
+                                mfile.state = 'returned'
+                                if mfile.notes is False:
+                                    mfile.notes = u'Erro: Código da Pessoa inválido!'
+                                else:
+                                    mfile.notes += u'\nErro: Código da Pessoa inválido!'
+                        if family_code is not False:
+
+                            if document.ref_id.code != family_code:
+                                mfile.state = 'returned'
+                                if mfile.notes is False:
+                                    mfile.notes = u'Erro: Código da Família inválido!'
+                                else:
+                                    mfile.notes += u'\nErro: Código da Família inválido!'
+                        if address_code is not False:
+
+                            if document.ref_id.code != address_code:
+                                mfile.state = 'returned'
+                                if mfile.notes is False:
+                                    mfile.notes = u'Erro: Código do Endereço inválido!'
+                                else:
+                                    mfile.notes += u'\nErro: Código ddo Endereço inválido!'
 
             else:
 
                 if mfile.state in ['new', 'returned', 'checked', 'validated']:
 
-                    mfile.directory_id = False
-                    mfile.file_name = False
-                    mfile.stored_file_name = False
+                    # mfile.directory_id = False
+                    # mfile.file_name = False
+                    # mfile.stored_file_name = False
 
                     mfile.state = 'new'
-                    mfile.document_code = False
+                    mfile.code = False
                     mfile.person_code = False
+                    mfile.family_code = False
                     mfile.address_code = False
                     mfile.notes = False
+                    mfile.document_id = False
 
         return True
 
