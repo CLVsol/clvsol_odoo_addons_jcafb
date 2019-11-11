@@ -23,11 +23,18 @@ class MfileImport(models.TransientModel):
         default=_default_mfile_ids
     )
 
-    dir_path = fields.Char(
-        'Directory Path',
-        required=True,
-        help="Directory Path",
-        default='/opt/openerp/clvsol_clvhealth_jcafb/survey_files/input'
+    def _default_directory_id(self):
+        FileSystemDirectory = self.env['clv.file_system.directory']
+        file_system_directory = FileSystemDirectory.search([
+            ('name', '=', 'Survey Files (Input)'),
+        ])
+        directory_id = file_system_directory.id
+        return directory_id
+    directory_id = fields.Many2one(
+        comodel_name='clv.file_system.directory',
+        string='Directory',
+        default=_default_directory_id,
+        required="True"
     )
 
     @api.multi
@@ -47,6 +54,11 @@ class MfileImport(models.TransientModel):
     def do_mfile_import(self):
         self.ensure_one()
 
+        FileSystemDirectory = self.env['clv.file_system.directory']
+        file_system_directory = FileSystemDirectory.search([
+            ('id', '=', self.directory_id.id),
+        ])
+
         SurveyQuestion = self.env['survey.question']
         SurveyLabel = self.env['survey.label']
         SurveyUserInput = self.env['survey.user_input']
@@ -54,7 +66,7 @@ class MfileImport(models.TransientModel):
 
         for mfile in self.mfile_ids:
 
-            filepath = self.dir_path + '/' + mfile.name
+            filepath = file_system_directory.directory + '/' + mfile.name
             _logger.info(u'>>>>> %s', filepath)
 
             if mfile.state == 'validated':
@@ -124,10 +136,13 @@ class MfileImport(models.TransientModel):
                                                 try:
                                                     datetime.datetime.strptime(value, '%Y-%m-%d')
                                                 except Exception:
-                                                    date = datetime.datetime(
-                                                        *xlrd.xldate_as_tuple(
-                                                            date, book.datemode)).strftime('%Y-%m-%d')
-                                                    value = date
+                                                    try:
+                                                        datetime.datetime.strptime(value, '%d-%m-%Y')
+                                                    except Exception:
+                                                        date = datetime.datetime(
+                                                            *xlrd.xldate_as_tuple(
+                                                                date, book.datemode)).strftime('%Y-%m-%d')
+                                                        value = date
 
                                     # print '>>>>>>>>>>>>>>>>>>>>', value
                                     values = {
