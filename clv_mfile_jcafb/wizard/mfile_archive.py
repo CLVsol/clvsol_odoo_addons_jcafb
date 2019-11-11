@@ -11,6 +11,7 @@ _logger = logging.getLogger(__name__)
 
 
 class MfileArchive(models.TransientModel):
+    _description = 'Media File Archive'
     _name = 'clv.mfile.archive'
 
     def _default_mfile_ids(self):
@@ -45,7 +46,7 @@ class MfileArchive(models.TransientModel):
         return directory_id
     archive_directory_id = fields.Many2one(
         comodel_name='clv.file_system.directory',
-        string='Directory',
+        string='Archive Directory',
         default=_default_archive_directory_id,
         required="True"
     )
