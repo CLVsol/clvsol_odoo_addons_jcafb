@@ -12,6 +12,7 @@ _logger = logging.getLogger(__name__)
 
 
 class MfileValidate(models.TransientModel):
+    _description = 'Media File Validate'
     _name = 'clv.mfile.validate'
 
     def _default_mfile_ids(self):
@@ -19,15 +20,22 @@ class MfileValidate(models.TransientModel):
     mfile_ids = fields.Many2many(
         comodel_name='clv.mfile',
         relation='clv_mfile_mfile_validate_rel',
-        string='Documents',
+        string='Media Files',
         default=_default_mfile_ids
     )
 
-    dir_path = fields.Char(
-        'Directory Path',
-        required=True,
-        help="Directory Path",
-        default='/opt/openerp/clvsol_clvhealth_jcafb/survey_files/input'
+    def _default_directory_id(self):
+        FileSystemDirectory = self.env['clv.file_system.directory']
+        file_system_directory = FileSystemDirectory.search([
+            ('name', '=', 'Survey Files (Input)'),
+        ])
+        directory_id = file_system_directory.id
+        return directory_id
+    directory_id = fields.Many2one(
+        comodel_name='clv.file_system.directory',
+        string='Directory',
+        default=_default_directory_id,
+        required="True"
     )
 
     @api.multi
@@ -47,11 +55,16 @@ class MfileValidate(models.TransientModel):
     def do_mfile_validate(self):
         self.ensure_one()
 
+        FileSystemDirectory = self.env['clv.file_system.directory']
+        file_system_directory = FileSystemDirectory.search([
+            ('id', '=', self.directory_id.id),
+        ])
+
         SurveyQuestion = self.env['survey.question']
 
         for mfile in self.mfile_ids:
 
-            filepath = self.dir_path + '/' + mfile.name
+            filepath = file_system_directory.directory + '/' + mfile.name
             _logger.info(u'>>>>> %s', filepath)
 
             if mfile.state in ['checked', 'validated']:
@@ -237,12 +250,17 @@ class MfileValidate(models.TransientModel):
                                                     *xlrd.xldate_as_tuple(date, book.datemode)).strftime('%Y-%m-%d')
                                                 value = date
                                             except Exception:
-                                                if mfile.notes is False:
-                                                    mfile.notes = \
-                                                        u'Erro: Questão ' + question_code + ' com formato invalido!'
-                                                else:
-                                                    mfile.notes += \
-                                                        '\nErro: Questão ' + question_code + ' com formato invalido!'
+                                                try:
+                                                    datetime.datetime.strptime(value, '%d-%m-%Y')
+                                                except Exception:
+                                                    if mfile.notes is False:
+                                                        mfile.notes = \
+                                                            u'Erro: Questão ' + \
+                                                            question_code + ' com formato invalido!'
+                                                    else:
+                                                        mfile.notes += \
+                                                            '\nErro: Questão ' + \
+                                                            question_code + ' com formato invalido!'
 
                     if i == last_row or \
                        (i == last_row - 1 and sheet.cell_value(i + 1, 0) == xlrd.empty_cell.value):

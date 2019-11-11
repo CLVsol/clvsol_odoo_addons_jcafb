@@ -34,7 +34,7 @@
         # 'wizard/mfile_setup_view.xml',
         # 'wizard/document_mfile_setup_view.xml',
         'wizard/mfile_refresh_view.xml',
-        # 'wizard/mfile_validate_view.xml',
+        'wizard/mfile_validate_view.xml',
         # 'wizard/mfile_import_view.xml',
         # 'wizard/mfile_archive_view.xml',
         # 'wizard/mfile_unarchive_view.xml',
