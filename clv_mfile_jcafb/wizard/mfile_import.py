@@ -12,6 +12,7 @@ _logger = logging.getLogger(__name__)
 
 
 class MfileImport(models.TransientModel):
+    _description = 'Media File Inport'
     _name = 'clv.mfile.import'
 
     def _default_mfile_ids(self):
