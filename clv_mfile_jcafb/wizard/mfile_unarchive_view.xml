@@ -14,8 +14,8 @@
                 <label for="mfile_ids"/>
                 <field name="mfile_ids"/>
                 <group>
-                    <field name="archive_dir_path"/>
-                    <field name="dir_path"/>
+                    <field name="archive_directory_id" options="{'no_open': False, 'no_create': True}"/>
+                    <field name="directory_id" options="{'no_open': False, 'no_create': True}"/>
                 </group>
                 <footer>
                     <button 
@@ -37,7 +37,7 @@
         name="Media File Unarchive"
         src_model="clv.mfile"
         res_model="clv.mfile.unarchive"
-        view_mode="form, tree"
+        view_mode="form"
         key2="client_action_multi"
         target="new"
     />

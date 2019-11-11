@@ -11,6 +11,7 @@ _logger = logging.getLogger(__name__)
 
 
 class MfileUnarchive(models.TransientModel):
+    _description = 'Media File Unarchive'
     _name = 'clv.mfile.unarchive'
 
     def _default_mfile_ids(self):
@@ -22,18 +23,32 @@ class MfileUnarchive(models.TransientModel):
         default=_default_mfile_ids
     )
 
-    dir_path = fields.Char(
-        'Directory Path (Input)',
-        required=True,
-        help="Input Directory Path",
-        default='/opt/openerp/clvsol_clvhealth_jcafb/survey_files/input'
+    def _default_directory_id(self):
+        FileSystemDirectory = self.env['clv.file_system.directory']
+        file_system_directory = FileSystemDirectory.search([
+            ('name', '=', 'Survey Files (Input)'),
+        ])
+        directory_id = file_system_directory.id
+        return directory_id
+    directory_id = fields.Many2one(
+        comodel_name='clv.file_system.directory',
+        string='Directory',
+        default=_default_directory_id,
+        required="True"
     )
 
-    archive_dir_path = fields.Char(
-        'Directory Path (Archive)',
-        required=True,
-        help="Archive Directory Path",
-        default='/opt/openerp/clvsol_clvhealth_jcafb/survey_files/archive'
+    def _default_archive_directory_id(self):
+        FileSystemDirectory = self.env['clv.file_system.directory']
+        file_system_directory = FileSystemDirectory.search([
+            ('name', '=', 'Survey Files (Archive)'),
+        ])
+        directory_id = file_system_directory.id
+        return directory_id
+    archive_directory_id = fields.Many2one(
+        comodel_name='clv.file_system.directory',
+        string='Archive Directory',
+        default=_default_archive_directory_id,
+        required="True"
     )
 
     @api.multi
@@ -55,13 +70,16 @@ class MfileUnarchive(models.TransientModel):
 
         FileSystemDirectory = self.env['clv.file_system.directory']
         file_system_directory = FileSystemDirectory.search([
-            ('directory', '=', self.dir_path),
+            ('id', '=', self.directory_id.id),
+        ])
+        archive_file_system_directory = FileSystemDirectory.search([
+            ('id', '=', self.archive_directory_id.id),
         ])
 
         for mfile in self.mfile_ids:
 
-            filepath = self.dir_path + '/' + mfile.name
-            archive_filepath = self.archive_dir_path + '/' + mfile.name
+            filepath = file_system_directory.directory + '/' + mfile.name
+            archive_filepath = archive_file_system_directory.directory + '/' + mfile.name
 
             _logger.info(u'%s %s', '>>>>>', mfile.name)
 
