@@ -80,16 +80,24 @@ class Summary(models.Model):
 
         Document = self.env['clv.document']
         SummaryDocument = self.env['clv.summary.document']
+        LabTestRequest = self.env['clv.lab_test.request']
+        SummaryLabTestRequest = self.env['clv.summary.lab_test.request']
 
         summary_documents = SummaryDocument.search([
             ('summary_id', '=', summary.id),
         ])
         summary_documents.unlink()
 
+        summary_lab_test_requests = SummaryLabTestRequest.search([
+            ('summary_id', '=', summary.id),
+        ])
+        summary_lab_test_requests.unlink()
+
         search_domain = [
             ('ref_id', '=', model_object._name + ',' + str(model_object.id)),
         ]
         documents = Document.search(search_domain)
+        lab_test_requests = LabTestRequest.search(search_domain)
 
         for document in documents:
 
@@ -100,6 +108,16 @@ class Summary(models.Model):
                     'document_id': document.id,
                 }
                 SummaryDocument.create(values)
+
+        for lab_test_request in lab_test_requests:
+
+            if lab_test_request.phase_id.id == model_object.phase_id.id:
+
+                values = {
+                    'summary_id': summary.id,
+                    'lab_test_request_id': lab_test_request.id,
+                }
+                SummaryLabTestRequest.create(values)
 
         summary_values = {}
         summary_values['date_summary'] = date_summary
