@@ -21,4 +21,10 @@
         sequence="10"
         action="clv_summary.clv_summary_category_action"/-->
 
+    <menuitem name="Templates" id="clv_summary.menu_base_config_summary_templates" 
+        parent="clv_summary.menu_base_config_summary"
+        groups="clv_summary.group_user"
+        sequence="30"
+        action="clv_summary.clv_summary_template_action"/>
+
 </odoo>
