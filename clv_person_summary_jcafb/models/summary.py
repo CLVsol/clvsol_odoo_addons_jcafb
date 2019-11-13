@@ -5,7 +5,7 @@
 import logging
 from datetime import datetime
 
-from odoo import api, fields, models, _
+from odoo import api, models
 
 _logger = logging.getLogger(__name__)
 
@@ -78,9 +78,28 @@ class Summary(models.Model):
 
         date_summary = datetime.now()
 
-        # self._object_summary_updt(
-        #     summary, state, outcome_info, date_summary, model_object
-        # )
+        Document = self.env['clv.document']
+        SummaryDocument = self.env['clv.summary.document']
+
+        summary_documents = SummaryDocument.search([
+            ('summary_id', '=', summary.id),
+        ])
+        summary_documents.unlink()
+
+        search_domain = [
+            ('ref_id', '=', model_object._name + ',' + str(model_object.id)),
+        ]
+        documents = Document.search(search_domain)
+
+        for document in documents:
+
+            if document.phase_id.id == model_object.phase_id.id:
+
+                values = {
+                    'summary_id': summary.id,
+                    'document_id': document.id,
+                }
+                SummaryDocument.create(values)
 
         summary_values = {}
         summary_values['date_summary'] = date_summary
