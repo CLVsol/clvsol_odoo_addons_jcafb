@@ -12,8 +12,11 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_summary',
+        'clv_document_jcafb',
     ],
     'data': [
+        'security/ir.model.access.csv',
+        'views/summary_document_view.xml',
         'views/summary_menu_view.xml',
     ],
     'demo': [],

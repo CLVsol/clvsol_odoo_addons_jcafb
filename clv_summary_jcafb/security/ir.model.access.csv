@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_clv_summary_document_user,clv.summary.document.user,model_clv_summary_document,clv_summary.group_user,1,0,0,0
+access_clv_summary_document_manager,clv.summary.manager.document,model_clv_summary_document,clv_summary.group_manager,1,1,1,0
+access_clv_summary_document_supmanager,clv.summary.document.supmanager,model_clv_summary_document,clv_summary.group_supmanager,1,1,1,1
