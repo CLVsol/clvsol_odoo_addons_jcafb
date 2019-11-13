@@ -17,6 +17,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/summary_document_view.xml',
+        'views/summary_lab_test_request_view.xml',
         'views/summary_menu_view.xml',
     ],
     'demo': [],
