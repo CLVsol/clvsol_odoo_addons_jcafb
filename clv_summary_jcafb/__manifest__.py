@@ -13,11 +13,14 @@
     'depends': [
         'clv_summary',
         'clv_document_jcafb',
+        'clv_lab_test_jcafb',
+        'clv_event_jcafb',
     ],
     'data': [
         'security/ir.model.access.csv',
         'views/summary_document_view.xml',
         'views/summary_lab_test_request_view.xml',
+        'views/summary_event_view.xml',
         'views/summary_menu_view.xml',
     ],
     'demo': [],
