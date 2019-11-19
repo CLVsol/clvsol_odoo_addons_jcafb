@@ -69,8 +69,8 @@ class PersonSelGroupSetUp(models.TransientModel):
 
                 persons = Person.search([
                     ('state', 'in', person_available_states),
-                    ('age_reference', '>=', age_group.min_age),
-                    ('age_reference', '<=', age_group.max_age),
+                    ('age_reference_years', '>=', age_group.min_age),
+                    ('age_reference_years', '<=', age_group.max_age),
                 ])
                 count = 0
                 for person in persons:
@@ -84,8 +84,8 @@ class PersonSelGroupSetUp(models.TransientModel):
 
                 persons = Person.search([
                     ('state', 'in', person_selected_states),
-                    ('age_reference', '>=', age_group.min_age),
-                    ('age_reference', '<=', age_group.max_age),
+                    ('age_reference_years', '>=', age_group.min_age),
+                    ('age_reference_years', '<=', age_group.max_age),
                 ])
                 count = 0
                 for person in persons:
