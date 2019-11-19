@@ -54,8 +54,8 @@ class PersonSelGroupSelect(models.TransientModel):
 
             persons = Person.search([
                 ('state', 'in', person_available_states),
-                ('age_reference', '>=', group.age_group_id.min_age),
-                ('age_reference', '<=', group.age_group_id.max_age),
+                ('age_reference_years', '>=', group.age_group_id.min_age),
+                ('age_reference_years', '<=', group.age_group_id.max_age),
             ])
             count = 0
             for person in persons:
@@ -69,8 +69,8 @@ class PersonSelGroupSelect(models.TransientModel):
 
             persons = Person.search([
                 ('state', 'in', person_selected_states),
-                ('age_reference', '>=', group.age_group_id.min_age),
-                ('age_reference', '<=', group.age_group_id.max_age),
+                ('age_reference_years', '>=', group.age_group_id.min_age),
+                ('age_reference_years', '<=', group.age_group_id.max_age),
             ])
             count = 0
             for person in persons:
@@ -92,8 +92,8 @@ class PersonSelGroupSelect(models.TransientModel):
 
                 persons = Person.search([
                     ('state', 'in', person_to_select_states),
-                    ('age_reference', '>=', group.age_group_id.min_age),
-                    ('age_reference', '<=', group.age_group_id.max_age),
+                    ('age_reference_years', '>=', group.age_group_id.min_age),
+                    ('age_reference_years', '<=', group.age_group_id.max_age),
                 ], order='random_field')
                 count = 0
                 for person in persons:
@@ -106,7 +106,7 @@ class PersonSelGroupSelect(models.TransientModel):
                             _logger.info(u'%s %s %s %s %s %s %s', '>>>>>>>>>>>>>>>',
                                          person.random_field,
                                          person.name,
-                                         person.age_reference,
+                                         person.age_reference_years,
                                          person.category_ids.name,
                                          person.address_id.district,
                                          person.state)
@@ -115,8 +115,8 @@ class PersonSelGroupSelect(models.TransientModel):
 
             persons = Person.search([
                 ('state', 'in', person_selected_states),
-                ('age_reference', '>=', group.age_group_id.min_age),
-                ('age_reference', '<=', group.age_group_id.max_age),
+                ('age_reference_years', '>=', group.age_group_id.min_age),
+                ('age_reference_years', '<=', group.age_group_id.max_age),
             ])
             count = 0
             for person in persons:
