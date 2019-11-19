@@ -186,8 +186,8 @@ class PersonSelSummarySetUp(models.TransientModel):
                         available_persons = Person.search([
                             ('state', 'in', person_states),
                             ('phase_id', '=', self.phase_id.id),
-                            ('age_reference', '>=', person_age_group.min_age),
-                            ('age_reference', '<=', person_age_group.max_age),
+                            ('age_reference_years', '>=', person_age_group.min_age),
+                            ('age_reference_years', '<=', person_age_group.max_age),
                         ])
 
                         _logger.info(u'%s %s %s %s', '>>>>>>>>>>>>>>>',
@@ -213,8 +213,8 @@ class PersonSelSummarySetUp(models.TransientModel):
                         available_persons = Person.search([
                             ('state', 'in', person_states),
                             ('phase_id', '=', self.phase_id.id),
-                            ('age_reference', '>=', person_age_group.min_age),
-                            ('age_reference', '<=', person_age_group.max_age),
+                            ('age_reference_years', '>=', person_age_group.min_age),
+                            ('age_reference_years', '<=', person_age_group.max_age),
                         ])
 
                         _logger.info(u'%s %s %s %s', '>>>>>>>>>>>>>>>',
@@ -332,8 +332,8 @@ class PersonSelSummarySetUp(models.TransientModel):
                     available_persons = Person.search([
                         ('state', 'in', person_states),
                         ('phase_id', '=', self.phase_id.id),
-                        ('age_reference', '>=', person_sel_age_group.min_age),
-                        ('age_reference', '<=', person_sel_age_group.max_age),
+                        ('age_reference_years', '>=', person_sel_age_group.min_age),
+                        ('age_reference_years', '<=', person_sel_age_group.max_age),
                     ])
                     person_category_id = PersonCategory.search([
                         ('name', '=', person_sel_age_group.person_category_ids.name),
@@ -767,8 +767,8 @@ class PersonSelSummarySetUp(models.TransientModel):
                         available_persons = Person.search([
                             ('state', 'in', person_states),
                             ('phase_id', '=', self.phase_id.id),
-                            ('age_reference', '>=', person_age_group.min_age),
-                            ('age_reference', '<=', person_age_group.max_age),
+                            ('age_reference_years', '>=', person_age_group.min_age),
+                            ('age_reference_years', '<=', person_age_group.max_age),
                         ])
 
                         count = 0
@@ -791,8 +791,8 @@ class PersonSelSummarySetUp(models.TransientModel):
                         available_persons = Person.search([
                             ('state', 'in', person_states),
                             ('phase_id', '=', self.phase_id.id),
-                            ('age_reference', '>=', person_age_group.min_age),
-                            ('age_reference', '<=', person_age_group.max_age),
+                            ('age_reference_years', '>=', person_age_group.min_age),
+                            ('age_reference_years', '<=', person_age_group.max_age),
                         ])
 
                         count = 0
@@ -893,8 +893,8 @@ class PersonSelSummarySetUp(models.TransientModel):
                     available_persons = Person.search([
                         ('state', 'in', person_states),
                         ('phase_id', '=', self.phase_id.id),
-                        ('age_reference', '>=', person_sel_age_group.min_age),
-                        ('age_reference', '<=', person_sel_age_group.max_age),
+                        ('age_reference_years', '>=', person_sel_age_group.min_age),
+                        ('age_reference_years', '<=', person_sel_age_group.max_age),
                     ])
                     person_category_id = PersonCategory.search([
                         ('name', '=', person_sel_age_group.person_category_ids.name),
