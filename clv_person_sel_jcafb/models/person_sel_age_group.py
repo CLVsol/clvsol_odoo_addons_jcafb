@@ -14,8 +14,8 @@ class PersonSelAgeGroup(models.Model):
 
     code = fields.Char(string='Code', required=False)
 
-    min_age = fields.Integer(string='Minimum Age', required=False)
-    max_age = fields.Integer(string='Maximum Age', required=False)
+    min_age = fields.Char(string='Minimum Age', required=False)
+    max_age = fields.Char(string='Maximum Age', required=False)
 
     available_persons = fields.Integer(string='Available Persons', required=False)
     selected_persons = fields.Integer(string='Selected Persons', required=False)
