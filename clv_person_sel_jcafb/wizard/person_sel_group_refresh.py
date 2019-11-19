@@ -53,8 +53,8 @@ class PersonSelGroupRefresh(models.TransientModel):
 
             persons = Person.search([
                 ('state', 'in', person_available_states),
-                ('age_reference', '>=', group.age_group_id.min_age),
-                ('age_reference', '<=', group.age_group_id.max_age),
+                ('age_reference_years', '>=', group.age_group_id.min_age),
+                ('age_reference_years', '<=', group.age_group_id.max_age),
             ])
             count = 0
             for person in persons:
@@ -62,14 +62,14 @@ class PersonSelGroupRefresh(models.TransientModel):
                     ('name', '=', group.age_group_id.person_category_ids.name),
                 ]).id
                 if (person.category_ids.id == category_id) and \
-                   (person.address_id.district == group.district_id.name):
+                   (person.ref_address_id.district == group.district_id.name):
                     count += 1
             group.available_persons = count
 
             persons = Person.search([
                 ('state', 'in', person_selected_states),
-                ('age_reference', '>=', group.age_group_id.min_age),
-                ('age_reference', '<=', group.age_group_id.max_age),
+                ('age_reference_years', '>=', group.age_group_id.min_age),
+                ('age_reference_years', '<=', group.age_group_id.max_age),
             ])
             count = 0
             for person in persons:
@@ -77,7 +77,7 @@ class PersonSelGroupRefresh(models.TransientModel):
                     ('name', '=', group.age_group_id.person_category_ids.name),
                 ]).id
                 if (person.category_ids.id == category_id) and \
-                   (person.address_id.district == group.district_id.name):
+                   (person.ref_address_id.district == group.district_id.name):
                     count += 1
             group.selected_persons = count
 
