@@ -54,8 +54,8 @@ class PersonSelAgeGroupRefresh(models.TransientModel):
 
             available_persons = Person.search([
                 ('state', 'in', person_available_states),
-                ('age_reference', '>=', age_group.min_age),
-                ('age_reference', '<=', age_group.max_age),
+                ('age_reference_years', '>=', age_group.min_age),
+                ('age_reference_years', '<=', age_group.max_age),
             ])
 
             _logger.info(u'%s %s %s', '>>>>>>>>>>>>>>>',
@@ -72,8 +72,8 @@ class PersonSelAgeGroupRefresh(models.TransientModel):
 
             selected_persons = Person.search([
                 ('state', 'in', person_selected_states),
-                ('age_reference', '>=', age_group.min_age),
-                ('age_reference', '<=', age_group.max_age),
+                ('age_reference_years', '>=', age_group.min_age),
+                ('age_reference_years', '<=', age_group.max_age),
             ])
 
             _logger.info(u'%s %s %s', '>>>>>>>>>>>>>>>',
