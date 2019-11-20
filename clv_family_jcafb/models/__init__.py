@@ -7,3 +7,4 @@ from . import document
 from . import family_code
 from . import family_reg_state
 from . import family_state
+from . import address
