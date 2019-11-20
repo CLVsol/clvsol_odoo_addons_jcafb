@@ -264,6 +264,11 @@ class VerificationOutcome(models.Model):
                             ' (' + ref_address_familiy.name + ' [' + ref_address_familiy.code + '])\n'
                         state = self._get_verification_outcome_state(state, 'Error (L0)')
 
+                if ref_address.state != model_object.state:
+
+                    outcome_info += _('Address "State" mismatch.\n')
+                    state = self._get_verification_outcome_state(state, 'Warning (L0)')
+
             else:
 
                 outcome_info = _('Missing "Address".')
