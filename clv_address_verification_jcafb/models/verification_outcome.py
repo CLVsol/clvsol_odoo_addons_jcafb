@@ -212,3 +212,50 @@ class VerificationOutcome(models.Model):
         verification_values['outcome_info'] = outcome_info
         verification_values['state'] = state
         verification_outcome.write(verification_values)
+
+    def _address_verification_associated_persons(self, verification_outcome, model_object):
+
+        _logger.info(u'%s %s', '>>>>>>>>>>>>>>> (model_object):', model_object.name)
+
+        date_verification = datetime.now()
+
+        state = 'Ok'
+        outcome_info = ''
+
+        Person = self.env['clv.person']
+
+        address_associated_persons = Person.search([
+            ('ref_address_id', '=', model_object.id),
+        ])
+
+        associated_person_state_list = []
+
+        for address_associated_person in address_associated_persons:
+
+            associated_person_state_list.append(address_associated_person.state)
+
+        if 'selected' in associated_person_state_list:
+            if model_object.state != 'selected':
+                outcome_info += _('Please, verify "Address State".\n')
+                state = self._get_verification_outcome_state(state, 'Warning (L0)')
+
+        elif 'waiting' in associated_person_state_list:
+            if model_object.state != 'waiting':
+                outcome_info += _('Please, verify "Address State".\n')
+                state = self._get_verification_outcome_state(state, 'Warning (L0)')
+
+        elif 'available' in associated_person_state_list:
+            if model_object.state != 'available':
+                outcome_info += _('Please, verify "Address State".\n')
+                state = self._get_verification_outcome_state(state, 'Warning (L0)')
+
+        else:
+            if model_object.state in ['selected', 'waiting', 'available']:
+                outcome_info += _('Please, verify "Address State".\n')
+                state = self._get_verification_outcome_state(state, 'Warning (L0)')
+
+        verification_values = {}
+        verification_values['date_verification'] = date_verification
+        verification_values['outcome_info'] = outcome_info
+        verification_values['state'] = state
+        verification_outcome.write(verification_values)
