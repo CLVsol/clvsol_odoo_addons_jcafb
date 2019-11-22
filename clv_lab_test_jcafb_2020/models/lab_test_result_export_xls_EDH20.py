@@ -439,12 +439,7 @@ class LabTestResult(models.Model):
 
             ExportXLS.setOutCell(
                 sheet, 4, row_nr,
-                u'd) Jejum INFERIOR a 8 hs: Normal (até 140 mg/dL)')
-            row_nr += 1
-
-            ExportXLS.setOutCell(
-                sheet, 4, row_nr,
-                u'e) Não se aplica')
+                u'd) Não se aplica')
             row_nr += 2
 
             ExportXLS.setOutCell(sheet, 4, row_nr, u'Observações:')
