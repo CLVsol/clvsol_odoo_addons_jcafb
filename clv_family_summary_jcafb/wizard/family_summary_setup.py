@@ -18,7 +18,7 @@ class FamilySummarySetUp(models.TransientModel):
     family_ids = fields.Many2many(
         comodel_name='clv.family',
         relation='clv_family_summary_setup_rel',
-        string='Familys',
+        string='Families',
         default=_default_family_ids
     )
 
