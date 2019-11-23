@@ -169,6 +169,32 @@ class Summary(models.Model):
             }
             SummaryFamily.create(values)
 
+            search_domain = [
+                ('ref_id', '=', 'clv.family' + ',' + str(family.id)),
+            ]
+            documents = Document.search(search_domain)
+            lab_test_requests = LabTestRequest.search(search_domain)
+
+            for document in documents:
+
+                if document.phase_id.id == family.phase_id.id:
+
+                    values = {
+                        'summary_id': summary.id,
+                        'document_id': document.id,
+                    }
+                    SummaryDocument.create(values)
+
+            for lab_test_request in lab_test_requests:
+
+                if lab_test_request.phase_id.id == family.phase_id.id:
+
+                    values = {
+                        'summary_id': summary.id,
+                        'lab_test_request_id': lab_test_request.id,
+                    }
+                    SummaryLabTestRequest.create(values)
+
         for person in persons:
 
             values = {
@@ -176,6 +202,32 @@ class Summary(models.Model):
                 'person_id': person.id,
             }
             SummaryPerson.create(values)
+
+            search_domain = [
+                ('ref_id', '=', 'clv.person' + ',' + str(person.id)),
+            ]
+            documents = Document.search(search_domain)
+            lab_test_requests = LabTestRequest.search(search_domain)
+
+            for document in documents:
+
+                if document.phase_id.id == person.phase_id.id:
+
+                    values = {
+                        'summary_id': summary.id,
+                        'document_id': document.id,
+                    }
+                    SummaryDocument.create(values)
+
+            for lab_test_request in lab_test_requests:
+
+                if lab_test_request.phase_id.id == person.phase_id.id:
+
+                    values = {
+                        'summary_id': summary.id,
+                        'lab_test_request_id': lab_test_request.id,
+                    }
+                    SummaryLabTestRequest.create(values)
 
         summary_values = {}
         summary_values['date_summary'] = date_summary
