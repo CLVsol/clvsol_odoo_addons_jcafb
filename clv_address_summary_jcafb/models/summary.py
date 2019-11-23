@@ -84,6 +84,8 @@ class Summary(models.Model):
         SummaryLabTestRequest = self.env['clv.summary.lab_test.request']
         EventAttendee = self.env['clv.event.attendee']
         SummaryEvent = self.env['clv.summary.event']
+        Person = self.env['clv.person']
+        SummaryPerson = self.env['clv.summary.person']
 
         summary_documents = SummaryDocument.search([
             ('summary_id', '=', summary.id),
@@ -100,12 +102,22 @@ class Summary(models.Model):
         ])
         summary_events.unlink()
 
+        summary_persons = SummaryPerson.search([
+            ('summary_id', '=', summary.id),
+        ])
+        summary_persons.unlink()
+
         search_domain = [
             ('ref_id', '=', model_object._name + ',' + str(model_object.id)),
         ]
         documents = Document.search(search_domain)
         lab_test_requests = LabTestRequest.search(search_domain)
         event_attendees = EventAttendee.search(search_domain)
+
+        search_domain = [
+            ('ref_address_id', '=', model_object.id),
+        ]
+        persons = Person.search(search_domain)
 
         for document in documents:
 
@@ -136,6 +148,14 @@ class Summary(models.Model):
                     'event_id': event_attendee.event_id.id,
                 }
                 SummaryEvent.create(values)
+
+        for person in persons:
+
+            values = {
+                'summary_id': summary.id,
+                'person_id': person.id,
+            }
+            SummaryPerson.create(values)
 
         summary_values = {}
         summary_values['date_summary'] = date_summary
