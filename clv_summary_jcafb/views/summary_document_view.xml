@@ -68,7 +68,7 @@
         <field name="model">clv.summary.document</field>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-            <search string="Address Documents">
+            <search string="Summary Documents">
                 <field name="summary_id"/>
                 <field name="document_id"/>
                 <field name="document_category_ids"/>
