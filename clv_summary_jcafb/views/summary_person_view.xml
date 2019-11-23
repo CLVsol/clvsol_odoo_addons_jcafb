@@ -37,7 +37,7 @@
         <field name="model">clv.summary.person</field>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-            <tree name="persons" string="Address Documents">
+            <tree name="persons" string="Summary Persons">
                 <field name="summary_id" invisible="True"/>
                 <field name="person_id"/>
                 <field name="person_gender"/>
