@@ -35,7 +35,7 @@
         <field name="model">clv.summary.document</field>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-            <tree name="documents" string="Address Documents">
+            <tree name="documents" string="Summary Documents">
                 <field name="summary_id" invisible="True"/>
                 <field name="document_id"/>
                 <field name="document_category_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
