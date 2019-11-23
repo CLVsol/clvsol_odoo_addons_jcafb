@@ -5,4 +5,5 @@
 from . import summary_document
 from . import summary_lab_test_request
 from . import summary_event
+from . import summary_family
 from . import summary_person
