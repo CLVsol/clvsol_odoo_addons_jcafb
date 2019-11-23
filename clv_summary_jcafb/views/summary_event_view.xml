@@ -35,7 +35,7 @@
         <field name="model">clv.summary.event</field>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-            <tree name="events" string="Address Documents">
+            <tree name="events" string="Summary Events">
                 <field name="summary_id" invisible="True"/>
                 <field name="event_id"/>
                 <field name="event_category_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
@@ -68,7 +68,7 @@
         <field name="model">clv.summary.event</field>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-            <search string="Address Documents">
+            <search string="Summary Events">
                 <field name="summary_id"/>
                 <field name="event_id"/>
                 <field name="event_category_ids"/>
