@@ -67,7 +67,7 @@
         <field name="model">clv.summary.lab_test.request</field>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-            <search string="Address Documents">
+            <search string="Summary Lab Test Requests">
                 <field name="summary_id"/>
                 <field name="lab_test_request_id"/>
                 <field name="lab_test_type_ids"/>
