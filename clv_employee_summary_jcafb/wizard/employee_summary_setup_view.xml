@@ -15,8 +15,8 @@
                 <label for="employee_ids"/>
                 <field name="employee_ids"/>
                 <group>
-                    <!--field name="dir_path"/>
-                    <field name="file_name"/-->
+                    <field name="dir_path"/>
+                    <field name="file_name"/>
                 </group>
                 <footer>
                     <button 
