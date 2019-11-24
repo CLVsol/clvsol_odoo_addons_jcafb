@@ -5,13 +5,25 @@
 import logging
 from datetime import datetime
 
-from odoo import api, models
+from odoo import api, fields, models
 
 _logger = logging.getLogger(__name__)
 
 
 class Family(models.Model):
     _inherit = 'clv.family'
+
+    summary_id = fields.Many2one(
+        comodel_name='clv.summary',
+        string='Summary',
+        ondelete='restrict',
+        readonly='True'
+    )
+    date_summary = fields.Datetime(
+        string='Summary Date',
+        related='summary_id.date_summary',
+        store=False
+    )
 
     @api.multi
     @api.multi
@@ -52,6 +64,8 @@ class Family(models.Model):
                     summary = Summary.create(summary_values)
 
                 _logger.info(u'%s %s', '>>>>>>>>>>>>>>> (summary):', summary)
+
+                family.summary_id = summary.id
 
                 action_call = 'self.env["clv.summary"].' + \
                     summary.action + \
