@@ -15,8 +15,8 @@
                 <label for="address_ids"/>
                 <field name="address_ids"/>
                 <group>
-                    <!--field name="dir_path"/>
-                    <field name="file_name"/-->
+                    <field name="dir_path"/>
+                    <field name="file_name"/>
                 </group>
                 <footer>
                     <button 

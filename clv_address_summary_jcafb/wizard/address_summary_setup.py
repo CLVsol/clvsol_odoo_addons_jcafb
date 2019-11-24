@@ -22,25 +22,29 @@ class AddressSummarySetUp(models.TransientModel):
         default=_default_address_ids
     )
 
-    # def _default_dir_path(self):
-    #     Summary = self.env['clv.summary']
-    #     return Summary.summary_export_xls_dir_path()
-    # dir_path = fields.Char(
-    #     string='Directory Path',
-    #     required=True,
-    #     help="Directory Path",
-    #     default=_default_dir_path
-    # )
+    def _default_dir_path(self):
+        file_store_path = self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_filestore_path', '').strip()
+        summary_files_directory = self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_summary_files_directory', '').strip()
+        return file_store_path + '/' + summary_files_directory
+    dir_path = fields.Char(
+        string='Directory Path',
+        required=True,
+        help="Directory Path",
+        default=_default_dir_path
+    )
 
-    # def _default_file_name(self):
-    #     Summary = self.env['clv.summary']
-    #     return Summary.summary_export_xls_file_name()
-    # file_name = fields.Char(
-    #     string='File Name',
-    #     required=True,
-    #     help="File Name",
-    #     default=_default_file_name
-    # )
+    def _default_file_name(self):
+        summary_file_name = self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_summary_file_name', '').strip()
+        return summary_file_name
+    file_name = fields.Char(
+        string='File Name',
+        required=True,
+        help="File Name",
+        default=_default_file_name
+    )
 
     @api.multi
     def _reopen_form(self):
@@ -63,8 +67,7 @@ class AddressSummarySetUp(models.TransientModel):
 
             _logger.info(u'%s %s', '>>>>>', address.name)
 
-            # address._address_summary_setup(self.dir_path, self.file_name)
-            address._address_summary_setup()
+            address._address_summary_setup(self.dir_path, self.file_name)
 
         return True
 
