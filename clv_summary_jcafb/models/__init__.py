@@ -8,3 +8,4 @@ from . import summary_event
 from . import summary_address
 from . import summary_family
 from . import summary_person
+from . import global_settings
