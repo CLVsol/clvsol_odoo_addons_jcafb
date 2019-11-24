@@ -5,6 +5,10 @@
 import logging
 from datetime import datetime
 
+import xlwt
+# from xlutils.copy import copy
+# from xlrd import open_workbook
+
 from odoo import api, fields, models
 
 _logger = logging.getLogger(__name__)
@@ -27,7 +31,7 @@ class Family(models.Model):
 
     @api.multi
     @api.multi
-    def _family_summary_setup(self):
+    def _family_summary_setup(self, dir_path, file_name):
 
         SummaryTemplate = self.env['clv.summary.template']
         Summary = self.env['clv.summary']
@@ -81,6 +85,8 @@ class Family(models.Model):
                     exec(action_call)
 
             self.env.cr.commit()
+
+            summary._family_summary_export_xls(summary, family, dir_path, file_name)
 
 
 class Summary(models.Model):
@@ -200,3 +206,42 @@ class Summary(models.Model):
         summary_values = {}
         summary_values['date_summary'] = date_summary
         summary.write(summary_values)
+
+    def _family_summary_export_xls(self, summary, model_object, dir_path, file_name):
+
+        _logger.info(u'%s %s', '>>>>>>>>>>>>>>> (model_object):', model_object.name)
+
+        model_object_name = model_object._name.replace('.', '_')
+        model_object_code = model_object.code
+
+        FileSystemDirectory = self.env['clv.file_system.directory']
+        file_system_directory = FileSystemDirectory.search([
+            ('directory', '=', dir_path),
+        ])
+
+        file_name = file_name.replace('<model>', model_object_name).replace('<code>', model_object_code)
+        file_path = dir_path + '/' + file_name
+        wbook = xlwt.Workbook()
+        sheet = wbook.add_sheet(file_name[8:])
+
+        for i in range(0, 49):
+            sheet.col(i).width = 256 * 2
+        sheet.show_grid = False
+
+        row_nr = 0
+
+        row_nr += 1
+
+        # style_bold_str = 'font: bold on'
+        # style_bold = xlwt.easyxf(style_bold_str)
+
+        style_str = 'font: bold on; font: italic on, height 256'
+        style = xlwt.easyxf(style_str)
+        sheet.write(row_nr, 0, self.reference_name, style=style)
+        sheet.row(row_nr).height = 256
+        row_nr += 2
+        wbook.save(file_path)
+
+        self.directory_id = file_system_directory.id
+        self.file_name = file_name
+        self.stored_file_name = file_name
