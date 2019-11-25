@@ -6,8 +6,6 @@ import logging
 from datetime import datetime
 
 import xlwt
-# from xlutils.copy import copy
-# from xlrd import open_workbook
 
 from odoo import api, fields, models
 
@@ -262,6 +260,8 @@ class Summary(models.Model):
         model_object_name = model_object._name.replace('.', '_')
         model_object_code = model_object.code
 
+        AddressCategory = self.env['clv.address.category']
+
         FileSystemDirectory = self.env['clv.file_system.directory']
         file_system_directory = FileSystemDirectory.search([
             ('directory', '=', dir_path),
@@ -280,14 +280,129 @@ class Summary(models.Model):
 
         row_nr += 1
 
-        # style_bold_str = 'font: bold on'
-        # style_bold = xlwt.easyxf(style_bold_str)
+        style_bold_str = 'font: bold on'
+        style_bold = xlwt.easyxf(style_bold_str)
 
         style_str = 'font: bold on; font: italic on, height 256'
         style = xlwt.easyxf(style_str)
         sheet.write(row_nr, 0, self.reference_name, style=style)
         sheet.row(row_nr).height = 256
         row_nr += 2
+
+        col_address_category = 0
+        col_district = 2
+        col_address = 4
+        col_person = 6
+
+        address_categories = AddressCategory.search([])
+        for address_category in address_categories:
+
+            sheet.write(row_nr, col_address_category, address_category.name, style=style_bold)
+            row_nr += 2
+
+            districts = []
+            for summary_address in summary.summary_address_ids:
+                if summary_address.address_category_ids.name == address_category.name:
+                    if summary_address.address_id.district not in districts:
+                        districts.append(summary_address.address_id.district)
+
+            for district in districts:
+
+                sheet.write(row_nr, col_district, district, style=style_bold)
+                row_nr += 2
+
+                addresses = []
+                for summary_address in summary.summary_address_ids:
+                    if summary_address.address_id.district == district and \
+                       summary_address.address_id.state == 'selected':
+                        if summary_address.address_id not in addresses:
+                            addresses.append(summary_address.address_id)
+
+                for address in addresses:
+
+                    sheet.write(row_nr, col_address, '[' + address.code + ']')
+                    sheet.write(row_nr, col_address + 7, address.name, style=style_bold)
+                    sheet.write(row_nr, col_address + 36, address.state, style=style_bold)
+                    row_nr += 2
+
+                    persons = []
+                    for summary_person in summary.summary_person_ids:
+                        if summary_person.person_id.ref_address_id == address and \
+                           summary_person.person_id.state == 'selected':
+                            if summary_person.person_id not in persons:
+                                persons.append(summary_person.person_id)
+
+                    for person in persons:
+
+                        sheet.write(row_nr, col_person, '[' + person.code + ']')
+                        sheet.write(row_nr, col_person + 7, person.name, style=style_bold)
+                        sheet.write(row_nr, col_person + 30,
+                                    '(' + person.category_names + ' - ' + person.age_reference_years + ')')
+                        sheet.write(row_nr, col_person + 37, person.state)
+                        row_nr += 2
+
+                    persons = []
+                    for summary_person in summary.summary_person_ids:
+                        if summary_person.person_id.ref_address_id == address and \
+                           summary_person.person_id.state == 'waiting':
+                            if summary_person.person_id not in persons:
+                                persons.append(summary_person.person_id)
+
+                    for person in persons:
+
+                        sheet.write(row_nr, col_person, '[' + person.code + ']')
+                        sheet.write(row_nr, col_person + 7, person.name, style=style_bold)
+                        sheet.write(row_nr, col_person + 30,
+                                    '(' + person.category_names + ' - ' + person.age_reference_years + ')')
+                        sheet.write(row_nr, col_person + 37, person.state)
+                        row_nr += 2
+
+                addresses = []
+                for summary_address in summary.summary_address_ids:
+                    if summary_address.address_id.district == district and \
+                       summary_address.address_id.state == 'waiting':
+                        if summary_address.address_id not in addresses:
+                            addresses.append(summary_address.address_id)
+
+                for address in addresses:
+
+                    sheet.write(row_nr, col_address, '[' + address.code + ']')
+                    sheet.write(row_nr, col_address + 7, address.name, style=style_bold)
+                    sheet.write(row_nr, col_address + 36, address.state, style=style_bold)
+                    row_nr += 2
+
+                    persons = []
+                    for summary_person in summary.summary_person_ids:
+                        if summary_person.person_id.ref_address_id == address and \
+                           summary_person.person_id.state == 'selected':
+                            if summary_person.person_id not in persons:
+                                persons.append(summary_person.person_id)
+
+                    for person in persons:
+
+                        sheet.write(row_nr, col_person, '[' + person.code + ']')
+                        sheet.write(row_nr, col_person + 7, person.name, style=style_bold)
+                        sheet.write(row_nr, col_person + 30,
+                                    '(' + person.category_names + ' - ' + person.age_reference_years + ')')
+                        sheet.write(row_nr, col_person + 37, person.state)
+                        row_nr += 2
+
+                    persons = []
+                    for summary_person in summary.summary_person_ids:
+                        if summary_person.person_id.ref_address_id == address and \
+                           summary_person.person_id.state == 'waiting':
+                            if summary_person.person_id not in persons:
+                                persons.append(summary_person.person_id)
+
+                    for person in persons:
+
+                        sheet.write(row_nr, col_person, '[' + person.code + ']')
+                        sheet.write(row_nr, col_person + 7, person.name, style=style_bold)
+                        sheet.write(row_nr, col_person + 30,
+                                    '(' + person.category_names + ' - ' + person.age_reference_years + ')')
+                        sheet.write(row_nr, col_person + 37, person.state)
+                        row_nr += 2
+
         wbook.save(file_path)
 
         self.directory_id = file_system_directory.id
