@@ -270,22 +270,113 @@ class Summary(models.Model):
         wbook = xlwt.Workbook()
         sheet = wbook.add_sheet(file_name[8:])
 
-        for i in range(0, 49):
-            sheet.col(i).width = 256 * 2
+        for i in range(12):
+            sheet.col(i).width = 256 * 7
         sheet.show_grid = False
 
         row_nr = 0
 
         row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Summary for:')
+        row.write(3, self.reference_name)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Summary date:')
+        row.write(3, self.date_summary)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Responsible Employee:')
+        row.write(3, model_object.employee_id.name)
+        row_nr += 1
 
-        # style_bold_str = 'font: bold on'
-        # style_bold = xlwt.easyxf(style_bold_str)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Address:')
+        row.write(3, model_object.name)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(3, model_object.district)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Address Categories:')
+        row.write(3, model_object.category_ids.name)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Address Code:')
+        row.write(3, model_object.code)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Address State:')
+        row.write(3, model_object.state)
+        row_nr += 1
 
-        style_str = 'font: bold on; font: italic on, height 256'
-        style = xlwt.easyxf(style_str)
-        sheet.write(row_nr, 0, self.reference_name, style=style)
-        sheet.row(row_nr).height = 256
-        row_nr += 2
+        # row_nr += 1
+        # row = sheet.row(row_nr)
+        # row.write(0, 'Document ')
+        # row.write(2, 'Code')
+        # row.write(4, 'Categories')
+        # row_nr += 1
+        # sheet.row(row_nr).height_mismatch = True
+        # sheet.row(row_nr).height = 20 * 4
+        # row_nr += 1
+
+        # for address_document in self.summary_address_document_ids:
+
+        #     row = sheet.row(row_nr)
+        #     row.write(0, address_document.document_id.name)
+        #     row.write(2, address_document.document_id.code)
+        #     row.write(4, address_document.document_category_ids.name)
+        #     row_nr += 1
+
+        for summary_family in self.summary_family_ids:
+
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Family:')
+            row.write(3, summary_family.family_id.name)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Family Code:')
+            row.write(3, summary_family.family_id.code)
+            row_nr += 1
+            row = sheet.row(row_nr)
+            row.write(0, 'Family State:')
+            row.write(3, summary_family.family_id.state)
+            row_nr += 1
+
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Person ')
+        row.write(5, 'Code')
+        row.write(7, 'Birthday')
+        # row.write(8, 'Reference Age')
+        # row.write(10, 'Categories')
+        # row.write(12, 'Status')
+        row.write(9, 'Categories')
+        row.write(11, 'Status')
+        row_nr += 1
+        sheet.row(row_nr).height_mismatch = True
+        sheet.row(row_nr).height = 20 * 4
+        row_nr += 1
+
+        for summary_person in self.summary_person_ids:
+
+            row = sheet.row(row_nr)
+            row.write(0, summary_person.person_id.name)
+            row.write(5, summary_person.person_id.code)
+            if summary_person.person_id.birthday is not False:
+                row.write(7, summary_person.person_id.birthday)
+            # if summary_person.person_id.age_reference is not False:
+            #     row.write(8, summary_person.person_id.age_reference)
+            # if summary_person.person_category_ids.name is not False:
+            #     row.write(10, summary_person.person_category_ids.name)
+            # row.write(12, summary_person.person_state)
+            if summary_person.person_category_ids.name is not False:
+                row.write(9, summary_person.person_category_ids.name)
+            row.write(11, summary_person.person_state)
+            row_nr += 1
+
         wbook.save(file_path)
 
         self.directory_id = file_system_directory.id
