@@ -4,6 +4,7 @@
 
 import logging
 from datetime import datetime
+import pytz
 
 import xlwt
 
@@ -287,6 +288,18 @@ class Summary(models.Model):
         style = xlwt.easyxf(style_str)
         sheet.write(row_nr, 0, self.reference_name, style=style)
         sheet.row(row_nr).height = 256
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Summary date:')
+
+        # user_tz = self.env.user.tz
+        user_tz = 'America/Argentina/Buenos_Aires'
+        local = pytz.timezone(user_tz)
+        date_summary_utc = pytz.utc.localize(self.date_summary)
+        date_summary_local = date_summary_utc.astimezone(local)
+        date_summary_local_str = datetime.strftime(date_summary_local, '%d-%m-%Y %H:%M:%S')
+
+        row.write(9, date_summary_local_str)
         row_nr += 2
 
         col_address_category = 0
