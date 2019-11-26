@@ -178,22 +178,139 @@ class Summary(models.Model):
         wbook = xlwt.Workbook()
         sheet = wbook.add_sheet(file_name[8:])
 
-        for i in range(0, 49):
-            sheet.col(i).width = 256 * 2
+        for i in range(12):
+            sheet.col(i).width = 256 * 7
         sheet.show_grid = False
 
         row_nr = 0
 
         row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Summary for:')
+        row.write(3, self.reference_name)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Summary date:')
+        row.write(3, self.date_summary)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Responsible Employee:')
+        row.write(3, model_object.employee_id.name)
+        row_nr += 1
 
-        # style_bold_str = 'font: bold on'
-        # style_bold = xlwt.easyxf(style_bold_str)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Address:')
+        row.write(3, model_object.ref_address_id.name)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(3, model_object.ref_address_id.district)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Address Categories:')
+        row.write(3, model_object.ref_address_id.category_ids.name)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Address Code:')
+        row.write(3, model_object.ref_address_id.code)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Address State:')
+        row.write(3, model_object.ref_address_id.state)
+        row_nr += 1
 
-        style_str = 'font: bold on; font: italic on, height 256'
-        style = xlwt.easyxf(style_str)
-        sheet.write(row_nr, 0, self.reference_name, style=style)
-        sheet.row(row_nr).height = 256
-        row_nr += 2
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Family:')
+        row.write(3, model_object.family_id.name)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Family Code:')
+        row.write(3, model_object.family_id.code)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Family State:')
+        row.write(3, model_object.family_id.state)
+        row_nr += 1
+
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Person:')
+        row.write(3, model_object.name)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Code:')
+        row.write(3, model_object.code)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Person Categories:')
+        row.write(3, model_object.category_ids.name)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Birthday:')
+        if model_object.birthday is not False:
+            row.write(3, model_object.birthday)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Reference Age:')
+        if model_object.age_reference is not False:
+            row.write(3, model_object.age_reference)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Person State:')
+        row.write(3, model_object.state)
+        row_nr += 1
+
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Document ')
+        row.write(2, 'Code')
+        row.write(4, 'Categories')
+        row_nr += 1
+        sheet.row(row_nr).height_mismatch = True
+        sheet.row(row_nr).height = 20 * 4
+        row_nr += 1
+
+        for summary_document in self.summary_document_ids:
+
+            row = sheet.row(row_nr)
+            row.write(0, summary_document.document_id.name)
+            row.write(2, summary_document.document_id.code)
+            row.write(4, summary_document.document_category_ids.name)
+            row_nr += 1
+
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Lab Test Type ')
+        row.write(8, 'Lab Test Request')
+        row_nr += 1
+        sheet.row(row_nr).height_mismatch = True
+        sheet.row(row_nr).height = 20 * 4
+        row_nr += 1
+
+        for summary_lab_test_request in self.summary_lab_test_request_ids:
+
+            row = sheet.row(row_nr)
+            row.write(0, summary_lab_test_request.lab_test_type_ids.name)
+            row.write(8, summary_lab_test_request.lab_test_request_id.code)
+            row_nr += 1
+
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Event ')
+        # row.write(6, 'Code')
+        row_nr += 1
+        sheet.row(row_nr).height_mismatch = True
+        sheet.row(row_nr).height = 20 * 4
+        row_nr += 1
+
+        for summary_event in self.summary_event_ids:
+
+            row = sheet.row(row_nr)
+            row.write(0, summary_event.event_id.name)
+            # row.write(6, summary_event.event_id.code)
+            row_nr += 1
+
         wbook.save(file_path)
 
         self.directory_id = file_system_directory.id
