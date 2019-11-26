@@ -4,10 +4,9 @@
 
 import logging
 from datetime import datetime
+import pytz
 
 import xlwt
-# from xlutils.copy import copy
-# from xlrd import open_workbook
 
 from odoo import api, fields, models
 
@@ -237,7 +236,15 @@ class Summary(models.Model):
         row_nr += 1
         row = sheet.row(row_nr)
         row.write(0, 'Summary date:')
-        row.write(3, self.date_summary)
+
+        # user_tz = self.env.user.tz
+        user_tz = 'America/Argentina/Buenos_Aires'
+        local = pytz.timezone(user_tz)
+        date_summary_utc = pytz.utc.localize(self.date_summary)
+        date_summary_local = date_summary_utc.astimezone(local)
+        date_summary_local_str = datetime.strftime(date_summary_local, '%d-%m-%Y %H:%M:%S')
+
+        row.write(3, date_summary_local_str)
         row_nr += 1
         row = sheet.row(row_nr)
         row.write(0, 'Responsible Employee:')
