@@ -174,37 +174,39 @@ class Summary(models.Model):
 
         for person in persons:
 
-            values = {
-                'summary_id': summary.id,
-                'person_id': person.id,
-            }
-            SummaryPerson.create(values)
+            if person.state not in ['unavailable']:
 
-            search_domain = [
-                ('ref_id', '=', 'clv.person' + ',' + str(person.id)),
-            ]
-            documents = Document.search(search_domain)
-            lab_test_requests = LabTestRequest.search(search_domain)
+                values = {
+                    'summary_id': summary.id,
+                    'person_id': person.id,
+                }
+                SummaryPerson.create(values)
 
-            for document in documents:
+                search_domain = [
+                    ('ref_id', '=', 'clv.person' + ',' + str(person.id)),
+                ]
+                documents = Document.search(search_domain)
+                lab_test_requests = LabTestRequest.search(search_domain)
 
-                if document.phase_id.id == person.phase_id.id:
+                # for document in documents:
 
-                    values = {
-                        'summary_id': summary.id,
-                        'document_id': document.id,
-                    }
-                    SummaryDocument.create(values)
+                #     if document.phase_id.id == person.phase_id.id:
 
-            for lab_test_request in lab_test_requests:
+                #         values = {
+                #             'summary_id': summary.id,
+                #             'document_id': document.id,
+                #         }
+                #         SummaryDocument.create(values)
 
-                if lab_test_request.phase_id.id == person.phase_id.id:
+                # for lab_test_request in lab_test_requests:
 
-                    values = {
-                        'summary_id': summary.id,
-                        'lab_test_request_id': lab_test_request.id,
-                    }
-                    SummaryLabTestRequest.create(values)
+                #     if lab_test_request.phase_id.id == person.phase_id.id:
+
+                #         values = {
+                #             'summary_id': summary.id,
+                #             'lab_test_request_id': lab_test_request.id,
+                #         }
+                #         SummaryLabTestRequest.create(values)
 
         summary_values = {}
         summary_values['date_summary'] = date_summary
