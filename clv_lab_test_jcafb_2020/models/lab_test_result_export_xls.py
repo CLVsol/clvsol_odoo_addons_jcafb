@@ -68,6 +68,10 @@ class LabTestResult(models.Model):
             self.lab_test_result_export_xls_EUR20(sheet, row_nr, use_template)
             save_book = True
 
+        if lab_test_type == 'EAA20':
+            self.lab_test_result_export_xls_EAA20(sheet, row_nr, use_template)
+            save_book = True
+
         if save_book:
 
             wbook.save(file_path)
