@@ -38,6 +38,7 @@
         'views/address_menu_view.xml',
         'wizard/address_mass_edit_view.xml',
         'wizard/address_document_setup_view.xml',
+        'wizard/address_lab_test_request_setup_view.xml',
     ],
     'demo': [],
     'test': [],
