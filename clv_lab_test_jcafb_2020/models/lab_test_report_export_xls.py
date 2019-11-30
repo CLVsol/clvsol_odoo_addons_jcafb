@@ -77,6 +77,10 @@ class LabTestReport(models.Model):
             self.lab_test_report_export_xls_EUR20(sheet, row_nr, logo_file_path, use_template)
             save_book = True
 
+        if lab_test_type == 'EAA20':
+            self.lab_test_report_export_xls_EAA20(sheet, row_nr, logo_file_path, use_template)
+            save_book = True
+
         if save_book:
 
             wbook.save(file_path)
