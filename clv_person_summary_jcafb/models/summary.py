@@ -260,7 +260,7 @@ class Summary(models.Model):
         row = sheet.row(row_nr)
         row.write(0, 'Birthday:')
         if model_object.birthday is not False:
-            row.write(3, model_object.birthday)
+            row.write(3, datetime.strftime(model_object.birthday, '%d-%m-%Y'))
         row_nr += 1
         row = sheet.row(row_nr)
         row.write(0, 'Reference Age:')
