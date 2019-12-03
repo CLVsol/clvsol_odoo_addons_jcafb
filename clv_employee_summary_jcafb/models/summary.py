@@ -342,6 +342,19 @@ class Summary(models.Model):
                     sheet.write(row_nr, col_address + 36, address.state, style=style_bold)
                     row_nr += 2
 
+                    families = []
+                    for summary_family in summary.summary_family_ids:
+                        if summary_family.family_id.ref_address_id == address:
+                            if summary_family.family_id not in families:
+                                families.append(summary_family.family_id)
+
+                    for family in families:
+
+                        sheet.write(row_nr, col_address + 1, '[' + family.code + ']')
+                        sheet.write(row_nr, col_address + 1 + 7, family.name, style=style_bold)
+                        sheet.write(row_nr, col_address + 1 + 36, family.state, style=style_bold)
+                        row_nr += 2
+
                     persons = []
                     for summary_person in summary.summary_person_ids:
                         if summary_person.person_id.ref_address_id == address and \
@@ -387,6 +400,19 @@ class Summary(models.Model):
                     sheet.write(row_nr, col_address + 7, address.name, style=style_bold)
                     sheet.write(row_nr, col_address + 36, address.state, style=style_bold)
                     row_nr += 2
+
+                    families = []
+                    for summary_family in summary.summary_family_ids:
+                        if summary_family.family_id.ref_address_id == address:
+                            if summary_family.family_id not in families:
+                                families.append(summary_family.family_id)
+
+                    for family in families:
+
+                        sheet.write(row_nr, col_address + 1, '[' + family.code + ']')
+                        sheet.write(row_nr, col_address + 1 + 7, family.name, style=style_bold)
+                        sheet.write(row_nr, col_address + 1 + 36, family.state, style=style_bold)
+                        row_nr += 2
 
                     persons = []
                     for summary_person in summary.summary_person_ids:
