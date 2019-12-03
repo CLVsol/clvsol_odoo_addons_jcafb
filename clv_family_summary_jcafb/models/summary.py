@@ -280,6 +280,24 @@ class Summary(models.Model):
 
         row_nr += 1
         row = sheet.row(row_nr)
+        row.write(0, 'Family:')
+        row.write(3, model_object.name)
+        # row_nr += 1
+        # row = sheet.row(row_nr)
+        # row.write(0, 'Family Categories:')
+        # row.write(3, model_object.category_ids.name)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Family Code:')
+        row.write(3, model_object.code)
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Family State:')
+        row.write(3, model_object.state)
+        row_nr += 1
+
+        row_nr += 1
+        row = sheet.row(row_nr)
         row.write(0, 'Document ')
         row.write(2, 'Code')
         row.write(4, 'Categories')
@@ -317,7 +335,7 @@ class Summary(models.Model):
             row.write(0, summary_person.person_id.name)
             row.write(5, summary_person.person_id.code)
             if summary_person.person_id.birthday is not False:
-                row.write(7, summary_person.person_id.birthday)
+                row.write(7, datetime.strftime(summary_person.person_id.birthday, '%d-%m-%Y'))
             # if summary_person.person_id.age_reference is not False:
             #     row.write(8, summary_person.person_id.age_reference)
             # if summary_person.person_category_ids.name is not False:
