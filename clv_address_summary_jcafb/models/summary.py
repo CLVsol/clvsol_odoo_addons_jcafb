@@ -380,8 +380,9 @@ class Summary(models.Model):
             row = sheet.row(row_nr)
             row.write(0, summary_person.person_id.name)
             row.write(5, summary_person.person_id.code)
+
             if summary_person.person_id.birthday is not False:
-                row.write(7, summary_person.person_id.birthday)
+                row.write(7, datetime.strftime(summary_person.person_id.birthday, '%d-%m-%Y'))
             # if summary_person.person_id.age_reference is not False:
             #     row.write(8, summary_person.person_id.age_reference)
             # if summary_person.person_category_ids.name is not False:
