@@ -66,7 +66,8 @@ class LabTestReport(models.Model):
         row_nr += 5
 
         ExportXLS.setOutCell(sheet, 15, row_nr, u'EXAME COPROPARASITOLÓGICO')
-        row_nr += 4
+        # row_nr += 4
+        row_nr += 7
 
         result = self.criterion_ids.search([
             ('lab_test_report_id', '=', self.id),
@@ -95,7 +96,8 @@ class LabTestReport(models.Model):
                         ExportXLS.setOutCell(sheet, 24, row_nr, parasite.part2)
                     row_nr += 1
         # row_nr += 15
-        row_nr = 34
+        # row_nr = 34
+        row_nr = 36
 
         result = self.criterion_ids.search([
             ('lab_test_report_id', '=', self.id),
@@ -121,7 +123,8 @@ class LabTestReport(models.Model):
         ExportXLS.setOutCell(sheet, 2, row_nr, u'Observações:')
         if result is not False:
             ExportXLS.setOutCell(sheet, 9, row_nr, result)
-        row_nr += 16
+        # row_nr += 16
+        row_nr += 13
 
         ExportXLS.setOutCell(sheet, 17, row_nr, u'Farmacêutico(a) Responsável:')
         row_nr += 1
