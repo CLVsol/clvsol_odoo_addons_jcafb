@@ -34,212 +34,194 @@ class LabTestReport(models.Model):
 
         sheet.insert_bitmap(logo_file_path, row_nr, 3)
 
-        ExportXLS.setOutCell(sheet, 13, row_nr, u'Jornada Científica dos Acadêmicos de Farmácia-Bioquímica')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 19, row_nr, u'JCAFB-2019 - FERNÃO - SP')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 17, row_nr,
-                             u'Centro Acadêmico de Farmácia-Bioquímica')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 18, row_nr,
-                             u'Faculdade de Ciências Farmacêuticas')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Universidade de São Paulo')
-        row_nr += 3
+        # Nome:
+        col_nr, row_nr = 6, 7
+        ExportXLS.setOutCell(sheet, col_nr, row_nr, self.ref_id.name)
+        # Cadastro:
+        col_nr, row_nr = 39, 7
+        ExportXLS.setOutCell(sheet, col_nr, row_nr, self.ref_id.code)
 
-        ExportXLS.setOutCell(sheet, 2, row_nr, u'Nome:')
-        # ExportXLS.setOutCell(sheet, 4, row_nr, self.person_id.name)
-        ExportXLS.setOutCell(sheet, 6, row_nr, self.ref_id.name)
-        ExportXLS.setOutCell(sheet, 30, row_nr, u'Cadastro:')
-        # ExportXLS.setOutCell(sheet, 35, row_nr, self.person_id.code)
-        ExportXLS.setOutCell(sheet, 35, row_nr, self.ref_id.code)
-        row_nr += 2
-
-        ExportXLS.setOutCell(sheet, 2, row_nr, u'Data do Exame:')
+        # Data do Exame:
+        col_nr, row_nr = 10, 9
         if self.date_approved is not False:
             date = datetime.strftime(self.date_approved, '%d-%m-%Y')
-            ExportXLS.setOutCell(sheet, 10, row_nr, date)
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, date)
         else:
-            ExportXLS.setOutCell(sheet, 10, row_nr, None)
-        ExportXLS.setOutCell(sheet, 30, row_nr, u'Código do Exame:')
-        ExportXLS.setOutCell(sheet, 38, row_nr, lab_test_request_code)
-        row_nr += 3
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, None)
+        # Código do Exame:
+        col_nr, row_nr = 42, 9
+        ExportXLS.setOutCell(sheet, col_nr, row_nr, lab_test_request_code)
 
-        ExportXLS.setOutCell(sheet, 4, row_nr, u'CAMPANHA PARA DETECÇÃO DE DIABETES - HIPERTENSÃO - COLESTEROL')
-        row_nr += 3
-
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'GLICEMIA')
-        row_nr += 2
-
-        ExportXLS.setOutCell(sheet, 25, row_nr, u'Valores de referência (1)')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Jejum (mínimo de 8 hs):')
-        row_nr += 1
-
+        # Glicose:
+        col_nr, row_nr = 7, 18
         result = self.criterion_ids.search([
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'EDH20-04-01'),
         ]).result
-        ExportXLS.setOutCell(sheet, 2, row_nr, u'Glicose:')
         if result is not False:
-            ExportXLS.setOutCell(sheet, 7, row_nr, result)
-        ExportXLS.setOutCell(sheet, 10, row_nr, u'mg/dL')
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Normal: <=99 mg/dL')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Risco aumentado para diabetes (pré-diabetes): 100 a 125 mg/dL')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Diabetes: > 126 mg/dL')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Pós-prandial ou aleatória: <140 mg/dL')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 2, row_nr, u'Material: Sangue total, colhido por punção digital.')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 2, row_nr,
-                             u'Método utilizado: Leitura de tiras reagentes pelo sistema Accu-Chek Performa (Roche)')
-        row_nr += 3
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, result + ' mg/dL')
 
-        ExportXLS.setOutCell(sheet, 18, row_nr, u'COLESTEROLEMIA')
-        row_nr += 2
-
+        # Colesterol total:
+        col_nr, row_nr = 10, 28
         result = self.criterion_ids.search([
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'EDH20-04-05'),
         ]).result
-        ExportXLS.setOutCell(sheet, 2, row_nr, u'Colesterol total:')
         if result is not False:
-            ExportXLS.setOutCell(sheet, 10, row_nr, result)
-        ExportXLS.setOutCell(sheet, 13, row_nr, u'mg/dL')
-        ExportXLS.setOutCell(sheet, 25, row_nr, u'Valores de referência (1)')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Adulto (>20 anos):')
-        ExportXLS.setOutCell(sheet, 35, row_nr, u'2 a 19 anos:')
-        row_nr += 1
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, result + ' mg/dL')
 
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Desejável : < 190 mg/dL')
-        ExportXLS.setOutCell(sheet, 35, row_nr, u'Desejável : < 170 mg/dL')
-        row_nr += 2
-        # ExportXLS.setOutCell(sheet, 20, row_nr, u'Limítrofe: 200 – 239 mg/dL')
-        # ExportXLS.setOutCell(sheet, 35, row_nr, u'Limítrofe: 150 – 169 mg/dL')
-        # row_nr += 1
-        # ExportXLS.setOutCell(sheet, 20, row_nr, u'Elevado: > 240 mg/dL')
-        # ExportXLS.setOutCell(sheet, 35, row_nr, u'Elevado: > 170 mg/dLL')
-        # row_nr += 1
-        ExportXLS.setOutCell(sheet, 2, row_nr, u'Material: Sangue total, colhido por punção digital.')
-        row_nr += 1
-        ExportXLS.setOutCell(
-            sheet, 2, row_nr,
-            u'Método utilizado: Colesterol total: leitura de tiras reagentes pelo sistema Accutrend Cholesterol (Roche)'
-        )
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 2, row_nr, u'Obs:')
-        ExportXLS.setOutCell(
-            sheet, 5, row_nr,
-            u'Valores >= 310 mg/dL para adultos e >= 230 para crianças e adolescentes podem ser indicativos de Hipercolesterolemia ')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 5, row_nr, u'Familiar, se excluídas as dislipidemias secundárias.')
-        row_nr += 1
-
-        row_nr += 2
-
-        ExportXLS.setOutCell(sheet, 15, row_nr, u'MEDIDA DE PRESSÃO ARTERIAL (mmHg)')
-        row_nr += 2
-
-        ExportXLS.setOutCell(sheet, 25, row_nr, u'Valores de referência (1)')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 27, row_nr, u'(maiores de 18 anos)')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 10, row_nr, u'PAS')
-        ExportXLS.setOutCell(sheet, 13, row_nr, u'PAD')
-        ExportXLS.setOutCell(sheet, 29, row_nr, u'PAS')
-        ExportXLS.setOutCell(sheet, 35, row_nr, u'PAD')
-        row_nr += 1
-
+        # PAS:
+        col_nr, row_nr = 10, 41
         result_pas = self.criterion_ids.search([
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'EDH20-03-06'),
         ]).result
+        if result_pas is not False:
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, result_pas)
+        # PAD:
+        col_nr, row_nr = 13, 41
         result_pad = self.criterion_ids.search([
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'EDH20-03-07'),
         ]).result
-        ExportXLS.setOutCell(sheet, 2, row_nr, u'Pressão Arterial:')
-        if result_pas is not False:
-            ExportXLS.setOutCell(sheet, 10, row_nr, result_pas)
-        ExportXLS.setOutCell(sheet, 12, row_nr, 'X')
         if result_pad is not False:
-            ExportXLS.setOutCell(sheet, 13, row_nr, result_pad)
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Normal:')
-        ExportXLS.setOutCell(sheet, 29, row_nr, u'  <= 120')
-        ExportXLS.setOutCell(sheet, 35, row_nr, u'   <= 80')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Pré-hipertensão:')
-        ExportXLS.setOutCell(sheet, 29, row_nr, u'121-139')
-        ExportXLS.setOutCell(sheet, 35, row_nr, u'   81-89')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Hipertensão estágio 1:')
-        ExportXLS.setOutCell(sheet, 29, row_nr, u'140-159')
-        ExportXLS.setOutCell(sheet, 35, row_nr, u'   90-99')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Hipertensão estágio 2:')
-        ExportXLS.setOutCell(sheet, 29, row_nr, u'160-179')
-        ExportXLS.setOutCell(sheet, 35, row_nr, u'100-109')
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 20, row_nr, u'Hipertensão estágio 3:')
-        ExportXLS.setOutCell(sheet, 29, row_nr, u'160-180')
-        ExportXLS.setOutCell(sheet, 35, row_nr, u'  >= 110')
-        row_nr += 2
-        ExportXLS.setOutCell(sheet, 2, row_nr, u'Método utilizado: Esfigmomanometria.')
-        row_nr += 3
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, result_pad)
 
-        ExportXLS.setOutCell(sheet, 2, row_nr, u'Informações complementares')
-        row_nr += 2
-
+        # Peso:
+        col_nr, row_nr = 5, 52
         result_peso = self.criterion_ids.search([
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'EDH20-02-01'),
         ]).result
+        if result_peso is not False:
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, result_peso + u' kg')
+        # Altura:
+        col_nr, row_nr = 15, 52
         result_altura = self.criterion_ids.search([
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'EDH20-02-03'),
         ]).result
+        if result_altura is not False:
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, result_altura + u' cm')
+        # IMC:
+        col_nr, row_nr = 25, 52
+        result_imc = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EDH20-02-05'),
+        ]).result
+        if result_imc is not False:
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, result_imc + u' kg/m²')
+        # Circunferência abdominal:
+        col_nr, row_nr = 44, 52
         result_circunf = self.criterion_ids.search([
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'EDH20-02-09'),
         ]).result
-        ExportXLS.setOutCell(sheet, 2, row_nr, u'Peso:')
-        if result_peso is not False:
-            ExportXLS.setOutCell(sheet, 5, row_nr, result_peso)
-        ExportXLS.setOutCell(sheet, 7, row_nr, 'kg')
-        ExportXLS.setOutCell(sheet, 15, row_nr, 'Altura:')
-        if result_altura is not False:
-            ExportXLS.setOutCell(sheet, 19, row_nr, result_altura)
-        ExportXLS.setOutCell(sheet, 21, row_nr, u'cm')
-        ExportXLS.setOutCell(sheet, 27, row_nr, u'Circunferência abdominal:')
         if result_circunf is not False:
-            ExportXLS.setOutCell(sheet, 39, row_nr, result_circunf)
-        ExportXLS.setOutCell(sheet, 41, row_nr, u'cm')
-        row_nr += 2
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, result_circunf + u' cm')
 
+        # Observações:
+        col_nr, row_nr = 9, 54
         result = self.criterion_ids.search([
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'EDH20-05-01'),
         ]).result
-        ExportXLS.setOutCell(sheet, 2, row_nr, u'Observações:')
         if result is not False:
-            ExportXLS.setOutCell(sheet, 9, row_nr, result)
-        row_nr += 3
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, result)
 
-        ExportXLS.setOutCell(
-            sheet, 2, row_nr,
-            u'Nota: (1): Glicemia: Diretrizes Sociedade Brasileira de Diabetes (2017-2018); (2) Colesterol total: atualização da Diretriz Brasileira de Dislipidemias e Prevenção da Aterosclerose-2017); (3): VII Diretriz Brasileira de Hipertensão Arterial - 2016.'
-        )
+        # Farmacêutico(a) Responsável (Nome):
+        col_nr, row_nr = 31, 62
+        ExportXLS.setOutCell(sheet, col_nr, row_nr, self.employee_id.name)
+        # Farmacêutico(a) Responsável (ID):
+        col_nr, row_nr = 35, 63
+        ExportXLS.setOutCell(sheet, col_nr, row_nr, self.employee_id.professional_id)
 
-        row_nr += 4
-
-        ExportXLS.setOutCell(sheet, 17, row_nr, u'Farmacêutico(a) Responsável:')
         row_nr += 1
-        ExportXLS.setOutCell(sheet, 32, row_nr, self.employee_id.name)
-        row_nr += 1
-        ExportXLS.setOutCell(sheet, 35, row_nr, self.employee_id.professional_id)
+        page_break_1 = row_nr
+
+        sheet.insert_bitmap(logo_file_path, row_nr, 3)
+
+        # Nome:
+        col_nr, row_nr = 6, 7
+        ExportXLS.setOutCell(sheet, col_nr, row_nr, self.ref_id.name)
+        # Cadastro:
+        col_nr, row_nr = 39, 7
+        ExportXLS.setOutCell(sheet, col_nr, row_nr, self.ref_id.code)
+
+        # Data do Exame:
+        col_nr, row_nr = 10, 9
+        if self.date_approved is not False:
+            date = datetime.strftime(self.date_approved, '%d-%m-%Y')
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, date)
+        else:
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, None)
+        # Código do Exame:
+        col_nr, row_nr = 42, 9
+        ExportXLS.setOutCell(sheet, col_nr, row_nr, lab_test_request_code)
+
+        # Colesterol total:
+        col_nr, row_nr = 10, 79
+        result = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EDH20-06-01'),
+        ]).result
+        if result_peso is not False:
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, result + u' mg/dL')
+
+        # HDL-colesterol:
+        col_nr, row_nr = 10, 84
+        result = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EDH20-06-04'),
+        ]).result
+        if result_peso is not False:
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, result + u' mg/dL')
+
+        # HLDL-colesterol:
+        col_nr, row_nr = 10, 89
+        result = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EDH20-06-07'),
+        ]).result
+        if result_peso is not False:
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, result + u' mg/dL')
+
+        # Fração não HDL:
+        col_nr, row_nr = 10, 97
+        result = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EDH20-06-08'),
+        ]).result
+        if result_peso is not False:
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, result + u' mg/dL')
+
+        # Triglicérides:
+        col_nr, row_nr = 9, 108
+        result = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EDH20-07-01'),
+        ]).result
+        if result_peso is not False:
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, result + u' mg/dL')
+
+        # Observações:
+        col_nr, row_nr = 9, 113
+        result = self.criterion_ids.search([
+            ('lab_test_report_id', '=', self.id),
+            ('code', '=', 'EDH20-08-02'),
+        ]).result
+        if result_peso is not False:
+            ExportXLS.setOutCell(sheet, col_nr, row_nr, result)
+
+        # Farmacêutico(a) Responsável (Nome):
+        col_nr, row_nr = 31, 132
+        ExportXLS.setOutCell(sheet, col_nr, row_nr, self.employee_id.name)
+        # Farmacêutico(a) Responsável (ID):
+        col_nr, row_nr = 35, 133
+        ExportXLS.setOutCell(sheet, col_nr, row_nr, self.employee_id.professional_id)
+
+        sheet.horz_page_breaks = [
+            (page_break_1, 0, 255),
+        ]
 
         return True
