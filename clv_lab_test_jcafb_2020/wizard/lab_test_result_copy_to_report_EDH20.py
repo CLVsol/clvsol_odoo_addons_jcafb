@@ -40,6 +40,7 @@ class LabTestResultCopyToReportEDH20(models.TransientModel):
                 ('lab_test_report_id', '=', active_id.id),
                 ('code', '=', criterion_code),
             ])
+            _logger.error(u'%s %s', '>>>>>', criterion_reg)
             criterion_reg.result = result
 
     def _copy_has_complement(self):
@@ -101,6 +102,16 @@ class LabTestResultCopyToReportEDH20(models.TransientModel):
     def _write_EDH20_altura(self):
         self._set_result('EDH20', 'EDH20-02-03', self.EDH20_altura)
         self._copy_result('EDH20', 'EDH20-02-03', self.EDH20_altura)
+
+    def _default_EDH20_imc(self):
+        return self._get_default('EDH20', 'EDH20-02-05')
+    EDH20_imc = fields.Char(
+        'IMC', readonly=False, default=_default_EDH20_imc
+    )
+
+    def _write_EDH20_imc(self):
+        self._set_result('EDH20', 'EDH20-02-05', self.EDH20_imc)
+        self._copy_result('EDH20', 'EDH20-02-05', self.EDH20_imc)
 
     def _default_EDH20_circ_abdominal(self):
         return self._get_default('EDH20', 'EDH20-02-09')
@@ -242,6 +253,7 @@ class LabTestResultCopyToReportEDH20(models.TransientModel):
 
         self._write_EDH20_peso()
         self._write_EDH20_altura()
+        self._write_EDH20_imc()
         self._write_EDH20_circ_abdominal()
         self._write_EDH20_pa()
         self._write_EDH20_PAS()
