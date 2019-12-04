@@ -22,6 +22,7 @@
                         <group string='Medidas Antropométricas'>
                             <field name="EDH20_peso"/>
                             <field name="EDH20_altura"/>
+                            <field name="EDH20_imc"/>
                             <field name="EDH20_circ_abdominal"/>
                         </group>
                         <group string='Medidas da Pressão Arterial'>
