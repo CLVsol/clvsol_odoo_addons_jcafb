@@ -16,7 +16,6 @@
                         class="oe_stat_button"
                         icon="fa-list"
                         context="{'search_default_ref_name': name, 'search_default_ref_code': code, 'search_default_group_by_phase_id': 1}"
-                        attrs="{'invisible': [('count_documents_2', '=', 0)]}"
                         >
                     <div class="o_form_field o_stat_info">
                         <span class="o_stat_value">
@@ -41,7 +40,6 @@
                         class="oe_stat_button"
                         icon="fa-list"
                         context="{'search_default_ref_name': name, 'search_default_ref_code': code, 'search_default_group_by_event_phase_id': 1}"
-                        attrs="{'invisible': [('count_events_2', '=', 0)]}"
                         >
                     <div class="o_form_field o_stat_info">
                         <span class="o_stat_value">
@@ -66,7 +64,6 @@
                         class="oe_stat_button"
                         icon="fa-list"
                         context="{'search_default_ref_name': name, 'search_default_ref_code': code, 'search_default_group_by_phase_id': 1}"
-                        attrs="{'invisible': [('count_lab_test_requests_2', '=', 0)]}"
                         >
                     <div class="o_form_field o_stat_info">
                         <span class="o_stat_value">
@@ -91,7 +88,6 @@
                         class="oe_stat_button"
                         icon="fa-list"
                         context="{'search_default_ref_name': name, 'search_default_ref_code': code, 'search_default_group_by_phase_id': 1}"
-                        attrs="{'invisible': [('count_lab_test_results_2', '=', 0)]}"
                         >
                     <div class="o_form_field o_stat_info">
                         <span class="o_stat_value">
@@ -116,7 +112,6 @@
                         class="oe_stat_button"
                         icon="fa-list"
                         context="{'search_default_ref_name': name, 'search_default_ref_code': code, 'search_default_group_by_phase_id': 1}"
-                        attrs="{'invisible': [('count_lab_test_reports_2', '=', 0)]}"
                         >
                     <div class="o_form_field o_stat_info">
                         <span class="o_stat_value">
