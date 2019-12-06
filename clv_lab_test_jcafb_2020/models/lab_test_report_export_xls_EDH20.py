@@ -142,21 +142,21 @@ class LabTestReport(models.Model):
         sheet.insert_bitmap(logo_file_path, row_nr, 3)
 
         # Nome:
-        col_nr, row_nr = 6, 7
+        col_nr, row_nr = 6, 72
         ExportXLS.setOutCell(sheet, col_nr, row_nr, self.ref_id.name)
         # Cadastro:
-        col_nr, row_nr = 39, 7
+        col_nr, row_nr = 39, 72
         ExportXLS.setOutCell(sheet, col_nr, row_nr, self.ref_id.code)
 
         # Data do Exame:
-        col_nr, row_nr = 10, 9
+        col_nr, row_nr = 10, 74
         if self.date_approved is not False:
             date = datetime.strftime(self.date_approved, '%d-%m-%Y')
             ExportXLS.setOutCell(sheet, col_nr, row_nr, date)
         else:
             ExportXLS.setOutCell(sheet, col_nr, row_nr, None)
         # Código do Exame:
-        col_nr, row_nr = 42, 9
+        col_nr, row_nr = 42, 74
         ExportXLS.setOutCell(sheet, col_nr, row_nr, lab_test_request_code)
 
         # Colesterol total:
@@ -165,7 +165,7 @@ class LabTestReport(models.Model):
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'EDH20-06-01'),
         ]).result
-        if result_peso is not False:
+        if result is not False:
             ExportXLS.setOutCell(sheet, col_nr, row_nr, result + u' mg/dL')
 
         # HDL-colesterol:
@@ -174,7 +174,7 @@ class LabTestReport(models.Model):
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'EDH20-06-04'),
         ]).result
-        if result_peso is not False:
+        if result is not False:
             ExportXLS.setOutCell(sheet, col_nr, row_nr, result + u' mg/dL')
 
         # HLDL-colesterol:
@@ -183,7 +183,7 @@ class LabTestReport(models.Model):
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'EDH20-06-07'),
         ]).result
-        if result_peso is not False:
+        if result is not False:
             ExportXLS.setOutCell(sheet, col_nr, row_nr, result + u' mg/dL')
 
         # Fração não HDL:
@@ -192,7 +192,7 @@ class LabTestReport(models.Model):
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'EDH20-06-08'),
         ]).result
-        if result_peso is not False:
+        if result is not False:
             ExportXLS.setOutCell(sheet, col_nr, row_nr, result + u' mg/dL')
 
         # Triglicérides:
@@ -201,7 +201,7 @@ class LabTestReport(models.Model):
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'EDH20-07-01'),
         ]).result
-        if result_peso is not False:
+        if result is not False:
             ExportXLS.setOutCell(sheet, col_nr, row_nr, result + u' mg/dL')
 
         # Observações:
@@ -210,7 +210,7 @@ class LabTestReport(models.Model):
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'EDH20-08-02'),
         ]).result
-        if result_peso is not False:
+        if result is not False:
             ExportXLS.setOutCell(sheet, col_nr, row_nr, result)
 
         # Farmacêutico(a) Responsável (Nome):
