@@ -82,4 +82,6 @@
 		<field name="template_id" eval="clv_person_aux_person_aux_verification_family_template"/>
 	</record-->
 	 
+    <delete model="clv.verification.template" id="clv_person_aux_person_aux_verification_family_aux_template"/>
+
 </odoo>
