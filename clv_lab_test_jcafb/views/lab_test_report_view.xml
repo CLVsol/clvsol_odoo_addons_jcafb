@@ -29,6 +29,7 @@
                     icon="fa-check-square-o"
                     help="Lab Test Report Approve"
                     groups="clv_lab_test.group_approver"
+                    invisible="True"
                 />
                 <field name="approved"/>
                 <field name="employee_id" placeholder="Approved by..." options="{'no_open': False, 'no_create': True}"/>
