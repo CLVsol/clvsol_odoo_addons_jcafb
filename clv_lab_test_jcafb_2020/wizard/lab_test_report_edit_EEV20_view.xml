@@ -17,13 +17,13 @@
                         <field name="lab_test_type_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
                         <field name="lab_test_request_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
                     </group>
-                    <group name="group_bottom">
+                    <!--group name="group_bottom">
                         <group>
                             <field name="EEV20_resultado"/>
                             <field name="EEV20_metodo_utilizado"/>
                             <field name="EEV20_obs"/>
                         </group>
-                    </group>
+                    </group-->
                 </sheet>
                 <footer>
                     <button 

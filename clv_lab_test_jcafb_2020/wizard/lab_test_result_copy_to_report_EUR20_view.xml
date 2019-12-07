@@ -17,7 +17,7 @@
                         <field name="lab_test_type_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
                         <field name="lab_test_request_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
                     </group>
-                    <group name="bottom">
+                    <!--group name="bottom">
                         <group>
                             <field name="EUR20_volume"/>
                             <field name="EUR20_densidade"/>
@@ -59,7 +59,7 @@
                         </group>
                         <label for="EUR20_obs"/>
                         <field name="EUR20_obs"/>
-                    </group>
+                    </group-->
                 </sheet>
                 <footer>
                     <button 

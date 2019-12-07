@@ -144,6 +144,18 @@ class LabTestResultCopyToReportEAN20(models.TransientModel):
         self._write_EAN20_hemoglobina_interpretacao()
         self._write_EAN20_obs()
 
+        result = self.env['clv.lab_test.result'].browse(self._context.get('active_id'))
+        report = self.env['clv.lab_test.report'].search([
+            ('id', '=', result.lab_test_report_id.id),
+        ])
+
+        if report.id is not False:
+
+            report.approved = result.approved
+            report.employee_id = result.employee_id
+            report.date_approved = result.date_approved
+            report.state = 'approved'
+
         return True
 
     @api.multi

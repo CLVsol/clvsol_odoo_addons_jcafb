@@ -18,7 +18,7 @@
                         <field name="lab_test_request_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
                         <field name="has_complement" options="{'readonly': True}"/>
                     </group>
-                    <group name="group_bottom">
+                    <!--group name="group_bottom">
                         <group string='Medidas Antropométricas'>
                             <field name="EDH20_peso"/>
                             <field name="EDH20_altura"/>
@@ -36,8 +36,8 @@
                         </group>
                         <label for="EDH20_obs"/>
                         <field name="EDH20_obs"/>
-                    </group>
-                    <group>
+                    </group-->
+                    <!--group>
                         <group string='Colesterol Total e Frações'>
                             <field name="EDH20_colesterol_total"/>
                             <separator/>
@@ -51,7 +51,7 @@
                         </group>
                         <label for="EDH20_obs_2"/>
                         <field name="EDH20_obs_2"/>
-                    </group>
+                    </group-->
                 </sheet>
                 <footer>
                     <button 
