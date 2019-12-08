@@ -13,6 +13,15 @@
             <group name="group_middle" position="after">
                 <button
                     type="action"
+                    name="%(clv_lab_test_result_edit_eaa20_action)d"
+                    string="Lab Test Result Edit"
+                    class="oe_stat_button"
+                    icon="fa-edit"
+                    help="Lab Test Result Edit"
+                    attrs="{'invisible': ['|', ('lab_test_type_code', '!=', 'EAA20'), ('approved', '!=', False)]}"
+                />
+                <button
+                    type="action"
                     name="%(clv_lab_test_result_edit_ean20_action)d"
                     string="Lab Test Result Edit"
                     class="oe_stat_button"
