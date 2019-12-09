@@ -19,7 +19,7 @@
         'views/document_code_view.xml',
         'views/document_reg_state_view.xml',
         'views/document_state_view.xml',
-        'views/document_view.xml',
+        'views/survey_view.xml',
         'views/document_type_view.xml',
         'data/document_seq.xml',
         # 'wizard/document_updt_view.xml',
