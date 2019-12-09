@@ -2,7 +2,8 @@
 # Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import api, fields, models
+from openerp.exceptions import UserError
 
 
 class Document(models.Model):
@@ -50,3 +51,53 @@ class SurveyUserInput(models.Model):
     )
 
     notes = fields.Text(string='Notes')
+
+
+class SurveyUserInput_2(models.Model):
+    _inherit = 'survey.user_input'
+
+    state_2 = fields.Selection(
+        [('new', 'New'),
+         ('returned', 'Returned'),
+         ('checked', 'Checked'),
+         ('validated', 'Validated'),
+         ('discarded', 'Discarded'),
+         ], string='State 2', default='new', readonly=True, required=True
+    )
+
+    @api.model
+    def is_allowed_transition(self, old_state_2, new_state_2):
+        return True
+
+    @api.multi
+    def change_state_2(self, new_state_2):
+        for mfile in self:
+            if mfile.is_allowed_transition(mfile.state_2, new_state_2):
+                mfile.state_2 = new_state_2
+            else:
+                raise UserError('Status transition (' + mfile.state_2 + ', ' + new_state_2 + ') is not allowed!')
+
+    @api.multi
+    def action_new(self):
+        for mfile in self:
+            mfile.change_state_2('new')
+
+    @api.multi
+    def action_returned(self):
+        for mfile in self:
+            mfile.change_state_2('returned')
+
+    @api.multi
+    def action_checked(self):
+        for mfile in self:
+            mfile.change_state_2('checked')
+
+    @api.multi
+    def action_validated(self):
+        for mfile in self:
+            mfile.change_state_2('validated')
+
+    @api.multi
+    def action_discarded(self):
+        for mfile in self:
+            mfile.change_state_2('discarded')
