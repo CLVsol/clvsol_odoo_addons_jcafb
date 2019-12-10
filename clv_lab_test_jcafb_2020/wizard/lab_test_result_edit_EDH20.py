@@ -547,6 +547,15 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _write_EDH20_interpretacao_colesterol_obs(self):
         self._set_result('EDH20', 'EDH20-04-08', self.EDH20_interpretacao_colesterol_obs)
 
+    def _default_EDH20_colesterol_copia(self):
+        return self._get_default('EDH20', 'EDH20-04-09')
+    EDH20_colesterol_copia = fields.Char(
+        'Colesterol (cópia)', readonly=False, default=_default_EDH20_colesterol_copia
+    )
+
+    def _write_EDH20_colesterol_copia(self):
+        self._set_result('EDH20', 'EDH20-04-09', self.EDH20_colesterol_copia)
+
     def _default_EDH20_obs(self):
         return self._get_default('EDH20', 'EDH20-05-01')
     EDH20_obs = fields.Char(
@@ -775,6 +784,7 @@ class LabTestResultEditEDH20(models.TransientModel):
         self._write_EDH20_colesterol_resp()
         self._write_EDH20_interpretacao_colesterol()
         self._write_EDH20_interpretacao_colesterol_obs()
+        self._write_EDH20_colesterol_copia()
         self._write_EDH20_obs()
 
         self._write_EDH20_colesterol_total()

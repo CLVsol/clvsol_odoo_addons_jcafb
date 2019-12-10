@@ -55,6 +55,7 @@
                             <field name="EDH20_interpretacao_glicemia_obs"/>
                             <separator/>
                             <field name="EDH20_colesterol"/>
+                            <field name="EDH20_colesterol_copia"/>
                             <field name="EDH20_colesterol_resp"/>
                             <field name="EDH20_interpretacao_colesterol"/>
                             <field name="EDH20_interpretacao_colesterol_obs"/>
