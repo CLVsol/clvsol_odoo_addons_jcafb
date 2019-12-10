@@ -122,7 +122,7 @@ class LabTestResultCopyToReportEAA20(models.TransientModel):
 
     def _write_EAA20_local_coleta(self):
         self._set_result('EAA20', 'EAA20-02-01', self.EAA20_local_coleta)
-        self._set_result('EAA20', 'EAA20-02-01', self.EAA20_local_coleta)
+        self._copy_result('EAA20', 'EAA20-02-01', self.EAA20_local_coleta)
 
     def _default_EAA20_ponto_coleta(self):
         return self._get_default('EAA20', 'EAA20-02-02')
@@ -132,7 +132,7 @@ class LabTestResultCopyToReportEAA20(models.TransientModel):
 
     def _write_EAA20_ponto_coleta(self):
         self._set_result('EAA20', 'EAA20-02-02', self.EAA20_ponto_coleta)
-        self._set_result('EAA20', 'EAA20-02-02', self.EAA20_ponto_coleta)
+        self._copy_result('EAA20', 'EAA20-02-02', self.EAA20_ponto_coleta)
 
     def _default_EAA20_data_coleta(self):
         return self._get_default('EAA20', 'EAA20-02-03')
@@ -142,7 +142,7 @@ class LabTestResultCopyToReportEAA20(models.TransientModel):
 
     def _write_EAA20_data_coleta(self):
         self._set_result('EAA20', 'EAA20-02-03', self.EAA20_data_coleta)
-        self._set_result('EAA20', 'EAA20-02-03', self.EAA20_data_coleta)
+        self._copy_result('EAA20', 'EAA20-02-03', self.EAA20_data_coleta)
 
     def _default_EAA20_cloro_livre_valor(self):
         return self._get_default('EAA20', 'EAA20-03-01')
@@ -196,6 +196,7 @@ class LabTestResultCopyToReportEAA20(models.TransientModel):
 
     def do_result_copy_to_report_EAA20(self):
 
+        _logger.info(u'%s %s', '>>>>>', 'do_result_copy_to_report_EAA20')
         self._write_EAA20_morador()
         self._write_EAA20_local_coleta()
         self._write_EAA20_ponto_coleta()
