@@ -8,4 +8,4 @@ from . import document_items_edit_TDH20
 from . import document_items_edit_TID20
 from . import document_items_edit_TCV20
 from . import document_items_edit
-from . import document_type_item_setup
+from . import document_type_items_setup
