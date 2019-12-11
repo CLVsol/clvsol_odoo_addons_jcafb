@@ -9,11 +9,11 @@ from odoo import api, models
 _logger = logging.getLogger(__name__)
 
 
-class DocumentTypeItemSetUp(models.TransientModel):
-    _inherit = 'clv.document.type.item_setup'
+class DocumentTypeItemsSetUp(models.TransientModel):
+    _inherit = 'clv.document.type.items_setup'
 
     @api.multi
-    def _do_document_type_item_setup(self, document_type):
+    def _do_document_type_items_setup(self, document_type):
         self.ensure_one()
 
         Survey = self.env['survey.survey']
