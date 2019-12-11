@@ -10,6 +10,7 @@ _logger = logging.getLogger(__name__)
 
 
 class DocumentItemsUpdateFromSurvey(models.TransientModel):
+    _description = 'Document Items Update from Survey'
     _name = 'clv.document.items_updt_from_survey'
 
     def _default_document_ids(self):
