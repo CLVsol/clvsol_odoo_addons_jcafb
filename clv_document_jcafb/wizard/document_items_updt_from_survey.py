@@ -9,14 +9,14 @@ from odoo import api, fields, models
 _logger = logging.getLogger(__name__)
 
 
-class DocumentItemUpdateFromSurvey(models.TransientModel):
-    _name = 'clv.document.item_updt_from_survey'
+class DocumentItemsUpdateFromSurvey(models.TransientModel):
+    _name = 'clv.document.items_updt_from_survey'
 
     def _default_document_ids(self):
         return self._context.get('active_ids')
     document_ids = fields.Many2many(
         comodel_name='clv.document',
-        relation='clv_document_item_updt_from_survey_rel',
+        relation='clv_document_items_updt_from_survey_rel',
         string='Documents',
         default=_default_document_ids
     )
@@ -35,7 +35,7 @@ class DocumentItemUpdateFromSurvey(models.TransientModel):
         return action
 
     @api.multi
-    def do_document_item_updt_from_survey(self):
+    def do_document_items_updt_from_survey(self):
         self.ensure_one()
 
         for document in self.document_ids:

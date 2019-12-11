@@ -2,9 +2,9 @@
 <odoo>
     <data>
 
-        <record id="clv_document_item_updt_from_survey_view_form" model="ir.ui.view">
-            <field name="name">clv.document.item_updt_from_survey.form</field>
-            <field name="model">clv.document.item_updt_from_survey</field>
+        <record id="clv_document_items_updt_from_survey_view_form" model="ir.ui.view">
+            <field name="name">clv.document.items_updt_from_survey.form</field>
+            <field name="model">clv.document.items_updt_from_survey</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -18,8 +18,8 @@
                     <footer>
                         <button 
                             type="object"
-                            name="do_document_item_updt_from_survey"
-                            string="Document Update from Survey"
+                            name="do_document_items_updt_from_survey"
+                            string="Update from Survey"
                             class="oe_highlight"
                             />
                         <button special="cancel" string="Cancel"/>
@@ -31,11 +31,11 @@
 
         <!-- More button Action -->
         <act_window 
-            id="clv_document_item_updt_from_survey_action"
-            name="Document Update from Survey"
+            id="clv_document_items_updt_from_survey_action"
+            name="Document Items Update from Survey"
             src_model="clv.document"
-            res_model="clv.document.item_updt_from_survey"
-            view_mode="form, tree"
+            res_model="clv.document.items_updt_from_survey"
+            view_mode="form"
             key2="client_action_multi"
             target="new"
         />
