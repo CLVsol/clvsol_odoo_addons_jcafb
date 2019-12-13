@@ -10,3 +10,4 @@ from . import person_aux_history
 from . import person_aux_reg_state
 from . import person_aux_state
 from . import person_aux_code
+from . import person_aux
