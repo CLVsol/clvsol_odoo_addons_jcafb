@@ -13,6 +13,7 @@
     'depends': [
         'clv_base_jcafb',
         'clv_person_aux',
+        'clv_person_jcafb',
         'clv_document',
         'clv_community',
         'clv_event',
