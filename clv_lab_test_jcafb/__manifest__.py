@@ -44,6 +44,7 @@
         'data/global_settings.xml',
         'views/lab_test_menu_view.xml',
         'wizard/lab_test_request_receive_view.xml',
+        'wizard/lab_test_request_associate_to_set_view.xml',
     ],
     'demo': [],
     'test': [],
