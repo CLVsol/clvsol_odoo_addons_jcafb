@@ -13,6 +13,7 @@
     'depends': [
         'clv_base_jcafb',
         'clv_address_aux',
+        'clv_address_jcafb',
         'clv_document',
         'clv_community',
         'clv_event',
@@ -32,6 +33,7 @@
         'views/address_aux_code_view.xml',
         'views/address_aux_reg_state_view.xml',
         'views/address_aux_state_view.xml',
+        'views/address_aux_view.xml',
         'views/address_aux_menu_view.xml',
         'wizard/address_aux_mass_edit_view.xml',
         'wizard/address_aux_set_code_view.xml',
