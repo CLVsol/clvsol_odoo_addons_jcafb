@@ -7,3 +7,4 @@ from . import lab_test_result_approve
 from . import lab_test_report_approve
 from . import lab_test_report_export_xls
 from . import lab_test_request_associate_to_set
+from . import lab_test_report_associate_to_set
