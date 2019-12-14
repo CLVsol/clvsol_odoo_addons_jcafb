@@ -2,8 +2,11 @@
 # Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
+from werkzeug import urls
+
 from odoo import api, fields, models
 from openerp.exceptions import UserError
+from odoo.addons.http_routing.models.ir_http import slug
 
 
 class Document(models.Model):
@@ -51,6 +54,20 @@ class SurveyUserInput(models.Model):
     )
 
     notes = fields.Text(string='Notes')
+
+    survey_url = fields.Char(
+        string='Survey URL',
+        compute="_compute_survey_url"
+    )
+
+    def _compute_survey_url(self):
+
+        base_url = '/' if self.env.context.get('relative_url') else \
+                   self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+
+        for user_input in self:
+            user_input.survey_url = \
+                urls.url_join(base_url, "survey/fill/%s/%s" % (slug(user_input.survey_id), user_input.token))
 
 
 class SurveyUserInput_2(models.Model):
