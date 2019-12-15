@@ -159,9 +159,16 @@
         <field name="arch" type="xml">
            <field name="partner_id" position="after">
                 <field name="state_2"/>
+                <field name="notes"/>
+                <field name="document_id"/>
+                <field name="document_code"/>
+                <field name="person_code"/>
+                <field name="family_code"/>
+                <field name="address_code"/>
             </field>
             <filter name="group_by_survey" position="after">
                 <filter name="group_by_state_2" string="Survey User Input State" domain="[]" context="{'group_by':'state_2'}"/>
+                <filter name="group_by_notes" string="Survey User Input Notes" domain="[]" context="{'group_by':'notes'}"/>
             </filter>
         </field>
     </record>
