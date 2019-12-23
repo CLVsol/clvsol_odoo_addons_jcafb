@@ -187,7 +187,7 @@ class LabTestReport(models.Model):
             ExportXLS.setOutCell(sheet, col_nr, row_nr, result + u' mg/dL')
 
         # Fração não HDL:
-        col_nr, row_nr = 10, 97
+        col_nr, row_nr = 10, 94
         result = self.criterion_ids.search([
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'EDH20-06-08'),
@@ -196,7 +196,7 @@ class LabTestReport(models.Model):
             ExportXLS.setOutCell(sheet, col_nr, row_nr, result + u' mg/dL')
 
         # Triglicérides:
-        col_nr, row_nr = 9, 108
+        col_nr, row_nr = 9, 102
         result = self.criterion_ids.search([
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'EDH20-07-01'),
@@ -205,7 +205,7 @@ class LabTestReport(models.Model):
             ExportXLS.setOutCell(sheet, col_nr, row_nr, result + u' mg/dL')
 
         # Observações:
-        col_nr, row_nr = 9, 113
+        col_nr, row_nr = 9, 107
         result = self.criterion_ids.search([
             ('lab_test_report_id', '=', self.id),
             ('code', '=', 'EDH20-08-02'),
@@ -214,10 +214,10 @@ class LabTestReport(models.Model):
             ExportXLS.setOutCell(sheet, col_nr, row_nr, result)
 
         # Farmacêutico(a) Responsável (Nome):
-        col_nr, row_nr = 31, 132
+        col_nr, row_nr = 31, 134
         ExportXLS.setOutCell(sheet, col_nr, row_nr, self.employee_id.name)
         # Farmacêutico(a) Responsável (ID):
-        col_nr, row_nr = 35, 133
+        col_nr, row_nr = 35, 135
         ExportXLS.setOutCell(sheet, col_nr, row_nr, self.employee_id.professional_id)
 
         sheet.horz_page_breaks = [
