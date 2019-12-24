@@ -86,6 +86,16 @@ class SurveyUserInputRefresh(models.TransientModel):
 
                 if document_code is not False:
 
+                    if survey_user_input.state in ['new', 'skip']:
+
+                        survey_user_input.state_2 = 'returned'
+                        if survey_user_input.notes is False:
+                            survey_user_input.notes = \
+                                u'Erro: A Entrada de Respostas ainda não foi concluída!'
+                        else:
+                            survey_user_input.notes += \
+                                u'\nErro: A Entrada de Respostas ainda não foi concluída!'
+
                     document = Document.search([
                         ('code', '=', document_code),
                     ])
@@ -96,6 +106,13 @@ class SurveyUserInputRefresh(models.TransientModel):
                             survey_user_input.notes = u'Erro: Código do Documento inválido!'
                         else:
                             survey_user_input.notes += u'\nErro: Código do Documento inválido!'
+
+                    elif document.survey_id != survey_user_input.survey_id:
+                        survey_user_input.state_2 = 'returned'
+                        if survey_user_input.notes is False:
+                            survey_user_input.notes = u'Erro: Tipo de Documento inválido!'
+                        else:
+                            survey_user_input.notes += u'\nErro: Tipo de Documento inválido!'
 
                     else:
 
