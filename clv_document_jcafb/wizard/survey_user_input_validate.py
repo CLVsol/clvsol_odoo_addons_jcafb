@@ -43,7 +43,17 @@ class SurveyUserInputValidate(models.TransientModel):
 
             _logger.info(u'%s %s', '>>>>>', survey_user_input.token)
 
-            if survey_user_input.state_2 in ['checked', 'validated']:
+            if survey_user_input.state in ['new', 'skip']:
+
+                survey_user_input.state_2 = 'returned'
+                if survey_user_input.notes is False:
+                    survey_user_input.notes = \
+                        u'Erro: A Entrada de Respostas ainda não foi concluída!'
+                else:
+                    survey_user_input.notes += \
+                        u'\nErro: A Entrada de Respostas ainda não foi concluída!'
+
+            elif survey_user_input.state_2 in ['checked', 'validated']:
 
                 if survey_user_input.document_id.survey_user_input_id.id is not False:
 
@@ -55,7 +65,7 @@ class SurveyUserInputValidate(models.TransientModel):
                                 u'Erro: O Documento já está associado a outra Entrada de Respostas!'
                         else:
                             survey_user_input.notes += \
-                                u'\nErro: Documento já está associado a outra Entrada de Respostas!'
+                                u'\nErro: O Documento já está associado a outra Entrada de Respostas!'
 
                     else:
 
