@@ -3,3 +3,4 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from . import address_street_pattern_add
+from . import address_aux_street_pattern_add

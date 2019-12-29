@@ -19,6 +19,7 @@
         'views/partner_entity_street_pattern_view.xml',
         'views/partner_entity_menu_view.xml',
         'wizard/address_street_pattern_add_view.xml',
+        'wizard/address_aux_street_pattern_add_view.xml',
     ],
     'demo': [],
     'test': [],
