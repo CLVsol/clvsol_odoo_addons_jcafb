@@ -170,7 +170,7 @@ class VerificationOutcome(models.Model):
                 outcome_info += _('"Contact Information" is missing.\n')
                 state = self._get_verification_outcome_state(state, 'Error (L0)')
 
-            if model_object.reg_state not in ['ready', 'done', 'canceled']:
+            if model_object.reg_state not in ['verified', 'ready', 'done', 'canceled']:
 
                 street_patern = PartnerEntityStreetPattern.search([
                     ('street', '=', model_object.street),
