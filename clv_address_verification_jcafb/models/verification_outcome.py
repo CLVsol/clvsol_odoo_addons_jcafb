@@ -198,7 +198,7 @@ class VerificationOutcome(models.Model):
                    (model_object.city_id is False):
 
                     outcome_info += _('Please, verify "Contact Information (Complement)" data.\n')
-                    state = self._get_verification_outcome_state(state, 'Warning (L1)')
+                    state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
         if outcome_info == '':
             outcome_info = False
