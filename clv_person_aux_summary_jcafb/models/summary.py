@@ -125,10 +125,15 @@ class Summary(models.Model):
 
         search_domain = [
             ('ref_id', '=', model_object._name + ',' + str(model_object.id)),
+            ('reg_state', '!=', 'cancelled'),
         ]
         documents = Document.search(search_domain)
-        lab_test_requests = LabTestRequest.search(search_domain)
         event_attendees = EventAttendee.search(search_domain)
+        search_domain = [
+            ('ref_id', '=', model_object._name + ',' + str(model_object.id)),
+            ('state', '!=', 'cancelled'),
+        ]
+        lab_test_requests = LabTestRequest.search(search_domain)
 
         for document in documents:
 
@@ -211,23 +216,23 @@ class Summary(models.Model):
 
         row_nr += 1
         row = sheet.row(row_nr)
-        row.write(0, 'Address:')
-        row.write(3, model_object.ref_address_id.name)
+        row.write(0, 'Address (Aux):')
+        row.write(3, model_object.ref_address_aux_id.name)
         row_nr += 1
         row = sheet.row(row_nr)
-        row.write(3, model_object.ref_address_id.district)
+        row.write(3, model_object.ref_address_aux_id.district)
         row_nr += 1
         row = sheet.row(row_nr)
-        row.write(0, 'Address Categories:')
-        row.write(3, model_object.ref_address_id.category_ids.name)
+        row.write(0, 'Address (Aux) Categories:')
+        row.write(3, model_object.ref_address_aux_id.category_ids.name)
         row_nr += 1
         row = sheet.row(row_nr)
-        row.write(0, 'Address Code:')
-        row.write(3, model_object.ref_address_id.code)
+        row.write(0, 'Address (Aux) Code:')
+        row.write(3, model_object.ref_address_aux_id.code)
         row_nr += 1
         row = sheet.row(row_nr)
-        row.write(0, 'Address State:')
-        row.write(3, model_object.ref_address_id.state)
+        row.write(0, 'Address (Aux) State:')
+        row.write(3, model_object.ref_address_aux_id.state)
         row_nr += 1
 
         row_nr += 1
