@@ -125,10 +125,15 @@ class Summary(models.Model):
 
         search_domain = [
             ('ref_id', '=', model_object._name + ',' + str(model_object.id)),
+            ('reg_state', '!=', 'cancelled'),
         ]
         documents = Document.search(search_domain)
-        lab_test_requests = LabTestRequest.search(search_domain)
         event_attendees = EventAttendee.search(search_domain)
+        search_domain = [
+            ('ref_id', '=', model_object._name + ',' + str(model_object.id)),
+            ('state', '!=', 'cancelled'),
+        ]
+        lab_test_requests = LabTestRequest.search(search_domain)
 
         for document in documents:
 
