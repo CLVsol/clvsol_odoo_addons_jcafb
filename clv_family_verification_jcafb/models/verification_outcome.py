@@ -150,13 +150,13 @@ class VerificationOutcome(models.Model):
 
         if model_object.contact_info_is_unavailable:
 
-            # if model_object.street is not False:
+            if model_object.street is not False:
 
-            #     outcome_info = _('"Contact Information" should not be set.\n')
-            #     state = self._get_verification_outcome_state(state, 'Error (L0)')
+                outcome_info = _('"Contact Information" should not be set.\n')
+                state = self._get_verification_outcome_state(state, 'Error (L0)')
 
-            outcome_info = _('"Contact Information is Unavailable" should not be set.\n')
-            state = self._get_verification_outcome_state(state, 'Error (L0)')
+            # outcome_info = _('"Contact Information is Unavailable" should not be set.\n')
+            # state = self._get_verification_outcome_state(state, 'Error (L0)')
 
         else:
 
