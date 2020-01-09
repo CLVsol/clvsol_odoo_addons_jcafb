@@ -5,3 +5,4 @@
 # from . import event
 from . import event_code
 from . import event_state
+from . import event_attendee_reg_state
