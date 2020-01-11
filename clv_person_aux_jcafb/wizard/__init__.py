@@ -7,3 +7,4 @@ from . import person_aux_document_setup
 from . import person_aux_lab_test_request_setup
 from . import person_aux_mass_edit
 from . import person_aux_set_code
+from . import document_associate_to_related_person
