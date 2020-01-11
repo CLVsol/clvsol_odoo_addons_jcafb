@@ -40,6 +40,7 @@
         'wizard/person_aux_mass_edit_view.xml',
         'wizard/person_aux_set_code_view.xml',
         'wizard/document_associate_to_related_person_view.xml',
+        'wizard/lab_test_request_associate_to_related_person_view.xml',
     ],
     'demo': [],
     'test': [],
