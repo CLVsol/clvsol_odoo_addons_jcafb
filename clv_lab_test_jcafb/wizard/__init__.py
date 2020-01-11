@@ -10,3 +10,4 @@ from . import lab_test_request_associate_to_set
 from . import lab_test_report_associate_to_set
 from . import lab_test_request_associate_to_related_person
 from . import lab_test_result_associate_to_related_person
+from . import lab_test_report_associate_to_related_person
