@@ -52,6 +52,6 @@ class LabTestRequestAssociateToRelatedPerson(models.TransientModel):
                 ref_id = related_person._name + ',' + str(related_person.id)
                 lab_test_request.ref_id = ref_id
 
-                _logger.info(u'%s %s %s', '>>>>>>>>>>', lab_test_request.ref_id.name)
+                _logger.info(u'%s %s', '>>>>>>>>>>', lab_test_request.ref_id.name)
 
         return True
