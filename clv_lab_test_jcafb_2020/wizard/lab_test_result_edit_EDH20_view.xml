@@ -17,6 +17,12 @@
                         <field name="lab_test_type_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
                         <field name="lab_test_request_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
                         <field name="has_complement" options="{'readonly': True}"/>
+                        <field name="approved" options="{'readonly': True}"/>
+                    </group>
+                    <group name="group_middle">
+                        <group string='Tempo de Jejum'>
+                            <field name="EDH20_tempo_jejum"/>
+                        </group>
                     </group>
                     <group name="group_bottom">
                         <group string='Medidas Antropométricas'>
@@ -48,7 +54,7 @@
                             <field name="EDH20_interpretacao_pa_obs"/>
                         </group>
                         <group string='Glicemia e Colesterolemia'>
-                            <field name="EDH20_tempo_jejum"/>
+                            <!--field name="EDH20_tempo_jejum"/-->
                             <field name="EDH20_glicemia"/>
                             <field name="EDH20_glicemia_resp"/>
                             <field name="EDH20_interpretacao_glicemia"/>

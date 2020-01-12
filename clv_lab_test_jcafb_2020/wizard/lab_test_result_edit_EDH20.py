@@ -62,11 +62,25 @@ class LabTestResultEditEDH20(models.TransientModel):
 
     def _default_has_complement(self):
         return self.env['clv.lab_test.result'].browse(self._context.get('active_id')).has_complement
-    has_complement = fields.Boolean(string='Has Complement', default=_default_has_complement)
+    has_complement = fields.Boolean(
+        string='Has Complement',
+        readonly=True,
+        default=_default_has_complement
+    )
+
+    def _default_approved(self):
+        return self.env['clv.lab_test.result'].browse(self._context.get('active_id')).approved
+    approved = fields.Boolean(
+        string='Approved',
+        readonly=True,
+        default=_default_approved
+    )
 
     #
     # EDH20
     #
+
+    readonly = False
 
     def _default_EDH20_tempo_jejum(self):
         return self._get_default('EDH20', 'EDH20-01-01')
@@ -91,7 +105,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_peso(self):
         return self._get_default('EDH20', 'EDH20-02-01')
     EDH20_peso = fields.Char(
-        'Peso', readonly=False, default=_default_EDH20_peso
+        'Peso', readonly=readonly, default=_default_EDH20_peso
     )
 
     def _write_EDH20_peso(self):
@@ -126,7 +140,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_altura(self):
         return self._get_default('EDH20', 'EDH20-02-03')
     EDH20_altura = fields.Char(
-        'Altura', readonly=False, default=_default_EDH20_altura
+        'Altura', readonly=readonly, default=_default_EDH20_altura
     )
 
     def _write_EDH20_altura(self):
@@ -161,7 +175,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_imc(self):
         return self._get_default('EDH20', 'EDH20-02-05')
     EDH20_imc = fields.Char(
-        'IMC', readonly=False, default=_default_EDH20_imc
+        'IMC', readonly=readonly, default=_default_EDH20_imc
     )
 
     def _write_EDH20_imc(self):
@@ -229,7 +243,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_circ_abdominal(self):
         return self._get_default('EDH20', 'EDH20-02-09')
     EDH20_circ_abdominal = fields.Char(
-        'Circunferência abdominal', readonly=False, default=_default_EDH20_circ_abdominal
+        'Circunferência abdominal', readonly=readonly, default=_default_EDH20_circ_abdominal
     )
 
     def _write_EDH20_circ_abdominal(self):
@@ -293,7 +307,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_pa_automatica(self):
         return self._get_default('EDH20', 'EDH20-03-01')
     EDH20_pa_automatica = fields.Char(
-        'Pressão arterial automática', readonly=False, default=_default_EDH20_pa_automatica
+        'Pressão arterial automática', readonly=readonly, default=_default_EDH20_pa_automatica
     )
 
     def _write_EDH20_pa_automatica(self):
@@ -329,7 +343,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_pa_manual(self):
         return self._get_default('EDH20', 'EDH20-03-03')
     EDH20_pa_manual = fields.Char(
-        'Pressão arterial manual', readonly=False, default=_default_EDH20_pa_manual
+        'Pressão arterial manual', readonly=readonly, default=_default_EDH20_pa_manual
     )
 
     def _write_EDH20_pa_manual(self):
@@ -374,7 +388,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_PAS(self):
         return self._get_default('EDH20', 'EDH20-03-06')
     EDH20_PAS = fields.Char(
-        'PAS', readonly=False, default=_default_EDH20_PAS
+        'PAS', readonly=readonly, default=_default_EDH20_PAS
     )
 
     def _write_EDH20_PAS(self):
@@ -383,7 +397,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_PAD(self):
         return self._get_default('EDH20', 'EDH20-03-07')
     EDH20_PAD = fields.Char(
-        'PAD', readonly=False, default=_default_EDH20_PAD
+        'PAD', readonly=readonly, default=_default_EDH20_PAD
     )
 
     def _write_EDH20_PAD(self):
@@ -392,16 +406,20 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_interpretacao_pa(self):
         return self._get_default('EDH20', 'EDH20-03-08')
     EDH20_interpretacao_pa = fields.Selection([
-        (u'a) Normal (PAS menor que 130 mmHg e PAD menor que 85 mmHg)',
-            u'a) Normal (PAS menor que 130 mmHg e PAD menor que 85 mmHg)'),
-        (u'b) Limítrofe (PAS:130-139 mmHg e PAD:85-89 mmHg)',
-            u'b) Limítrofe (PAS:130-139 mmHg e PAD:85-89 mmHg)'),
-        (u'c) Alta (PAS:maior ou igual a 140 mmHg e PAD:maior ou igual a 90 mmHg)',
-            u'c) Alta (PAS:maior ou igual a 140 mmHg e PAD:maior ou igual a 90 mmHg)'),
-        (u'd) Não interpretado (justificar em observações)',
-            u'd) Não interpretado (justificar em observações)'),
-        (u'e) Não se aplica',
-            u'e) Não se aplica'),
+        (u'a) Normal (PAS menor ou igual a 120 mmHg e PAD menor ou igual a 80 mmHg)',
+            u'a) Normal (PAS menor ou igual a 120 mmHg e PAD menor ou igual a 80 mmHg)'),
+        (u'b) Pré-hipertensão (PAS:121-139 mmHg e PAD:81-89 mmHg)',
+            u'b) Pré-hipertensão (PAS:121-139 mmHg e PAD:81-89 mmHg)'),
+        (u'c) Hipertensão estágio 1 (PAS:140-159 mmHg e PAD:90-99 mmHg)',
+            u'c) Hipertensão estágio 1 (PAS:140-159 mmHg e PAD:90-99 mmHg)'),
+        (u'd) Hipertensão estágio 2 (PAS:160-179 mmHg e PAD:100-109 mmHg)',
+            u'd) Hipertensão estágio 2 (PAS:160-179 mmHg e PAD:100-109 mmHg)'),
+        (u'e) Hipertensão estágio 3 (PAS:maior ou igual a 180 mmHg e PAD:maior ou igual a 110 mmHg)',
+            u'e) Hipertensão estágio 3 (PAS:maior ou igual a 180 mmHg e PAD:maior ou igual a 110 mmHg)'),
+        (u'f) Não interpretado (justificar em "Observações")',
+            u'f) Não interpretado (justificar em "Observações")'),
+        (u'g) Não se aplica',
+            u'g) Não se aplica'),
     ], 'Interpretação do valor de Pressão Arterial',
         readonly=False, default=_default_EDH20_interpretacao_pa)
 
@@ -420,7 +438,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_glicemia(self):
         return self._get_default('EDH20', 'EDH20-04-01')
     EDH20_glicemia = fields.Char(
-        'Glicemia', readonly=False, default=_default_EDH20_glicemia
+        'Glicemia', readonly=readonly, default=_default_EDH20_glicemia
     )
 
     def _write_EDH20_glicemia(self):
@@ -488,7 +506,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_colesterol(self):
         return self._get_default('EDH20', 'EDH20-04-05')
     EDH20_colesterol = fields.Char(
-        'Colesterol', readonly=False, default=_default_EDH20_colesterol
+        'Colesterol', readonly=readonly, default=_default_EDH20_colesterol
     )
 
     def _write_EDH20_colesterol(self):
@@ -550,7 +568,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_colesterol_copia(self):
         return self._get_default('EDH20', 'EDH20-04-09')
     EDH20_colesterol_copia = fields.Char(
-        'Colesterol (cópia)', readonly=False, default=_default_EDH20_colesterol_copia
+        'Colesterol (cópia)', readonly=readonly, default=_default_EDH20_colesterol_copia
     )
 
     def _write_EDH20_colesterol_copia(self):
@@ -559,7 +577,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_obs(self):
         return self._get_default('EDH20', 'EDH20-05-01')
     EDH20_obs = fields.Char(
-        'Observações', readonly=False, default=_default_EDH20_obs
+        'Observações', readonly=readonly, default=_default_EDH20_obs
     )
 
     def _write_EDH20_obs(self):
@@ -568,7 +586,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_colesterol_total(self):
         return self._get_default('EDH20', 'EDH20-06-01')
     EDH20_colesterol_total = fields.Char(
-        'Colesterol total', readonly=False, default=_default_EDH20_colesterol_total
+        'Colesterol total', readonly=readonly, default=_default_EDH20_colesterol_total
     )
 
     def _write_EDH20_colesterol_total(self):
@@ -603,7 +621,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_hdl_colesterol(self):
         return self._get_default('EDH20', 'EDH20-06-04')
     EDH20_hdl_colesterol = fields.Char(
-        'HDL-Colesterol', readonly=False, default=_default_EDH20_hdl_colesterol
+        'HDL-Colesterol', readonly=readonly, default=_default_EDH20_hdl_colesterol
     )
 
     def _write_EDH20_hdl_colesterol(self):
@@ -640,7 +658,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_ldl_colesterol(self):
         return self._get_default('EDH20', 'EDH20-06-07')
     EDH20_ldl_colesterol = fields.Char(
-        'LDL-Colesterol', readonly=False, default=_default_EDH20_ldl_colesterol
+        'LDL-Colesterol', readonly=readonly, default=_default_EDH20_ldl_colesterol
     )
 
     def _write_EDH20_ldl_colesterol(self):
@@ -649,7 +667,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_fracao_nao_hdl(self):
         return self._get_default('EDH20', 'EDH20-06-08')
     EDH20_fracao_nao_hdl = fields.Char(
-        'Fração não HDL', readonly=False, default=_default_EDH20_fracao_nao_hdl
+        'Fração não HDL', readonly=readonly, default=_default_EDH20_fracao_nao_hdl
     )
 
     def _write_EDH20_fracao_nao_hdl(self):
@@ -683,7 +701,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_triglicerides(self):
         return self._get_default('EDH20', 'EDH20-07-01')
     EDH20_triglicerides = fields.Char(
-        'Triglicérides', readonly=False, default=_default_EDH20_triglicerides
+        'Triglicérides', readonly=readonly, default=_default_EDH20_triglicerides
     )
 
     def _write_EDH20_triglicerides(self):
@@ -746,7 +764,7 @@ class LabTestResultEditEDH20(models.TransientModel):
     def _default_EDH20_obs_2(self):
         return self._get_default('EDH20', 'EDH20-08-02')
     EDH20_obs_2 = fields.Char(
-        'Observações (2)', readonly=False, default=_default_EDH20_obs_2
+        'Observações (2)', readonly=readonly, default=_default_EDH20_obs_2
     )
 
     def _write_EDH20_obs_2(self):
