@@ -79,6 +79,15 @@
                 />
                 <button
                     type="action"
+                    name="%(clv_lab_test_result_edit_edh20_2_action)d"
+                    string="Lab Test Result Edit"
+                    class="oe_stat_button"
+                    icon="fa-edit"
+                    help="Lab Test Result Edit"
+                    attrs="{'invisible': ['|', ('lab_test_type_code', '!=', 'EDH20'), ('approved', '=', False)]}"
+                />
+                <button
+                    type="action"
                     name="%(clv_lab_test_result_copy_to_report_edh20_action)d"
                     string="Lab Test Result Copy to Report"
                     class="oe_stat_button"
