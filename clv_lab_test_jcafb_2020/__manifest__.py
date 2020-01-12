@@ -17,6 +17,7 @@
         'wizard/lab_test_result_edit_EAA20_view.xml',
         'wizard/lab_test_result_edit_EAN20_view.xml',
         'wizard/lab_test_result_edit_EDH20_view.xml',
+        'wizard/lab_test_result_edit_EDH20_2_view.xml',
         'wizard/lab_test_result_edit_ECP20_view.xml',
         'wizard/lab_test_result_edit_EEV20_view.xml',
         'wizard/lab_test_result_edit_EUR20_view.xml',
