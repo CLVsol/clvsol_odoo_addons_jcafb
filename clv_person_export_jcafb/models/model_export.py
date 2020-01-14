@@ -282,19 +282,21 @@ class ModelExport_xls(models.Model):
                                 ]).result
                                 break
 
-                        lab_test_reports = LabTestReport.search([
-                            ('ref_id', '=', 'clv.person,' + str(eval('item.id'))),
-                        ])
+                        if result is None or result is False:
 
-                        for lab_test_report in lab_test_reports:
+                            lab_test_reports = LabTestReport.search([
+                                ('ref_id', '=', 'clv.person,' + str(eval('item.id'))),
+                            ])
 
-                            if lab_test_report.lab_test_type_id.id == \
-                               lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
-                                result = lab_test_report.criterion_ids.search([
-                                    ('lab_test_report_id', '=', lab_test_report.id),
-                                    ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
-                                ]).result
-                                break
+                            for lab_test_report in lab_test_reports:
+
+                                if lab_test_report.lab_test_type_id.id == \
+                                   lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
+                                    result = lab_test_report.criterion_ids.search([
+                                        ('lab_test_report_id', '=', lab_test_report.id),
+                                        ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
+                                    ]).result
+                                    break
 
                         row.write(col_nr, result)
                         col_nr += 1
