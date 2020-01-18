@@ -28,6 +28,7 @@
         # 'data/document_jcafb_TID20.xml',
         # 'data/document_jcafb_TCV20.xml',
 
+        'wizard/document_items_edit_TAA20_view.xml',
         'wizard/document_items_edit_TAN20_view.xml',
         'wizard/document_items_edit_TCR20_view.xml',
         'wizard/document_items_edit_TDH20_view.xml',
