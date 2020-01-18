@@ -40,6 +40,9 @@ class DocumentItemsEdit(models.TransientModel):
         if document.document_type_id.code == 'QSI20':
             pass
 
+        if document.document_type_id.code == 'TAA20':
+            self._do_document_updt_TAA20()
+
         if document.document_type_id.code == 'TAN20':
             self._do_document_updt_TAN20()
 
