@@ -40,6 +40,9 @@ class DocumentTypeItemsSetUp(models.TransientModel):
             if document_type.code == 'QSI20':
                 self._do_document_type_items_setup(document_type)
 
+            if document_type.code == 'TAA20':
+                self._do_document_type_items_setup(document_type)
+
             if document_type.code == 'TAN20':
                 self._do_document_type_items_setup(document_type)
 
