@@ -17,6 +17,7 @@
         'views/processing_menu_view.xml',
         'data/family_address_restore.xml',
         'data/person_family_restore.xml',
+        'data/survey_user_input_copy.xml',
     ],
     'demo': [],
     'test': [],

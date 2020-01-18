@@ -26,6 +26,12 @@
         groups="clv_processing.group_user"
         sequence="10"/>
 
+    <menuitem name="Hosts" id="clv_processing.menu_processing_config_processing_hosts" 
+        parent="clv_processing.menu_processing_config_processing"
+        groups="clv_processing.group_user"
+        sequence="10"
+        action="clv_processing.clv_processing_host_action"/>
+
     <menuitem name="Templates" id="clv_processing.menu_processing_config_processing_templates" 
         parent="clv_processing.menu_processing_config_processing"
         groups="clv_processing.group_user"
