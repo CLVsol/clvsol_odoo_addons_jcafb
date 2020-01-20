@@ -367,7 +367,7 @@ class Summary(models.Model):
                         sheet.write(row_nr, col_person, '[' + person.code + ']')
                         sheet.write(row_nr, col_person + 7, person.name, style=style_bold)
                         sheet.write(row_nr, col_person + 30,
-                                    '(' + person.category_names + ' - ' + person.age_reference_years + ')')
+                                    '(' + str(person.category_names) + ' - ' + person.age_reference_years + ')')
                         sheet.write(row_nr, col_person + 37, person.state)
                         row_nr += 2
 
