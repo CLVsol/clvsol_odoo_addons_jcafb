@@ -63,5 +63,5 @@ class Summary(models.Model):
     summary_lab_test_request_ids = fields.One2many(
         comodel_name='clv.summary.lab_test.request',
         inverse_name='summary_id',
-        string='LabTestRequests'
+        string='Lab Test Requests'
     )
