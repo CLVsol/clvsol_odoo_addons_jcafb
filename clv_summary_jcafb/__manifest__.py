@@ -24,6 +24,7 @@
         'views/summary_document_view.xml',
         'views/summary_lab_test_request_view.xml',
         'views/summary_lab_test_result_view.xml',
+        'views/summary_lab_test_report_view.xml',
         'views/summary_event_view.xml',
         'views/summary_address_view.xml',
         'views/summary_family_view.xml',
