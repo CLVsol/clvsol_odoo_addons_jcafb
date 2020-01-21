@@ -54,11 +54,11 @@
         <field name="arch" type="xml">
             <tree name="lab_test_results" position="attributes">
                 <attribute name="decoration-muted">lab_test_result_state=='draft'</attribute>
-                <attribute name="decoration-success">lab_test_result_state=='received'</attribute>
-                <attribute name="decoration-primary">lab_test_result_state in('tested')</attribute>
+                <attribute name="decoration-primary">lab_test_result_state=='available'</attribute>
+                <attribute name="decoration-success">lab_test_result_state in('approved')</attribute>
                 <attribute name="decoration-danger">lab_test_result_state=='cancelled'</attribute>
                 <attribute name="decoration-it">lab_test_result_state in('draft','cancelled')</attribute>
-                <attribute name="decoration-bf">lab_test_result_state in('tested')</attribute>
+                <attribute name="decoration-bf">lab_test_result_state in('approved')</attribute>
             </tree>
         </field>
     </record>
