@@ -23,12 +23,14 @@ class SummaryLabTestReport(models.Model):
     lab_test_request_id = fields.Many2one(
         comodel_name='clv.lab_test.request',
         string='Lab Test Request',
-        ondelete='cascade'
+        related='lab_test_report_id.lab_test_request_id',
+        store=False
     )
     lab_test_type_id = fields.Many2one(
         comodel_name='clv.lab_test.type',
         string='Lab Test Type',
-        ondelete='cascade'
+        related='lab_test_report_id.lab_test_type_id',
+        store=False
     )
     lab_test_report_state = fields.Selection(
         string='LabTestReport State',
