@@ -104,7 +104,11 @@ class Summary(models.Model):
         Document = self.env['clv.document']
         SummaryDocument = self.env['clv.summary.document']
         LabTestRequest = self.env['clv.lab_test.request']
+        LabTestResult = self.env['clv.lab_test.result']
+        LabTestReport = self.env['clv.lab_test.report']
         SummaryLabTestRequest = self.env['clv.summary.lab_test.request']
+        SummaryLabTestResult = self.env['clv.summary.lab_test.result']
+        SummaryLabTestReport = self.env['clv.summary.lab_test.report']
         Address = self.env['clv.address']
         SummaryAddress = self.env['clv.summary.address']
         Family = self.env['clv.family']
@@ -121,6 +125,16 @@ class Summary(models.Model):
             ('summary_id', '=', summary.id),
         ])
         summary_lab_test_requests.unlink()
+
+        summary_lab_test_results = SummaryLabTestResult.search([
+            ('summary_id', '=', summary.id),
+        ])
+        summary_lab_test_results.unlink()
+
+        summary_lab_test_reports = SummaryLabTestReport.search([
+            ('summary_id', '=', summary.id),
+        ])
+        summary_lab_test_reports.unlink()
 
         summary_addresses = SummaryAddress.search([
             ('summary_id', '=', summary.id),
@@ -165,6 +179,8 @@ class Summary(models.Model):
             ]
             documents = Document.search(search_domain)
             lab_test_requests = LabTestRequest.search(search_domain)
+            lab_test_results = LabTestResult.search(search_domain)
+            lab_test_reports = LabTestReport.search(search_domain)
 
             for document in documents:
 
@@ -186,6 +202,26 @@ class Summary(models.Model):
                     }
                     SummaryLabTestRequest.create(values)
 
+            for lab_test_result in lab_test_results:
+
+                if lab_test_result.phase_id.id == address.phase_id.id:
+
+                    values = {
+                        'summary_id': summary.id,
+                        'lab_test_result_id': lab_test_result.id,
+                    }
+                    SummaryLabTestResult.create(values)
+
+            for lab_test_report in lab_test_reports:
+
+                if lab_test_report.phase_id.id == address.phase_id.id:
+
+                    values = {
+                        'summary_id': summary.id,
+                        'lab_test_report_id': lab_test_report.id,
+                    }
+                    SummaryLabTestReport.create(values)
+
         for family in families:
 
             values = {
@@ -199,6 +235,8 @@ class Summary(models.Model):
             ]
             documents = Document.search(search_domain)
             lab_test_requests = LabTestRequest.search(search_domain)
+            lab_test_results = LabTestResult.search(search_domain)
+            lab_test_reports = LabTestReport.search(search_domain)
 
             for document in documents:
 
@@ -220,6 +258,26 @@ class Summary(models.Model):
                     }
                     SummaryLabTestRequest.create(values)
 
+            for lab_test_result in lab_test_results:
+
+                if lab_test_result.phase_id.id == family.phase_id.id:
+
+                    values = {
+                        'summary_id': summary.id,
+                        'lab_test_result_id': lab_test_result.id,
+                    }
+                    SummaryLabTestResult.create(values)
+
+            for lab_test_report in lab_test_reports:
+
+                if lab_test_report.phase_id.id == family.phase_id.id:
+
+                    values = {
+                        'summary_id': summary.id,
+                        'lab_test_report_id': lab_test_report.id,
+                    }
+                    SummaryLabTestReport.create(values)
+
         for person in persons:
 
             values = {
@@ -233,6 +291,8 @@ class Summary(models.Model):
             ]
             documents = Document.search(search_domain)
             lab_test_requests = LabTestRequest.search(search_domain)
+            lab_test_results = LabTestResult.search(search_domain)
+            lab_test_reports = LabTestReport.search(search_domain)
 
             for document in documents:
 
@@ -253,6 +313,26 @@ class Summary(models.Model):
                         'lab_test_request_id': lab_test_request.id,
                     }
                     SummaryLabTestRequest.create(values)
+
+            for lab_test_result in lab_test_results:
+
+                if lab_test_result.phase_id.id == person.phase_id.id:
+
+                    values = {
+                        'summary_id': summary.id,
+                        'lab_test_result_id': lab_test_result.id,
+                    }
+                    SummaryLabTestResult.create(values)
+
+            for lab_test_report in lab_test_reports:
+
+                if lab_test_report.phase_id.id == person.phase_id.id:
+
+                    values = {
+                        'summary_id': summary.id,
+                        'lab_test_report_id': lab_test_report.id,
+                    }
+                    SummaryLabTestReport.create(values)
 
         summary_values = {}
         summary_values['date_summary'] = date_summary
