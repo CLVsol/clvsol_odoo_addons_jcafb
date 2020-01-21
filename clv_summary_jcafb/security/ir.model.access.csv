@@ -8,6 +8,14 @@ access_clv_summary_lab_test_request_user,clv.summary.lab_test.request.user,model
 access_clv_summary_lab_test_request_manager,clv.summary.manager.lab_test.request,model_clv_summary_lab_test_request,clv_summary.group_manager,1,1,1,0
 access_clv_summary_lab_test_request_supmanager,clv.summary.lab_test.request.supmanager,model_clv_summary_lab_test_request,clv_summary.group_supmanager,1,1,1,1
 
+access_clv_summary_lab_test_result_user,clv.summary.lab_test.result.user,model_clv_summary_lab_test_result,clv_summary.group_user,1,0,0,0
+access_clv_summary_lab_test_result_manager,clv.summary.manager.lab_test.result,model_clv_summary_lab_test_result,clv_summary.group_manager,1,1,1,0
+access_clv_summary_lab_test_result_supmanager,clv.summary.lab_test.result.supmanager,model_clv_summary_lab_test_result,clv_summary.group_supmanager,1,1,1,1
+
+access_clv_summary_lab_test_report_user,clv.summary.lab_test.report.user,model_clv_summary_lab_test_report,clv_summary.group_user,1,0,0,0
+access_clv_summary_lab_test_report_manager,clv.summary.manager.lab_test.report,model_clv_summary_lab_test_report,clv_summary.group_manager,1,1,1,0
+access_clv_summary_lab_test_report_supmanager,clv.summary.lab_test.report.supmanager,model_clv_summary_lab_test_report,clv_summary.group_supmanager,1,1,1,1
+
 access_clv_summary_event_user,clv.summary.event.user,model_clv_summary_event,clv_summary.group_user,1,0,0,0
 access_clv_summary_event_manager,clv.summary.manager.event,model_clv_summary_event,clv_summary.group_manager,1,1,1,0
 access_clv_summary_event_supmanager,clv.summary.event.supmanager,model_clv_summary_event,clv_summary.group_supmanager,1,1,1,1

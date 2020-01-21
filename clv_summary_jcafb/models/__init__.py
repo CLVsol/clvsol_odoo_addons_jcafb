@@ -4,6 +4,8 @@
 
 from . import summary_document
 from . import summary_lab_test_request
+from . import summary_lab_test_result
+from . import summary_lab_test_report
 from . import summary_event
 from . import summary_address
 from . import summary_family
