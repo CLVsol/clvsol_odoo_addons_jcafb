@@ -31,6 +31,7 @@
         'views/summary_person_view.xml',
         'views/global_settings_view.xml',
         'views/summary_menu_view.xml',
+        'wizard/summary_setup_view.xml',
     ],
     'demo': [],
     'test': [],
