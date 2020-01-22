@@ -429,6 +429,40 @@ class Summary(models.Model):
             row.write(11, summary_person.person_state)
             row_nr += 1
 
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Document ')
+        row.write(2, 'Code')
+        row.write(4, 'Categories')
+        row_nr += 1
+        sheet.row(row_nr).height_mismatch = True
+        sheet.row(row_nr).height = 20 * 4
+        row_nr += 1
+
+        for summary_document in self.summary_document_ids:
+
+            row = sheet.row(row_nr)
+            row.write(0, summary_document.document_id.name)
+            row.write(2, summary_document.document_id.code)
+            row.write(4, summary_document.document_category_ids.name)
+            row_nr += 1
+
+        row_nr += 1
+        row = sheet.row(row_nr)
+        row.write(0, 'Lab Test Type ')
+        row.write(8, 'Lab Test Request')
+        row_nr += 1
+        sheet.row(row_nr).height_mismatch = True
+        sheet.row(row_nr).height = 20 * 4
+        row_nr += 1
+
+        for summary_lab_test_request in self.summary_lab_test_request_ids:
+
+            row = sheet.row(row_nr)
+            row.write(0, summary_lab_test_request.lab_test_type_ids.name)
+            row.write(8, summary_lab_test_request.lab_test_request_id.code)
+            row_nr += 1
+
         wbook.save(file_path)
 
         self.directory_id = file_system_directory.id
