@@ -245,12 +245,17 @@ class VerificationOutcome(models.Model):
                 state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
         elif 'available' in associated_person_state_list:
-            if model_object.state != 'available':
+            if model_object.state in ['new', 'unavailable', 'unknown']:
+                outcome_info += _('Please, verify "Address State".\n')
+                state = self._get_verification_outcome_state(state, 'Warning (L0)')
+
+        elif 'unselected' in associated_person_state_list:
+            if model_object.state not in ['unselected']:
                 outcome_info += _('Please, verify "Address State".\n')
                 state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
         else:
-            if model_object.state in ['selected', 'waiting', 'available']:
+            if model_object.state in ['selected', 'waiting', 'available', 'unselected']:
                 outcome_info += _('Please, verify "Address State".\n')
                 state = self._get_verification_outcome_state(state, 'Warning (L0)')
 
