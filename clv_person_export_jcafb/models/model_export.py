@@ -84,6 +84,9 @@ class ModelExport(models.Model):
                 new_model_export_template_document_item = ModelExportDocumentItem.create(values)
                 model_export_document_item_ids += [new_model_export_template_document_item.id]
 
+            for model_export_template_lab_test_criterion in self.model_export_lab_test_criterion_ids:
+                model_export_template_lab_test_criterion.unlink()
+
             model_export_lab_test_criterion_ids = []
             for model_export_template_lab_test_criterion in \
                     self.template_id.model_export_template_lab_test_criterion_ids:
