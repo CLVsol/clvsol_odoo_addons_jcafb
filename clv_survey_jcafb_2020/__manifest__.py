@@ -12,22 +12,8 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_survey',
-        'clv_document_jcafb',
     ],
     'data': [
-        # 'data/document_jcafb_QAN20.xml',
-        # 'data/document_jcafb_QDH20.xml',
-        # 'data/document_jcafb_QMD20.xml',
-        # 'data/document_jcafb_QSC20.xml',
-        # 'data/document_jcafb_QSF20.xml',
-        # 'data/document_jcafb_QSI20.xml',
-
-        # 'data/document_jcafb_TAN20.xml',
-        # 'data/document_jcafb_TCR20.xml',
-        # 'data/document_jcafb_TDH20.xml',
-        # 'data/document_jcafb_TID20.xml',
-        # 'data/document_jcafb_TCV20.xml',
-
         'wizard/document_items_edit_TAA20_view.xml',
         'wizard/document_items_edit_TAN20_view.xml',
         'wizard/document_items_edit_TCR20_view.xml',
