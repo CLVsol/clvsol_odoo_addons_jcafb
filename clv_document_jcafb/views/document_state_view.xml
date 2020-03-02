@@ -16,31 +16,37 @@
                 <button name="action_new" type="object"
                         string="New"
                         confirm="Change Document State to 'New'?"
+                        style="background-color:lightblue"
                         attrs="{'invisible':[('state','not in',['discarded'])]}"
                         groups="clv_document.group_manager"/>
                 <button name="action_available" type="object"
                         string="Available"
                         confirm="Change Document State to 'Available'?"
+                        style="background-color:lightblue"
                         attrs="{'invisible':[('state','not in',['new'])]}"
                         groups="clv_document.group_manager"/>
                 <button name="action_waiting" type="object"
                         string="Waiting"
                         confirm="Change Document State to 'Waiting'?"
+                        style="background-color:lightblue"
                         attrs="{'invisible':[('state','not in',['available','returned'])]}"
                         groups="clv_document.group_manager"/>
                 <button name="action_returned" type="object"
                         string="Returned"
                         confirm="Change Document State to 'Returned'?"
+                        style="background-color:lightblue"
                         attrs="{'invisible':[('state','not in',['waiting'])]}"
                         groups="clv_document.group_manager"/>
                 <button name="action_archive" type="object"
                         string="Archived"
                         confirm="Change Document State to 'Archived'?"
+                        style="background-color:lightblue"
                         attrs="{'invisible':[('state','not in',['new','available','waiting','returned'])]}"
                         groups="clv_document.group_manager"/>
                 <button name="action_discarded" type="object"
                         string="Discarded"
                         confirm="Change Document State to 'Discarded'?"
+                        style="background-color:lightblue"
                         attrs="{'invisible':[('state','not in',['new','available','waiting','returned'])]}"
                         groups="clv_document.group_manager"/>
            </header>

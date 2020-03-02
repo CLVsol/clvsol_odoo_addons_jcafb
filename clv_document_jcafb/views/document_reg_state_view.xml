@@ -17,21 +17,25 @@
                 <button name="action_draft" type="object"
                         string="Draft"
                         confirm="Change Register State to 'Draft'?"
+                        style="background-color:lightgray"
                         attrs="{'invisible':[('reg_state','not in',['cancelled'])]}"
                         groups="clv_document.group_manager"/>
                 <button name="action_revised" type="object"
                         string="Revised"
                         confirm="Change Register State to 'Revised'?"
+                        style="background-color:lightgray"
                         attrs="{'invisible':[('reg_state','in',['revised'])]}"
                         groups="clv_document.group_manager"/>
                 <button name="action_done" type="object"
                         string="Done"
                         confirm="Change Register State to 'Done'?"
+                        style="background-color:lightgray"
                         attrs="{'invisible':[('reg_state','in',['done','cancelled'])]}"
                         groups="clv_document.group_manager"/>
                 <button name="action_cancel" type="object"
                         string="Cancel"
                         confirm="Change Register State to 'Cancelled'?"
+                        style="background-color:lightgray"
                         attrs="{'invisible':[('reg_state','in',['cancelled'])]}"
                         groups="clv_document.group_manager"/>
             </header>
