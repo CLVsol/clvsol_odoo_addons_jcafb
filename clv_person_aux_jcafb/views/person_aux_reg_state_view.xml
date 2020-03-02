@@ -16,31 +16,37 @@
                 <button name="action_draft" type="object"
                         string="Draft"
                         confirm="Change Register State to 'Draft'?"
+                        style="background-color:lightgray"
                         attrs="{'invisible':[('reg_state','not in',['canceled'])]}"
                         groups="clv_person_aux.group_manager"/>
                 <button name="action_revised" type="object"
                         string="Revised"
                         confirm="Change Register State to 'Revised'?"
+                        style="background-color:lightgray"
                         attrs="{'invisible':[('reg_state','in',['revised'])]}"
                         groups="clv_person_aux.group_manager"/>
                 <button name="action_verified" type="object"
                         string="Verified"
                         confirm="Change Register State to 'Verified'?"
+                        style="background-color:lightgray"
                         attrs="{'invisible':[('reg_state','not in',['revised'])]}"
                         groups="clv_person_aux.group_manager"/>
                 <button name="action_ready" type="object"
                         string="Ready"
                         confirm="Change Register State to 'Ready'?"
+                        style="background-color:lightgray"
                         attrs="{'invisible':[('reg_state','not in',['verified'])]}"
                         groups="clv_person_aux.group_manager"/>
                 <button name="action_done" type="object"
                         string="Done"
                         confirm="Change Register State to 'Done'?"
+                        style="background-color:lightgray"
                         attrs="{'invisible':[('reg_state','in',['draft','done','canceled'])]}"
                         groups="clv_person_aux.group_manager"/>
                 <button name="action_cancel" type="object"
                         string="Cancel"
                         confirm="Change Register State to 'Cancel'?"
+                        style="background-color:lightgray"
                         attrs="{'invisible':[('reg_state','in',['canceled'])]}"
                         groups="clv_person_aux.group_manager"/>
             </header>
