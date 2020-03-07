@@ -88,33 +88,34 @@ class SurveyUserInput_2(models.Model):
 
     @api.multi
     def change_state_2(self, new_state_2):
-        for mfile in self:
-            if mfile.is_allowed_transition(mfile.state_2, new_state_2):
-                mfile.state_2 = new_state_2
+        for survey_user_input in self:
+            if survey_user_input.is_allowed_transition(survey_user_input.state_2, new_state_2):
+                survey_user_input.state_2 = new_state_2
             else:
-                raise UserError('Status transition (' + mfile.state_2 + ', ' + new_state_2 + ') is not allowed!')
+                raise UserError('Status transition (' +
+                                survey_user_input.state_2 + ', ' + new_state_2 + ') is not allowed!')
 
     @api.multi
     def action_new(self):
-        for mfile in self:
-            mfile.change_state_2('new')
+        for survey_user_input in self:
+            survey_user_input.change_state_2('new')
 
     @api.multi
     def action_returned(self):
-        for mfile in self:
-            mfile.change_state_2('returned')
+        for survey_user_input in self:
+            survey_user_input.change_state_2('returned')
 
     @api.multi
     def action_checked(self):
-        for mfile in self:
-            mfile.change_state_2('checked')
+        for survey_user_input in self:
+            survey_user_input.change_state_2('checked')
 
     @api.multi
     def action_validated(self):
-        for mfile in self:
-            mfile.change_state_2('validated')
+        for survey_user_input in self:
+            survey_user_input.change_state_2('validated')
 
     @api.multi
     def action_discarded(self):
-        for mfile in self:
-            mfile.change_state_2('discarded')
+        for survey_user_input in self:
+            survey_user_input.change_state_2('discarded')

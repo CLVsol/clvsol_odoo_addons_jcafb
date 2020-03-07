@@ -106,27 +106,27 @@
                         string="New"
                         confirm="Change Media File State to 'New'?"
                         attrs="{'invisible':[('state_2','not in',['discarded'])]}"
-                        groups="clv_mfile.group_manager"/>
+                        groups="clv_document.group_manager"/>
                 <button name="action_returned" type="object"
                         string="Returned"
                         attrs="{'invisible':[('state_2','not in',['new'])]}"
                         confirm="Change Media File State to 'Returned'?"
-                        groups="clv_mfile.group_manager"/>
+                        groups="clv_document.group_manager"/>
                 <button name="action_checked" type="object"
                         string="Checked"
                         confirm="Change Media File State to 'Checked'?"
                         attrs="{'invisible':[('state_2','not in',['returned'])]}"
-                        groups="clv_mfile.group_manager"/>
+                        groups="clv_document.group_manager"/>
                 <button name="action_validated" type="object"
                         string="Validated"
                         confirm="Change Media File State to 'Validated'?"
                         attrs="{'invisible':[('state_2','not in',['returned','checked'])]}"
-                        groups="clv_mfile.group_manager"/>
+                        groups="clv_document.group_manager"/>
                 <button name="action_discarded" type="object"
                         string="Discarded"
                         confirm="Change Media File State to 'Discarded'?"
                         attrs="{'invisible':[('state_2','not in',['new','returned','checked','validated'])]}"
-                        groups="clv_mfile.group_manager"/>
+                        groups="clv_document.group_manager"/>
            </field>
         </field>
     </record>
