@@ -11,11 +11,15 @@
     'license': 'AGPL-3',
     'website': 'https://github.com/CLVsol',
     'depends': [
-        'clv_summary',
+        'clv_document_history',
         'clv_document_jcafb',
+        'clv_lab_test_history',
         'clv_lab_test_jcafb',
+        'clv_event_history',
         'clv_event_jcafb',
+        'clv_person_history',
         'clv_person_jcafb',
+        'clv_summary',
     ],
     'data': [
         'security/ir.model.access.csv',

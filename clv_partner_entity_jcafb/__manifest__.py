@@ -12,6 +12,8 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_partner_entity',
+        'clv_address',
+        'clv_address_aux',
         'clv_base_jcafb',
     ],
     'data': [

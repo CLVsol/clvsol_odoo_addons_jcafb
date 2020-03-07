@@ -11,7 +11,6 @@
     'license': 'AGPL-3',
     'website': 'https://github.com/CLVsol',
     'depends': [
-        'clv_base_jcafb',
         'clv_address_aux',
         'clv_address_jcafb',
         'clv_document',
@@ -19,6 +18,7 @@
         'clv_event',
         'clv_lab_test',
         'clv_employee',
+        'clv_base_jcafb',
     ],
     'data': [
         'data/document.xml',

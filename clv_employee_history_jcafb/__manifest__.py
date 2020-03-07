@@ -11,7 +11,8 @@
     'license': 'AGPL-3',
     'website': 'https://github.com/CLVsol',
     'depends': [
-        'clv_employee_jcafb',
+        'clv_employee_history',
+        'clv_base_jcafb',
     ],
     'data': [
         'views/employee_history_menu_view.xml',

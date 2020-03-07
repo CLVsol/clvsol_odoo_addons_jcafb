@@ -12,6 +12,7 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_export',
+        'clv_base_jcafb',
     ],
     'data': [
         'data/export_seq.xml',

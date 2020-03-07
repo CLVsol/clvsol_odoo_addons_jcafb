@@ -12,6 +12,7 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_phase',
+        'clv_base_jcafb',
     ],
     'data': [
         'views/phase_menu_view.xml',

@@ -12,6 +12,7 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_lab_test_export',
+        'clv_export_jcafb',
     ],
     'data': [
         'views/export_menu_view.xml',

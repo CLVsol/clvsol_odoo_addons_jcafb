@@ -11,10 +11,12 @@
     'license': 'AGPL-3',
     'website': 'https://github.com/CLVsol',
     'depends': [
-        'clv_base_jcafb',
         'clv_family',
         'clv_family_history',
         'clv_document',
+        'clv_employee',
+        'clv_base_jcafb',
+        'clv_address_jcafb',
     ],
     'data': [
         'data/family_seq.xml',

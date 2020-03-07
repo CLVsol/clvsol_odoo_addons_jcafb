@@ -11,6 +11,7 @@
     'license': 'AGPL-3',
     'website': 'https://github.com/CLVsol',
     'depends': [
+        'clv_family_history',
         'clv_family_jcafb',
     ],
     'data': [

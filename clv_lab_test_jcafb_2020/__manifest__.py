@@ -12,6 +12,7 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_lab_test_jcafb',
+        'clv_person',
     ],
     'data': [
         'wizard/lab_test_result_edit_EAA20_view.xml',

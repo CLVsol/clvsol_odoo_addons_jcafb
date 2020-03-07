@@ -12,7 +12,10 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_lab_test',
+        'clv_file_system',
         'clv_employee',
+        'clv_set',
+        'clv_base_jcafb',
         # 'clv_document_jcafb',
     ],
     'data': [

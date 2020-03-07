@@ -12,6 +12,7 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_survey',
+        'clv_document',
     ],
     'data': [
         'wizard/document_items_edit_TAA20_view.xml',

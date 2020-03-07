@@ -12,6 +12,7 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_verification',
+        'clv_base_jcafb',
     ],
     'data': [
         'views/verification_menu_view.xml',

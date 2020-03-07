@@ -13,6 +13,7 @@
     'depends': [
         'clv_community',
         'clv_employee',
+        'clv_base_jcafb',
     ],
     'data': [
         # 'views/community_view.xml',

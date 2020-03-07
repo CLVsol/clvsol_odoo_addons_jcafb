@@ -13,6 +13,7 @@
     'depends': [
         'clv_event',
         'clv_employee',
+        'clv_base_jcafb',
     ],
     'data': [
         # 'views/event_view.xml',

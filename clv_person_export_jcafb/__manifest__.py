@@ -11,8 +11,9 @@
     'license': 'AGPL-3',
     'website': 'https://github.com/CLVsol',
     'depends': [
+        'clv_person_l10n_br',
         'clv_person_jcafb',
-        'clv_export',
+        'clv_export_jcafb',
     ],
     'data': [
         'data/person_export_cadastro.xml',
