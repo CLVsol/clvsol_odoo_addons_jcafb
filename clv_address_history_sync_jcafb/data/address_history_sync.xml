@@ -13,7 +13,7 @@
 	</record>
 	 
 	<record id="clv_address_history_clv_address_history_template_object_field_phase_id" model="clv.external_sync.object_field">
-		<field name="external_object_field" eval="&quot;&quot;&quot;history_marker_id&quot;&quot;&quot;"/>
+		<field name="external_object_field" eval="&quot;&quot;&quot;phase_id&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;phase_id&quot;&quot;&quot;"/>
 		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_address_history_clv_address_history_template"/>
@@ -21,7 +21,7 @@
 	</record>
 	 
 	<record id="clv_address_history_clv_address_history_template_object_field_date_sign_in" model="clv.external_sync.object_field">
-		<field name="external_object_field" eval="&quot;&quot;&quot;sign_in_date&quot;&quot;&quot;"/>
+		<field name="external_object_field" eval="&quot;&quot;&quot;date_sign_in&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;date_sign_in&quot;&quot;&quot;"/>
 		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_address_history_clv_address_history_template"/>
@@ -29,7 +29,7 @@
 	</record>
 	 
 	<record id="clv_address_history_clv_address_history_template_object_field_date_sign_out" model="clv.external_sync.object_field">
-		<field name="external_object_field" eval="&quot;&quot;&quot;sign_out_date&quot;&quot;&quot;"/>
+		<field name="external_object_field" eval="&quot;&quot;&quot;date_sign_out&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;date_sign_out&quot;&quot;&quot;"/>
 		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_address_history_clv_address_history_template"/>
