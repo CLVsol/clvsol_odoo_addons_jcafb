@@ -15,9 +15,9 @@
         'clv_external_sync',
     ],
     'data': [
-        'data/department_sync.xml',
-        'data/job_sync.xml',
-        'data/employee_sync.xml',
+        'data/hr_department_sync.xml',
+        'data/hr_job_sync.xml',
+        'data/hr_employee_sync.xml',
     ],
     'demo': [],
     'test': [],
