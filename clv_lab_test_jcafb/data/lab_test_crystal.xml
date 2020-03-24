@@ -40,4 +40,20 @@
 		<field name="name" eval="&quot;&quot;&quot;Raros de Ácido Úrico&quot;&quot;&quot;"/>
 	</record>
 	 
+	<record id="clv_lab_test_crystal_10" model="clv.lab_test.crystal">
+		<field name="name" eval="&quot;&quot;&quot;Frequentes de fosfato triplo, amoníaco-magnesiano&quot;&quot;&quot;"/>
+	</record>
+	 
+	<record id="clv_lab_test_crystal_11" model="clv.lab_test.crystal">
+		<field name="name" eval="&quot;&quot;&quot;Frequentes de ácido úrico&quot;&quot;&quot;"/>
+	</record>
+	 
+	<record id="clv_lab_test_crystal_12" model="clv.lab_test.crystal">
+		<field name="name" eval="&quot;&quot;&quot;Raros de fosfato triplo, amoníaco-magnesiano&quot;&quot;&quot;"/>
+	</record>
+	 
+	<record id="clv_lab_test_crystal_13" model="clv.lab_test.crystal">
+		<field name="name" eval="&quot;&quot;&quot;Raros de urato amorfo&quot;&quot;&quot;"/>
+	</record>
+	 
 </odoo>
