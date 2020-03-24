@@ -24,7 +24,7 @@
 	</record>
 	 
 	<record id="clv_lab_test_request_clv_lab_test_request_template_object_field_date_request" model="clv.external_sync.object_field">
-		<field name="external_object_field" eval="&quot;&quot;&quot;date_requested&quot;&quot;&quot;"/>
+		<field name="external_object_field" eval="&quot;&quot;&quot;date_request&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;date_request&quot;&quot;&quot;"/>
 		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_lab_test_request_clv_lab_test_request_template"/>
@@ -48,7 +48,7 @@
 	</record>
 	 
 	<record id="clv_lab_test_request_clv_lab_test_request_template_object_field_phase_id" model="clv.external_sync.object_field">
-		<field name="external_object_field" eval="&quot;&quot;&quot;history_marker_id&quot;&quot;&quot;"/>
+		<field name="external_object_field" eval="&quot;&quot;&quot;phase_id&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;phase_id&quot;&quot;&quot;"/>
 		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_lab_test_request_clv_lab_test_request_template"/>
