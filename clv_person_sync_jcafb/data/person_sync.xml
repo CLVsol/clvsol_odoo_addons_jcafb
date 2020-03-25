@@ -231,14 +231,6 @@
 		<field name="sequence" eval="10"/>
 	</record>
 	 
-	<record id="clv_person_clv_person_template_object_field_date_reference" model="clv.external_sync.object_field">
-		<field name="external_object_field" eval="&quot;&quot;&quot;date_reference&quot;&quot;&quot;"/>
-		<field name="local_object_field" eval="&quot;&quot;&quot;date_reference&quot;&quot;&quot;"/>
-		<field name="synchronization" eval="True"/>
-		<field name="template_id" eval="clv_person_clv_person_template"/>
-		<field name="sequence" eval="10"/>
-	</record>
-	 
 	<record id="clv_person_clv_person_template_object_field_gender" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;gender&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;gender&quot;&quot;&quot;"/>
