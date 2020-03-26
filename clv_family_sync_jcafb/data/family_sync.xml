@@ -183,13 +183,13 @@
 		<field name="sequence" eval="10"/>
 	</record>
 	 
-	<record id="clv_family_clv_family_template_object_field_verification_state" model="clv.external_sync.object_field">
+	<!--record id="clv_family_clv_family_template_object_field_verification_state" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;verification_state&quot;&quot;&quot;"/>
 		<field name="local_object_field" eval="&quot;&quot;&quot;verification_state&quot;&quot;&quot;"/>
 		<field name="synchronization" eval="True"/>
 		<field name="template_id" eval="clv_family_clv_family_template"/>
 		<field name="sequence" eval="10"/>
-	</record>
+	</record-->
 	 
 	<record id="clv_family_clv_family_template_object_field_ref_address_is_unavailable" model="clv.external_sync.object_field">
 		<field name="external_object_field" eval="&quot;&quot;&quot;ref_address_is_unavailable&quot;&quot;&quot;"/>
