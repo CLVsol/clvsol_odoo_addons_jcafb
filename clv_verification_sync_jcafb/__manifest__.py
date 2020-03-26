@@ -16,7 +16,6 @@
     ],
     'data': [
         'data/verification_marker_sync.xml',
-        'data/verification_outcome_sync.xml',
     ],
     'demo': [],
     'test': [],
