@@ -101,7 +101,7 @@ class PersonHistoryUpdate(models.TransientModel):
                         'marker_ids': marker_ids,
                         'responsible_id': person.responsible_id.id,
                         'caregiver_id': person.caregiver_id.id,
-                        'ref_family_id': person.family_id.id,
+                        'family_id': person.family_id.id,
                         'ref_address_id': person.ref_address_id.id,
                     }
                     person_history = PersonHistory.create(values)
@@ -144,8 +144,8 @@ class PersonHistoryUpdate(models.TransientModel):
                     if person_history.caregiver_id.id != person.caregiver_id.id:
                         person_history.caregiver_id = person.caregiver_id.id
 
-                    if person_history.ref_family_id.id != person.family_id.id:
-                        person_history.ref_family_id = person.family_id.id
+                    if person_history.family_id.id != person.family_id.id:
+                        person_history.family_id = person.family_id.id
 
                     if person_history.ref_address_id.id != person.ref_address_id.id:
                         person_history.ref_address_id = person.ref_address_id.id
