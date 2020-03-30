@@ -39,9 +39,9 @@ class AbstractProcess(models.AbstractModel):
         for person_history in person_histories:
 
             _logger.info(u'%s %s', '>>>>>>>>>>>>>>>>>>>> person:', person_history.person_id.name)
-            _logger.info(u'%s %s', '>>>>>>>>>>>>>>>>>>>> family:', person_history.ref_family_id.name)
+            _logger.info(u'%s %s', '>>>>>>>>>>>>>>>>>>>> family:', person_history.family_id.name)
 
-            if person_history.person_id.family_id.id != person_history.ref_family_id.id:
+            if person_history.person_id.family_id.id != person_history.family_id.id:
 
                 _logger.warning(u'%s %s', '>>>>>>>>>>>>>>>>>>>> family:', 'Family Mismatch')
 
@@ -50,7 +50,7 @@ class AbstractProcess(models.AbstractModel):
                 ])
 
                 values = {}
-                values['family_id'] = person_history.ref_family_id.id
+                values['family_id'] = person_history.family_id.id
                 values['reg_state'] = 'revised'
                 _logger.warning(u'%s %s', '>>>>>>>>>>>>>>>>>>>> values:', values)
                 person.write(values)
