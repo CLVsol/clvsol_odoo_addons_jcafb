@@ -31,7 +31,7 @@ class ModelExport(models.Model):
         new_model_export = super().create(values)
 
         model_export_document_item_ids = []
-        for model_export_ModelExportDocumentItemtemplate_document_item in \
+        for model_export_template_document_item in \
                 new_model_export.template_id.model_export_template_document_item_ids:
             values = {
                 'name': model_export_template_document_item.name,
