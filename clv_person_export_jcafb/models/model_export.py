@@ -262,6 +262,20 @@ class ModelExport_xls(models.Model):
                                             document_item.document_item_id.code))
                                         break
 
+                            documents = Document.search([
+                                ('ref_id', '=', 'clv.family,' + str(person_history.ref_family_id.id)),
+                            ])
+
+                            for document in documents:
+                                if document.ref_id.id is not False:
+                                    if document.document_type_id.id == \
+                                       document_item.document_item_id.document_type_id.id:
+                                        # value = document.survey_user_input_id.get_value(
+                                        #     document_item.document_item_id.code)
+                                        value = str(document.get_value(
+                                            document_item.document_item_id.code))
+                                        break
+
                         row.write(col_nr, value)
                         col_nr += 1
 
@@ -300,6 +314,44 @@ class ModelExport_xls(models.Model):
                                         ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
                                     ]).result
                                     break
+
+                        if result is None or result is False:
+
+                            person_histories = PersonHistory.search([
+                                ('person_id', '=', eval('item.id')),
+                            ])
+
+                            for person_history in person_histories:
+
+                                lab_test_results = LabTestResult.search([
+                                    ('ref_id', '=', 'clv.address,' + str(person_history.ref_address_id.id)),
+                                ])
+
+                            for lab_test_result in lab_test_results:
+
+                                if lab_test_result.lab_test_type_id.id == \
+                                   lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
+                                    result = lab_test_result.criterion_ids.search([
+                                        ('lab_test_result_id', '=', lab_test_result.id),
+                                        ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
+                                    ]).result
+                                    break
+
+                            if result is None or result is False:
+
+                                lab_test_reports = LabTestReport.search([
+                                    ('ref_id', '=', 'clv.person,' + str(eval('item.id'))),
+                                ])
+
+                                for lab_test_report in lab_test_reports:
+
+                                    if lab_test_report.lab_test_type_id.id == \
+                                       lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
+                                        result = lab_test_report.criterion_ids.search([
+                                            ('lab_test_report_id', '=', lab_test_report.id),
+                                            ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
+                                        ]).result
+                                        break
 
                         row.write(col_nr, result)
                         col_nr += 1
