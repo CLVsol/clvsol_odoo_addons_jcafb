@@ -16,7 +16,7 @@
         'clv_export_jcafb',
     ],
     'data': [
-        'data/person_export_cadastro.xml',
+        # 'data/person_export_cadastro.xml',
     ],
     'demo': [],
     'test': [],
