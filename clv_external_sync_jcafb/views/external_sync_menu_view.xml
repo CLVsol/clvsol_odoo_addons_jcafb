@@ -48,7 +48,7 @@
         parent="clv_external_sync.menu_external_sync_config_external_sync"
         groups="clv_external_sync.group_user"
         sequence="60"
-        action="clv_external_sync.clv_external_sync_batch_member_actions"/>
+        action="clv_external_sync.clv_external_sync_batch_member_action"/>
 
     <menuitem name="Object Fields" id="menu_external_sync_config_external_sync_object_fields"
         parent="clv_external_sync.menu_external_sync_config_external_sync"
