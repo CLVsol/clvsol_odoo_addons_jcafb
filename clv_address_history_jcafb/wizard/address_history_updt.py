@@ -90,6 +90,10 @@ class AddressHistoryUpdate(models.TransientModel):
                     for marker_id in address.marker_ids:
                         m2m_list.append((4, marker_id.id))
                     marker_ids = m2m_list
+                    m2m_list = []
+                    for tag_id in address.tag_ids:
+                        m2m_list.append((4, tag_id.id))
+                    tag_ids = m2m_list
                     values = {
                         'phase_id': address.phase_id.id,
                         'date_sign_in': self.date_sign_in,
@@ -99,6 +103,7 @@ class AddressHistoryUpdate(models.TransientModel):
                         'address_id': address.id,
                         'category_ids': category_ids,
                         'marker_ids': marker_ids,
+                        'tag_ids': tag_ids,
                     }
                     address_history = AddressHistory.create(values)
                     _logger.info(u'%s %s %s %s', '>>>>>>>>>>', address_history.phase_id.name,
@@ -126,13 +131,22 @@ class AddressHistoryUpdate(models.TransientModel):
                         address_history.category_ids = m2m_list
 
                     m2m_list = []
-                    for maker_id in address.marker_ids:
-                        m2m_list.append((4, maker_id.id))
+                    for marker_id in address.marker_ids:
+                        m2m_list.append((4, marker_id.id))
                     m2m_list_2 = []
-                    for maker_id in address_history.marker_ids:
-                        m2m_list_2.append((4, maker_id.id))
+                    for marker_id in address_history.marker_ids:
+                        m2m_list_2.append((4, marker_id.id))
                     if m2m_list != m2m_list_2:
                         address_history.marker_ids = m2m_list
+
+                    m2m_list = []
+                    for tag_id in address.tag_ids:
+                        m2m_list.append((4, tag_id.id))
+                    m2m_list_2 = []
+                    for tag_id in address_history.tag_ids:
+                        m2m_list_2.append((4, tag_id.id))
+                    if m2m_list != m2m_list_2:
+                        address_history.tag_ids = m2m_list
 
                     _logger.info(u'%s %s %s %s', '>>>>>>>>>>', address_history.phase_id.name,
                                                  address_history.date_sign_in,
