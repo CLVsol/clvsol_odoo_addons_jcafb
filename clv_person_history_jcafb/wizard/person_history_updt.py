@@ -90,6 +90,10 @@ class PersonHistoryUpdate(models.TransientModel):
                     for marker_id in person.marker_ids:
                         m2m_list.append((4, marker_id.id))
                     marker_ids = m2m_list
+                    m2m_list = []
+                    for tag_id in person.tag_ids:
+                        m2m_list.append((4, tag_id.id))
+                    tag_ids = m2m_list
                     values = {
                         'phase_id': person.phase_id.id,
                         'date_sign_in': self.date_sign_in,
@@ -99,6 +103,7 @@ class PersonHistoryUpdate(models.TransientModel):
                         'person_id': person.id,
                         'category_ids': category_ids,
                         'marker_ids': marker_ids,
+                        'tag_ids': tag_ids,
                         'responsible_id': person.responsible_id.id,
                         'caregiver_id': person.caregiver_id.id,
                         'family_id': person.family_id.id,
@@ -130,13 +135,22 @@ class PersonHistoryUpdate(models.TransientModel):
                         person_history.category_ids = m2m_list
 
                     m2m_list = []
-                    for maker_id in person.marker_ids:
-                        m2m_list.append((4, maker_id.id))
+                    for marker_id in person.marker_ids:
+                        m2m_list.append((4, marker_id.id))
                     m2m_list_2 = []
-                    for maker_id in person_history.marker_ids:
-                        m2m_list_2.append((4, maker_id.id))
+                    for marker_id in person_history.marker_ids:
+                        m2m_list_2.append((4, marker_id.id))
                     if m2m_list != m2m_list_2:
                         person_history.marker_ids = m2m_list
+
+                    m2m_list = []
+                    for tag_id in person.tag_ids:
+                        m2m_list.append((4, tag_id.id))
+                    m2m_list_2 = []
+                    for tag_id in person_history.tag_ids:
+                        m2m_list_2.append((4, tag_id.id))
+                    if m2m_list != m2m_list_2:
+                        person_history.tag_ids = m2m_list
 
                     if person_history.responsible_id.id != person.responsible_id.id:
                         person_history.responsible_id = person.responsible_id.id
