@@ -90,6 +90,10 @@ class FamilyHistoryUpdate(models.TransientModel):
                     for marker_id in family.marker_ids:
                         m2m_list.append((4, marker_id.id))
                     marker_ids = m2m_list
+                    m2m_list = []
+                    for tag_id in family.tag_ids:
+                        m2m_list.append((4, tag_id.id))
+                    tag_ids = m2m_list
                     values = {
                         'phase_id': family.phase_id.id,
                         'date_sign_in': self.date_sign_in,
@@ -99,6 +103,7 @@ class FamilyHistoryUpdate(models.TransientModel):
                         'family_id': family.id,
                         'category_ids': category_ids,
                         'marker_ids': marker_ids,
+                        'tag_ids': tag_ids,
                         'ref_address_id': family.ref_address_id.id,
                     }
                     family_history = FamilyHistory.create(values)
@@ -127,13 +132,22 @@ class FamilyHistoryUpdate(models.TransientModel):
                         family_history.category_ids = m2m_list
 
                     m2m_list = []
-                    for maker_id in family.marker_ids:
-                        m2m_list.append((4, maker_id.id))
+                    for marker_id in family.marker_ids:
+                        m2m_list.append((4, marker_id.id))
                     m2m_list_2 = []
-                    for maker_id in family_history.marker_ids:
-                        m2m_list_2.append((4, maker_id.id))
+                    for marker_id in family_history.marker_ids:
+                        m2m_list_2.append((4, marker_id.id))
                     if m2m_list != m2m_list_2:
                         family_history.marker_ids = m2m_list
+
+                    m2m_list = []
+                    for tag_id in family.tag_ids:
+                        m2m_list.append((4, tag_id.id))
+                    m2m_list_2 = []
+                    for tag_id in family_history.tag_ids:
+                        m2m_list_2.append((4, tag_id.id))
+                    if m2m_list != m2m_list_2:
+                        family_history.tag_ids = m2m_list
 
                     if family_history.ref_address_id.id != family.ref_address_id.id:
                         family_history.ref_address_id = family.ref_address_id.id
