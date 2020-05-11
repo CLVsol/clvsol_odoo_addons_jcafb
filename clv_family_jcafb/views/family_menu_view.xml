@@ -27,4 +27,10 @@
         sequence="20"
         action="clv_family.clv_family_marker_action"/>
 
+    <menuitem name="Tags" id="clv_family.menu_community_config_family_tags" 
+        parent="clv_family.menu_community_config_family"
+        groups="clv_family.group_user"
+        sequence="30"
+        action="clv_family.clv_family_tag_action"/>
+
 </odoo>
