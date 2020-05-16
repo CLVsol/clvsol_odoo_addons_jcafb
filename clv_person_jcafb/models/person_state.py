@@ -17,8 +17,7 @@ class Person(models.Model):
          ('unselected', 'Unselected'),
          ('unavailable', 'Unavailable'),
          ('unknown', 'Unknown')
-         # ], string='Person State', default='new', readonly=True, required=True
-         ], string='Person State', default='new', readonly=True, required=False
+         ], string='Person State', default='new', readonly=True, required=True
     )
 
     @api.model
