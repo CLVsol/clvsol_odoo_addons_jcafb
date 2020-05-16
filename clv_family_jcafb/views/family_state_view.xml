@@ -12,7 +12,7 @@
         <field name="arch" type="xml">
             <separator name="separator_family" position="after">
                 <h1>
-                    <label for="state"  string="Address State: " class="oe_edit_only"/>
+                    <label for="state"  string="Family State: " class="oe_edit_only"/>
                     <field name="state" placeholder="State..." attrs="{'invisible':[('state','not in',['new'])]}" style="color:Grey;font-style:italic;"/>
                     <field name="state" placeholder="State..." attrs="{'invisible':[('state','not in',['available'])]}" style="color:Black;"/>
                     <field name="state" placeholder="State..." attrs="{'invisible':[('state','not in',['waiting'])]}" style="color:CornflowerBlue;"/>
@@ -24,43 +24,43 @@
                 </h1>
                 <button name="action_new" type="object"
                         string="New"
-                        confirm="Change Address State to 'New'?"
+                        confirm="Change Family State to 'New'?"
                         style="background-color:lightgray"
                         attrs="{'invisible':[('state','not in',['unavailable','unknown'])]}"
                         groups="clv_family.group_manager"/>
                 <button name="action_available" type="object"
                         string="Available"
-                        confirm="Change Address State to 'Available'?"
+                        confirm="Change Family State to 'Available'?"
                         style="background-color:lightgray"
                         attrs="{'invisible':[('state','not in',['new','waiting','selected','unselected'])]}"
                         groups="clv_family.group_manager"/>
                 <button name="action_waiting" type="object"
                         string="Waiting"
-                        confirm="Change Address State to 'Waiting'?"
+                        confirm="Change Family State to 'Waiting'?"
                         style="background-color:lightgray"
                         attrs="{'invisible':[('state','not in',['available'])]}"
                         groups="clv_family.group_manager"/>
                 <button name="action_select" type="object"
                         string="Selected"
-                        confirm="Change Address State to 'Selected'?"
+                        confirm="Change Family State to 'Selected'?"
                         style="background-color:lightgray"
                         attrs="{'invisible':[('state','not in',['available','waiting','unselected'])]}"
                         groups="clv_family.group_manager"/>
                 <button name="action_unselect" type="object"
                         string="Unselected"
-                        confirm="Change Address State to 'Unselected'?"
+                        confirm="Change Family State to 'Unselected'?"
                         style="background-color:lightgray"
                         attrs="{'invisible':[('state','not in',['available','waiting','selected'])]}"
                         groups="clv_family.group_manager"/>
                 <button name="action_unavailable" type="object"
                         string="Unavailable"
-                        confirm="Change Address State to 'Unavailable'?"
+                        confirm="Change Family State to 'Unavailable'?"
                         style="background-color:lightgray"
                         attrs="{'invisible':[('state','not in',['new','available'])]}"
                         groups="clv_family.group_manager"/>
                 <button name="action_unknown" type="object"
                         string="Unknown"
-                        confirm="Change Address State to 'Unknown'?"
+                        confirm="Change Family State to 'Unknown'?"
                         style="background-color:lightgray"
                         attrs="{'invisible':[('state','not in',['new','available'])]}"
                         groups="clv_family.group_manager"/>
