@@ -11,9 +11,9 @@
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <field name="notes" position="after">
-                <h3><label for="verification_state" string="Verification State: "/>[<field name="verification_state" style="color:blue; background:White;"/>]</h3>
+                <h1><label for="verification_state" string="Verification State: "/>[<field name="verification_state" style="color:blue; background:White;"/>]</h1>
                 <label for="verification_marker_ids" class="oe_edit_only"/>
-                <field name="verification_marker_ids" widget="many2many_tags" placeholder="Verification Markers..." options="{'color_field': 'color', 'no_open': False, 'no_create': True}"/>
+                <h4><field name="verification_marker_ids" widget="many2many_tags" placeholder="Verification Markers..." options="{'color_field': 'color', 'no_open': False, 'no_create': True}"/></h4>
             </field>
             <page name="settings" position="before">
                 <page string="Verification Outcomes">
