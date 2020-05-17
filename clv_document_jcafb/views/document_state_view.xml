@@ -10,7 +10,55 @@
         <field name="inherit_id" ref="clv_document.clv_document_view_form"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-            <header name="header" position="inside">
+            <separator name="separator_document" position="after">
+                <h1>
+                    <label for="state"  string="Address State: " class="oe_edit_only"/>
+                    <field name="state" placeholder="State..." attrs="{'invisible':[('state','not in',['new'])]}" style="color:Grey;font-style:italic;"/>
+                    <field name="state" placeholder="State..." attrs="{'invisible':[('state','not in',['available'])]}" style="color:Black;"/>
+                    <field name="state" placeholder="State..." attrs="{'invisible':[('state','not in',['waiting'])]}" style="color:CornflowerBlue;"/>
+                    <field name="state" placeholder="State..." attrs="{'invisible':[('state','not in',['returned'])]}" style="color:Blue;font-weight:bold;"/>
+                    <field name="state" placeholder="State..." attrs="{'invisible':[('state','not in',['archived'])]}" style="color:Green;font-weight:bold;"/>
+                    <field name="state" placeholder="State..." attrs="{'invisible':[('state','not in',['discarded'])]}" style="color:Red;font-style:italic;"/>
+                    <field name="state" placeholder="State..." attrs="{'invisible':[('state','in',['new','available','waiting','archived','returned','unknown'])]}" style="color:Gold;"/>
+                </h1>
+                <button name="action_new" type="object"
+                        string="New"
+                        confirm="Change Document State to 'New'?"
+                        style="background-color:lightgray"
+                        attrs="{'invisible':[('state','not in',['discarded'])]}"
+                        groups="clv_document.group_manager"/>
+                <button name="action_available" type="object"
+                        string="Available"
+                        confirm="Change Document State to 'Available'?"
+                        style="background-color:lightgray"
+                        attrs="{'invisible':[('state','not in',['new'])]}"
+                        groups="clv_document.group_manager"/>
+                <button name="action_waiting" type="object"
+                        string="Waiting"
+                        confirm="Change Document State to 'Waiting'?"
+                        style="background-color:lightgray"
+                        attrs="{'invisible':[('state','not in',['available','returned'])]}"
+                        groups="clv_document.group_manager"/>
+                <button name="action_returned" type="object"
+                        string="Returned"
+                        confirm="Change Document State to 'Returned'?"
+                        style="background-color:lightgray"
+                        attrs="{'invisible':[('state','not in',['waiting'])]}"
+                        groups="clv_document.group_manager"/>
+                <button name="action_archive" type="object"
+                        string="Archived"
+                        confirm="Change Document State to 'Archived'?"
+                        style="background-color:lightgray"
+                        attrs="{'invisible':[('state','not in',['new','available','waiting','returned'])]}"
+                        groups="clv_document.group_manager"/>
+                <button name="action_discarded" type="object"
+                        string="Discarded"
+                        confirm="Change Document State to 'Discarded'?"
+                        style="background-color:lightgray"
+                        attrs="{'invisible':[('state','not in',['new','available','waiting','returned'])]}"
+                        groups="clv_document.group_manager"/>
+            </separator>
+            <!--header name="header" position="inside">
                 <field name="state" widget="statusbar"
                        statusbar_visible="waiting,returned,archived"/>
                 <button name="action_new" type="object"
@@ -49,7 +97,7 @@
                         style="background-color:lightblue"
                         attrs="{'invisible':[('state','not in',['new','available','waiting','returned'])]}"
                         groups="clv_document.group_manager"/>
-           </header>
+           </header-->
         </field>
     </record>
 
