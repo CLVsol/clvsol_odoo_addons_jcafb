@@ -263,7 +263,7 @@ class ModelExport_xls(models.Model):
                                         break
 
                             documents = Document.search([
-                                ('ref_id', '=', 'clv.family,' + str(person_history.ref_family_id.id)),
+                                ('ref_id', '=', 'clv.family,' + str(person_history.family_id.id)),
                             ])
 
                             for document in documents:
