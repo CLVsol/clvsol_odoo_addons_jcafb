@@ -9,7 +9,7 @@ from . import community_member
 from . import set_element
 from . import event_attendee
 from . import lab_test
-from . import person_history
+# from . import person_history
 from . import person_reg_state
 from . import person_state
 from . import address

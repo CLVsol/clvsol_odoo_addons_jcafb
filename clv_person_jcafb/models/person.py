@@ -15,14 +15,3 @@ class Person(models.Model):
         related='ref_address_id.employee_id',
         store=True
     )
-
-
-class PersonHistory(models.Model):
-    _inherit = 'clv.person.history'
-
-    employee_id = fields.Many2one(
-        comodel_name='hr.employee',
-        string='Responsible Empĺoyee',
-        required=False,
-        readonly=False
-    )

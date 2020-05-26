@@ -12,7 +12,6 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_family',
-        'clv_family_history',
         'clv_document',
         'clv_employee',
         'clv_base_jcafb',
