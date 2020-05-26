@@ -3,9 +3,9 @@
    :alt: License: AGPL-3
 
 ============
-Person (Off)
+Person (Aux)
 ============
 
-Person (Off) Module customizations for CLVhealth-JCAFB Solution.
+Person (Aux) Module customizations for CLVhealth-JCAFB Solution.
 
 Developed by `CLVsol <https://github.com/CLVsol>`_.
