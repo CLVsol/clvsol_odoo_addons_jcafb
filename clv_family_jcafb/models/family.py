@@ -14,14 +14,3 @@ class Family(models.Model):
         related='ref_address_id.employee_id',
         store=True
     )
-
-
-class FamilyHistory(models.Model):
-    _inherit = 'clv.family.history'
-
-    employee_id = fields.Many2one(
-        comodel_name='hr.employee',
-        string='Responsible Empĺoyee',
-        required=False,
-        readonly=False
-    )
