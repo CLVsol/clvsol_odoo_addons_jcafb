@@ -12,7 +12,6 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_address',
-        'clv_address_history',
         'clv_document',
         'clv_community',
         'clv_event',
@@ -32,7 +31,6 @@
         'views/event_attendee_view.xml',
         'views/lab_test_view.xml',
         'views/employee_view.xml',
-        'views/address_history_view.xml',
         'views/address_reg_state_view.xml',
         'views/address_state_view.xml',
         'views/address_menu_view.xml',
