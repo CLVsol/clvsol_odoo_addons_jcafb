@@ -28,7 +28,7 @@ class Document(models.Model):
         # return (old_state, new_state) in allowed
         return True
 
-    @api.multi
+    # @api.multi
     def change_state(self, new_state):
         for document in self:
             if document.is_allowed_transition(document.state, new_state):
@@ -36,32 +36,32 @@ class Document(models.Model):
             else:
                 raise UserError('Status transition (' + document.state + ', ' + new_state + ') is not allowed!')
 
-    @api.multi
+    # @api.multi
     def action_new(self):
         for document in self:
             document.change_state('new')
 
-    @api.multi
+    # @api.multi
     def action_available(self):
         for document in self:
             document.change_state('available')
 
-    @api.multi
+    # @api.multi
     def action_waiting(self):
         for document in self:
             document.change_state('waiting')
 
-    @api.multi
+    # @api.multi
     def action_returned(self):
         for document in self:
             document.change_state('returned')
 
-    @api.multi
+    # @api.multi
     def action_archive(self):
         for document in self:
             document.change_state('archived')
 
-    @api.multi
+    # @api.multi
     def action_discarded(self):
         for document in self:
             document.change_state('discarded')

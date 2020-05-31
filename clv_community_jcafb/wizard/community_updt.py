@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -22,7 +22,7 @@ class CommunityUpdate(models.TransientModel):
          ], string='Responsible Empĺoyee', default=False, readonly=False, required=False
     )
 
-    @api.multi
+    # @api.multi
     def do_community_updt(self):
         self.ensure_one()
 

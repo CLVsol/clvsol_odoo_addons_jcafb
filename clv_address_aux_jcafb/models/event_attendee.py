@@ -2,7 +2,7 @@
 # Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class AddressAux(models.Model):
@@ -18,7 +18,7 @@ class AddressAux(models.Model):
         compute='_compute_event_attendee_ids_and_count',
     )
 
-    @api.multi
+    # @api.multi
     def _compute_event_attendee_ids_and_count(self):
         for record in self:
             event_attendees = self.env['clv.event.attendee'].search([

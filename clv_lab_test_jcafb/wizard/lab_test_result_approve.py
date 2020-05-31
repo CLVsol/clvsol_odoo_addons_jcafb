@@ -5,7 +5,7 @@
 import logging
 from datetime import datetime
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -47,7 +47,7 @@ class LabTestResultApprove(models.TransientModel):
         default=lambda *a: datetime.now().strftime('%Y-%m-%d'),
     )
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -60,7 +60,7 @@ class LabTestResultApprove(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_lab_test_result_approve(self):
         self.ensure_one()
 

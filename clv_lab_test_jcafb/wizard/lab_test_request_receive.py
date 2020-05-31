@@ -5,7 +5,7 @@
 import logging
 from datetime import datetime
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -123,7 +123,7 @@ class LabTestRequestReceive(models.TransientModel):
         default=_default_templates_dir_path_report
     )
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -136,7 +136,7 @@ class LabTestRequestReceive(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_lab_test_request_receive(self):
         self.ensure_one()
 

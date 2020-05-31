@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -23,7 +23,7 @@ class PersonSelAgeGroupRefresh(models.TransientModel):
         default=_default_age_group_ids
     )
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -36,7 +36,7 @@ class PersonSelAgeGroupRefresh(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_person_sel_age_group_refresh(self):
         self.ensure_one()
 
@@ -90,7 +90,7 @@ class PersonSelAgeGroupRefresh(models.TransientModel):
 
         return True
 
-    @api.multi
+    # @api.multi
     def do_populate_all(self):
         self.ensure_one()
 

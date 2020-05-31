@@ -5,7 +5,7 @@
 import logging
 import shutil
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -51,7 +51,7 @@ class MfileArchive(models.TransientModel):
         required="True"
     )
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -64,7 +64,7 @@ class MfileArchive(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_mfile_archive(self):
         self.ensure_one()
 

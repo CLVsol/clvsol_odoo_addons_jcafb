@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -36,7 +36,7 @@ class PersonAuxDocumentSetUp(models.TransientModel):
     date_foreseen = fields.Date(string='Foreseen Date', index=True)
     date_deadline = fields.Date(string='Deadline', index=True)
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -49,7 +49,7 @@ class PersonAuxDocumentSetUp(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_person_aux_document_setup(self):
         self.ensure_one()
 

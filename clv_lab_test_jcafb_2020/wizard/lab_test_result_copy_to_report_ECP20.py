@@ -148,7 +148,7 @@ class LabTestResultCopyToReportECP20(models.TransientModel):
         for r in self:
             r.ECP20_lab_test_parasite_names = r.ECP20_lab_test_parasite_names_suport
 
-    @api.multi
+    # @api.multi
     def _compute_ECP20_lab_test_parasite_names_suport(self):
         for r in self:
             ECP20_lab_test_parasite_names = False
@@ -190,7 +190,7 @@ class LabTestResultCopyToReportECP20(models.TransientModel):
 
         return True
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -203,7 +203,7 @@ class LabTestResultCopyToReportECP20(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_result_copy_to_report(self):
         self.ensure_one()
 

@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -18,7 +18,7 @@ class AddressAux(models.Model):
         store=False
     )
 
-    @api.multi
+    # @api.multi
     def do_address_aux_get_related_address_data(self):
 
         for address_aux in self:

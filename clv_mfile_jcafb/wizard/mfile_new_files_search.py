@@ -6,7 +6,7 @@ import logging
 import os
 import datetime
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -45,7 +45,7 @@ class MfileNewFilesSearch(models.TransientModel):
         ondelete='restrict'
     )
 
-    @api.multi
+    # @api.multi
     def do_mfile_new_files_search(self):
         self.ensure_one()
 

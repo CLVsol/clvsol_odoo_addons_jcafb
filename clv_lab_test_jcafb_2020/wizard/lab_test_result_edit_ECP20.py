@@ -158,7 +158,7 @@ class LabTestResultEditECP20(models.TransientModel):
         for r in self:
             r.ECP20_lab_test_parasite_1_names = r.ECP20_lab_test_parasite_1_names_suport
 
-    @api.multi
+    # @api.multi
     def _compute_ECP20_lab_test_parasite_1_names_suport(self):
         for r in self:
             ECP20_lab_test_parasite_1_names = False
@@ -265,7 +265,7 @@ class LabTestResultEditECP20(models.TransientModel):
         for r in self:
             r.ECP20_lab_test_parasite_2_names = r.ECP20_lab_test_parasite_2_names_suport
 
-    @api.multi
+    # @api.multi
     def _compute_ECP20_lab_test_parasite_2_names_suport(self):
         for r in self:
             ECP20_lab_test_parasite_2_names = False
@@ -372,7 +372,7 @@ class LabTestResultEditECP20(models.TransientModel):
         for r in self:
             r.ECP20_lab_test_parasite_3_names = r.ECP20_lab_test_parasite_3_names_suport
 
-    @api.multi
+    # @api.multi
     def _compute_ECP20_lab_test_parasite_3_names_suport(self):
         for r in self:
             ECP20_lab_test_parasite_3_names = False
@@ -483,7 +483,7 @@ class LabTestResultEditECP20(models.TransientModel):
         for r in self:
             r.ECP20_lab_test_parasite_4_names = r.ECP20_lab_test_parasite_4_names_suport
 
-    @api.multi
+    # @api.multi
     def _compute_ECP20_lab_test_parasite_4_names_suport(self):
         for r in self:
             ECP20_lab_test_parasite_4_names = False
@@ -586,7 +586,7 @@ class LabTestResultEditECP20(models.TransientModel):
         for r in self:
             r.ECP20_lab_test_parasite_names = r.ECP20_lab_test_parasite_names_suport
 
-    @api.multi
+    # @api.multi
     def _compute_ECP20_lab_test_parasite_names_suport(self):
         for r in self:
             ECP20_lab_test_parasite_names = False
@@ -691,7 +691,7 @@ class LabTestResultEditECP20(models.TransientModel):
 
         return True
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -704,7 +704,7 @@ class LabTestResultEditECP20(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_result_updt(self):
         self.ensure_one()
 

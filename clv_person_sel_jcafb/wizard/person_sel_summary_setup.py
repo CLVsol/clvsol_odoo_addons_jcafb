@@ -5,7 +5,7 @@
 import logging
 from functools import reduce
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 from time import time
 
@@ -43,7 +43,7 @@ class PersonSelSummarySetUp(models.TransientModel):
         ondelete='restrict'
     )
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -56,7 +56,7 @@ class PersonSelSummarySetUp(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_person_sel_summary_setup(self):
         self.ensure_one()
 

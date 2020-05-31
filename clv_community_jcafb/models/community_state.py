@@ -30,7 +30,7 @@ class Community(models.Model):
         # return (old_state, new_state) in allowed
         return True
 
-    @api.multi
+    # @api.multi
     def change_state(self, new_state):
         for community in self:
             if community.is_allowed_transition(community.state, new_state):
@@ -38,22 +38,22 @@ class Community(models.Model):
             else:
                 raise UserError('Status transition (' + community.state + ', ' + new_state + ') is not allowed!')
 
-    @api.multi
+    # @api.multi
     def action_draft(self):
         for community in self:
             community.change_state('draft')
 
-    @api.multi
+    # @api.multi
     def action_confirm(self):
         for community in self:
             community.change_state('confirm')
 
-    @api.multi
+    # @api.multi
     def action_done(self):
         for community in self:
             community.change_state('done')
 
-    @api.multi
+    # @api.multi
     def action_cancel(self):
         for community in self:
             community.change_state('cancel')

@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -22,7 +22,7 @@ class LabTestResultAssociateToRelatedPerson(models.TransientModel):
         default=_default_lab_test_result_ids
     )
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -35,7 +35,7 @@ class LabTestResultAssociateToRelatedPerson(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_lab_test_result_associate_to_related_person(self):
         self.ensure_one()
 

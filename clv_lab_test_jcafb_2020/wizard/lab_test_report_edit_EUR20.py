@@ -382,7 +382,7 @@ class LabTestReportEditEUR20(models.TransientModel):
         for r in self:
             r.EUR20_lab_test_crystal_names = r.EUR20_lab_test_crystal_names_suport
 
-    @api.multi
+    # @api.multi
     def _compute_EUR20_lab_test_crystal_names_suport(self):
         for r in self:
             EUR20_lab_test_crystal_names = False
@@ -427,7 +427,7 @@ class LabTestReportEditEUR20(models.TransientModel):
 
         return True
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -440,7 +440,7 @@ class LabTestReportEditEUR20(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_report_updt(self):
         self.ensure_one()
 

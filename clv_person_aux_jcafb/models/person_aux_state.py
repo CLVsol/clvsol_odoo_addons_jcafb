@@ -28,7 +28,7 @@ class PersonAux(models.Model):
         # return (old_state, new_state) in allowed
         return True
 
-    @api.multi
+    # @api.multi
     def change_state(self, new_state):
         for person_aux in self:
             if person_aux.is_allowed_transition(person_aux.state, new_state):
@@ -36,37 +36,37 @@ class PersonAux(models.Model):
             else:
                 raise UserError('Status transition (' + person_aux.state + ', ' + new_state + ') is not allowed!')
 
-    @api.multi
+    # @api.multi
     def action_new(self):
         for person_aux in self:
             person_aux.change_state('new')
 
-    @api.multi
+    # @api.multi
     def action_available(self):
         for person_aux in self:
             person_aux.change_state('available')
 
-    @api.multi
+    # @api.multi
     def action_waiting(self):
         for person_aux in self:
             person_aux.change_state('waiting')
 
-    @api.multi
+    # @api.multi
     def action_select(self):
         for person_aux in self:
             person_aux.change_state('selected')
 
-    @api.multi
+    # @api.multi
     def action_unselect(self):
         for person_aux in self:
             person_aux.change_state('unselected')
 
-    @api.multi
+    # @api.multi
     def action_unavailable(self):
         for person_aux in self:
             person_aux.change_state('unavailable')
 
-    @api.multi
+    # @api.multi
     def action_unknown(self):
         for person_aux in self:
             person_aux.change_state('unknown')

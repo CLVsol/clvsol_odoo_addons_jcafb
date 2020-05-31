@@ -86,7 +86,7 @@ class SurveyUserInput_2(models.Model):
     def is_allowed_transition(self, old_state_2, new_state_2):
         return True
 
-    @api.multi
+    # @api.multi
     def change_state_2(self, new_state_2):
         for survey_user_input in self:
             if survey_user_input.is_allowed_transition(survey_user_input.state_2, new_state_2):
@@ -95,27 +95,27 @@ class SurveyUserInput_2(models.Model):
                 raise UserError('Status transition (' +
                                 survey_user_input.state_2 + ', ' + new_state_2 + ') is not allowed!')
 
-    @api.multi
+    # @api.multi
     def action_new(self):
         for survey_user_input in self:
             survey_user_input.change_state_2('new')
 
-    @api.multi
+    # @api.multi
     def action_returned(self):
         for survey_user_input in self:
             survey_user_input.change_state_2('returned')
 
-    @api.multi
+    # @api.multi
     def action_checked(self):
         for survey_user_input in self:
             survey_user_input.change_state_2('checked')
 
-    @api.multi
+    # @api.multi
     def action_validated(self):
         for survey_user_input in self:
             survey_user_input.change_state_2('validated')
 
-    @api.multi
+    # @api.multi
     def action_discarded(self):
         for survey_user_input in self:
             survey_user_input.change_state_2('discarded')

@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -22,7 +22,7 @@ class SurveyUserInputValidate(models.TransientModel):
         default=_default_survey_user_input_ids
     )
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -35,7 +35,7 @@ class SurveyUserInputValidate(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_survey_user_input_validate(self):
         self.ensure_one()
 
@@ -78,7 +78,7 @@ class SurveyUserInputValidate(models.TransientModel):
 
         return True
 
-    @api.multi
+    # @api.multi
     def do_populate_all_survey_user_inputs(self):
         self.ensure_one()
 

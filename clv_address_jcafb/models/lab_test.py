@@ -2,7 +2,7 @@
 # Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class Address(models.Model):
@@ -18,7 +18,7 @@ class Address(models.Model):
         compute='_compute_lab_test_request_ids_and_count',
     )
 
-    @api.multi
+    # @api.multi
     def _compute_lab_test_request_ids_and_count(self):
         for record in self:
             lab_test_requests = self.env['clv.lab_test.request'].search([
@@ -37,7 +37,7 @@ class Address(models.Model):
         compute='_compute_lab_test_result_ids_and_count',
     )
 
-    @api.multi
+    # @api.multi
     def _compute_lab_test_result_ids_and_count(self):
         for record in self:
             lab_test_results = self.env['clv.lab_test.result'].search([
@@ -56,7 +56,7 @@ class Address(models.Model):
         compute='_compute_lab_test_report_ids_and_count',
     )
 
-    @api.multi
+    # @api.multi
     def _compute_lab_test_report_ids_and_count(self):
         for record in self:
             lab_test_reports = self.env['clv.lab_test.report'].search([

@@ -5,7 +5,7 @@
 import logging
 import os.path
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -27,7 +27,7 @@ class MfileDirectoryRefresh(models.TransientModel):
         default='/opt/odoo/clvsol_clvhealth_jcafb/survey_files/archive'
     )
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -40,7 +40,7 @@ class MfileDirectoryRefresh(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_mfile_directory_refresh(self):
         self.ensure_one()
 

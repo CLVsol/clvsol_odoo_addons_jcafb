@@ -19,7 +19,7 @@ class AddressAuxSetCode(models.TransientModel):
         string='Addresses (Aux)'
     )
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -41,7 +41,7 @@ class AddressAuxSetCode(models.TransientModel):
 
         return defaults
 
-    @api.multi
+    # @api.multi
     def do_address_aux_set_code(self):
         self.ensure_one()
 

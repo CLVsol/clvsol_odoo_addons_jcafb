@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -126,7 +126,7 @@ class LabTestResultCopyToReportEEV20(models.TransientModel):
 
         return True
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -139,7 +139,7 @@ class LabTestResultCopyToReportEEV20(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_result_copy_to_report(self):
         self.ensure_one()
 

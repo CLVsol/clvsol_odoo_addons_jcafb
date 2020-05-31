@@ -2,7 +2,7 @@
 # Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class AddressAux(models.Model):
@@ -12,7 +12,7 @@ class AddressAux(models.Model):
     code = fields.Char(string='Address Code', required=False, default=False)
     code_sequence = fields.Char(default='clv.address.code')
 
-    @api.multi
+    # @api.multi
     def _address_aux_set_code(self):
 
         for address_aux in self:

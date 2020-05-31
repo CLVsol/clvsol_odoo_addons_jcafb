@@ -28,7 +28,7 @@ class Address(models.Model):
         # return (old_state, new_state) in allowed
         return True
 
-    @api.multi
+    # @api.multi
     def change_state(self, new_state):
         for address in self:
             if address.is_allowed_transition(address.state, new_state):
@@ -36,37 +36,37 @@ class Address(models.Model):
             else:
                 raise UserError('Status transition (' + address.state + ', ' + new_state + ') is not allowed!')
 
-    @api.multi
+    # @api.multi
     def action_new(self):
         for address in self:
             address.change_state('new')
 
-    @api.multi
+    # @api.multi
     def action_available(self):
         for address in self:
             address.change_state('available')
 
-    @api.multi
+    # @api.multi
     def action_waiting(self):
         for address in self:
             address.change_state('waiting')
 
-    @api.multi
+    # @api.multi
     def action_select(self):
         for address in self:
             address.change_state('selected')
 
-    @api.multi
+    # @api.multi
     def action_unselect(self):
         for address in self:
             address.change_state('unselected')
 
-    @api.multi
+    # @api.multi
     def action_unavailable(self):
         for address in self:
             address.change_state('unavailable')
 
-    @api.multi
+    # @api.multi
     def action_unknown(self):
         for address in self:
             address.change_state('unknown')

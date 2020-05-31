@@ -62,7 +62,7 @@ class PersonSelAgeGroup_2(models.Model):
         for r in self:
             r.person_category_names = r.person_category_names_suport
 
-    @api.multi
+    # @api.multi
     def _compute_person_category_names_suport(self):
         for r in self:
             person_category_names = False

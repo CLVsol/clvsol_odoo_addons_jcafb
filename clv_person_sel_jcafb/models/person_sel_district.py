@@ -61,7 +61,7 @@ class PersonSelDistrict_2(models.Model):
         for r in self:
             r.addr_category_names = r.addr_category_names_suport
 
-    @api.multi
+    # @api.multi
     def _compute_addr_category_names_suport(self):
         for r in self:
             addr_category_names = False
@@ -75,7 +75,7 @@ class PersonSelDistrict_2(models.Model):
                 record = self.env['clv.person_sel.district'].search([('id', '=', r.id)])
                 record.write({'addr_category_ids': r.addr_category_ids})
 
-    @api.multi
+    # @api.multi
     def _compute_category_names_suport(self):
         for r in self:
             category_names = False

@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -22,7 +22,7 @@ class DocumentMfileSetUp(models.TransientModel):
         default=_default_document_ids
     )
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -35,7 +35,7 @@ class DocumentMfileSetUp(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_document_mfile_setup(self):
         self.ensure_one()
 
@@ -93,7 +93,7 @@ class DocumentMfileSetUp(models.TransientModel):
 
         return True
 
-    @api.multi
+    # @api.multi
     def do_populate_all_documents(self):
         self.ensure_one()
 
@@ -104,7 +104,7 @@ class DocumentMfileSetUp(models.TransientModel):
 
         return self._reopen_form()
 
-    @api.multi
+    # @api.multi
     def do_populate_new_documents(self):
         self.ensure_one()
 

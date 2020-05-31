@@ -6,7 +6,7 @@ import logging
 import os
 import datetime
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -35,7 +35,7 @@ class MfileFileSearch(models.TransientModel):
         required="True"
     )
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -48,7 +48,7 @@ class MfileFileSearch(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_mfile_file_search(self):
         self.ensure_one()
 
@@ -76,7 +76,7 @@ class MfileFileSearch(models.TransientModel):
 
         return True
 
-    @api.multi
+    # @api.multi
     def do_populate_all_mfiles(self):
         self.ensure_one()
 

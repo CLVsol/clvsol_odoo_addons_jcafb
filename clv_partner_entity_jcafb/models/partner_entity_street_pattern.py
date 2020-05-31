@@ -11,7 +11,7 @@ class PartnerEntityStreetPattern(models.Model):
     _order = "street, district"
     _rec_name = 'street'
 
-    @api.multi
+    # @api.multi
     @api.depends('street', 'district')
     def name_get(self):
         result = []

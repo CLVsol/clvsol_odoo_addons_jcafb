@@ -28,7 +28,7 @@ class AddressAux(models.Model):
         # return (old_state, new_state) in allowed
         return True
 
-    @api.multi
+    # @api.multi
     def change_state(self, new_state):
         for address_aux in self:
             if address_aux.is_allowed_transition(address_aux.state, new_state):
@@ -36,37 +36,37 @@ class AddressAux(models.Model):
             else:
                 raise UserError('Status transition (' + address_aux.state + ', ' + new_state + ') is not allowed!')
 
-    @api.multi
+    # @api.multi
     def action_new(self):
         for address_aux in self:
             address_aux.change_state('new')
 
-    @api.multi
+    # @api.multi
     def action_available(self):
         for address_aux in self:
             address_aux.change_state('available')
 
-    @api.multi
+    # @api.multi
     def action_waiting(self):
         for address_aux in self:
             address_aux.change_state('waiting')
 
-    @api.multi
+    # @api.multi
     def action_select(self):
         for address_aux in self:
             address_aux.change_state('selected')
 
-    @api.multi
+    # @api.multi
     def action_unselect(self):
         for address_aux in self:
             address_aux.change_state('unselected')
 
-    @api.multi
+    # @api.multi
     def action_unavailable(self):
         for address_aux in self:
             address_aux.change_state('unavailable')
 
-    @api.multi
+    # @api.multi
     def action_unknown(self):
         for address_aux in self:
             address_aux.change_state('unknown')

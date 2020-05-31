@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -36,7 +36,7 @@ class PersonAux(models.Model):
         store=False
     )
 
-    @api.multi
+    # @api.multi
     def do_person_aux_get_related_person_data(self):
 
         for person_aux in self:

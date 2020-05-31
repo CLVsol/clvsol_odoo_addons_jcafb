@@ -4,8 +4,7 @@
 
 import logging
 
-# from odoo import api, fields, models
-from odoo import api, models
+from odoo import models
 
 _logger = logging.getLogger(__name__)
 
@@ -14,7 +13,7 @@ class PersonSelGroupSetUp(models.TransientModel):
     _description = 'Person Sel Group SetUp'
     _name = 'clv.person_sel.group.setup'
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -27,7 +26,7 @@ class PersonSelGroupSetUp(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_person_sel_group_setup(self):
         self.ensure_one()
 

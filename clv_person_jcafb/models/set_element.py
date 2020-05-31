@@ -2,7 +2,7 @@
 # Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class Person(models.Model):
@@ -18,7 +18,7 @@ class Person(models.Model):
         compute='_compute_set_element_ids_and_count',
     )
 
-    @api.multi
+    # @api.multi
     def _compute_set_element_ids_and_count(self):
         for record in self:
             set_elements = self.env['clv.set.element'].search([

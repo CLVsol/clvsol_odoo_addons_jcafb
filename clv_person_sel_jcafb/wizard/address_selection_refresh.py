@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -39,7 +39,7 @@ class AddressSelectionRefresh(models.TransientModel):
         default='available; waiting; selected; unselected'
     )
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -52,7 +52,7 @@ class AddressSelectionRefresh(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_address_selection_refresh(self):
         self.ensure_one()
 
@@ -83,7 +83,7 @@ class AddressSelectionRefresh(models.TransientModel):
 
         return True
 
-    @api.multi
+    # @api.multi
     def do_populate_all_addresses(self):
         self.ensure_one()
 

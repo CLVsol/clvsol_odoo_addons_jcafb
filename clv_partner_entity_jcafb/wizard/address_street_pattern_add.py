@@ -30,13 +30,13 @@ class AddressStreetPatternAdd(models.TransientModel):
         store=False
     )
 
-    @api.multi
+    # @api.multi
     @api.depends('address_ids')
     def _compute_count_addresses(self):
         for r in self:
             r.count_addresses = len(r.address_ids)
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -49,7 +49,7 @@ class AddressStreetPatternAdd(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_address_street_pattern_add(self):
         self.ensure_one()
 

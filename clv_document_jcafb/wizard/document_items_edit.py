@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, fields, models
+from odoo import models
 
 _logger = logging.getLogger(__name__)
 
@@ -30,7 +30,7 @@ class DocumentItemsEdit(models.TransientModel):
     #     default=_default_address_id
     # )
 
-    @api.multi
+    # @api.multi
     def do_document_updt(self):
         self.ensure_one()
 

@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, models
+from odoo import models
 
 _logger = logging.getLogger(__name__)
 
@@ -12,7 +12,7 @@ _logger = logging.getLogger(__name__)
 class DocumentTypeItemsSetUp(models.TransientModel):
     _inherit = 'clv.document.type.items_setup'
 
-    @api.multi
+    # @api.multi
     def do_document_type_items_setup(self):
         self.ensure_one()
 

@@ -4,8 +4,7 @@
 
 import logging
 
-# from odoo import api, fields, models
-from odoo import api, models
+from odoo import models
 
 _logger = logging.getLogger(__name__)
 
@@ -21,7 +20,7 @@ class PersonSelDistrictSetUp(models.TransientModel):
     #     domain=['|', ('active', '=', False), ('active', '=', True)],
     # )
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -34,7 +33,7 @@ class PersonSelDistrictSetUp(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_person_sel_district_setup(self):
         self.ensure_one()
 

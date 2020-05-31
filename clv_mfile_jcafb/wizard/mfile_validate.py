@@ -6,7 +6,7 @@ import logging
 import xlrd
 import datetime
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -38,7 +38,7 @@ class MfileValidate(models.TransientModel):
         required="True"
     )
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -51,7 +51,7 @@ class MfileValidate(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_mfile_validate(self):
         self.ensure_one()
 
@@ -331,7 +331,7 @@ class MfileValidate(models.TransientModel):
 
         return True
 
-    @api.multi
+    # @api.multi
     def do_populate_all_mfiles(self):
         self.ensure_one()
 

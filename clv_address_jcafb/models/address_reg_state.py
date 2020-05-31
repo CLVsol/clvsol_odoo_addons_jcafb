@@ -25,7 +25,7 @@ class Address(models.Model):
         # return (old_reg_state, new_reg_state) in allowed
         return True
 
-    @api.multi
+    # @api.multi
     def change_reg_state(self, new_reg_state):
         for address in self:
             if address.is_allowed_transition_reg_state(address.reg_state, new_reg_state):
@@ -33,22 +33,22 @@ class Address(models.Model):
             else:
                 raise UserError('Status transition (' + address.reg_state + ', ' + new_reg_state + ') is not allowed!')
 
-    @api.multi
+    # @api.multi
     def action_draft(self):
         for address in self:
             address.change_reg_state('draft')
 
-    @api.multi
+    # @api.multi
     def action_revised(self):
         for address in self:
             address.change_reg_state('revised')
 
-    @api.multi
+    # @api.multi
     def action_done(self):
         for address in self:
             address.change_reg_state('done')
 
-    @api.multi
+    # @api.multi
     def action_cancel(self):
         for address in self:
             address.change_reg_state('canceled')

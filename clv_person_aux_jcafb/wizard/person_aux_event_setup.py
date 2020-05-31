@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -48,7 +48,7 @@ class PersonAuxEventSetUp(models.TransientModel):
         string='Lab Test Types'
     )
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -61,7 +61,7 @@ class PersonAuxEventSetUp(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_person_aux_event_setup(self):
         self.ensure_one()
 

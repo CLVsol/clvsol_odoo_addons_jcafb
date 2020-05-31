@@ -3,9 +3,8 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 import logging
-import shutil
 
-from odoo import api, fields, models
+from odoo import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -22,7 +21,7 @@ class MfileVefify(models.TransientModel):
         default=_default_mfile_ids
     )
 
-    @api.multi
+    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -35,7 +34,7 @@ class MfileVefify(models.TransientModel):
         }
         return action
 
-    @api.multi
+    # @api.multi
     def do_mfile_verify(self):
         self.ensure_one()
 
