@@ -17,14 +17,14 @@ class MfileDirectoryRefresh(models.TransientModel):
         'Directory Path (Input)',
         required=True,
         help="Input Directory Path",
-        default='/opt/openerp/clvsol_clvhealth_jcafb/survey_files/input'
+        default='/opt/odoo/clvsol_clvhealth_jcafb/survey_files/input'
     )
 
     archive_dir_path = fields.Char(
         'Directory Path (Archive)',
         required=True,
         help="Archive Directory Path",
-        default='/opt/openerp/clvsol_clvhealth_jcafb/survey_files/archive'
+        default='/opt/odoo/clvsol_clvhealth_jcafb/survey_files/archive'
     )
 
     @api.multi

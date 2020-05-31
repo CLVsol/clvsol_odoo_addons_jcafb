@@ -2,8 +2,8 @@
 # Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from openerp import api, fields, models
-from openerp.exceptions import UserError
+from odoo import api, fields, models
+from odoo.exceptions import UserError
 
 
 class Address(models.Model):

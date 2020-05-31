@@ -5,7 +5,7 @@
 from werkzeug import urls
 
 from odoo import api, fields, models
-from openerp.exceptions import UserError
+from odoo.exceptions import UserError
 from odoo.addons.http_routing.models.ir_http import slug
 
 
