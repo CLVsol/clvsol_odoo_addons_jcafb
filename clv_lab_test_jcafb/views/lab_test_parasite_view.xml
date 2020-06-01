@@ -77,7 +77,7 @@
         <field name="name">Lab Test Parasites</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">clv.lab_test.parasite</field>
-        <field name="view_type">form</field>
+        <!--*field name="view_type">form</field-->
         <field name="view_mode">tree,form</field>
         <field name="search_view_id" ref="clv_lab_test_parasite_view_search"/>
         <field name="domain">[]</field>

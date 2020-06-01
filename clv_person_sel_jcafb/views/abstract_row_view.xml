@@ -83,7 +83,7 @@
         <field name="name">Rows</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">clv.abstract.row</field>
-        <field name="view_type">form</field>
+        <!--*field name="view_type">form</field-->
         <!--field name="view_mode">tree,form</field-->
         <field name="view_mode">tree</field>
         <!--field name="search_view_id" ref="clv_abstract_row_view_search"/-->
