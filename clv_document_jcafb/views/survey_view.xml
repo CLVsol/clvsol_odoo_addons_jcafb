@@ -39,28 +39,30 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="survey.survey_user_input_tree">
-        <field name="name">survey_user_input_tree</field>
+    <record model="ir.ui.view" id="survey.survey_user_input_view_tree">
+        <field name="name">survey_user_input_view_tree</field>
         <field name="model">survey.user_input</field>
         <field name="arch" type="xml">
             <tree name="survey_user_inputs" string="Survey User inputs" decoration-muted="test_entry == True" create="false">
                 <field name="survey_id"/>
-                <field name="date_create"/>
+                <field name="create_date"/>
                 <field name="deadline"/>
                 <field name="partner_id"/>
                 <field name="email"/>
-                <field name="type"/>
+                <field name="input_type" groups="base.group_no_one"/>
+                <field name="attempt_number" />
                 <field name="state"/>
                 <field name="test_entry" invisible="True"/>
-                <field name="quizz_score" groups="base.group_no_one"/>
+                <field name="quizz_passed"/>
+                <field name="quizz_score"/>
             </tree>
         </field>
     </record>
 
-    <record id="survey_user_input_form_document" model="ir.ui.view">
+    <record id="survey_user_input_view_form_document" model="ir.ui.view">
         <field name="name">survey.user_input.form</field>
         <field name="model">survey.user_input</field>
-        <field name="inherit_id" ref="survey.survey_user_input_form"/>
+        <field name="inherit_id" ref="survey.survey_user_input_view_form"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <field name="token" position="after">
@@ -75,13 +77,13 @@
         </field>
     </record>
 
-    <record id="survey_user_input_tree_document" model="ir.ui.view">
+    <record id="survey_user_input_view_tree_document" model="ir.ui.view">
         <field name="name">survey.user_input.tree</field>
         <field name="model">survey.user_input</field>
-        <field name="inherit_id" ref="survey.survey_user_input_tree"/>
+        <field name="inherit_id" ref="survey.survey_user_input_view_tree"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-            <field name="date_create" position="after">
+            <field name="create_date" position="after">
                 <field name="document_code"/>
                 <field name="person_code"/>
                 <field name="family_code"/>
@@ -93,10 +95,10 @@
         </field>
     </record>
 
-    <record id="survey_user_input_form_state_2" model="ir.ui.view">
+    <record id="survey_user_input_view_form_state_2" model="ir.ui.view">
         <field name="name">survey.user_input.form</field>
         <field name="model">survey.user_input</field>
-        <field name="inherit_id" ref="survey.survey_user_input_form"/>
+        <field name="inherit_id" ref="survey.survey_user_input_view_form"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <field name="state" position="after">
@@ -131,13 +133,13 @@
         </field>
     </record>
 
-    <record id="survey_user_input_tree_state_2" model="ir.ui.view">
+    <record id="survey_user_input_view_tree_state_2" model="ir.ui.view">
         <field name="name">survey.user_input.tree</field>
         <field name="model">survey.user_input</field>
-        <field name="inherit_id" ref="survey.survey_user_input_tree"/>
+        <field name="inherit_id" ref="survey.survey_user_input_view_tree"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-            <field name="date_create" position="after">
+            <field name="create_date" position="after">
                 <field name="state_2"/>
             </field>
             <tree name="survey_user_inputs" position="attributes">
@@ -151,10 +153,10 @@
         </field>
     </record>
 
-    <record id="survey_user_input_search_state_2" model="ir.ui.view">
+    <record id="survey_user_input_view_search_state_2" model="ir.ui.view">
         <field name="name">survey.user_input.search</field>
         <field name="model">survey.user_input</field>
-        <field name="inherit_id" ref="survey.survey_user_input_search"/>
+        <field name="inherit_id" ref="survey.survey_user_input_view_search"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
            <field name="partner_id" position="after">

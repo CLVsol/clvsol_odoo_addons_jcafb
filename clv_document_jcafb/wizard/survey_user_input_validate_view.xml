@@ -34,10 +34,9 @@
     <act_window 
         id="survey_user_input_validate_action"
         name="Survey User Input Validate"
-        src_model="survey.user_input"
+        binding_model="survey.user_input"
         res_model="survey.user_input.validate"
         view_mode="form"
-        key2="client_action_multi"
         target="new"
     />
 

@@ -35,10 +35,9 @@
     <act_window 
         id="clv_document_items_updt_from_survey_action"
         name="Document Items Update from Survey"
-        src_model="clv.document"
+        binding_model="clv.document"
         res_model="clv.document.items_updt_from_survey"
         view_mode="form"
-        key2="client_action_multi"
         target="new"
     />
 
