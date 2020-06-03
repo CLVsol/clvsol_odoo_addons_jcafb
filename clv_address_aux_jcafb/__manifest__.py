@@ -37,6 +37,7 @@
         'views/address_aux_menu_view.xml',
         'wizard/address_aux_mass_edit_view.xml',
         'wizard/address_aux_set_code_view.xml',
+        'wizard/address_aux_street_pattern_add_view.xml',
     ],
     'demo': [],
     'test': [],

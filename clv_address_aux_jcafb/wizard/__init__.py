@@ -4,3 +4,4 @@
 
 from . import address_aux_mass_edit
 from . import address_aux_set_code
+from . import address_aux_street_pattern_add
