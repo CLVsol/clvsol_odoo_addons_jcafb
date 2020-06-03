@@ -12,16 +12,12 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_partner_entity',
-        'clv_address',
-        'clv_address_aux',
         'clv_base_jcafb',
     ],
     'data': [
         'security/ir.model.access.csv',
         'views/partner_entity_street_pattern_view.xml',
         'views/partner_entity_menu_view.xml',
-        'wizard/address_street_pattern_add_view.xml',
-        'wizard/address_aux_street_pattern_add_view.xml',
     ],
     'demo': [],
     'test': [],
