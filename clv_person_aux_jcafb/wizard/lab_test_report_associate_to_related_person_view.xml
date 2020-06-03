@@ -35,10 +35,9 @@
     <act_window 
         id="clv_lab_test_report_associate_to_related_person_action"
         name="Lab Test Report Associate to Related Person"
-        src_model="clv.lab_test.report"
+        binding_model="clv.lab_test.report"
         res_model="clv.lab_test.report.associate_to_related_person"
         view_mode="form"
-        key2="client_action_multi"
         target="new"
     />
 

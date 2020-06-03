@@ -42,10 +42,9 @@
     <act_window 
         id="clv_person_aux_document_setup_action"
         name="Document Set Up [Person (Aux)]"
-        src_model="clv.person_aux"
+        binding_model="clv.person_aux"
         res_model="clv.person_aux.document_setup"
         view_mode="form"
-        key2="client_action_multi"
         target="new"
     />
 

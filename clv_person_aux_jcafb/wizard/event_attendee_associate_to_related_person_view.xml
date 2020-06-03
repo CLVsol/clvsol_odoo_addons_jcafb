@@ -35,10 +35,9 @@
     <act_window 
         id="clv_event_attendee_associate_to_related_person_action"
         name="Event Attendee Associate to Related Person"
-        src_model="clv.event.attendee"
+        binding_model="clv.event.attendee"
         res_model="clv.event.attendee.associate_to_related_person"
         view_mode="form"
-        key2="client_action_multi"
         target="new"
     />
 
