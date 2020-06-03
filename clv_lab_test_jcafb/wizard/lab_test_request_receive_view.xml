@@ -49,16 +49,15 @@
     <!--act_window 
         id="clv_lab_test_request_receive_action"
         name="Lab Test Request Receive"
-        src_model="clv.lab_test.request"
+        binding_model="clv.lab_test.request"
         res_model="clv.lab_test.request.receive"
         view_mode="form, tree"
-        key2="client_action_multi"
         target="new"
     /-->
     <act_window 
         id="clv_lab_test_request_receive_action"
         name="Lab Test Request Receive"
-        src_model="clv.lab_test.request"
+        binding_model="clv.lab_test.request"
         res_model="clv.lab_test.request.receive"
         view_mode="form"
         target="new"

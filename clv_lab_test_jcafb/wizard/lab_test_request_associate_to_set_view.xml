@@ -38,10 +38,9 @@
     <act_window 
         id="clv_lab_test_request_associate_to_set_action"
         name="Lab Test Request Associate to Set"
-        src_model="clv.lab_test.request"
+        binding_model="clv.lab_test.request"
         res_model="clv.lab_test.request.associate_to_set"
         view_mode="form"
-        key2="client_action_multi"
         target="new"
     />
 
