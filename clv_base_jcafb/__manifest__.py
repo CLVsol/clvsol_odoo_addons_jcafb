@@ -12,11 +12,8 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_base',
-        'contacts',
-        'base_address_city',
     ],
     'data': [
-        'views/base_address_city_menu_view.xml',
         'views/base_menu_view.xml',
         'views/referenciable_model_menu_view.xml',
         'views/global_settings_menu_view.xml',
