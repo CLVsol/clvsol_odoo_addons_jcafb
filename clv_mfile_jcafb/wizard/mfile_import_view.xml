@@ -35,10 +35,9 @@
     <act_window 
         id="clv_mfile_import_action"
         name="Media File Import"
-        src_model="clv.mfile"
+        binding_model="clv.mfile"
         res_model="clv.mfile.import"
         view_mode="form"
-        key2="client_action_multi"
         target="new"
     />
 

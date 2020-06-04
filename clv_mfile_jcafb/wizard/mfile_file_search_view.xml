@@ -35,10 +35,9 @@
     <act_window 
         id="clv_mfile_file_search_action"
         name="Media Files Search"
-        src_model="clv.mfile"
+        binding_model="clv.mfile"
         res_model="clv.mfile.file_search"
         view_mode="form"
-        key2="client_action_multi"
         target="new"
     />
 

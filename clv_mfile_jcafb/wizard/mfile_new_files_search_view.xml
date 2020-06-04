@@ -37,10 +37,9 @@
     <!--act_window 
         id="clv_mfile.clv_mfile_new_files_search_action"
         name="New Files Search"
-        src_model="clv.mfile"
+        binding_model="clv.mfile"
         res_model="clv.mfile.new_files_search"
         view_mode="form"
-        key2="client_action_multi"
         target="new"
     /-->
     <act_window 
@@ -48,7 +47,6 @@
         name="New Files Search"
         res_model="clv.mfile.new_files_search"
         view_mode="form"
-        key2="client_action_multi"
         target="new"
     />
 

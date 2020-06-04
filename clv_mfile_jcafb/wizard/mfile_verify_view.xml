@@ -35,10 +35,9 @@
     <act_window 
         id="clv_mfile_verify_action"
         name="Media File Verify"
-        src_model="clv.mfile"
+        binding_model="clv.mfile"
         res_model="clv.mfile.verify"
         view_mode="form, tree"
-        key2="client_action_multi"
         target="new"
     />
 

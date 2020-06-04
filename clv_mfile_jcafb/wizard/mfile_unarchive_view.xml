@@ -35,10 +35,9 @@
     <act_window 
         id="clv_mfile_unarchive_action"
         name="Media File Unarchive"
-        src_model="clv.mfile"
+        binding_model="clv.mfile"
         res_model="clv.mfile.unarchive"
         view_mode="form"
-        key2="client_action_multi"
         target="new"
     />
 

@@ -35,10 +35,9 @@
     <act_window 
         id="clv_mfile_archive_action"
         name="Media File Archive"
-        src_model="clv.mfile"
+        binding_model="clv.mfile"
         res_model="clv.mfile.archive"
         view_mode="form"
-        key2="client_action_multi"
         target="new"
     />
 
