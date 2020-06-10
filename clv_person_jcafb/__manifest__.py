@@ -29,6 +29,7 @@
         'data/community_member.xml',
         'data/event_attendee.xml',
         'data/lab_test.xml',
+        'data/set_element.xml',
         'views/person_view.xml',
         'views/person_code_view.xml',
         'views/document_view.xml',
