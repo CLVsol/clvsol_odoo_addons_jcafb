@@ -56,6 +56,7 @@ class LabTestResult(models.Model):
     def _compute_file(self):
         bin_size = self._context.get('bin_size')
         for file in self:
+            file.file_content = False
             if file.stored_file_name:
                 content = file._file_read(file.stored_file_name, bin_size)
                 file.file_content = content
@@ -104,6 +105,7 @@ class LabTestReport(models.Model):
     def _compute_file(self):
         bin_size = self._context.get('bin_size')
         for file in self:
+            file.file_content = False
             if file.stored_file_name:
                 content = file._file_read(file.stored_file_name, bin_size)
                 file.file_content = content
