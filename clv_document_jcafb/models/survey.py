@@ -6,7 +6,7 @@ from werkzeug import urls
 
 from odoo import api, fields, models
 from odoo.exceptions import UserError
-from odoo.addons.http_routing.models.ir_http import slug
+# from odoo.addons.http_routing.models.ir_http import slug
 
 
 class Document(models.Model):
@@ -66,8 +66,10 @@ class SurveyUserInput(models.Model):
                    self.env['ir.config_parameter'].sudo().get_param('web.base.url')
 
         for user_input in self:
+            # user_input.survey_url = \
+            #     urls.url_join(base_url, "survey/fill/%s/%s" % (slug(user_input.survey_id), user_input.token))
             user_input.survey_url = \
-                urls.url_join(base_url, "survey/fill/%s/%s" % (slug(user_input.survey_id), user_input.token))
+                urls.url_join(base_url, "survey/fill/%s/%s" % (user_input.survey_id.access_token, user_input.token))
 
 
 class SurveyUserInput_2(models.Model):
@@ -92,8 +94,8 @@ class SurveyUserInput_2(models.Model):
             if survey_user_input.is_allowed_transition(survey_user_input.state_2, new_state_2):
                 survey_user_input.state_2 = new_state_2
             else:
-                raise UserError('Status transition (' +
-                                survey_user_input.state_2 + ', ' + new_state_2 + ') is not allowed!')
+                raise UserError(
+                    'Status transition (' + survey_user_input.state_2 + ', ' + new_state_2 + ') is not allowed!')
 
     # @api.multi
     def action_new(self):
