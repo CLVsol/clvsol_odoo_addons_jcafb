@@ -68,9 +68,9 @@ class PersonSelAgeGroup_2(models.Model):
             person_category_names = False
             for person_category in r.person_category_ids:
                 if person_category_names is False:
-                    person_category_names = person_category.complete_name
+                    person_category_names = person_category.name
                 else:
-                    person_category_names = person_category_names + ', ' + person_category.complete_name
+                    person_category_names = person_category_names + ', ' + person_category.name
             r.person_category_names_suport = person_category_names
             if r.person_category_names != person_category_names:
                 record = self.env['clv.person_sel.age_group'].search([('id', '=', r.id)])

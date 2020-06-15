@@ -41,10 +41,9 @@
     <act_window 
         id="clv_person_sel_summary_setup_action"
         name="Summary Set Up"
-        src_model="clv.person_sel.summary"
+        binding_model="clv.person_sel.summary"
         res_model="clv.person_sel.summary.setup"
         view_mode="form"
-        key2="client_action_multi"
         target="new"
     />
 

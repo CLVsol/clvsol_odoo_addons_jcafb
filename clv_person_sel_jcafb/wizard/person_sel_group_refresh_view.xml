@@ -32,10 +32,9 @@
     <act_window 
         id="clv_person_sel_group_group_refresh_action"
         name="Group Refresh"
-        src_model="clv.person_sel.group"
+        binding_model="clv.person_sel.group"
         res_model="clv.person_sel.group.refresh"
         view_mode="form"
-        key2="client_action_multi"
         target="new"
     />
 

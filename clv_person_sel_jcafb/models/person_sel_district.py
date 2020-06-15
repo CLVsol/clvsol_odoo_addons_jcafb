@@ -67,9 +67,9 @@ class PersonSelDistrict_2(models.Model):
             addr_category_names = False
             for addr_category in r.addr_category_ids:
                 if addr_category_names is False:
-                    addr_category_names = addr_category.complete_name
+                    addr_category_names = addr_category.name
                 else:
-                    addr_category_names = addr_category_names + ', ' + addr_category.complete_name
+                    addr_category_names = addr_category_names + ', ' + addr_category.name
             r.addr_category_names_suport = addr_category_names
             if r.addr_category_names != addr_category_names:
                 record = self.env['clv.person_sel.district'].search([('id', '=', r.id)])
@@ -81,9 +81,9 @@ class PersonSelDistrict_2(models.Model):
             category_names = False
             for category in r.category_ids:
                 if category_names is False:
-                    category_names = category.complete_name
+                    category_names = category.name
                 else:
-                    category_names = category_names + ', ' + category.complete_name
+                    category_names = category_names + ', ' + category.name
             r.category_names_suport = category_names
             if r.category_names != category_names:
                 record = self.env['clv.address'].search([('id', '=', r.id)])

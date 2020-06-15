@@ -32,10 +32,9 @@
     <act_window 
         id="clv_person_sel_age_group_age_group_refresh_action"
         name="Age-Group Refresh"
-        src_model="clv.person_sel.age_group"
+        binding_model="clv.person_sel.age_group"
         res_model="clv.person_sel.age_group.refresh"
         view_mode="form"
-        key2="client_action_multi"
         target="new"
     />
 
