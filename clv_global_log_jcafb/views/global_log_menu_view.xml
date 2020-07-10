@@ -10,4 +10,10 @@
         sequence="100"
         action="clv_global_log.clv_global_log_action"/>
 
+    <menuitem name="Global Log Clients" id="clv_base.menu_base_global_logs_global_log_clients"
+        parent="clv_base.menu_base_global_logs"
+        groups="clv_base.group_user"
+        sequence="110"
+        action="clv_global_log.clv_global_log_client_action"/>
+
 </odoo>
