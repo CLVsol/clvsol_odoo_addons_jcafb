@@ -12,10 +12,15 @@
         <field name="arch" type="xml">
             <group name="active_log" position="after">
                 <group>
-                    <field name="token_selection"/>
+                    <field name="token_selection" groups="base.group_system"/>
                 </group>
                 <group name="token">
-                    <field name="token" nolabel='1'/>
+                    <field name="token" nolabel='1' groups="base.group_system"/>
+                </group>
+                <group>
+                    <field name="preset_user_password" groups="base.group_system"/>
+                </group>
+                <group name="preset_user_password" groups="base.group_system">
                 </group>
             </group>
         </field>

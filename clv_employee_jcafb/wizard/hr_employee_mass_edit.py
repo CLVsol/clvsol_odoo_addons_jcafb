@@ -22,6 +22,10 @@ class EmployeeMassEdit(models.TransientModel):
          ], string='Token:', default=False, readonly=False, required=False
     )
 
+    preset_user_password = fields.Boolean(
+        string='Reset User Password'
+    )
+
     def do_employee_mass_edit(self):
         self.ensure_one()
 
@@ -35,5 +39,8 @@ class EmployeeMassEdit(models.TransientModel):
                 employee.token = self.token
             if self.token_selection == 'remove':
                 employee.token = False
+
+            if self.preset_user_password:
+                employee._preset_user_password()
 
         return True
