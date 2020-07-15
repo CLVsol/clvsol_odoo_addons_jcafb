@@ -14,6 +14,7 @@
         'clv_employee',
     ],
     'data': [
+        'views/hr_employee_view.xml',
         'views/hr_employee_code_view.xml',
         'data/hr_employee_seq.xml',
     ],
