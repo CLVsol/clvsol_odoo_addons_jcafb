@@ -16,6 +16,7 @@
     'data': [
         'views/hr_employee_view.xml',
         'views/hr_employee_code_view.xml',
+        'wizard/hr_employee_mass_edit_view.xml',
         'data/hr_employee_seq.xml',
     ],
     'demo': [],
