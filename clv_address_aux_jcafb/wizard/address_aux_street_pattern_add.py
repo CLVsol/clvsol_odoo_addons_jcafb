@@ -60,14 +60,14 @@ class AddressAuxStreetPatternAdd(models.TransientModel):
             _logger.info(u'%s %s', '>>>>>>>>>>>>>>> (address_aux):', address_aux.name)
 
             street_patern = PartnerEntityStreetPattern.search([
-                ('street', '=', address_aux.street),
+                ('street', '=', address_aux.street_name),
                 ('district', '=', address_aux.district),
             ])
 
             if street_patern.street is False:
 
                 values = {}
-                values['street'] = address_aux.street
+                values['street'] = address_aux.street_name
                 values['district'] = address_aux.district
                 values['active'] = True
                 PartnerEntityStreetPattern.create(values)
