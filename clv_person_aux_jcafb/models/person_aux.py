@@ -54,23 +54,27 @@ class PersonAux(models.Model):
                 data_values['responsible_id'] = person_aux.related_person_id.responsible_id.id
                 data_values['caregiver_id'] = person_aux.related_person_id.caregiver_id.id
 
+                data_values['street_name'] = person_aux.related_person_id.street_name
+                data_values['street_number'] = person_aux.related_person_id.street_number
+                data_values['street2'] = person_aux.related_person_id.street2
+                data_values['district'] = person_aux.related_person_id.district
+                data_values['zip'] = person_aux.related_person_id.zip
+                data_values['city'] = person_aux.related_person_id.city
+                data_values['city_id'] = person_aux.related_person_id.city_id.id
+                data_values['state_id'] = person_aux.related_person_id.state_id.id
+                data_values['country_id'] = person_aux.related_person_id.country_id.id
+                # data_values['phone'] = person_aux.related_person_id.phone
+                # data_values['mobile'] = person_aux.related_person_id.mobile
+
                 data_values['state'] = person_aux.related_person_id.state
+
+                data_values['ref_address_is_unavailable'] = person_aux.related_person_id.ref_address_is_unavailable
 
                 if person_aux.related_person_id.ref_address_id.id is not False:
 
                     data_values['ref_address_id'] = person_aux.related_person_id.ref_address_id.id
 
-                    data_values['street_name'] = person_aux.related_person_id.ref_address_id.street_name
-                    data_values['street_number'] = person_aux.related_person_id.ref_address_id.street_number
-                    data_values['street2'] = person_aux.related_person_id.ref_address_id.street2
-                    data_values['district'] = person_aux.related_person_id.ref_address_id.district
-                    data_values['zip'] = person_aux.related_person_id.ref_address_id.zip
-                    data_values['city'] = person_aux.related_person_id.ref_address_id.city
-                    data_values['city_id'] = person_aux.related_person_id.ref_address_id.city_id.id
-                    data_values['state_id'] = person_aux.related_person_id.ref_address_id.state_id.id
-                    data_values['country_id'] = person_aux.related_person_id.ref_address_id.country_id.id
-                    # data_values['phone'] = person_aux.related_person_id.ref_address_id.phone
-                    # data_values['mobile'] = person_aux.related_person_id.ref_address_id.mobile
+                data_values['family_is_unavailable'] = person_aux.related_person_id.family_is_unavailable
 
                 if person_aux.related_person_id.family_id.id is not False:
 
