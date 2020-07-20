@@ -54,6 +54,11 @@ class PersonAux(models.Model):
                 data_values['responsible_id'] = person_aux.related_person_id.responsible_id.id
                 data_values['caregiver_id'] = person_aux.related_person_id.caregiver_id.id
 
+                data_values['force_is_deceased'] = person_aux.related_person_id.force_is_deceased
+                data_values['date_death'] = person_aux.related_person_id.date_death
+
+                data_values['contact_info_is_unavailable'] = person_aux.related_person_id.contact_info_is_unavailable
+
                 data_values['street_name'] = person_aux.related_person_id.street_name
                 data_values['street_number'] = person_aux.related_person_id.street_number
                 data_values['street2'] = person_aux.related_person_id.street2
