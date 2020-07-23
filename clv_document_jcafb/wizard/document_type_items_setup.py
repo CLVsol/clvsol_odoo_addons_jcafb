@@ -12,11 +12,11 @@ _logger = logging.getLogger(__name__)
 class DocumentTypeItemsSetUp(models.TransientModel):
     _inherit = 'clv.document.type.items_setup'
 
-    # @api.multi
     def _do_document_type_items_setup(self, document_type):
         self.ensure_one()
 
         Survey = self.env['survey.survey']
+        SurveyQuestion = self.env['survey.question']
         DocumentItem = self.env['clv.document.item']
 
         survey = Survey.search([
@@ -33,7 +33,12 @@ class DocumentTypeItemsSetUp(models.TransientModel):
         items = []
         sequence = 0
 
-        for page in survey.page_ids:
+        pages = SurveyQuestion.search([
+            ('survey_id', '=', survey.id),
+            ('is_page', '=', True),
+        ])
+
+        for page in pages:
 
             _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', page.code)
 
@@ -49,7 +54,7 @@ class DocumentTypeItemsSetUp(models.TransientModel):
 
                 _logger.info(u'%s %s', '>>>>>>>>>>>>>>>>>>>>', question.code)
 
-                _type_ = question.type
+                question_type = question.question_type
                 _question_ = question.question.encode("utf-8")
 
                 sequence += 1
@@ -69,16 +74,16 @@ class DocumentTypeItemsSetUp(models.TransientModel):
                                          'sequence': sequence,
                                          }))
 
-                if _type_ == 'free_text' or _type_ == 'textbox' or _type_ == 'datetime':
+                if question_type == 'free_text' or question_type == 'textbox' or question_type == 'datetime':
                     pass
 
-                if _type_ == 'simple_choice':
+                if question_type == 'simple_choice':
                     pass
 
-                if _type_ == 'multiple_choice':
+                if question_type == 'multiple_choice':
                     pass
 
-                if _type_ == 'matrix':
+                if question_type == 'matrix':
 
                     for label in question.labels_ids_2:
 
@@ -91,5 +96,18 @@ class DocumentTypeItemsSetUp(models.TransientModel):
                                              }))
 
         document_type.item_ids = items
+
+        return True
+
+    def do_document_type_items_setup(self):
+        self.ensure_one()
+
+        super().do_document_type_items_setup()
+
+        for document_type in self.document_type_ids:
+
+            _logger.info(u'%s %s', '>>>>>', document_type.code)
+
+            self._do_document_type_items_setup(document_type)
 
         return True
