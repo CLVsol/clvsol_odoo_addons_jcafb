@@ -13,26 +13,6 @@ class SurveyUserInputSetSurveyUserInput(models.TransientModel):
     _description = 'SurveyUserInput Set Survey User Input'
     _name = 'clv.document.set_survey_user_input'
 
-    # def _get_default(self, document_type_id_code, item_code):
-    #     active_id = self.env['clv.document'].browse(self._context.get('active_id'))
-    #     if active_id.document_type_id.code == document_type_id_code:
-    #         value = active_id.item_ids.search([
-    #             ('document_id', '=', active_id.id),
-    #             ('code', '=', item_code),
-    #         ]).value
-    #     else:
-    #         value = False
-    #     return value
-
-    # def _set_value(self, document_type_id_code, item_code, value):
-    #     active_id = self.env['clv.document'].browse(self._context.get('active_id'))
-    #     if active_id.document_type_id.code == document_type_id_code:
-    #         item_reg = active_id.item_ids.search([
-    #             ('document_id', '=', active_id.id),
-    #             ('code', '=', item_code),
-    #         ])
-    #         item_reg.value = value
-
     @api.model
     def referenceable_models(self):
         return [(ref.model, ref.name) for ref in self.env['clv.referenceable.model'].search([
@@ -60,7 +40,6 @@ class SurveyUserInputSetSurveyUserInput(models.TransientModel):
     def _default_reference(self):
         reference = self.env['clv.document'].browse(self._context.get('active_id')).ref_id
         if reference:
-            # ref_model = reference._name
             ref_name = reference.name
             ref_code = reference.code
             return ref_name + ' [' + ref_code + ']'
@@ -94,6 +73,7 @@ class SurveyUserInputSetSurveyUserInput(models.TransientModel):
         SurveyQuestion = self.env['survey.question']
         SurveyUserInput = self.env['survey.user_input']
         SurveyUserInputLine = self.env['survey.user_input_line']
+        DocumentTypeParameter = self.env['clv.document.type.parameter']
 
         if document.survey_user_input_id.id is False:
 
@@ -126,22 +106,21 @@ class SurveyUserInputSetSurveyUserInput(models.TransientModel):
                 m2m_list.append((4, question.id))
             new_user_input.question_ids = m2m_list
 
-            init_vals = {}
-            init_vals['code'] = ["QAN21_01_01", "text"]
-            init_vals['ref_id.name'] = ["QAN21_02_01", "text"]
-            init_vals['ref_id.code'] = ["QAN21_02_02", "text"]
+            document_type_parameters = DocumentTypeParameter.search([
+                ('document_type_id', '=', document.document_type_id.id),
+            ])
 
-            for key in init_vals:
+            for document_type_parameter in document_type_parameters:
 
                 question = SurveyQuestion.search([
-                    ('code', '=', init_vals[key][0]),
+                    ('code', '=', document_type_parameter.code),
                 ])
                 values = {
                     'user_input_id': new_user_input.id,
                     'survey_id': document.survey_id.id,
                     'question_id': question.id,
-                    'answer_type': init_vals[key][1],
-                    'value_text': eval('document.' + key),
+                    'answer_type': document_type_parameter.parameter_type,
+                    'value_text': eval('document.' + document_type_parameter.name),
                 }
                 SurveyUserInputLine.create(values)
 
