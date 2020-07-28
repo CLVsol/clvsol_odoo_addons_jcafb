@@ -113,13 +113,13 @@ class SurveyUserInputSetSurveyUserInput(models.TransientModel):
             for document_type_parameter in document_type_parameters:
 
                 question = SurveyQuestion.search([
-                    ('code', '=', document_type_parameter.code),
+                    ('code', '=', document_type_parameter.item_code),
                 ])
                 values = {
                     'user_input_id': new_user_input.id,
                     'survey_id': document.survey_id.id,
                     'question_id': question.id,
-                    'answer_type': document_type_parameter.parameter_type,
+                    'answer_type': document_type_parameter.iltem_type,
                     'value_text': eval('document.' + document_type_parameter.name),
                 }
                 SurveyUserInputLine.create(values)
