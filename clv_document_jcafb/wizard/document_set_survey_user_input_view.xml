@@ -41,6 +41,7 @@
         binding_model="clv.document"
         res_model="clv.document.set_survey_user_input"
         view_mode="form"
+        binding_views="form"
         target="new"
     />
 

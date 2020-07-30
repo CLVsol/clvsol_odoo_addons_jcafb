@@ -80,7 +80,7 @@ class SurveyUserInputSetSurveyUserInput(models.TransientModel):
             ref_model = document.ref_id._name
 
             values = {
-                'token': document.code.replace('.', '-'),
+                # 'token': document.code.replace('.', '-'),
                 'survey_id': document.survey_id.id,
                 'document_code': document.code,
                 'document_id': document.id,
@@ -119,7 +119,7 @@ class SurveyUserInputSetSurveyUserInput(models.TransientModel):
                     'user_input_id': new_user_input.id,
                     'survey_id': document.survey_id.id,
                     'question_id': question.id,
-                    'answer_type': document_type_parameter.iltem_type,
+                    'answer_type': document_type_parameter.item_type,
                     'value_text': eval('document.' + document_type_parameter.name),
                 }
                 SurveyUserInputLine.create(values)
