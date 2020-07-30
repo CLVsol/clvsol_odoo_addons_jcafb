@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo>
+
+    <record id="clv_document_set_survey_user_input_view_form" model="ir.ui.view">
+        <field name="name">clv.document.set_survey_user_input.form</field>
+        <field name="model">clv.document.set_survey_user_input</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_right">
+                    </div>
+                    <group  name="group_top">
+                        <field name="document_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
+                        <field name="document_type_id" options="{'no_open': True, 'no_create': True, 'readonly': True}"/>
+                        <field name="reference" options="{'readonly': True}"/>
+                    </group>
+                    <group  name="group_bottom">
+                    </group>
+                </sheet>
+                <footer>
+                    <button 
+                        type="object"
+                        name="do_document_set_survey_user_input"
+                        string="Set Survey User Input"
+                        class="oe_highlight"
+                        />
+                    <button special="cancel" string="Cancel"/>
+                </footer>
+            </form>
+
+        </field>
+    </record>
+
+    <!-- More button Action -->
+    <act_window 
+        id="clv_document_set_survey_user_input_action"
+        name="Document Set Survey User Input"
+        binding_model="clv.document"
+        res_model="clv.document.set_survey_user_input"
+        view_mode="form"
+        binding_views="form"
+        target="new"
+    />
+
+</odoo>

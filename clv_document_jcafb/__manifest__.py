@@ -29,6 +29,7 @@
         'wizard/survey_user_input_mass_edit_view.xml',
         'wizard/survey_user_input_refresh_view.xml',
         'wizard/survey_user_input_validate_view.xml',
+        'wizard/document_set_survey_user_input_view.xml',
         'views/document_menu_view.xml',
     ],
     'demo': [],
