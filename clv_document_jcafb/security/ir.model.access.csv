@@ -1,5 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-
-access_clv_document_type_parameter_user,clv.document.type.parameter.user,model_clv_document_type_parameter,clv_document.group_user,1,0,0,0
-access_clv_document_type_parameter_manager,clv.document.manager.parameter,model_clv_document_type_parameter,clv_document.group_manager,1,1,1,0
-access_clv_document_type_parameter_supmanager,clv.document.type.parameter.supmanager,model_clv_document_type_parameter,clv_document.group_supmanager,1,1,1,1

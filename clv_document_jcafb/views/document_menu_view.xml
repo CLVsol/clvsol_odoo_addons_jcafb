@@ -31,7 +31,7 @@
         parent="clv_document.menu_base_config_document"
         groups="clv_document.group_user"
         sequence="25"
-        action="clv_document_jcafb.clv_document_type_parameter_action"/>
+        action="clv_document.clv_document_type_parameter_action"/>
 
     <menuitem name="Items" id="clv_document.menu_base_config_document_items"
         parent="clv_document.menu_base_config_document"
