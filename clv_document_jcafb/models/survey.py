@@ -24,6 +24,21 @@ class Document(models.Model):
         string='Base Survey User Input'
     )
 
+    survey_url = fields.Char(
+        string='Survey URL',
+        compute="_compute_survey_url"
+    )
+
+    def _compute_survey_url(self):
+
+        base_url = '/' if self.env.context.get('relative_url') else \
+                   self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+
+        for document in self:
+            user_input = document.survey_user_input_id
+            document.survey_url = \
+                urls.url_join(base_url, "survey/fill/%s/%s" % (user_input.survey_id.access_token, user_input.token))
+
 
 class SurveyUserInput(models.Model):
     _inherit = 'survey.user_input'
