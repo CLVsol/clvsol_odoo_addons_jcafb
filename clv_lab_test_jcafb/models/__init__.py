@@ -18,3 +18,4 @@ from . import file_system
 from . import lab_test_parasite
 from . import lab_test_crystal
 from . import global_settings
+from . import survey

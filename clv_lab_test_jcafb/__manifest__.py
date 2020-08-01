@@ -17,6 +17,7 @@
         'clv_set',
         'clv_base_jcafb',
         # 'clv_document_jcafb',
+        'clv_survey',
     ],
     'data': [
         'security/ir.model.access.csv',
@@ -37,6 +38,7 @@
         'views/file_system_view.xml',
         'views/lab_test_parasite_view.xml',
         'views/lab_test_crystal_view.xml',
+        'views/survey_view.xml',
         'views/global_settings_view.xml',
         'data/lab_test_request_seq.xml',
         'data/lab_test_result_seq.xml',
