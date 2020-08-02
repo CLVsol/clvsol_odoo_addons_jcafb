@@ -21,6 +21,7 @@
     ],
     'data': [
         'security/ir.model.access.csv',
+        'views/lab_test_type_view.xml',
         'views/lab_test_request_view.xml',
         'views/lab_test_request_code_view.xml',
         'views/lab_test_request_state_view.xml',
