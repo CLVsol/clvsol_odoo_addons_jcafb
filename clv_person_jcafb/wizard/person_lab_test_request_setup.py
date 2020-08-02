@@ -28,7 +28,6 @@ class PersonLabTestRequestSetup(models.TransientModel):
         string='Lab Test Types'
     )
 
-    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -41,7 +40,6 @@ class PersonLabTestRequestSetup(models.TransientModel):
         }
         return action
 
-    # @api.multi
     def do_person_lab_test_request_setup(self):
         self.ensure_one()
 
@@ -62,7 +60,6 @@ class PersonLabTestRequestSetup(models.TransientModel):
                 values = {
                     'code_sequence': 'clv.lab_test.request.code',
                     'lab_test_type_ids': m2m_list,
-                    'survey_id': lab_test_type.survey_id.id,
                     'ref_id': ref_id,
                 }
                 lab_test_request = LabTestRequest.create(values)
