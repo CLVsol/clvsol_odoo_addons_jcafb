@@ -62,6 +62,7 @@ class PersonLabTestRequestSetup(models.TransientModel):
                 values = {
                     'code_sequence': 'clv.lab_test.request.code',
                     'lab_test_type_ids': m2m_list,
+                    'survey_id': lab_test_type.survey_id.id,
                     'ref_id': ref_id,
                 }
                 lab_test_request = LabTestRequest.create(values)
