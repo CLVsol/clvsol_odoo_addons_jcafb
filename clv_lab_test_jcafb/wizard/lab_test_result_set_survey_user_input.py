@@ -113,13 +113,13 @@ class LabTestResultSetSurveyUserInput(models.TransientModel):
             for lab_test_result_type_parameter in lab_test_result_type_parameters:
 
                 question = SurveyQuestion.search([
-                    ('code', '=', lab_test_result_type_parameter.item_code),
+                    ('code', '=', lab_test_result_type_parameter.criterion_code),
                 ])
                 values = {
                     'user_input_id': new_user_input.id,
                     'survey_id': lab_test_result.survey_id.id,
                     'question_id': question.id,
-                    'answer_type': lab_test_result_type_parameter.item_type,
+                    'answer_type': lab_test_result_type_parameter.criterion_type,
                     'value_text': eval('lab_test_result.' + lab_test_result_type_parameter.name),
                 }
                 SurveyUserInputLine.create(values)
