@@ -28,7 +28,6 @@ class PersonLabTestRequestSetup(models.TransientModel):
         string='Lab Test Types'
     )
 
-    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -41,7 +40,6 @@ class PersonLabTestRequestSetup(models.TransientModel):
         }
         return action
 
-    # @api.multi
     def do_person_lab_test_request_setup(self):
         self.ensure_one()
 

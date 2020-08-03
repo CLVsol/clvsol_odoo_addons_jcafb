@@ -123,20 +123,6 @@ class LabTestRequestReceive(models.TransientModel):
         default=_default_templates_dir_path_report
     )
 
-    # @api.multi
-    def _reopen_form(self):
-        self.ensure_one()
-        action = {
-            'type': 'ir.actions.act_window',
-            'res_model': self._name,
-            'res_id': self.id,
-            'view_type': 'form',
-            'view_mode': 'form',
-            'target': 'new',
-        }
-        return action
-
-    # @api.multi
     def do_lab_test_request_receive(self):
         self.ensure_one()
 
@@ -167,41 +153,42 @@ class LabTestRequestReceive(models.TransientModel):
 
                     _logger.info(u'%s %s', '>>>>>>>>>>', lab_test_type.name)
 
-                    criteria = []
-                    for criterion in lab_test_type.criterion_ids:
-                        if criterion.result_display:
-                            criteria.append((0, 0, {'code': criterion.code,
-                                                    'name': criterion.name,
-                                                    'sequence': criterion.sequence,
-                                                    'normal_range': criterion.normal_range,
-                                                    'unit_id': criterion.unit_id.id,
-                                                    }))
+                    # criteria = []
+                    # for criterion in lab_test_type.criterion_ids:
+                    #     if criterion.result_display:
+                    #         criteria.append((0, 0, {'code': criterion.code,
+                    #                                 'name': criterion.name,
+                    #                                 'sequence': criterion.sequence,
+                    #                                 'normal_range': criterion.normal_range,
+                    #                                 'unit_id': criterion.unit_id.id,
+                    #                                 }))
 
                     values = {
                         'code_sequence': 'clv.lab_test.result.code',
                         'lab_test_type_id': lab_test_type.id,
+                        'survey_id': lab_test_type.survey_id.id,
                         'ref_id': ref_id,
                         'lab_test_request_id': lab_test_request.id,
                         'phase_id': lab_test_request.phase_id.id,
-                        'criterion_ids': criteria,
+                        # 'criterion_ids': criteria,
                     }
                     lab_test_result = LabTestResult.create(values)
 
-                    lab_test_result.lab_test_result_export_xls(self.dir_path_result, self.file_name_result,
-                                                               self.use_template_result,
-                                                               self.templates_dir_path_result)
+                    # lab_test_result.lab_test_result_export_xls(self.dir_path_result, self.file_name_result,
+                    #                                            self.use_template_result,
+                    #                                            self.templates_dir_path_result)
 
                     _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', lab_test_result.code)
 
-                    criteria = []
-                    for criterion in lab_test_type.criterion_ids:
-                        if criterion.report_display:
-                            criteria.append((0, 0, {'code': criterion.code,
-                                                    'name': criterion.name,
-                                                    'sequence': criterion.sequence,
-                                                    'normal_range': criterion.normal_range,
-                                                    'unit_id': criterion.unit_id.id,
-                                                    }))
+                    # criteria = []
+                    # for criterion in lab_test_type.criterion_ids:
+                    #     if criterion.report_display:
+                    #         criteria.append((0, 0, {'code': criterion.code,
+                    #                                 'name': criterion.name,
+                    #                                 'sequence': criterion.sequence,
+                    #                                 'normal_range': criterion.normal_range,
+                    #                                 'unit_id': criterion.unit_id.id,
+                    #                                 }))
 
                     values = {
                         'code_sequence': 'clv.lab_test.report.code',
@@ -209,7 +196,7 @@ class LabTestRequestReceive(models.TransientModel):
                         'ref_id': ref_id,
                         'lab_test_request_id': lab_test_request.id,
                         'phase_id': lab_test_request.phase_id.id,
-                        'criterion_ids': criteria,
+                        # 'criterion_ids': criteria,
                     }
                     lab_test_report = LabTestReport.create(values)
 

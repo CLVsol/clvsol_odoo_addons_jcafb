@@ -50,11 +50,11 @@
         sequence="30"
         action="clv_lab_test.clv_lab_test_type_action"/>
 
-    <!--menuitem name="Direct Mail" id="clv_lab_test.menu_health_health_lab_test_requests_direct_mail"
-        parent="clv_lab_test.menu_health_health_lab_test_requests"
+    <menuitem name="Parameters" id="clv_lab_test.menu_health_config_lab_test_parameters"
+        parent="clv_lab_test.menu_health_config_lab_test"
         groups="clv_lab_test.group_user"
-        sequence="30"
-        action="clv_lab_test_jcafb.clv_lab_test_request_direct_mail_actions"/-->
+        sequence="35"
+        action="clv_lab_test.clv_lab_test_type_parameter_action"/>
 
     <menuitem name="Parasites" id="clv_lab_test.menu_health_config_lab_test_parasites"
         parent="clv_lab_test.menu_health_config_lab_test"
