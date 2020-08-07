@@ -4,3 +4,4 @@
 
 from . import hr_employee
 from . import hr_employee_code
+from . import set_element
