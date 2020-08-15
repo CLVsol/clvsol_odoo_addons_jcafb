@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
+     License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl). -->
+
+<odoo noupdate="1">
+
+    <record id="clv_default_value_family_mass_edit_reg_state_selection" model="clv.default_value">
+        <field name="model">clv.family</field>
+        <field name="parameter">mass_edit_reg_state_selection</field>
+        <field name="value">set</field>
+    </record>
+
+    <record id="clv_default_value_family_mass_edit_reg_state" model="clv.default_value">
+        <field name="model">clv.family</field>
+        <field name="parameter">mass_edit_reg_state</field>
+        <field name="value">revised</field>
+    </record>
+
+    <record id="clv_default_value_family_mass_edit_state_selection" model="clv.default_value">
+        <field name="model">clv.family</field>
+        <field name="parameter">mass_edit_state_selection</field>
+        <field name="value">set</field>
+    </record>
+
+    <record id="clv_default_value_family_mass_edit_state" model="clv.default_value">
+        <field name="model">clv.family</field>
+        <field name="parameter">mass_edit_state</field>
+        <field name="value">available</field>
+    </record>
+
+</odoo>

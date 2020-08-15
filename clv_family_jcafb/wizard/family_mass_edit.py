@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import fields, models
+from odoo import api, fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -17,11 +17,11 @@ class FamilyMassEdit(models.TransientModel):
          ('revised', 'Revised'),
          ('done', 'Done'),
          ('canceled', 'Canceled')
-         ], string='Register State', default=False, readonly=False, required=False
+         ], string='Register State', readonly=False, required=False
     )
     reg_state_selection = fields.Selection(
         [('set', 'Set'),
-         ], string='Register State:', default=False, readonly=False, required=False
+         ], string='Register State:', readonly=False, required=False
     )
 
     state = fields.Selection(
@@ -32,14 +32,50 @@ class FamilyMassEdit(models.TransientModel):
          ('unselected', 'Unselected'),
          ('unavailable', 'Unavailable'),
          ('unknown', 'Unknown')
-         ], string='State', default=False, readonly=False, required=False
+         ], string='State', readonly=False, required=False
     )
     state_selection = fields.Selection(
         [('set', 'Set'),
-         ], string='State:', default=False, readonly=False, required=False
+         ], string='State:', readonly=False, required=False
     )
 
-    # @api.multi
+    @api.model
+    def default_get(self, field_names):
+
+        defaults = super().default_get(field_names)
+
+        reg_state = self.env['clv.default_value'].search([
+            ('model', '=', 'clv.family'),
+            ('parameter', '=', 'mass_edit_reg_state'),
+            ('enabled', '=', True),
+        ]).value
+
+        reg_state_selection = self.env['clv.default_value'].search([
+            ('model', '=', 'clv.family'),
+            ('parameter', '=', 'mass_edit_reg_state_selection'),
+            ('enabled', '=', True),
+        ]).value
+
+        defaults['reg_state'] = reg_state
+        defaults['reg_state_selection'] = reg_state_selection
+
+        state = self.env['clv.default_value'].search([
+            ('model', '=', 'clv.family'),
+            ('parameter', '=', 'mass_edit_state'),
+            ('enabled', '=', True),
+        ]).value
+
+        state_selection = self.env['clv.default_value'].search([
+            ('model', '=', 'clv.family'),
+            ('parameter', '=', 'mass_edit_state_selection'),
+            ('enabled', '=', True),
+        ]).value
+
+        defaults['state'] = state
+        defaults['state_selection'] = state_selection
+
+        return defaults
+
     def do_family_mass_edit(self):
         self.ensure_one()
 
