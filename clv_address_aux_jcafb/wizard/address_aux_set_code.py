@@ -19,7 +19,11 @@ class AddressAuxSetCode(models.TransientModel):
         string='Addresses (Aux)'
     )
 
-    # @api.multi
+    address_aux_verification_exec = fields.Boolean(
+        string='Address (Aux) Verification Execute',
+        default=True,
+    )
+
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -41,7 +45,6 @@ class AddressAuxSetCode(models.TransientModel):
 
         return defaults
 
-    # @api.multi
     def do_address_aux_set_code(self):
         self.ensure_one()
 
@@ -50,5 +53,8 @@ class AddressAuxSetCode(models.TransientModel):
             _logger.info(u'%s %s', '>>>>>', address_aux.name)
 
             address_aux._address_aux_set_code()
+
+            if self.address_aux_verification_exec:
+                address_aux._address_aux_verification_exec()
 
         return True
