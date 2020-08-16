@@ -19,7 +19,11 @@ class PersonAuxSetCode(models.TransientModel):
         string='Persons (Aux)'
     )
 
-    # @api.multi
+    person_aux_verification_exec = fields.Boolean(
+        string='Person (Aux) Verification Execute',
+        default=True,
+    )
+
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -41,7 +45,6 @@ class PersonAuxSetCode(models.TransientModel):
 
         return defaults
 
-    # @api.multi
     def do_person_aux_set_code(self):
         self.ensure_one()
 
@@ -50,5 +53,8 @@ class PersonAuxSetCode(models.TransientModel):
             _logger.info(u'%s %s', '>>>>>', person_aux.name)
 
             person_aux._person_aux_set_code()
+
+            if self.person_aux_verification_exec:
+                person_aux._person_aux_verification_exec()
 
         return True
