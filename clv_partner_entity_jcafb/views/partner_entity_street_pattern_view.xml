@@ -84,7 +84,7 @@
     </record>
     
     <record id="clv_partner_entity_street_pattern_action" model="ir.actions.act_window">
-        <field name="name">Lab Test Criteria</field>
+        <field name="name">Street Patterns</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">clv.partner_entity.street_pattern</field>
         <!--*field name="view_type">form</field-->
