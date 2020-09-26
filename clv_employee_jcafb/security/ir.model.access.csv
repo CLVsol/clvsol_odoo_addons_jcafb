@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_hr_employee_associate_to_set_user,hr.employee.associate_to_set.user,model_hr_employee_associate_to_set,clv_employee.group_user,1,0,0,0
+access_hr_employee_associate_to_set_manager,hr.employee.associate_to_set.manager,model_hr_employee_associate_to_set,clv_employee.group_manager,1,1,1,0
+access_hr_employee_associate_to_set_supmanager,hr.employee.associate_to_set.supmanager,model_hr_employee_associate_to_set,clv_employee.group_supmanager,1,1,1,1

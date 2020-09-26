@@ -15,6 +15,7 @@
         'clv_set',
     ],
     'data': [
+        'security/ir.model.access.csv',
         'views/hr_employee_view.xml',
         'views/hr_employee_code_view.xml',
         'views/set_element_view.xml',
