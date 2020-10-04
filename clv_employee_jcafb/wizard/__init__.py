@@ -3,4 +3,3 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from . import hr_employee_mass_edit
-from . import hr_employee_associate_to_set

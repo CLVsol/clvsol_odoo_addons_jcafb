@@ -12,17 +12,12 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_employee',
-        'clv_set',
     ],
     'data': [
-        'security/ir.model.access.csv',
         'views/hr_employee_view.xml',
         'views/hr_employee_code_view.xml',
-        'views/set_element_view.xml',
         'wizard/hr_employee_mass_edit_view.xml',
-        'wizard/hr_employee_associate_to_set_view.xml',
         'data/hr_employee_seq.xml',
-        'data/set_element.xml',
     ],
     'demo': [],
     'test': [],
