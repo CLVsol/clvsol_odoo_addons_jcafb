@@ -27,7 +27,6 @@
         'views/family_reg_state_view.xml',
         'views/family_state_view.xml',
         'views/address_view.xml',
-        'views/family_menu_view.xml',
         'wizard/family_mass_edit_view.xml',
         'wizard/family_document_setup_view.xml',
     ],
