@@ -34,7 +34,6 @@
         'views/person_aux_state_view.xml',
         'views/person_aux_code_view.xml',
         'views/person_aux_view.xml',
-        'views/person_aux_menu_view.xml',
         'wizard/person_aux_event_setup_view.xml',
         'wizard/person_aux_document_setup_view.xml',
         'wizard/person_aux_lab_test_request_setup_view.xml',
