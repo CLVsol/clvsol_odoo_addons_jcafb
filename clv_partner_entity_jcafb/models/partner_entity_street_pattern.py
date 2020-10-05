@@ -30,7 +30,7 @@ class PartnerEntityStreetPattern(models.Model):
 
     street = fields.Char(string='Street')
 
-    street2 = fields.Char(string='District')
+    street2 = fields.Char(string='Street 2')
 
     notes = fields.Text(string='Notes')
 
