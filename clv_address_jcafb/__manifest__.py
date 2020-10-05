@@ -25,6 +25,7 @@
         'data/community_member.xml',
         'data/event_attendee.xml',
         'data/lab_test.xml',
+        'security/ir.model.access.csv',
         'views/address_code_view.xml',
         'views/document_view.xml',
         'views/community_member_view.xml',

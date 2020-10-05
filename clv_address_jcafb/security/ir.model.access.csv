@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_clv_address_document_setup_user,clv.address.document_setup.user,model_clv_address_document_setup,clv_address.group_user,1,0,0,0
+access_clv_address_document_setup_manager,clv.address.document_setup.manager,model_clv_address_document_setup,clv_address.group_manager,1,1,1,0
+access_clv_address_document_setup_supmanager,clv.address.document_setup.supmanager,model_clv_address_document_setup,clv_address.group_supmanager,1,1,1,1
+
+access_clv_address_lab_test_request_setup_user,clv.address.lab_test.request.setup.user,model_clv_address_lab_test_request_setup,clv_address.group_user,1,0,0,0
+access_clv_address_lab_test_request_setup_manager,clv.address.lab_test.request.setup.manager,model_clv_address_lab_test_request_setup,clv_address.group_manager,1,1,1,0
+access_clv_address_lab_test_request_setup_supmanager,clv.address.lab_test.request.setup.supmanager,model_clv_address_lab_test_request_setup,clv_address.group_supmanager,1,1,1,1
+
+access_clv_address_street_pattern_add_user,clv.address.street_pattern_add.user,model_clv_address_street_pattern_add,clv_address.group_user,1,0,0,0
+access_clv_address_street_pattern_add_manager,clv.address.street_pattern_add.manager,model_clv_address_street_pattern_add,clv_address.group_manager,1,1,1,0
+access_clv_address_street_pattern_add_supmanager,clv.address.street_pattern_add.supmanager,model_clv_address_street_pattern_add,clv_address.group_supmanager,1,1,1,1
