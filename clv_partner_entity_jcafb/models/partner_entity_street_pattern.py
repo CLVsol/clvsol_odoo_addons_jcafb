@@ -8,18 +8,18 @@ from odoo import api, fields, models
 class PartnerEntityStreetPattern(models.Model):
     _description = 'Partner Entity Street Pattern'
     _name = "clv.partner_entity.street_pattern"
-    _order = "street, district"
+    _order = "street, street2"
     _rec_name = 'street'
 
     # @api.multi
-    @api.depends('street', 'district')
+    @api.depends('street', 'street2')
     def name_get(self):
         result = []
         for record in self:
-            if record.district:
+            if record.street2:
                 result.append(
                     (record.id,
-                     u'%s (%s)' % (record.street, record.district)
+                     u'%s (%s)' % (record.street, record.street2)
                      ))
             else:
                 result.append(
@@ -30,7 +30,7 @@ class PartnerEntityStreetPattern(models.Model):
 
     street = fields.Char(string='Street')
 
-    district = fields.Char(string='District')
+    street2 = fields.Char(string='District')
 
     notes = fields.Text(string='Notes')
 
@@ -38,7 +38,7 @@ class PartnerEntityStreetPattern(models.Model):
 
     _sql_constraints = [
         ('pattern_uniq',
-         'UNIQUE(street, district)',
+         'UNIQUE(street, street2)',
          u'Error! The Pattern must be unique!'
          ),
     ]
