@@ -32,13 +32,12 @@
     </record>
 
     <!-- More button Action -->
-    <act_window 
-        id="clv_document_items_updt_from_survey_action"
-        name="Document Items Update from Survey"
-        binding_model="clv.document"
-        res_model="clv.document.items_updt_from_survey"
-        view_mode="form"
-        target="new"
-    />
+    <record id="clv_document_items_updt_from_survey_action" model="ir.actions.act_window">
+        <field name="name">Document Items Update from Survey</field>
+        <field name="binding_model_id" ref="model_clv_document"/>
+        <field name="res_model">clv.document.items_updt_from_survey</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
 
 </odoo>

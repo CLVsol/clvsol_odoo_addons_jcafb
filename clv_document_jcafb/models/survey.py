@@ -37,7 +37,8 @@ class Document(models.Model):
         for document in self:
             user_input = document.survey_user_input_id
             document.survey_url = \
-                urls.url_join(base_url, "survey/fill/%s/%s" % (user_input.survey_id.access_token, user_input.token))
+                urls.url_join(
+                    base_url, "survey/%s/%s" % (user_input.survey_id.access_token, user_input.access_token))
 
 
 class SurveyUserInput(models.Model):
@@ -70,21 +71,22 @@ class SurveyUserInput(models.Model):
 
     notes = fields.Text(string='Notes')
 
-    survey_url = fields.Char(
-        string='Survey URL',
-        compute="_compute_survey_url"
-    )
+    # survey_url = fields.Char(
+    #     string='Survey URL',
+    #     compute="_compute_survey_url"
+    # )
 
-    def _compute_survey_url(self):
+    # def _compute_survey_url(self):
 
-        base_url = '/' if self.env.context.get('relative_url') else \
-                   self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+    #     base_url = '/' if self.env.context.get('relative_url') else \
+    #                self.env['ir.config_parameter'].sudo().get_param('web.base.url')
 
-        for user_input in self:
-            # user_input.survey_url = \
-            #     urls.url_join(base_url, "survey/fill/%s/%s" % (slug(user_input.survey_id), user_input.token))
-            user_input.survey_url = \
-                urls.url_join(base_url, "survey/fill/%s/%s" % (user_input.survey_id.access_token, user_input.token))
+    #     for user_input in self:
+    #         # user_input.survey_url = \
+    #         #     urls.url_join(base_url, "survey/fill/%s/%s" % (slug(user_input.survey_id), user_input.token))
+    #         user_input.survey_url = \
+    #             urls.url_join(
+    #                 base_url, "survey/fill/%s/%s" % (user_input.survey_id.access_token, user_input.access_token))
 
 
 class SurveyUserInput_2(models.Model):

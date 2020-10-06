@@ -51,12 +51,12 @@
                 <field name="deadline"/>
                 <field name="partner_id"/>
                 <field name="email"/>
-                <field name="input_type" groups="base.group_no_one"/>
-                <field name="attempt_number" />
+                <!--field name="input_type" groups="base.group_no_one"/-->
+                <!--field name="attempt_number" /-->
                 <field name="state"/>
                 <field name="test_entry" invisible="True"/>
-                <field name="quizz_passed"/>
-                <field name="quizz_score"/>
+                <!--field name="quizz_passed"/-->
+                <!--field name="quizz_score"/-->
             </tree>
         </field>
     </record>
@@ -67,14 +67,14 @@
         <field name="inherit_id" ref="survey.survey_user_input_view_form"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-            <field name="token" position="after">
+            <field name="access_token" position="after">
                 <field name="document_code"/>
                 <field name="person_code"/>
                 <field name="family_code"/>
                 <field name="address_code"/>
                 <field name="document_id" options="{'no_open': False, 'no_create': True}"/>
                 <field name="notes"/>
-                <field name="survey_url" widget="url"/>
+                <!--field name="survey_url" widget="url"/-->
             </field>
         </field>
     </record>
@@ -92,7 +92,7 @@
                 <field name="address_code"/>
                 <field name="document_id"/>
                 <field name="notes"/>
-                <field name="survey_url" widget="url"/>
+                <!--field name="survey_url" widget="url"/-->
             </field>
         </field>
     </record>
