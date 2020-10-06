@@ -18,6 +18,7 @@
         'clv_address_jcafb',
     ],
     'data': [
+        'security/ir.model.access.csv',
         'data/family_seq.xml',
         'data/document.xml',
         'data/default_value.xml',
