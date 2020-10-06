@@ -30,13 +30,12 @@
     </record>
 
     <!-- More button Action -->
-    <act_window 
-        id="clv_person_lab_test_request_setup_action"
-        name="Lab Test Request Set Up [Person]"
-        binding_model="clv.person"
-        res_model="clv.person.lab_test.request.setup"
-        view_mode="form"
-        target="new"
-    />
+    <record id="clv_person_lab_test_request_setup_action" model="ir.actions.act_window">
+        <field name="name">Lab Test Request Set Up [Person]</field>
+        <field name="binding_model_id" ref="model_clv_person"/>
+        <field name="res_model">clv.person.lab_test.request.setup</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
 
 </odoo>

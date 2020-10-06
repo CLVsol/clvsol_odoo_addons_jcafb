@@ -24,6 +24,7 @@
         'clv_family_jcafb',
     ],
     'data': [
+        'security/ir.model.access.csv',
         'data/person_seq.xml',
         'data/document.xml',
         'data/community_member.xml',
