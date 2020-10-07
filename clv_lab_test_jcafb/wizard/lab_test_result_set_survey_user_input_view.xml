@@ -35,14 +35,12 @@
     </record>
 
     <!-- More button Action -->
-    <act_window 
-        id="clv_lab_test_result_set_survey_user_input_action"
-        name="Lab Test Result Set Survey User Input"
-        binding_model="clv.lab_test.result"
-        res_model="clv.lab_test.result.set_survey_user_input"
-        view_mode="form"
-        binding_views="form"
-        target="new"
-    />
+    <record id="clv_lab_test_result_set_survey_user_input_action" model="ir.actions.act_window">
+        <field name="name">Lab Test Result Set Survey User Input</field>
+        <field name="binding_model_id" ref="model_clv_lab_test_result"/>
+        <field name="res_model">clv.lab_test.result.set_survey_user_input</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
 
 </odoo>

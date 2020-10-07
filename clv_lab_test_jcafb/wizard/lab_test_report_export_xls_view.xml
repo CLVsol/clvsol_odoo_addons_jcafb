@@ -33,12 +33,12 @@
         </field>
     </record>
 
-    <act_window 
-        id="clv_lab_test_report_export_xls_action"
-        name="Lab Test Report Export XLS"
-        res_model="clv.lab_test.report.export_xls"
-        view_mode="form"
-        target="new"
-    />
+    <!-- More button Action -->
+    <record id="clv_lab_test_report_export_xls_action" model="ir.actions.act_window">
+        <field name="name">Lab Test Report Export XLS</field>
+        <field name="res_model">clv.lab_test.report.export_xls</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
 
 </odoo>

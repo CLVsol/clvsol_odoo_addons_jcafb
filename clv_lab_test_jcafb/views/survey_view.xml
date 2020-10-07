@@ -43,7 +43,7 @@
         <field name="inherit_id" ref="survey.survey_user_input_view_form"/>
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
-            <field name="token" position="after">
+            <field name="access_token" position="after">
                 <field name="lab_test_result_code"/>
                 <field name="lab_test_result_id" options="{'no_open': False, 'no_create': True}"/>
             </field>

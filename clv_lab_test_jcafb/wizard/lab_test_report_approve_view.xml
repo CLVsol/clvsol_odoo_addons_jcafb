@@ -36,7 +36,7 @@
         </field>
     </record>
 
-    <act_window 
+<!--     <act_window 
         id="clv_lab_test_report_approve_action"
         name="Lab Test Result Approve"
         res_model="clv.lab_test.report.approve"
@@ -44,5 +44,13 @@
         target="new"
         groups="clv_lab_test.group_approver"
     />
+
+ -->    <!-- More button Action -->
+    <record id="clv_lab_test_report_approve_action" model="ir.actions.act_window">
+        <field name="name">Lab Test Result Approve</field>
+        <field name="res_model">clv.lab_test.report.approve</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
 
 </odoo>

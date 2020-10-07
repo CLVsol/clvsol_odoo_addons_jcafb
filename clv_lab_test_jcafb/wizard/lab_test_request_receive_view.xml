@@ -46,21 +46,12 @@
     </record>
 
     <!-- More button Action -->
-    <!--act_window 
-        id="clv_lab_test_request_receive_action"
-        name="Lab Test Request Receive"
-        binding_model="clv.lab_test.request"
-        res_model="clv.lab_test.request.receive"
-        view_mode="form, tree"
-        target="new"
-    /-->
-    <act_window 
-        id="clv_lab_test_request_receive_action"
-        name="Lab Test Request Receive"
-        binding_model="clv.lab_test.request"
-        res_model="clv.lab_test.request.receive"
-        view_mode="form"
-        target="new"
-    />
+    <record id="clv_lab_test_request_receive_action" model="ir.actions.act_window">
+        <field name="name">Lab Test Request Receive</field>
+        <field name="binding_model_id" ref="model_clv_lab_test_request"/>
+        <field name="res_model">clv.lab_test.request.receive</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
 
 </odoo>

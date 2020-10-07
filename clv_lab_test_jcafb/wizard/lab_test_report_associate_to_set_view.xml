@@ -35,13 +35,12 @@
     </record>
 
     <!-- More button Action -->
-    <act_window 
-        id="clv_lab_test_report_associate_to_set_action"
-        name="Lab Test Report Associate to Set"
-        binding_model="clv.lab_test.report"
-        res_model="clv.lab_test.report.associate_to_set"
-        view_mode="form"
-        target="new"
-    />
+    <record id="clv_lab_test_report_associate_to_set_action" model="ir.actions.act_window">
+        <field name="name">Lab Test Report Associate to Set</field>
+        <field name="binding_model_id" ref="model_clv_lab_test_report"/>
+        <field name="res_model">clv.lab_test.report.associate_to_set</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
 
 </odoo>
