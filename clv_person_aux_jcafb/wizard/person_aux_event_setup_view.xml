@@ -41,13 +41,12 @@
     </record>
 
     <!-- More button Action -->
-    <act_window 
-        id="clv_person_aux_event_setup_action"
-        name="Event Set Up [Person (Aux)]"
-        binding_model="clv.person_aux"
-        res_model="clv.person_aux.event_setup"
-        view_mode="form"
-        target="new"
-    />
+    <record id="clv_person_aux_event_setup_action" model="ir.actions.act_window">
+        <field name="name">Event Set Up [Person (Aux)]</field>
+        <field name="binding_model_id" ref="model_clv_person_aux"/>
+        <field name="res_model">clv.person_aux.event_setup</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
 
 </odoo>

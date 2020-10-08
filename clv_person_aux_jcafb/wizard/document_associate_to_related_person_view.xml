@@ -32,13 +32,12 @@
     </record>
 
     <!-- More button Action -->
-    <act_window 
-        id="clv_document_associate_to_related_person_action"
-        name="Document Associate to Related Person"
-        binding_model="clv.document"
-        res_model="clv.document.associate_to_related_person"
-        view_mode="form"
-        target="new"
-    />
+    <record id="clv_document_associate_to_related_person_action" model="ir.actions.act_window">
+        <field name="name">Document Associate to Related Person</field>
+        <field name="binding_model_id" ref="clv_document.model_clv_document"/>
+        <field name="res_model">clv.document.associate_to_related_person</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
 
 </odoo>

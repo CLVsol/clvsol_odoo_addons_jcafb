@@ -32,13 +32,12 @@
     </record>
 
     <!-- More button Action -->
-    <act_window 
-        id="clv_event_attendee_associate_to_related_person_action"
-        name="Event Attendee Associate to Related Person"
-        binding_model="clv.event.attendee"
-        res_model="clv.event.attendee.associate_to_related_person"
-        view_mode="form"
-        target="new"
-    />
+    <record id="clv_event_attendee_associate_to_related_person_action" model="ir.actions.act_window">
+        <field name="name">Event Attendee Associate to Related Person</field>
+        <field name="binding_model_id" ref="clv_event.model_clv_event_attendee"/>
+        <field name="res_model">clv.event.attendee.associate_to_related_person</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
 
 </odoo>

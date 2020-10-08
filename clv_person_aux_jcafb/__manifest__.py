@@ -21,6 +21,7 @@
         'clv_address_aux_jcafb',
     ],
     'data': [
+        'security/ir.model.access.csv',
         'data/document.xml',
         'data/community_member.xml',
         'data/event_attendee.xml',
