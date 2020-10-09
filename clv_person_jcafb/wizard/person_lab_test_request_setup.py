@@ -28,6 +28,17 @@ class PersonLabTestRequestSetup(models.TransientModel):
         string='Lab Test Types'
     )
 
+    def _default_phase_id(self):
+        phase_id = int(self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_phase_id', '').strip())
+        return phase_id
+    phase_id = fields.Many2one(
+        comodel_name='clv.phase',
+        string='Phase',
+        default=_default_phase_id,
+        ondelete='restrict'
+    )
+
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -61,6 +72,7 @@ class PersonLabTestRequestSetup(models.TransientModel):
                     'code_sequence': 'clv.lab_test.request.code',
                     'lab_test_type_ids': m2m_list,
                     'ref_id': ref_id,
+                    'phase_id': self.phase_id.id,
                 }
                 lab_test_request = LabTestRequest.create(values)
 
