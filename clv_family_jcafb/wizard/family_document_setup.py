@@ -42,7 +42,17 @@ class FamilyDocumentSetUp(models.TransientModel):
     date_foreseen = fields.Date(string='Foreseen Date', index=True)
     date_deadline = fields.Date(string='Deadline', index=True)
 
-    # @api.multi
+    def _default_phase_id(self):
+        phase_id = int(self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_phase_id', '').strip())
+        return phase_id
+    phase_id = fields.Many2one(
+        comodel_name='clv.phase',
+        string='Phase',
+        default=_default_phase_id,
+        ondelete='restrict'
+    )
+
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -55,7 +65,6 @@ class FamilyDocumentSetUp(models.TransientModel):
         }
         return action
 
-    # @api.multi
     def do_family_document_setup(self):
         self.ensure_one()
 
@@ -87,6 +96,7 @@ class FamilyDocumentSetUp(models.TransientModel):
                         'survey_id': document_type.survey_id.id,
                         # 'category_id': self.category_id.id,
                         'ref_id': ref_id,
+                        'phase_id': self.phase_id.id,
                     }
                     new_document = Document.create(values)
 
