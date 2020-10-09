@@ -14,12 +14,13 @@
                 <label for="address_ids"/>
                 <field name="address_ids" options="{'no_open': False, 'no_create': True}"/>
                 <label for="document_type_ids"/>
-                <field name="document_type_ids" options="{'no_open': False, 'no_create': True}"/>
+                <field name="document_type_ids" options="{'no_open': False, 'no_create': True}" context="{'search_default_phase_id': phase_id}"/>
                 <group>
                     <group>
                         <field name="category_id" options="{'no_open': False, 'no_create': True}"/>
                         <field name="date_foreseen"/>
                         <field name="date_deadline"/>
+                        <field name="phase_id" options="{'no_open': False, 'no_create': True}"/>
                     </group>
                 </group>
                 <footer>
