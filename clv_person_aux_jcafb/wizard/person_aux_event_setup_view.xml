@@ -14,9 +14,9 @@
                 <label for="person_aux_ids"/>
                 <field name="person_aux_ids" options="{'no_open': False, 'no_create': True}"/>
                 <label for="event_ids"/>
-                <field name="event_ids" options="{'no_open': False, 'no_create': True}"/>
+                <field name="event_ids" options="{'no_open': False, 'no_create': True}" context="{'search_default_phase_id': phase_id}"/>
                 <label for="document_type_ids"/>
-                <field name="document_type_ids" options="{'no_open': False, 'no_create': True}"/>
+                <field name="document_type_ids" options="{'no_open': False, 'no_create': True}" context="{'search_default_phase_id': phase_id}"/>
                 <group>
                     <group>
                         <field name="category_id" options="{'no_open': False, 'no_create': True}"/>
@@ -25,7 +25,12 @@
                     </group>
                 </group>
                 <label for="lab_test_type_ids"/>
-                <field name="lab_test_type_ids" options="{'no_open': False, 'no_create': True}"/>
+                <field name="lab_test_type_ids" options="{'no_open': False, 'no_create': True}" context="{'search_default_phase_id': phase_id}"/>
+                <group>
+                    <group>
+                        <field name="phase_id" options="{'no_open': False, 'no_create': True}"/>
+                    </group>
+                </group>
                 <footer>
                     <button 
                         type="object"

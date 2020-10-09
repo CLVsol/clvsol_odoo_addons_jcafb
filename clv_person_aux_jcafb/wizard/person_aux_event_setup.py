@@ -42,13 +42,23 @@ class PersonAuxEventSetUp(models.TransientModel):
     date_foreseen = fields.Date(string='Foreseen Date', index=True)
     date_deadline = fields.Date(string='Deadline', index=True)
 
+    def _default_phase_id(self):
+        phase_id = int(self.env['ir.config_parameter'].sudo().get_param(
+            'clv.global_settings.current_phase_id', '').strip())
+        return phase_id
+    phase_id = fields.Many2one(
+        comodel_name='clv.phase',
+        string='Phase',
+        default=_default_phase_id,
+        ondelete='restrict'
+    )
+
     lab_test_type_ids = fields.Many2many(
         comodel_name='clv.lab_test.type',
         relation='clv_person_aux_lab_test_request_setup_rel',
         string='Lab Test Types'
     )
 
-    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -61,7 +71,6 @@ class PersonAuxEventSetUp(models.TransientModel):
         }
         return action
 
-    # @api.multi
     def do_person_aux_event_setup(self):
         self.ensure_one()
 
@@ -116,6 +125,7 @@ class PersonAuxEventSetUp(models.TransientModel):
                         'survey_id': document_type.survey_id.id,
                         # 'category_id': self.category_id.id,
                         'ref_id': ref_id,
+                        'phase_id': self.phase_id.id,
                     }
                     new_document = Document.create(values)
 
@@ -163,6 +173,7 @@ class PersonAuxEventSetUp(models.TransientModel):
                     'code_sequence': 'clv.lab_test.request.code',
                     'lab_test_type_ids': m2m_list,
                     'ref_id': ref_id,
+                    'phase_id': self.phase_id.id,
                 }
                 lab_test_request = LabTestRequest.create(values)
 

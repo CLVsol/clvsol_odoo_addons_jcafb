@@ -21,8 +21,7 @@
                                     type="action"
                                     class="oe_stat_button"
                                     icon="fa-list"
-                                    context="{'search_default_ref_name': name, 'search_default_ref_code': code}"
-                                    attrs="{'invisible': [('lab_test_request_ids', '=', [])]}"
+                                    context="{'search_default_ref_name': name, 'search_default_ref_code': code, 'search_default_group_by_phase_id': 1}"
                                     >
                                 <div class="o_form_field o_stat_info">
                                     <span class="o_stat_value">
@@ -68,8 +67,7 @@
                                     type="action"
                                     class="oe_stat_button"
                                     icon="fa-list"
-                                    context="{'search_default_ref_name': name, 'search_default_ref_code': code}"
-                                    attrs="{'invisible': [('lab_test_result_ids', '=', [])]}"
+                                    context="{'search_default_ref_name': name, 'search_default_ref_code': code, 'search_default_group_by_phase_id': 1}"
                                     >
                                 <div class="o_form_field o_stat_info">
                                     <span class="o_stat_value">
@@ -115,8 +113,7 @@
                                     type="action"
                                     class="oe_stat_button"
                                     icon="fa-list"
-                                    context="{'search_default_ref_name': name, 'search_default_ref_code': code}"
-                                    attrs="{'invisible': [('lab_test_report_ids', '=', [])]}"
+                                    context="{'search_default_ref_name': name, 'search_default_ref_code': code, 'search_default_group_by_phase_id': 1}"
                                     >
                                 <div class="o_form_field o_stat_info">
                                     <span class="o_stat_value">
