@@ -37,7 +37,6 @@ class AddressAux(models.Model):
                 data_values['street_name'] = address_aux.related_address_id.street_name
                 data_values['street_number'] = address_aux.related_address_id.street_number
                 data_values['street2'] = address_aux.related_address_id.street2
-                data_values['district'] = address_aux.related_address_id.district
                 data_values['zip'] = address_aux.related_address_id.zip
                 data_values['city'] = address_aux.related_address_id.city
                 data_values['city_id'] = address_aux.related_address_id.city_id.id
