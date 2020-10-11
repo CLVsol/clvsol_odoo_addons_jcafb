@@ -31,13 +31,11 @@ class AddressStreetPatternAdd(models.TransientModel):
         store=False
     )
 
-    # @api.multi
     @api.depends('address_ids')
     def _compute_count_addresses(self):
         for r in self:
             r.count_addresses = len(r.address_ids)
 
-    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -50,7 +48,6 @@ class AddressStreetPatternAdd(models.TransientModel):
         }
         return action
 
-    # @api.multi
     def do_address_street_pattern_add(self):
         self.ensure_one()
 
@@ -62,14 +59,14 @@ class AddressStreetPatternAdd(models.TransientModel):
 
             street_patern = PartnerEntityStreetPattern.search([
                 ('street', '=', address.street_name),
-                ('district', '=', address.district),
+                ('street2', '=', address.street2),
             ])
 
             if street_patern.street is False:
 
                 values = {}
                 values['street'] = address.street_name
-                values['district'] = address.district
+                values['street2'] = address.street2
                 values['active'] = True
                 PartnerEntityStreetPattern.create(values)
 
