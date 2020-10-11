@@ -62,7 +62,6 @@ class PersonAux(models.Model):
                 data_values['street_name'] = person_aux.related_person_id.street_name
                 data_values['street_number'] = person_aux.related_person_id.street_number
                 data_values['street2'] = person_aux.related_person_id.street2
-                data_values['district'] = person_aux.related_person_id.district
                 data_values['zip'] = person_aux.related_person_id.zip
                 data_values['city'] = person_aux.related_person_id.city
                 data_values['city_id'] = person_aux.related_person_id.city_id.id
