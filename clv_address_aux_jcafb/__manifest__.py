@@ -33,7 +33,6 @@
         'views/lab_test_view.xml',
         'views/employee_view.xml',
         'views/address_aux_code_view.xml',
-        'views/address_aux_reg_state_view.xml',
         'views/address_aux_state_view.xml',
         'views/address_aux_view.xml',
         'wizard/address_aux_mass_edit_view.xml',
