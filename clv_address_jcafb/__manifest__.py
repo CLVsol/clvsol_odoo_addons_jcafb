@@ -32,7 +32,6 @@
         'views/event_attendee_view.xml',
         'views/lab_test_view.xml',
         'views/employee_view.xml',
-        'views/address_reg_state_view.xml',
         'views/address_state_view.xml',
         'wizard/address_mass_edit_view.xml',
         'wizard/address_document_setup_view.xml',
