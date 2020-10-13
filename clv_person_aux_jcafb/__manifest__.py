@@ -17,8 +17,6 @@
         'clv_event',
         'clv_lab_test',
         'clv_base_jcafb',
-        'clv_person_jcafb',
-        'clv_address_aux_jcafb',
     ],
     'data': [
         'security/ir.model.access.csv',
@@ -31,9 +29,7 @@
         'views/community_member_view.xml',
         'views/event_attendee_view.xml',
         'views/lab_test_view.xml',
-        'views/person_aux_state_view.xml',
         'views/person_aux_code_view.xml',
-        'views/person_aux_view.xml',
         'wizard/person_aux_event_setup_view.xml',
         'wizard/person_aux_document_setup_view.xml',
         'wizard/person_aux_lab_test_request_setup_view.xml',

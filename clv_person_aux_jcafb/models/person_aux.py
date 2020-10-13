@@ -4,7 +4,7 @@
 
 import logging
 
-from odoo import fields, models
+from odoo import models
 
 _logger = logging.getLogger(__name__)
 
@@ -12,31 +12,6 @@ _logger = logging.getLogger(__name__)
 class PersonAux(models.Model):
     _inherit = 'clv.person_aux'
 
-    ref_address_state = fields.Selection(
-        string='Address State',
-        related='ref_address_id.state',
-        store=False
-    )
-
-    ref_address_aux_state = fields.Selection(
-        string='Address (Aux) State',
-        related='ref_address_aux_id.state',
-        store=False
-    )
-
-    family_state = fields.Selection(
-        string='Family State',
-        related='family_id.state',
-        store=False
-    )
-
-    related_person_state = fields.Selection(
-        string='Related Person State',
-        related='related_person_id.state',
-        store=False
-    )
-
-    # @api.multi
     def do_person_aux_get_related_person_data(self):
 
         for person_aux in self:
