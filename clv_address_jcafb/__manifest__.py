@@ -16,7 +16,6 @@
         'clv_community',
         'clv_event',
         'clv_lab_test',
-        'clv_employee',
         'clv_base_jcafb',
     ],
     'data': [
@@ -31,8 +30,6 @@
         'views/community_member_view.xml',
         'views/event_attendee_view.xml',
         'views/lab_test_view.xml',
-        'views/employee_view.xml',
-        'views/address_state_view.xml',
         'wizard/address_mass_edit_view.xml',
         'wizard/address_document_setup_view.xml',
         'wizard/address_lab_test_request_setup_view.xml',
