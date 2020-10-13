@@ -4,19 +4,13 @@
 
 import logging
 
-from odoo import fields, models
+from odoo import models
 
 _logger = logging.getLogger(__name__)
 
 
 class AddressAux(models.Model):
     _inherit = 'clv.address_aux'
-
-    related_address_state = fields.Selection(
-        string='Related Address State',
-        related='related_address_id.state',
-        store=False
-    )
 
     # @api.multi
     def do_address_aux_get_related_address_data(self):

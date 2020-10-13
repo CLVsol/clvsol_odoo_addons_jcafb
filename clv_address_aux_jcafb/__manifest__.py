@@ -12,7 +12,6 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_address_aux',
-        'clv_address_jcafb',
         'clv_document',
         'clv_community',
         'clv_event',
@@ -31,7 +30,6 @@
         'views/event_attendee_view.xml',
         'views/lab_test_view.xml',
         'views/address_aux_code_view.xml',
-        'views/address_aux_view.xml',
         'wizard/address_aux_mass_edit_view.xml',
         'wizard/address_aux_set_code_view.xml',
         'wizard/address_aux_street_pattern_add_view.xml',
