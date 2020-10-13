@@ -52,7 +52,7 @@
     <!-- More button Action -->
     <record id="clv_person_history_person_mass_edit_action" model="ir.actions.act_window">
         <field name="name">Person History - Person Mass Edit</field>
-        <field name="binding_model_id" ref="model_clv_person_history"/>
+        <field name="binding_model_id" ref="clv_person_history.model_clv_person_history"/>
         <field name="res_model">clv.person.history.person_mass_edit</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
