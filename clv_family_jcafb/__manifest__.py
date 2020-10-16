@@ -22,7 +22,6 @@
         'data/default_value.xml',
         'views/document_view.xml',
         'views/family_code_view.xml',
-        'wizard/family_mass_edit_view.xml',
         'wizard/family_document_setup_view.xml',
     ],
     'demo': [],
