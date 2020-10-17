@@ -12,16 +12,10 @@
     'website': 'https://github.com/CLVsol',
     'depends': [
         'clv_event',
-        'clv_employee',
-        'clv_base_jcafb',
     ],
     'data': [
-        # 'views/event_view.xml',
         'views/event_code_view.xml',
-        'views/event_state_view.xml',
-        'views/event_attendee_reg_state_view.xml',
         'data/event_seq.xml',
-        # 'wizard/event_updt_view.xml',
     ],
     'demo': [],
     'test': [],
