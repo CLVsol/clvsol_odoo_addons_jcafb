@@ -18,12 +18,9 @@
     'data': [
         'security/ir.model.access.csv',
         'views/document_code_view.xml',
-        'views/document_reg_state_view.xml',
-        'views/document_state_view.xml',
         'views/survey_view.xml',
         'views/document_type_view.xml',
         'data/document_seq.xml',
-        'wizard/document_mass_edit_view.xml',
         'wizard/document_items_edit_view.xml',
         'wizard/document_items_updt_from_survey_view.xml',
         # 'wizard/document_type_setup_view.xml',
