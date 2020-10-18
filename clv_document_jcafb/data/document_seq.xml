@@ -8,7 +8,7 @@
         <field name="name">Document Sequence</field>
         <field name="code">clv.document.code</field>
         <!--field name="padding" eval="9"/-->
-        <field name="padding" eval="4"/>
+        <field name="padding" eval="5"/>
         <!--field name="prefix">00000</field-->
         <field name="prefix">15</field>
         <field name="number_next">1</field>
