@@ -8,7 +8,7 @@
         <field name="name">Annotation Sequence</field>
         <field name="code">clv.annotation.code</field>
         <!--field name="padding" eval="9"/-->
-        <field name="padding" eval="4"/>
+        <field name="padding" eval="5"/>
         <!--field name="prefix">00000</field-->
         <field name="prefix">12</field>
         <field name="number_next">1</field>
