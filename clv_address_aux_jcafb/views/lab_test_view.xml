@@ -45,7 +45,7 @@
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <field name="email" position="before">
-                <field name="count_lab_test_requests"/>
+                <field name="count_lab_test_requests" invisible="True"/>
             </field>
         </field>
     </record>
@@ -91,7 +91,7 @@
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <field name="email" position="before">
-                <field name="count_lab_test_results"/>
+                <field name="count_lab_test_results" invisible="True"/>
             </field>
         </field>
     </record>
@@ -137,7 +137,7 @@
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <field name="email" position="before">
-                <field name="count_lab_test_reports"/>
+                <field name="count_lab_test_reports" invisible="True"/>
             </field>
         </field>
     </record>
