@@ -35,7 +35,7 @@
         <field name="inherit_id" ref="clv_lab_test.clv_lab_test_report_view_tree"/>
         <field name="priority" eval="20"/>
         <field name="arch" type="xml">
-            <field name="date_report" position="after">
+            <field name="lab_test_request_id" position="after">
                 <field name="approved" invisible="1"/>
                 <field name="file_name" invisible="1"/>
                 <field name="file_content" filename="file_name" widget="binary" attrs="{'invisible': [('approved', '=', False)]}"/>
@@ -52,7 +52,6 @@
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <group name="group_middle_right" position="inside">
-                <!--field name="file_name" invisible="1"/-->
                 <field name="file_name"/>
                 <field name="file_content" filename="file_name"/>
                 <field name="stored_file_name" invisible="1"/>
@@ -67,7 +66,7 @@
         <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_view_tree"/>
         <field name="priority" eval="20"/>
         <field name="arch" type="xml">
-            <field name="date_result" position="after">
+            <field name="lab_test_report_id" position="after">
                 <field name="file_name" invisible="1"/>
                 <field name="file_content" filename="file_name" widget="binary"/>
                 <field name="stored_file_name" invisible="1"/>
