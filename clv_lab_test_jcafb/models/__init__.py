@@ -11,7 +11,5 @@ from . import lab_test_report
 from . import lab_test_report_code
 from . import lab_test_report_export_xls
 from . import file_system
-from . import lab_test_parasite
-from . import lab_test_crystal
 from . import global_settings
 from . import survey
