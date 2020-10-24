@@ -60,7 +60,7 @@
         </field>
     </record>
 
-    <record id="clv_lab_test_result_view_tree_file_system" model="ir.ui.view">
+    <!--record id="clv_lab_test_result_view_tree_file_system" model="ir.ui.view">
         <field name="name">clv.lab_test.result.tree</field>
         <field name="model">clv.lab_test.result</field>
         <field name="inherit_id" ref="clv_lab_test.clv_lab_test_result_view_tree"/>
@@ -73,6 +73,6 @@
                 <field name="directory_id" invisible="1"/>
             </field>
         </field>
-    </record>
+    </record-->
 
 </odoo>
