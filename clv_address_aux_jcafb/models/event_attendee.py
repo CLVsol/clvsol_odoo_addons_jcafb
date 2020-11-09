@@ -20,7 +20,7 @@ class AddressAux(models.Model):
 
     count_events_2 = fields.Integer(
         string='Events 2 (count)',
-        compute='_compute_event_ids_and_count',
+        compute='_compute_event_attendee_ids_and_count',
     )
 
     def _compute_event_attendee_ids_and_count(self):
