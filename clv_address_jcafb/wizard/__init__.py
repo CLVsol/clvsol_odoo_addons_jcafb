@@ -4,4 +4,3 @@
 
 from . import address_document_setup
 from . import address_lab_test_request_setup
-from . import address_street_pattern_add
