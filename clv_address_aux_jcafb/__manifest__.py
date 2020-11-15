@@ -5,7 +5,7 @@
 {
     'name': 'Address (Aux) (customizations for CLVhealth-JCAFB Solution)',
     'summary': 'Address (Aux) Module customizations for CLVhealth-JCAFB Solution.',
-    'version': '12.0.4.0',
+    'version': '14.0.4.0',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
     'category': 'CLVsol Solutions',
     'license': 'AGPL-3',
@@ -19,7 +19,6 @@
         'clv_base_jcafb',
     ],
     'data': [
-        'security/ir.model.access.csv',
         'data/document.xml',
         'data/community_member.xml',
         'data/event_attendee.xml',
@@ -30,7 +29,6 @@
         'views/event_attendee_view.xml',
         'views/lab_test_view.xml',
         'views/address_aux_code_view.xml',
-        'wizard/address_aux_street_pattern_add_view.xml',
     ],
     'demo': [],
     'test': [],
