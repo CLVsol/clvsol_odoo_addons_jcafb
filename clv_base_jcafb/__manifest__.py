@@ -17,7 +17,6 @@
         # 'views/mfile_menu_view.xml',
         # 'views/export_menu_view.xml',
         # 'views/report_menu_view.xml',
-        # 'views/processing_menu_view.xml',
         # 'data/annotation_seq.xml',
         'data/global_settings_filestore.xml',
     ],
