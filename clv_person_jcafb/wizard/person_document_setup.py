@@ -22,12 +22,6 @@ class PersonDocumentSetUp(models.TransientModel):
         default=_default_person_ids
     )
 
-    # survey_ids = fields.Many2many(
-    #     comodel_name='survey.survey',
-    #     relation='clv_person_document_setup_survey_rel',
-    #     string='Surveys'
-    # )
-
     document_type_ids = fields.Many2many(
         comodel_name='clv.document.type',
         relation='clv_person_document_setup_document_type_rel',
@@ -38,9 +32,6 @@ class PersonDocumentSetUp(models.TransientModel):
         comodel_name='clv.document.category',
         string='Document Category'
     )
-
-    date_foreseen = fields.Date(string='Foreseen Date', index=True)
-    date_deadline = fields.Date(string='Deadline', index=True)
 
     def _default_phase_id(self):
         phase_id = int(self.env['ir.config_parameter'].sudo().get_param(
@@ -89,10 +80,7 @@ class PersonDocumentSetUp(models.TransientModel):
                 if document.id is False:
 
                     values = {
-                        'name': document_type.name,
                         'code_sequence': 'clv.document.code',
-                        'date_foreseen': self.date_foreseen,
-                        'date_deadline': self.date_deadline,
                         'survey_id': document_type.survey_id.id,
                         # 'category_id': self.category_id.id,
                         'ref_id': ref_id,
@@ -130,6 +118,6 @@ class PersonDocumentSetUp(models.TransientModel):
                     }
                     new_document.write(values)
 
-                    _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', new_document.name)
+                    _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', new_document.code)
 
         return True
