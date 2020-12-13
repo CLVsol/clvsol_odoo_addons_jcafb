@@ -39,9 +39,6 @@ class PersonAuxEventSetUp(models.TransientModel):
         string='Document Category'
     )
 
-    date_foreseen = fields.Date(string='Foreseen Date', index=True)
-    date_deadline = fields.Date(string='Deadline', index=True)
-
     def _default_phase_id(self):
         phase_id = int(self.env['ir.config_parameter'].sudo().get_param(
             'clv.global_settings.current_phase_id', '').strip())
@@ -118,10 +115,7 @@ class PersonAuxEventSetUp(models.TransientModel):
                 if document.id is False:
 
                     values = {
-                        'name': document_type.name,
                         'code_sequence': 'clv.document.code',
-                        'date_foreseen': self.date_foreseen,
-                        'date_deadline': self.date_deadline,
                         'survey_id': document_type.survey_id.id,
                         # 'category_id': self.category_id.id,
                         'ref_id': ref_id,
@@ -159,7 +153,7 @@ class PersonAuxEventSetUp(models.TransientModel):
                     }
                     new_document.write(values)
 
-                    _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', new_document.name)
+                    _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', new_document.code)
 
             for lab_test_type in self.lab_test_type_ids:
                 m2m_list = []
