@@ -72,7 +72,7 @@ class SurveyUserInputSetSurveyUserInput(models.TransientModel):
 
         SurveyQuestion = self.env['survey.question']
         SurveyUserInput = self.env['survey.user_input']
-        SurveyUserInputLine = self.env['survey.user_input_line']
+        SurveyUserInputLine = self.env['survey.user_input.line']
         DocumentTypeParameter = self.env['clv.document.type.parameter']
 
         if document.survey_user_input_id.id is False:
@@ -104,7 +104,7 @@ class SurveyUserInputSetSurveyUserInput(models.TransientModel):
             m2m_list = []
             for question in questions:
                 m2m_list.append((4, question.id))
-            new_user_input.question_ids = m2m_list
+            new_user_input. predefined_question_ids = m2m_list
 
             document_type_parameters = DocumentTypeParameter.search([
                 ('document_type_id', '=', document.document_type_id.id),
@@ -120,10 +120,10 @@ class SurveyUserInputSetSurveyUserInput(models.TransientModel):
                     'survey_id': document.survey_id.id,
                     'question_id': question.id,
                     'answer_type': document_type_parameter.item_type,
-                    'value_text': eval('document.' + document_type_parameter.name),
+                    'value_char_box': eval('document.' + document_type_parameter.name),
                 }
                 SurveyUserInputLine.create(values)
 
-            _logger.info(u'%s %s', '>>>>>', new_user_input)
+            _logger.info(u'%s %s', '>>>>> ', new_user_input)
 
         return True
