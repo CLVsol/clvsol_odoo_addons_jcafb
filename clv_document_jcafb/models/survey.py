@@ -4,9 +4,7 @@
 
 from werkzeug import urls
 
-from odoo import api, fields, models
-from odoo.exceptions import UserError
-# from odoo.addons.http_routing.models.ir_http import slug
+from odoo import fields, models
 
 
 class Document(models.Model):
@@ -70,71 +68,3 @@ class SurveyUserInput(models.Model):
     )
 
     notes = fields.Text(string='Notes')
-
-    # survey_url = fields.Char(
-    #     string='Survey URL',
-    #     compute="_compute_survey_url"
-    # )
-
-    # def _compute_survey_url(self):
-
-    #     base_url = '/' if self.env.context.get('relative_url') else \
-    #                self.env['ir.config_parameter'].sudo().get_param('web.base.url')
-
-    #     for user_input in self:
-    #         # user_input.survey_url = \
-    #         #     urls.url_join(base_url, "survey/fill/%s/%s" % (slug(user_input.survey_id), user_input.token))
-    #         user_input.survey_url = \
-    #             urls.url_join(
-    #                 base_url, "survey/fill/%s/%s" % (user_input.survey_id.access_token, user_input.access_token))
-
-
-class SurveyUserInput_2(models.Model):
-    _inherit = 'survey.user_input'
-
-    state_2 = fields.Selection(
-        [('new', 'New'),
-         ('returned', 'Returned'),
-         ('checked', 'Checked'),
-         ('validated', 'Validated'),
-         ('discarded', 'Discarded'),
-         ], string='State 2', default='new', readonly=True, required=True
-    )
-
-    @api.model
-    def is_allowed_transition(self, old_state_2, new_state_2):
-        return True
-
-    # @api.multi
-    def change_state_2(self, new_state_2):
-        for survey_user_input in self:
-            if survey_user_input.is_allowed_transition(survey_user_input.state_2, new_state_2):
-                survey_user_input.state_2 = new_state_2
-            else:
-                raise UserError(
-                    'Status transition (' + survey_user_input.state_2 + ', ' + new_state_2 + ') is not allowed!')
-
-    # @api.multi
-    def action_new(self):
-        for survey_user_input in self:
-            survey_user_input.change_state_2('new')
-
-    # @api.multi
-    def action_returned(self):
-        for survey_user_input in self:
-            survey_user_input.change_state_2('returned')
-
-    # @api.multi
-    def action_checked(self):
-        for survey_user_input in self:
-            survey_user_input.change_state_2('checked')
-
-    # @api.multi
-    def action_validated(self):
-        for survey_user_input in self:
-            survey_user_input.change_state_2('validated')
-
-    # @api.multi
-    def action_discarded(self):
-        for survey_user_input in self:
-            survey_user_input.change_state_2('discarded')
