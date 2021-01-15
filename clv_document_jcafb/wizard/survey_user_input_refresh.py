@@ -47,7 +47,6 @@ class SurveyUserInputRefresh(models.TransientModel):
         default=_default_survey_user_input_ids
     )
 
-    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -60,7 +59,6 @@ class SurveyUserInputRefresh(models.TransientModel):
         }
         return action
 
-    # @api.multi
     def do_survey_user_input_refresh(self):
         self.ensure_one()
 
@@ -68,7 +66,7 @@ class SurveyUserInputRefresh(models.TransientModel):
 
         for survey_user_input in self.survey_user_input_ids:
 
-            _logger.info(u'%s %s', '>>>>>', survey_user_input.token)
+            _logger.info(u'%s %s', '>>>>>', survey_user_input.access_token)
 
             if survey_user_input.state_2 in ['new', 'returned', 'checked']:
 
@@ -88,25 +86,25 @@ class SurveyUserInputRefresh(models.TransientModel):
                 for user_input_line in survey_user_input.user_input_line_ids:
 
                     question_parameter = user_input_line.question_id.parameter
-                    value_text = user_input_line.value_text
+                    value_char_box = user_input_line.value_char_box
 
                     # _logger.info(u'%s %s', '>>>>> (question_parameter):', question_parameter)
-                    # _logger.info(u'%s %s', '>>>>> (value_text):', value_text)
+                    # _logger.info(u'%s %s', '>>>>> (value_char_box):', value_char_box)
 
                     if question_parameter == 'document_code':
-                        document_code = format_code(value_text)
+                        document_code = format_code(value_char_box)
                         survey_user_input.document_code = document_code
 
                     if question_parameter == 'person_code':
-                        person_code = format_code(value_text)
+                        person_code = format_code(value_char_box)
                         survey_user_input.person_code = person_code
 
                     if question_parameter == 'family_code':
-                        family_code = format_code(value_text)
+                        family_code = format_code(value_char_box)
                         survey_user_input.family_code = family_code
 
                     if question_parameter == 'address_code':
-                        address_code = format_code(value_text)
+                        address_code = format_code(value_char_box)
                         survey_user_input.address_code = address_code
 
                 if document_code is not False:
@@ -182,7 +180,6 @@ class SurveyUserInputRefresh(models.TransientModel):
 
         return True
 
-    # @api.multi
     def do_populate_all_survey_user_inputs(self):
         self.ensure_one()
 
