@@ -22,7 +22,6 @@ class SurveyUserInputValidate(models.TransientModel):
         default=_default_survey_user_input_ids
     )
 
-    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -35,13 +34,12 @@ class SurveyUserInputValidate(models.TransientModel):
         }
         return action
 
-    # @api.multi
     def do_survey_user_input_validate(self):
         self.ensure_one()
 
         for survey_user_input in self.survey_user_input_ids:
 
-            _logger.info(u'%s %s', '>>>>>', survey_user_input.token)
+            _logger.info(u'%s %s', '>>>>>', survey_user_input.access_token)
 
             if survey_user_input.state in ['new', 'skip']:
 
@@ -78,7 +76,6 @@ class SurveyUserInputValidate(models.TransientModel):
 
         return True
 
-    # @api.multi
     def do_populate_all_survey_user_inputs(self):
         self.ensure_one()
 
