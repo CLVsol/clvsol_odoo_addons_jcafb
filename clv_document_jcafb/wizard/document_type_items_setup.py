@@ -55,7 +55,8 @@ class DocumentTypeItemsSetUp(models.TransientModel):
                 _logger.info(u'%s %s', '>>>>>>>>>>>>>>>>>>>>', question.code)
 
                 question_type = question.question_type
-                _question_ = question.question.encode("utf-8")
+                # _question_ = question.question.encode("utf-8")
+                _question_ = question.title.encode("utf-8")
 
                 sequence += 1
                 items.append((0, 0, {'code': question.code,
@@ -85,7 +86,8 @@ class DocumentTypeItemsSetUp(models.TransientModel):
 
                 if question_type == 'matrix':
 
-                    for label in question.labels_ids_2:
+                    # for label in question.labels_ids_2:
+                    for label in question.matrix_row_ids:
 
                         _value_ = label.value.encode("utf-8")
 
