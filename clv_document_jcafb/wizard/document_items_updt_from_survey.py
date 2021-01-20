@@ -22,7 +22,6 @@ class DocumentItemsUpdateFromSurvey(models.TransientModel):
         default=_default_document_ids
     )
 
-    # @api.multi
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -35,7 +34,6 @@ class DocumentItemsUpdateFromSurvey(models.TransientModel):
         }
         return action
 
-    # @api.multi
     def do_document_items_updt_from_survey(self):
         self.ensure_one()
 
