@@ -49,6 +49,7 @@
     <record id="clv_lab_test_request_receive_action" model="ir.actions.act_window">
         <field name="name">Lab Test Request Receive</field>
         <field name="binding_model_id" ref="model_clv_lab_test_request"/>
+        <field name="binding_view_types">form</field>
         <field name="res_model">clv.lab_test.request.receive</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
