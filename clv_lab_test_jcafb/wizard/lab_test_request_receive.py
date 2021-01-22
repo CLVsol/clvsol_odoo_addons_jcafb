@@ -206,6 +206,6 @@ class LabTestRequestReceive(models.TransientModel):
 
                     _logger.info(u'%s %s', '>>>>>>>>>>>>>>>', lab_test_report.code)
 
-                    lab_test_result.lab_test_report_id = lab_test_report.id
+                    # lab_test_result.lab_test_report_id = lab_test_report.id
 
         return True
