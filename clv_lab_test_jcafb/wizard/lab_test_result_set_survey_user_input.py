@@ -72,7 +72,7 @@ class LabTestResultSetSurveyUserInput(models.TransientModel):
 
         SurveyQuestion = self.env['survey.question']
         SurveyUserInput = self.env['survey.user_input']
-        SurveyUserInputLine = self.env['survey.user_input_line']
+        SurveyUserInputLine = self.env['survey.user_input.line']
         LabTestResultTypeParameter = self.env['clv.lab_test.type.parameter']
 
         if lab_test_result.survey_user_input_id.id is False:
@@ -104,7 +104,7 @@ class LabTestResultSetSurveyUserInput(models.TransientModel):
             m2m_list = []
             for question in questions:
                 m2m_list.append((4, question.id))
-            new_user_input.question_ids = m2m_list
+            new_user_input.predefined_question_ids = m2m_list
 
             lab_test_result_type_parameters = LabTestResultTypeParameter.search([
                 ('lab_test_type_id', '=', lab_test_result.lab_test_type_id.id),
@@ -120,7 +120,7 @@ class LabTestResultSetSurveyUserInput(models.TransientModel):
                     'survey_id': lab_test_result.survey_id.id,
                     'question_id': question.id,
                     'answer_type': lab_test_result_type_parameter.criterion_type,
-                    'value_text': eval('lab_test_result.' + lab_test_result_type_parameter.name),
+                    'value_char_box': eval('lab_test_result.' + lab_test_result_type_parameter.name),
                 }
                 SurveyUserInputLine.create(values)
 
