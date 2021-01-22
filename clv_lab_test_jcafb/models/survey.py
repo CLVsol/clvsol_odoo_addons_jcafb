@@ -30,12 +30,9 @@ class LabTestResult(models.Model):
 
         for lab_test_result in self:
             user_input = lab_test_result.survey_user_input_id
-            survey_access_token = user_input.survey_id.access_token
-            if survey_access_token is not False and user_input.token is not False:
-                lab_test_result.survey_url = \
-                    urls.url_join(base_url, "survey/fill/%s/%s" % (survey_access_token, user_input.token))
-            else:
-                lab_test_result.survey_url = False
+            lab_test_result.survey_url = \
+                urls.url_join(
+                    base_url, "survey/%s/%s" % (user_input.survey_id.access_token, user_input.access_token))
 
 
 class SurveyUserInput(models.Model):
