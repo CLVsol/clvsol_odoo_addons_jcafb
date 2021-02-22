@@ -18,7 +18,6 @@ class Patient(models.Model):
         compute='_compute_community_member_ids_and_count',
     )
 
-    # @api.multi
     def _compute_community_member_ids_and_count(self):
         for record in self:
             community_members = self.env['clv.community.member'].search([

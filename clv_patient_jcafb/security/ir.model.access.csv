@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_clv_patient_lab_test_request_setup_user,clv.patient.lab_test.request.setup.user,model_clv_patient_lab_test_request_setup,clv_patient.group_user,1,0,0,0
+access_clv_patient_lab_test_request_setup_manager,clv.patient.lab_test.request.setup.manager,model_clv_patient_lab_test_request_setup,clv_patient.group_manager,1,1,1,0
+access_clv_patient_lab_test_request_setup_supmanager,clv.patient.lab_test.request.setup.supmanager,model_clv_patient_lab_test_request_setup,clv_patient.group_supmanager,1,1,1,1
+
+access_clv_patient_document_setup_user,clv.patient.document_setup.user,model_clv_patient_document_setup,clv_patient.group_user,1,0,0,0
+access_clv_patient_document_setup_manager,clv.patient.document_setup.manager,model_clv_patient_document_setup,clv_patient.group_manager,1,1,1,0
+access_clv_patient_document_setup_supmanager,clv.patient.document_setup.supmanager,model_clv_patient_document_setup,clv_patient.group_supmanager,1,1,1,1
+
+access_clv_patient_associate_to_set_user,clv.patient.associate_to_set.user,model_clv_patient_associate_to_set,clv_patient.group_user,1,0,0,0
+access_clv_patient_associate_to_set_manager,clv.patient.associate_to_set.manager,model_clv_patient_associate_to_set,clv_patient.group_manager,1,1,1,0
+access_clv_patient_associate_to_set_supmanager,clv.patient.associate_to_set.supmanager,model_clv_patient_associate_to_set,clv_patient.group_supmanager,1,1,1,1
