@@ -5,8 +5,8 @@
 from odoo import fields, models
 
 
-class Patient(models.Model):
-    _inherit = 'clv.patient'
+class PatientAux(models.Model):
+    _inherit = 'clv.patient_aux'
 
     community_member_ids = fields.One2many(
         string='Community Members',
