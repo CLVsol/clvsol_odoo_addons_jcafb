@@ -36,6 +36,7 @@
         'wizard/person_associate_to_set_view.xml',
         'wizard/person_document_setup_view.xml',
         'wizard/person_lab_test_request_setup_view.xml',
+        'wizard/document_related_person_set_marker_view.xml',
     ],
     'demo': [],
     'test': [],
