@@ -5,7 +5,7 @@
 {
     'name': 'Base Module (customizations for CLVhealth-JCAFB Solution)',
     'summary': 'Base Module Module customizations for CLVhealth-JCAFB Solution.',
-    'version': '12.0.4.0',
+    'version': '14.0.5.0',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
     'category': 'CLVsol Solutions',
     'license': 'AGPL-3',
@@ -15,7 +15,6 @@
     ],
     'data': [
         # 'views/mfile_menu_view.xml',
-        # 'views/export_menu_view.xml',
         # 'views/report_menu_view.xml',
         # 'data/annotation_seq.xml',
         'data/global_settings_filestore.xml',
