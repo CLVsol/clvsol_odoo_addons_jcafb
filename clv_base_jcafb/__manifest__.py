@@ -15,7 +15,6 @@
     ],
     'data': [
         # 'views/mfile_menu_view.xml',
-        # 'views/report_menu_view.xml',
         # 'data/annotation_seq.xml',
         'data/global_settings_filestore.xml',
     ],
