@@ -25,8 +25,12 @@ class Patient(models.Model):
     def _compute_lab_test_request_ids_and_count(self):
         for record in self:
 
+            # search_domain = [
+            #     ('ref_id', '=', self._name + ',' + str(record.id)),
+            # ]
             search_domain = [
-                ('ref_id', '=', self._name + ',' + str(record.id)),
+                ('ref_name', '=', record.name),
+                ('ref_code', '=', record.code),
             ]
             lab_test_requests_2 = self.env['clv.lab_test.request'].search(search_domain)
 
@@ -57,8 +61,12 @@ class Patient(models.Model):
     def _compute_lab_test_result_ids_and_count(self):
         for record in self:
 
+            # search_domain = [
+            #     ('ref_id', '=', self._name + ',' + str(record.id)),
+            # ]
             search_domain = [
-                ('ref_id', '=', self._name + ',' + str(record.id)),
+                ('ref_name', '=', record.name),
+                ('ref_code', '=', record.code),
             ]
             lab_test_results_2 = self.env['clv.lab_test.result'].search(search_domain)
 
@@ -89,8 +97,12 @@ class Patient(models.Model):
     def _compute_lab_test_report_ids_and_count(self):
         for record in self:
 
+            # search_domain = [
+            #     ('ref_id', '=', self._name + ',' + str(record.id)),
+            # ]
             search_domain = [
-                ('ref_id', '=', self._name + ',' + str(record.id)),
+                ('ref_name', '=', record.name),
+                ('ref_code', '=', record.code),
             ]
             lab_test_reports_2 = self.env['clv.lab_test.report'].search(search_domain)
 
