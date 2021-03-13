@@ -25,8 +25,12 @@ class Patient(models.Model):
     def _compute_document_ids_and_count(self):
         for record in self:
 
+            # search_domain = [
+            #     ('ref_id', '=', self._name + ',' + str(record.id)),
+            # ]
             search_domain = [
-                ('ref_id', '=', self._name + ',' + str(record.id)),
+                ('ref_name', '=', record.name),
+                ('ref_code', '=', record.code),
             ]
             documents_2 = self.env['clv.document'].search(search_domain)
 
