@@ -5,3 +5,4 @@
 from . import residence_associate_to_set
 from . import residence_document_setup
 from . import residence_lab_test_request_setup
+from . import residence_set_code

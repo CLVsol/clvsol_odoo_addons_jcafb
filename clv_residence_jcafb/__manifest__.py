@@ -28,6 +28,7 @@
         'wizard/residence_associate_to_set_view.xml',
         'wizard/residence_document_setup_view.xml',
         'wizard/residence_lab_test_request_setup_view.xml',
+        'wizard/residence_set_code_view.xml',
     ],
     'demo': [],
     'test': [],

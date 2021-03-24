@@ -11,3 +11,23 @@ class Residence(models.Model):
 
     code = fields.Char(string='Residence Code', required=False, default='/')
     code_sequence = fields.Char(default='clv.address.code')
+
+    def _residence_set_code(self):
+
+        for residence in self:
+
+            if residence.code is False:
+
+                vals = {}
+
+                # if residence.related_address_id.id is not False:
+                #     if residence.related_address_id.code is not False:
+                #         vals['code'] = residence.related_address_id.code
+                #     else:
+                #         vals['code'] = '/'
+
+                # else:
+                #     vals['code'] = '/'
+                vals['code'] = '/'
+
+                residence.write(vals)
