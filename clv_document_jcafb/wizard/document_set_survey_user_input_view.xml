@@ -38,6 +38,7 @@
     <record id="clv_document_set_survey_user_input_action" model="ir.actions.act_window">
         <field name="name">Document Set Survey User Input</field>
         <field name="binding_model_id" ref="model_clv_document"/>
+        <field name="binding_view_types">form</field>
         <field name="res_model">clv.document.set_survey_user_input</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
