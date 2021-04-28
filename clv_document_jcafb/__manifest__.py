@@ -5,7 +5,7 @@
 {
     'name': 'Document (customizations for CLVhealth-JCAFB Solution)',
     'summary': 'Document Module customizations for CLVhealth-JCAFB Solution.',
-    'version': '12.0.4.0',
+    'version': '14.0.5.0',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
     'category': 'CLVsol Solutions',
     'license': 'AGPL-3',
@@ -21,7 +21,6 @@
         'views/survey_view.xml',
         'views/document_type_view.xml',
         'data/document_seq.xml',
-        'wizard/document_items_edit_view.xml',
         'wizard/document_items_updt_from_survey_view.xml',
         # 'wizard/document_type_setup_view.xml',
         'wizard/survey_user_input_refresh_view.xml',
