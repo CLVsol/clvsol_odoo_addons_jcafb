@@ -9,8 +9,8 @@ from odoo import api, fields, models
 _logger = logging.getLogger(__name__)
 
 
-class SurveyUserInputSetSurveyUserInput(models.TransientModel):
-    _description = 'SurveyUserInput Set Survey User Input'
+class DocumentSetSurveyUserInput(models.TransientModel):
+    _description = 'Document Set Survey User Input'
     _name = 'clv.document.set_survey_user_input'
 
     @api.model
@@ -23,7 +23,7 @@ class SurveyUserInputSetSurveyUserInput(models.TransientModel):
         return self._context.get('active_id')
     document_id = fields.Many2one(
         comodel_name='clv.document',
-        string='SurveyUserInput',
+        string='Document',
         readonly=True,
         default=_default_document_id
     )
@@ -32,7 +32,7 @@ class SurveyUserInputSetSurveyUserInput(models.TransientModel):
         return self.env['clv.document'].browse(self._context.get('active_id')).document_type_id
     document_type_id = fields.Many2one(
         comodel_name='clv.document.type',
-        string='SurveyUserInput Type',
+        string='Document Type',
         readonly=True,
         default=_default_document_type_id
     )
