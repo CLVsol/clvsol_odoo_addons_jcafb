@@ -72,6 +72,7 @@
                 <field name="person_code"/>
                 <field name="family_code"/>
                 <field name="address_code"/>
+                <field name="ref_code"/>
                 <field name="document_id" options="{'no_open': False, 'no_create': True}"/>
                 <field name="notes"/>
                 <!--field name="survey_url" widget="url"/-->

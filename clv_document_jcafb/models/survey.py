@@ -62,6 +62,11 @@ class SurveyUserInput(models.Model):
         readonly=True
     )
 
+    ref_code = fields.Char(
+        string='Refers to (Code)',
+        readonly=True
+    )
+
     document_id = fields.Many2one(
         comodel_name='clv.document',
         string='Related Document'
