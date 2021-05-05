@@ -41,7 +41,7 @@ class SurveyUserInputValidate(models.TransientModel):
 
             _logger.info(u'%s %s', '>>>>>', survey_user_input.access_token)
 
-            if survey_user_input.state in ['new', 'skip']:
+            if survey_user_input.state in ['new', 'in_progress']:
 
                 survey_user_input.state_2 = 'returned'
                 if survey_user_input.notes is False:
