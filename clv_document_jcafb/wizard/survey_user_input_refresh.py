@@ -72,16 +72,18 @@ class SurveyUserInputRefresh(models.TransientModel):
 
                 survey_user_input.state_2 = 'checked'
                 survey_user_input.document_code = False
-                survey_user_input.person_code = False
-                survey_user_input.family_code = False
-                survey_user_input.address_code = False
+                # survey_user_input.person_code = False
+                # survey_user_input.family_code = False
+                # survey_user_input.address_code = False
+                survey_user_input.ref_code = False
                 survey_user_input.notes = False
                 survey_user_input.document_id = False
 
                 document_code = False
-                person_code = False
-                family_code = False
-                address_code = False
+                # person_code = False
+                # family_code = False
+                # address_code = False
+                ref_code = False
 
                 for user_input_line in survey_user_input.user_input_line_ids:
 
@@ -96,20 +98,30 @@ class SurveyUserInputRefresh(models.TransientModel):
                         survey_user_input.document_code = document_code
 
                     if question_parameter == 'person_code':
-                        person_code = format_code(value_char_box)
-                        survey_user_input.person_code = person_code
+                        # person_code = format_code(value_char_box)
+                        ref_code = format_code(value_char_box)
+                        # survey_user_input.person_code = person_code
+                        survey_user_input.ref_code = ref_code
 
                     if question_parameter == 'family_code':
-                        family_code = format_code(value_char_box)
-                        survey_user_input.family_code = family_code
+                        # family_code = format_code(value_char_box)
+                        ref_code = format_code(value_char_box)
+                        # survey_user_input.family_code = family_code
+                        survey_user_input.ref_code = ref_code
 
                     if question_parameter == 'address_code':
-                        address_code = format_code(value_char_box)
-                        survey_user_input.address_code = address_code
+                        # address_code = format_code(value_char_box)
+                        ref_code = format_code(value_char_box)
+                        # survey_user_input.address_code = address_code
+                        survey_user_input.ref_code = ref_code
+
+                    if question_parameter == 'ref_code':
+                        ref_code = format_code(value_char_box)
+                        survey_user_input.ref_code = ref_code
 
                 if document_code is not False:
 
-                    if survey_user_input.state in ['new', 'skip']:
+                    if survey_user_input.state in ['new', 'in_progress']:
 
                         survey_user_input.state_2 = 'returned'
                         if survey_user_input.notes is False:
@@ -141,30 +153,41 @@ class SurveyUserInputRefresh(models.TransientModel):
 
                         survey_user_input.document_id = document.id
 
-                        if person_code is not False:
+                        # if person_code is not False:
 
-                            if document.ref_id.code != person_code:
+                        #     if document.ref_id.code != person_code:
+                        #         survey_user_input.state_2 = 'returned'
+                        #         if survey_user_input.notes is False:
+                        #             survey_user_input.notes = u'Erro: Código da Pessoa inválido!'
+                        #         else:
+                        #             survey_user_input.notes += u'\nErro: Código da Pessoa inválido!'
+
+                        # if family_code is not False:
+
+                        #     if document.ref_id.code != family_code:
+                        #         survey_user_input.state_2 = 'returned'
+                        #         if survey_user_input.notes is False:
+                        #             survey_user_input.notes = u'Erro: Código da Família inválido!'
+                        #         else:
+                        #             survey_user_input.notes += u'\nErro: Código da Família inválido!'
+
+                        # if address_code is not False:
+
+                        #     if document.ref_id.code != address_code:
+                        #         survey_user_input.state_2 = 'returned'
+                        #         if survey_user_input.notes is False:
+                        #             survey_user_input.notes = u'Erro: Código do Endereço inválido!'
+                        #         else:
+                        #             survey_user_input.notes += u'\nErro: Código do Endereço inválido!'
+
+                        if ref_code is not False:
+
+                            if document.ref_id.code != ref_code:
                                 survey_user_input.state_2 = 'returned'
                                 if survey_user_input.notes is False:
-                                    survey_user_input.notes = u'Erro: Código da Pessoa inválido!'
+                                    survey_user_input.notes = u'Erro: Código "Refers to (Code)" inválido!'
                                 else:
-                                    survey_user_input.notes += u'\nErro: Código da Pessoa inválido!'
-                        if family_code is not False:
-
-                            if document.ref_id.code != family_code:
-                                survey_user_input.state_2 = 'returned'
-                                if survey_user_input.notes is False:
-                                    survey_user_input.notes = u'Erro: Código da Família inválido!'
-                                else:
-                                    survey_user_input.notes += u'\nErro: Código da Família inválido!'
-                        if address_code is not False:
-
-                            if document.ref_id.code != address_code:
-                                survey_user_input.state_2 = 'returned'
-                                if survey_user_input.notes is False:
-                                    survey_user_input.notes = u'Erro: Código do Endereço inválido!'
-                                else:
-                                    survey_user_input.notes += u'\nErro: Código ddo Endereço inválido!'
+                                    survey_user_input.notes += u'\nErro: Código "Refers to (Code)" inválido!'
 
                 else:
 
@@ -172,9 +195,10 @@ class SurveyUserInputRefresh(models.TransientModel):
 
                         survey_user_input.state_2 = 'new'
                         survey_user_input.document_code = False
-                        survey_user_input.person_code = False
-                        survey_user_input.family_code = False
-                        survey_user_input.address_code = False
+                        # survey_user_input.person_code = False
+                        # survey_user_input.family_code = False
+                        # survey_user_input.address_code = False
+                        survey_user_input.ref_code = False
                         survey_user_input.notes = False
                         survey_user_input.document_id = False
 
