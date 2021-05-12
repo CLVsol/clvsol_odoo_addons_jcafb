@@ -69,12 +69,16 @@ class SurveyUserInputValidate(models.TransientModel):
 
                         survey_user_input.state_2 = 'validated'
                         survey_user_input.document_id.reg_state = 'revised'
+                        survey_user_input.document_id.state = 'waiting'
+                        survey_user_input.document_id.items_ok = False
 
                 else:
 
                     survey_user_input.document_id.survey_user_input_id = survey_user_input.id
                     survey_user_input.document_id.reg_state = 'revised'
                     survey_user_input.state_2 = 'validated'
+                    survey_user_input.document_id.state = 'waiting'
+                    survey_user_input.document_id.items_ok = False
 
         return True
 
