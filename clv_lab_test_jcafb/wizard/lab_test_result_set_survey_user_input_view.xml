@@ -38,6 +38,7 @@
     <record id="clv_lab_test_result_set_survey_user_input_action" model="ir.actions.act_window">
         <field name="name">Lab Test Result Set Survey User Input</field>
         <field name="binding_model_id" ref="model_clv_lab_test_result"/>
+        <field name="binding_view_types">form</field>
         <field name="res_model">clv.lab_test.result.set_survey_user_input</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
