@@ -55,7 +55,8 @@ class DocumentTypeCriteriaSetUp(models.TransientModel):
                 _logger.info(u'%s %s', '>>>>>>>>>>>>>>>>>>>>', question.code)
 
                 question_type = question.question_type
-                _question_ = question.question.encode("utf-8")
+                # _question_ = question.question.encode("utf-8")
+                _question_ = question.title.encode("utf-8")
 
                 sequence += 1
                 criteria.append((0, 0, {'code': question.code,
