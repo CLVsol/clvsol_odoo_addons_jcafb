@@ -122,7 +122,6 @@ class LabTestResultSetSurveyUserInput(models.TransientModel):
                     'answer_type': lab_test_result_type_parameter.criterion_type,
                     'value_char_box': eval('lab_test_result.' + lab_test_result_type_parameter.name),
                 }
-                _logger.error(u'%s %s', '>>>>>>>>>>', values)
                 SurveyUserInputLine.create(values)
 
             _logger.info(u'%s %s', '>>>>>', new_user_input)
