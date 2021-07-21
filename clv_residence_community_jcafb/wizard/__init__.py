@@ -3,3 +3,4 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from . import document_associate_from_address_to_residence
+from . import document_associate_from_family_to_residence

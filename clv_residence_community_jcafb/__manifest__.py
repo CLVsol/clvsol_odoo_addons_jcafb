@@ -22,7 +22,7 @@
     'data': [
         'security/ir.model.access.csv',
         'wizard/document_associate_from_address_to_residence_view.xml',
-        # 'wizard/document_associate_from_family_to_residence_view.xml',
+        'wizard/document_associate_from_family_to_residence_view.xml',
     ],
     'demo': [],
     'test': [],
