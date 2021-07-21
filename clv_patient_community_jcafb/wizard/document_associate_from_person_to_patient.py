@@ -9,7 +9,7 @@ from odoo import fields, models
 _logger = logging.getLogger(__name__)
 
 
-class DocumentAssociateToRelatedPatient(models.TransientModel):
+class DocumentAssociateFromPersonToPatient(models.TransientModel):
     _description = 'Document Associate from Person to Patient'
     _name = 'clv.document.associate_from_person_to_patient'
 
