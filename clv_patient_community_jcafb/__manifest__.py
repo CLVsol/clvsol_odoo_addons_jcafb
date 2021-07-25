@@ -21,6 +21,7 @@
     'data': [
         'security/ir.model.access.csv',
         'wizard/document_associate_from_person_to_patient_view.xml',
+        'wizard/event_attendee_associate_from_person_to_patient_view.xml',
     ],
     'demo': [],
     'test': [],
