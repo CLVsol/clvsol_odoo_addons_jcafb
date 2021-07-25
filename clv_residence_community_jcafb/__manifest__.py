@@ -25,6 +25,7 @@
         'wizard/document_associate_from_family_to_residence_view.xml',
         'wizard/lab_test_request_associate_from_address_to_residence_view.xml',
         'wizard/lab_test_result_associate_from_address_to_residence_view.xml',
+        'wizard/lab_test_report_associate_from_address_to_residence_view.xml',
     ],
     'demo': [],
     'test': [],
