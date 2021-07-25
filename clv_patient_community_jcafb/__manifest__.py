@@ -22,6 +22,7 @@
         'security/ir.model.access.csv',
         'wizard/document_associate_from_person_to_patient_view.xml',
         'wizard/lab_test_request_associate_from_person_to_patient_view.xml',
+        'wizard/lab_test_result_associate_from_person_to_patient_view.xml',
         'wizard/event_attendee_associate_from_person_to_patient_view.xml',
     ],
     'demo': [],
