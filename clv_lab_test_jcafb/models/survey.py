@@ -33,17 +33,3 @@ class LabTestResult(models.Model):
             lab_test_result.survey_url = \
                 urls.url_join(
                     base_url, "survey/%s/%s" % (user_input.survey_id.access_token, user_input.access_token))
-
-
-class SurveyUserInput(models.Model):
-    _inherit = 'survey.user_input'
-
-    lab_test_result_code = fields.Char(
-        string='Lab Test Result Code',
-        readonly=True
-    )
-
-    lab_test_result_id = fields.Many2one(
-        comodel_name='clv.lab_test.result',
-        string='Related Lab Test Result'
-    )

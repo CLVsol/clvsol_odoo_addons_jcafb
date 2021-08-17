@@ -5,7 +5,7 @@
 {
     'name': 'Lab Test (customizations for CLVhealth-JCAFB Solution)',
     'summary': 'Lab Test Module customizations for CLVhealth-JCAFB Solution.',
-    'version': '12.0.4.0',
+    'version': '14.0.5.0',
     'author': 'Carlos Eduardo Vercelino - CLVsol',
     'category': 'CLVsol Solutions',
     'license': 'AGPL-3',
@@ -40,6 +40,8 @@
         'data/file_system.xml',
         'data/global_settings.xml',
         'data/set_element.xml',
+        'data/survey_survey.xml',
+        'data/survey_user_input.xml',
         'wizard/lab_test_request_receive_view.xml',
         'wizard/lab_test_request_associate_to_set_view.xml',
         'wizard/lab_test_report_associate_to_set_view.xml',

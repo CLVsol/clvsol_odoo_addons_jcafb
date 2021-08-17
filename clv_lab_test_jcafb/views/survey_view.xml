@@ -37,30 +37,4 @@
         </field>
     </record>
 
-    <record id="survey_user_input_view_form_document" model="ir.ui.view">
-        <field name="name">survey.user_input.form</field>
-        <field name="model">survey.user_input</field>
-        <field name="inherit_id" ref="survey.survey_user_input_view_form"/>
-        <field name="priority" eval="8"/>
-        <field name="arch" type="xml">
-            <field name="access_token" position="after">
-                <field name="lab_test_result_code"/>
-                <field name="lab_test_result_id" options="{'no_open': False, 'no_create': True}"/>
-            </field>
-        </field>
-    </record>
-
-    <record id="survey_user_input_view_tree_document" model="ir.ui.view">
-        <field name="name">survey.user_input.tree</field>
-        <field name="model">survey.user_input</field>
-        <field name="inherit_id" ref="survey.survey_user_input_view_tree"/>
-        <field name="priority" eval="8"/>
-        <field name="arch" type="xml">
-            <field name="create_date" position="after">
-                <field name="lab_test_result_code"/>
-                <field name="lab_test_result_id"/>
-            </field>
-        </field>
-    </record>
-
 </odoo>
