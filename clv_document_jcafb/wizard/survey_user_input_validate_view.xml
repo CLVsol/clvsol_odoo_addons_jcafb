@@ -33,7 +33,7 @@
     <!-- More button Action -->
     <record id="survey_user_input_validate_action" model="ir.actions.act_window">
         <field name="name">Survey User Input Validate</field>
-        <field name="binding_model_id" ref="model_survey_user_input"/>
+        <field name="binding_model_id" ref="survey.model_survey_user_input"/>
         <field name="res_model">survey.user_input.validate</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>

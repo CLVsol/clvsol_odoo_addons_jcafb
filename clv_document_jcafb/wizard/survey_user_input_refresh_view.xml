@@ -33,7 +33,7 @@
     <!-- More button Action -->
     <record id="survey_user_input_refresh_action" model="ir.actions.act_window">
         <field name="name">Survey User Input Refresh</field>
-        <field name="binding_model_id" ref="model_survey_user_input"/>
+        <field name="binding_model_id" ref="survey.model_survey_user_input"/>
         <field name="res_model">survey.user_input.refresh</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
