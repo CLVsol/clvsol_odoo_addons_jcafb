@@ -77,20 +77,11 @@ class DocumentSetSurveyUserInput(models.TransientModel):
 
         if document.survey_user_input_id.id is False:
 
-            ref_model = document.ref_id._name
-
             values = {
                 # 'token': document.code.replace('.', '-'),
                 'survey_id': document.survey_id.id,
-                'document_code': document.code,
-                'document_id': document.id,
+                'ref_id': document._name + ',' + str(document.id),
             }
-            if ref_model == 'clv_person':
-                values['person_code'] = document.ref_id.code
-            if ref_model == 'clv_family':
-                values['family_code'] = document.ref_id.code
-            if ref_model == 'clv_address':
-                values['address_code'] = document.ref_id.code
 
             new_user_input = SurveyUserInput.create(values)
 
