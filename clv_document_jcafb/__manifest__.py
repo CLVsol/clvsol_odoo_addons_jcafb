@@ -25,7 +25,6 @@
         'data/survey_user_input.xml',
         'wizard/document_items_updt_from_survey_view.xml',
         # 'wizard/document_type_setup_view.xml',
-        'wizard/survey_user_input_refresh_view.xml',
         'wizard/document_set_survey_user_input_view.xml',
     ],
     'demo': [],
