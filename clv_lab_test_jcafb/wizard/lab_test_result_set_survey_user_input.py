@@ -77,20 +77,11 @@ class LabTestResultSetSurveyUserInput(models.TransientModel):
 
         if lab_test_result.survey_user_input_id.id is False:
 
-            ref_model = lab_test_result.ref_id._name
-
             values = {
                 # 'token': lab_test_result.code.replace('.', '-'),
                 'survey_id': lab_test_result.survey_id.id,
-                'lab_test_result_code': lab_test_result.code,
-                'lab_test_result_id': lab_test_result.id,
+                'ref_id': lab_test_result._name + ',' + str(lab_test_result.id),
             }
-            if ref_model == 'clv_person':
-                values['person_code'] = lab_test_result.ref_id.code
-            if ref_model == 'clv_family':
-                values['family_code'] = lab_test_result.ref_id.code
-            if ref_model == 'clv_address':
-                values['address_code'] = lab_test_result.ref_id.code
 
             new_user_input = SurveyUserInput.create(values)
 
