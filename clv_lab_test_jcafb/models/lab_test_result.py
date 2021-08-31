@@ -47,6 +47,8 @@ class LabTestResult(models.Model):
         readonly=True
     )
 
+    items_ok = fields.Boolean(string='Items Ok', default=0)
+
 
 # class Person(models.Model):
 #     _inherit = 'clv.person'
