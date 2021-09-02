@@ -195,6 +195,7 @@ class LabTestRequestReceive(models.TransientModel):
                         'lab_test_type_id': lab_test_type.id,
                         'ref_id': ref_id,
                         'lab_test_request_id': lab_test_request.id,
+                        'lab_test_result_id': lab_test_result.id,
                         'phase_id': lab_test_request.phase_id.id,
                         # 'criterion_ids': criteria,
                     }
