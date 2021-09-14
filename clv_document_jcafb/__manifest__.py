@@ -28,6 +28,7 @@
         'wizard/document_set_survey_user_input_view.xml',
         'wizard/document_survey_user_input_refresh_view.xml',
         'wizard/document_survey_user_input_validate_view.xml',
+        'wizard/document_survey_user_input_set_in_progress_view.xml',
     ],
     'demo': [],
     'test': [],
