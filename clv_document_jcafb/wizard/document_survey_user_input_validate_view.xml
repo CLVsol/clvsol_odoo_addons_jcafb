@@ -30,7 +30,7 @@
     </record>
 
     <!-- More button Action -->
-    <record id="document_survey_user_input_validate_action" model="ir.actions.act_window">
+    <record id="clv_document_survey_user_input_validate_action" model="ir.actions.act_window">
         <field name="name">Survey User Input Validate</field>
         <field name="binding_model_id" ref="model_clv_document"/>
         <field name="res_model">clv.document.survey_user_input_validate</field>
