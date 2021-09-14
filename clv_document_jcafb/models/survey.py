@@ -17,6 +17,16 @@ class Document(models.Model):
         comodel_name='survey.user_input',
         string='Survey User Input'
     )
+    survey_user_input_state = fields.Selection(
+        string='Survey User Input State',
+        related='survey_user_input_id.state',
+        store=False
+    )
+    survey_user_input_state_2 = fields.Selection(
+        string='Survey User Input State 2',
+        related='survey_user_input_id.state_2',
+        store=False
+    )
     base_survey_user_input_id = fields.Many2one(
         comodel_name='survey.user_input',
         string='Base Survey User Input'

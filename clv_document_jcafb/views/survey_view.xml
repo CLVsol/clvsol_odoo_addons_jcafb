@@ -13,8 +13,8 @@
             <div name="title" position="inside">
                 <label for="survey_id" class="oe_edit_only"/>
                 <h3><field name="survey_id" placeholder="Survey Type..." options="{'no_open': False, 'no_create': True}"/></h3>
-                <label for="survey_user_input_id" class="oe_edit_only"/>
-                <h3><field name="survey_user_input_id" placeholder="Survey User Input..." options="{'no_open': False, 'no_create': True}"/></h3>
+                <!--label for="survey_user_input_id" class="oe_edit_only"/-->
+                <h3><label for="survey_user_input_id"/>: <field name="survey_user_input_id" placeholder="Survey User Input..." options="{'no_open': False, 'no_create': True}"/> [<field name="survey_user_input_state"/>] [<field name="survey_user_input_state_2"/>]</h3>
                 <label for="survey_url" class="oe_edit_only"/>
                 <h3><field name="survey_url" placeholder="Survey User Input..." widget="url"/></h3>
                 <label for="base_survey_user_input_id" class="oe_edit_only"/>
