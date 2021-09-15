@@ -4,7 +4,7 @@
 
 <odoo>
 
-    <record id="survey_user_input_set_in_progress_view_form" model="ir.ui.view">
+    <record id="clv_document_survey_user_input_set_in_progress_view_form" model="ir.ui.view">
         <field name="name">clv.document.survey_user_input_set_in_progress.form</field>
         <field name="model">clv.document.survey_user_input_set_in_progress</field>
         <field name="arch" type="xml">
