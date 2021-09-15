@@ -17,6 +17,16 @@ class LabTestResult(models.Model):
         comodel_name='survey.user_input',
         string='Survey User Input'
     )
+    survey_user_input_state = fields.Selection(
+        string='Survey User Input State',
+        related='survey_user_input_id.state',
+        store=False
+    )
+    survey_user_input_state_2 = fields.Selection(
+        string='Survey User Input State 2',
+        related='survey_user_input_id.state_2',
+        store=False
+    )
 
     survey_url = fields.Char(
         string='Survey URL',

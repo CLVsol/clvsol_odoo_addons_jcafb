@@ -47,6 +47,7 @@
         'wizard/lab_test_report_associate_to_set_view.xml',
         'wizard/lab_test_result_set_survey_user_input_view.xml',
         'wizard/lab_test_result_cirteria_updt_from_survey_view.xml',
+        'wizard/lab_test_result_survey_user_input_refresh_view.xml',
     ],
     'demo': [],
     'test': [],
