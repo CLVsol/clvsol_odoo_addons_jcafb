@@ -4,7 +4,7 @@
 
 <odoo>
 
-    <record id="survey_user_input_refresh_view_form" model="ir.ui.view">
+    <record id="clv_document_survey_user_input_refresh_view_form" model="ir.ui.view">
         <field name="name">clv.document.survey_user_input_refresh.form</field>
         <field name="model">clv.document.survey_user_input_refresh</field>
         <field name="arch" type="xml">
