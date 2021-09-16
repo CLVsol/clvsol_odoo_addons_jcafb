@@ -22,6 +22,11 @@ class DocumentSurveyUserInputValidate(models.TransientModel):
         default=_default_document_ids
     )
 
+    survey_user_input_reflesh_exec = fields.Boolean(
+        string='Survey User Input Refresh Execute',
+        default=True
+    )
+
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -38,6 +43,9 @@ class DocumentSurveyUserInputValidate(models.TransientModel):
         self.ensure_one()
 
         for document in self.document_ids:
+
+            if self.survey_user_input_reflesh_exec:
+                document.survey_user_input_id._survey_user_input_refresh()
 
             document.survey_user_input_id._survey_user_input_validate()
 
