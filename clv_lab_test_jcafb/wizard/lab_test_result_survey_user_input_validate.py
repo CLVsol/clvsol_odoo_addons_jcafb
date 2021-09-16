@@ -22,6 +22,11 @@ class LabTestResultSurveyUserInputValidate(models.TransientModel):
         default=_default_lab_test_result_ids
     )
 
+    survey_user_input_reflesh_exec = fields.Boolean(
+        string='Survey User Input Refresh Execute',
+        default=True
+    )
+
     def _reopen_form(self):
         self.ensure_one()
         action = {
@@ -38,6 +43,9 @@ class LabTestResultSurveyUserInputValidate(models.TransientModel):
         self.ensure_one()
 
         for lab_test_result in self.lab_test_result_ids:
+
+            if self.survey_user_input_reflesh_exec:
+                lab_test_result.survey_user_input_id._survey_user_input_refresh()
 
             lab_test_result.survey_user_input_id._survey_user_input_validate()
 
