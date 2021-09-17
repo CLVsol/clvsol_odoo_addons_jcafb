@@ -29,6 +29,7 @@
         'views/lab_test_result_view.xml',
         'views/lab_test_result_code_view.xml',
         'wizard/lab_test_report_export_xls_view.xml',
+        'wizard/lab_test_result_export_xls_view.xml',
         'views/lab_test_report_view.xml',
         'views/lab_test_report_code_view.xml',
         'views/file_system_view.xml',
