@@ -11,9 +11,14 @@
         <field name="priority" eval="8"/>
         <field name="arch" type="xml">
             <div name="title" position="inside">
-                <label for="survey_id" class="oe_edit_only"/>
+                <!--label for="survey_id" class="oe_edit_only"/-->
+                <label for="survey_id"/>
                 <h3><field name="survey_id" placeholder="Survey Type..." options="{'no_open': False, 'no_create': True}"/></h3>
             </div>
+            <group name="group_left" position="inside">
+                <field name="template_file_name_result" placeholder="Template File Name (Result)..."/>
+                <field name="template_file_name_report" placeholder="Template File Name (Report)..."/>
+            </group>
         </field>
     </record>
 

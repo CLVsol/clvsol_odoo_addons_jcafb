@@ -11,3 +11,15 @@ class LabTestType(models.Model):
     survey_id = fields.Many2one(
         comodel_name='survey.survey',
         string='Survey Type')
+
+    template_file_name_result = fields.Char(
+        string='Template File Name (Result)',
+        required=False,
+        help="Template File Name (Result)"
+    )
+
+    template_file_name_report = fields.Char(
+        string='Template File Name (Report)',
+        required=False,
+        help="Template File Name (Report)"
+    )
