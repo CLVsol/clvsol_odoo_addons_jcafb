@@ -7,6 +7,7 @@ from . import lab_test_request
 from . import lab_test_request_code
 from . import lab_test_result
 from . import lab_test_result_code
+from . import lab_test_result_export_xls
 from . import lab_test_report
 from . import lab_test_report_code
 from . import lab_test_report_export_xls
