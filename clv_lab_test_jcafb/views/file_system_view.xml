@@ -59,7 +59,6 @@
                     class="oe_stat_button"
                     icon="fa-file-excel-o"
                     help="Lab Test Result Export XLS"
-                    attrs="{'invisible': [('approved', '=', False)]}"
                 />
                 <!--field name="file_name" invisible="1"/-->
                 <field name="file_name"/>
