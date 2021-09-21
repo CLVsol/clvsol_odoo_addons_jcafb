@@ -35,6 +35,8 @@
         'views/file_system_view.xml',
         'views/survey_view.xml',
         'views/global_settings_view.xml',
+        'views/lab_test_export_xls_param_view.xml',
+        'views/lab_test_menu_view.xml',
         'data/lab_test_request_seq.xml',
         'data/lab_test_result_seq.xml',
         'data/lab_test_report_seq.xml',

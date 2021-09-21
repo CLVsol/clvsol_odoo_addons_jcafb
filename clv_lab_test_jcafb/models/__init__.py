@@ -14,3 +14,4 @@ from . import lab_test_report_export_xls
 from . import file_system
 from . import global_settings
 from . import survey
+from . import lab_test_export_xls_param
