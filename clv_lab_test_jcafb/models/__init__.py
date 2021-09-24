@@ -15,3 +15,4 @@ from . import file_system
 from . import global_settings
 from . import survey
 from . import lab_test_export_xls_param
+from . import lab_test_export_xls_param_pattern
