@@ -2,7 +2,9 @@
 # Copyright (C) 2013-Today  Carlos Eduardo Vercelino - CLVsol
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+import re
+
+from odoo import api, fields, models
 
 
 class LabTestTypeExportXlsParam(models.Model):
@@ -37,6 +39,64 @@ class LabTestTypeExportXlsParam(models.Model):
     row_nr = fields.Integer(string='Row Number')
 
     active = fields.Boolean(string='Active', default=1)
+
+    suggested_col_nr = fields.Char(
+        string="Suggested Column Number", required=False, store=True,
+        compute="_get_suggested_col_row_nr",
+        help='Suggested Column Number for the Cell.'
+    )
+    suggested_row_nr = fields.Char(
+        string="Suggested Row Number", required=False, store=True,
+        compute="_get_suggested_col_row_nr",
+        help='Suggested Row Number for the Cell.'
+    )
+
+    def col_to_num(self, col_str):
+        """ Convert base26 column string to number. """
+        expn = 0
+        col_num = 0
+        for char in reversed(col_str):
+            col_num += (ord(char) - ord('A') + 1) * (26 ** expn)
+            expn += 1
+
+        return col_num
+
+    @api.depends('cell')
+    def _get_suggested_col_row_nr(self):
+        for record in self:
+            if record.cell:
+                res = re.findall('(\d+|[A-Za-z]+)', record.cell)
+                record.suggested_col_nr = self.col_to_num(res[0]) - 1
+                record.suggested_row_nr = int(res[1]) - 1
+
+    @api.model
+    def create(self, values):
+        record = super().create(values)
+
+        if record.row_nr != record.suggested_row_nr:
+            record['row_nr'] = record.suggested_row_nr
+
+        if record.col_nr != record.suggested_col_nr:
+            record['col_nr'] = record.suggested_col_nr
+
+        return record
+
+    def write(self, values):
+        ret = super().write(values)
+
+        for record in self:
+
+            if record.suggested_row_nr is not False:
+                if record.row_nr != record.suggested_row_nr:
+                    values['row_nr'] = record.suggested_row_nr
+                    super().write(values)
+
+            if record.suggested_col_nr is not False:
+                if record.col_nr != record.suggested_col_nr:
+                    values['col_nr'] = record.suggested_col_nr
+                    super().write(values)
+
+        return ret
 
 
 class LabTestType(models.Model):

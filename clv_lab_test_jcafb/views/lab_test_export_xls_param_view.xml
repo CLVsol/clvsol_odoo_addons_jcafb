@@ -13,13 +13,13 @@
                     </div>
                     <notebook>
                         <page string="Main Info">
-                            <group>
+                            <group name='param_id'>
                                 <field name="lab_test_type_id" options="{'no_open': False, 'no_create': True}"/>
                                 <field name="display"/>
                                 <field name="parameter_type"/>
                                 <field name="parameter"/>
                             </group>
-                            <group>
+                            <group name='position'>
                                 <field name="cell"/>
                                 <field name="col_nr"/>
                                 <field name="row_nr"/>
